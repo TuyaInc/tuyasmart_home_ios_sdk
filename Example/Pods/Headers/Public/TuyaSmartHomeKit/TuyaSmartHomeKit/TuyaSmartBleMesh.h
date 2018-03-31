@@ -1,0 +1,1 @@
+../../../../../../TuyaSmartHomeKit.framework/Headers/TuyaSmartBleMesh.h

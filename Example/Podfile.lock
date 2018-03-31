@@ -1,0 +1,85 @@
+PODS:
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - CocoaAsyncSocket (7.6.2)
+  - CocoaLumberjack (3.4.1):
+    - CocoaLumberjack/Default (= 3.4.1)
+    - CocoaLumberjack/Extensions (= 3.4.1)
+  - CocoaLumberjack/Default (3.4.1)
+  - CocoaLumberjack/Extensions (3.4.1):
+    - CocoaLumberjack/Default
+  - DACircularProgress (2.3.1)
+  - libPhoneNumber-iOS (0.9.13)
+  - Mantle (2.1.0):
+    - Mantle/extobjc (= 2.1.0)
+  - Mantle/extobjc (2.1.0)
+  - MBProgressHUD (0.9.2)
+  - MJRefresh (3.1.15.3)
+  - MQTTClient (0.8.8):
+    - MQTTClient/Core (= 0.8.8)
+  - MQTTClient/Core (0.8.8):
+    - MQTTClient/Manager
+    - MQTTClient/Min
+  - MQTTClient/Manager (0.8.8):
+    - MQTTClient/Min
+  - MQTTClient/Min (0.8.8)
+  - Reachability (3.2)
+  - SDWebImage (4.3.2):
+    - SDWebImage/Core (= 4.3.2)
+  - SDWebImage/Core (4.3.2)
+  - SWTableViewCell (0.3.7)
+  - TuyaSmartHomeKit (1.0.0):
+    - CocoaAsyncSocket
+    - Mantle
+    - MQTTClient (= 0.8.8)
+    - Reachability
+    - UICKeyChainStore
+  - UICKeyChainStore (2.1.1)
+
+DEPENDENCIES:
+  - BlocksKit
+  - CocoaLumberjack
+  - DACircularProgress
+  - libPhoneNumber-iOS
+  - MBProgressHUD (~> 0.9.2)
+  - MJRefresh
+  - SDWebImage
+  - SWTableViewCell
+  - TuyaSmartHomeKit (from `../`)
+
+EXTERNAL SOURCES:
+  TuyaSmartHomeKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  CocoaAsyncSocket: 3541e024f48c54b251638ef72d51dd42808de932
+  CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
+  DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
+  libPhoneNumber-iOS: e444379ac18bbfbdefad571da735b2cd7e096caa
+  Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MQTTClient: f49de7a90edaf48f8965a73b67b0cd47f5b6b81d
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
+  SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
+  TuyaSmartHomeKit: debb715bad0359460aa7d9f1194faecf870f5f67
+  UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
+
+PODFILE CHECKSUM: 5ba418256e37880dc43dd41e7dd180a6b5f09e1c
+
+COCOAPODS: 1.3.1
