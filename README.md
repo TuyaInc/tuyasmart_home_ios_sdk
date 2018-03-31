@@ -50,11 +50,6 @@ Now all the preparatory work has been completed. You can set out to develop your
 
 ## Doc
 
-Refer to details: [Tuya Smart Doc - iOS SDK](http://docs.tuya.com/develop/app-development/ios-sdk/)
+Refer to details: [Tuya Smart Doc - iOS SDK](./ios-sdk/)
 
-## ChangeLog
 
-[CHANGELOG.md](./CHANGELOG.md)
-
-## SDK Demo Package
-[Download Url](http://fir.im/iOSSDKDemo)
