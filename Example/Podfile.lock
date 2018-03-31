@@ -14,7 +14,7 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - CocoaAsyncSocket (7.6.2)
+  - CocoaAsyncSocket (7.6.3)
   - CocoaLumberjack (3.4.1):
     - CocoaLumberjack/Default (= 3.4.1)
     - CocoaLumberjack/Extensions (= 3.4.1)
@@ -37,11 +37,11 @@ PODS:
     - MQTTClient/Min
   - MQTTClient/Min (0.8.8)
   - Reachability (3.2)
-  - SDWebImage (4.3.2):
-    - SDWebImage/Core (= 4.3.2)
-  - SDWebImage/Core (4.3.2)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
   - SWTableViewCell (0.3.7)
-  - TuyaSmartHomeKit (1.0.0):
+  - TuyaSmartHomeKit (0.0.1):
     - CocoaAsyncSocket
     - Mantle
     - MQTTClient (= 0.8.8)
@@ -66,7 +66,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  CocoaAsyncSocket: 3541e024f48c54b251638ef72d51dd42808de932
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaLumberjack: 2e258a064cacc8eb9a2aca318e24d02a0a7fd56d
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   libPhoneNumber-iOS: e444379ac18bbfbdefad571da735b2cd7e096caa
@@ -75,9 +75,9 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   MQTTClient: f49de7a90edaf48f8965a73b67b0cd47f5b6b81d
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: 29bd3c0bc1f01e5eb59720847c64ad4c4ca1af5d
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
-  TuyaSmartHomeKit: debb715bad0359460aa7d9f1194faecf870f5f67
+  TuyaSmartHomeKit: 54e263ad195f8664cbec69f904deae31939bf55f
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
 
 PODFILE CHECKSUM: 5ba418256e37880dc43dd41e7dd180a6b5f09e1c

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		261F583983B9B59003A5DAE9 /* libPods-TuyaSmartHomeKitDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C961346B40D69637FBABC5 /* libPods-TuyaSmartHomeKitDemo.a */; };
+		657141E3206F320100A04C0E /* TuyaSmartHomeKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 657141E2206F320100A04C0E /* TuyaSmartHomeKit.podspec */; };
 		657FA295204E985F007DDF52 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 657FA294204E985F007DDF52 /* AppDelegate.m */; };
 		657FA298204E985F007DDF52 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657FA297204E985F007DDF52 /* ViewController.m */; };
 		657FA29B204E985F007DDF52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 657FA299204E985F007DDF52 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		0ABC6B8B227D22BBC58AB26F /* Pods-TuyaSmartHomeKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKitDemo/Pods-TuyaSmartHomeKitDemo.release.xcconfig"; sourceTree = "<group>"; };
+		657141E2206F320100A04C0E /* TuyaSmartHomeKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TuyaSmartHomeKit.podspec; path = ../../TuyaSmartHomeKit.podspec; sourceTree = "<group>"; };
 		657FA290204E985F007DDF52 /* TuyaSmartHomeKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuyaSmartHomeKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		657FA293204E985F007DDF52 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		657FA294204E985F007DDF52 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 		657FA292204E985F007DDF52 /* TuyaSmartHomeKitDemo */ = {
 			isa = PBXGroup;
 			children = (
+				657141E2206F320100A04C0E /* TuyaSmartHomeKit.podspec */,
 				657FA293204E985F007DDF52 /* AppDelegate.h */,
 				657FA294204E985F007DDF52 /* AppDelegate.m */,
 				657FA296204E985F007DDF52 /* ViewController.h */,
@@ -268,6 +271,7 @@
 				657FA2A0204E985F007DDF52 /* LaunchScreen.storyboard in Resources */,
 				657FA29D204E985F007DDF52 /* Assets.xcassets in Resources */,
 				657FA29B204E985F007DDF52 /* Main.storyboard in Resources */,
+				657141E3206F320100A04C0E /* TuyaSmartHomeKit.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

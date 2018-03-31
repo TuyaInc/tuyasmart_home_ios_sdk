@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TuyaSmartHomeKit'
-  s.version          = '1.0.0'
+  s.version          = '0.0.1'
   s.summary          = '涂鸦全屋智能iOS SDK'
 
 # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'gaosen' => '0x5e@sina.cn' }
-  s.source           = { :git => 'https://github.com/xuchengcheng/tuyasmart_home_ios_sdk_test.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
