@@ -50,7 +50,7 @@ CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
 
 ## 开发文档
 
-更多请参考: [涂鸦文档中心 - iOS SDK使用说明](./ios-sdk/)
+更多请参考: [涂鸦文档中心 - iOS SDK使用说明](./ios-sdk.md)
 
 
 
