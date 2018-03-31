@@ -40,7 +40,7 @@ SDK Demo 是一个完整的APP，包含了登录、注册、共享、配网、�
 platform :ios, '8.0'
 
 target 'Your_Project_Name' do
-	pod "TuyaSmartKit", :git => "https://github.com/TuyaInc/tuyasmart_ios_sdk.git"
+	pod "TuyaSmartHomeKit", :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git"
 end
 ```
 
@@ -56,7 +56,7 @@ _CocoaPods建议更新至最新版本_
 在项目的`PrefixHeader.pch`文件添加以下内容：
 
 ```objc
-#import <TuyaSmartKit/TuyaSmartKit.h>
+#import <TuyaSmartHomeKit/TuyaSmartKit.h>
 ```
 
 打开`AppDelegate.m`文件，在`[AppDelegate application:didFinishLaunchingWithOptions:]`方法中使用开发平台获取的`App ID`和`App Secret`初始化SDK：
