@@ -443,45 +443,6 @@ uid重置密码不需要验证码
 }
 ```
 
-### <span id='sync-device'>更新用户设备列表</span>
-
-使用`[TuyaSmartUser syncDeviceWithCloud]`方法会更新当前用户的设备列表`deviceArray`和群组列表`groupList`。
-
-
-```objc
-- (void)reloadDeviceList {
-	[[TuyaSmartUser sharedInstance] syncDeviceWithCloud:^{
-	    NSLog(@"syncDeviceWithCloud success");
-	    NSLog(@"deviceArray: %@", [TuyaSmartUser sharedInstance].deviceArray);
-	    NSLog(@"groupList: %@", [TuyaSmartUser sharedInstance].groupList);
-	} failure:^{
-	    NSLog(@"syncDeviceWithCloud failure");
-	}];
-}
-```
-
-### 设备列表变更的处理
-监听`TuyaSmartUserNotificationDeviceArrayChanged `通知，在设备列表`[TuyaSmartUser sharedInstance].deviceArray`数据有变更的时候，会接收到通知。
-
-```objc
-//注册通知
-- (instancetype)init {
-    if (self = [super init]) {
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name: TuyaSmartUserNotificationDeviceArrayChanged object:nil];
-    }
-    return self;
-}
-
-- (void) reloadData {
-	//可以在这里刷新UI
-}
-
-- dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-```
-
 
 
 ### 修改昵称
@@ -600,7 +561,6 @@ uid重置密码不需要验证码
 
 单个家庭信息管理相关的所有功能对应`TuyaSmartHome`类，需要使用家庭Id进行初始化。错误的家庭Id可能会导致初始化失败，返回`nil`。
 
-<!--家庭Id指的是`TuyaSmartHomeModel`下的`homeId`字段，可以从[用户设备列表](#sync-device)中获取。-->
 
 ### 单个家庭信息变化的回调
 
@@ -975,7 +935,6 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 
 设备控制相关的所有功能对应`TuyaSmartDevice`类，需要使用设备Id进行初始化。错误的设备Id可能会导致初始化失败，返回`nil`。
 
-设备Id指的是`TuyaSmartDeviceModel`下的`devId`字段，可以从[用户设备列表](#sync-device)中获取。
 
 ### 更新设备信息
 
@@ -995,9 +954,6 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 }
 ```
 
-#### 更新所有设备信息
-
-参见[用户管理-更新设备列表](#sync-device)
 
 ### 设备功能点
 
@@ -1702,7 +1658,6 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 
 群组相关的所有功能对应`TuyaSmartGroup`类，需要使用群组Id进行初始化。错误的群组Id可能会导致初始化失败，返回`nil`。
 
-群组Id指的是`TuyaSmartGroupModel`下的`groupId`字段，可以从[用户设备列表](#sync-device)中获取。
 
 ### 创建群组
 ```objc
