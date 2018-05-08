@@ -782,7 +782,7 @@ uid重置密码不需要验证码
 
 ```objc
 - (void)saveBatchRoomRelation {
-    [self.room saveBatchRoomRelationWithDeviceList:(NSArray<TuyaSmartDeviceModel *> *) groupList:(NSArray<TuyaSmartGroupModel *> *) success:^{
+    [self.room saveBatchRoomRelationWithDeviceGroupList:(NSArray <NSString *> *)deviceGroupList success:^{
         NSLog(@"save batch room relation success");
     } failure:^(NSError *error) {
         NSLog(@"save batch room relation failure: %@", error);
@@ -1795,15 +1795,13 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 ```
 ### 添加场景
 
-添加场景需要传入家庭的ID，场景名称，背景图片的url，是否显示在首页，条件列表（不同条件是或的关系），任务列表（至少一个任务），也可以只设置名称和任务，背景图片，不设置条件，但是需要手动执行。
+添加场景需要传入场景名称，家庭的Id，背景图片的url，是否显示在首页，条件列表，任务列表（至少一个任务），满足任一条件还是满足所有条件时执行。也可以只设置名称和任务，背景图片，不设置条件，但是需要手动执行。
 
-<!--构造条件可使用
-`[TuyaSmartSceneConditionModel initWithSceneDPModel:]`方法，构造任务可使用`[TuyaSmartSceneActionModel initWithSceneDPModel:]`方法。-->
 
 ```objc
 - (void)addSmartScene {
 
-    [TuyaSmartScene addNewSceneWithName:@"your_scene_name" homeId:homeId background:@"background_url" showFirstPage:YES conditionList:(NSArray<TuyaSmartSceneConditionModel *> *) actionList:(NSArray<TuyaSmartSceneActionModel *> *) success:^(TuyaSmartSceneModel *sceneModel) {
+    [TuyaSmartScene addNewSceneWithName:@"your_scene_name" homeId:homeId background:@"background_url" showFirstPage:YES conditionList:(NSArray<TuyaSmartSceneConditionModel *> *) actionList:(NSArray<TuyaSmartSceneActionModel *> *) matchType:TuyaSmartConditionMatchAny success:^(TuyaSmartSceneModel *sceneModel) {
         NSLog(@"add scene success %@:", sceneModel);
     } failure:^(NSError *error) {
         NSLog(@"add scene failure: %@", error);
@@ -1813,12 +1811,12 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 ```
 ### 编辑场景
 
-编辑场景的名称、条件或任务
+编辑场景的名称、背景图、条件列表、任务列表、满足任一条件还是满足所有条件时执行
 
 ```objc
 - (void)modifySmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-    [self.smartScene modifySceneWithName:name background:@"background_url" showFirstPage:YES condition:(NSArray<TuyaSmartSceneConditionModel *> *) actionList:(NSArray<TuyaSmartSceneActionModel *> *) success:^{
+    [self.smartScene modifySceneWithName:name background:@"background_url" showFirstPage:YES condition:(NSArray<TuyaSmartSceneConditionModel *> *) actionList:(NSArray<TuyaSmartSceneActionModel *> *) matchType:TuyaSmartConditionMatchAny success:^{
         NSLog(@"modify scene success");
     } failure:^(NSError *error) {
         NSLog(@"modify scene failure: %@", error);
@@ -1838,6 +1836,7 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 ### 执行场景
+
 ```objc
 - (void)executeSmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
@@ -1849,7 +1848,7 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 开启场景（只有至少带有一个条件的场景才可以开启和失效场景）
+### 开启场景（只有至少带有至少一个条件的场景才可以开启和失效场景）
 ```objc
 - (void)enableSmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
@@ -1861,7 +1860,7 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 失效场景（只有至少带有一个条件的场景才可以开启和失效场景）
+### 失效场景（只有至少带有至少一个条件的场景才可以开启和失效场景）
 ```objc
 - (void)disableSmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
