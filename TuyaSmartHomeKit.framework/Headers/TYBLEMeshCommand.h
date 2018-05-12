@@ -60,6 +60,13 @@ typedef NS_ENUM(NSUInteger, TYBLEMeshCommandType) {
     
     // 获取一个或两个状态
     TYBLEMeshFetchStateCommand,
+    
+    // 修改当前 mesh 灯场景模式数据
+    TYBLEMeshSetLightSceneModelCommand,
+    
+    // 获取当前 mesh 灯场景模式数据
+    TYBLEMeshGetLightSceneModelCommand,
+
 };
 
 typedef enum : uint32_t {
@@ -81,6 +88,8 @@ typedef enum : uint32_t {
 @protocol TYBLEMeshCommandProtocol <NSObject>
 
 - (NSData *)command;
+
+- (NSString *)raw;
 
 @end
 

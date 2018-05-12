@@ -11,6 +11,12 @@
 @class TuyaSmartSceneActionModel;
 @class TuyaSmartSceneConditionModel;
 
+
+typedef enum : NSUInteger {
+    TuyaSmartConditionMatchAny = 1,        //满足任一条件
+    TuyaSmartConditionMatchAll      //满足所有条件
+} TuyaSmartConditionMatchType;
+
 /**
  场景Model
  */
@@ -90,6 +96,12 @@
  背景图片
  */
 @property (nonatomic, strong) NSString *background;
+
+/**
+ matchType == 1  满足任一条件时，执行
+ matchType == 2  满足所有条件时，执行
+ */
+@property (nonatomic, assign) TuyaSmartConditionMatchType matchType;
 
 
 /**

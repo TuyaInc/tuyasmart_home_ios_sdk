@@ -69,11 +69,14 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
 @property (nonatomic, strong) NSDictionary *executorProperty;
 
 /**
+ zigbee 本地场景
+ */
+@property (nonatomic, strong) NSDictionary *extraProperty;
+
+/**
  执行状态
  */
 @property (nonatomic, assign) TYSceneActionStatus status;
 
-
-- (instancetype)initWithSceneDPModel:(NSArray<TuyaSmartSceneDPModel *> *)modelArray;
 
 @end

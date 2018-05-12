@@ -23,9 +23,6 @@
 /// 当用户登录信息过期后发出的通知
 FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationUserSessionInvalid;
 
-/// 当设备列表的数据有变化时发出的通知
-//FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationDeviceArrayChanged;
-
 /// 当网络变化的时候发出的通知
 FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
 
@@ -88,13 +85,10 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
 @property (nonatomic, strong, readonly) NSDictionary *domain;
 
 /// 用户时区信息
-@property (nonatomic, assign, readonly) NSString *timezoneId;
+@property (nonatomic, strong, readonly) NSString *timezoneId;
 
-/// 设备列表
-@property (nonatomic, strong, readonly) NSArray<TuyaSmartDeviceModel *> *deviceArray;
-
-/// 群组列表
-@property (nonatomic, strong, readonly) NSArray<TuyaSmartGroupModel *> *groupList;
+/// 温度
+@property (nonatomic, assign) NSInteger tempUnit;
 
 /// meshModel
 @property (nonatomic, strong) TuyaSmartBleMeshModel *meshModel;
@@ -215,6 +209,25 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
 
 #pragma mark - 邮箱登录
 
+
+
+/**
+ *  邮箱注册 2.0
+ *
+ *  @param countryCode 国家区号
+ *  @param email       邮箱
+ *  @param password    密码
+ *  @param code        验证码
+ *  @param success     操作成功回调
+ *  @param failure     操作失败回调
+ */
+- (void)registerByEmail:(NSString *)countryCode
+                  email:(NSString *)email
+               password:(NSString *)password
+                   code:(NSString *)code
+                success:(TYSuccessHandler)success
+                failure:(TYFailureError)failure;
+
 /**
  *  邮箱注册
  *
@@ -255,6 +268,19 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
  */
 - (void)sendVerifyCodeByEmail:(NSString *)countryCode
                         email:(NSString *)email
+                      success:(TYSuccessHandler)success
+                      failure:(TYFailureError)failure;
+
+
+/**
+ *  发送验证码，用于邮箱注册
+ *
+ 
+ *  @param email       邮箱
+ *  @param success     操作成功回调
+ *  @param failure     操作失败回调
+ */
+- (void)sendVerifyCodeByEmail:(NSString *)email
                       success:(TYSuccessHandler)success
                       failure:(TYFailureError)failure;
 
@@ -322,6 +348,21 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
                    success:(TYSuccessHandler)success
                    failure:(TYFailureError)failure;
 
+/**
+ *  uid 登录注册接口（如果没有注册就注册，如果注册就登录）
+ *
+ *  @param countryCode  国家区号
+ *  @param uid          uid
+ *  @param password     密码
+ *  @param success      操作成功回调
+ *  @param failure      操作失败回调
+ */
+- (void)loginOrRegisterByPhone:(NSString *)countryCode
+                           uid:(NSString *)uid
+                      password:(NSString *)password
+                       success:(TYSuccessHandler)success
+                       failure:(TYFailureError)failure;
+
 
 #pragma mark - 三方登录
 
@@ -385,8 +426,17 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
                failure:(TYFailureError)failure;
 
 
-#pragma mark - 
+#pragma mark -
 
+
+/**
+ *  停用帐号（注销用户）
+ *
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)disableUser:(TYSuccessHandler)success
+            failure:(TYFailureError)failure;
 
 /**
  *  登出

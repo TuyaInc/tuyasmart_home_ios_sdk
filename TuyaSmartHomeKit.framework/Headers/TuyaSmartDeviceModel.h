@@ -120,7 +120,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, assign) BOOL         isNewFirmware;
 @property (nonatomic, assign) NSTimeInterval activeTime;
-
+@property (nonatomic, assign) long         errorCode;
 
 @property (nonatomic, assign) TuyaSmartDeviceModelType deviceType;
 
@@ -137,6 +137,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL         isMeshBleOnline;
 
 @property (nonatomic, strong) NSString     *parentId;
+
+// mesh 融合类 pcc 拓展类型
+@property (nonatomic, strong) NSString     *vendorInfo;
 
 @end
 

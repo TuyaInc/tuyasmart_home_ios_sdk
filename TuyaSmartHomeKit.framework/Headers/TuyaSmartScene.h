@@ -28,6 +28,7 @@
  @param showFirstPage   是否显示在首页
  @param conditionList   条件list
  @param actionList      任务list
+ @param matchType       满足任一条件还是满足所有条件时执行
  @param success         操作成功回调，返回场景
  @param failure         操作失败回调
  */
@@ -37,6 +38,7 @@
               showFirstPage:(BOOL)showFirstPage
               conditionList:(NSArray<TuyaSmartSceneConditionModel*> *)conditionList
                  actionList:(NSArray<TuyaSmartSceneActionModel*> *)actionList
+                  matchType:(TuyaSmartConditionMatchType)matchType
                     success:(void (^)(TuyaSmartSceneModel *sceneModel))success
                     failure:(TYFailureError)failure;
 
@@ -49,6 +51,7 @@
  @param showFirstPage   是否显示在首页
  @param conditionList   条件list
  @param actionList      任务list
+ @param matchType       满足任一条件还是满足所有条件时执行
  @param success         操作成功回调
  @param failure         操作失败回调
  */
@@ -57,6 +60,7 @@
               showFirstPage:(BOOL)showFirstPage
               conditionList:(NSArray<TuyaSmartSceneConditionModel*> *)conditionList
                  actionList:(NSArray<TuyaSmartSceneActionModel*> *)actionList
+                  matchType:(TuyaSmartConditionMatchType)matchType
                     success:(TYSuccessHandler)success
                     failure:(TYFailureError)failure;
 

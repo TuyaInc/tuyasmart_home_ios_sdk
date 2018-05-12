@@ -42,7 +42,7 @@ typedef NS_ENUM(NSInteger, TYSceneConditionStatus)
 @property (nonatomic, strong) NSString *entityName;
 
 /**
- 条件、定时、设备类型（气象数据 = 3、设备数据 = 1、定时 = 6）
+ 条件、定时、设备类型（气象数据 = 3、设备数据 = 1、定时 = 6、pir倒计时 = 7）
  */
 @property (nonatomic, assign) NSInteger entityType;
 
@@ -77,9 +77,7 @@ typedef NS_ENUM(NSInteger, TYSceneConditionStatus)
 /**
  温度的单位
  */
-@property (nonatomic, strong) NSMutableDictionary *extraInfo;
-
-@property (nonatomic, strong) id extraModel;
+@property (nonatomic, strong) NSDictionary *extraInfo;
 
 /**
  城市名称
@@ -91,13 +89,6 @@ typedef NS_ENUM(NSInteger, TYSceneConditionStatus)
 @property (nonatomic, assign) CLLocationDegrees cityLongitude;
 
 
-/**
- 根据DPModel初始化实例
-
- @param model 条件或设备DP
- @return 实例
- */
-- (instancetype)initWithSceneDPModel:(TuyaSmartSceneDPModel *)model;
 
 
 @end

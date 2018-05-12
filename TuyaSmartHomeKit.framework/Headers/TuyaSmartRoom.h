@@ -87,15 +87,13 @@
 /**
  批量修改房间与群组、设备的关系
  
- @param deviceList  设备list
- @param groupList   群组list
+ @param deviceGroupList  设备或者群组list
  @param success     操作成功回调
  @param failure     操作失败回调
  */
-- (void)saveBatchRoomRelationWithDeviceList:(NSArray <TuyaSmartDeviceModel *> *)deviceList
-                                  groupList:(NSArray <TuyaSmartGroupModel *> *)groupList
-                                    success:(TYSuccessHandler)success 
-                                    failure:(TYFailureError)failure;
+- (void)saveBatchRoomRelationWithDeviceGroupList:(NSArray <NSString *> *)deviceGroupList
+                                         success:(TYSuccessHandler)success
+                                         failure:(TYFailureError)failure;
 
 
 @end

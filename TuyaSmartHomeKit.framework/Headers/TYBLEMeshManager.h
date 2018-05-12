@@ -36,6 +36,7 @@ typedef NS_ENUM(NSInteger, TYBLEMeshOperationStatus) {
     TYBLEMeshOperationStatusFireWareVersion
 };
 
+@class TYBLEDevice;
 @class TYBLEMeshManager;
 @protocol TYBLEMeshManagerDelegate <NSObject>
 
@@ -50,13 +51,15 @@ typedef NS_ENUM(NSInteger, TYBLEMeshOperationStatus) {
 - (void)notifyFirmwareWithVersion:(NSString *)version;
 - (void)notifyLoginSuccessWithAddress:(uint32_t)address;
 
+- (void)bleMeshManager:(TYBLEMeshManager *)manager didScanedDevice:(TYBleMeshDeviceModel *)device;
+
 @end
 
 @interface TYBLEMeshManager : NSObject
 
 + (instancetype)sharedInstance;
 
-@property (nonatomic, assign) CBManagerState centerState;
+@property (nonatomic, assign) BOOL isPoweredOn;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, assign) BOOL isWifiDevice;
 @property (nonatomic, assign) uint32_t wifiAddress;
@@ -73,11 +76,18 @@ typedef NS_ENUM(NSInteger, TYBLEMeshOperationStatus) {
 
 - (void)startScanWithName:(NSString *)name pwd:(NSString *)pwd active:(BOOL)active wifiAddress:(uint32_t)wifiAddress otaAddress:(uint32_t)otaAddress;
 
-- (void)activeMeshDevice;
+/**
+ 激活设备，包括激活所有设备和激活除 mesh 网关外的所有设备
+
+ @param includeGateway 激活是否去除网关
+ */
+- (void)activeMeshDeviceIncludeGateway:(BOOL)includeGateway;
+- (void)activeMeshDevice:(TYBleMeshDeviceModel *)deviceModel;
 - (void)getLightAllStatus;
 - (BOOL)isConnected;
 - (void)getDeviceStatusAllWithAddress:(uint32_t)address type:(NSString *)type;
 - (void)getDeviceCountdownWithAddress:(uint32_t)address type:(NSString *)type;
+- (void)getLightSceneModelWithAddress:(uint32_t)address type:(NSString *)type;
 
 - (void)stopScan;
 - (void)clearScanData;

@@ -11,11 +11,18 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import "TYBLEDevice.h"
 
 @interface TYBleMeshDeviceModel : NSObject
 
+// 设备名称
+@property (nonatomic, strong) NSString *name;
+
 // 目标从设备
 @property (nonatomic, strong) CBPeripheral *peripheral;
+
+// 设备本身
+@property (nonatomic, strong) TYBLEDevice *device;
 
 // 地址
 @property (nonatomic, assign) uint32_t address;
@@ -34,6 +41,11 @@
 
 // 设备大小类
 @property (nonatomic, assign) uint32_t type;
+
+// 融合类拓展信息
+@property (nonatomic, strong) NSString *vendorInfo;
+
++ (TYBleMeshDeviceModel *)bleMeshDeviceModel:(TYBLEDevice *)device;
 
 @end
 
