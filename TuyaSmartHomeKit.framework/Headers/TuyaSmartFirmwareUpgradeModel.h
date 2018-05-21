@@ -16,6 +16,9 @@
 //升级文案
 @property (nonatomic, strong) NSString  *desc;
 
+// 设备类型文案
+@property (nonatomic, strong) NSString *typeDesc;
+
 //0:无新版本 1:有新版本 2:在升级中
 @property (nonatomic, assign) NSInteger upgradeStatus;
 

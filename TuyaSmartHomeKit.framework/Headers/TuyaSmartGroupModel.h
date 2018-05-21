@@ -58,6 +58,9 @@ typedef enum : NSUInteger {
 //主设备
 @property (nonatomic, strong) TuyaSmartDeviceModel *mainDevice;
 
+// 排序
+@property (nonatomic, assign) NSInteger displayOrder;
+
 // 设备列表
 @property (nonatomic, strong) NSArray<TuyaSmartDeviceModel *> *deviceList;
 

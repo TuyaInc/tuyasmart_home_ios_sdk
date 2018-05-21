@@ -280,9 +280,9 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
  *  @param success     操作成功回调
  *  @param failure     操作失败回调
  */
-- (void)sendVerifyCodeByEmail:(NSString *)email
-                      success:(TYSuccessHandler)success
-                      failure:(TYFailureError)failure;
+- (void)sendVerifyCodeByRegisterEmail:(NSString *)email
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
 
 /**
  *  邮箱密码重置
@@ -428,16 +428,6 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
 
 #pragma mark -
 
-
-/**
- *  停用帐号（注销用户）
- *
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)disableUser:(TYSuccessHandler)success
-            failure:(TYFailureError)failure;
-
 /**
  *  登出
  *
@@ -488,6 +478,16 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
  */
 - (void)getExperienceDeviceWithCloud:(void(^)(NSArray <TuyaSmartDeviceModel *> *list))success
                              failure:(TYFailureError)failure;
+
+/**
+ *  停用帐号（注销用户）
+ *
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)cancelAccount:(TYSuccessHandler)success
+              failure:(TYFailureError)failure;
+
 
 #pragma mark -
 

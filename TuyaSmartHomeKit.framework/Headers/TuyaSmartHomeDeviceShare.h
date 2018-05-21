@@ -217,5 +217,32 @@
                       success:(void(^)(TuyaSmartReceivedShareUserModel *model))success
                       failure:(TYFailureError)failure;
 
+/**
+ 邀请分享接口
+ 
+ @param countryCode 国家码
+ @param userAccount 账号
+ @param devId       设备Id
+ @param success     操作成功回调
+ @param failure     操作失败回调
+ */
+- (void)inviteShareWithCountryCode:(NSString *)countryCode
+                       userAccount:(NSString *)userAccount
+                             devId:(NSString *)devId
+                           success:(TYSuccessInt)success
+                           failure:(TYFailureError)failure;
+
+/**
+ 确认分享接口
+ 
+ @param shareId     邀请分享接口返回的shareId
+ @param success     操作成功回调
+ @param failure     操作失败回调
+ */
+- (void)confirmInviteShareWithShareId:(NSInteger)shareId
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
+
+
 
 @end

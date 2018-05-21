@@ -98,6 +98,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) long long homeId;
 @property (nonatomic, assign) long long roomId;
 
+// 排序
+@property (nonatomic, assign) NSInteger displayOrder;
+
 #pragma mark - 涂鸦智能 控制面板相关
 
 @property (nonatomic, assign) BOOL         rnFind;
