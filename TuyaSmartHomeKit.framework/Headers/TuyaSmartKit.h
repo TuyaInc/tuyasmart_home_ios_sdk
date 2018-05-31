@@ -8,10 +8,16 @@
 
 
 
+
+/**
+ *  当前SDK为全屋智能SDK
+ */
+#define TUYA_HOMEKIT_SDK
+
 /**
  *  当前SDK的版本号
  */
-#define TUYA_SDK_VERSION @"0.0.4"
+#define TUYA_SDK_VERSION @"0.0.5"
 
 /**
  *  当前客户端支持的最高的外网通信协议

@@ -209,27 +209,8 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
 
 #pragma mark - 邮箱登录
 
-
-
 /**
- *  邮箱注册 2.0
- *
- *  @param countryCode 国家区号
- *  @param email       邮箱
- *  @param password    密码
- *  @param code        验证码
- *  @param success     操作成功回调
- *  @param failure     操作失败回调
- */
-- (void)registerByEmail:(NSString *)countryCode
-                  email:(NSString *)email
-               password:(NSString *)password
-                   code:(NSString *)code
-                success:(TYSuccessHandler)success
-                failure:(TYFailureError)failure;
-
-/**
- *  邮箱注册
+ *  邮箱注册  1.0
  *
  *  @param countryCode 国家区号
  *  @param email       邮箱
@@ -271,19 +252,6 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
                       success:(TYSuccessHandler)success
                       failure:(TYFailureError)failure;
 
-
-/**
- *  发送验证码，用于邮箱注册
- *
- 
- *  @param email       邮箱
- *  @param success     操作成功回调
- *  @param failure     操作失败回调
- */
-- (void)sendVerifyCodeByRegisterEmail:(NSString *)email
-                              success:(TYSuccessHandler)success
-                              failure:(TYFailureError)failure;
-
 /**
  *  邮箱密码重置
  *
@@ -300,6 +268,39 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
                         code:(NSString *)code
                      success:(TYSuccessHandler)success
                      failure:(TYFailureError)failure;
+
+
+#pragma mark - 邮箱注册 2.0
+
+/**
+ *  发送验证码，用于邮箱注册
+ *
+ *  @param countryCode 国家区号
+ *  @param email       邮箱
+ *  @param success     操作成功回调
+ *  @param failure     操作失败回调
+ */
+- (void)sendVerifyCodeByRegisterEmail:(NSString *)countryCode
+                                email:(NSString *)email
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
+
+/**
+ *  邮箱注册 2.0
+ *
+ *  @param countryCode 国家区号
+ *  @param email       邮箱
+ *  @param password    密码
+ *  @param code        验证码
+ *  @param success     操作成功回调
+ *  @param failure     操作失败回调
+ */
+- (void)registerByEmail:(NSString *)countryCode
+                  email:(NSString *)email
+               password:(NSString *)password
+                   code:(NSString *)code
+                success:(TYSuccessHandler)success
+                failure:(TYFailureError)failure;
 
 #pragma mark - uid登录
 
@@ -332,21 +333,6 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
        countryCode:(NSString *)countryCode
            success:(TYSuccessHandler)success
            failure:(TYFailureError)failure;
-
-/**
- *  uid密码重置
- *
- *  @param uid         uid
- *  @param newPassword 新密码
- *  @param countryCode 国家区号
- *  @param success     操作成功回调
- *  @param failure     操作失败回调
- */
-- (void)resetPasswordByUid:(NSString *)uid
-               newPassword:(NSString *)newPassword
-               countryCode:(NSString *)countryCode
-                   success:(TYSuccessHandler)success
-                   failure:(TYFailureError)failure;
 
 /**
  *  uid 登录注册接口（如果没有注册就注册，如果注册就登录）
@@ -469,15 +455,6 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
 - (void)updateUserInfo:(TYSuccessHandler)success
                failure:(TYFailureError)failure;
 
-
-/**
- *  获取体验中心设备列表
- *
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)getExperienceDeviceWithCloud:(void(^)(NSArray <TuyaSmartDeviceModel *> *list))success
-                             failure:(TYFailureError)failure;
 
 /**
  *  停用帐号（注销用户）

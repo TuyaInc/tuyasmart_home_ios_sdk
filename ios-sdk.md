@@ -178,7 +178,7 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 }
 ```
 
-#### 邮箱注册
+#### 邮箱注册 （不需要验证码）
 
 邮箱注册不需要发送验证码，直接注册即可：
 
@@ -192,17 +192,31 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 }
 ```
 
-#### UID注册
+#### 邮箱注册 2.0 （需要验证码）
 
-涂鸦智能提供UID登陆体系。如果客户自有用户体系，那么可以通过UID登陆体系，接入我们的SDK。客户需要自己保证UID的唯一性。
+邮箱注册需要以下两个步骤：
+
+- 发送验证码到邮箱
 
 ```objc
-- (void)registerByUid {
-	[[TuyaSmartUser sharedInstance] registerByUid:@"your_unique_id" password:@"your_password" countryCode:@"your_country_code" success:^{
-	    NSLog(@"register success");
-	} failure:^(NSError *error) {
-	    NSLog(@"register failure: %@", error);
-	}];
+- (void)sendVerifyCode {
+	[[TuyaSmartUser sharedInstance] sendVerifyCodeByRegisterEmail:@"country_code" email:@"email" success:^{
+                NSLog(@"sendVerifyCode success");
+            } failure:^(NSError *error) {
+                NSLog(@"sendVerifyCode failure: %@", error);
+            }];
+}
+```
+
+- 邮箱收到验证码后，使用验证码注册
+
+```objc
+- (void)registerByEmail {
+	    [[TuyaSmartUser sharedInstance] registerByEmail:@"country_code" email:@"email" password:@"password" code:@"verify_code" success:^{
+        NSLog(@"register success");
+    } failure:^(NSError *error) {
+        NSLog(@"register failure: %@", error);
+    }];
 }
 ```
 
@@ -261,18 +275,6 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 ```objc
 - (void)loginByEmail {
 	[[TuyaSmartUser sharedInstance] loginByEmail:@"your_country_code" email:@"your_email" password:@"your_password" success:^{
-		NSLog(@"login success");
-	} failure:^(NSError *error) {
-		NSLog(@"login failure: %@", error);
-	}];
-}
-```
-
-#### UID登录
-
-```objc
-- (void)loginByUid {
-	[[TuyaSmartUser sharedInstance] loginByUid:@"your_unique_id" password:@"your_password" countryCode:@"your_country_code" success:^{
 		NSLog(@"login success");
 	} failure:^(NSError *error) {
 		NSLog(@"login failure: %@", error);
@@ -429,20 +431,6 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 }
 ```
 
-#### UID重置密码
-
-uid重置密码不需要验证码
-
-```objc
-- (void)resetPasswordByUid {
-	[TuyaSmartUser sharedInstance] resetPasswordByUid:@"uid" newPassword:@"your_password" countryCode:@"your_country_code" success:^{
-		NSLog(@"resetPasswordByUid success");
-	} failure:^(NSError *error) {
-		NSLog(@"resetPasswordByUid failure: %@", error);
-	}];
-}
-```
-
 
 
 ### 修改昵称
@@ -465,6 +453,18 @@ uid重置密码不需要验证码
 		NSLog(@"logOut success");
 	} failure:^(NSError *error) {
 		NSLog(@"logOut failure: %@", error);
+	}];
+}
+```
+
+### 停用帐号（注销用户）
+
+```objc
+- (void)cancelAccount {
+	[TuyaSmartUser sharedInstance] cancelAccount:^{
+		NSLog(@"cancel account success");
+	} failure:^(NSError *error) {
+		NSLog(@"cancel account failure: %@", error);
 	}];
 }
 ```
@@ -495,7 +495,7 @@ uid重置密码不需要验证码
 
 ## 家庭管理
 
-用户登录成功后需要去获取整个家庭列表的信息
+用户登录成功后需要通过`TuyaSmartHomeManager`去获取整个家庭列表的信息,然后初始化其中的一个家庭`TuyaSmartHome`，获取家庭详情信息，对家庭中的设备进行管理，控制。
 
 
 ### 家庭列表信息变化的回调
@@ -794,7 +794,7 @@ uid重置密码不需要验证码
 ## 设备配网
 
 涂鸦硬件模块支持两种配网模式：快连模式（TLink，简称EZ模式）、热点模式（AP模式）。快连模式操作较为简便，建议在配网失败后，再使用热点模式作为备选方案。
-Zigbee 采用有线配网，不用输入Wifi配置信息
+Zigbee 采用有线配网，不用输入Wifi配置信息。
 
 **EZ模式配网流程：**
 
@@ -891,15 +891,16 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 }
 ```
 
-## zigbee 网关
 
-#### 激活ZigBee子设备
+### 激活ZigBee子设备
+
+因为发送zigbee子设备激活后60S内，重置的子设备还会进行激活，所以在zigbee子设备激活成功后调用停止激活zigbee子设备接口
 
 ```objc
 - (void)activeSubDevice {
-	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+
 	
-	[self.device activeSubDeviceWithSuccess:^{
+	[[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:@"your_device_id" success:^{
 		NSLog(@"active sub device success");
 	} failure:^(NSError *error) {
 		NSLog(@"active sub device failure: %@", error);
@@ -907,29 +908,14 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 }
 ```
 
-#### 停止激活zigbee子设备
+### 停止激活zigbee子设备
 
 ```objc
 - (void)stopActiveSubDevice {
-	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-	
-	[self.device stopActiveSubDevice];
+	[[TuyaSmartActivator sharedInstance] stopActiveSubDeviceWithGwId:@"your_device_id"];
 	}
 ```
 
-#### 获取zigbee网关下的子设备列表
-
-```objc
-- (void)getSubDeviceList {
-	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-	
-	[self.device getSubDeviceListFromCloudWithSuccess:^(NSArray<TuyaSmartDeviceModel *> *subDeviceList) {
-        NSLog(@"get sub device list success");
-    } failure:^(NSError *error) {
-        NSLog(@"get sub device list failure: %@", error);
-    }];
-}
-```
 
 ## 设备控制
 
@@ -1072,6 +1058,20 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 }
 ```
 
+### 获取网关下的子设备列表
+
+```objc
+- (void)getSubDeviceList {
+	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+	
+	[self.device getSubDeviceListFromCloudWithSuccess:^(NSArray<TuyaSmartDeviceModel *> *subDeviceList) {
+        NSLog(@"get sub device list success");
+    } failure:^(NSError *error) {
+        NSLog(@"get sub device list failure: %@", error);
+    }];
+}
+```
+
 ### 固件升级
 
 **固件升级流程:**
@@ -1084,7 +1084,7 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 - (void)getFirmwareUpgradeInfo {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
 	
-	[self.device getFirmwareUpgradeInfo:^(TuyaSmartFirmwareUpgradeModel *devModel, TuyaSmartFirmwareUpgradeModel *gwModel) {
+	[self.device getFirmwareUpgradeInfo:^(NSArray<TuyaSmartFirmwareUpgradeModel *> *upgradeModelList) {
 		NSLog(@"getFirmwareUpgradeInfo success");
 	} failure:^(NSError *error) {
 		NSLog(@"getFirmwareUpgradeInfo failure: %@", error);
@@ -1106,7 +1106,7 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 	}];
 }
 ```
-注: type 1 升级联网模块 2 升级设备控制模块
+
 
 #### 回调接口：
 ```objc
@@ -1119,7 +1119,7 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 }
 
 - (void)device:(TuyaSmartDevice *)device firmwareUpgradeProgress:(NSInteger)type progress:(double)progress {
-	//升级进度回调 type 1 - 联网模块 2 - 设备控制模块
+	//固件升级的进度
 }
 
 ```
@@ -1214,6 +1214,8 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 }
 	
 ```
+
+#### 添加共享 （新增，不覆盖旧的分享）
 
 ```objc
 

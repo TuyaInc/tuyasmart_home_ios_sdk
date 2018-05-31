@@ -54,9 +54,9 @@ typedef enum : NSUInteger {
 - (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device;
 
 /**
- *
  *  固件升级进度
- *  @param type 1 - 联网模块 2 - 设备控制模块
+ *
+ *  @param type     设备类型
  *  @param progress 升级进度
  */
 - (void)device:(TuyaSmartDevice *)device firmwareUpgradeProgress:(NSInteger)type progress:(double)progress;
@@ -156,6 +156,16 @@ typedef enum : NSUInteger {
 - (void)resetFactory:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
 /**
+ *  获取当前网关下的子设备列表
+ *
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)getSubDeviceListFromCloudWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *subDeviceList))success failure:(TYFailureError)failure;
+
+#pragma mark - firmware upgrade
+
+/**
  *  获取设备升级信息
  *
  *  @param success 操作成功回调
@@ -173,8 +183,9 @@ typedef enum : NSUInteger {
  */
 - (void)upgradeFirmware:(NSInteger)type success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
-
-/// 取消固件未完成的接口请求
+/**
+ *  取消固件未完成的接口请求
+ */
 - (void)cancelFirmwareRequest;
 
 
@@ -187,60 +198,6 @@ typedef enum : NSUInteger {
  *  @param failure 操作失败回调
  */
 - (void)updateDeviceVersion:(NSString *)version type:(NSInteger)type success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
- 
-/**
- *  激活ZigBee子设备
- *
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)activeSubDeviceWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
-/**
- *  停止激活zigbee子设备
- */
-- (void)stopActiveSubDevice;
-
-/**
- *  获取当前网关下的子设备列表
- *
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)getSubDeviceListFromCloudWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *subDeviceList))success failure:(TYFailureError)failure;
-
-/**
- *  添加zigbee子设备场景
- *
- *  @param sceneId 场景ID
- *  @param cids    设备的短地址
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)addZigbeeSubDevSceneWithSceneId:(NSString *)sceneId cids:(NSArray *)cids success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
-
-/**
- *  移除zigbee子设备场景
- *
- *  @param sceneId 场景ID
- *  @param cids    设备的短地址
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)removeZigbeeSubDevSceneWithSceneId:(NSString *)sceneId cids:(NSArray *)cids success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
-/**
- *  zigbee 本地场景
- *
- *  @param dps     命令字典
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)zigbeeLocalScenePublishDps:(NSDictionary *)dps
-                           success:(TYSuccessHandler)success
-                           failure:(TYFailureError)failure;
 
 
 @end
