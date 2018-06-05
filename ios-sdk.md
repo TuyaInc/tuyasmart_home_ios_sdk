@@ -458,6 +458,8 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 ```
 
 ### 停用帐号（注销用户）
+一周后账号才会永久停用并删除以下你账户中的所有信息，在此之前重新登录，则你的停用请求将被取消
+
 
 ```objc
 - (void)cancelAccount {
@@ -894,17 +896,24 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 
 ### 激活ZigBee子设备
 
-因为发送zigbee子设备激活后60S内，重置的子设备还会进行激活，所以在zigbee子设备激活成功后调用停止激活zigbee子设备接口
+如果需要中途取消操作或配网完成，需要调用`stopActiveSubDeviceWithGwId`方法
 
 ```objc
 - (void)activeSubDevice {
 
-	
 	[[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:@"your_device_id" success:^{
 		NSLog(@"active sub device success");
 	} failure:^(NSError *error) {
 		NSLog(@"active sub device failure: %@", error);
 	}];
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
+    
+    if (deviceModel) {
+        //配网成功,zigbee子设备没有做超时失败处理
+    }   
 }
 ```
 
@@ -913,7 +922,7 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 ```objc
 - (void)stopActiveSubDevice {
 	[[TuyaSmartActivator sharedInstance] stopActiveSubDeviceWithGwId:@"your_device_id"];
-	}
+}
 ```
 
 
@@ -1127,8 +1136,10 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 ## 共享设备
 
 我们提供了两种共享方式：
-一种是到家庭成员的共享，如果是家中的常住成员，将其设置为家庭成员，共享家中所有的设备，家庭成员就拥有了该家庭中所有设备的控制权限。
-另一种是到设备的共享，有时候需要把某些设备共享给家人，这时可以只把相应的设备共享给朋友，朋友不会拥有其它设备的控制权限，并且可以设置被共享的设备不能进行改名、移除设备、固件升级、恢复出厂设置等操作（只能发送设备控制指令、获取状态更新）。
+
+- 基于家庭成员的共享，如果要把一个家庭的所有设备共享给家人，可以将其设置为家庭`TuyaSmartHome`的成员`TuyaSmartHomeMember`，共享家中所有的设备`TuyaSmartDevice`，家人就拥有了该家庭中所有设备的控制权限。如果将家人设置成管理员，就拥有了这个家庭设备的所以权限，如果设置家人为非管理员，就只拥有这个家庭设备的控制权限。
+
+- 基于设备的共享，有时候需要把家庭中的某些设备共享给家人，这时可以只把相应的设备共享给朋友，家人不会拥有其它设备的控制权限，并且被共享的设备不能进行改名、移除设备、固件升级、恢复出厂设置等操作（只能发送设备控制指令、获取状态更新）。
 
 ### 家庭成员共享 
 
@@ -1533,7 +1544,7 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 	// self.timer = [[TuyaSmartTimer alloc] init];
 	NSDictionary *dps = @{@"1": @(YES)};
 	
-	[self.timer addTimerWithTask:@"timer_task_name" loops:@"1000000" devId:@"device_id" time:@"18:00" dps:dps success:^{
+	[self.timer addTimerWithTask:@"timer_task_name" loops:@"1000000" devId:@"device_id" time:@"18:00" dps:dps timeZone:@"+08:00" success:^{
 		NSLog(@"addTimerWithTask success");
 	} failure:^(NSError *error) {
 		NSLog(@"addTimerWithTask failure: %@", error);
@@ -1614,7 +1625,7 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 	// self.timer = [[TuyaSmartTimer alloc] init];
 	NSDictionary *dps = @{@"1": @(YES)};
 	
-	[self.timer updateTimerWithTask:@"timer_task_name" loops:@"1000000" devId:@"device_id" timerId:@"timer_id" time:@"18:00" dps:dps success:^{
+	[self.timer updateTimerWithTask:@"timer_task_name" loops:@"1000000" devId:@"device_id" timerId:@"timer_id" time:@"18:00" dps:dps timeZone:@"+08:00" success:^{
 		NSLog(@"updateTimer success");
 	} failure:^(NSError *error) {
 		NSLog(@"updateTimer failure: %@", error);
@@ -1664,8 +1675,8 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 ### 创建群组
 ```objc
 - (void)createNewGroup {
-    //self.smartGroup = [[TuyaSmartGroup alloc] init];
-    [self.smartGroup createGroupWithName:@"your_group_name" productId:@"your_group_product_id" devIdList:(NSArray<NSString *> *)selectedDevIdList success:^(TuyaSmartGroup *group) {
+    
+    [TuyaSmartGroup createGroupWithName:@"your_group_name" productId:@"your_group_product_id" homeId:homeId devIdList:(NSArray<NSString *> *)selectedDevIdList success:^(TuyaSmartGroup *group) {
         NSLog(@"create new group success %@:", group); 
     } failure:^(NSError *error) {
         NSLog(@"create new group failure");
@@ -1678,8 +1689,8 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 
 ```objc
 - (void)getGroupDevList {
-    //self.smartGroup = [[TuyaSmartGroup alloc] init];
-    [self.smartGroup getGroupDevList:nil productId:@"your_group_product_id" success:^(NSArray<TYGroupDevListModel *> *list) {
+    
+    [TuyaSmartGroup getDevList:@"your_group_product_id" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
         NSLog(@"get group dev list success %@:", list); 
     } failure:^(NSError *error) {
         NSLog(@"get group dev list failure");
@@ -1692,8 +1703,8 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 ```objc
 - (void)getGroupDevList {
 //    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
-    [self.smartGroup getGroupDevList:@"your_group_id" productId:@"your_group_product_id" success:^(NSArray<TYGroupDevListModel *> *list) {
-        NSLog(@"get group dev list success %@:", group); 
+    [self.smartGroup getDevList:@"your_group_product_id" success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
+        NSLog(@"get group dev list success %@:", list); 
     } failure:^(NSError *error) {
         NSLog(@"get group dev list failure");
     }];
