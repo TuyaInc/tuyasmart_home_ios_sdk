@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>status_font_color</key>
+	<string>#303030</string>
+	<key>status_bg_color</key>
+	<string>#FFFFFF</string>
+	<key>navbar_font_color</key>
+	<string>#FF5800</string>
+	<key>navbar_bg_color</key>
+	<string>#FAFAFA</string>
+	<key>app_bg_color</key>
+	<string>#EDEEF3</string>
+	<key>list_primary_color</key>
+	<string>#303030</string>
+	<key>list_sub_color</key>
+	<string>#626262</string>
+	<key>list_secondary_color</key>
+	<string>#9B9B9B</string>
+	<key>list_line_color</key>
+	<string>#DDDFE7</string>
+	<key>list_bg_color</key>
+	<string>#FFFFFF</string>
+	<key>notice_font_color</key>
+	<string>#FF5800</string>
+	<key>notice_bg_color</key>
+	<string>#FFF8D8</string>
+	<key>primary_button_font_color</key>
+	<string>#FFFFFF</string>
+	<key>primary_button_bg_color</key>
+	<string>#FF5800</string>
+	<key>secondary_button_font_color</key>
+	<string>#FF5800</string>
+	<key>secondary_button_bg_color</key>
+	<string>#FFFFFF</string>
+	<key>home_index_bg_start_color</key>
+	<string>#FB5F5A</string>
+	<key>home_index_bg_end_color</key>
+	<string>#FFA731</string>
+</dict>
+</plist>

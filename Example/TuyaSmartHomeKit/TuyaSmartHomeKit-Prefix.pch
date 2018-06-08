@@ -1,0 +1,56 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#ifndef TuyaSmart_PrefixHeader_pch
+#define TuyaSmart_PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import <BlocksKit/BlocksKit.h>
+#import <BlocksKit/BlocksKit+UIKit.h>
+
+#import <TuyaSmartHomeKit/TuyaSmartKit.h>
+
+#import "TPCategory.h"
+#import "TPUtils.h"
+#import "TPViews.h"
+
+
+#import "TYAppService.h"
+#import "ViewControllerUtils.h"
+#import "GlobalConfig.h"
+#import "TPBaseViewController.h"
+#import "TPBaseTableViewController.h"
+#import "TPCountryService.h"
+#import "TPNotification.h"
+#import "UIImageView+WebCache.h"
+#import "UITableView+TPCategory.h"
+#import "TYUserDefault.h"
+#import "TYTheme.h"
+#import "TYHomeManager.h"
+
+#endif
+
+
+#define kNotificationMemberUpdate           @"kNotificationMemberUpdate"
+// smart scene
+#define kNotificationSmartSceneDPChange     @"kNotificationSmartSceneDPChange"
+#define kNotificationSmartSceneDPSave       @"kNotificationSmartSceneDPSave"
+#define kNotificationSmartSceneListUpdate   @"kNotificationSmartSceneListUpdate"
+
+#define kNotificationDeviceDpsUpdate        @"kNotificationDeviceDpsUpdate"
+#define kNotificationGatewayListRefreshed   @"kNotificationGatewayListRefreshed"
+#define kNotificationGatewayRemoved         @"kNotificationGatewayRemoved"
+#define kNotificationGatewayInfoUpdate      @"kNotificationGatewayInfoUpdate"
+#define kNotificationGatewayDeviceUpdate    @"kNotificationGatewayDeviceUpdate"

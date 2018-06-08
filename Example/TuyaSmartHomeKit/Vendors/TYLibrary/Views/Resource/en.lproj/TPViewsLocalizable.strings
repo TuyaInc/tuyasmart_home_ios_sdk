@@ -1,0 +1,17 @@
+/* 
+  TPViewsLocalizable.strings
+  TYLibraryExample
+
+  Created by 冯晓 on 16/2/19.
+  Copyright © 2016年 Tuya. All rights reserved.
+*/
+"action_back" = "Back";
+"loading" = "Loading";
+"load_error" = "Load failed";
+"ty_alert_confirm" = "OK";
+"done" = "Done";
+"cancel" = "Cancel";
+"close" = "Close";
+"Loading..." = "Loading...";
+"Pull to refresh" = "Pull to refresh";
+"Release to refresh" = "Release to refresh";

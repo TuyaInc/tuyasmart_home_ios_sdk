@@ -1,1 +1,0 @@
-../../../../../../TuyaSmartHomeKit.framework/Headers/TuyaSmartReceiveMemberDetailModel.h
