@@ -6,11 +6,11 @@
 //  Copyright © 2016年 Tuya. All rights reserved.
 //
 
+#import "SWTableViewCell.h"
 
-@interface TYEditActionTitleTableViewCell : UITableViewCell
+@interface TYEditActionTitleTableViewCell : SWTableViewCell
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, strong) UIButton *addBtn;
-@property (nonatomic, strong) UIImageView *addImageView;
 
 @end

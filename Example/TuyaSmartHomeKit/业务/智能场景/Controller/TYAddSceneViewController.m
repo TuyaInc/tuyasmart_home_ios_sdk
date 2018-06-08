@@ -14,6 +14,7 @@
 #import "TYEditActionTitleTableViewCell.h"
 #import "TYEditActionNoDataTableViewCell.h"
 #import "TYSelectConditionViewController.h"
+#import "TYBackgroundViewController.h"
 
 @interface TYAddSceneViewController ()<UITextFieldDelegate, SWTableViewCellDelegate>
 
@@ -23,7 +24,8 @@
 @property (nonatomic, assign) BOOL isChanged;
 @property (nonatomic, strong) SWTableViewCell *swipeCell;
 @property (nonatomic, strong) NSMutableArray *condationArray;
-//@property (nonatomic, strong) NSMutableArray *actionArray;
+@property (nonatomic, strong) NSString *backImageUrl;
+@property (nonatomic, assign) TuyaSmartConditionMatchType matchType;
 
 @end
 
@@ -77,6 +79,13 @@
         [footerView addSubview:deleteBtn];
         
         self.tableView.tableFooterView = footerView;
+    }
+    if (_isAdd) {
+        _backImageUrl = @"https://images.tuyacn.com/smart/rule/cover/starry.png";
+        _matchType = TuyaSmartConditionMatchAll;
+    } else {
+        _backImageUrl = _model.background;
+        _matchType = _model.matchType;
     }
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshTableView:)
@@ -248,7 +257,7 @@
                 conditionModel.extraInfo = [dic copy];
             }
             
-            if (selectedItem == -1 && self.condationArray.count == 0)
+            if (selectedItem == -1)
             {
                 //新增
                 [self.condationArray addObject:conditionModel];
@@ -256,9 +265,9 @@
             else
             {
                 //修改
-                TuyaSmartSceneConditionModel *sourceModel = self.condationArray.firstObject;
+                TuyaSmartSceneConditionModel *sourceModel = self.condationArray[selectedItem];
                 conditionModel.conditionId = sourceModel.conditionId;
-                self.condationArray[0] = conditionModel;
+                self.condationArray[selectedItem] = conditionModel;
             }
         }
     }
@@ -445,28 +454,22 @@
         sceneName = self.model.name;
     }
     
-    TuyaSmartSceneConditionModel *condition = nil;
-    if (self.condationArray.count > 0)
-    {
-        condition = self.condationArray[0];
-    }
-    
     if (self.isAdd)//添加场景
     {
-        [self addSmartSceneWithName:sceneName condition:condition];
+        [self addSmartSceneWithName:sceneName];
     }
     else//编辑场景
     {
-        [self editSmartSceneWithName:sceneName condition:condition];
+        [self editSmartSceneWithName:sceneName];
     }
 }
 
 //创建
-- (void)addSmartSceneWithName:(NSString *)name condition:(TuyaSmartSceneConditionModel *)condition
+- (void)addSmartSceneWithName:(NSString *)name
 {
     [TPProgressUtils showMessag:NSLocalizedString(@"loading", nil) toView:self.view];
     WEAKSELF_AT
-    [TuyaSmartScene addNewSceneWithName:name homeId:[TYHomeManager sharedInstance].home.homeModel.homeId background:@"https://images.tuyacn.com/smart/rule/cover/reading.png" showFirstPage:YES conditionList:@[condition] actionList:self.dataSource matchType:TuyaSmartConditionMatchAny success:^(TuyaSmartSceneModel *sceneModel) {
+    [TuyaSmartScene addNewSceneWithName:name homeId:[TYHomeManager sharedInstance].home.homeModel.homeId background:_backImageUrl showFirstPage:YES conditionList:self.condationArray actionList:self.dataSource matchType:_matchType success:^(TuyaSmartSceneModel *sceneModel) {
         [TPProgressUtils hideHUDForView:weakSelf_AT.view animated:NO];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSmartSceneListUpdate object:nil];
         [weakSelf_AT dismissViewControllerAnimated:YES completion:^{
@@ -479,11 +482,11 @@
 }
 
 //编辑
-- (void)editSmartSceneWithName:(NSString *)name condition:(TuyaSmartSceneConditionModel *)condition
+- (void)editSmartSceneWithName:(NSString *)name
 {
     [TPProgressUtils showMessag:NSLocalizedString(@"loading", nil) toView:self.view];
     WEAKSELF_AT
-    [self.smartScene modifySceneWithName:name background:@"https://images.tuyacn.com/smart/rule/cover/reading.png" showFirstPage:YES conditionList:@[condition] actionList:self.dataSource matchType:TuyaSmartConditionMatchAny success:^{
+    [self.smartScene modifySceneWithName:name background:_backImageUrl showFirstPage:YES conditionList:self.condationArray actionList:self.dataSource matchType:_matchType success:^{
         [TPProgressUtils hideHUDForView:weakSelf_AT.view animated:NO];
         [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSmartSceneListUpdate object:nil];
         [weakSelf_AT dismissViewControllerAnimated:YES completion:^{
@@ -522,7 +525,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 1) {
-        return 2;
+        if (self.condationArray.count == 0) {
+            return 2;
+        } else {
+            return self.condationArray.count + 1;
+        }
     } else if (section == 2) {
         if (self.dataSource.count == 0) {
             return 2;
@@ -572,7 +579,17 @@
             self.activeTextField = cell.textField;
             _textField = nil;
         }
-        [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:_model.editIcon] placeholderImage:[UIImage imageNamed:@"ty_scene_custom2"]];
+        [cell.iconImageView sd_setImageWithURL:[NSURL URLWithString:_backImageUrl]];
+        
+        WEAKSELF_AT
+        [cell.iconImageView bk_whenTapped:^{
+            TYBackgroundViewController *vc = [[TYBackgroundViewController alloc] init];
+            vc.selectedImageBlock = ^(NSString *url) {
+                weakSelf_AT.backImageUrl = url;
+                [weakSelf_AT.tableView reloadData];
+            };
+            [weakSelf_AT.navigationController pushViewController:vc animated:YES];
+        }];
         
         if (!_isAdd) {
             cell.textField.text = _model.name;
@@ -597,16 +614,16 @@
             [cell.addBtn removeTarget:self action:@selector(addSceneBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
             [cell.addBtn addTarget:self action:@selector(addSceneBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
             
-            cell.addBtn.enabled = YES;
-            cell.addImageView.hidden = NO;
             if (indexPath.section == 1) {
-                cell.titleLabel.text = NSLocalizedString(@"ty_smart_scene_add_condition", @"");
-                if (self.condationArray.count >= 1) {
-                    cell.addBtn.enabled = NO;
-                    cell.addImageView.hidden = YES;
+                
+                if (_matchType == TuyaSmartConditionMatchAll) {
+                    cell.titleLabel.text = NSLocalizedString(@"scene_condition_type_and", @"");
+                } else {
+                    cell.titleLabel.text = NSLocalizedString(@"scene_condition_type_or", @"");
                 }
+                
             } else {
-                cell.titleLabel.text = NSLocalizedString(@"ty_smart_scene_add_newwork", @"");
+                cell.titleLabel.text = NSLocalizedString(@"就执行以下动作", @"");
             }
             
             return cell;
@@ -704,37 +721,39 @@
         [_swipeCell hideUtilityButtonsAnimated:YES];
         return;
     }
+    
+    if (indexPath.row == 0 && indexPath.section == 1) {
+        [self conditionSwitch];
+    } else {
 
-    if (indexPath.row > 0) {
-        
-
-        if (indexPath.section == 1 && self.condationArray.count > 0) {
-            
-            
-            TuyaSmartSceneConditionModel *model = self.condationArray[indexPath.row - 1];
-            
-            if (model.entityType == 3) {
-                TYSelectConditionViewController *vc = [[TYSelectConditionViewController alloc] init];
-                vc.model = model;
-                [self.navigationController pushViewController:vc animated:YES];
-            } else {
+        if (indexPath.row > 0) {
+            if (indexPath.section == 1 && self.condationArray.count > 0) {
+                
+                TuyaSmartSceneConditionModel *model = self.condationArray[indexPath.row - 1];
+                
+                if (model.entityType == 3) {
+                    TYSelectConditionViewController *vc = [[TYSelectConditionViewController alloc] init];
+                    vc.model = model;
+                    [self.navigationController pushViewController:vc animated:YES];
+                } else {
+                    TYSelectFeatureViewController *vc = [[TYSelectFeatureViewController alloc] init];
+                    vc.entityId = model.entityId;
+                    vc.selectedItem = indexPath.row - 1;
+                    vc.isCondition = indexPath.section == 1;
+                    vc.expr = model.expr;
+                    
+                    [self.navigationController pushViewController:vc animated:YES];
+                }
+            } else if (indexPath.section == 2 && self.dataSource.count > 0) {
                 TYSelectFeatureViewController *vc = [[TYSelectFeatureViewController alloc] init];
+                TuyaSmartSceneActionModel *model = self.dataSource[indexPath.row - 1];
                 vc.entityId = model.entityId;
                 vc.selectedItem = indexPath.row - 1;
+                vc.actDic = model.executorProperty;
                 vc.isCondition = indexPath.section == 1;
-                vc.expr = model.expr;
-
+                
                 [self.navigationController pushViewController:vc animated:YES];
             }
-        } else if (indexPath.section == 2 && self.dataSource.count > 0){
-            TYSelectFeatureViewController *vc = [[TYSelectFeatureViewController alloc] init];
-            TuyaSmartSceneActionModel *model = self.dataSource[indexPath.row - 1];
-            vc.entityId = model.entityId;
-            vc.selectedItem = indexPath.row - 1;
-            vc.actDic = model.executorProperty;
-            vc.isCondition = indexPath.section == 1;
-            
-            [self.navigationController pushViewController:vc animated:YES];
         }
     }
 }
@@ -792,6 +811,29 @@
 
 - (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell {
     return YES;
+}
+
+- (void)conditionSwitch {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"scene_condition_type", @"")
+                                                                             message:nil
+                                                                      preferredStyle: UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *andAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"scene_condition_type_and", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        _matchType = TuyaSmartConditionMatchAll;
+        [self.tableView reloadData];
+    }];
+    
+    UIAlertAction *orAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"scene_condition_type_or", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        _matchType = TuyaSmartConditionMatchAny;
+        [self.tableView reloadData];
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", @"") style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertController addAction:andAction];
+    [alertController addAction:orAction];
+    [alertController addAction:cancelAction];
+    [tp_topMostViewController() presentViewController:alertController animated:YES completion:nil];
 }
 
 @end

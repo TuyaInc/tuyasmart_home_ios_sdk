@@ -280,6 +280,10 @@
 		65FC236F20C927E400918C6D /* TYActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC236020C927E400918C6D /* TYActionTableViewCell.m */; };
 		65FC237020C927E400918C6D /* TYSelectCityViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC236120C927E400918C6D /* TYSelectCityViewCell.m */; };
 		65FC237320C9281000918C6D /* TYSceneMapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC237120C9281000918C6D /* TYSceneMapPoint.m */; };
+		65FC237620CA242500918C6D /* TYBackgroundViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC237520CA242400918C6D /* TYBackgroundViewController.m */; };
+		65FC237C20CA274600918C6D /* TYBackgroundCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC237B20CA274600918C6D /* TYBackgroundCollectionViewCell.m */; };
+		65FC237F20CA35F600918C6D /* ty_scene_add_action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FC237D20CA35F600918C6D /* ty_scene_add_action@2x.png */; };
+		65FC238020CA35F600918C6D /* ty_scene_add_action@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FC237E20CA35F600918C6D /* ty_scene_add_action@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -724,6 +728,12 @@
 		65FC236220C927E400918C6D /* TYEditActionTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TYEditActionTitleTableViewCell.h; path = "TuyaSmartHomeKit/业务/智能场景/View/TYEditActionTitleTableViewCell.h"; sourceTree = SOURCE_ROOT; };
 		65FC237120C9281000918C6D /* TYSceneMapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TYSceneMapPoint.m; path = "TuyaSmartHomeKit/业务/智能场景/Model/TYSceneMapPoint.m"; sourceTree = SOURCE_ROOT; };
 		65FC237220C9281000918C6D /* TYSceneMapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TYSceneMapPoint.h; path = "TuyaSmartHomeKit/业务/智能场景/Model/TYSceneMapPoint.h"; sourceTree = SOURCE_ROOT; };
+		65FC237420CA242400918C6D /* TYBackgroundViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBackgroundViewController.h; sourceTree = "<group>"; };
+		65FC237520CA242400918C6D /* TYBackgroundViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBackgroundViewController.m; sourceTree = "<group>"; };
+		65FC237A20CA274600918C6D /* TYBackgroundCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBackgroundCollectionViewCell.h; sourceTree = "<group>"; };
+		65FC237B20CA274600918C6D /* TYBackgroundCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBackgroundCollectionViewCell.m; sourceTree = "<group>"; };
+		65FC237D20CA35F600918C6D /* ty_scene_add_action@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_add_action@2x.png"; sourceTree = "<group>"; };
+		65FC237E20CA35F600918C6D /* ty_scene_add_action@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_add_action@3x.png"; sourceTree = "<group>"; };
 		769D196CAEA649F753DF10CE /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		DBEEEE4C4AA2F67DCA271369 /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E08BB6525A2EBFFB8208CB1B /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -1232,6 +1242,8 @@
 		65FC208420C8D2FE00918C6D /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				65FC237D20CA35F600918C6D /* ty_scene_add_action@2x.png */,
+				65FC237E20CA35F600918C6D /* ty_scene_add_action@3x.png */,
 				65FC208520C8D2FE00918C6D /* ty_scene_error@3x.png */,
 				65FC208620C8D2FE00918C6D /* ty_scene_error@2x.png */,
 				65FC208720C8D2FE00918C6D /* ty_scene_switch@2x.png */,
@@ -1611,6 +1623,8 @@
 				65FC233C20C927C400918C6D /* TYSmartSceneViewController.m */,
 				65FC233E20C927C400918C6D /* TYAddSceneViewController.h */,
 				65FC233A20C927C400918C6D /* TYAddSceneViewController.m */,
+				65FC237420CA242400918C6D /* TYBackgroundViewController.h */,
+				65FC237520CA242400918C6D /* TYBackgroundViewController.m */,
 				65FC233420C927C300918C6D /* TYSelectCityViewController.h */,
 				65FC233B20C927C400918C6D /* TYSelectCityViewController.m */,
 				65FC233920C927C400918C6D /* TYSelectConditionViewController.h */,
@@ -1642,6 +1656,8 @@
 				65FC236020C927E400918C6D /* TYActionTableViewCell.m */,
 				65FC234F20C927E200918C6D /* TYEditActionNoDataTableViewCell.h */,
 				65FC235B20C927E300918C6D /* TYEditActionNoDataTableViewCell.m */,
+				65FC237A20CA274600918C6D /* TYBackgroundCollectionViewCell.h */,
+				65FC237B20CA274600918C6D /* TYBackgroundCollectionViewCell.m */,
 				65FC235320C927E200918C6D /* TYEditActionTableViewCell.h */,
 				65FC235620C927E300918C6D /* TYEditActionTableViewCell.m */,
 				65FC236220C927E400918C6D /* TYEditActionTitleTableViewCell.h */,
@@ -1814,6 +1830,7 @@
 				65FC215B20C8D2FE00918C6D /* ty_adddevice_icon_ok@2x.png in Resources */,
 				65FC215820C8D2FE00918C6D /* ty_adddevice_icon_none@2x.png in Resources */,
 				65FC210420C8D2FE00918C6D /* tysmart_password@3x.png in Resources */,
+				65FC238020CA35F600918C6D /* ty_scene_add_action@3x.png in Resources */,
 				65FC21AF20C8D2FE00918C6D /* ty_mainbt_about_active@3x.png in Resources */,
 				65FC219020C8D2FE00918C6D /* ty_scene_error@3x.png in Resources */,
 				65FC211E20C8D2FE00918C6D /* power_on@2x.png in Resources */,
@@ -1873,6 +1890,7 @@
 				65FC21D020C8D2FE00918C6D /* ty_me_mobile_phone@3x.png in Resources */,
 				65FC227120C8D31900918C6D /* tp_top_bar_back@3x.png in Resources */,
 				65FC21B720C8D2FE00918C6D /* cell_view_arrow@2x.png in Resources */,
+				65FC237F20CA35F600918C6D /* ty_scene_add_action@2x.png in Resources */,
 				65FC212620C8D2FE00918C6D /* power_off@3x.png in Resources */,
 				65FC210020C8D2FE00918C6D /* ty_list_empty@3x.png in Resources */,
 				65FC227320C8D31900918C6D /* tp_top_bar_back@2x.png in Resources */,
@@ -2100,8 +2118,10 @@
 				65FC21BE20C8D2FE00918C6D /* MobileChangeViewController.m in Sources */,
 				65FC236B20C927E400918C6D /* TYEditActionNoDataTableViewCell.m in Sources */,
 				65FC215020C8D2FE00918C6D /* TYEZPrepareViewController.m in Sources */,
+				65FC237620CA242500918C6D /* TYBackgroundViewController.m in Sources */,
 				65FC224F20C8D31900918C6D /* TPBaseUtils.m in Sources */,
 				65FC210D20C8D2FE00918C6D /* TPInputUserAccountController.m in Sources */,
+				65FC237C20CA274600918C6D /* TYBackgroundCollectionViewCell.m in Sources */,
 				65FC211A20C8D2FE00918C6D /* TYPanelLogView.m in Sources */,
 				65FC225C20C8D31900918C6D /* UIAlertView+TPBlock.m in Sources */,
 				65FC213820C8D2FE00918C6D /* TYDeviceShareViewListCell.m in Sources */,

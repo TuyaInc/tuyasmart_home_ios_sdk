@@ -699,5 +699,8 @@
 "ty_smart_scene_del_info_cont" = "Tasks can't be normally executed after deleting the scene.";
 "ty_smart_city" = "City";
 "ty_smart_switch_home" = "home switch";
+"scene_condition_type" = "Please select the type of the condition";
+"scene_condition_type_and" = "When all conditions are met";
+"scene_condition_type_or" = "When any condition is satisfied";
 
 

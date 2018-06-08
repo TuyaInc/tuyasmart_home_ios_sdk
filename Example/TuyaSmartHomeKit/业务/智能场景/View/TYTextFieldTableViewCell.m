@@ -18,10 +18,13 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 19, 22, 22)];
+        _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(5, (60 - 120 * 66 / 163) / 2.0, 120, 120 * 66 / 163)];
+        _iconImageView.userInteractionEnabled = YES;
+        _iconImageView.layer.cornerRadius = 6.0;
+        _iconImageView.layer.masksToBounds = YES;
         [self.contentView addSubview:_iconImageView];
         
-        _textField = [self getTextFieldView:CGRectMake(60, 21, APP_CONTENT_WIDTH - 10 - 68, 20)];
+        _textField = [self getTextFieldView:CGRectMake(130, 21, APP_CONTENT_WIDTH - 10 - 130, 20)];
         [self.contentView addSubview:_textField];
     }
     return self;

@@ -256,16 +256,6 @@
         cell.executeButton.layer.borderColor = HEXCOLOR(0x44db5e).CGColor;
     }
     
-    cell.topLineView.hidden = YES;
-    if (indexPath.row == 0) {
-        cell.topLineView.hidden = NO;
-    }
-    
-    cell.bottomLineView.frame = CGRectMake(15, 89.5, APP_SCREEN_WIDTH - 15, 0.5);
-    if (indexPath.row == self.dataSource.count - 1) {
-        cell.bottomLineView.frame = CGRectMake(0, 89.5, APP_SCREEN_WIDTH, 0.5);
-    }
-    
     cell.model = model;
     
     return cell;
@@ -274,7 +264,7 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90;
+    return (APP_SCREEN_WIDTH - 30) * 140 / 343 + 20;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -285,7 +275,7 @@
         TuyaSmartSceneModel *model = self.dataSource[indexPath.row];
         addSceneViewController.model = model;
         addSceneViewController.isAdd = NO;
-        
+
         [self presentViewController:[[TPNavigationController alloc] initWithRootViewController:addSceneViewController] animated:YES completion:nil];
     }
 }

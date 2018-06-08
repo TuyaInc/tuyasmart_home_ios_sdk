@@ -701,3 +701,6 @@
 "ty_smart_scene_del_info_cont" = "场景删除后，设备任务将无法正常执行";
 "ty_smart_city" = "城市";
 "ty_smart_switch_home" = "家庭切换";
+"scene_condition_type" = "请选择条件的类型";
+"scene_condition_type_and" = "当满足所有条件时";
+"scene_condition_type_or" = "当满足任一条件时";

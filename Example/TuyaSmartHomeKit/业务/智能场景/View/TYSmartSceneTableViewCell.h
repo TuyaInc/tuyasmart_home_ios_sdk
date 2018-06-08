@@ -12,8 +12,6 @@
 
 @interface TYSmartSceneTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UIView *bottomLineView;
-@property (nonatomic, strong) UIView *topLineView;
 @property (nonatomic, strong) UIButton *executeButton;
 @property (nonatomic, strong) TuyaSmartSceneModel *model;
 
