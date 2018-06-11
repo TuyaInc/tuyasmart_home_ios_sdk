@@ -61,16 +61,34 @@
     
     self.homeManager.delegate = self;
     
+    // 先用缓存的数据，把UI刷新出来，再去获取云端的数据，再次刷新UI
+    if (self.homeManager.homes > 0) {
+        TuyaSmartHomeModel *model = [self.homeManager.homes firstObject];
+        self.home = [TuyaSmartHome homeWithHomeId:model.homeId];
+        [TYHomeManager sharedInstance].home = self.home;
+        [self reloadData];
+    }
+    
     // 从远端读取数据
     WEAKSELF_AT
     [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
         
         if (homes.count > 0) {
+            // 如果有家庭，初始化第一个家庭
             TuyaSmartHomeModel *model = [homes firstObject];
             weakSelf_AT.home = [TuyaSmartHome homeWithHomeId:model.homeId];
             weakSelf_AT.home.delegate = weakSelf_AT;
             [TYHomeManager sharedInstance].home = weakSelf_AT.home;
             [weakSelf_AT reloadDataFromCloud];
+        } else {
+            // 如果没有家庭，添加一个家庭，再初始化
+            [weakSelf_AT.homeManager addHomeWithName:@"hangzhou's home" geoName:@"hangzhou" rooms:@[@"bedroom"] latitude:0 longitude:0 success:^(long long homeId) {
+                weakSelf_AT.home = [TuyaSmartHome homeWithHomeId:homeId];
+                weakSelf_AT.home.delegate = weakSelf_AT;
+                [TYHomeManager sharedInstance].home = weakSelf_AT.home;
+            } failure:^(NSError *error) {
+                
+            }];
         }
     } failure:^(NSError *error) {
         
