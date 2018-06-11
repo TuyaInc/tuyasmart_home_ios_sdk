@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TuyaSmartHomeKit'
-  s.version          = '0.0.4'
+  s.version          = '0.0.6'
   s.summary          = '涂鸦全屋智能iOS SDK'
 
 # This description is used to generate tags and improve search results.
@@ -41,11 +41,10 @@ Pod::Spec.new do |s|
   s.libraries  = 'c++', 'z'
 
   s.dependency 'CocoaAsyncSocket'
-  s.dependency 'MQTTClient','0.8.8'
+  s.dependency 'MQTTClient','0.14.0'
   s.dependency 'Mantle'
   s.dependency 'UICKeyChainStore'
   s.dependency 'Reachability'
-  # s.dependency 'CocoaLumberjack'
 
   s.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
 

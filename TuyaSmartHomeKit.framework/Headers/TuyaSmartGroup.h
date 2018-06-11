@@ -51,6 +51,7 @@
  *
  *  @param name      群组名称
  *  @param productId 产品Id
+ *  @param homeId    家庭Id
  *  @param devIdList 设备Id列表
  *  @param success   操作成功回调
  *  @param failure   操作失败回调
@@ -67,6 +68,7 @@
  *  根据产品ID获取对应的支持群组的设备列表
  *
  *  @param productId 产品Id
+ *  @param homeId    家庭Id
  *  @param success   操作成功回调
  *  @param failure   操作失败回调
  */

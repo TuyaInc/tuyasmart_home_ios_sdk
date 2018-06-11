@@ -7,8 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TYModel.h"
-#import "TuyaSmartRoomModel.h"
 
 @interface TuyaSmartHomeModel : TYModel
 

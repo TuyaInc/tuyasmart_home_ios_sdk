@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TuyaSmartHomeMemberModel.h"
 
 @interface TuyaSmartHomeMember : NSObject
 

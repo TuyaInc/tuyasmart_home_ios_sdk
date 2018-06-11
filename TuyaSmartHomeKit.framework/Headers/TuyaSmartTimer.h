@@ -44,6 +44,7 @@
  *  @param devId        设备Id
  *  @param time         定时任务下的定时钟
  *  @param dps          命令字典
+ *  @param timeZone     设备的时区 +08:00，如果没有取手机时区
  */
 - (void)addTimerWithTask:(NSString *)task loops:(NSString *)loops devId:(NSString *)devId time:(NSString *)time dps:(NSDictionary *)dps timeZone:(NSString *)timeZone success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
@@ -87,10 +88,11 @@
  *
  *  @param task         定时任务名称
  *  @param loops        循环次数
- *  @param devId        设备Id
+ *  @param devId   ·     设备Id
  *  @param timerId      定时钟Id
  *  @param time         定时任务下的定时钟
  *  @param dps          命令字典
+ *  @param timeZone     时区 +08:00
  */
 - (void)updateTimerWithTask:(NSString *)task loops:(NSString *)loops devId:(NSString *)devId timerId:(NSString *)timerId time:(NSString *)time dps:(NSDictionary *)dps timeZone:(NSString *)timeZone success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
@@ -111,7 +113,7 @@
 /**
  *  修改设备的时区
  *  @param devId        设备Id
- *  @param timezoneId   时区Id
+ *  @param timezoneId   时区Id，例如Asia/Shanghai
  */
 - (void)updateTimerWithDeviceId:(NSString *)devId timezoneId:(NSString *)timezoneId success:(TYSuccessHandler)success failure:(TYFailureHandler)failure;
 

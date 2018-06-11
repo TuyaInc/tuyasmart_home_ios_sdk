@@ -134,7 +134,7 @@
     if (_smartScene == nil) {
         if (self.model.sceneId.length > 0)
         {
-            _smartScene = [TuyaSmartScene sceneWithSceneId:self.model.sceneId];
+            _smartScene = [TuyaSmartScene sceneWithSceneModel:self.model];
         }
     }
     return _smartScene;

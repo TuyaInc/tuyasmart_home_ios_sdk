@@ -207,7 +207,7 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
                      success:(TYSuccessHandler)success
                      failure:(TYFailureError)failure;
 
-#pragma mark - 邮箱登录
+#pragma mark - 邮箱登录 1.0
 
 /**
  *  邮箱注册  1.0
@@ -458,6 +458,7 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
 
 /**
  *  停用帐号（注销用户）
+ *  一周后账号才会永久停用并删除以下你账户中的所有信息，在此之前重新登录，则你的停用请求将被取消
  *
  *  @param success 操作成功回调
  *  @param failure 操作失败回调

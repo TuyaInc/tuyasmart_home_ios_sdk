@@ -58,21 +58,6 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSMutableArray <TuyaSmartSceneActionModel *> *actions;
 
 /**
- 是否有离线设备
- */
-@property (nonatomic, assign) BOOL offline;
-
-/**
- 是否有设备全部离线
- */
-@property (nonatomic, assign) BOOL allOffline;
-
-/**
- 是否有设备被全部移除
- */
-@property (nonatomic, assign) BOOL deviceRemoved;
-
-/**
  设备列表
  */
 @property (nonatomic, strong) NSArray *devList;
@@ -103,26 +88,12 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, assign) TuyaSmartConditionMatchType matchType;
 
-
 /**
- 是否有设备离线
-
- @return 离线状态
+ 是否有场景面板绑定
  */
-- (BOOL)getOfflineStatus;
+@property (nonatomic, assign) BOOL boundForPanel;
 
-/**
- 是否所有设备离线
 
- @return 离线状态
- */
-- (BOOL)getAllOfflineStatus;
 
-/**
- 是否有设备被全部移除
-
- @return 移除状态
- */
-- (BOOL)getDeviceRemovedStatus;
 
 @end

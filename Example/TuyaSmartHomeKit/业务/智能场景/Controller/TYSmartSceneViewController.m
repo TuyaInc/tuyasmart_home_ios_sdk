@@ -188,28 +188,6 @@
     
     TuyaSmartSceneModel *model = self.dataSource[sender.tag];
     
-    BOOL removed = [model getDeviceRemovedStatus];
-    
-    if (removed) {
-        
-        TYAddSceneViewController *addSceneViewController = [[TYAddSceneViewController alloc] init];
-        
-        TuyaSmartSceneModel *model = self.dataSource[sender.tag];
-        addSceneViewController.model = model;
-        addSceneViewController.isAdd = NO;
-        
-        [self presentViewController:[[TPNavigationController alloc] initWithRootViewController:addSceneViewController] animated:YES completion:nil];
-        
-        return;
-    }
-    
-    BOOL offline = [model getAllOfflineStatus];
-    
-    if (offline) {
-        [TPProgressUtils showError:NSLocalizedString(@"ty_smart_scene_all_device_offline", @"")];
-        return;
-    }
-    
     for (TuyaSmartSceneActionModel *list in model.actions) {
         list.status = TYSceneActionStatusLoading;
     }
@@ -217,7 +195,7 @@
     self.actionView.delegate = self;
     [self.actionView showWithTitle:model.name actList:model.actions];
     
-    self.smartScene = [TuyaSmartScene sceneWithSceneId:model.sceneId];
+    self.smartScene = [TuyaSmartScene sceneWithSceneModel:model];
 
     [self.smartScene executeSceneWithSuccess:^{
         

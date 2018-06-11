@@ -8,11 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "TuyaSmartHomeModel.h"
-#import "TuyaSmartHomeMemberModel.h"
-#import "TuyaSmartRoomModel.h"
-
 @class TuyaSmartHome;
+@class TuyaSmartHomeModel;
 @class TuyaSmartDeviceModel;
 @class TuyaSmartRoomModel;
 @class TuyaSmartGroupModel;
@@ -121,7 +118,7 @@
  *  @param failure     操作失败回调
  */
 - (void)dismissHomeWithSuccess:(TYSuccessHandler)success
-            failure:(TYFailureError)faiure;
+                       failure:(TYFailureError)faiure;
 
 
 #pragma mark - Room

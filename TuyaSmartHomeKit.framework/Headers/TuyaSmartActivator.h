@@ -26,10 +26,11 @@ typedef enum : NSUInteger {
 
 @required
 
-/// 配置状态更新的回调
+/// 配网状态更新的回调，wifi单品，zigbee网关，zigbee子设备
 - (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
 
-/// mesh WiFi设备配网配置状态更新的回调
+@optional
+/// 配网状态更新的回调 mesh网关
 - (void)meshActivator:(TuyaSmartActivator *)activator didReceiveDeviceId:(NSString *)deviceId meshId:(NSString *)meshId error:(NSError *)error;
 
 @end
@@ -67,28 +68,6 @@ typedef enum : NSUInteger {
  *  @param failure 操作失败回调
  */
 - (void)getTokenWithHomeId:(long long)homeId
-                   success:(TYSuccessString)success
-                   failure:(TYFailureError)failure;
-
-/**
- *
- *  wifi连接器加入mesh
- *  获取配网Token（有效期10分钟）
- *
- *  @param meshId
- *  @param nodeId
- *  @param productId
- *  @param uuid
- *  @param authKey
- *  @param success 操作成功回调，返回配网Token
- *  @param failure 操作失败回调
- */
-- (void)getTokenWithMeshId:(NSString *)meshId
-                    nodeId:(NSString *)nodeId
-                 productId:(NSString *)productId
-                      uuid:(NSString *)uuid
-                   authKey:(NSString *)authKey
-                   version:(NSString *)version
                    success:(TYSuccessString)success
                    failure:(TYFailureError)failure;
 
@@ -144,6 +123,36 @@ typedef enum : NSUInteger {
                                  token:(NSString *)token
                                timeout:(NSTimeInterval)timeout;
 
+
+/**
+ *  停止配网
+ */
+- (void)stopConfigWiFi;
+
+#pragma mark - active ble mesh device
+
+/**
+ *
+ *  wifi连接器加入mesh
+ *  获取配网Token（有效期10分钟）
+ *
+ *  @param meshId
+ *  @param nodeId
+ *  @param productId
+ *  @param uuid
+ *  @param authKey
+ *  @param success 操作成功回调，返回配网Token
+ *  @param failure 操作失败回调
+ */
+- (void)getTokenWithMeshId:(NSString *)meshId
+                    nodeId:(NSString *)nodeId
+                 productId:(NSString *)productId
+                      uuid:(NSString *)uuid
+                   authKey:(NSString *)authKey
+                   version:(NSString *)version
+                   success:(TYSuccessString)success
+                   failure:(TYFailureError)failure;
+
 /**
  *  mesh 配网
  *
@@ -152,20 +161,13 @@ typedef enum : NSUInteger {
  *  @param token    配网Token
  *  @param timeout  超时时间, 默认为100秒
  */
-
 - (void)startBleMeshConfigWiFiWithSsid:(NSString *)ssid
                               password:(NSString *)password
                                  token:(NSString *)token
                                timeout:(NSTimeInterval)timeout;
 
 
-/**
- *  停止配网
- */
-- (void)stopConfigWiFi;
-
-
-#pragma mark - active sub device
+#pragma mark - active zigbee sub device
 
 /**
  *  激活ZigBee子设备

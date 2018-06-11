@@ -14,8 +14,8 @@
 @interface TuyaSmartScene : NSObject
 
 //自定义场景根据id初始化
-+ (instancetype)sceneWithSceneId:(NSString *)sceneId;
-- (instancetype)initWithSceneId:(NSString *)sceneId;
++ (instancetype)sceneWithSceneModel:(TuyaSmartSceneModel *)sceneModel;
+- (instancetype)initWithSceneModel:(TuyaSmartSceneModel *)sceneModel;
 
 - (instancetype)init NS_UNAVAILABLE;
 

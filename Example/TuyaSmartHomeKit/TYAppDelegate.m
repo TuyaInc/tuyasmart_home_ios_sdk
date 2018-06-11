@@ -19,8 +19,6 @@
 #if DEBUG
     [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
 #endif
-    [TYUserDefault setUserDefault:@"APP_ENV_PREPARE" forKey:kDefaultEnvSelect];
-    [[TuyaSmartSDK sharedInstance] setValue:@"APP_ENV_PREPARE" forKey:@"appEnv"];
     
     //TODO: 修改AppKey和SecretKey
 //    [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
