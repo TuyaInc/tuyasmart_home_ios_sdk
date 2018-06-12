@@ -44,7 +44,7 @@
  *  @param failure 操作失败回调
  */
 - (void)getHomeListWithSuccess:(void(^)(NSArray <TuyaSmartHomeModel *> *homes))success
-            failure:(TYFailureError)failure;
+                       failure:(TYFailureError)failure;
 
 /**
  *  添加家庭

@@ -181,7 +181,7 @@
 
 
 /**
- 单设备删除共享
+ 删除分享出去的设备
  
  @param memberId    共享成员ID
  @param devId       设备号
