@@ -92,14 +92,14 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) NSUInteger   capability;
 
 
-@property (nonatomic, assign) long long time;
+@property (nonatomic, assign) long long    time;
 @property (nonatomic, strong) NSString     *timezoneId;
 
-@property (nonatomic, assign) long long homeId;
-@property (nonatomic, assign) long long roomId;
+@property (nonatomic, assign) long long    homeId;
+@property (nonatomic, assign) long long    roomId;
 
 // 排序
-@property (nonatomic, assign) NSInteger displayOrder;
+@property (nonatomic, assign) NSInteger    displayOrder;
 
 #pragma mark - 涂鸦智能 控制面板相关
 
@@ -129,20 +129,20 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, strong) NSDictionary *originJson;
 
+@property (nonatomic, strong) TuyaSmartDeviceModuleModel *moduleMap;
+
 - (BOOL)attributeIsSupport:(int)i;
 - (BOOL)capabilityIsSupport:(int)i;
 
-#pragma mark - mesh 子设备相关
-// mesh 设备信息
+#pragma mark - 子设备相关
+// 子设备信息
 @property (nonatomic, strong) NSString     *nodeId;
-@property (nonatomic, strong) NSString     *pcc;
-@property (nonatomic, strong) TuyaSmartDeviceModuleModel *moduleMap;
-@property (nonatomic, assign) BOOL         isMeshBleOnline;
-
 @property (nonatomic, strong) NSString     *parentId;
 
 // mesh 融合类 pcc 拓展类型
 @property (nonatomic, strong) NSString     *vendorInfo;
+@property (nonatomic, assign) BOOL         isMeshBleOnline;
+@property (nonatomic, strong) NSString     *pcc;
 
 @end
 

@@ -1106,8 +1106,9 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 ```objc
 - (void)upgradeFirmware {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-	
-	NSInteger type = 1;
+	// 设备类型type 从获取设备升级信息接口 getFirmwareUpgradeInfo 返回的类型
+	// TuyaSmartFirmwareUpgradeModel - type
+
 	[self.device upgradeFirmware:type success:^{
 		NSLog(@"upgradeFirmware success"); 
 	} failure:^(NSError *error) {
@@ -1119,11 +1120,11 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 
 #### 回调接口：
 ```objc
-- (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device {
+- (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type {
 	//固件升级成功
 }
 
-- (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device {
+- (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device type:(NSInteger)type {
 	//固件升级失败
 }
 

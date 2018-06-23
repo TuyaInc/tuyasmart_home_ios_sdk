@@ -48,10 +48,10 @@ typedef enum : NSUInteger {
 - (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps;
 
 /// 固件升级成功
-- (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device;
+- (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type;
 
 /// 固件升级失败
-- (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device;
+- (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device type:(NSInteger)type;
 
 /**
  *  固件升级进度
