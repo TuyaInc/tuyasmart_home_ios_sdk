@@ -21,7 +21,7 @@
 #endif
     
     //TODO: 修改AppKey和SecretKey
-//    [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
+    [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
     
     [[TYAppService sharedInstance] configApp:launchOptions];
     

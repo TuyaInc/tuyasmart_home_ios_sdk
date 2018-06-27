@@ -1645,8 +1645,7 @@
 				65FC237220C9281000918C6D /* TYSceneMapPoint.h */,
 				65FC237120C9281000918C6D /* TYSceneMapPoint.m */,
 			);
-			name = Model;
-			path = Controller/Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		65FC22C820C926D000918C6D /* View */ = {
@@ -1683,8 +1682,7 @@
 				65FC235120C927E200918C6D /* TYTextFieldTableViewCell.h */,
 				65FC235920C927E300918C6D /* TYTextFieldTableViewCell.m */,
 			);
-			name = View;
-			path = "../../../../../tuyasmart_ios_sdk/Example/TuyaSmartKitDemo/业务/智能场景/View";
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
