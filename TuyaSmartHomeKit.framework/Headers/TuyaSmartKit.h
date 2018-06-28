@@ -17,7 +17,7 @@
 /**
  *  当前SDK的版本号
  */
-#define TUYA_SDK_VERSION @"0.0.9"
+#define TUYA_SDK_VERSION @"0.0.10"
 
 /**
  *  当前客户端支持的最高的外网通信协议
