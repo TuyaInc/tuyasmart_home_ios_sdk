@@ -43,10 +43,10 @@ typedef NS_ENUM(NSInteger, TYBLEMeshOperationStatus) {
 @optional
 
 - (void)centralManagerStatusChange:(CBManagerState)status;
-- (void)activeDeviceSuccessWithName:(NSString *)name deviceId:(NSString *)deviceId;
+- (void)activeDeviceSuccessWithName:(NSString *)name deviceId:(NSString *)deviceId error:(NSError *)error;
 - (void)deviceAddGroupAddress:(uint32_t)address;
 
-- (void)activeWifiDeviceWithName:(NSString *)name address:(NSInteger)address mac:(NSInteger)mac;
+- (void)activeWifiDeviceWithName:(NSString *)name address:(NSInteger)address mac:(NSInteger)mac error:(NSError *)error;
 - (void)notifyCentralManagerDidDisconnectPeripheral;
 - (void)notifyFirmwareWithVersion:(NSString *)version;
 - (void)notifyLoginSuccessWithAddress:(uint32_t)address;
@@ -124,6 +124,8 @@ typedef NS_ENUM(NSInteger, TYBLEMeshOperationStatus) {
 
 // ota
 - (void)sendOTAPackWithAddress:(NSInteger)address version:(NSString *)version otaData:(NSData *)otaData success:(TYSuccessHandler)success failure:(TYFailureHandler)failure;
+
+- (void)getProductNameByProductId:(NSString *)productId completion:(void(^)(NSString *))completion;
 
 @end
 

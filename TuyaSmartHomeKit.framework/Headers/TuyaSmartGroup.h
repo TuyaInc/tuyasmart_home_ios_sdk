@@ -25,6 +25,8 @@
 /// 群组信息更新
 - (void)groupInfoUpdate:(TuyaSmartGroup *)group;
 
+- (void)groupRemove:(TuyaSmartGroup *)group;
+
 @end
 
 @interface TuyaSmartGroup : NSObject
