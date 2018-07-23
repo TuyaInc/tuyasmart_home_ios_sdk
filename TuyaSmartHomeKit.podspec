@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TuyaSmartHomeKit'
-  s.version          = '0.0.12'
+  s.version          = '0.0.13'
   s.summary          = '涂鸦全屋智能iOS SDK'
 
 # This description is used to generate tags and improve search results.
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 涂鸦全屋智能APP SDK提供了与硬件设备、涂鸦云通讯的接口封装，加速应用开发过程。
                        DESC
-                       
+
   s.homepage         = 'http://www.tuya.com'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
-  
+
   # s.resource_bundles = {
   #   'TuyaSmartKit' => ['TuyaSmartKit/Assets/*.png']
   # }
