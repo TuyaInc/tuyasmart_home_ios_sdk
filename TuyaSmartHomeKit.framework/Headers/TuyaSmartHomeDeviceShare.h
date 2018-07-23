@@ -17,54 +17,6 @@
 ///  共享设备相关功能 （基于家庭的设备维度的共享）
 @interface TuyaSmartHomeDeviceShare : NSObject
 
-/**
- 获取单个群组共享用户列表(面板中体现)
- 
- @param groupId 群组号
- @param success 操作成功回调
- @param failure 操作失败回调
- */
-- (void)getGroupShareMemberListWithGroupId:(NSString *)groupId success:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success failure:(TYFailureError)failure;
-/**
- 分享群组给用户
- @param homeId      家庭号
- @param countryCode 国家代码
- @param userAcount  用户账号
- @param groupId     群组号
- @param success     操作成功回调
- @param failure     操作失败回调
- */
-
-- (void)addGroupShareToMemberWithHomeId:(long long)homeId countyCode:(NSString *)countryCode userAccount:(NSString *)userAccount groupId:(NSString *)groupId success:(TYSuccessID)success failure:(TYFailureError)failure;
-/**
- 获取分享信息
- 
- @param groupId 群组号
- @param success 操作成功回调
- @param failure 操作失败回调
- */
-
-- (void)getShareGroupFromInfoWithGroupId:(NSString *)groupId success:(TYSuccessID)success failure:(TYFailureError)failure;
-
-/**
- 移除分享群组
- 
- @param groupId 群组号
- @param success 操作成功回调
- @param failure 操作失败回调
- */
-
-- (void)removeShareGroupWithGroupId:(NSString *)groupId success:(TYSuccessID)success failure:(TYFailureError)failure;
-
-/**
- 单个群组删除共享
- 
- @param relationId 关系id
- @param groupId 群组id
- @param success 操作成功回调
- @param failure 操作失败回调
- */
-- (void)removeGroupShareWithRelationId:(NSInteger)relationId groupId:(NSString *)groupId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
 /**
  添加共享

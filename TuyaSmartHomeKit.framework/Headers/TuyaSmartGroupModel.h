@@ -37,31 +37,8 @@ typedef enum : NSUInteger {
 // 群组类型
 @property (nonatomic, assign) TuyaSmartGroupType  type;
 
-@property (nonatomic, assign) BOOL      isShare;
-
-// dps
-@property (nonatomic, strong) NSDictionary *dps;
-
-// localKey
-@property (nonatomic, strong) NSString     *localKey;
-
-// pv
-@property (nonatomic, assign) float        pv;
-
-// productInfo
-//@property (nonatomic, strong) NSDictionary *productInfo;
-
-// homeId
-@property (nonatomic, assign) long long    homeId;
-
-// roomId
-@property (nonatomic, assign) long long    roomId;
-
-// 排序
-@property (nonatomic, assign) NSInteger displayOrder;
-
-// 设备列表
-@property (nonatomic, strong) NSArray<TuyaSmartDeviceModel *> *deviceList;
+//设备在线状态
+@property (nonatomic, assign) BOOL      isOnline;
 
 //群组的本地短地址
 @property (nonatomic, strong) NSString     *localId;
@@ -72,7 +49,20 @@ typedef enum : NSUInteger {
 // mesh
 @property (nonatomic, strong) NSString     *meshId;
 
-- (TuyaSmartDeviceModel *)getVirtualModel;
+// homeId
+@property (nonatomic, assign) long long    homeId;
+
+// roomId
+@property (nonatomic, assign) long long    roomId;
+
+//主设备
+@property (nonatomic, strong) TuyaSmartDeviceModel *mainDevice;
+
+// 排序
+@property (nonatomic, assign) NSInteger displayOrder;
+
+// 设备列表
+@property (nonatomic, strong) NSArray<TuyaSmartDeviceModel *> *deviceList;
 
 
 @end

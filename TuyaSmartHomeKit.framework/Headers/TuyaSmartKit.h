@@ -17,7 +17,7 @@
 /**
  *  当前SDK的版本号
  */
-#define TUYA_SDK_VERSION @"0.0.13"
+#define TUYA_SDK_VERSION @"0.0.14"
 
 /**
  *  当前客户端支持的最高的外网通信协议
@@ -58,5 +58,3 @@
 #import "TYBleMeshDeviceModel.h"
 #import "TYBLEMeshManager.h"
 #import "TuyaSmartHomeDeviceShare.h"
-
-
