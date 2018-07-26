@@ -349,6 +349,23 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
                        success:(TYSuccessHandler)success
                        failure:(TYFailureError)failure;
 
+/**
+ *  uid 登录注册接口（如果没有注册就注册，如果注册就登录）
+ *
+ *  @param countryCode  国家区号
+ *  @param uid          uid
+ *  @param password     密码
+ *  @param createHome   创建默认家庭
+ *  @param success      操作成功回调
+ *  @param failure      操作失败回调
+ */
+- (void)loginOrRegisterByPhone:(NSString *)countryCode
+                           uid:(NSString *)uid
+                      password:(NSString *)password
+                    createHome:(BOOL)createHome
+                       success:(TYSuccessID)success
+                       failure:(TYFailureError)failure;
+
 
 #pragma mark - 三方登录
 

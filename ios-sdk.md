@@ -44,9 +44,7 @@ target 'Your_Project_Name' do
 end
 ```
 
-![Podfile](./images/ios-sdk-podfile.png)
-
-然后在项目根目录下执行`pod install`命令进行集成。
+然后在项目根目录下执行`pod update`命令进行集成。
 
 _CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)_
 _CocoaPods建议更新至最新版本_
