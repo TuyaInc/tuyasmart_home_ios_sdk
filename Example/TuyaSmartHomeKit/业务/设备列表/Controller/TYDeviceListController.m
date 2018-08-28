@@ -79,7 +79,13 @@
             weakSelf_AT.home = [TuyaSmartHome homeWithHomeId:model.homeId];
             weakSelf_AT.home.delegate = weakSelf_AT;
             [TYHomeManager sharedInstance].home = weakSelf_AT.home;
-            [weakSelf_AT reloadDataFromCloud];
+
+            [weakSelf_AT.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
+                NSLog(@"decie list : %@", weakSelf_AT.home.deviceList);
+                [weakSelf_AT reloadData];
+            } failure:^(NSError *error) {
+                
+            }];
         } else {
             // 如果没有家庭，添加一个家庭，再初始化
             [weakSelf_AT.homeManager addHomeWithName:@"hangzhou's home" geoName:@"hangzhou" rooms:@[@"bedroom"] latitude:0 longitude:0 success:^(long long homeId) {
