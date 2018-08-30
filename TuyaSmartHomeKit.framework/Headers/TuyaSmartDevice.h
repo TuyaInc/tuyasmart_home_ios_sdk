@@ -61,6 +61,9 @@ typedef enum : NSUInteger {
  */
 - (void)device:(TuyaSmartDevice *)device firmwareUpgradeProgress:(NSInteger)type progress:(double)progress;
 
+// wifi信号强度回调
+- (void)device:(TuyaSmartDevice *)device signal:(NSString *)signal;
+
 @end
 
 /// 设备相关功能
@@ -162,6 +165,15 @@ typedef enum : NSUInteger {
  *  @param failure 操作失败回调
  */
 - (void)getSubDeviceListFromCloudWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *subDeviceList))success failure:(TYFailureError)failure;
+
+/**
+ *  获取wifi的信号强度
+ *  通过 - (void)device:(TuyaSmartDevice *)device signalStrength:(NSString *)SignalStrength 接受回调
+ *
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)getWifiSignalStrengthWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
 #pragma mark - firmware upgrade
 

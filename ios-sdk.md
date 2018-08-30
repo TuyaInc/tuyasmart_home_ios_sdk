@@ -1065,6 +1065,27 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 }
 ```
 
+### 获取设备的wifi信号强度
+
+```objc
+- (void)removeDevice {
+	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+    // self.device.delegate = self;
+	
+	[self.device getWifiSignalStrengthWithSuccess:^{
+		NSLog(@"get wifi signal strength success");
+	} failure:^(NSError *error) {
+		NSLog(@"get wifi signal strength failure: %@", error);
+	}];
+}
+
+#pragma mark - TuyaSmartDeviceDelegate
+
+- (void)device:(TuyaSmartDevice *)device signal:(NSString *)signal {
+    NSLog(@" signal : %@", signal);
+}
+```
+
 ### 获取网关下的子设备列表
 
 ```objc
