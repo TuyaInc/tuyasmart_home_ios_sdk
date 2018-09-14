@@ -524,6 +524,8 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 
 ### 获取家庭列表
 
+获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去初始化一个home，调用接口 getHomeDetailWithSuccess:failure:
+
 ```objc
 - (void)getHomeList {
 	
@@ -559,7 +561,7 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 
 主要功能：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
 
-单个家庭信息管理相关的所有功能对应`TuyaSmartHome`类，需要使用家庭Id进行初始化。错误的家庭Id可能会导致初始化失败，返回`nil`。
+单个家庭信息管理相关的所有功能对应`TuyaSmartHome`类，需要使用家庭Id进行初始化。错误的家庭Id可能会导致初始化失败，返回`nil`。初始化 home 对象之后需要获取家庭的详情接口（getHomeDetailWithSuccess:failure:），home 实例对象中的属性 homeModel,roomList,deviceList,groupList 才有数据。
 
 
 ### 单个家庭信息变化的回调
@@ -636,6 +638,8 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 ```
 
 ### 获取家庭的信息
+
+初始化 home 对象之后需要获取家庭的详情， home 对象的属性 homeModel,roomList,deviceList,groupList 才有数据
 
 ```objc
 - (void)getHomeDetailInfo {
@@ -2235,7 +2239,7 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 #### 新增告警Push
 涂鸦开发者平台 - 对应产品 - 扩展功能 - 告警设置 - 新增告警规则(应用推送方式)
 
- 
+
 ## FAQ
 
 1、 为什么执行`pod install`会报错？  
