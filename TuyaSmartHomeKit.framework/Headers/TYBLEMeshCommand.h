@@ -66,6 +66,15 @@ typedef NS_ENUM(NSUInteger, TYBLEMeshCommandType) {
     
     // 获取当前 mesh 灯场景模式数据
     TYBLEMeshGetLightSceneModelCommand,
+    
+    // 时间同步
+    TYBLEMeshTimeSynchronizationCommand,
+    
+    // 设置定时
+    TYBLEMeshSetTimerCommand,
+    
+    // 读取定时
+    TYBLEMeshGetTimerCommand,
 
 };
 

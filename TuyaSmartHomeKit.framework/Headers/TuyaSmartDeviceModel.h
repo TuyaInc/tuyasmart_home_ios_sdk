@@ -100,6 +100,8 @@ typedef enum : NSUInteger {
 
 // 排序
 @property (nonatomic, assign) NSInteger    displayOrder;
+// 扩展
+@property (nonatomic, strong) NSDictionary *skills;
 
 #pragma mark - 涂鸦智能 控制面板相关
 

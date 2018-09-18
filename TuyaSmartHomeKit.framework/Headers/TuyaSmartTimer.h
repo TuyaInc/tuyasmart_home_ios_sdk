@@ -115,7 +115,7 @@
  *  @param devId        设备Id
  *  @param timezoneId   时区Id，例如Asia/Shanghai
  */
-- (void)updateTimerWithDeviceId:(NSString *)devId timezoneId:(NSString *)timezoneId success:(TYSuccessHandler)success failure:(TYFailureHandler)failure;
+- (void)updateTimerWithDeviceId:(NSString *)devId timezoneId:(NSString *)timezoneId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
 /// 取消未完成的操作
 - (void)cancelRequest;

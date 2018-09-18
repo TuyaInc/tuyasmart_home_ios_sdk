@@ -63,7 +63,7 @@ typedef enum : NSUInteger {
  *
  *  获取配网Token（有效期10分钟）
  *
- *  @param homeId  homeId
+ *  @param homeId  家庭id
  *  @param success 操作成功回调，返回配网Token
  *  @param failure 操作失败回调
  */
@@ -77,7 +77,7 @@ typedef enum : NSUInteger {
  *  获取配网Token（有效期10分钟）
  *
  *  @param productKey   产品Id
- *  @param homeId       homeId
+ *  @param homeId       家庭id
  *  @param success      操作成功回调，返回配网Token
  *  @param failure      操作失败回调
  */
@@ -85,6 +85,20 @@ typedef enum : NSUInteger {
                         homeId:(long long)homeId
                        success:(TYSuccessString)success
                        failure:(TYFailureError)failure;
+
+/**
+ *
+ *  获取配网Token（有效期10分钟）
+ *
+ *  @param uuid    设备唯一id
+ *  @param homeId  家庭id
+ *  @param success 操作成功回调，返回配网Token
+ *  @param failure 操作失败回调
+ */
+- (void)getTokenWithUUID:(NSString *)uuid
+                  homeId:(long long)homeId
+                 success:(TYSuccessString)success
+                 failure:(TYFailureError)failure;
 
 /**
  *  开始配网 (无线配网)
@@ -171,16 +185,17 @@ typedef enum : NSUInteger {
 
 /**
  *  激活ZigBee子设备
- *
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
+ *  @param gwId     网关Id
+ *  @param timeout  超时时间, 默认为100秒
  */
-- (void)activeSubDeviceWithGwId:(NSString *)gwId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)activeSubDeviceWithGwId:(NSString *)gwId timeout:(NSTimeInterval)timeout;
+
 
 /**
  *  停止激活zigbee子设备
  */
 - (void)stopActiveSubDeviceWithGwId:(NSString *)gwId;
+
 
 @end
 

@@ -50,12 +50,12 @@ typedef enum : NSUInteger {
 /**
  场景条件
  */
-@property (nonatomic, strong) NSMutableArray <TuyaSmartSceneConditionModel *> *conditions;
+@property (nonatomic, strong) NSArray <TuyaSmartSceneConditionModel *> *conditions;
 
 /**
  场景任务
  */
-@property (nonatomic, strong) NSMutableArray <TuyaSmartSceneActionModel *> *actions;
+@property (nonatomic, strong) NSArray <TuyaSmartSceneActionModel *> *actions;
 
 /**
  设备列表

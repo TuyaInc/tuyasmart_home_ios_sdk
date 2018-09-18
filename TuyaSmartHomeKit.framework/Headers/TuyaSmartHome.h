@@ -48,6 +48,9 @@
 // 添加群组
 - (void)home:(TuyaSmartHome *)home didAddGroup:(TuyaSmartGroupModel *)group;
 
+// 群组dp数据更新
+- (void)home:(TuyaSmartHome *)home group:(TuyaSmartGroupModel *)group dpsUpdate:(NSDictionary *)dps;
+
 // 删除群组
 - (void)home:(TuyaSmartHome *)home didRemoveGroup:(NSString *)groupId;
 
@@ -70,6 +73,8 @@
 @property (nonatomic, copy, readonly) NSArray <TuyaSmartGroupModel *> *groupList;
 
 @property (nonatomic, copy, readonly) NSArray <TuyaSmartDeviceModel *> *sharedDeviceList;
+
+@property (nonatomic, copy, readonly) NSArray <TuyaSmartGroupModel *>  *sharedGroupList;
 
 @property (nonatomic, strong, readonly) TuyaSmartBleMeshModel *meshModel;
 

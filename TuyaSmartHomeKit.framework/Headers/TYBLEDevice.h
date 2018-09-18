@@ -74,6 +74,8 @@ typedef NS_ENUM(NSUInteger, TYBLEDeviceConnectState) {
     
 @property (nonatomic, assign) id<TYBLEDeviceDelegate> delegate;
 
+@property (nonatomic, copy) TYBLECompletion connectCompletion;
+
 ///// services
 //@property (nonatomic, strong, readonly) NSArray *services;
 //
