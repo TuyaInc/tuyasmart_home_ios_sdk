@@ -45,6 +45,7 @@ Pod::Spec.new do |s|
   s.dependency 'Mantle'
   s.dependency 'UICKeyChainStore'
   s.dependency 'Reachability'
+  s.dependency 'SDVersion'
 
   s.user_target_xcconfig = { 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES' }
 
