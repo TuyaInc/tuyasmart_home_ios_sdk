@@ -1072,7 +1072,7 @@ AP模式配网与EZ类似，把`[TuyaSmartActivator startConfigWiFi:ssid:passwor
 ### 获取设备的wifi信号强度
 
 ```objc
-- (void)removeDevice {
+- (void)getWifiSignalStrength {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
     // self.device.delegate = self;
 	
