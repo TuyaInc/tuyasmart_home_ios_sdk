@@ -27,7 +27,7 @@ PODS:
     - Mantle/extobjc (= 2.1.0)
   - Mantle/extobjc (2.1.0)
   - MBProgressHUD (0.9.2)
-  - MJRefresh (3.1.15.3)
+  - MJRefresh (3.1.15.7)
   - MQTTClient (0.14.0):
     - MQTTClient/Core (= 0.14.0)
   - MQTTClient/Core (0.14.0):
@@ -37,15 +37,17 @@ PODS:
     - MQTTClient/Min
   - MQTTClient/Min (0.14.0)
   - Reachability (3.2)
-  - SDWebImage (4.4.1):
-    - SDWebImage/Core (= 4.4.1)
-  - SDWebImage/Core (4.4.1)
+  - SDVersion (4.3.2)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
   - SWTableViewCell (0.3.7)
-  - TuyaSmartHomeKit (0.0.4):
+  - TuyaSmartHomeKit (0.0.18):
     - CocoaAsyncSocket
     - Mantle
     - MQTTClient (= 0.14.0)
     - Reachability
+    - SDVersion
     - UICKeyChainStore
   - UICKeyChainStore (2.1.1)
 
@@ -61,7 +63,7 @@ DEPENDENCIES:
   - TuyaSmartHomeKit (from `../`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - BlocksKit
     - CocoaAsyncSocket
     - CocoaLumberjack
@@ -72,6 +74,7 @@ SPEC REPOS:
     - MJRefresh
     - MQTTClient
     - Reachability
+    - SDVersion
     - SDWebImage
     - SWTableViewCell
     - UICKeyChainStore
@@ -88,14 +91,15 @@ SPEC CHECKSUMS:
   libPhoneNumber-iOS: e444379ac18bbfbdefad571da735b2cd7e096caa
   Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MQTTClient: eea2eaaa6ddef852a1019a4dda091e22ad928b58
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  SDVersion: 18f32c835c1543611fcfae3c6accd9a04b90597e
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SWTableViewCell: 2a94aadc9d47b2b611fa064566bf57948b95b579
-  TuyaSmartHomeKit: 8dc67b5e1720abb3d4fdd77db92fb1610867ee0c
+  TuyaSmartHomeKit: 53e93d5d14f6499cfbaf1bf8e5ba0a145f159240
   UICKeyChainStore: 239558492fa260531a0774cfc611ea83a6eaff3a
 
 PODFILE CHECKSUM: 05615c6078cff6a0accfd442cf5e46c92c3702e7
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

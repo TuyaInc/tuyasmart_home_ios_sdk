@@ -21,6 +21,9 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		625E3411D001178F9314BC1C /* Pods_TuyaSmartHomeKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52AC91F58C1414B14CC57A99 /* Pods_TuyaSmartHomeKit_Tests.framework */; };
+		65CA52FF2155371D00D9F17E /* TPUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CA52FE2155371C00D9F17E /* TPUtils.m */; };
+		65CA53012155372400D9F17E /* TPDate.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CA53002155372400D9F17E /* TPDate.m */; };
+		65CA53032155384800D9F17E /* TPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CA53022155384800D9F17E /* TPNotification.m */; };
 		65FC20F720C8D2FE00918C6D /* TYDeviceListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC1F7420C8D2FE00918C6D /* TYDeviceListController.m */; };
 		65FC20F820C8D2FE00918C6D /* TYDeviceListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FC1F7820C8D2FE00918C6D /* TYDeviceListViewCell.m */; };
 		65FC20F920C8D2FE00918C6D /* ty_devicelist_dot_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 65FC1F7A20C8D2FE00918C6D /* ty_devicelist_dot_green@2x.png */; };
@@ -318,6 +321,9 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
+		65CA52FE2155371C00D9F17E /* TPUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPUtils.m; sourceTree = "<group>"; };
+		65CA53002155372400D9F17E /* TPDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDate.m; sourceTree = "<group>"; };
+		65CA53022155384800D9F17E /* TPNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPNotification.m; sourceTree = "<group>"; };
 		65FC1F7420C8D2FE00918C6D /* TYDeviceListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDeviceListController.m; sourceTree = "<group>"; };
 		65FC1F7520C8D2FE00918C6D /* TYDeviceListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDeviceListController.h; sourceTree = "<group>"; };
 		65FC1F7720C8D2FE00918C6D /* TYDeviceListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDeviceListViewCell.h; sourceTree = "<group>"; };
@@ -1506,10 +1512,12 @@
 			children = (
 				65FC21FD20C8D31900918C6D /* TPPinyin.c */,
 				65FC21FE20C8D31900918C6D /* TPDate.h */,
+				65CA53002155372400D9F17E /* TPDate.m */,
 				65FC21FF20C8D31900918C6D /* TYUserDefault.h */,
 				65FC220020C8D31900918C6D /* TPError.h */,
 				65FC220120C8D31900918C6D /* TPPinyin.h */,
 				65FC220220C8D31900918C6D /* TPUtils.h */,
+				65CA52FE2155371C00D9F17E /* TPUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1582,6 +1590,7 @@
 				65FC222320C8D31900918C6D /* TPCountryCodeUtils.m */,
 				65FC222420C8D31900918C6D /* TPViewUtil.m */,
 				65FC222520C8D31900918C6D /* TPNotification.h */,
+				65CA53022155384800D9F17E /* TPNotification.m */,
 				65FC222620C8D31900918C6D /* TPProgressUtils.m */,
 				65FC222720C8D31900918C6D /* TPAnimations.h */,
 			);
@@ -1942,6 +1951,7 @@
 				"${BUILT_PRODUCTS_DIR}/MQTTClient/MQTTClient.framework",
 				"${BUILT_PRODUCTS_DIR}/Mantle/Mantle.framework",
 				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SDVersion/SDVersion.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SWTableViewCell/SWTableViewCell.framework",
 				"${BUILT_PRODUCTS_DIR}/UICKeyChainStore/UICKeyChainStore.framework",
@@ -1958,6 +1968,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MQTTClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mantle.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDVersion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SWTableViewCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICKeyChainStore.framework",
@@ -2046,9 +2057,11 @@
 				65FC225120C8D31900918C6D /* NSMutableArray+TPCategory.m in Sources */,
 				65FC226720C8D31900918C6D /* TPProgressUtils.m in Sources */,
 				65FC214D20C8D2FE00918C6D /* TYContectToAPViewController.m in Sources */,
+				65CA53012155372400D9F17E /* TPDate.m in Sources */,
 				65FC234320C927C500918C6D /* TYAddSceneViewController.m in Sources */,
 				65FC213120C8D2FE00918C6D /* AddDeviceListViewController.m in Sources */,
 				65FC21C220C8D2FE00918C6D /* UserInfoTableViewCell.m in Sources */,
+				65CA53032155384800D9F17E /* TPNotification.m in Sources */,
 				65FC214A20C8D2FE00918C6D /* TYSearchOneDeviceController.m in Sources */,
 				65FC234420C927C500918C6D /* TYSelectCityViewController.m in Sources */,
 				65FC236320C927E400918C6D /* TYSelectConditionTableViewCell.m in Sources */,
@@ -2127,6 +2140,7 @@
 				65FC210B20C8D2FE00918C6D /* TPSignUpViewController.m in Sources */,
 				65FC226820C8D31900918C6D /* UIColor+TPCategory.m in Sources */,
 				65FC226120C8D31900918C6D /* TPNavigationController.m in Sources */,
+				65CA52FF2155371D00D9F17E /* TPUtils.m in Sources */,
 				65FC236C20C927E400918C6D /* TYSelectDPLocationView.m in Sources */,
 				65FC226C20C8D31900918C6D /* TPBaseView.m in Sources */,
 				65FC211520C8D2FE00918C6D /* TYPanelDpTitleView.m in Sources */,
