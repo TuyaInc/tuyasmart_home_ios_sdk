@@ -28,7 +28,6 @@
     [super viewDidLoad];
     
     [self initView];
-    [self reloadDataFromCloud];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
