@@ -25,4 +25,3 @@ typedef void (^TYFailureHandler)(void);
 typedef void (^TYFailureError)(NSError *error);
 
 #endif /* TuyaSmartKitConstants_h */
-
