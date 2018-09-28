@@ -199,10 +199,10 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 ```objc
 - (void)sendVerifyCode {
 	[[TuyaSmartUser sharedInstance] sendVerifyCodeByRegisterEmail:@"country_code" email:@"email" success:^{
-                NSLog(@"sendVerifyCode success");
-            } failure:^(NSError *error) {
-                NSLog(@"sendVerifyCode failure: %@", error);
-            }];
+        NSLog(@"sendVerifyCode success");
+    } failure:^(NSError *error) {
+        NSLog(@"sendVerifyCode failure: %@", error);
+    }];
 }
 ```
 
@@ -210,7 +210,7 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 
 ```objc
 - (void)registerByEmail {
-	    [[TuyaSmartUser sharedInstance] registerByEmail:@"country_code" email:@"email" password:@"password" code:@"verify_code" success:^{
+	[[TuyaSmartUser sharedInstance] registerByEmail:@"country_code" email:@"email" password:@"password" code:@"verify_code" success:^{
         NSLog(@"register success");
     } failure:^(NSError *error) {
         NSLog(@"register failure: %@", error);
