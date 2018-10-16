@@ -2254,3 +2254,11 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 4、下发控制指令，设备没有上报状态。  
 确认功能点的数据类型是否正确，比如功能点的数据类型是数值型（value），那控制命令发送的应该是 @{@"2": @(25)} 而不是 @{@"2": @"25"}。
 
+5、iOS 12 使用`[[TuyaSmartActivator sharedInstance] currentWifiSSID]`无法获取到SSID。
+
+在Xcode10中获取WiFi信息需要开启相关权限，解决方案：
+
+`Xcode` -> [Project Name] -> `Targets` -> [Target Name] -> `Capabilities` -> `Access WiFi Information` -> `ON`
+
+打开上述权限即可。
+
