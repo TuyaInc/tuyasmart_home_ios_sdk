@@ -50,6 +50,6 @@ Now all the preparatory work has been completed. You can set out to develop your
 
 ## Doc
 
-Refer to details: [Tuya Smart Doc - iOS SDK](./ios-sdk.md)
+Refer to details: [Tuya Smart Doc - iOS SDK](./ios-sdk_en.md)
 
 

@@ -28,7 +28,7 @@ published: true
 - 通过开发平台 - 模拟设备 进行模拟调试
 
 ### SDK Demo
-SDK Demo 是一个完整的APP，包含了登录、注册、共享、配网、控制等主流程，可参看Demo代码进行开发。 [下载地址](https://github.com/TuyaInc/tuyasmart_ios_sdk)
+SDK Demo 是一个完整的APP，包含了登录、注册、共享、配网、控制等主流程，可参看Demo代码进行开发。 [下载地址](https://github.com/TuyaInc/tuyasmart_home_ios_sdk)
 
 ## 集成SDK
 
