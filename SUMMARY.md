@@ -1,10 +1,15 @@
 # Summary
 
 * [前言](/README.md)
+
 * [功能概述](./resource/Overview.md)
 * [准备工作](./resource/Preparation.md)
 * [集成SDK](./resource/Integrated.md)
 * [用户管理](./resource/User.md)
+  * [用户注册](./resource/User_Register.md)
+  * [用户登录](./resource/User_Login.md)
+  * [第三方登录](./resource/User_ThirdLogin.md)
+  * [用户重置密码](./resource/User_Reset.md)
 * [家庭管理](./resource/Home.md)
 * [房间管理](./resource/Room.md)
 * [设备配网](./resource/Activator.md)

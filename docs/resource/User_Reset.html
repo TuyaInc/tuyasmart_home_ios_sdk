@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>集成Push · GitBook</title>
+        <title>用户重置密码 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Faq.html" />
+    <link rel="next" href="Home.html" />
     
     
-    <link rel="prev" href="CommonInterface.html" />
+    <link rel="prev" href="User_ThirdLogin.html" />
     
 
     </head>
@@ -194,7 +194,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="User_Reset.html">
+        <li class="chapter active" data-level="1.5.4" data-path="User_Reset.html">
             
                 <a href="User_Reset.html">
             
@@ -355,7 +355,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.17" data-path="Push.html">
+        <li class="chapter " data-level="1.17" data-path="Push.html">
             
                 <a href="Push.html">
             
@@ -411,7 +411,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >集成Push</a>
+        <a href=".." >用户重置密码</a>
     </h1>
 </div>
 
@@ -426,67 +426,103 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x57FA;&#x4E8E;Tuya SDK&#x5F00;&#x53D1;&#x7684;app&#xFF0C;Tuya&#x5E73;&#x53F0;&#x652F;&#x6301;Push&#x529F;&#x80FD;&#xFF0C;&#x652F;&#x6301;&#x7ED9;&#x7528;&#x6237;&#x53D1;&#x9001;&#x8FD0;&#x8425;Push&#x548C;&#x4EA7;&#x54C1;&#x7684;&#x544A;&#x8B66;Push&#x3002;</p>
-<h3 id="xcode&#x914D;&#x7F6E;">Xcode&#x914D;&#x7F6E;</h3>
-<p>&#x70B9;&#x51FB;&#x9879;&#x76EE; - <code>TARGETS</code> - <code>Capabilities</code>, &#x5C06;&#x8FD9;&#x91CC;&#x7684; <code>Push Notification</code>&#x7684;&#x5F00;&#x5173;&#x6253;&#x5F00;&#xFF0C;&#x6548;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
-<p><img src="images/ios-push.png" alt="ios-push"></p>
-<h3 id="&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0;&#x914D;&#x7F6E;">&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0;&#x914D;&#x7F6E;</h3>
-<p>&#x767B;&#x5F55;&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0; - &#x8FDB;&#x5165;&#x5BF9;&#x5E94;APP - &#x63A8;&#x9001;&#x914D;&#x7F6E; - &#x4E0A;&#x4F20;push&#x8BC1;&#x4E66;</p>
-<p><img src="images/ios-push-setting.png" alt="ios-push-setting"></p>
-<h3 id="&#x521D;&#x59CB;&#x5316;">&#x521D;&#x59CB;&#x5316;</h3>
-<p>&#x5728; <code>didFinishLaunchingWithOptions</code> &#x65B9;&#x6CD5;&#x4E2D;&#x521D;&#x59CB;&#x5316;push</p>
+                                <h3 id="&#x7528;&#x6237;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;">&#x7528;&#x6237;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</h3>
+<h4 id="&#x624B;&#x673A;&#x53F7;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;">&#x624B;&#x673A;&#x53F7;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</h4>
+<p>&#x624B;&#x673A;&#x53F7;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#x6D41;&#x7A0B;&#x548C;&#x6CE8;&#x518C;&#x6D41;&#x7A0B;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x9001;&#x9A8C;&#x8BC1;&#x7801;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)sendVerifyCode {
+    [TuyaSmartUser sharedInstance] sendVerifyCode:<span class="hljs-string">@&quot;your_country_code&quot;</span> phoneNumber:<span class="hljs-string">@&quot;your_phone_number&quot;</span> type:<span class="hljs-number">2</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;sendVerifyCode success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;sendVerifyCode failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<ul>
+<li>&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)resetPasswordByPhone {
+    [TuyaSmartUser sharedInstance] resetPasswordByPhone:<span class="hljs-string">@&quot;your_country_code&quot;</span> phoneNumber:<span class="hljs-string">@&quot;your_phone_number&quot;</span> newPassword:<span class="hljs-string">@&quot;your_password&quot;</span> code:<span class="hljs-string">@&quot;verify_code&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;resetPasswordByPhone success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;resetPasswordByPhone failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h4 id="&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;">&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</h4>
+<p>&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#x9700;&#x8981;&#x4E24;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x9001;&#x9A8C;&#x8BC1;&#x7801;&#x5230;&#x90AE;&#x7BB1;</li>
+</ul>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)sendVerifyCodeByEmail {
+    [TuyaSmartUser sharedInstance] sendVerifyCodeByEmail:<span class="hljs-string">@&quot;your_country_code&quot;</span> email:<span class="hljs-string">@&quot;your_email&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;sendVerifyCodeByEmail success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;sendVerifyCodeByEmail failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<ul>
+<li>&#x6536;&#x5230;&#x9A8C;&#x8BC1;&#x7801;&#x540E;&#xFF0C;&#x4F7F;&#x7528;&#x9A8C;&#x8BC1;&#x7801;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</li>
+</ul>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)resetPasswordByEmail {
+    [TuyaSmartUser sharedInstance] resetPasswordByEmail:<span class="hljs-string">@&quot;your_country_code&quot;</span> email:<span class="hljs-string">@&quot;your_email&quot;</span> newPassword:<span class="hljs-string">@&quot;your_password&quot;</span> code:<span class="hljs-string">@&quot;verify_code&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;resetPasswordByEmail success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;resetPasswordByEmail failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h3 id="&#x4FEE;&#x6539;&#x6635;&#x79F0;">&#x4FEE;&#x6539;&#x6635;&#x79F0;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)modifyNickname:(<span class="hljs-built_in">NSString</span> *)nickname {
+    [[TuyaSmartUser sharedInstance] updateNickname:nickname success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;updateNickname success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;updateNickname failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h3 id="&#x767B;&#x51FA;">&#x767B;&#x51FA;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)loginOut {
+    [TuyaSmartUser sharedInstance] loginOut:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;logOut success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;logOut failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h3 id="&#x505C;&#x7528;&#x5E10;&#x53F7;&#xFF08;&#x6CE8;&#x9500;&#x7528;&#x6237;&#xFF09;">&#x505C;&#x7528;&#x5E10;&#x53F7;&#xFF08;&#x6CE8;&#x9500;&#x7528;&#x6237;&#xFF09;</h3>
+<p>&#x4E00;&#x5468;&#x540E;&#x8D26;&#x53F7;&#x624D;&#x4F1A;&#x6C38;&#x4E45;&#x505C;&#x7528;&#x5E76;&#x5220;&#x9664;&#x4EE5;&#x4E0B;&#x4F60;&#x8D26;&#x6237;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#xFF0C;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#x91CD;&#x65B0;&#x767B;&#x5F55;&#xFF0C;&#x5219;&#x4F60;&#x7684;&#x505C;&#x7528;&#x8BF7;&#x6C42;&#x5C06;&#x88AB;&#x53D6;&#x6D88;</p>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)cancelAccount {
+    [TuyaSmartUser sharedInstance] cancelAccount:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;cancel account success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;cancel account failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h3 id="session&#x8FC7;&#x671F;&#x7684;&#x5904;&#x7406;"><span id="session-invalid">Session&#x8FC7;&#x671F;&#x7684;&#x5904;&#x7406;</span></h3>
+<p>&#x957F;&#x671F;&#x672A;&#x767B;&#x5F55;&#x7684;&#x8D26;&#x53F7;&#xFF0C;&#x5728;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x53E3;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8FD4;&#x56DE;Session&#x8FC7;&#x671F;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x9700;&#x8981;&#x76D1;&#x542C;<code>TuyaSmartUserNotificationUserSessionInvalid</code>&#x901A;&#x77E5;&#xFF0C;&#x8DF3;&#x8F6C;&#x81F3;&#x767B;&#x5F55;&#x9875;&#x9762;&#x91CD;&#x65B0;&#x767B;&#x5F55;&#x3002;</p>
 <pre><code class="lang-objc">
-- (<span class="hljs-built_in">BOOL</span>)application:(<span class="hljs-built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="hljs-built_in">NSDictionary</span> *)launchOptions {
+- (<span class="hljs-keyword">void</span>)loadNotification {
+    [[<span class="hljs-built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="hljs-keyword">self</span> selector:<span class="hljs-keyword">@selector</span>(sessionInvalid) name:TuyaSmartUserNotificationUserSessionInvalid object:<span class="hljs-literal">nil</span>];
+}
 
+- (<span class="hljs-keyword">void</span>)sessionInvalid {
+    <span class="hljs-keyword">if</span> ([[TuyaSmartUser sharedInstance] isLogin]) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;sessionInvalid&quot;</span>);
+        <span class="hljs-comment">// &#x6CE8;&#x9500;&#x7528;&#x6237;</span>
+        [[TuyaSmartUser sharedInstance] loginOut:<span class="hljs-literal">nil</span> failure:<span class="hljs-literal">nil</span>];
 
-    [application registerForRemoteNotifications];
-    [application registerUserNotificationSettings:[<span class="hljs-built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="hljs-built_in">UIUserNotificationTypeAlert</span>|<span class="hljs-built_in">UIUserNotificationTypeBadge</span>|<span class="hljs-built_in">UIUserNotificationTypeSound</span> categories:<span class="hljs-literal">nil</span>]];
-
-
-    <span class="hljs-keyword">if</span> ([[[<span class="hljs-built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt;= <span class="hljs-number">10.0</span>) {
-        <span class="hljs-comment">//iOS10&#x9700;&#x8981;&#x52A0;&#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x3002;</span>
-        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
-        center.delegate = <span class="hljs-keyword">self</span>;
-        UNAuthorizationOptions types10 = UNAuthorizationOptionBadge|UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
-        [center requestAuthorizationWithOptions:types10 completionHandler:^(<span class="hljs-built_in">BOOL</span> granted, <span class="hljs-built_in">NSError</span> * _Nullable error) {
-            <span class="hljs-keyword">if</span> (granted) {
-                <span class="hljs-comment">//&#x70B9;&#x51FB;&#x5141;&#x8BB8;</span>
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-comment">//&#x70B9;&#x51FB;&#x4E0D;&#x5141;&#x8BB8;</span>
-            }
-        }];
+        <span class="hljs-comment">//&#x8DF3;&#x8F6C;&#x81F3;&#x767B;&#x5F55;&#x9875;&#x9762;</span>
+        MyLoginViewController *vc = [[MyLoginViewController alloc] init];
+        <span class="hljs-keyword">self</span>.window.rootViewController = vc;
+        [<span class="hljs-keyword">self</span>.window makeKeyAndVisible];
     }
-
 }
 </code></pre>
-<h3 id="&#x6CE8;&#x518C;pushid">&#x6CE8;&#x518C;pushId</h3>
-<p>&#x5728;<code>didRegisterForRemoteNotificationsWithDeviceToken</code>&#x4E2D;&#x6CE8;&#x518C;pushId&#x5230;Tuya SDK</p>
-<pre><code class="lang-objc">
-- (<span class="hljs-keyword">void</span>)application:(<span class="hljs-built_in">UIApplication</span> *)application didRegisterForRemoteNotificationsWithDeviceToken:(<span class="hljs-built_in">NSData</span> *)deviceToken {
-
-
-    <span class="hljs-built_in">NSString</span> *pushId = [[[[deviceToken description]
-                 stringByReplacingOccurrencesOfString:<span class="hljs-string">@&quot; &quot;</span> withString:<span class="hljs-string">@&quot;&quot;</span>]
-                stringByReplacingOccurrencesOfString:<span class="hljs-string">@&quot;&lt;&quot;</span> withString:<span class="hljs-string">@&quot;&quot;</span>]
-               stringByReplacingOccurrencesOfString:<span class="hljs-string">@&quot;&gt;&quot;</span> withString:<span class="hljs-string">@&quot;&quot;</span>];
-
-    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;pushId is %@&quot;</span>,pushId);
-
-    [[TuyaSmartSDK sharedInstance] setValue:pushId forKey:<span class="hljs-string">@&quot;deviceToken&quot;</span>];
-}
-</code></pre>
-<h3 id="&#x63A5;&#x6536;&#x901A;&#x77E5;">&#x63A5;&#x6536;&#x901A;&#x77E5;</h3>
-<p>&#x63A5;&#x6536;&#x5230;&#x8FDC;&#x7A0B;&#x901A;&#x77E5;&#xFF0C;&#x5728;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;didReceiveRemoteNotification&#x4E2D;&#x6267;&#x884C;</p>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)application:(<span class="hljs-built_in">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="hljs-built_in">NSDictionary</span> *)userInfo {
-
-
-}
-</code></pre>
-<h3 id="&#x53D1;&#x9001;push">&#x53D1;&#x9001;Push</h3>
-<h4 id="&#x65B0;&#x589E;&#x8FD0;&#x8425;push">&#x65B0;&#x589E;&#x8FD0;&#x8425;Push</h4>
-<p>&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0; - &#x7528;&#x6237;&#x8FD0;&#x8425; - &#x6D88;&#x606F;&#x4E2D;&#x5FC3; - &#x65B0;&#x589E;&#x6D88;&#x606F;</p>
-<h4 id="&#x65B0;&#x589E;&#x544A;&#x8B66;push">&#x65B0;&#x589E;&#x544A;&#x8B66;Push</h4>
-<p>&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0; - &#x5BF9;&#x5E94;&#x4EA7;&#x54C1; - &#x6269;&#x5C55;&#x529F;&#x80FD; - &#x544A;&#x8B66;&#x8BBE;&#x7F6E; - &#x65B0;&#x589E;&#x544A;&#x8B66;&#x89C4;&#x5219;(&#x5E94;&#x7528;&#x63A8;&#x9001;&#x65B9;&#x5F0F;)</p>
 
                                 
                                 </section>
@@ -514,12 +550,12 @@
 
             
                 
-                <a href="CommonInterface.html" class="navigation navigation-prev " aria-label="Previous page: 通用接口">
+                <a href="User_ThirdLogin.html" class="navigation navigation-prev " aria-label="Previous page: 第三方登录">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Faq.html" class="navigation navigation-next " aria-label="Next page: FAQ">
+                <a href="Home.html" class="navigation navigation-next " aria-label="Next page: 家庭管理">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -530,7 +566,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"集成Push","level":"1.17","depth":1,"next":{"title":"FAQ","level":"1.18","depth":1,"path":"resource/Faq.md","ref":"./resource/Faq.md","articles":[]},"previous":{"title":"通用接口","level":"1.16","depth":1,"path":"resource/CommonInterface.md","ref":"./resource/CommonInterface.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Push.md","mtime":"2018-10-24T12:34:40.771Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T13:14:08.593Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"用户重置密码","level":"1.5.4","depth":2,"next":{"title":"家庭管理","level":"1.6","depth":1,"path":"resource/Home.md","ref":"./resource/Home.md","articles":[]},"previous":{"title":"第三方登录","level":"1.5.3","depth":2,"path":"resource/User_ThirdLogin.md","ref":"./resource/User_ThirdLogin.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/User_Reset.md","mtime":"2018-10-24T13:09:28.115Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T13:14:08.593Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
