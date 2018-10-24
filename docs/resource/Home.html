@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>家庭管理 · GitBook</title>
+        <title>单个家庭信息管理 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -60,7 +60,7 @@
     <link rel="next" href="Room.html" />
     
     
-    <link rel="prev" href="User_Reset.html" />
+    <link rel="prev" href="HomeManager.html" />
     
 
     </head>
@@ -212,9 +212,23 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6" data-path="Home.html">
+        <li class="chapter " data-level="1.6" >
             
-                <a href="Home.html">
+                <span>
+            
+                    
+                    家庭管理
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="HomeManager.html">
+            
+                <a href="HomeManager.html">
             
                     
                     家庭管理
@@ -222,6 +236,24 @@
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.2" data-path="Home.html">
+            
+                <a href="Home.html">
+            
+                    
+                    单个家庭信息管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -251,7 +283,21 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="Device.html">
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    设备控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="Device.html">
             
                 <a href="Device.html">
             
@@ -261,6 +307,24 @@
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="Ota.html">
+            
+                <a href="Ota.html">
+            
+                    
+                    固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -411,7 +475,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >家庭管理</a>
+        <a href=".." >单个家庭信息管理</a>
     </h1>
 </div>
 
@@ -426,57 +490,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x5BB6;&#x5EAD;&#x7BA1;&#x7406;">&#x5BB6;&#x5EAD;&#x7BA1;&#x7406;</h2>
-<p>&#x7528;&#x6237;&#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x9700;&#x8981;&#x901A;&#x8FC7;<code>TuyaSmartHomeManager</code>&#x53BB;&#x83B7;&#x53D6;&#x6574;&#x4E2A;&#x5BB6;&#x5EAD;&#x5217;&#x8868;&#x7684;&#x4FE1;&#x606F;,&#x7136;&#x540E;&#x521D;&#x59CB;&#x5316;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5BB6;&#x5EAD;<code>TuyaSmartHome</code>&#xFF0C;&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x8BE6;&#x60C5;&#x4FE1;&#x606F;&#xFF0C;&#x5BF9;&#x5BB6;&#x5EAD;&#x4E2D;&#x7684;&#x8BBE;&#x5907;&#x8FDB;&#x884C;&#x7BA1;&#x7406;&#xFF0C;&#x63A7;&#x5236;&#x3002;</p>
-<h3 id="&#x5BB6;&#x5EAD;&#x5217;&#x8868;&#x4FE1;&#x606F;&#x53D8;&#x5316;&#x7684;&#x56DE;&#x8C03;">&#x5BB6;&#x5EAD;&#x5217;&#x8868;&#x4FE1;&#x606F;&#x53D8;&#x5316;&#x7684;&#x56DE;&#x8C03;</h3>
-<p>&#x5B9E;&#x73B0;<code>TuyaSmartHomeManagerDelegate</code>&#x4EE3;&#x7406;&#x534F;&#x8BAE;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5BB6;&#x5EAD;&#x5217;&#x8868;&#x66F4;&#x53D8;&#x7684;&#x56DE;&#x8C03;&#x4E2D;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
-<pre><code class="lang-objc"><span class="hljs-meta">#pragma mark - TuyaSmartHomeManagerDelegate</span>
-
-
-<span class="hljs-comment">// &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x5BB6;&#x5EAD;</span>
-- (<span class="hljs-keyword">void</span>)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home {
-
-}
-
-<span class="hljs-comment">// &#x5220;&#x9664;&#x4E00;&#x4E2A;&#x5BB6;&#x5EAD;</span>
-- (<span class="hljs-keyword">void</span>)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(<span class="hljs-keyword">long</span> <span class="hljs-keyword">long</span>)homeId {
-
-}
-
-<span class="hljs-comment">// MQTT&#x8FDE;&#x63A5;&#x6210;&#x529F;</span>
-- (<span class="hljs-keyword">void</span>)serviceConnectedSuccess {
-    <span class="hljs-comment">// &#x5237;&#x65B0;&#x5F53;&#x524D;&#x5BB6;&#x5EAD;UI</span>
-}
-</code></pre>
-<h3 id="&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x5217;&#x8868;</h3>
-<p>&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x5217;&#x8868;&#xFF0C;&#x8FD4;&#x56DE;&#x6570;&#x636E;&#x53EA;&#x662F;&#x5BB6;&#x5EAD;&#x7684;&#x7B80;&#x5355;&#x4FE1;&#x606F;&#x3002;&#x5982;&#x679C;&#x8981;&#x83B7;&#x53D6;&#x5177;&#x4F53;&#x5BB6;&#x5EAD;&#x7684;&#x8BE6;&#x60C5;&#xFF0C;&#x9700;&#x8981;&#x53BB;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;home&#xFF0C;&#x8C03;&#x7528;&#x63A5;&#x53E3; getHomeDetailWithSuccess:failure:</p>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)getHomeList {
-
-    [<span class="hljs-keyword">self</span>.homeManager getHomeListWithSuccess:^(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartHomeModel *&gt; *homes) {
-        <span class="hljs-comment">// homes &#x5BB6;&#x5EAD;&#x5217;&#x8868;</span>
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;get home list failure: %@&quot;</span>, error);
-    }];
-}
-</code></pre>
-<h3 id="&#x6DFB;&#x52A0;&#x5BB6;&#x5EAD;">&#x6DFB;&#x52A0;&#x5BB6;&#x5EAD;</h3>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)addHome {
-
-    [<span class="hljs-keyword">self</span>.homeManager addHomeWithName:<span class="hljs-string">@&quot;you_home_name&quot;</span>
-                          geoName:<span class="hljs-string">@&quot;city_name&quot;</span>
-                            rooms:@[<span class="hljs-string">@&quot;room_name&quot;</span>]
-                         latitude:lat
-                        longitude:lon
-                          success:^(<span class="hljs-keyword">double</span> homeId) {
-
-        <span class="hljs-comment">// homeId &#x521B;&#x5EFA;&#x7684;&#x5BB6;&#x5EAD;&#x7684;homeId</span>
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add home success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add home failure: %@&quot;</span>, error);
-    }];
-}
-</code></pre>
-<h2 id="&#x5355;&#x4E2A;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x7BA1;&#x7406;">&#x5355;&#x4E2A;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x7BA1;&#x7406;</h2>
+                                <h2 id="&#x5355;&#x4E2A;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x7BA1;&#x7406;">&#x5355;&#x4E2A;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x7BA1;&#x7406;</h2>
 <p>&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF1A;&#x7528;&#x6765;&#x83B7;&#x53D6;&#x548C;&#x4FEE;&#x6539;&#xFF0C;&#x89E3;&#x6563;&#x5BB6;&#x5EAD;&#x3002;&#x83B7;&#x53D6;&#xFF0C;&#x6DFB;&#x52A0;&#x548C;&#x5220;&#x9664;&#x5BB6;&#x5EAD;&#x7684;&#x6210;&#x5458;&#x3002;&#x65B0;&#x589E;&#xFF0C;&#x89E3;&#x6563;&#x623F;&#x95F4;&#xFF0C;&#x623F;&#x95F4;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x3002;</p>
 <p>&#x5355;&#x4E2A;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartHome</code>&#x7C7B;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x5BB6;&#x5EAD;Id&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;&#x9519;&#x8BEF;&#x7684;&#x5BB6;&#x5EAD;Id&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x521D;&#x59CB;&#x5316;&#x5931;&#x8D25;&#xFF0C;&#x8FD4;&#x56DE;<code>nil</code>&#x3002;&#x521D;&#x59CB;&#x5316; home &#x5BF9;&#x8C61;&#x4E4B;&#x540E;&#x9700;&#x8981;&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x7684;&#x8BE6;&#x60C5;&#x63A5;&#x53E3;&#xFF08;getHomeDetailWithSuccess:failure:&#xFF09;&#xFF0C;home &#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x5C5E;&#x6027; homeModel,roomList,deviceList,groupList &#x624D;&#x6709;&#x6570;&#x636E;&#x3002;</p>
 <h3 id="&#x5355;&#x4E2A;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x53D8;&#x5316;&#x7684;&#x56DE;&#x8C03;">&#x5355;&#x4E2A;&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x53D8;&#x5316;&#x7684;&#x56DE;&#x8C03;</h3>
@@ -633,7 +647,7 @@
 
             
                 
-                <a href="User_Reset.html" class="navigation navigation-prev " aria-label="Previous page: 用户重置密码">
+                <a href="HomeManager.html" class="navigation navigation-prev " aria-label="Previous page: 家庭管理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -649,7 +663,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"家庭管理","level":"1.6","depth":1,"next":{"title":"房间管理","level":"1.7","depth":1,"path":"resource/Room.md","ref":"./resource/Room.md","articles":[]},"previous":{"title":"用户重置密码","level":"1.5.4","depth":2,"path":"resource/User_Reset.md","ref":"./resource/User_Reset.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Home.md","mtime":"2018-10-24T12:26:13.445Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T13:35:26.412Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"单个家庭信息管理","level":"1.6.2","depth":2,"next":{"title":"房间管理","level":"1.7","depth":1,"path":"resource/Room.md","ref":"./resource/Room.md","articles":[]},"previous":{"title":"家庭管理","level":"1.6.1","depth":2,"path":"resource/HomeManager.md","ref":"./resource/HomeManager.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Home.md","mtime":"2018-10-24T13:48:57.666Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T14:42:19.707Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

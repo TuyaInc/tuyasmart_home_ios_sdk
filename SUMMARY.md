@@ -1,7 +1,6 @@
 # Summary
 
 * [前言](/README.md)
-
 * [功能概述](./resource/Overview.md)
 * [准备工作](./resource/Preparation.md)
 * [集成SDK](./resource/Integrated.md)
@@ -11,13 +10,13 @@
     - [第三方登录](./resource/User_ThirdLogin.md)
     - [用户重置密码](./resource/User_Reset.md)
 * 家庭管理
-	- [家庭管理](./resource/HomeManager.md)
-	- [单个家庭信息管理](./resource/Home.md)
+  * [家庭管理](./resource/HomeManager.md)
+  * [单个家庭信息管理](./resource/Home.md)
 * [房间管理](./resource/Room.md)
 * [设备配网](./resource/Activator.md)
 * 设备控制
-	- [设备控制](./resource/Device.md)
-	- [固件升级](./resource/Ota.md)
+  * [设备控制](./resource/Device.md)
+  * [固件升级](./resource/Ota.md)
 * [共享设备](./resource/DeviceShared.md)
 * [定时任务](./resource/Timer.md)
 * [群组管理](./resource/Group.md)
