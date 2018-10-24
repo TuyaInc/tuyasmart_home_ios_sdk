@@ -1,7 +1,8 @@
 # Summary
 
-* [前言](README.md)
+* [前言](/README.md)
 
-* [功能概述](Overview.md)
-* [准备工作](Preparation.md)
-* [集成SDK](Integrated.md)
+* [功能概述](./resource/Overview.md)
+* [准备工作](./resource/Preparation.md)
+* [集成SDK](./resource/Integrated.md)
+
