@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>集成SDK · GitBook</title>
+        <title>房间管理 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="User.html" />
+    <link rel="next" href="Activator.html" />
     
     
-    <link rel="prev" href="Preparation.html" />
+    <link rel="prev" href="Home.html" />
     
 
     </head>
@@ -128,7 +128,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="Integrated.html">
+        <li class="chapter " data-level="1.4" data-path="Integrated.html">
             
                 <a href="Integrated.html">
             
@@ -167,7 +167,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="Room.html">
+        <li class="chapter active" data-level="1.7" data-path="Room.html">
             
                 <a href="Room.html">
             
@@ -353,7 +353,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >集成SDK</a>
+        <a href=".." >房间管理</a>
     </h1>
 </div>
 
@@ -368,18 +368,61 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x96C6;&#x6210;sdk">&#x96C6;&#x6210;SDK</h2>
-<h3 id="&#x4F7F;&#x7528;cocoapods&#x5FEB;&#x901F;&#x96C6;&#x6210;&#xFF08;sdk&#x6700;&#x4F4E;&#x652F;&#x6301;&#x7CFB;&#x7EDF;&#x7248;&#x672C;80&#xFF09;">&#x4F7F;&#x7528;CocoaPods&#x5FEB;&#x901F;&#x96C6;&#x6210;&#xFF08;SDK&#x6700;&#x4F4E;&#x652F;&#x6301;&#x7CFB;&#x7EDF;&#x7248;&#x672C;8.0&#xFF09;</h3>
-<p>&#x5728;<code>Podfile</code>&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
-<pre><code class="lang-ruby">platform <span class="hljs-symbol">:ios</span>, <span class="hljs-string">&apos;8.0&apos;</span>
-
-target <span class="hljs-string">&apos;Your_Project_Name&apos;</span> <span class="hljs-keyword">do</span>
-    pod <span class="hljs-string">&quot;TuyaSmartHomeKit&quot;</span>, <span class="hljs-symbol">:git</span> =&gt; <span class="hljs-string">&quot;https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git&quot;</span>
-<span class="hljs-keyword">end</span>
+                                <p>&#x5355;&#x4E2A;&#x623F;&#x95F4;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartRoom</code>&#x7C7B;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;roomId&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;&#x9519;&#x8BEF;&#x7684;roomId&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x521D;&#x59CB;&#x5316;&#x5931;&#x8D25;&#xFF0C;&#x8FD4;&#x56DE;<code>nil</code>&#x3002;</p>
+<h3 id="&#x66F4;&#x65B0;&#x623F;&#x95F4;&#x540D;&#x5B57;">&#x66F4;&#x65B0;&#x623F;&#x95F4;&#x540D;&#x5B57;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)updateRoomName {
+    [<span class="hljs-keyword">self</span>.room updateRoomName:<span class="hljs-string">@&quot;new_room_name&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;update room name success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;update room name failure: %@&quot;</span>, error);
+    }];
+}
 </code></pre>
-<p>&#x7136;&#x540E;&#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;<code>pod update</code>&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x96C6;&#x6210;&#x3002;</p>
-<p><em>CocoaPods&#x7684;&#x4F7F;&#x7528;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;<a href="https://guides.cocoapods.org/" target="_blank">CocoaPods Guides</a></em>
-<em>CocoaPods&#x5EFA;&#x8BAE;&#x66F4;&#x65B0;&#x81F3;&#x6700;&#x65B0;&#x7248;&#x672C;</em></p>
+<h3 id="&#x6DFB;&#x52A0;&#x8BBE;&#x5907;&#x5230;&#x623F;&#x95F4;">&#x6DFB;&#x52A0;&#x8BBE;&#x5907;&#x5230;&#x623F;&#x95F4;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)addDevice {
+    [<span class="hljs-keyword">self</span>.room addDeviceWithDeviceId:<span class="hljs-string">@&quot;devId&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add device to room success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add device to room failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h3 id="&#x4ECE;&#x623F;&#x95F4;&#x4E2D;&#x79FB;&#x9664;&#x8BBE;&#x5907;">&#x4ECE;&#x623F;&#x95F4;&#x4E2D;&#x79FB;&#x9664;&#x8BBE;&#x5907;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)removeDevice {
+    [<span class="hljs-keyword">self</span>.room removeDeviceWithDeviceId:<span class="hljs-string">@&quot;devId&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;remove device from room success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;remove device from room failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h3 id="&#x6DFB;&#x52A0;&#x7FA4;&#x7EC4;&#x5230;&#x623F;&#x95F4;">&#x6DFB;&#x52A0;&#x7FA4;&#x7EC4;&#x5230;&#x623F;&#x95F4;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)addGroup {
+    [<span class="hljs-keyword">self</span>.room addGroupWithGroupId:<span class="hljs-string">@&quot;groupId&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add group to room success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add group to room failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h3 id="&#x4ECE;&#x623F;&#x95F4;&#x4E2D;&#x79FB;&#x9664;&#x7FA4;&#x7EC4;">&#x4ECE;&#x623F;&#x95F4;&#x4E2D;&#x79FB;&#x9664;&#x7FA4;&#x7EC4;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)removeGroup {
+    [<span class="hljs-keyword">self</span>.room removeGroupWithGroupId:<span class="hljs-string">@&quot;groupId&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;remove group from room success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;remove group from room failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
+<h3 id="&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x623F;&#x95F4;&#x4E0E;&#x7FA4;&#x7EC4;&#x3001;&#x8BBE;&#x5907;&#x7684;&#x5173;&#x7CFB;">&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x623F;&#x95F4;&#x4E0E;&#x7FA4;&#x7EC4;&#x3001;&#x8BBE;&#x5907;&#x7684;&#x5173;&#x7CFB;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)saveBatchRoomRelation {
+    [<span class="hljs-keyword">self</span>.room saveBatchRoomRelationWithDeviceGroupList:(<span class="hljs-built_in">NSArray</span> &lt;<span class="hljs-built_in">NSString</span> *&gt; *)deviceGroupList success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;save batch room relation success&quot;</span>);
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;save batch room relation failure: %@&quot;</span>, error);
+    }];
+}
+</code></pre>
 
                                 
                                 </section>
@@ -407,12 +450,12 @@ target <span class="hljs-string">&apos;Your_Project_Name&apos;</span> <span clas
 
             
                 
-                <a href="Preparation.html" class="navigation navigation-prev " aria-label="Previous page: 准备工作">
+                <a href="Home.html" class="navigation navigation-prev " aria-label="Previous page: 家庭管理">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="User.html" class="navigation navigation-next " aria-label="Next page: 用户管理">
+                <a href="Activator.html" class="navigation navigation-next " aria-label="Next page: 设备配网">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -423,7 +466,7 @@ target <span class="hljs-string">&apos;Your_Project_Name&apos;</span> <span clas
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"集成SDK","level":"1.4","depth":1,"next":{"title":"用户管理","level":"1.5","depth":1,"path":"resource/User.md","ref":"./resource/User.md","articles":[]},"previous":{"title":"准备工作","level":"1.3","depth":1,"path":"resource/Preparation.md","ref":"./resource/Preparation.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Integrated.md","mtime":"2018-10-24T11:55:42.089Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T12:47:00.600Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"房间管理","level":"1.7","depth":1,"next":{"title":"设备配网","level":"1.8","depth":1,"path":"resource/Activator.md","ref":"./resource/Activator.md","articles":[]},"previous":{"title":"家庭管理","level":"1.6","depth":1,"path":"resource/Home.md","ref":"./resource/Home.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Room.md","mtime":"2018-10-24T12:35:12.859Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T12:47:00.600Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
