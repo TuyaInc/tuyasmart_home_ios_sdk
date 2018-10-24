@@ -1,7 +1,5 @@
 # 涂鸦智能iOS SDK
 
-[中文版](README-zh.md) | [English](README.md)
-
 ---
 
 ## 功能概述
@@ -48,6 +46,3 @@ CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
 
 至此，准备工作已经全部完毕，可以开始App开发啦。
 
-## 开发文档
-
-更多请参考: [涂鸦文档中心 - iOS SDK使用说明](./ios-sdk.md)
