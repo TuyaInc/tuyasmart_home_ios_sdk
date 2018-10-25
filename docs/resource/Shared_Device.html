@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>共享设备 · GitBook</title>
+        <title>设备共享 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -60,7 +60,7 @@
     <link rel="next" href="Timer.html" />
     
     
-    <link rel="prev" href="Ota.html" />
+    <link rel="prev" href="Shared_Home.html" />
     
 
     </head>
@@ -207,6 +207,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.5" data-path="User_Loginout.html">
+            
+                <a href="User_Loginout.html">
+            
+                    
+                    修改昵称，登出，停用账号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="User_Session.html">
+            
+                <a href="User_Session.html">
+            
+                    
+                    Session过期的处理
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -328,9 +354,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.10" data-path="DeviceShared.html">
+        <li class="chapter " data-level="1.10" data-path="Shared.html">
             
-                <a href="DeviceShared.html">
+                <a href="Shared.html">
             
                     
                     共享设备
@@ -338,6 +364,44 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="Shared_Home.html">
+            
+                <a href="Shared_Home.html">
+            
+                    
+                    家庭成员共享
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.10.1.1" data-path="Shared_Device.html">
+            
+                <a href="Shared_Device.html">
+            
+                    
+                    设备共享
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -380,7 +444,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="Message.html">
+        <li class="chapter " data-level="1.14" data-path="DataChannel.html">
+            
+                <a href="DataChannel.html">
+            
+                    
+                    数据流通道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Message.html">
             
                 <a href="Message.html">
             
@@ -393,7 +470,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.15" data-path="Feedback.html">
+        <li class="chapter " data-level="1.16" data-path="Feedback.html">
             
                 <a href="Feedback.html">
             
@@ -406,7 +483,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="CommonInterface.html">
+        <li class="chapter " data-level="1.17" data-path="CommonInterface.html">
             
                 <a href="CommonInterface.html">
             
@@ -419,7 +496,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="Push.html">
+        <li class="chapter " data-level="1.18" data-path="Push.html">
             
                 <a href="Push.html">
             
@@ -432,7 +509,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.18" data-path="Faq.html">
+        <li class="chapter " data-level="1.19" data-path="Faq.html">
             
                 <a href="Faq.html">
             
@@ -475,7 +552,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >共享设备</a>
+        <a href=".." >设备共享</a>
     </h1>
 </div>
 
@@ -490,60 +567,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x4E24;&#x79CD;&#x5171;&#x4EAB;&#x65B9;&#x5F0F;&#xFF1A;</p>
-<ul>
-<li><p>&#x57FA;&#x4E8E;&#x5BB6;&#x5EAD;&#x6210;&#x5458;&#x7684;&#x5171;&#x4EAB;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x628A;&#x4E00;&#x4E2A;&#x5BB6;&#x5EAD;&#x7684;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x7ED9;&#x5BB6;&#x4EBA;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A;&#x5BB6;&#x5EAD;<code>TuyaSmartHome</code>&#x7684;&#x6210;&#x5458;<code>TuyaSmartHomeMember</code>&#xFF0C;&#x5171;&#x4EAB;&#x5BB6;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x8BBE;&#x5907;<code>TuyaSmartDevice</code>&#xFF0C;&#x5BB6;&#x4EBA;&#x5C31;&#x62E5;&#x6709;&#x4E86;&#x8BE5;&#x5BB6;&#x5EAD;&#x4E2D;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x7684;&#x63A7;&#x5236;&#x6743;&#x9650;&#x3002;&#x5982;&#x679C;&#x5C06;&#x5BB6;&#x4EBA;&#x8BBE;&#x7F6E;&#x6210;&#x7BA1;&#x7406;&#x5458;&#xFF0C;&#x5C31;&#x62E5;&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x5BB6;&#x5EAD;&#x8BBE;&#x5907;&#x7684;&#x6240;&#x4EE5;&#x6743;&#x9650;&#xFF0C;&#x5982;&#x679C;&#x8BBE;&#x7F6E;&#x5BB6;&#x4EBA;&#x4E3A;&#x975E;&#x7BA1;&#x7406;&#x5458;&#xFF0C;&#x5C31;&#x53EA;&#x62E5;&#x6709;&#x8FD9;&#x4E2A;&#x5BB6;&#x5EAD;&#x8BBE;&#x5907;&#x7684;&#x63A7;&#x5236;&#x6743;&#x9650;&#x3002;</p>
-</li>
-<li><p>&#x57FA;&#x4E8E;&#x8BBE;&#x5907;&#x7684;&#x5171;&#x4EAB;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x9700;&#x8981;&#x628A;&#x5BB6;&#x5EAD;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x7ED9;&#x5BB6;&#x4EBA;&#xFF0C;&#x8FD9;&#x65F6;&#x53EF;&#x4EE5;&#x53EA;&#x628A;&#x76F8;&#x5E94;&#x7684;&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x7ED9;&#x670B;&#x53CB;&#xFF0C;&#x5BB6;&#x4EBA;&#x4E0D;&#x4F1A;&#x62E5;&#x6709;&#x5176;&#x5B83;&#x8BBE;&#x5907;&#x7684;&#x63A7;&#x5236;&#x6743;&#x9650;&#xFF0C;&#x5E76;&#x4E14;&#x88AB;&#x5171;&#x4EAB;&#x7684;&#x8BBE;&#x5907;&#x4E0D;&#x80FD;&#x8FDB;&#x884C;&#x6539;&#x540D;&#x3001;&#x79FB;&#x9664;&#x8BBE;&#x5907;&#x3001;&#x56FA;&#x4EF6;&#x5347;&#x7EA7;&#x3001;&#x6062;&#x590D;&#x51FA;&#x5382;&#x8BBE;&#x7F6E;&#x7B49;&#x64CD;&#x4F5C;&#xFF08;&#x53EA;&#x80FD;&#x53D1;&#x9001;&#x8BBE;&#x5907;&#x63A7;&#x5236;&#x6307;&#x4EE4;&#x3001;&#x83B7;&#x53D6;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#xFF09;&#x3002;</p>
-</li>
-</ul>
-<h3 id="&#x5BB6;&#x5EAD;&#x6210;&#x5458;&#x5171;&#x4EAB;">&#x5BB6;&#x5EAD;&#x6210;&#x5458;&#x5171;&#x4EAB;</h3>
-<p>&#x5BB6;&#x5EAD;&#x6210;&#x5458;&#x5171;&#x4EAB;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartHomeMember</code>&#x7C7B;</p>
-<h4 id="&#x6DFB;&#x52A0;&#x5BB6;&#x5EAD;&#x6210;&#x5458;">&#x6DFB;&#x52A0;&#x5BB6;&#x5EAD;&#x6210;&#x5458;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)addShare {
-    <span class="hljs-comment">// self.homeMember = [[TuyaSmartHomeMember alloc] init];</span>
-
-    [<span class="hljs-keyword">self</span>.homeMember addHomeMemberWithHomeId:homeId countryCode:<span class="hljs-string">@&quot;your_country_code&quot;</span> account:<span class="hljs-string">@&quot;account&quot;</span> name:<span class="hljs-string">@&quot;name&quot;</span> isAdmin:<span class="hljs-literal">YES</span> success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;addNewMember success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;addNewMember failure: %@&quot;</span>, error);
-    }];
-}
-</code></pre>
-<h4 id="&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x6210;&#x5458;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x6210;&#x5458;&#x5217;&#x8868;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)initMemberList {
-    <span class="hljs-comment">// self.homeMember = [[TuyaSmartHomeMember alloc] init];</span>
-
-    [<span class="hljs-keyword">self</span>.homeMember getHomeMemberListWithHomeId:homeId success:^(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartHomeMemberModel *&gt; *memberList) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;getMemberList success: %@&quot;</span>, memberList);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;getMemberList failure&quot;</span>);
-    }];
-}
-</code></pre>
-<h4 id="&#x4FEE;&#x6539;&#x5BB6;&#x5EAD;&#x6210;&#x5458;&#x7684;&#x5907;&#x6CE8;&#x540D;&#x79F0;&#x548C;&#x662F;&#x5426;&#x662F;&#x7BA1;&#x7406;&#x5458;">&#x4FEE;&#x6539;&#x5BB6;&#x5EAD;&#x6210;&#x5458;&#x7684;&#x5907;&#x6CE8;&#x540D;&#x79F0;&#x548C;&#x662F;&#x5426;&#x662F;&#x7BA1;&#x7406;&#x5458;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)modifyMemberName:(TuyaSmartMemberModel *)memberModel name:(<span class="hljs-built_in">NSString</span> *)name {
-    <span class="hljs-comment">// self.homeMember = [[TuyaSmartHomeMember alloc] init];</span>
-
-    [<span class="hljs-keyword">self</span>.homeMember updateHomeMemberNameWithMemberId:memberModel.memberId name:name isAdmin:<span class="hljs-literal">YES</span> success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;modifyMemberName success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;modifyMemberName failure: %@&quot;</span>, error);
-    }];
-}
-</code></pre>
-<h4 id="&#x5220;&#x9664;&#x5BB6;&#x5EAD;&#x6210;&#x5458;">&#x5220;&#x9664;&#x5BB6;&#x5EAD;&#x6210;&#x5458;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)removeMember:(TuyaSmartMemberModel *)memberModel {
-    <span class="hljs-comment">// self.homeMember = [[TuyaSmartHomeMember alloc] init];</span>
-
-    [<span class="hljs-keyword">self</span>.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;removeMember success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;removeMember failure: %@&quot;</span>, error);
-    }];
-}
-</code></pre>
-<h3 id="&#x8BBE;&#x5907;&#x5171;&#x4EAB;-&#xFF08;&#x57FA;&#x4E8E;&#x8BBE;&#x5907;&#x7EF4;&#x5EA6;&#x7684;&#x5171;&#x4EAB;&#xFF09;">&#x8BBE;&#x5907;&#x5171;&#x4EAB; &#xFF08;&#x57FA;&#x4E8E;&#x8BBE;&#x5907;&#x7EF4;&#x5EA6;&#x7684;&#x5171;&#x4EAB;&#xFF09;</h3>
+                                <h3 id="&#x8BBE;&#x5907;&#x5171;&#x4EAB;-&#xFF08;&#x57FA;&#x4E8E;&#x8BBE;&#x5907;&#x7EF4;&#x5EA6;&#x7684;&#x5171;&#x4EAB;&#xFF09;">&#x8BBE;&#x5907;&#x5171;&#x4EAB; &#xFF08;&#x57FA;&#x4E8E;&#x8BBE;&#x5907;&#x7EF4;&#x5EA6;&#x7684;&#x5171;&#x4EAB;&#xFF09;</h3>
 <p>&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartHomeDeviceShare</code>&#x7C7B;</p>
 <h4 id="&#x6DFB;&#x52A0;&#x5171;&#x4EAB;">&#x6DFB;&#x52A0;&#x5171;&#x4EAB;</h4>
 <pre><code class="lang-objc">
@@ -820,7 +844,7 @@
 
             
                 
-                <a href="Ota.html" class="navigation navigation-prev " aria-label="Previous page: 固件升级">
+                <a href="Shared_Home.html" class="navigation navigation-prev " aria-label="Previous page: 家庭成员共享">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -836,7 +860,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"共享设备","level":"1.10","depth":1,"next":{"title":"定时任务","level":"1.11","depth":1,"path":"resource/Timer.md","ref":"./resource/Timer.md","articles":[]},"previous":{"title":"固件升级","level":"1.9.2","depth":2,"path":"resource/Ota.md","ref":"./resource/Ota.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/DeviceShared.md","mtime":"2018-10-24T12:28:50.747Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-24T14:49:14.047Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"设备共享","level":"1.10.1.1","depth":3,"next":{"title":"定时任务","level":"1.11","depth":1,"path":"resource/Timer.md","ref":"./resource/Timer.md","articles":[]},"previous":{"title":"家庭成员共享","level":"1.10.1","depth":2,"path":"resource/Shared_Home.md","ref":"./resource/Shared_Home.md","articles":[{"title":"设备共享","level":"1.10.1.1","depth":3,"path":"resource/Shared_Device.md","ref":"./resource/Shared_Device.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Shared_Device.md","mtime":"2018-10-25T03:30:07.204Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-25T08:08:57.271Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

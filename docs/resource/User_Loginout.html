@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>消息中心 · GitBook</title>
+        <title>修改昵称，登出，停用账号 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Feedback.html" />
+    <link rel="next" href="User_Session.html" />
     
     
-    <link rel="prev" href="DataChannel.html" />
+    <link rel="prev" href="User_Reset.html" />
     
 
     </head>
@@ -207,7 +207,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5" data-path="User_Loginout.html">
+        <li class="chapter active" data-level="1.5.5" data-path="User_Loginout.html">
             
                 <a href="User_Loginout.html">
             
@@ -457,7 +457,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.15" data-path="Message.html">
+        <li class="chapter " data-level="1.15" data-path="Message.html">
             
                 <a href="Message.html">
             
@@ -552,7 +552,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >消息中心</a>
+        <a href=".." >修改昵称，登出，停用账号</a>
     </h1>
 </div>
 
@@ -567,36 +567,31 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x6D88;&#x606F;&#x4E2D;&#x5FC3;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartMessage</code>&#x7C7B;&#xFF0C;&#x652F;&#x6301;&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x5217;&#x8868;&#xFF0C;&#x6279;&#x91CF;&#x5220;&#x9664;&#x6D88;&#x606F;&#xFF0C;&#x4EE5;&#x53CA;&#x662F;&#x5426;&#x6709;&#x6D88;&#x606F;&#x66F4;&#x65B0;&#x3002;</p>
-<h3 id="&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x5217;&#x8868;</h3>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)getMessageList {
-<span class="hljs-comment">//    self.smartMessage = [[TuyaSmartMessage alloc] init];</span>
-    [<span class="hljs-keyword">self</span>.smartMessage getMessageList:^(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartMessageListModel *&gt; *list) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;get message list success:%@&quot;</span>, list);
+                                <h3 id="&#x4FEE;&#x6539;&#x6635;&#x79F0;">&#x4FEE;&#x6539;&#x6635;&#x79F0;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)modifyNickname:(<span class="hljs-built_in">NSString</span> *)nickname {
+    [[TuyaSmartUser sharedInstance] updateNickname:nickname success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;updateNickname success&quot;</span>);
     } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;get message list failure:%@&quot;</span>, error);
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;updateNickname failure: %@&quot;</span>, error);
     }];
 }
 </code></pre>
-<h3 id="&#x5220;&#x9664;&#x6D88;&#x606F;">&#x5220;&#x9664;&#x6D88;&#x606F;</h3>
-<p>&#x6279;&#x91CF;&#x5220;&#x9664;&#x6D88;&#x606F;&#xFF0C;<code>messgeIdList</code>&#x662F;&#x8981;&#x5220;&#x9664;&#x6D88;&#x606F;&#x7684;id&#x6570;&#x7EC4;&#xFF0C;&#x6D88;&#x606F;id&#x53EF;&#x4EE5;&#x4ECE;&#x6D88;&#x606F;&#x5217;&#x8868;&#x4E2D;&#x83B7;&#x53D6;&#x3002;</p>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)deleteMessage {
-<span class="hljs-comment">//    self.smartMessage = [[TuyaSmartMessage alloc] init];</span>
-    [<span class="hljs-keyword">self</span>.smartMessage deleteMessage:(<span class="hljs-built_in">NSArray</span> &lt;<span class="hljs-built_in">NSString</span> *&gt; *)messgeIdList success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;delete message success&quot;</span>);
+<h3 id="&#x767B;&#x51FA;">&#x767B;&#x51FA;</h3>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)loginOut {
+    [TuyaSmartUser sharedInstance] loginOut:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;logOut success&quot;</span>);
     } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;delete message failure:%@&quot;</span>, error);
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;logOut failure: %@&quot;</span>, error);
     }];
 }
 </code></pre>
-<h3 id="&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x6233;">&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x6233;</h3>
-<p>&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4E0E;&#x672C;&#x5730;&#x6700;&#x65B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x6BD4;&#x8F83;&#xFF0C;&#x5927;&#x4E8E;&#x672C;&#x5730;&#x6700;&#x65B0;&#x6D88;&#x606F;&#x65F6;&#x95F4;&#xFF0C;&#x5219;&#x5C55;&#x793A;&#x7EA2;&#x70B9;&#xFF0C;&#x8868;&#x793A;&#x6709;&#x65B0;&#x6D88;&#x606F;&#x3002;</p>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)getMessageMaxTime {
-<span class="hljs-comment">//    self.smartMessage = [[TuyaSmartMessage alloc] init];</span>
-    [<span class="hljs-keyword">self</span>.smartMessage getMessageMaxTime:^(<span class="hljs-keyword">int</span> result) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;get message max time success:%d&quot;</span>, result);
+<h3 id="&#x505C;&#x7528;&#x5E10;&#x53F7;&#xFF08;&#x6CE8;&#x9500;&#x7528;&#x6237;&#xFF09;">&#x505C;&#x7528;&#x5E10;&#x53F7;&#xFF08;&#x6CE8;&#x9500;&#x7528;&#x6237;&#xFF09;</h3>
+<p>&#x4E00;&#x5468;&#x540E;&#x8D26;&#x53F7;&#x624D;&#x4F1A;&#x6C38;&#x4E45;&#x505C;&#x7528;&#x5E76;&#x5220;&#x9664;&#x4EE5;&#x4E0B;&#x4F60;&#x8D26;&#x6237;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#xFF0C;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#x91CD;&#x65B0;&#x767B;&#x5F55;&#xFF0C;&#x5219;&#x4F60;&#x7684;&#x505C;&#x7528;&#x8BF7;&#x6C42;&#x5C06;&#x88AB;&#x53D6;&#x6D88;</p>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)cancelAccount {
+    [TuyaSmartUser sharedInstance] cancelAccount:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;cancel account success&quot;</span>);
     } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;get message max time failure:%@&quot;</span>, error);
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;cancel account failure: %@&quot;</span>, error);
     }];
 }
 </code></pre>
@@ -627,12 +622,12 @@
 
             
                 
-                <a href="DataChannel.html" class="navigation navigation-prev " aria-label="Previous page: 数据流通道">
+                <a href="User_Reset.html" class="navigation navigation-prev " aria-label="Previous page: 用户重置密码">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Feedback.html" class="navigation navigation-next " aria-label="Next page: 意见反馈">
+                <a href="User_Session.html" class="navigation navigation-next " aria-label="Next page: Session过期的处理">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -643,7 +638,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"消息中心","level":"1.15","depth":1,"next":{"title":"意见反馈","level":"1.16","depth":1,"path":"resource/Feedback.md","ref":"./resource/Feedback.md","articles":[]},"previous":{"title":"数据流通道","level":"1.14","depth":1,"path":"resource/DataChannel.md","ref":"./resource/DataChannel.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Message.md","mtime":"2018-10-24T12:31:43.750Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-25T08:08:57.271Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"修改昵称，登出，停用账号","level":"1.5.5","depth":2,"next":{"title":"Session过期的处理","level":"1.5.6","depth":2,"path":"resource/User_Session.md","ref":"./resource/User_Session.md","articles":[]},"previous":{"title":"用户重置密码","level":"1.5.4","depth":2,"path":"resource/User_Reset.md","ref":"./resource/User_Reset.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/User_Loginout.md","mtime":"2018-10-25T03:04:24.304Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-25T08:08:57.271Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

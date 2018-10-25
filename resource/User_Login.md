@@ -2,7 +2,7 @@
 
 用户登录接口调用成功之后，SDK会将用户Session储存在本地，下次启动APP时即默认已经登录，不需要再次登录。
 
-长期未使用的情况下Session会失效，因此需要对Session过期的通知进行处理，提示用户重新登录。参见[Session过期的处理](#session-invalid)
+长期未使用的情况下Session会失效，因此需要对Session过期的通知进行处理，提示用户重新登录。参见[Session过期的处理](/resource/User_Session.html)
 
 #### 手机登录
 

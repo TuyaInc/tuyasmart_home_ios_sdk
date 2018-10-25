@@ -9,6 +9,8 @@
     - [用户登录](./resource/User_Login.md)
     - [第三方登录](./resource/User_ThirdLogin.md)
     - [用户重置密码](./resource/User_Reset.md)
+    - [修改昵称，登出，停用账号](./resource/User_Loginout.md)
+    - [Session过期的处理](./resource/User_Session.md)
 * 家庭管理
   * [家庭管理](./resource/HomeManager.md)
   * [单个家庭信息管理](./resource/Home.md)
@@ -17,10 +19,13 @@
 * 设备控制
   * [设备控制](./resource/Device.md)
   * [固件升级](./resource/Ota.md)
-* [共享设备](./resource/DeviceShared.md)
+* [共享设备](./resource/Shared.md)
+  - [家庭成员共享](./resource/Shared_Home.md)
+    - [设备共享](./resource/Shared_Device.md)
 * [定时任务](./resource/Timer.md)
 * [群组管理](./resource/Group.md)
 * [智能场景](./resource/SmartScene.md)
+* [数据流通道](./resource/DataChannel.md)
 * [消息中心](./resource/Message.md)
 * [意见反馈](./resource/Feedback.md)
 * [通用接口](./resource/CommonInterface.md)
