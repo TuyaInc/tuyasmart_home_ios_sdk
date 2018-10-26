@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>集成Push · GitBook</title>
+        <title>Register pushId · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -372,7 +372,7 @@
                 <span>
             
                     
-                    设备控制
+                    Device control
             
                 </span>
             
@@ -386,7 +386,7 @@
                 <a href="Device.html">
             
                     
-                    设备控制
+                    Device control
             
                 </a>
             
@@ -399,7 +399,7 @@
                 <a href="Ota.html">
             
                     
-                    固件升级
+                    Firmware upgrade
             
                 </a>
             
@@ -417,7 +417,7 @@
                 <a href="Shared.html">
             
                     
-                    共享设备
+                    Share devices
             
                 </a>
             
@@ -431,7 +431,7 @@
                 <a href="Shared_Home.html">
             
                     
-                    家庭成员共享
+                    Share with home members
             
                 </a>
             
@@ -444,7 +444,7 @@
                 <a href="Shared_Device.html">
             
                     
-                    设备共享
+                    Share devices
             
                 </a>
             
@@ -462,7 +462,7 @@
                 <a href="Timer.html">
             
                     
-                    定时任务
+                    Timer task
             
                 </a>
             
@@ -475,7 +475,7 @@
                 <a href="Group.html">
             
                     
-                    群组管理
+                    Group management
             
                 </a>
             
@@ -488,7 +488,7 @@
                 <span>
             
                     
-                    智能场景
+                    Smart scene
             
                 </span>
             
@@ -502,7 +502,7 @@
                 <a href="SmartScene_Manager.html">
             
                     
-                    智能场景
+                    Smart scene
             
                 </a>
             
@@ -515,7 +515,7 @@
                 <a href="SmartScene.html">
             
                     
-                    单个场景操作
+                    single scene operation
             
                 </a>
             
@@ -528,25 +528,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="DataChannel.html">
-            
-                <a href="DataChannel.html">
-            
-                    
-                    数据流通道
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15" data-path="Message.html">
+        <li class="chapter " data-level="1.14" data-path="Message.html">
             
                 <a href="Message.html">
             
                     
-                    消息中心
+                    Message center
             
                 </a>
             
@@ -554,12 +541,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="Feedback.html">
+        <li class="chapter " data-level="1.15" data-path="Feedback.html">
             
                 <a href="Feedback.html">
             
                     
-                    意见反馈
+                    Feedback
             
                 </a>
             
@@ -567,12 +554,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="CommonInterface.html">
+        <li class="chapter " data-level="1.16" data-path="CommonInterface.html">
             
                 <a href="CommonInterface.html">
             
                     
-                    通用接口
+                    Common interface
             
                 </a>
             
@@ -580,12 +567,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.18" data-path="Push.html">
+        <li class="chapter active" data-level="1.17" data-path="Push.html">
             
                 <a href="Push.html">
             
                     
-                    集成Push
+                    Register pushId
             
                 </a>
             
@@ -593,7 +580,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.19" data-path="Faq.html">
+        <li class="chapter " data-level="1.18" data-path="Faq.html">
             
                 <a href="Faq.html">
             
@@ -636,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >集成Push</a>
+        <a href=".." >Register pushId</a>
     </h1>
 </div>
 
@@ -651,15 +638,16 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x57FA;&#x4E8E;Tuya SDK&#x5F00;&#x53D1;&#x7684;app&#xFF0C;Tuya&#x5E73;&#x53F0;&#x652F;&#x6301;Push&#x529F;&#x80FD;&#xFF0C;&#x652F;&#x6301;&#x7ED9;&#x7528;&#x6237;&#x53D1;&#x9001;&#x8FD0;&#x8425;Push&#x548C;&#x4EA7;&#x54C1;&#x7684;&#x544A;&#x8B66;Push&#x3002;</p>
-<h3 id="xcode&#x914D;&#x7F6E;">Xcode&#x914D;&#x7F6E;</h3>
-<p>&#x70B9;&#x51FB;&#x9879;&#x76EE; - <code>TARGETS</code> - <code>Capabilities</code>, &#x5C06;&#x8FD9;&#x91CC;&#x7684; <code>Push Notification</code>&#x7684;&#x5F00;&#x5173;&#x6253;&#x5F00;&#xFF0C;&#x6548;&#x679C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+                                <h2 id="integrate-push">Integrate push</h2>
+<p>For Apps developed by using the Tuya SDK, the Tuya platform supports push function, sending operation push to users and alarm push of products. </p>
+<h3 id="configure-xcode">Configure Xcode</h3>
+<p>Clock project -&gt; <code>TARGETS</code> -&gt; <code>Capabilities</code>, and switch on the <code>Push Notification</code> switch. The effect is as follows.</p>
 <p><img src="images/ios-push.png" alt="ios-push"></p>
-<h3 id="&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0;&#x914D;&#x7F6E;">&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0;&#x914D;&#x7F6E;</h3>
-<p>&#x767B;&#x5F55;&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0; - &#x8FDB;&#x5165;&#x5BF9;&#x5E94;APP - &#x63A8;&#x9001;&#x914D;&#x7F6E; - &#x4E0A;&#x4F20;push&#x8BC1;&#x4E66;</p>
+<h3 id="configure-the-tuya-developer-platform">Configure the Tuya Developer Platform</h3>
+<p>Log in to the Tuya Developer Platform -&gt; enter relevant App -&gt;Configure the Push function-&gt;Upload the push certificate.</p>
 <p><img src="images/ios-push-setting.png" alt="ios-push-setting"></p>
-<h3 id="&#x521D;&#x59CB;&#x5316;">&#x521D;&#x59CB;&#x5316;</h3>
-<p>&#x5728; <code>didFinishLaunchingWithOptions</code> &#x65B9;&#x6CD5;&#x4E2D;&#x521D;&#x59CB;&#x5316;push</p>
+<h3 id="initialization">Initialization</h3>
+<p>Initiate push in the <code>didFinishLaunchingWithOptions</code> method. </p>
 <pre><code class="lang-objc">
 - (<span class="hljs-built_in">BOOL</span>)application:(<span class="hljs-built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="hljs-built_in">NSDictionary</span> *)launchOptions {
 
@@ -684,8 +672,8 @@
 
 }
 </code></pre>
-<h3 id="&#x6CE8;&#x518C;pushid">&#x6CE8;&#x518C;pushId</h3>
-<p>&#x5728;<code>didRegisterForRemoteNotificationsWithDeviceToken</code>&#x4E2D;&#x6CE8;&#x518C;pushId&#x5230;Tuya SDK</p>
+<h3 id="register-pushid">Register pushId</h3>
+<p>Register pushId in Tuya SDK in the <code>didRegisterForRemoteNotificationsWithDeviceToken</code>. </p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)application:(<span class="hljs-built_in">UIApplication</span> *)application didRegisterForRemoteNotificationsWithDeviceToken:(<span class="hljs-built_in">NSData</span> *)deviceToken {
 
@@ -700,18 +688,18 @@
     [[TuyaSmartSDK sharedInstance] setValue:pushId forKey:<span class="hljs-string">@&quot;deviceToken&quot;</span>];
 }
 </code></pre>
-<h3 id="&#x63A5;&#x6536;&#x901A;&#x77E5;">&#x63A5;&#x6536;&#x901A;&#x77E5;</h3>
-<p>&#x63A5;&#x6536;&#x5230;&#x8FDC;&#x7A0B;&#x901A;&#x77E5;&#xFF0C;&#x5728;&#x4EE3;&#x7406;&#x65B9;&#x6CD5;didReceiveRemoteNotification&#x4E2D;&#x6267;&#x884C;</p>
+<h3 id="receive-notification">Receive notification</h3>
+<p>Execute in the delegate method <code>didReceiveRemoteNotification</code> when the remote notification is received. </p>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)application:(<span class="hljs-built_in">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="hljs-built_in">NSDictionary</span> *)userInfo {
 
 
 }
 </code></pre>
-<h3 id="&#x53D1;&#x9001;push">&#x53D1;&#x9001;Push</h3>
-<h4 id="&#x65B0;&#x589E;&#x8FD0;&#x8425;push">&#x65B0;&#x589E;&#x8FD0;&#x8425;Push</h4>
-<p>&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0; - &#x7528;&#x6237;&#x8FD0;&#x8425; - &#x6D88;&#x606F;&#x4E2D;&#x5FC3; - &#x65B0;&#x589E;&#x6D88;&#x606F;</p>
-<h4 id="&#x65B0;&#x589E;&#x544A;&#x8B66;push">&#x65B0;&#x589E;&#x544A;&#x8B66;Push</h4>
-<p>&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0; - &#x5BF9;&#x5E94;&#x4EA7;&#x54C1; - &#x6269;&#x5C55;&#x529F;&#x80FD; - &#x544A;&#x8B66;&#x8BBE;&#x7F6E; - &#x65B0;&#x589E;&#x544A;&#x8B66;&#x89C4;&#x5219;(&#x5E94;&#x7528;&#x63A8;&#x9001;&#x65B9;&#x5F0F;)</p>
+<h3 id="send-push">Send push</h3>
+<h4 id="add-operation-push">Add operation push</h4>
+<p>Tuya Developer Platform -&gt; User operation -&gt; Message center -&gt;Add message</p>
+<h4 id="add-alarm-push">Add alarm push</h4>
+<p>Tuya Developer Platform -&gt; Product -&gt; Extended function -&gt;Set alarm -&gt; Add rules for alarms (apply the push mode)</p>
 
                                 
                                 </section>
@@ -739,7 +727,7 @@
 
             
                 
-                <a href="CommonInterface.html" class="navigation navigation-prev " aria-label="Previous page: 通用接口">
+                <a href="CommonInterface.html" class="navigation navigation-prev " aria-label="Previous page: Common interface">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -755,7 +743,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"集成Push","level":"1.18","depth":1,"next":{"title":"FAQ","level":"1.19","depth":1,"path":"resource/Faq.md","ref":"./resource/Faq.md","articles":[]},"previous":{"title":"通用接口","level":"1.17","depth":1,"path":"resource/CommonInterface.md","ref":"./resource/CommonInterface.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Push.md","mtime":"2018-10-24T12:34:40.771Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T08:59:00.293Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Register pushId","level":"1.17","depth":1,"next":{"title":"FAQ","level":"1.18","depth":1,"path":"resource/Faq.md","ref":"./resource/Faq.md","articles":[]},"previous":{"title":"Common interface","level":"1.16","depth":1,"path":"resource/CommonInterface.md","ref":"./resource/CommonInterface.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Push.md","mtime":"2018-10-26T09:10:37.234Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T13:30:53.736Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

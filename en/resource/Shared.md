@@ -1,10 +1,5 @@
-#### 共享设备
+## Shared devices
 
-
-
-我们提供了两种共享方式：
-
-- 基于**家庭成员的共享**，如果要把一个家庭的所有设备共享给家人，可以将其设置为家庭`TuyaSmartHome`的成员`TuyaSmartHomeMember`，共享家中所有的设备`TuyaSmartDevice`，家人就拥有了该家庭中所有设备的控制权限。如果将家人设置成管理员，就拥有了这个家庭设备的所以权限，如果设置家人为非管理员，就只拥有这个家庭设备的控制权限。
-
-- 基于**设备的共享**，有时候需要把家庭中的某些设备共享给家人，这时可以只把相应的设备共享给朋友，家人不会拥有其它设备的控制权限，并且被共享的设备不能进行改名、移除设备、固件升级、恢复出厂设置等操作（只能发送设备控制指令、获取状态更新）。
-
+Two sharing modes are provided.
+- Home member based sharing. If you want share all your devices with you families. You can set them to the `TuyaSmartHomeMember` of the home `TuyaSmartHome` so that they can share your devices `TuyaSmartDevice`. Then all members of your home have the permission to control your devices. If one of your home members is set to be the administrator, he will have all permissions to all devices in your home. If your home member is not the administrator, he will only be granted the control permission of devices. 
+- Device-based sharing. Sometimes, you need to share some devices with your families, and they will solely have control permission to devices you have shared and cannot change names, remove devices, perform firmware upgrade and restore factory setting, etc. but send device control instructions and obtain status updating.

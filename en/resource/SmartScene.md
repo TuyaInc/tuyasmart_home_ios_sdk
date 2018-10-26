@@ -1,10 +1,9 @@
-## 单个场景操作
-TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是`TuyaSmartSceneModel`的`sceneId`字段，可以从场景列表中获取。
 
+The `TuyaSmartScene` class provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the `sceneId` of the `TuyaSmartSceneModel`, and it can be obtained from the scene list. 
 
-#### 添加场景
+### Add scenes
 
-添加场景需要传入场景名称，家庭的Id，背景图片的url，是否显示在首页，条件列表，任务列表（至少一个任务），满足任一条件还是满足所有条件时执行。也可以只设置名称和任务，背景图片，不设置条件，但是需要手动执行。
+User needs to upload the name of scene, Id of home, url of background pictures, showing the picture in the home page or not, task list (one at least) and determine carrying out task(s) when one or multiple conditions are met when he/she add a scene. The user can just set the name, tasks, background picture, but he/she has to set conditions manually. 
 
 
 ```objc
@@ -18,9 +17,9 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
 }
 
 ```
-#### 编辑场景
+### Edit scene
 
-编辑场景的名称、背景图、条件列表、任务列表、满足任一条件还是满足所有条件时执行
+User needs to edit the name of scene, background pictures, condition list, task list, and determine carrying out task(s) when one or multiple conditions are met. 
 
 ```objc
 - (void)modifySmartScene {
@@ -32,7 +31,7 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
     }];
 }
 ```
-#### 删除场景
+### Delete scene
 
 ```objc
 - (void)deleteSmartScene {
@@ -44,37 +43,39 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
     }];
 }
 ```
-#### 执行场景
+### Execute scene
 
 ```objc
 - (void)executeSmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-	[self.smartScene executeSceneWithSuccess:^{
-   		NSLog(@"execute scene success");    
+    [self.smartScene executeSceneWithSuccess:^{
+        NSLog(@"execute scene success");    
     } failure:^(NSError *error) {
         NSLog(@"execute scene failure: %@", error);
     }];
 }
 ```
 
-#### 开启场景（只有至少带有至少一个条件的场景才可以开启和失效场景）
+### Enable scene (scene with at least one condition can be enabled or disabled)
+
 ```objc
 - (void)enableSmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-	[self.smartScene enableSceneWithSuccess:^{
-   		NSLog(@"enable scene success");    
+    [self.smartScene enableSceneWithSuccess:^{
+        NSLog(@"enable scene success");    
     } failure:^(NSError *error) {
         NSLog(@"enable scene failure: %@", error);
     }];
 }
 ```
 
-#### 失效场景（只有至少带有至少一个条件的场景才可以开启和失效场景）
+### Disable scene (scene with at least one condition can be enabled or disabled)
+
 ```objc
 - (void)disableSmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-	[self.smartScene disableSceneWithSuccess:^{
-   		NSLog(@"disable scene success");    
+    [self.smartScene disableSceneWithSuccess:^{
+        NSLog(@"disable scene success");    
     } failure:^(NSError *error) {
         NSLog(@"disable scene failure: %@", error);
     }];

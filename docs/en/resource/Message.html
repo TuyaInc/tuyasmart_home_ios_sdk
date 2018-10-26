@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>消息中心 · GitBook</title>
+        <title>Message center · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -60,7 +60,7 @@
     <link rel="next" href="Feedback.html" />
     
     
-    <link rel="prev" href="DataChannel.html" />
+    <link rel="prev" href="SmartScene.html" />
     
 
     </head>
@@ -372,7 +372,7 @@
                 <span>
             
                     
-                    设备控制
+                    Device control
             
                 </span>
             
@@ -386,7 +386,7 @@
                 <a href="Device.html">
             
                     
-                    设备控制
+                    Device control
             
                 </a>
             
@@ -399,7 +399,7 @@
                 <a href="Ota.html">
             
                     
-                    固件升级
+                    Firmware upgrade
             
                 </a>
             
@@ -417,7 +417,7 @@
                 <a href="Shared.html">
             
                     
-                    共享设备
+                    Share devices
             
                 </a>
             
@@ -431,7 +431,7 @@
                 <a href="Shared_Home.html">
             
                     
-                    家庭成员共享
+                    Share with home members
             
                 </a>
             
@@ -444,7 +444,7 @@
                 <a href="Shared_Device.html">
             
                     
-                    设备共享
+                    Share devices
             
                 </a>
             
@@ -462,7 +462,7 @@
                 <a href="Timer.html">
             
                     
-                    定时任务
+                    Timer task
             
                 </a>
             
@@ -475,7 +475,7 @@
                 <a href="Group.html">
             
                     
-                    群组管理
+                    Group management
             
                 </a>
             
@@ -488,7 +488,7 @@
                 <span>
             
                     
-                    智能场景
+                    Smart scene
             
                 </span>
             
@@ -502,7 +502,7 @@
                 <a href="SmartScene_Manager.html">
             
                     
-                    智能场景
+                    Smart scene
             
                 </a>
             
@@ -515,7 +515,7 @@
                 <a href="SmartScene.html">
             
                     
-                    单个场景操作
+                    single scene operation
             
                 </a>
             
@@ -528,25 +528,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="DataChannel.html">
-            
-                <a href="DataChannel.html">
-            
-                    
-                    数据流通道
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.15" data-path="Message.html">
+        <li class="chapter active" data-level="1.14" data-path="Message.html">
             
                 <a href="Message.html">
             
                     
-                    消息中心
+                    Message center
             
                 </a>
             
@@ -554,12 +541,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="Feedback.html">
+        <li class="chapter " data-level="1.15" data-path="Feedback.html">
             
                 <a href="Feedback.html">
             
                     
-                    意见反馈
+                    Feedback
             
                 </a>
             
@@ -567,12 +554,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="CommonInterface.html">
+        <li class="chapter " data-level="1.16" data-path="CommonInterface.html">
             
                 <a href="CommonInterface.html">
             
                     
-                    通用接口
+                    Common interface
             
                 </a>
             
@@ -580,12 +567,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.18" data-path="Push.html">
+        <li class="chapter " data-level="1.17" data-path="Push.html">
             
                 <a href="Push.html">
             
                     
-                    集成Push
+                    Register pushId
             
                 </a>
             
@@ -593,7 +580,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.19" data-path="Faq.html">
+        <li class="chapter " data-level="1.18" data-path="Faq.html">
             
                 <a href="Faq.html">
             
@@ -636,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >消息中心</a>
+        <a href=".." >Message center</a>
     </h1>
 </div>
 
@@ -651,8 +638,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>&#x6D88;&#x606F;&#x4E2D;&#x5FC3;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartMessage</code>&#x7C7B;&#xFF0C;&#x652F;&#x6301;&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x5217;&#x8868;&#xFF0C;&#x6279;&#x91CF;&#x5220;&#x9664;&#x6D88;&#x606F;&#xFF0C;&#x4EE5;&#x53CA;&#x662F;&#x5426;&#x6709;&#x6D88;&#x606F;&#x66F4;&#x65B0;&#x3002;</p>
-<h3 id="&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x6D88;&#x606F;&#x5217;&#x8868;</h3>
+                                <h2 id="message-center">Message center</h2>
+<p>All functions related to the message center are realized by using the <code>TuyaSmartMessage</code> class. Obtaining message list, deleting messages in batches and checking for message update are supported. </p>
+<h3 id="obtain-message-list">Obtain message list</h3>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)getMessageList {
 <span class="hljs-comment">//    self.smartMessage = [[TuyaSmartMessage alloc] init];</span>
     [<span class="hljs-keyword">self</span>.smartMessage getMessageList:^(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartMessageListModel *&gt; *list) {
@@ -662,8 +650,8 @@
     }];
 }
 </code></pre>
-<h3 id="&#x5220;&#x9664;&#x6D88;&#x606F;">&#x5220;&#x9664;&#x6D88;&#x606F;</h3>
-<p>&#x6279;&#x91CF;&#x5220;&#x9664;&#x6D88;&#x606F;&#xFF0C;<code>messgeIdList</code>&#x662F;&#x8981;&#x5220;&#x9664;&#x6D88;&#x606F;&#x7684;id&#x6570;&#x7EC4;&#xFF0C;&#x6D88;&#x606F;id&#x53EF;&#x4EE5;&#x4ECE;&#x6D88;&#x606F;&#x5217;&#x8868;&#x4E2D;&#x83B7;&#x53D6;&#x3002;</p>
+<h3 id="delete-messages">Delete messages</h3>
+<p>Delete messages in batches. <code>messgeIdList</code> denotes the id group of messages to be deleted, and the message id can be attained from the message list. </p>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)deleteMessage {
 <span class="hljs-comment">//    self.smartMessage = [[TuyaSmartMessage alloc] init];</span>
     [<span class="hljs-keyword">self</span>.smartMessage deleteMessage:(<span class="hljs-built_in">NSArray</span> &lt;<span class="hljs-built_in">NSString</span> *&gt; *)messgeIdList success:^{
@@ -673,8 +661,8 @@
     }];
 }
 </code></pre>
-<h3 id="&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x6233;">&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x6233;</h3>
-<p>&#x83B7;&#x53D6;&#x6700;&#x65B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x4E0E;&#x672C;&#x5730;&#x6700;&#x65B0;&#x4E00;&#x6761;&#x6D88;&#x606F;&#x7684;&#x65F6;&#x95F4;&#x6233;&#x6BD4;&#x8F83;&#xFF0C;&#x5927;&#x4E8E;&#x672C;&#x5730;&#x6700;&#x65B0;&#x6D88;&#x606F;&#x65F6;&#x95F4;&#xFF0C;&#x5219;&#x5C55;&#x793A;&#x7EA2;&#x70B9;&#xFF0C;&#x8868;&#x793A;&#x6709;&#x65B0;&#x6D88;&#x606F;&#x3002;</p>
+<h3 id="obtain-the-timestamp-of-the-latest-news">Obtain the timestamp of the latest news</h3>
+<p>The timestamp of the latest news can be compared with that of local latest message. If the former is bigger than the later, a red dot will be displayed to hint the new message. </p>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)getMessageMaxTime {
 <span class="hljs-comment">//    self.smartMessage = [[TuyaSmartMessage alloc] init];</span>
     [<span class="hljs-keyword">self</span>.smartMessage getMessageMaxTime:^(<span class="hljs-keyword">int</span> result) {
@@ -711,12 +699,12 @@
 
             
                 
-                <a href="DataChannel.html" class="navigation navigation-prev " aria-label="Previous page: 数据流通道">
+                <a href="SmartScene.html" class="navigation navigation-prev " aria-label="Previous page: single scene operation">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Feedback.html" class="navigation navigation-next " aria-label="Next page: 意见反馈">
+                <a href="Feedback.html" class="navigation navigation-next " aria-label="Next page: Feedback">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -727,7 +715,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"消息中心","level":"1.15","depth":1,"next":{"title":"意见反馈","level":"1.16","depth":1,"path":"resource/Feedback.md","ref":"./resource/Feedback.md","articles":[]},"previous":{"title":"数据流通道","level":"1.14","depth":1,"path":"resource/DataChannel.md","ref":"./resource/DataChannel.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Message.md","mtime":"2018-10-24T12:31:43.750Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T08:59:00.293Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Message center","level":"1.14","depth":1,"next":{"title":"Feedback","level":"1.15","depth":1,"path":"resource/Feedback.md","ref":"./resource/Feedback.md","articles":[]},"previous":{"title":"single scene operation","level":"1.13.2","depth":2,"path":"resource/SmartScene.md","ref":"./resource/SmartScene.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Message.md","mtime":"2018-10-26T09:12:58.510Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T13:30:53.736Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

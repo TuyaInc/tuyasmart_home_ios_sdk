@@ -1,24 +1,24 @@
-## 智能场景
+## Smart scene
 
-涂鸦云支持用户根据实际生活场景，通过设置气象或设备条件，当条件满足时，让一个或多个设备执行相应的任务。
+The Tuya Cloud allows users to set meteorological or device conditions based on actual scenes in life, and if conditions are met, one or multiple devices will carry out corresponding tasks. 
 
-场景相关的功能对应`TuyaSmartScene`和`TuyaSmartSceneManager`两个类，`TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是`TuyaSmartSceneModel`的`sceneId`字段，可以从场景列表中获取。`TuyaSmartSceneManager`类（单例）则主要提供了场景里条件、任务、设备、城市相关的所有数据。
+All functions related to scenes will be realized by using the `TuyaSmartScene` class and the `TuyaSmartSceneManager` class. The `TuyaSmartScene` class provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the `sceneId` of the `TuyaSmartSceneModel`, and it can be obtained from the scene list. The `TuyaSmartSceneManager` class (singleton) mainly provides all data related to conditions, tasks, devices and city for scenes. 
 
-在使用智能场景相关的接口之前，需要首先了解场景条件和场景任务这两个概念。
+Before using interfaces related to the smart scene, you have to understand the scene conditions of scene tasks first.
 
-#### 场景条件
+### Scene conditions
 
-场景条件对应`TuyaSmartSceneConditionModel`类，涂鸦云支持两种条件类型：
+All scenes conditions are defined in the `TuyaSmartSceneConditionModel` class, and Tuya supports two types of conditions:
 
-- 气象条件：包括温度、湿度、天气、PM2.5、空气质量、日落日出，用户选择气象条件时，可以选择当前城市。
-- 设备条件：指用户可预先选择一个设备的功能状态，当该设备达到该状态时，会触发当前场景里的任务，但同一设备不能同时作为条件和任务，避免操作冲突。
-- 定时条件：指可以按照指定的时间去执行预定的任务。
+- Meteorological conditions including temperature, humidity, weather, PM2.5, air quality and sunrise and sunset. User can select city when he/she selects the meteorological conditions. 
+- Device conditions: if you have preset a function status for a device, the task in the scene will be triggered when the device status is reached. To avoid conflicts in operation, the same device cannot be used for both conditions and task at the same time. 
+- Timing conditions: the device will carry out preset task at the required time. 
 
-#### 场景任务
+### Scene action
 
-场景任务是指当该场景满足已经设定的气象或设备条件时，让一个或多个设备执行某种操作，对应`TuyaSmartSceneActionModel`类。或者关闭、开启一个自动化（带有场景条件的就叫做自动化）
+In this case, one or multiple devices will run some operations or enable or disable an automation action (with scene conditions) when the preset meteorological or device conditions are met. All relevant functions are realized in the `TuyaSmartSceneActionModel` class. 
 
-#### 获取场景列表
+### Obtain scene list
 
 ```objc
 // 获取家庭下的场景列表
@@ -31,10 +31,89 @@
 }
 ```
 
-#### 获取条件列表
+### Add scenes
 
-获取条件列表，如温度、湿度、天气、PM2.5、日落日出等，注意：设备也可作为条件。
-条件中的温度分为摄氏度和华氏度，根据需求传入需要的数据。
+User needs to upload the name of scene, Id of home, url of background pictures, showing the picture in the home page or not, task list (one at least) and determine carrying out task(s) when one or multiple conditions are met when he/she add a scene. The user can just set the name, tasks, background picture, but he/she has to set conditions manually. 
+
+
+```objc
+- (void)addSmartScene {
+
+    [TuyaSmartScene addNewSceneWithName:@"your_scene_name" homeId:homeId background:@"background_url" showFirstPage:YES conditionList:(NSArray<TuyaSmartSceneConditionModel *> *) actionList:(NSArray<TuyaSmartSceneActionModel *> *) matchType:TuyaSmartConditionMatchAny success:^(TuyaSmartSceneModel *sceneModel) {
+        NSLog(@"add scene success %@:", sceneModel);
+    } failure:^(NSError *error) {
+        NSLog(@"add scene failure: %@", error);
+    }];
+}
+
+```
+### Edit scene
+
+User needs to edit the name of scene, background pictures, condition list, task list, and determine carrying out task(s) when one or multiple conditions are met. 
+
+```objc
+- (void)modifySmartScene {
+//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
+    [self.smartScene modifySceneWithName:name background:@"background_url" showFirstPage:YES condition:(NSArray<TuyaSmartSceneConditionModel *> *) actionList:(NSArray<TuyaSmartSceneActionModel *> *) matchType:TuyaSmartConditionMatchAny success:^{
+        NSLog(@"modify scene success");
+    } failure:^(NSError *error) {
+        NSLog(@"modify scene failure: %@", error);
+    }];
+}
+```
+### Delete scene
+
+```objc
+- (void)deleteSmartScene {
+//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
+    [self.smartScene deleteSceneWithSuccess:^{
+        NSLog(@"delete scene success");
+    } failure:^(NSError *error) {
+        NSLog(@"delete scene failure: %@", error);
+    }];
+}
+```
+### Execute scene
+
+```objc
+- (void)executeSmartScene {
+//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
+	[self.smartScene executeSceneWithSuccess:^{
+   		NSLog(@"execute scene success");    
+    } failure:^(NSError *error) {
+        NSLog(@"execute scene failure: %@", error);
+    }];
+}
+```
+
+### Enable scene (scene with at least one condition can be enabled or disabled)
+
+```objc
+- (void)enableSmartScene {
+//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
+	[self.smartScene enableSceneWithSuccess:^{
+   		NSLog(@"enable scene success");    
+    } failure:^(NSError *error) {
+        NSLog(@"enable scene failure: %@", error);
+    }];
+}
+```
+
+### Disable scene (scene with at least one condition can be enabled or disabled)
+
+```objc
+- (void)disableSmartScene {
+//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
+	[self.smartScene disableSceneWithSuccess:^{
+   		NSLog(@"disable scene success");    
+    } failure:^(NSError *error) {
+        NSLog(@"disable scene failure: %@", error);
+    }];
+}
+```
+### Obtain condition list
+
+Obtain condition list. The condition can be temperature, humidity, weather, PM2.5, sunrise and sunset. It shall be noted that the device can also be a condition. The temperature can be in the Celsius system and Fahrenheit, and data shall be uploaded based on needs. 
 
 ```objc
 - (void)getConditionList {
@@ -45,10 +124,9 @@
     }];
 }
 ```
+### Obtain the action device list
 
-#### 获取任务设备列表
-
-添加任务时，需获取任务的设备列表，用来选择执行相应的任务。
+When adding tasks, the device list of task shall be obtained. 
 
 ```objc
 - (void)getActionDeviceList {
@@ -59,10 +137,9 @@
 	}];
 }
 ```
+### Obtain the condition device list
 
-#### 获取条件设备列表
-
-添加条件时，除了温度、湿度、天气等这些气象条件可以作为任务执行条件外，设备也可以作为条件，即获取条件设备列表，然后选择一个设备执行相应的任务作为条件。
+Except for meteorological conditions such as temperature, humidity and weather, etc., the device can also be a condition. The condition device list shall be obtained, and one device that is carrying out some tasks will be used as a condition. 
 
 ```objc
 - (void)getConditionDeviceList {
@@ -74,9 +151,9 @@
 }
 ```
 
-#### 获取任务设备的dp列表
+### Obtain the dp list of action device
 
-添加或编辑场景任务时，选择设备后，需要根据选择设备的deviceId获取设备dp列表，进而选择某一个dp功能点，即指定该设备执行该项任务。
+When adding or editing scene actions, the user needs to obtain the device dp list based on the deviceId of devices to select a dp function point so as to assign the action to the device. 
 
 ```objc
 - (void)getActionDeviceDPList {
@@ -88,9 +165,9 @@
 }
 ```
 
-#### 获取条件设备的dp列表
+### Obtain the dp list of condition device
 
-选择场景条件时，选择了设备，需要根据选择设备的deviceId获取设备dp列表，进而选择某一个dp功能点，即指定该设备执行该dp功能作为该场景的执行条件。
+When selecting scene conditions, the user needs to obtain the device dp list based on the deviceId to select a dp function point so that the operation of the dp function of a device can be used as the condition of the scene.
 
 ```objc
 - (void)getCondicationDeviceDPList {
@@ -102,9 +179,9 @@
 }    
 ```
 
-#### 获取城市列表
+### Obtain the city list
 
-选择场景气象条件时，根据国家码获取城市列表，用户可以选择当前城市。（注：国外部分国家的城市列表可能暂时不全，如果是国外用户，建议根据经纬度获取城市信息。）
+When selecting meteorological conditions for scene, user can obtain the city list according to the country code. The user can select the city he is currently in. (Note: city list of some foreign countries may be incomplete temporarily. If you are not in China, it is recommended that you obtain the city information according to the altitude and longitude.)
 
 ```objc
 - (void)getCityList {
@@ -116,7 +193,7 @@
 }
 ```
 
-#### 根据经纬度获取城市信息
+### Obtain the city information according to the altitude and longitude of city
 
 ```objc
 - (void)getCityInfo {
@@ -127,10 +204,9 @@
 	}];
 }
 ```
+### Obtain the city information according to the city id.
 
-#### 根据城市id获取城市信息
-
-根据城市id获取城市信息，城市id可以从城市列表获取。
+Obtain the city information according to the city id. The city id can be attained from the city list. 
 
 ```objc
 - (void) getCityInfo {
@@ -142,7 +218,8 @@
 }
 ```
 
-#### 场景排序
+### Sort scene
+
 
 ```objc
 - (void) sortScene {

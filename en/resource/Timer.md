@@ -1,18 +1,15 @@
-#### 定时任务
+## Timer task
 
-
-
-设计思路如下图所示：
+The design idea is given in the following figure:
 
 ![Timer](./images/ios-sdk-timer.jpg)
+All functions of timer task are realized by using the `TuyaSmartUser` Class.
 
-定时任务相关的所有功能对应`TuyaSmartTimer`类。
+*Note: loops: @"0000000", 0 denotes off, and 1 denotes on. Each 0 from the left to the right denotes  Sunday, Monday, Tuesday, Wednesday, Thursday, Friday and Saturday, respectively.*
 
-_注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示: 周日 周一 周二 周三 周四 周五 周六_
+### Add timer task
 
-### 增加定时任务
-
-增加一个timer到指定device的指定task下
+Add a timer to the required task specified by a device.
 
 ```objc
 - (void)addTimer {
@@ -27,9 +24,9 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 获取定时任务状态
+### Obtain status of timer task
 
-获取指定device下所有task模型
+Obtain all task modules of a specified device.
 
 ```objc
 - (void)getTimer {
@@ -43,9 +40,9 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 更新定时任务状态
+### Update status of timer task
 
-更新指定device下的指定task的状态 0:关闭,1:开启
+Update the status of a designated task specified by a device. 0 denotes off, and 1 denotes on. 
 
 ```objc
 - (void)updateTimer {
@@ -59,9 +56,9 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 更新定时钟状态
+### Update the status of timer
 
-更新指定device下的指定task下的指定timer的状态 0:关闭,1:开启
+Update the status of a designated timer specified by a device. 0 denotes off, and 1 denotes on.
 
 ```objc
 - (void)updateTimer {
@@ -75,9 +72,9 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 删除定时钟
+### Remove timer
 
-删除指定device下的指定task下的指定timer
+Remove the timer of a task specified by a device. 
 
 ```objc
 - (void)removeTimer {
@@ -91,9 +88,9 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 更新定时钟
+### Update timer
 
-更新指定device下的指定task下的指定timer
+Update the timer of a task specified by a device.
 
 ```objc
 - (void)updateTimer {
@@ -108,9 +105,9 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 获取定时任务下所有定时钟
+### Obtain all timers of timer task
 
-获取指定device下的指定task下所有timer模型
+Obtain all timer modules of task required by a device.
 
 ```objc
 - (void)getTimer {
@@ -124,9 +121,9 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
-### 获取设备所有定时任务下所有定时钟
+### Obtain all timers of all timer tasks
 
-获取指定device下所有task下所有timer模型
+Obtain all timer modules of task required by a device.
 
 ```objc
 - (void)getTimer {

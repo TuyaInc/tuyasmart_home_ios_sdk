@@ -1,10 +1,11 @@
-### 固件升级
+### Firmware upgrade
 
-**固件升级流程:**
+**Firmware upgrade process:**
 
-获取设备升级信息 -> 下发联网模块升级指令 -> 联网模块升级成功 -> 下发设备控制模块升级指令 -> 设备控制模块升级成功
+Obtain device upgrade information -> send module upgrade instructions -> module upgrade succeeds -> send upgrade instructions to the device control module -> the upgrade of device control module succeeds 
 
-#### 获取设备升级信息：
+
+#### Obtain device upgrade information:
 
 ```objc
 - (void)getFirmwareUpgradeInfo {
@@ -18,7 +19,7 @@
 }
 ```
 
-#### 下发升级指令：
+#### Send upgrade instruction:
 
 ```objc
 - (void)upgradeFirmware {
@@ -35,7 +36,7 @@
 ```
 
 
-#### 回调接口：
+#### Callback interface: 
 ```objc
 - (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type {
 	//固件升级成功
@@ -50,4 +51,3 @@
 }
 
 ```
-

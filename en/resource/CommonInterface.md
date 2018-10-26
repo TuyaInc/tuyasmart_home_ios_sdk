@@ -1,4 +1,6 @@
-调用服务端的api接口
+## Common interface
+
+Invoke the api interface of server
 
 ```objc
 
@@ -8,11 +10,11 @@
     /**
 	 *  请求服务端接口
 	 *
-	 *  @param apiName	接口名称
-	 *  @param postData 业务入参
-	 *  @param version  接口版本号
-	 *  @param success  操作成功回调
-	 *  @param failure  操作失败回调
+	 *  @param apiName	Name of interface
+	 *  @param postData parameter value assigned from service
+	 *  @param version  No. of interface.
+	 *  @param success  Callback of successful operation
+	 *  @param failure  Callback of failed operation
 	 */
     [self.request requestWithApiName:@"api_name" postData:@"post_data" version:@"api_version" success:^(id result) {
         

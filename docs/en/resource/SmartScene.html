@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>单个场景操作 · GitBook</title>
+        <title>single scene operation · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="DataChannel.html" />
+    <link rel="next" href="Message.html" />
     
     
     <link rel="prev" href="SmartScene_Manager.html" />
@@ -372,7 +372,7 @@
                 <span>
             
                     
-                    设备控制
+                    Device control
             
                 </span>
             
@@ -386,7 +386,7 @@
                 <a href="Device.html">
             
                     
-                    设备控制
+                    Device control
             
                 </a>
             
@@ -399,7 +399,7 @@
                 <a href="Ota.html">
             
                     
-                    固件升级
+                    Firmware upgrade
             
                 </a>
             
@@ -417,7 +417,7 @@
                 <a href="Shared.html">
             
                     
-                    共享设备
+                    Share devices
             
                 </a>
             
@@ -431,7 +431,7 @@
                 <a href="Shared_Home.html">
             
                     
-                    家庭成员共享
+                    Share with home members
             
                 </a>
             
@@ -444,7 +444,7 @@
                 <a href="Shared_Device.html">
             
                     
-                    设备共享
+                    Share devices
             
                 </a>
             
@@ -462,7 +462,7 @@
                 <a href="Timer.html">
             
                     
-                    定时任务
+                    Timer task
             
                 </a>
             
@@ -475,7 +475,7 @@
                 <a href="Group.html">
             
                     
-                    群组管理
+                    Group management
             
                 </a>
             
@@ -488,7 +488,7 @@
                 <span>
             
                     
-                    智能场景
+                    Smart scene
             
                 </span>
             
@@ -502,7 +502,7 @@
                 <a href="SmartScene_Manager.html">
             
                     
-                    智能场景
+                    Smart scene
             
                 </a>
             
@@ -515,7 +515,7 @@
                 <a href="SmartScene.html">
             
                     
-                    单个场景操作
+                    single scene operation
             
                 </a>
             
@@ -528,25 +528,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="DataChannel.html">
-            
-                <a href="DataChannel.html">
-            
-                    
-                    数据流通道
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15" data-path="Message.html">
+        <li class="chapter " data-level="1.14" data-path="Message.html">
             
                 <a href="Message.html">
             
                     
-                    消息中心
+                    Message center
             
                 </a>
             
@@ -554,12 +541,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="Feedback.html">
+        <li class="chapter " data-level="1.15" data-path="Feedback.html">
             
                 <a href="Feedback.html">
             
                     
-                    意见反馈
+                    Feedback
             
                 </a>
             
@@ -567,12 +554,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="CommonInterface.html">
+        <li class="chapter " data-level="1.16" data-path="CommonInterface.html">
             
                 <a href="CommonInterface.html">
             
                     
-                    通用接口
+                    Common interface
             
                 </a>
             
@@ -580,12 +567,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.18" data-path="Push.html">
+        <li class="chapter " data-level="1.17" data-path="Push.html">
             
                 <a href="Push.html">
             
                     
-                    集成Push
+                    Register pushId
             
                 </a>
             
@@ -593,7 +580,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.19" data-path="Faq.html">
+        <li class="chapter " data-level="1.18" data-path="Faq.html">
             
                 <a href="Faq.html">
             
@@ -636,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >单个场景操作</a>
+        <a href=".." >single scene operation</a>
     </h1>
 </div>
 
@@ -651,10 +638,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x5355;&#x4E2A;&#x573A;&#x666F;&#x64CD;&#x4F5C;">&#x5355;&#x4E2A;&#x573A;&#x666F;&#x64CD;&#x4F5C;</h2>
-<p>TuyaSmartScene<code>&#x63D0;&#x4F9B;&#x4E86;&#x5355;&#x4E2A;&#x573A;&#x666F;&#x7684;&#x6DFB;&#x52A0;&#x3001;&#x7F16;&#x8F91;&#x3001;&#x5220;&#x9664;&#x3001;&#x6267;&#x884C;4&#x79CD;&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x573A;&#x666F;id&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x573A;&#x666F;id&#x6307;&#x7684;&#x662F;</code>TuyaSmartSceneModel<code>&#x7684;</code>sceneId`&#x5B57;&#x6BB5;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x573A;&#x666F;&#x5217;&#x8868;&#x4E2D;&#x83B7;&#x53D6;&#x3002;</p>
-<h4 id="&#x6DFB;&#x52A0;&#x573A;&#x666F;">&#x6DFB;&#x52A0;&#x573A;&#x666F;</h4>
-<p>&#x6DFB;&#x52A0;&#x573A;&#x666F;&#x9700;&#x8981;&#x4F20;&#x5165;&#x573A;&#x666F;&#x540D;&#x79F0;&#xFF0C;&#x5BB6;&#x5EAD;&#x7684;Id&#xFF0C;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x7684;url&#xFF0C;&#x662F;&#x5426;&#x663E;&#x793A;&#x5728;&#x9996;&#x9875;&#xFF0C;&#x6761;&#x4EF6;&#x5217;&#x8868;&#xFF0C;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#xFF08;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#xFF09;&#xFF0C;&#x6EE1;&#x8DB3;&#x4EFB;&#x4E00;&#x6761;&#x4EF6;&#x8FD8;&#x662F;&#x6EE1;&#x8DB3;&#x6240;&#x6709;&#x6761;&#x4EF6;&#x65F6;&#x6267;&#x884C;&#x3002;&#x4E5F;&#x53EF;&#x4EE5;&#x53EA;&#x8BBE;&#x7F6E;&#x540D;&#x79F0;&#x548C;&#x4EFB;&#x52A1;&#xFF0C;&#x80CC;&#x666F;&#x56FE;&#x7247;&#xFF0C;&#x4E0D;&#x8BBE;&#x7F6E;&#x6761;&#x4EF6;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x624B;&#x52A8;&#x6267;&#x884C;&#x3002;</p>
+                                <p>The <code>TuyaSmartScene</code> class provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the <code>sceneId</code> of the <code>TuyaSmartSceneModel</code>, and it can be obtained from the scene list. </p>
+<h3 id="add-scenes">Add scenes</h3>
+<p>User needs to upload the name of scene, Id of home, url of background pictures, showing the picture in the home page or not, task list (one at least) and determine carrying out task(s) when one or multiple conditions are met when he/she add a scene. The user can just set the name, tasks, background picture, but he/she has to set conditions manually. </p>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)addSmartScene {
 
     [TuyaSmartScene addNewSceneWithName:<span class="hljs-string">@&quot;your_scene_name&quot;</span> homeId:homeId background:<span class="hljs-string">@&quot;background_url&quot;</span> showFirstPage:<span class="hljs-literal">YES</span> conditionList:(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartSceneConditionModel *&gt; *) actionList:(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartSceneActionModel *&gt; *) matchType:TuyaSmartConditionMatchAny success:^(TuyaSmartSceneModel *sceneModel) {
@@ -664,8 +650,8 @@
     }];
 }
 </code></pre>
-<h4 id="&#x7F16;&#x8F91;&#x573A;&#x666F;">&#x7F16;&#x8F91;&#x573A;&#x666F;</h4>
-<p>&#x7F16;&#x8F91;&#x573A;&#x666F;&#x7684;&#x540D;&#x79F0;&#x3001;&#x80CC;&#x666F;&#x56FE;&#x3001;&#x6761;&#x4EF6;&#x5217;&#x8868;&#x3001;&#x4EFB;&#x52A1;&#x5217;&#x8868;&#x3001;&#x6EE1;&#x8DB3;&#x4EFB;&#x4E00;&#x6761;&#x4EF6;&#x8FD8;&#x662F;&#x6EE1;&#x8DB3;&#x6240;&#x6709;&#x6761;&#x4EF6;&#x65F6;&#x6267;&#x884C;</p>
+<h3 id="edit-scene">Edit scene</h3>
+<p>User needs to edit the name of scene, background pictures, condition list, task list, and determine carrying out task(s) when one or multiple conditions are met. </p>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)modifySmartScene {
 <span class="hljs-comment">//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@&quot;your_scene_id&quot;];</span>
     [<span class="hljs-keyword">self</span>.smartScene modifySceneWithName:name background:<span class="hljs-string">@&quot;background_url&quot;</span> showFirstPage:<span class="hljs-literal">YES</span> condition:(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartSceneConditionModel *&gt; *) actionList:(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartSceneActionModel *&gt; *) matchType:TuyaSmartConditionMatchAny success:^{
@@ -675,7 +661,7 @@
     }];
 }
 </code></pre>
-<h4 id="&#x5220;&#x9664;&#x573A;&#x666F;">&#x5220;&#x9664;&#x573A;&#x666F;</h4>
+<h3 id="delete-scene">Delete scene</h3>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)deleteSmartScene {
 <span class="hljs-comment">//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@&quot;your_scene_id&quot;];</span>
     [<span class="hljs-keyword">self</span>.smartScene deleteSceneWithSuccess:^{
@@ -685,31 +671,31 @@
     }];
 }
 </code></pre>
-<h4 id="&#x6267;&#x884C;&#x573A;&#x666F;">&#x6267;&#x884C;&#x573A;&#x666F;</h4>
+<h3 id="execute-scene">Execute scene</h3>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)executeSmartScene {
 <span class="hljs-comment">//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@&quot;your_scene_id&quot;];</span>
     [<span class="hljs-keyword">self</span>.smartScene executeSceneWithSuccess:^{
-           <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;execute scene success&quot;</span>);    
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;execute scene success&quot;</span>);    
     } failure:^(<span class="hljs-built_in">NSError</span> *error) {
         <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;execute scene failure: %@&quot;</span>, error);
     }];
 }
 </code></pre>
-<h4 id="&#x5F00;&#x542F;&#x573A;&#x666F;&#xFF08;&#x53EA;&#x6709;&#x81F3;&#x5C11;&#x5E26;&#x6709;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x7684;&#x573A;&#x666F;&#x624D;&#x53EF;&#x4EE5;&#x5F00;&#x542F;&#x548C;&#x5931;&#x6548;&#x573A;&#x666F;&#xFF09;">&#x5F00;&#x542F;&#x573A;&#x666F;&#xFF08;&#x53EA;&#x6709;&#x81F3;&#x5C11;&#x5E26;&#x6709;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x7684;&#x573A;&#x666F;&#x624D;&#x53EF;&#x4EE5;&#x5F00;&#x542F;&#x548C;&#x5931;&#x6548;&#x573A;&#x666F;&#xFF09;</h4>
+<h3 id="enable-scene-scene-with-at-least-one-condition-can-be-enabled-or-disabled">Enable scene (scene with at least one condition can be enabled or disabled)</h3>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)enableSmartScene {
 <span class="hljs-comment">//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@&quot;your_scene_id&quot;];</span>
     [<span class="hljs-keyword">self</span>.smartScene enableSceneWithSuccess:^{
-           <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;enable scene success&quot;</span>);    
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;enable scene success&quot;</span>);    
     } failure:^(<span class="hljs-built_in">NSError</span> *error) {
         <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;enable scene failure: %@&quot;</span>, error);
     }];
 }
 </code></pre>
-<h4 id="&#x5931;&#x6548;&#x573A;&#x666F;&#xFF08;&#x53EA;&#x6709;&#x81F3;&#x5C11;&#x5E26;&#x6709;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x7684;&#x573A;&#x666F;&#x624D;&#x53EF;&#x4EE5;&#x5F00;&#x542F;&#x548C;&#x5931;&#x6548;&#x573A;&#x666F;&#xFF09;">&#x5931;&#x6548;&#x573A;&#x666F;&#xFF08;&#x53EA;&#x6709;&#x81F3;&#x5C11;&#x5E26;&#x6709;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x6761;&#x4EF6;&#x7684;&#x573A;&#x666F;&#x624D;&#x53EF;&#x4EE5;&#x5F00;&#x542F;&#x548C;&#x5931;&#x6548;&#x573A;&#x666F;&#xFF09;</h4>
+<h3 id="disable-scene-scene-with-at-least-one-condition-can-be-enabled-or-disabled">Disable scene (scene with at least one condition can be enabled or disabled)</h3>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)disableSmartScene {
 <span class="hljs-comment">//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@&quot;your_scene_id&quot;];</span>
     [<span class="hljs-keyword">self</span>.smartScene disableSceneWithSuccess:^{
-           <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;disable scene success&quot;</span>);    
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;disable scene success&quot;</span>);    
     } failure:^(<span class="hljs-built_in">NSError</span> *error) {
         <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;disable scene failure: %@&quot;</span>, error);
     }];
@@ -742,12 +728,12 @@
 
             
                 
-                <a href="SmartScene_Manager.html" class="navigation navigation-prev " aria-label="Previous page: 智能场景">
+                <a href="SmartScene_Manager.html" class="navigation navigation-prev " aria-label="Previous page: Smart scene">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="DataChannel.html" class="navigation navigation-next " aria-label="Next page: 数据流通道">
+                <a href="Message.html" class="navigation navigation-next " aria-label="Next page: Message center">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -758,7 +744,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"单个场景操作","level":"1.13.2","depth":2,"next":{"title":"数据流通道","level":"1.14","depth":1,"path":"resource/DataChannel.md","ref":"./resource/DataChannel.md","articles":[]},"previous":{"title":"智能场景","level":"1.13.1","depth":2,"path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/SmartScene.md","mtime":"2018-10-26T03:23:08.918Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T08:59:00.293Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"single scene operation","level":"1.13.2","depth":2,"next":{"title":"Message center","level":"1.14","depth":1,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[]},"previous":{"title":"Smart scene","level":"1.13.1","depth":2,"path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/SmartScene.md","mtime":"2018-10-26T09:15:12.194Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T13:30:53.736Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

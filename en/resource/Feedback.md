@@ -1,9 +1,12 @@
-当用户有问题需要反馈时，可添加反馈，添加反馈时应先选择反馈类型，然后撰写反馈内容进行提交，提交后会按照之前选择的反馈类型生成相应的反馈会话，同时用户也可以在该会话中继续撰写反馈内容并提交，显示在该会话的反馈列表中。
+## Feedback
 
-意见反馈相关的所有功能对应`TuyaSmartFeedback`类，支持获取反馈会话列表，获取会话中反馈内容列表，获取反馈类型列表，以及添加反馈。
+If user intends to submit feedback, he has to select the type of feedback first and fill the feedback content. After submission, a feedback talk will be generated based on the selected type of feedback. User may continue to fill feedback in the session, and the feedback will be displayed in the feedback list of the session. 
 
-### 获取反馈会话列表
-获取用户已提交反馈会话列表。
+All functions related to the feedback will be realized by using the `TuyaSmartFeedback` class. Obtaining feedback talk list, feedback content list in the session and feedback type list and adding feedback are supported. 
+
+### Obtain feedback talk list
+
+Obtain the feedback talk list submitted by user
 
 ```objc
 - (void)getFeedbackTalkList {
@@ -15,8 +18,9 @@
 	}];
 }
 ```
-### 获取反馈列表
-获取反馈会话中对应的反馈内容列表，`hdId`和`hdType`字段可以从`TuyaSmartFeedbackTalkListModel`中获取。
+### Obtain feedback list
+
+Obtain the feedback content list from the feedback talk. The `hdId` and `hdType` can be attained from the TuyaSmartFeedbackTalkListModel.
 
 ```objc
 - (void)getFeedbackList {
@@ -28,8 +32,8 @@
 	}];
 }
 ```
-### 获取反馈类型列表
-添加反馈时，可先选择反馈类型。
+### Obtain feedback type list
+The feedback type can be selected first when adding feedback. 
 
 ```objc
 - (void)getFeedbackTypeList {
@@ -41,8 +45,9 @@
 	}];
 }
 ```
-### 添加反馈
-添加反馈，提交用户输入的反馈的内容，`hdId`和`hdType`字段可以从`TuyaSmartFeedbackTalkListModel`中获取。
+### Add feedback
+
+Add and submit feedback. The `hdId` and `hdType` can be obtained from the `TuyaSmartFeedbackTalkListModel`.
 
 ```objc
 - (void)addFeedback {

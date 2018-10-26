@@ -1,9 +1,12 @@
-涂鸦云支持群组管理体系：可以创建群组，修改群组名称，管理群组设备，通过群组管理多个设备，解散群组。
+## Group management
 
-群组相关的所有功能对应`TuyaSmartGroup`类，需要使用群组Id进行初始化。错误的群组Id可能会导致初始化失败，返回`nil`。
+The Tuya Cloud supports the group management system. User can create group, change group name, manage devices of group, manage multiple devices via the group and dismiss group.
+
+All functions of group are realized by using the `TuyaSmartGroup` class, and all functions need to be initiated by using the group Id. Wrong group Id may cause initiation failure, and the `nil` will be returned.
 
 
-### 创建群组
+### Create a group
+
 ```objc
 - (void)createNewGroup {
     
@@ -15,8 +18,9 @@
 }
 ```
 
-### 获取群组的设备列表
-群组没有创建，获取产品的设备列表
+### Obtain device list of group
+
+Obtain the device list of product when the group is not created.
 
 ```objc
 - (void)getGroupDevList {
@@ -29,7 +33,7 @@
 }
 ```
 
-群组已经创建，获取群组的设备列表
+Obtain the device list of a group when the group is created.
 
 ```objc
 - (void)getGroupDevList {
@@ -42,20 +46,21 @@
 }
 ```
 
-### 群组dp命令下发
+### Send dp command of a group
 
 ```objc
 - (void)publishDps {
 //    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
-	
-	NSDictionary *dps = @{@"1": @(YES)};
-	[self.smartGroup publishDps:dps success:^{
-		NSLog(@"publishDps success");
-	} failure:^(NSError *error) {
-		NSLog(@"publishDps failure: %@", error);
-	}];
+    
+    NSDictionary *dps = @{@"1": @(YES)};
+    [self.smartGroup publishDps:dps success:^{
+        NSLog(@"publishDps success");
+    } failure:^(NSError *error) {
+        NSLog(@"publishDps failure: %@", error);
+    }];
 ```
-### 修改群组名称
+
+### Modify the group name
 
 ```objc
 - (void)updateGroupName {
@@ -68,7 +73,8 @@
     }];
 }
 ```
-### 修改群组设备列表
+
+### Modify group device list
 
 ```objc
 - (void)updateGroupRelations {
@@ -81,7 +87,7 @@
     }];
 }
 ```
-### 解散群组
+### Dismiss group
 
 ```objc
 - (void)dismissGroup {
@@ -96,15 +102,16 @@
 ```
 
 
-### 回调接口
-群组DP下发之后的数据回调更新
+### Callback interface
+
+Callback and data updating after the group sends DP.
 
 ```objc
 
 #pragma mark - TuyaSmartGroupDelegate
 
 - (void)group:(TuyaSmartGroup *)group dpsUpdate:(NSDictionary *)dps {
-	//可以在这里刷新群组操作面板的UI
+    //可以在这里刷新群组操作面板的UI
 }
 
 ```

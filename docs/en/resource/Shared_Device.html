@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>设备共享 · GitBook</title>
+        <title>Share devices · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -372,7 +372,7 @@
                 <span>
             
                     
-                    设备控制
+                    Device control
             
                 </span>
             
@@ -386,7 +386,7 @@
                 <a href="Device.html">
             
                     
-                    设备控制
+                    Device control
             
                 </a>
             
@@ -399,7 +399,7 @@
                 <a href="Ota.html">
             
                     
-                    固件升级
+                    Firmware upgrade
             
                 </a>
             
@@ -417,7 +417,7 @@
                 <a href="Shared.html">
             
                     
-                    共享设备
+                    Share devices
             
                 </a>
             
@@ -431,7 +431,7 @@
                 <a href="Shared_Home.html">
             
                     
-                    家庭成员共享
+                    Share with home members
             
                 </a>
             
@@ -444,7 +444,7 @@
                 <a href="Shared_Device.html">
             
                     
-                    设备共享
+                    Share devices
             
                 </a>
             
@@ -462,7 +462,7 @@
                 <a href="Timer.html">
             
                     
-                    定时任务
+                    Timer task
             
                 </a>
             
@@ -475,7 +475,7 @@
                 <a href="Group.html">
             
                     
-                    群组管理
+                    Group management
             
                 </a>
             
@@ -488,7 +488,7 @@
                 <span>
             
                     
-                    智能场景
+                    Smart scene
             
                 </span>
             
@@ -502,7 +502,7 @@
                 <a href="SmartScene_Manager.html">
             
                     
-                    智能场景
+                    Smart scene
             
                 </a>
             
@@ -515,7 +515,7 @@
                 <a href="SmartScene.html">
             
                     
-                    单个场景操作
+                    single scene operation
             
                 </a>
             
@@ -528,25 +528,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="DataChannel.html">
-            
-                <a href="DataChannel.html">
-            
-                    
-                    数据流通道
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15" data-path="Message.html">
+        <li class="chapter " data-level="1.14" data-path="Message.html">
             
                 <a href="Message.html">
             
                     
-                    消息中心
+                    Message center
             
                 </a>
             
@@ -554,12 +541,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="Feedback.html">
+        <li class="chapter " data-level="1.15" data-path="Feedback.html">
             
                 <a href="Feedback.html">
             
                     
-                    意见反馈
+                    Feedback
             
                 </a>
             
@@ -567,12 +554,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="CommonInterface.html">
+        <li class="chapter " data-level="1.16" data-path="CommonInterface.html">
             
                 <a href="CommonInterface.html">
             
                     
-                    通用接口
+                    Common interface
             
                 </a>
             
@@ -580,12 +567,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.18" data-path="Push.html">
+        <li class="chapter " data-level="1.17" data-path="Push.html">
             
                 <a href="Push.html">
             
                     
-                    集成Push
+                    Register pushId
             
                 </a>
             
@@ -593,7 +580,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.19" data-path="Faq.html">
+        <li class="chapter " data-level="1.18" data-path="Faq.html">
             
                 <a href="Faq.html">
             
@@ -636,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >设备共享</a>
+        <a href=".." >Share devices</a>
     </h1>
 </div>
 
@@ -651,9 +638,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x8BBE;&#x5907;&#x5171;&#x4EAB;-&#xFF08;&#x57FA;&#x4E8E;&#x8BBE;&#x5907;&#x7EF4;&#x5EA6;&#x7684;&#x5171;&#x4EAB;&#xFF09;">&#x8BBE;&#x5907;&#x5171;&#x4EAB; &#xFF08;&#x57FA;&#x4E8E;&#x8BBE;&#x5907;&#x7EF4;&#x5EA6;&#x7684;&#x5171;&#x4EAB;&#xFF09;</h3>
-<p>&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartHomeDeviceShare</code>&#x7C7B;</p>
-<h4 id="&#x6DFB;&#x52A0;&#x5171;&#x4EAB;">&#x6DFB;&#x52A0;&#x5171;&#x4EAB;</h4>
+                                <h3 id="share-devices-sharing-based-on-device-dimensions">Share devices (sharing based on device dimensions)</h3>
+<p>All functions related to the device sharing are realized by using the <code>TuyaSmartHomeDeviceShare</code> Class.</p>
+<h4 id="add-sharing">Add sharing</h4>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)addMemberShare {
     <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -665,7 +652,7 @@
     }];
 }
 </code></pre>
-<h4 id="&#x6DFB;&#x52A0;&#x5171;&#x4EAB;-&#xFF08;&#x65B0;&#x589E;&#xFF0C;&#x4E0D;&#x8986;&#x76D6;&#x65E7;&#x7684;&#x5206;&#x4EAB;&#xFF09;">&#x6DFB;&#x52A0;&#x5171;&#x4EAB; &#xFF08;&#x65B0;&#x589E;&#xFF0C;&#x4E0D;&#x8986;&#x76D6;&#x65E7;&#x7684;&#x5206;&#x4EAB;&#xFF09;</h4>
+<h4 id="add-sharing-add-device-for-sharing">Add sharing (add device for sharing)</h4>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)addMemberShare {
     <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -677,13 +664,13 @@
     }];
 }
 </code></pre>
-<h4 id="&#x83B7;&#x53D6;&#x5171;&#x4EAB;&#x7684;&#x7528;&#x6237;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x5171;&#x4EAB;&#x7684;&#x7528;&#x6237;&#x5217;&#x8868;</h4>
-<p>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x4E3B;&#x52A8;&#x5171;&#x4EAB;&#x7684;&#x7528;&#x6237;&#x5217;&#x8868;</p>
+<h4 id="obtain-share-member-list">Obtain share member list</h4>
+<p>Obtain all active sharer user lists</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)getShareMemberList {
     <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
 
-    [<span class="hljs-keyword">self</span>.deviceShare getShareMemberListWithHomeId:homeId success:^(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartShareMemberModel *&gt; *list)
+    [<span class="hljs-keyword">self</span>.deviceShare getShareMemberListWithHomeId:homeId success:^(<span class="hljs-built_in">NSArray</span>&lt;TuyaSmartShareMemberModel *&gt; *list) {
 
         <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;getShareMemberList success&quot;</span>);
 
@@ -695,7 +682,7 @@
 
 }
 </code></pre>
-<p>&#x83B7;&#x53D6;&#x6240;&#x6709;&#x6536;&#x5230;&#x5171;&#x4EAB;&#x7684;&#x7528;&#x6237;&#x5217;&#x8868;</p>
+<p>Obtain the list of all users that have received the shared devices.</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)getReceiveMemberList {
     <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -712,8 +699,8 @@
 
 }
 </code></pre>
-<h4 id="&#x83B7;&#x53D6;&#x7528;&#x6237;&#x5171;&#x4EAB;&#x6570;&#x636E;">&#x83B7;&#x53D6;&#x7528;&#x6237;&#x5171;&#x4EAB;&#x6570;&#x636E;</h4>
-<p>&#x83B7;&#x53D6;&#x5355;&#x4E2A;&#x4E3B;&#x52A8;&#x5171;&#x4EAB;&#x7684;&#x7528;&#x6237;&#x5171;&#x4EAB;&#x6570;&#x636E;</p>
+<h4 id="obtain-the-shared-data">Obtain the shared data</h4>
+<p>Obtain the shared data of each active sharer</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)getShareMemberDetail {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -730,7 +717,7 @@
 
 }
 </code></pre>
-<p>&#x83B7;&#x53D6;&#x5355;&#x4E2A;&#x6536;&#x5230;&#x5171;&#x4EAB;&#x7684;&#x7528;&#x6237;&#x5171;&#x4EAB;&#x6570;&#x636E;</p>
+<p>Obtain the shared data received by a device</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)getReceiveMemberDetail {
     <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -747,8 +734,8 @@
 
 }
 </code></pre>
-<h4 id="&#x5220;&#x9664;&#x5171;&#x4EAB;">&#x5220;&#x9664;&#x5171;&#x4EAB;</h4>
-<p>&#x5220;&#x9664;&#x4E3B;&#x52A8;&#x5171;&#x4EAB;&#x8005;</p>
+<h4 id="remove-memeber">Remove memeber</h4>
+<p>Delete active sharer</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)removeShareMember {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -765,7 +752,7 @@
 
 }
 </code></pre>
-<p>&#x5220;&#x9664;&#x6536;&#x5230;&#x5171;&#x4EAB;&#x8005;</p>
+<p>Remove member that receives the sharing</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)removeReceiveMember {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -782,8 +769,8 @@
 
 }
 </code></pre>
-<h4 id="&#x4FEE;&#x6539;&#x6635;&#x79F0;">&#x4FEE;&#x6539;&#x6635;&#x79F0;</h4>
-<p>&#x4FEE;&#x6539;&#x4E3B;&#x52A8;&#x5171;&#x4EAB;&#x8005;&#x7684;&#x6635;&#x79F0;</p>
+<h4 id="modify-nickname">Modify nickname</h4>
+<p>Modify nickname of active sharer</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)updateShareMemberName {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -798,7 +785,7 @@
 
     }];
 </code></pre>
-<p>&#x4FEE;&#x6539;&#x6536;&#x5230;&#x5171;&#x4EAB;&#x8005;&#x7684;&#x6635;&#x79F0;</p>
+<p>Modify nickname of the member that receives the sharing</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)updateReceiveMemberName {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -815,8 +802,8 @@
 
 }
 </code></pre>
-<h4 id="&#x5355;&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x64CD;&#x4F5C;">&#x5355;&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x64CD;&#x4F5C;</h4>
-<p>&#x5355;&#x8BBE;&#x5907;&#x6DFB;&#x52A0;&#x5171;&#x4EAB;</p>
+<h4 id="share-device">Share device</h4>
+<p>Add device to be shared</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)addDeviceShare {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -833,7 +820,7 @@
 
 }
 </code></pre>
-<p>&#x5355;&#x8BBE;&#x5907;&#x5220;&#x9664;&#x5171;&#x4EAB;</p>
+<p>Remove device sharing</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)removeDeviceShare {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -850,7 +837,7 @@
 
  }
 </code></pre>
-<p>&#x5220;&#x9664;&#x6536;&#x5230;&#x7684;&#x5171;&#x4EAB;&#x8BBE;&#x5907; </p>
+<p>Remove the received device for sharing</p>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)removeDeviceShare {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -867,7 +854,7 @@
 
 }
 </code></pre>
-<h4 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x7528;&#x6237;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5171;&#x4EAB;&#x7528;&#x6237;&#x5217;&#x8868;</h4>
+<h4 id="obtain-device-sharing-member-list">Obtain device-sharing member list</h4>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)getDeviceShareMemberList {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -884,7 +871,7 @@
 
 }
 </code></pre>
-<h4 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5206;&#x4EAB;&#x6765;&#x81EA;&#x54EA;&#x91CC;">&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5206;&#x4EAB;&#x6765;&#x81EA;&#x54EA;&#x91CC;</h4>
+<h4 id="obtain-device-sharing-information">Obtain device sharing information</h4>
 <pre><code class="lang-objc">
 - (<span class="hljs-keyword">void</span>)getShareInfo {
      <span class="hljs-comment">//self.deviceShare  = [[TuyaSmartHomeDeviceShare alloc] init];</span>
@@ -928,12 +915,12 @@
 
             
                 
-                <a href="Shared_Home.html" class="navigation navigation-prev " aria-label="Previous page: 家庭成员共享">
+                <a href="Shared_Home.html" class="navigation navigation-prev " aria-label="Previous page: Share with home members">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Timer.html" class="navigation navigation-next " aria-label="Next page: 定时任务">
+                <a href="Timer.html" class="navigation navigation-next " aria-label="Next page: Timer task">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -944,7 +931,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"设备共享","level":"1.10.2","depth":2,"next":{"title":"定时任务","level":"1.11","depth":1,"path":"resource/Timer.md","ref":"./resource/Timer.md","articles":[]},"previous":{"title":"家庭成员共享","level":"1.10.1","depth":2,"path":"resource/Shared_Home.md","ref":"./resource/Shared_Home.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Shared_Device.md","mtime":"2018-10-25T03:30:07.204Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T08:59:00.293Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Share devices","level":"1.10.2","depth":2,"next":{"title":"Timer task","level":"1.11","depth":1,"path":"resource/Timer.md","ref":"./resource/Timer.md","articles":[]},"previous":{"title":"Share with home members","level":"1.10.1","depth":2,"path":"resource/Shared_Home.md","ref":"./resource/Shared_Home.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Shared_Device.md","mtime":"2018-10-26T09:35:31.344Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T13:30:53.736Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

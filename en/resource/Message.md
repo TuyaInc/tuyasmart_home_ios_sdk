@@ -1,6 +1,9 @@
-消息中心相关的所有功能对应`TuyaSmartMessage`类，支持获取消息列表，批量删除消息，以及是否有消息更新。
+## Message center
 
-### 获取消息列表
+All functions related to the message center are realized by using the `TuyaSmartMessage` class. Obtaining message list, deleting messages in batches and checking for message update are supported. 
+
+### Obtain message list
+
 ```objc
 - (void)getMessageList {
 //    self.smartMessage = [[TuyaSmartMessage alloc] init];
@@ -11,8 +14,10 @@
 	}];
 }
 ```
-### 删除消息
-批量删除消息，`messgeIdList`是要删除消息的id数组，消息id可以从消息列表中获取。
+
+### Delete messages
+
+Delete messages in batches. `messgeIdList` denotes the id group of messages to be deleted, and the message id can be attained from the message list. 
 
 ```objc
 - (void)deleteMessage {
@@ -24,8 +29,9 @@
     }];
 }
 ```
-### 获取最新一条消息的时间戳
-获取最新一条消息的时间戳，可以用于与本地最新一条消息的时间戳比较，大于本地最新消息时间，则展示红点，表示有新消息。
+### Obtain the timestamp of the latest news
+
+The timestamp of the latest news can be compared with that of local latest message. If the former is bigger than the later, a red dot will be displayed to hint the new message. 
 
 ```objc
 - (void)getMessageMaxTime {

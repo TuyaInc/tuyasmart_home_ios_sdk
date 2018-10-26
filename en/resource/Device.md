@@ -1,9 +1,11 @@
-设备控制相关的所有功能对应`TuyaSmartDevice`类，需要使用设备Id进行初始化。错误的设备Id可能会导致初始化失败，返回`nil`。
+## Device control
+
+The device ID needs to be used to initiate all `TuyaSmartDevice` classes related to all functions for device control. Wrong device Id may cause initiation failure, and the `nil` will be returned.
 
 
-### 更新设备信息
+### Update device information
 
-#### 更新单个设备信息
+#### Update single device information
 
 ```objc
 - (void)updateDeviceInfo {
@@ -20,22 +22,21 @@
 ```
 
 
-### 设备功能点
+### Functions of device
 
-`TuyaSmartDeviceModel`类的`dps`属性（`NSDictionary`类型）定义了当前设备的状态，称作数据点（DP点）或功能点。
 
-`dps`字典里的每个`key`对应一个功能点的`dpId`，`value`对应一个功能点的`dpValue `，`dpValue`为该功能点的值。<br />
-
-产品功能点定义参见[涂鸦开发者平台](https://developer.tuya.com/)的产品功能，如下图所示：
+The `dps` (`NSDictionary` type) attribute of the `TuyaSmartDeviceModel` class defines the state of the device, and the state is called data point (DP) or function point.
+Each `key` in the `dps` dictionary refers to a `dpId` of a function point, and `Value` refers to the `dpValue` of a function point. The `dpValue` is the value of the function point. 
+Refer to the functions of product in the [Tuya developer platform](https://developer.tuya.com/) for definition of function points of products. See the following figure. 
 
 ![功能点](./images/ios_dp_sample.jpeg)
 
 
-发送控制指令按照以下格式：
+The control instructions shall be sent in the format given below:
 
 `{"<dpId>":"<dpValue>"}`
 
-根据后台该产品的功能点定义，示例代码如下:
+According to the definition of function points of the product in the back end, the example codes are as follows. 
 
 ```objc
 - (void)publishDps {
@@ -72,17 +73,17 @@
 	
 }
 ```
-##### 注意事项：
-- 控制命令的发送需要特别注意数据类型。<br />
-  比如功能点的数据类型是数值型（value），那控制命令发送的应该是 `@{@"2": @(25)}`  而不是  `@{@"2": @"25"}`<br />
-- 透传类型传输的byte数组是字符串格式、字母需小写并且必须是偶数位。<br />
-  比如正确的格式是: `@{@"1": @"011f"}` 而不是 `@{@"1": @"11f"}`
+##### Precautions:
+- Special attention shall be paid to the type of data in sending the control commands. For example, the data type of function points shall be value, and the `@{@"2": @(25)}` instead of `@{@"2": @"25"}` shall be sent for the control command. 
+- In the transparent transmission, the byte string shall be the string format, and all letters shall be in the lower case, and the string must have even bits. The correct format shall be: `@{@"1": @"011f"}` instead of `@{@"1": @"11f"}`
 
-功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/creatproduct/#_7)
 
-#### 设备状态更新
+For more concepts of function points, please refer to the [QuickStart-Related Concepts of Function Points](https://docs.tuya.com/cn/creatproduct/#_7)
 
-实现`TuyaSmartDeviceDelegate`代理协议后，可以在设备状态更变的回调中进行处理，刷新APP设备控制面板的UI。
+#### Update device status
+
+After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change. 
+
 
 ```objc
 - (void)initDevice {
@@ -107,7 +108,7 @@
 
 ```
 
-### 修改设备名称
+### Modify the device name
 
 ```objc
 - (void)modifyDeviceName:(NSString *)mame {
@@ -121,9 +122,9 @@
 }
 ```
 
-### 移除设备
+### Remove device
 
-设备被移除后，会重新进入待配网状态（快连模式）。
+After a device is removed, it will be in the to-be-network-configured status (quick connection mode).
 
 ```objc
 - (void)removeDevice {
@@ -137,10 +138,10 @@
 }
 ```
 
-### 获取设备的wifi信号强度
+### Obtain Wifi signal strength of device
 
 ```objc
-- (void)getWifiSignalStrength {
+- (void)removeDevice {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
     // self.device.delegate = self;
 	
@@ -158,7 +159,7 @@
 }
 ```
 
-### 获取网关下的子设备列表
+### Obtain the sub-device list of a gateway
 
 ```objc
 - (void)getSubDeviceList {
@@ -171,4 +172,3 @@
     }];
 }
 ```
-

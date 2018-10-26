@@ -370,7 +370,7 @@
                 <span>
             
                     
-                    设备控制
+                    Device control
             
                 </span>
             
@@ -384,7 +384,7 @@
                 <a href="Device.html">
             
                     
-                    设备控制
+                    Device control
             
                 </a>
             
@@ -397,7 +397,7 @@
                 <a href="Ota.html">
             
                     
-                    固件升级
+                    Firmware upgrade
             
                 </a>
             
@@ -415,7 +415,7 @@
                 <a href="Shared.html">
             
                     
-                    共享设备
+                    Share devices
             
                 </a>
             
@@ -429,7 +429,7 @@
                 <a href="Shared_Home.html">
             
                     
-                    家庭成员共享
+                    Share with home members
             
                 </a>
             
@@ -442,7 +442,7 @@
                 <a href="Shared_Device.html">
             
                     
-                    设备共享
+                    Share devices
             
                 </a>
             
@@ -460,7 +460,7 @@
                 <a href="Timer.html">
             
                     
-                    定时任务
+                    Timer task
             
                 </a>
             
@@ -473,7 +473,7 @@
                 <a href="Group.html">
             
                     
-                    群组管理
+                    Group management
             
                 </a>
             
@@ -486,7 +486,7 @@
                 <span>
             
                     
-                    智能场景
+                    Smart scene
             
                 </span>
             
@@ -500,7 +500,7 @@
                 <a href="SmartScene_Manager.html">
             
                     
-                    智能场景
+                    Smart scene
             
                 </a>
             
@@ -513,7 +513,7 @@
                 <a href="SmartScene.html">
             
                     
-                    单个场景操作
+                    single scene operation
             
                 </a>
             
@@ -526,25 +526,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14" data-path="DataChannel.html">
-            
-                <a href="DataChannel.html">
-            
-                    
-                    数据流通道
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.15" data-path="Message.html">
+        <li class="chapter " data-level="1.14" data-path="Message.html">
             
                 <a href="Message.html">
             
                     
-                    消息中心
+                    Message center
             
                 </a>
             
@@ -552,12 +539,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="Feedback.html">
+        <li class="chapter " data-level="1.15" data-path="Feedback.html">
             
                 <a href="Feedback.html">
             
                     
-                    意见反馈
+                    Feedback
             
                 </a>
             
@@ -565,12 +552,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.17" data-path="CommonInterface.html">
+        <li class="chapter " data-level="1.16" data-path="CommonInterface.html">
             
                 <a href="CommonInterface.html">
             
                     
-                    通用接口
+                    Common interface
             
                 </a>
             
@@ -578,12 +565,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.18" data-path="Push.html">
+        <li class="chapter " data-level="1.17" data-path="Push.html">
             
                 <a href="Push.html">
             
                     
-                    集成Push
+                    Register pushId
             
                 </a>
             
@@ -591,7 +578,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.19" data-path="Faq.html">
+        <li class="chapter active" data-level="1.18" data-path="Faq.html">
             
                 <a href="Faq.html">
             
@@ -649,18 +636,25 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p>1&#x3001; &#x4E3A;&#x4EC0;&#x4E48;&#x6267;&#x884C;<code>pod install</code>&#x4F1A;&#x62A5;&#x9519;&#xFF1F;  </p>
-<p>&#x786E;&#x8BA4;cocoapod&#x662F;&#x6700;&#x65B0;&#x7248;&#x672C;&#xFF0C;&#x6267;&#x884C;<code>pod --version</code>&#x547D;&#x4EE4;&#x67E5;&#x770B;pod&#x7248;&#x672C;&#xFF0C;&#x786E;&#x8BA4;&#x7248;&#x672C;&#x662F;1.3.0&#x4EE5;&#x4E0A;</p>
-<p>2&#x3001;&#x4E3A;&#x4EC0;&#x4E48;&#x8C03;&#x7528;SDK&#x63A5;&#x53E3;&#x4EE5;&#x540E;&#xFF0C;&#x4F1A;&#x62A5;<code>Error Domain=NSURLErrorDomain Code=-999 &quot;&#x5DF2;&#x53D6;&#x6D88;&quot;</code>&#x7684;&#x9519;&#x8BEF;? </p>
-<p>&#x786E;&#x8BA4;&#x8BF7;&#x6C42;&#x7684;&#x5BF9;&#x8C61;&#x662F;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x88AB;&#x63D0;&#x65E9;&#x91CA;&#x653E;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A; <code>self.feedBack = [[TuyaSmartFeedback alloc] init];</code></p>
-<p>3&#x3001;&#x5982;&#x4F55;&#x5F00;&#x542F;&#x8C03;&#x8BD5;&#x6A21;&#x5F0F;&#xFF0C;&#x6253;&#x5370;&#x65E5;&#x5FD7;&#xFF1F;</p>
-<p>&#x5728;&#x521D;&#x59CB;&#x5316;SDK&#x4E4B;&#x540E;&#xFF0C;&#x8C03;&#x7528;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#xFF1A;<code>[[TuyaSmartSDK sharedInstance] setDebugMode:YES];</code></p>
-<p>4&#x3001;&#x4E0B;&#x53D1;&#x63A7;&#x5236;&#x6307;&#x4EE4;&#xFF0C;&#x8BBE;&#x5907;&#x6CA1;&#x6709;&#x4E0A;&#x62A5;&#x72B6;&#x6001;&#x3002;  </p>
-<p>&#x786E;&#x8BA4;&#x529F;&#x80FD;&#x70B9;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x662F;&#x5426;&#x6B63;&#x786E;&#xFF0C;&#x6BD4;&#x5982;&#x529F;&#x80FD;&#x70B9;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x662F;&#x6570;&#x503C;&#x578B;&#xFF08;value&#xFF09;&#xFF0C;&#x90A3;&#x63A7;&#x5236;&#x547D;&#x4EE4;&#x53D1;&#x9001;&#x7684;&#x5E94;&#x8BE5;&#x662F; @{@&quot;2&quot;: @(25)} &#x800C;&#x4E0D;&#x662F; @{@&quot;2&quot;: @&quot;25&quot;}&#x3002;</p>
-<p>5&#x3001;iOS 12 &#x4F7F;&#x7528;<code>[[TuyaSmartActivator sharedInstance] currentWifiSSID]</code>&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;SSID&#x3002;</p>
-<p>&#x5728;Xcode10&#x4E2D;&#x83B7;&#x53D6;WiFi&#x4FE1;&#x606F;&#x9700;&#x8981;&#x5F00;&#x542F;&#x76F8;&#x5173;&#x6743;&#x9650;&#xFF0C;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
-<p><code>Xcode</code> -&gt; [Project Name] -&gt; <code>Targets</code> -&gt; [Target Name] -&gt; <code>Capabilities</code> -&gt; <code>Access WiFi Information</code> -&gt; <code>ON</code></p>
-<p>&#x6253;&#x5F00;&#x4E0A;&#x8FF0;&#x6743;&#x9650;&#x5373;&#x53EF;&#x3002;</p>
+                                <h2 id="faq">FAQ</h2>
+<ol>
+<li><p>Why are errors reported in running the <code>pod install</code>? </p>
+<p>Please confirm that the latest version cocoapod is used. Run the <code>pod --version</code> command to check the version of pod, and ensure that the version 1.3.0 or beyond is used. </p>
+</li>
+<li><p>Why the <code>&quot;Error Domain=NSURLErrorDomain Code=-999 is canceled&quot;</code> error is reported when invoking the SDK interface? </p>
+<p>Please conform that the object you request is a global variable, or the it will be released early, for example, <code>self.feedBack = [[TuyaSmartFeedback alloc] init]</code>;</p>
+</li>
+<li><p>How to enable the debugging mode and print logs? </p>
+<p>Invoke the following codes: <code>[[TuyaSmartSDK sharedInstance] setDebugMode:YES];</code> when the SDK is initiated. </p>
+</li>
+<li><p>The device do not report the status when the control instruction is sent. </p>
+<p>Please check the data type of function points. For example, the data type of function points shall be value, and the @{@&quot;2&quot;: @(25)} instead of @{@&quot;2&quot;: @&quot;25&quot;} shall be sent for the control command.</p>
+</li>
+<li><p>In iOS 12, <code>[[TuyaSmartActivator sharedInstance] currentWifiSSID]</code> can&apos;t get ssid.</p>
+<p>Xcode 10 should open <code>access wifi information</code> capability to get ssid. This can be found at:
+  <code>Xcode</code> -&gt; [Project Name] -&gt; <code>Targets</code> -&gt; [Target Name] -&gt; <code>Capabilities</code> -&gt; <code>Access WiFi Information</code> -&gt; <code>ON</code></p>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -688,7 +682,7 @@
 
             
                 
-                <a href="Push.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 集成Push">
+                <a href="Push.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Register pushId">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -700,7 +694,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FAQ","level":"1.19","depth":1,"previous":{"title":"集成Push","level":"1.18","depth":1,"path":"resource/Push.md","ref":"./resource/Push.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Faq.md","mtime":"2018-10-24T14:07:57.795Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T08:59:00.293Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"FAQ","level":"1.18","depth":1,"previous":{"title":"Register pushId","level":"1.17","depth":1,"path":"resource/Push.md","ref":"./resource/Push.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Faq.md","mtime":"2018-10-26T09:29:21.178Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T13:30:53.736Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

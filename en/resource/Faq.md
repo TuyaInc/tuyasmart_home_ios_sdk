@@ -1,23 +1,23 @@
-1、 为什么执行`pod install`会报错？  
+## FAQ
 
-确认cocoapod是最新版本，执行`pod --version`命令查看pod版本，确认版本是1.3.0以上
+1. Why are errors reported in running the `pod install`? 
 
-2、为什么调用SDK接口以后，会报`Error Domain=NSURLErrorDomain Code=-999 "已取消"`的错误? 
+   Please confirm that the latest version cocoapod is used. Run the `pod --version` command to check the version of pod, and ensure that the version 1.3.0 or beyond is used. 
 
-确认请求的对象是全局变量，否则会被提早释放，例如： `self.feedBack = [[TuyaSmartFeedback alloc] init];`
+2. Why the `"Error Domain=NSURLErrorDomain Code=-999 is canceled"` error is reported when invoking the SDK interface? 
 
-3、如何开启调试模式，打印日志？
+   Please conform that the object you request is a global variable, or the it will be released early, for example, `self.feedBack = [[TuyaSmartFeedback alloc] init]`;
 
-在初始化SDK之后，调用以下代码：`[[TuyaSmartSDK sharedInstance] setDebugMode:YES];`
+3. How to enable the debugging mode and print logs? 
 
-4、下发控制指令，设备没有上报状态。  
+  Invoke the following codes: `[[TuyaSmartSDK sharedInstance] setDebugMode:YES];` when the SDK is initiated. 
 
-确认功能点的数据类型是否正确，比如功能点的数据类型是数值型（value），那控制命令发送的应该是 @{@"2": @(25)} 而不是 @{@"2": @"25"}。
+4. The device do not report the status when the control instruction is sent. 
 
-5、iOS 12 使用`[[TuyaSmartActivator sharedInstance] currentWifiSSID]`无法获取到SSID。
+  Please check the data type of function points. For example, the data type of function points shall be value, and the @{@"2": @(25)} instead of @{@"2": @"25"} shall be sent for the control command.
 
-在Xcode10中获取WiFi信息需要开启相关权限，解决方案：
+5. In iOS 12, `[[TuyaSmartActivator sharedInstance] currentWifiSSID]` can't get ssid.
 
-`Xcode` -> [Project Name] -> `Targets` -> [Target Name] -> `Capabilities` -> `Access WiFi Information` -> `ON`
+   Xcode 10 should open `access wifi information` capability to get ssid. This can be found at:
+     `Xcode` -> [Project Name] -> `Targets` -> [Target Name] -> `Capabilities` -> `Access WiFi Information` -> `ON`
 
-打开上述权限即可。
