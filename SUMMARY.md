@@ -16,6 +16,10 @@
   * [单个家庭信息管理](./resource/Home.md)
 * [房间管理](./resource/Room.md)
 * [设备配网](./resource/Activator.md)
+	- [快连模式](./resource/Activator_EZ.md)
+    - [热点模式](./resource/Activator_AP.md)
+    - [Zigbee 网关配网](./resource/Activator_Zigbee.md)
+    - [ZigBee 子设备激活](./resource/Activator_ZigbeeSub.md)
 * 设备控制
   * [设备控制](./resource/Device.md)
   * [固件升级](./resource/Ota.md)

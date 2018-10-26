@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>房间管理 · GitBook</title>
+        <title>ZigBee 子设备激活 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Activator.html" />
     
-    
-    <link rel="prev" href="Home.html" />
+    <link rel="prev" href="Activator_Zigbee.html" />
     
 
     </head>
@@ -283,7 +281,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7" data-path="Room.html">
+        <li class="chapter " data-level="1.7" data-path="Room.html">
             
                 <a href="Room.html">
             
@@ -349,7 +347,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.4" data-path="Activator_ZigbeeSub.html">
+        <li class="chapter active" data-level="1.8.4" data-path="Activator_ZigbeeSub.html">
             
                 <a href="Activator_ZigbeeSub.html">
             
@@ -610,7 +608,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >房间管理</a>
+        <a href=".." >ZigBee 子设备激活</a>
     </h1>
 </div>
 
@@ -625,60 +623,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x623F;&#x95F4;&#x7BA1;&#x7406;">&#x623F;&#x95F4;&#x7BA1;&#x7406;</h3>
-<p>&#x5355;&#x4E2A;&#x623F;&#x95F4;&#x4FE1;&#x606F;&#x7BA1;&#x7406;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartRoom</code>&#x7C7B;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;roomId&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;&#x9519;&#x8BEF;&#x7684;roomId&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x521D;&#x59CB;&#x5316;&#x5931;&#x8D25;&#xFF0C;&#x8FD4;&#x56DE;<code>nil</code>&#x3002;</p>
-<h4 id="&#x66F4;&#x65B0;&#x623F;&#x95F4;&#x540D;&#x5B57;">&#x66F4;&#x65B0;&#x623F;&#x95F4;&#x540D;&#x5B57;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)updateRoomName {
-    [<span class="hljs-keyword">self</span>.room updateRoomName:<span class="hljs-string">@&quot;new_room_name&quot;</span> success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;update room name success&quot;</span>);
+                                <h4 id="zigbee-&#x5B50;&#x8BBE;&#x5907;&#x6FC0;&#x6D3B;">zigbee &#x5B50;&#x8BBE;&#x5907;&#x6FC0;&#x6D3B;</h4>
+<h5 id="&#x6FC0;&#x6D3B;zigbee&#x5B50;&#x8BBE;&#x5907;">&#x6FC0;&#x6D3B;ZigBee&#x5B50;&#x8BBE;&#x5907;</h5>
+<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x4E2D;&#x9014;&#x53D6;&#x6D88;&#x64CD;&#x4F5C;&#x6216;&#x914D;&#x7F51;&#x5B8C;&#x6210;&#xFF0C;&#x9700;&#x8981;&#x8C03;&#x7528;<code>stopActiveSubDeviceWithGwId</code>&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)activeSubDevice {
+
+    [[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:<span class="hljs-string">@&quot;your_device_id&quot;</span> success:^{
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;active sub device success&quot;</span>);
     } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;update room name failure: %@&quot;</span>, error);
+        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;active sub device failure: %@&quot;</span>, error);
     }];
 }
-</code></pre>
-<h4 id="&#x6DFB;&#x52A0;&#x8BBE;&#x5907;&#x5230;&#x623F;&#x95F4;">&#x6DFB;&#x52A0;&#x8BBE;&#x5907;&#x5230;&#x623F;&#x95F4;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)addDevice {
-    [<span class="hljs-keyword">self</span>.room addDeviceWithDeviceId:<span class="hljs-string">@&quot;devId&quot;</span> success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add device to room success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add device to room failure: %@&quot;</span>, error);
-    }];
+
+<span class="hljs-meta">#pragma mark - TuyaSmartActivatorDelegate</span>
+- (<span class="hljs-keyword">void</span>)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(<span class="hljs-built_in">NSError</span> *)error {
+
+    <span class="hljs-keyword">if</span> (deviceModel) {
+        <span class="hljs-comment">//&#x914D;&#x7F51;&#x6210;&#x529F;,zigbee&#x5B50;&#x8BBE;&#x5907;&#x6CA1;&#x6709;&#x505A;&#x8D85;&#x65F6;&#x5931;&#x8D25;&#x5904;&#x7406;</span>
+    }   
 }
 </code></pre>
-<h4 id="&#x4ECE;&#x623F;&#x95F4;&#x4E2D;&#x79FB;&#x9664;&#x8BBE;&#x5907;">&#x4ECE;&#x623F;&#x95F4;&#x4E2D;&#x79FB;&#x9664;&#x8BBE;&#x5907;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)removeDevice {
-    [<span class="hljs-keyword">self</span>.room removeDeviceWithDeviceId:<span class="hljs-string">@&quot;devId&quot;</span> success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;remove device from room success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;remove device from room failure: %@&quot;</span>, error);
-    }];
-}
-</code></pre>
-<h4 id="&#x6DFB;&#x52A0;&#x7FA4;&#x7EC4;&#x5230;&#x623F;&#x95F4;">&#x6DFB;&#x52A0;&#x7FA4;&#x7EC4;&#x5230;&#x623F;&#x95F4;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)addGroup {
-    [<span class="hljs-keyword">self</span>.room addGroupWithGroupId:<span class="hljs-string">@&quot;groupId&quot;</span> success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add group to room success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;add group to room failure: %@&quot;</span>, error);
-    }];
-}
-</code></pre>
-<h4 id="&#x4ECE;&#x623F;&#x95F4;&#x4E2D;&#x79FB;&#x9664;&#x7FA4;&#x7EC4;">&#x4ECE;&#x623F;&#x95F4;&#x4E2D;&#x79FB;&#x9664;&#x7FA4;&#x7EC4;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)removeGroup {
-    [<span class="hljs-keyword">self</span>.room removeGroupWithGroupId:<span class="hljs-string">@&quot;groupId&quot;</span> success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;remove group from room success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;remove group from room failure: %@&quot;</span>, error);
-    }];
-}
-</code></pre>
-<h4 id="&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x623F;&#x95F4;&#x4E0E;&#x7FA4;&#x7EC4;&#x3001;&#x8BBE;&#x5907;&#x7684;&#x5173;&#x7CFB;">&#x6279;&#x91CF;&#x4FEE;&#x6539;&#x623F;&#x95F4;&#x4E0E;&#x7FA4;&#x7EC4;&#x3001;&#x8BBE;&#x5907;&#x7684;&#x5173;&#x7CFB;</h4>
-<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)saveBatchRoomRelation {
-    [<span class="hljs-keyword">self</span>.room saveBatchRoomRelationWithDeviceGroupList:(<span class="hljs-built_in">NSArray</span> &lt;<span class="hljs-built_in">NSString</span> *&gt; *)deviceGroupList success:^{
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;save batch room relation success&quot;</span>);
-    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
-        <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;save batch room relation failure: %@&quot;</span>, error);
-    }];
+<h5 id="&#x505C;&#x6B62;&#x6FC0;&#x6D3B;zigbee&#x5B50;&#x8BBE;&#x5907;">&#x505C;&#x6B62;&#x6FC0;&#x6D3B;zigbee&#x5B50;&#x8BBE;&#x5907;</h5>
+<pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)stopActiveSubDevice {
+    [[TuyaSmartActivator sharedInstance] stopActiveSubDeviceWithGwId:<span class="hljs-string">@&quot;your_device_id&quot;</span>];
 }
 </code></pre>
 
@@ -708,14 +675,10 @@
 
             
                 
-                <a href="Home.html" class="navigation navigation-prev " aria-label="Previous page: 单个家庭信息管理">
+                <a href="Activator_Zigbee.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Zigbee 网关配网">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="Activator.html" class="navigation navigation-next " aria-label="Next page: 设备配网">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -724,7 +687,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"房间管理","level":"1.7","depth":1,"next":{"title":"设备配网","level":"1.8","depth":1,"path":"resource/Activator.md","ref":"./resource/Activator.md","articles":[{"title":"快连模式","level":"1.8.1","depth":2,"path":"resource/Activator_EZ.md","ref":"./resource/Activator_EZ.md","articles":[]},{"title":"热点模式","level":"1.8.2","depth":2,"path":"resource/Activator_AP.md","ref":"./resource/Activator_AP.md","articles":[]},{"title":"Zigbee 网关配网","level":"1.8.3","depth":2,"path":"resource/Activator_Zigbee.md","ref":"./resource/Activator_Zigbee.md","articles":[]},{"title":"ZigBee 子设备激活","level":"1.8.4","depth":2,"path":"resource/Activator_ZigbeeSub.md","ref":"./resource/Activator_ZigbeeSub.md","articles":[]}]},"previous":{"title":"单个家庭信息管理","level":"1.6.2","depth":2,"path":"resource/Home.md","ref":"./resource/Home.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Room.md","mtime":"2018-10-25T03:27:18.189Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T02:21:40.062Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ZigBee 子设备激活","level":"1.8.4","depth":2,"next":{"title":"设备控制","level":"1.9","depth":1,"ref":"","articles":[{"title":"设备控制","level":"1.9.1","depth":2,"path":"resource/Device.md","ref":"./resource/Device.md","articles":[]},{"title":"固件升级","level":"1.9.2","depth":2,"path":"resource/Ota.md","ref":"./resource/Ota.md","articles":[]}]},"previous":{"title":"Zigbee 网关配网","level":"1.8.3","depth":2,"path":"resource/Activator_Zigbee.md","ref":"./resource/Activator_Zigbee.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"resource/Activator_ZigbeeSub.md","mtime":"2018-10-26T02:02:54.728Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T02:21:40.062Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
