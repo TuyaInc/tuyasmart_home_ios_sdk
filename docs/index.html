@@ -435,10 +435,9 @@
             
 
             
-            <ul class="articles">
-                
+        </li>
     
-        <li class="chapter " data-level="1.10.1.1" data-path="resource/Shared_Device.html">
+        <li class="chapter " data-level="1.10.2" data-path="resource/Shared_Device.html">
             
                 <a href="resource/Shared_Device.html">
             
@@ -448,11 +447,6 @@
                 </a>
             
 
-            
-        </li>
-    
-
-            </ul>
             
         </li>
     
@@ -487,9 +481,23 @@
             
         </li>
     
-        <li class="chapter " data-level="1.13" data-path="resource/SmartScene.html">
+        <li class="chapter " data-level="1.13" >
             
-                <a href="resource/SmartScene.html">
+                <span>
+            
+                    
+                    智能场景
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="resource/SmartScene_Manager.html">
+            
+                <a href="resource/SmartScene_Manager.html">
             
                     
                     智能场景
@@ -497,6 +505,24 @@
                 </a>
             
 
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="resource/SmartScene.html">
+            
+                <a href="resource/SmartScene.html">
+            
+                    
+                    单个场景操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -631,7 +657,7 @@
 <li>&#x786C;&#x4EF6;&#x8BBE;&#x5907;&#x76F8;&#x5173;&#xFF08;&#x914D;&#x7F51;&#x3001;&#x63A7;&#x5236;&#x3001;&#x72B6;&#x6001;&#x4E0A;&#x62A5;&#x3001;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x3001;&#x7FA4;&#x7EC4;&#x3001;&#x56FA;&#x4EF6;&#x5347;&#x7EA7;&#x3001;&#x5171;&#x4EAB;&#xFF09;</li>
 <li>&#x8D26;&#x6237;&#x4F53;&#x7CFB;&#xFF08;&#x624B;&#x673A;&#x53F7;&#x3001;&#x90AE;&#x7BB1;&#x7684;&#x6CE8;&#x518C;&#x3001;&#x767B;&#x5F55;&#x3001;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#x7B49;&#x901A;&#x7528;&#x7684;&#x8D26;&#x6237;&#x529F;&#x80FD;&#xFF09;</li>
 <li>&#x5BB6;&#x5EAD;&#x4F53;&#x7CFB; &#xFF08;&#x5BB6;&#x5EAD;&#x7BA1;&#x7406;&#xFF0C;&#x623F;&#x95F4;&#x7BA1;&#x7406;&#x7B49;&#x529F;&#x80FD;&#xFF09;</li>
-<li>&#x6D82;&#x9E26;&#x4E91;HTTP API&#x63A5;&#x53E3;&#x5C01;&#x88C5;</li>
+<li>&#x6D82;&#x9E26;&#x4E91;HTTP API&#x63A5;&#x53E3;&#x5C01;&#x88C5; (&#x53C2;&#x89C1;<a href="https://docs.tuya.com/cn/cloudapi/appAPI/index.html" target="_blank">&#x6D82;&#x9E26;&#x4E91;api&#x8C03;&#x7528;</a>)</li>
 </ul>
 <h2 id="&#x5FEB;&#x901F;&#x96C6;&#x6210;">&#x5FEB;&#x901F;&#x96C6;&#x6210;</h2>
 <h3 id="&#x4F7F;&#x7528;cocoapods&#x96C6;&#x6210;">&#x4F7F;&#x7528;Cocoapods&#x96C6;&#x6210;</h3>
@@ -654,7 +680,13 @@ target <span class="hljs-string">&apos;your_target_name&apos;</span> <span class
 <pre><code class="lang-objc">[[TuyaSmartSDK sharedInstance] startWithAppKey:&lt;<span class="hljs-meta">#your_app_key#&gt; secretKey:<span class="hljs-meta-string">&lt;#your_secret_key#&gt;</span>];</span>
 </code></pre>
 <p>&#x81F3;&#x6B64;&#xFF0C;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#x5DF2;&#x7ECF;&#x5168;&#x90E8;&#x5B8C;&#x6BD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5F00;&#x59CB;App&#x5F00;&#x53D1;&#x5566;&#x3002;</p>
-
+<h3 id="debug-&#x6A21;&#x5F0F;">Debug &#x6A21;&#x5F0F;</h3>
+<p>&#x5728;&#x5F00;&#x53D1;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x53EF;&#x4EE5;&#x5F00;&#x542F; Debug &#x6A21;&#x5F0F;&#xFF0C;&#x6253;&#x5370;&#x4E00;&#x4E9B;&#x65E5;&#x5FD7;&#x7528;&#x4E8E;&#x5206;&#x6790;&#x95EE;&#x9898;&#x3002;</p>
+<pre><code>#ifdef DEBUG
+    [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
+#else
+#endif
+</code></pre>
                                 
                                 </section>
                             
@@ -693,7 +725,7 @@ target <span class="hljs-string">&apos;your_target_name&apos;</span> <span class
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"前言","level":"1.1","depth":1,"next":{"title":"功能概述","level":"1.2","depth":1,"path":"resource/Overview.md","ref":"./resource/Overview.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-10-25T02:24:49.968Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T02:21:40.062Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"前言","level":"1.1","depth":1,"next":{"title":"功能概述","level":"1.2","depth":1,"path":"resource/Overview.md","ref":"./resource/Overview.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"README.md","mtime":"2018-10-26T07:11:37.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-26T07:16:19.442Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

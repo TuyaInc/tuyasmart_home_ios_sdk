@@ -9,7 +9,7 @@
 - 硬件设备相关（配网、控制、状态上报、定时任务、群组、固件升级、共享）
 - 账户体系（手机号、邮箱的注册、登录、重置密码等通用的账户功能）
 - 家庭体系 （家庭管理，房间管理等功能）
-- 涂鸦云HTTP API接口封装
+- 涂鸦云HTTP API接口封装 (参见[涂鸦云api调用](https://docs.tuya.com/cn/cloudapi/appAPI/index.html))
 
 ## 快速集成
 
@@ -46,4 +46,17 @@ CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
 ```
 
 至此，准备工作已经全部完毕，可以开始App开发啦。
+
+### Debug 模式
+
+在开发的过程中可以开启 Debug 模式，打印一些日志用于分析问题。
+
+```
+#ifdef DEBUG
+    [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
+#else
+#endif
+```
+
+
 
