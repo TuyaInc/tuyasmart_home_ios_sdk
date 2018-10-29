@@ -36,6 +36,8 @@ transfer.delegate = #<TuyaSmartTransferDelegateInstance>;
 [self.transfer subscribeDeviceWithDevId:#<DevId>];
 ```
 
+> 只有通道连接后才能进行设备订阅，所以进行正确的订阅操作是在收到通道的连接状态更新代理方法后进行设备数据订阅
+
 
 
 ###  取消订阅设备
