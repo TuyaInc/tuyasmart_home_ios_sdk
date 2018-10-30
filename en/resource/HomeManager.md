@@ -1,52 +1,50 @@
-## 家庭管理
+## Home management
 
-用户登录成功后需要通过`TuyaSmartHomeManager`去获取整个家庭列表的信息,然后初始化其中的一个家庭`TuyaSmartHome`，获取家庭详情信息，对家庭中的设备进行管理，控制。
+After login, user shall use the `TuyaSmartHomeManager to obtain` information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home. 
 
 
-### 家庭列表信息变化的回调
+### Callback of information in the home list
 
-实现`TuyaSmartHomeManagerDelegate`代理协议后，可以在家庭列表更变的回调中进行处理。
+After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can proceed operations in the home list change. 
 
 ```objc
 #pragma mark - TuyaSmartHomeManagerDelegate
 
 
-// 添加一个家庭
+// Add a home
 - (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home {
     
 }
 
-// 删除一个家庭
+// Delete a home
 - (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId {
     
 }
 
-// MQTT连接成功
+// The MQTT connection succeeds.
 - (void)serviceConnectedSuccess {
-    // 刷新当前家庭UI
+    // Update the current home UI
 }
 ```
 
-### 获取家庭列表
-
-获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去初始化一个home，调用接口 getHomeDetailWithSuccess:failure:
+### Obtain the home list.
 
 ```objc
 - (void)getHomeList {
-	
-	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
-        // homes 家庭列表
+    
+    [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
+        // home list
     } failure:^(NSError *error) {
         NSLog(@"get home list failure: %@", error);
     }];
 }
 ```
 
-### 添加家庭
+### Add home
 
 ```objc
 - (void)addHome {
-	
+    
     [self.homeManager addHomeWithName:@"you_home_name"
                           geoName:@"city_name"
                             rooms:@[@"room_name"]
@@ -54,7 +52,7 @@
                         longitude:lon
                           success:^(double homeId) {
                 
-        // homeId 创建的家庭的homeId
+        // homeId : create homeId of home 
         NSLog(@"add home success");
     } failure:^(NSError *error) {
         NSLog(@"add home failure: %@", error);

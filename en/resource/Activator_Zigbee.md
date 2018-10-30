@@ -1,16 +1,11 @@
-##### Zigbee 网关配网
-
-
-
-Zigbee 网关配网采用有线配网，不用输入路由器的热点名称和密码。
-
+#### Wired network configuration of zigbee
 
 
 ![zigbee](./images/ios-sdk-act-zigbee.png)
 
-##### 获取token
+#### Get Token
 
-开始配网之前，SDK需要在联网状态下从涂鸦云获取配网Token，然后才可以开始EZ/AP模式配网。Token的有效期为5分钟，且配置成功后就会失效（再次配网需要重新获取）。
+Before the EZ/AP mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 5 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network. 
 
 ```
 - (void)getToken {
@@ -23,7 +18,7 @@ Zigbee 网关配网采用有线配网，不用输入路由器的热点名称和�
 }
 ```
 
-##### zigbee 网关激活
+##### Wired network configuration of zigbee
 
 ```objc
 - (void)startConfigWiFiToken:(NSString *)token {
@@ -49,9 +44,9 @@ Zigbee 网关配网采用有线配网，不用输入路由器的热点名称和�
 
 ```
 
-##### 停止配网
+#### Stop network configuration.
 
-开始配网操作后，APP会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用`[TuyaSmartActivator stopConfigWiFi]`方法。
+The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed. 
 
 ```objc
 - (void)stopConfigWifi {
@@ -59,5 +54,3 @@ Zigbee 网关配网采用有线配网，不用输入路由器的热点名称和�
 	[[TuyaSmartActivator sharedInstance] stopConfigWiFi];
 }
 ```
-
-#### 

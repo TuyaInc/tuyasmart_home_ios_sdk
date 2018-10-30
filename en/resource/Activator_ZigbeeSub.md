@@ -1,8 +1,8 @@
-#### zigbee 子设备激活
+### Activate the ZigBee sub-device
 
-##### ![sub device](./images/ios-sdk-act-zigbeesub.png)
+#### ![sub device](./images/ios-sdk-act-zigbeesub.png)
 
-如果需要中途取消操作或配网完成，需要调用`stopActiveSubDeviceWithGwId`方法
+The `stopActiveSubDeviceWithGwId` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
 
 ```objc
 - (void)activeSubDevice {
@@ -27,7 +27,7 @@
 }
 ```
 
-##### 停止激活zigbee子设备
+#### Stop activating the ZigBee sub-device
 
 ```objc
 - (void)stopActiveSubDevice {

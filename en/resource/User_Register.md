@@ -1,12 +1,13 @@
-### 用户注册
+### User Registration
 
-_注：注册方法调用成功后，就可以正常使用SDK的所有功能了（注册成功即为登录成功），不需要再次调用登录方法。_
+_Note: after the registration method is successfully invoked, all functions of SDK can be normally used. Successful registration means successful login, and the login method does not need to be invoked again._
 
-#### 手机注册
+#### Registration with mobile phone
 
-手机注册需要以下两个步骤：
+Registration with mobile phone takes two steps:
 
-- 发送验证码到手机
+
+- Send the verification code to mobile phone.
 
 ```objc
 - (void)sendVerifyCode {
@@ -18,7 +19,7 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 }
 ```
 
-- 手机收到验证码后，使用验证码注册
+- Use the verification code for registration after it is received on the mobile phone.
 
 ```objc
 - (void)registerByPhone {
@@ -30,9 +31,9 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 }
 ```
 
-#### 邮箱注册 （不需要验证码）
+#### Registration with email (do not need the verification code)
 
-邮箱注册不需要发送验证码，直接注册即可：
+The verification code is not required in registration with email.
 
 ```objc
 - (void)registerByEmail {
@@ -44,27 +45,27 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 }
 ```
 
-#### 邮箱注册 2.0 （需要验证码）
+#### Registration with email 2.0 (verification code is required.)
 
-邮箱注册需要以下两个步骤：
+Registration with email takes two steps:
 
-- 发送验证码到邮箱
+- Send the verification code to an email.
 
 ```objc
 - (void)sendVerifyCode {
 	[[TuyaSmartUser sharedInstance] sendVerifyCodeByRegisterEmail:@"country_code" email:@"email" success:^{
-        NSLog(@"sendVerifyCode success");
-    } failure:^(NSError *error) {
-        NSLog(@"sendVerifyCode failure: %@", error);
-    }];
+                NSLog(@"sendVerifyCode success");
+            } failure:^(NSError *error) {
+                NSLog(@"sendVerifyCode failure: %@", error);
+            }];
 }
 ```
 
-- 邮箱收到验证码后，使用验证码注册
+- Use the verification code for registration after it is received in the email.
 
 ```objc
 - (void)registerByEmail {
-	[[TuyaSmartUser sharedInstance] registerByEmail:@"country_code" email:@"email" password:@"password" code:@"verify_code" success:^{
+	    [[TuyaSmartUser sharedInstance] registerByEmail:@"country_code" email:@"email" password:@"password" code:@"verify_code" success:^{
         NSLog(@"register success");
     } failure:^(NSError *error) {
         NSLog(@"register failure: %@", error);

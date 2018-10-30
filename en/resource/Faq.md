@@ -12,7 +12,7 @@
 
   Invoke the following codes: `[[TuyaSmartSDK sharedInstance] setDebugMode:YES];` when the SDK is initiated. 
 
-4. The device do not report the status when the control instruction is sent. 
+4. The device  do not report the status when the control instruction is sent. 
 
   Please check the data type of function points. For example, the data type of function points shall be value, and the @{@"2": @(25)} instead of @{@"2": @"25"} shall be sent for the control command.
 

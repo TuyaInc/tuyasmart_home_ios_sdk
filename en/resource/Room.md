@@ -1,10 +1,8 @@
-### 房间管理
+## Room information management
 
-单个房间信息管理相关的所有功能对应`TuyaSmartRoom`类，需要使用roomId进行初始化。错误的roomId可能会导致初始化失败，返回`nil`。
+The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to all functions for room information management. Wrong roomId may cause initiation failure, and the `nil` will be returned.
 
-
-
-#### 更新房间名字
+### Update room name
 
 ```objc
 - (void)updateRoomName {
@@ -16,7 +14,7 @@
 }
 ```
 
-#### 添加设备到房间
+### Add device to a room
 
 ```objc
 - (void)addDevice {
@@ -28,7 +26,7 @@
 }
 ```
 
-#### 从房间中移除设备
+### Remove device from a room
 
 ```objc
 - (void)removeDevice {
@@ -40,7 +38,7 @@
 }
 ```
 
-#### 添加群组到房间
+### Add group in a room
 
 ```objc
 - (void)addGroup {
@@ -52,7 +50,7 @@
 }
 ```
 
-#### 从房间中移除群组
+### Remove group in a room
 
 ```objc
 - (void)removeGroup {
@@ -64,7 +62,7 @@
 }
 ```
 
-#### 批量修改房间与群组、设备的关系
+### Change relation between room and group and devices in batches.
 
 ```objc
 - (void)saveBatchRoomRelation {

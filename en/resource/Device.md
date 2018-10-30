@@ -29,7 +29,7 @@ The `dps` (`NSDictionary` type) attribute of the `TuyaSmartDeviceModel` class de
 Each `key` in the `dps` dictionary refers to a `dpId` of a function point, and `Value` refers to the `dpValue` of a function point. The `dpValue` is the value of the function point. 
 Refer to the functions of product in the [Tuya developer platform](https://developer.tuya.com/) for definition of function points of products. See the following figure. 
 
-![功能点](./images/ios_dp_sample.jpeg)
+![功能点](./images/ios_dp_sample.png)
 
 
 The control instructions shall be sent in the format given below:

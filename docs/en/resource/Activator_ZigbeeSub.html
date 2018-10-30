@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>ZigBee 子设备激活 · GitBook</title>
+        <title>Activate the ZigBee sub-device · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -92,7 +92,7 @@
                 <a href="../">
             
                     
-                    前言
+                    Introduction
             
                 </a>
             
@@ -105,7 +105,7 @@
                 <a href="Overview.html">
             
                     
-                    功能概述
+                    Function Overview
             
                 </a>
             
@@ -118,7 +118,7 @@
                 <a href="Preparation.html">
             
                     
-                    准备工作
+                    Preparation work
             
                 </a>
             
@@ -131,7 +131,7 @@
                 <a href="Integrated.html">
             
                     
-                    集成SDK
+                    Initiate SDK
             
                 </a>
             
@@ -144,7 +144,7 @@
                 <a href="User.html">
             
                     
-                    用户管理
+                    User management
             
                 </a>
             
@@ -158,7 +158,7 @@
                 <a href="User_Register.html">
             
                     
-                    用户注册
+                    User Registration
             
                 </a>
             
@@ -171,7 +171,7 @@
                 <a href="User_Login.html">
             
                     
-                    用户登录
+                    User Login
             
                 </a>
             
@@ -184,7 +184,7 @@
                 <a href="User_ThirdLogin.html">
             
                     
-                    第三方登录
+                    Third Party Login
             
                 </a>
             
@@ -197,7 +197,7 @@
                 <a href="User_Reset.html">
             
                     
-                    用户重置密码
+                    Resetting Password by User
             
                 </a>
             
@@ -210,7 +210,7 @@
                 <a href="User_Loginout.html">
             
                     
-                    修改昵称，登出，停用账号
+                    Modify nickname，Logout，Disable account
             
                 </a>
             
@@ -223,7 +223,7 @@
                 <a href="User_Session.html">
             
                     
-                    Session过期的处理
+                    Handling of Expired Session
             
                 </a>
             
@@ -241,7 +241,7 @@
                 <span>
             
                     
-                    家庭管理
+                    Home management
             
                 </span>
             
@@ -255,7 +255,7 @@
                 <a href="HomeManager.html">
             
                     
-                    家庭管理
+                    Home management
             
                 </a>
             
@@ -268,7 +268,7 @@
                 <a href="Home.html">
             
                     
-                    单个家庭信息管理
+                    Home information management
             
                 </a>
             
@@ -286,7 +286,7 @@
                 <a href="Room.html">
             
                     
-                    房间管理
+                    Room information management
             
                 </a>
             
@@ -299,7 +299,7 @@
                 <a href="Activator.html">
             
                     
-                    设备配网
+                    Network Configuration
             
                 </a>
             
@@ -313,7 +313,7 @@
                 <a href="Activator_EZ.html">
             
                     
-                    快连模式
+                    EZ mode
             
                 </a>
             
@@ -326,7 +326,7 @@
                 <a href="Activator_AP.html">
             
                     
-                    热点模式
+                    AP mode
             
                 </a>
             
@@ -339,7 +339,7 @@
                 <a href="Activator_Zigbee.html">
             
                     
-                    Zigbee 网关配网
+                    Wired network configuration of zigbee
             
                 </a>
             
@@ -352,7 +352,7 @@
                 <a href="Activator_ZigbeeSub.html">
             
                     
-                    ZigBee 子设备激活
+                    Activate the ZigBee sub-device
             
                 </a>
             
@@ -513,7 +513,7 @@
                 <a href="SmartScene.html">
             
                     
-                    single scene operation
+                    Scene operation
             
                 </a>
             
@@ -621,7 +621,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >ZigBee 子设备激活</a>
+        <a href=".." >Activate the ZigBee sub-device</a>
     </h1>
 </div>
 
@@ -636,9 +636,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h4 id="zigbee-&#x5B50;&#x8BBE;&#x5907;&#x6FC0;&#x6D3B;">zigbee &#x5B50;&#x8BBE;&#x5907;&#x6FC0;&#x6D3B;</h4>
-<h5 id=""><img src="images/ios-sdk-act-zigbeesub.png" alt="sub device"></h5>
-<p>&#x5982;&#x679C;&#x9700;&#x8981;&#x4E2D;&#x9014;&#x53D6;&#x6D88;&#x64CD;&#x4F5C;&#x6216;&#x914D;&#x7F51;&#x5B8C;&#x6210;&#xFF0C;&#x9700;&#x8981;&#x8C03;&#x7528;<code>stopActiveSubDeviceWithGwId</code>&#x65B9;&#x6CD5;</p>
+                                <h3 id="activate-the-zigbee-sub-device">Activate the ZigBee sub-device</h3>
+<h4 id=""><img src="images/ios-sdk-act-zigbeesub.png" alt="sub device"></h4>
+<p>The <code>stopActiveSubDeviceWithGwId</code> method has to be invoked if you need to cancel the network configuration or the network configuration is completed.</p>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)activeSubDevice {
 
     [[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:<span class="hljs-string">@&quot;your_device_id&quot;</span> timeout:<span class="hljs-number">100</span> success:^{
@@ -660,7 +660,7 @@
     }  
 }
 </code></pre>
-<h5 id="&#x505C;&#x6B62;&#x6FC0;&#x6D3B;zigbee&#x5B50;&#x8BBE;&#x5907;">&#x505C;&#x6B62;&#x6FC0;&#x6D3B;zigbee&#x5B50;&#x8BBE;&#x5907;</h5>
+<h4 id="stop-activating-the-zigbee-sub-device">Stop activating the ZigBee sub-device</h4>
 <pre><code class="lang-objc">- (<span class="hljs-keyword">void</span>)stopActiveSubDevice {
     [[TuyaSmartActivator sharedInstance] stopActiveSubDeviceWithGwId:<span class="hljs-string">@&quot;your_device_id&quot;</span>];
 }
@@ -692,7 +692,7 @@
 
             
                 
-                <a href="Activator_Zigbee.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Zigbee 网关配网">
+                <a href="Activator_Zigbee.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Wired network configuration of zigbee">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -704,7 +704,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ZigBee 子设备激活","level":"1.8.4","depth":2,"next":{"title":"Device control","level":"1.9","depth":1,"ref":"","articles":[{"title":"Device control","level":"1.9.1","depth":2,"path":"resource/Device.md","ref":"./resource/Device.md","articles":[]},{"title":"Firmware upgrade","level":"1.9.2","depth":2,"path":"resource/Ota.md","ref":"./resource/Ota.md","articles":[]}]},"previous":{"title":"Zigbee 网关配网","level":"1.8.3","depth":2,"path":"resource/Activator_Zigbee.md","ref":"./resource/Activator_Zigbee.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Activator_ZigbeeSub.md","mtime":"2018-10-29T08:52:34.532Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T09:32:30.474Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Activate the ZigBee sub-device","level":"1.8.4","depth":2,"next":{"title":"Device control","level":"1.9","depth":1,"ref":"","articles":[{"title":"Device control","level":"1.9.1","depth":2,"path":"resource/Device.md","ref":"./resource/Device.md","articles":[]},{"title":"Firmware upgrade","level":"1.9.2","depth":2,"path":"resource/Ota.md","ref":"./resource/Ota.md","articles":[]}]},"previous":{"title":"Wired network configuration of zigbee","level":"1.8.3","depth":2,"path":"resource/Activator_Zigbee.md","ref":"./resource/Activator_Zigbee.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Activator_ZigbeeSub.md","mtime":"2018-10-30T11:05:15.588Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-30T12:03:57.681Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

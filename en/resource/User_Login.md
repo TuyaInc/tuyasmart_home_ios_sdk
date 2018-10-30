@@ -1,18 +1,18 @@
-### 用户登录
+### User Login
 
-用户登录接口调用成功之后，SDK会将用户Session储存在本地，下次启动APP时即默认已经登录，不需要再次登录。
+After the user login interface is successfully invoked, the SDK will save the user session in local files, and when the App is started again, the login will be bypassed. 
+The session will become invalid if it is not used for a long time, therefore the notice to expired sessions has to be handled, and the user will be notified to log in again. See [Handling of Expired Session](#session-invalid)
 
-长期未使用的情况下Session会失效，因此需要对Session过期的通知进行处理，提示用户重新登录。参见[Session过期的处理](/resource/User_Session.html)
 
-#### 手机登录
+#### Login of mobile phone
 
-手机登录有两种方式：验证码登录（无需注册，直接可以登录），密码登录（需要注册）
+Mobile phones has two login modes: verification code login (direct login without registration) and password login (registration is required).
 
-##### 验证码登录（无需注册，直接可以登录）
+##### Verification code login (direct login without registration) 
 
-手机验证码登录的流程和手机注册类似：
+The process of verification code login with mobile phone is similar to that of registration on mobile phone .
 
-- 发送验证码：
+- Send verification code:
 
 ```objc
 - (void)sendVerifyCode {
@@ -24,7 +24,7 @@
 }
 ```
 
-- 登录:
+- Login:
 
 ```objc
 - (void)loginByPhoneAndCode {
@@ -36,7 +36,7 @@
 }
 ```
 
-#### 密码登录（需要注册）
+#### Password login (registration is required)
 
 ```objc
 - (void)loginByPhoneAndPassword {
@@ -48,7 +48,7 @@
 }
 ```
 
-#### 邮箱登录
+#### Email login
 
 ```objc
 - (void)loginByEmail {

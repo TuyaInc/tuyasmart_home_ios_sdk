@@ -1,9 +1,10 @@
-## 功能概述
+# Guidelines for Accessing Tuya Smart iOS SDK
 
-涂鸦智能APP SDK提供了与硬件设备、涂鸦云通讯的接口封装，加速应用开发过程，主要包括了以下功能：
+## Function Overview
 
-- 硬件设备相关（配网、控制、状态上报、定时任务、群组、固件升级、共享）
-- 账户体系（手机号、邮箱的注册、登录、重置密码等通用的账户功能）
-- 家庭体系 （家庭管理，房间管理等功能）
-- 涂鸦云HTTP API接口封装 (参见[涂鸦云api调用](https://docs.tuya.com/cn/cloudapi/appAPI/index.html))
+The Tuya Smart App SDK provides the interface encapsulation for the communication with hardware and Tuya Cloud to accelerate the App R&D. Main functions of it include: 
+
+- Network configuration, control, state reporting, timer task, group, firmware upgrading and sharing related to hardware.
+- Account system (general account functions such as registration, login, resetting password, etc. of mobile phone number and Email)
+- See [Tuya Cloud api invoking](https://docs.tuya.com/cn/cloudapi/appAPI/index.html) for Tuya Cloud HTTP API interface encapsulation.
 

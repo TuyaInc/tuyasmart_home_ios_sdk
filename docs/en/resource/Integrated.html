@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>集成SDK · GitBook</title>
+        <title>Initiate SDK · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -94,7 +94,7 @@
                 <a href="../">
             
                     
-                    前言
+                    Introduction
             
                 </a>
             
@@ -107,7 +107,7 @@
                 <a href="Overview.html">
             
                     
-                    功能概述
+                    Function Overview
             
                 </a>
             
@@ -120,7 +120,7 @@
                 <a href="Preparation.html">
             
                     
-                    准备工作
+                    Preparation work
             
                 </a>
             
@@ -133,7 +133,7 @@
                 <a href="Integrated.html">
             
                     
-                    集成SDK
+                    Initiate SDK
             
                 </a>
             
@@ -146,7 +146,7 @@
                 <a href="User.html">
             
                     
-                    用户管理
+                    User management
             
                 </a>
             
@@ -160,7 +160,7 @@
                 <a href="User_Register.html">
             
                     
-                    用户注册
+                    User Registration
             
                 </a>
             
@@ -173,7 +173,7 @@
                 <a href="User_Login.html">
             
                     
-                    用户登录
+                    User Login
             
                 </a>
             
@@ -186,7 +186,7 @@
                 <a href="User_ThirdLogin.html">
             
                     
-                    第三方登录
+                    Third Party Login
             
                 </a>
             
@@ -199,7 +199,7 @@
                 <a href="User_Reset.html">
             
                     
-                    用户重置密码
+                    Resetting Password by User
             
                 </a>
             
@@ -212,7 +212,7 @@
                 <a href="User_Loginout.html">
             
                     
-                    修改昵称，登出，停用账号
+                    Modify nickname，Logout，Disable account
             
                 </a>
             
@@ -225,7 +225,7 @@
                 <a href="User_Session.html">
             
                     
-                    Session过期的处理
+                    Handling of Expired Session
             
                 </a>
             
@@ -243,7 +243,7 @@
                 <span>
             
                     
-                    家庭管理
+                    Home management
             
                 </span>
             
@@ -257,7 +257,7 @@
                 <a href="HomeManager.html">
             
                     
-                    家庭管理
+                    Home management
             
                 </a>
             
@@ -270,7 +270,7 @@
                 <a href="Home.html">
             
                     
-                    单个家庭信息管理
+                    Home information management
             
                 </a>
             
@@ -288,7 +288,7 @@
                 <a href="Room.html">
             
                     
-                    房间管理
+                    Room information management
             
                 </a>
             
@@ -301,7 +301,7 @@
                 <a href="Activator.html">
             
                     
-                    设备配网
+                    Network Configuration
             
                 </a>
             
@@ -315,7 +315,7 @@
                 <a href="Activator_EZ.html">
             
                     
-                    快连模式
+                    EZ mode
             
                 </a>
             
@@ -328,7 +328,7 @@
                 <a href="Activator_AP.html">
             
                     
-                    热点模式
+                    AP mode
             
                 </a>
             
@@ -341,7 +341,7 @@
                 <a href="Activator_Zigbee.html">
             
                     
-                    Zigbee 网关配网
+                    Wired network configuration of zigbee
             
                 </a>
             
@@ -354,7 +354,7 @@
                 <a href="Activator_ZigbeeSub.html">
             
                     
-                    ZigBee 子设备激活
+                    Activate the ZigBee sub-device
             
                 </a>
             
@@ -515,7 +515,7 @@
                 <a href="SmartScene.html">
             
                     
-                    single scene operation
+                    Scene operation
             
                 </a>
             
@@ -623,7 +623,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >集成SDK</a>
+        <a href=".." >Initiate SDK</a>
     </h1>
 </div>
 
@@ -638,18 +638,69 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h2 id="&#x96C6;&#x6210;sdk">&#x96C6;&#x6210;SDK</h2>
-<h3 id="&#x4F7F;&#x7528;cocoapods&#x5FEB;&#x901F;&#x96C6;&#x6210;&#xFF08;sdk&#x6700;&#x4F4E;&#x652F;&#x6301;&#x7CFB;&#x7EDF;&#x7248;&#x672C;80&#xFF09;">&#x4F7F;&#x7528;CocoaPods&#x5FEB;&#x901F;&#x96C6;&#x6210;&#xFF08;SDK&#x6700;&#x4F4E;&#x652F;&#x6301;&#x7CFB;&#x7EDF;&#x7248;&#x672C;8.0&#xFF09;</h3>
-<p>&#x5728;<code>Podfile</code>&#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;&#xFF1A;</p>
+                                <h2 id="integrated-sdk">Integrated SDK</h2>
+<h3 id="use-cocoapods-for-quick-integration-sdk-basically-supports-system-version-80">Use CocoaPods for quick integration (SDK basically supports system version 8.0)</h3>
+<p>Add the following content in the <code>Podfile</code> file.</p>
 <pre><code class="lang-ruby">platform <span class="hljs-symbol">:ios</span>, <span class="hljs-string">&apos;8.0&apos;</span>
 
 target <span class="hljs-string">&apos;Your_Project_Name&apos;</span> <span class="hljs-keyword">do</span>
     pod <span class="hljs-string">&quot;TuyaSmartHomeKit&quot;</span>, <span class="hljs-symbol">:git</span> =&gt; <span class="hljs-string">&quot;https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git&quot;</span>
 <span class="hljs-keyword">end</span>
 </code></pre>
-<p>&#x7136;&#x540E;&#x5728;&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x4E0B;&#x6267;&#x884C;<code>pod update</code>&#x547D;&#x4EE4;&#x8FDB;&#x884C;&#x96C6;&#x6210;&#x3002;</p>
-<p><em>CocoaPods&#x7684;&#x4F7F;&#x7528;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;<a href="https://guides.cocoapods.org/" target="_blank">CocoaPods Guides</a></em>
-<em>CocoaPods&#x5EFA;&#x8BAE;&#x66F4;&#x65B0;&#x81F3;&#x6700;&#x65B0;&#x7248;&#x672C;</em></p>
+<p>Then run the <code>pod update</code> command in the root directory of project.
+For use of CocoaPods, please refer to the <a href="https://guides.cocoapods.org/" target="_blank">CocoaPods Guides</a> It is recommended to update the CocoaPods to the latest version.</p>
+<h3 id="initiate-sdk">Initiate SDK</h3>
+<p>Add the following content in the <code>PrefixHeader.pch</code> file of the project. </p>
+<pre><code class="lang-objc"><span class="hljs-meta">#import <span class="hljs-meta-string">&lt;TuyaSmartHomeKit/TuyaSmartKit.h&gt;</span></span>
+</code></pre>
+<p>Open the <code>AppDelegate.m</code> file, and use the <code>App ID</code> and <code>App Secret</code> obtained from the developer platform in the <code>[AppDelegate application:didFinishLaunchingWithOptions:]</code> method to initiate the SDK:</p>
+<pre><code class="lang-objc">[[TuyaSmartSDK sharedInstance] startWithAppKey:&lt;<span class="hljs-meta">#your_app_key#&gt; secretKey:<span class="hljs-meta-string">&lt;#your_secret_key#&gt;</span>];</span>
+</code></pre>
+<p>Now, the preparation is fully completed, and the App development can start immediately.</p>
+<h3 id="update-the-old-version-please-ignore-this-upgrade-if-your-former-development-is-not-based-on-tuya-smart-sdk">Update the old version (please ignore this upgrade if your former development is not based on Tuya Smart SDK.)</h3>
+<p>Check whether the data for upgrade is needed. The data upgrading is needed to upgrade TuyaSDK to TuyaHomeSDK. The upgrade Version interface shall be invoked for upgrade. </p>
+<pre><code class="lang-objc"><span class="hljs-keyword">if</span> ([TuyaSmartSDK sharedInstance].checkVersionUpgrade) {
+    [[TuyaSmartSDK sharedInstance] upgradeVersion:^{
+
+    } failure:^(<span class="hljs-built_in">NSError</span> *error) {
+
+    }];
+}
+</code></pre>
+<h3 id="requirements-for-example-codes">Requirements for example codes</h3>
+<p>Unless otherwise specified, all example codes shall be in the implementation files of the <code>ViewController</code> class.</p>
+<pre><code class="lang-objc"><span class="hljs-class"><span class="hljs-keyword">@interface</span> <span class="hljs-title">ViewController</span> : <span class="hljs-title">UIViewController</span></span>
+
+<span class="hljs-keyword">@end</span>
+
+<span class="hljs-class"><span class="hljs-keyword">@implementation</span> <span class="hljs-title">ViewController</span></span>
+
+<span class="hljs-comment">// All example codes shall be in here.</span>
+
+<span class="hljs-keyword">@end</span>
+</code></pre>
+<p>We agree that the attribute of <code>prop</code> in reference like <code>self.prop</code> has been properly realized in the <code>ViewController</code> Class. For example:</p>
+<pre><code class="lang-objc"><span class="hljs-keyword">self</span>.device = [[TuyaSmartDevice alloc] initWithDeviceId:<span class="hljs-string">@&quot;your_device_id&quot;</span>];
+</code></pre>
+<p>To run it correctly, the <code>TuyaSmartDevice</code> attribute has to be added in the <code>ViewController</code> Class. </p>
+<pre><code class="lang-objc"><span class="hljs-keyword">@property</span> (<span class="hljs-keyword">nonatomic</span>, <span class="hljs-keyword">strong</span>) TuyaSmartDevice *device;
+</code></pre>
+<p>The rest can be done in the same manner:</p>
+<h3 id="agreement-on-returning-error">Agreement on returning error</h3>
+<p>In using SDK, the error returned from interface can be obtained by using the<code>error.localizedDescription</code>.</p>
+<pre><code class="lang-objc">[[TuyaSmartUser sharedInstance] sendVerifyCode:<span class="hljs-string">@&quot;your_country_code&quot;</span> phoneNumber:<span class="hljs-string">@&quot;your_phone_number&quot;</span> type:<span class="hljs-number">0</span> success:^{
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;sendVerifyCode success&quot;</span>);
+} failure:^(<span class="hljs-built_in">NSError</span> *error) {
+    <span class="hljs-comment">// Output details of error</span>
+    <span class="hljs-built_in">NSLog</span>(<span class="hljs-string">@&quot;error message: %@&quot;</span>, error.localizedDescription);
+}];
+</code></pre>
+<h3 id="set-common-parameter">Set common parameter</h3>
+<p>Pass public parameters to SDK. Currently, <code>latitude</code> and <code>longitude</code> are supported.
+If you need to collect position information of device, you need to report the latitude and longitude. </p>
+<pre><code class="lang-objc">[[TuyaSmartSDK sharedInstance] setValue:&lt;<span class="hljs-meta">#latitude#&gt; forKey:@<span class="hljs-meta-string">&quot;latitude&quot;</span>];</span>
+[[TuyaSmartSDK sharedInstance] setValue:&lt;<span class="hljs-meta">#longitude#&gt; forKey:@<span class="hljs-meta-string">&quot;longitude&quot;</span>];</span>
+</code></pre>
 
                                 
                                 </section>
@@ -677,12 +728,12 @@ target <span class="hljs-string">&apos;Your_Project_Name&apos;</span> <span clas
 
             
                 
-                <a href="Preparation.html" class="navigation navigation-prev " aria-label="Previous page: 准备工作">
+                <a href="Preparation.html" class="navigation navigation-prev " aria-label="Previous page: Preparation work">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="User.html" class="navigation navigation-next " aria-label="Next page: 用户管理">
+                <a href="User.html" class="navigation navigation-next " aria-label="Next page: User management">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -693,7 +744,7 @@ target <span class="hljs-string">&apos;Your_Project_Name&apos;</span> <span clas
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"集成SDK","level":"1.4","depth":1,"next":{"title":"用户管理","level":"1.5","depth":1,"path":"resource/User.md","ref":"./resource/User.md","articles":[{"title":"用户注册","level":"1.5.1","depth":2,"path":"resource/User_Register.md","ref":"./resource/User_Register.md","articles":[]},{"title":"用户登录","level":"1.5.2","depth":2,"path":"resource/User_Login.md","ref":"./resource/User_Login.md","articles":[]},{"title":"第三方登录","level":"1.5.3","depth":2,"path":"resource/User_ThirdLogin.md","ref":"./resource/User_ThirdLogin.md","articles":[]},{"title":"用户重置密码","level":"1.5.4","depth":2,"path":"resource/User_Reset.md","ref":"./resource/User_Reset.md","articles":[]},{"title":"修改昵称，登出，停用账号","level":"1.5.5","depth":2,"path":"resource/User_Loginout.md","ref":"./resource/User_Loginout.md","articles":[]},{"title":"Session过期的处理","level":"1.5.6","depth":2,"path":"resource/User_Session.md","ref":"./resource/User_Session.md","articles":[]}]},"previous":{"title":"准备工作","level":"1.3","depth":1,"path":"resource/Preparation.md","ref":"./resource/Preparation.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Integrated.md","mtime":"2018-10-29T08:52:34.537Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-29T09:32:30.474Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Initiate SDK","level":"1.4","depth":1,"next":{"title":"User management","level":"1.5","depth":1,"path":"resource/User.md","ref":"./resource/User.md","articles":[{"title":"User Registration","level":"1.5.1","depth":2,"path":"resource/User_Register.md","ref":"./resource/User_Register.md","articles":[]},{"title":"User Login","level":"1.5.2","depth":2,"path":"resource/User_Login.md","ref":"./resource/User_Login.md","articles":[]},{"title":"Third Party Login","level":"1.5.3","depth":2,"path":"resource/User_ThirdLogin.md","ref":"./resource/User_ThirdLogin.md","articles":[]},{"title":"Resetting Password by User","level":"1.5.4","depth":2,"path":"resource/User_Reset.md","ref":"./resource/User_Reset.md","articles":[]},{"title":"Modify nickname，Logout，Disable account","level":"1.5.5","depth":2,"path":"resource/User_Loginout.md","ref":"./resource/User_Loginout.md","articles":[]},{"title":"Handling of Expired Session","level":"1.5.6","depth":2,"path":"resource/User_Session.md","ref":"./resource/User_Session.md","articles":[]}]},"previous":{"title":"Preparation work","level":"1.3","depth":1,"path":"resource/Preparation.md","ref":"./resource/Preparation.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/Integrated.md","mtime":"2018-10-30T10:48:20.234Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-30T12:03:57.681Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

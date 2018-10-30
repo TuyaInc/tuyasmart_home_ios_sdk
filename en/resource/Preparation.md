@@ -1,16 +1,17 @@
-## 准备工作
+## Preparation work
 
-### 注册开发者账号
-前往 [涂鸦智能开发平台](https://developer.tuya.com) 注册开发者账号、创建产品、创建功能点等，具体流程请参考[接入流程](https://docs.tuya.com/cn/overview/dev-process.html)
+### Register Tuya Developer Account
 
-### 获取iOS的App ID和App Secret
-前往 开发平台 - 应用管理 - 新建应用 获取`iOS`的`App ID`、`App Secret`初始化SDK
+Go to the [Tuya Smart Development Platform](https://developer.tuya.com) to register a developer account, create products and create function points, etc. Please refer to the [Contact workflow](https://docs.tuya.com/cn/overview/dev-process.html) for details. 
 
-![cmd-markdown-logo](http://images.airtakeapp.com/smart_res/developer_default/sdk_zh.jpeg) 
+### Obtain the iOS App ID and App Secret.
+Go to the development platform -> App management -> Create App -> Obtain iOS `App ID` and `App Secret`-> Initiate SDK
 
-### 联调方式
-- 通过硬件控制板 进行真机调试
-- 通过开发平台 - 模拟设备 进行模拟调试
+![cmd-markdown-logo](http://images.airtakeapp.com/smart_res/developer_default/sdk_en.jpeg) 
+
+### Joint debugging mode
+- Use the hardware control panel to perform debugging on real devices.
+- Use the development platform to simulate device debugging. 
 
 ### SDK Demo
-SDK Demo 是一个完整的APP，包含了登录、注册、共享、配网、控制等主流程，可参看Demo代码进行开发。 [下载地址](https://github.com/TuyaInc/tuyasmart_home_ios_sdk)
+SDK Demo is a complete App that includes main processes including login, registration, sharing, network configuration, control, etc. Developer can refer to the Demo codes in the development. [Download Link](https://github.com/TuyaInc/tuyasmart_ios_sdk)

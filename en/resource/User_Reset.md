@@ -1,10 +1,10 @@
-###  用户重置密码
+### 4.3 Resetting Password by User
 
-#### 手机号重置密码
+#### Resetting Password by Using Mobile Phone
 
-手机号重置密码流程和注册流程类似：
+The process of resetting password by using mobile phone is similar to that of registration with mobile phone. 
 
-- 发送验证码：
+- Send verification code:
 
 ```objc
 - (void)sendVerifyCode {
@@ -16,7 +16,7 @@
 }
 ```
 
-- 重置密码：
+- Reset password:
 
 ```objc
 - (void)resetPasswordByPhone {
@@ -28,11 +28,11 @@
 }
 ```
 
-#### 邮箱重置密码
+#### Reset email password
 
-邮箱重置密码需要两个步骤：
+Resetting password by using email takes two steps:
 
-- 发送验证码到邮箱
+- Send the verification code to an email.
 
 ```objc
 - (void)sendVerifyCodeByEmail {
@@ -44,7 +44,7 @@
 }
 ```
 
-- 收到验证码后，使用验证码重置密码
+- Use the verification code to reset password after the verification code is received.
 
 ```objc
 - (void)resetPasswordByEmail {

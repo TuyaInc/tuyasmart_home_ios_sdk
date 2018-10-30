@@ -1,4 +1,4 @@
-### 修改昵称
+### Modify nickname
 
 ```objc
 - (void)modifyNickname:(NSString *)nickname {
@@ -10,7 +10,7 @@
 }
 ```
 
-### 登出
+### Logout
 
 ```objc
 - (void)loginOut {
@@ -22,8 +22,8 @@
 }
 ```
 
-### 停用帐号（注销用户）
-一周后账号才会永久停用并删除以下你账户中的所有信息，在此之前重新登录，则你的停用请求将被取消
+### Disable account (deregister user)
+After one week, the account will be permanently disabled, and all information in the account will be deleted. If you log in to the account again before it is permanently disabled, your deregistration will be canceled.
 
 
 ```objc
