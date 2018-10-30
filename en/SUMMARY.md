@@ -18,7 +18,7 @@
 * [Network Configuration](./resource/Activator.md)
   - [EZ mode](./resource/Activator_EZ.md)
   - [AP mode](./resource/Activator_AP.md)
-  - [Wired network configuration of zigbee](./resource/Activator_Zigbee.md)
+  - [Activate the ZigBee Gateway](./resource/Activator_Zigbee.md)
   - [Activate the ZigBee sub-device](./resource/Activator_ZigbeeSub.md)
 * Device control
   * [Device control](./resource/Device.md)
