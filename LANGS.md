@@ -1,4 +1,3 @@
 
 * [English](en/)
-* [zh-hans](zh-hans/)
-
+* [简体中文](zh-Hans/)

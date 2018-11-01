@@ -1,5 +1,0 @@
-## Shared devices
-
-Two sharing modes are provided.
-- Home member based sharing. If you want share all your devices with you families. You can set them to the `TuyaSmartHomeMember` of the home `TuyaSmartHome` so that they can share your devices `TuyaSmartDevice`. Then all members of your home have the permission to control your devices. If one of your home members is set to be the administrator, he will have all permissions to all devices in your home. If your home member is not the administrator, he will only be granted the control permission of devices. 
-- Device-based sharing. Sometimes, you need to share some devices with your families, and they will solely have control permission to devices you have shared and cannot change names, remove devices, perform firmware upgrade and restore factory setting, etc. but send device control instructions and obtain status updating.

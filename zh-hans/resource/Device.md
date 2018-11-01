@@ -1,3 +1,5 @@
+## 设备控制
+
 设备控制相关的所有功能对应`TuyaSmartDevice`类，需要使用设备Id进行初始化。错误的设备Id可能会导致初始化失败，返回`nil`。
 
 
@@ -8,7 +10,7 @@
 ```objc
 - (void)updateDeviceInfo {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-	
+
 	__weak typeof(self) weakSelf = self;
 	[self.device syncWithCloud:^{
 		NSLog(@"syncWithCloud success");
@@ -40,11 +42,11 @@
 ```objc
 - (void)publishDps {
     // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-    
+
     NSDictionary *dps;
-	//设置dpId为1的布尔型功能点示例 作用:开关打开 
+	//设置dpId为1的布尔型功能点示例 作用:开关打开
 	dps = @{@"1": @(YES)};
-	
+
 	//设置dpId为4的字符串型功能点示例 作用:设置RGB颜色为ff5500
 	dps = @{@"4": @"ff5500"};
 
@@ -53,23 +55,23 @@
 
 	//设置dpId为6的数值型功能点示例 作用:设置温度为20°
 	dps = @{@"6": @(20)};
-	
+
 	//设置dpId为15的透传型(byte数组)功能点示例 作用:透传红外数据为1122
 	dps = @{@"15": @"1122"};
-	
+
 	//多个功能合并发送
 	dps = @{@"1": @(YES), @"4": @(ff5500)};
-	
+
 	[self.device publishDps:dps success:^{
 		NSLog(@"publishDps success");
-		
+
 		//下发成功，状态上报通过 deviceDpsUpdate方法 回调
-		
+
 	} failure:^(NSError *error) {
 		NSLog(@"publishDps failure: %@", error);
 	}];
-	
-	
+
+
 }
 ```
 ##### 注意事项：
@@ -112,7 +114,7 @@
 ```objc
 - (void)modifyDeviceName:(NSString *)mame {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-	
+
 	[self.device updateName:name success:^{
 		NSLog(@"updateName success");
 	} failure:^(NSError *error) {
@@ -128,7 +130,7 @@
 ```objc
 - (void)removeDevice {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-	
+
 	[self.device remove:^{
 		NSLog(@"remove success");
 	} failure:^(NSError *error) {
@@ -143,7 +145,7 @@
 - (void)getWifiSignalStrength {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
     // self.device.delegate = self;
-	
+
 	[self.device getWifiSignalStrengthWithSuccess:^{
 		NSLog(@"get wifi signal strength success");
 	} failure:^(NSError *error) {
@@ -163,7 +165,7 @@
 ```objc
 - (void)getSubDeviceList {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-	
+
 	[self.device getSubDeviceListFromCloudWithSuccess:^(NSArray<TuyaSmartDeviceModel *> *subDeviceList) {
         NSLog(@"get sub device list success");
     } failure:^(NSError *error) {
@@ -172,3 +174,54 @@
 }
 ```
 
+### 固件升级
+
+**固件升级流程:**
+
+获取设备升级信息 -> 下发联网模块升级指令 -> 联网模块升级成功 -> 下发设备控制模块升级指令 -> 设备控制模块升级成功
+
+#### 获取设备升级信息：
+
+```objc
+- (void)getFirmwareUpgradeInfo {
+	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+
+	[self.device getFirmwareUpgradeInfo:^(NSArray<TuyaSmartFirmwareUpgradeModel *> *upgradeModelList) {
+		NSLog(@"getFirmwareUpgradeInfo success");
+	} failure:^(NSError *error) {
+		NSLog(@"getFirmwareUpgradeInfo failure: %@", error);
+	}];
+}
+```
+
+#### 下发升级指令：
+
+```objc
+- (void)upgradeFirmware {
+	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+	// 设备类型type 从获取设备升级信息接口 getFirmwareUpgradeInfo 返回的类型
+	// TuyaSmartFirmwareUpgradeModel - type
+
+	[self.device upgradeFirmware:type success:^{
+		NSLog(@"upgradeFirmware success");
+	} failure:^(NSError *error) {
+		NSLog(@"upgradeFirmware failure: %@", error);
+	}];
+}
+```
+
+#### 回调接口：
+```objc
+- (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type {
+	//固件升级成功
+}
+
+- (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device type:(NSInteger)type {
+	//固件升级失败
+}
+
+- (void)device:(TuyaSmartDevice *)device firmwareUpgradeProgress:(NSInteger)type progress:(double)progress {
+	//固件升级的进度
+}
+
+```

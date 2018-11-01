@@ -1,3 +1,67 @@
+## 家庭管理
+
+用户登录成功后需要通过`TuyaSmartHomeManager`去获取整个家庭列表的信息,然后初始化其中的一个家庭`TuyaSmartHome`，获取家庭详情信息，对家庭中的设备进行管理，控制。
+
+
+### 家庭列表信息变化的回调
+
+实现`TuyaSmartHomeManagerDelegate`代理协议后，可以在家庭列表更变的回调中进行处理。
+
+```objc
+#pragma mark - TuyaSmartHomeManagerDelegate
+
+
+// 添加一个家庭
+- (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home {
+
+}
+
+// 删除一个家庭
+- (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId {
+
+}
+
+// MQTT连接成功
+- (void)serviceConnectedSuccess {
+    // 刷新当前家庭UI
+}
+```
+
+### 获取家庭列表
+
+获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去初始化一个home，调用接口 getHomeDetailWithSuccess:failure:
+
+```objc
+- (void)getHomeList {
+
+	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
+        // homes 家庭列表
+    } failure:^(NSError *error) {
+        NSLog(@"get home list failure: %@", error);
+    }];
+}
+```
+
+### 添加家庭
+
+```objc
+- (void)addHome {
+
+    [self.homeManager addHomeWithName:@"you_home_name"
+                          geoName:@"city_name"
+                            rooms:@[@"room_name"]
+                         latitude:lat
+                        longitude:lon
+                          success:^(double homeId) {
+
+        // homeId 创建的家庭的homeId
+        NSLog(@"add home success");
+    } failure:^(NSError *error) {
+        NSLog(@"add home failure: %@", error);
+    }];
+}
+```
+
 
 ## 单个家庭信息管理
 
@@ -87,7 +151,7 @@
 
 ```objc
 - (void)getHomeDetailInfo {
-	
+
 	[self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
         // homeModel 家庭信息
         NSLog(@"get home detail success");
@@ -114,7 +178,7 @@
 
 ```objc
 - (void)dismissHome {
-	
+
 	[self.home dismissHomeWithSuccess:^() {
         NSLog(@"dismiss home success");
     } failure:^(NSError *error) {
@@ -156,7 +220,83 @@
         NSLog(@"sort room success");
     } failure:^(NSError *error) {
         NSLog(@"sort room failure: %@", error);
-    }];   
+    }];
 }
 ```
 
+
+### 房间管理
+
+单个房间信息管理相关的所有功能对应`TuyaSmartRoom`类，需要使用roomId进行初始化。错误的roomId可能会导致初始化失败，返回`nil`。
+
+#### 更新房间名字
+
+```objc
+- (void)updateRoomName {
+    [self.room updateRoomName:@"new_room_name" success:^{
+        NSLog(@"update room name success");
+    } failure:^(NSError *error) {
+        NSLog(@"update room name failure: %@", error);
+    }];
+}
+```
+
+#### 添加设备到房间
+
+```objc
+- (void)addDevice {
+    [self.room addDeviceWithDeviceId:@"devId" success:^{
+        NSLog(@"add device to room success");
+    } failure:^(NSError *error) {
+        NSLog(@"add device to room failure: %@", error);
+    }];
+}
+```
+
+#### 从房间中移除设备
+
+```objc
+- (void)removeDevice {
+    [self.room removeDeviceWithDeviceId:@"devId" success:^{
+        NSLog(@"remove device from room success");
+    } failure:^(NSError *error) {
+        NSLog(@"remove device from room failure: %@", error);
+    }];
+}
+```
+
+#### 添加群组到房间
+
+```objc
+- (void)addGroup {
+    [self.room addGroupWithGroupId:@"groupId" success:^{
+        NSLog(@"add group to room success");
+    } failure:^(NSError *error) {
+        NSLog(@"add group to room failure: %@", error);
+    }];
+}
+```
+
+#### 从房间中移除群组
+
+```objc
+- (void)removeGroup {
+    [self.room removeGroupWithGroupId:@"groupId" success:^{
+        NSLog(@"remove group from room success");
+    } failure:^(NSError *error) {
+        NSLog(@"remove group from room failure: %@", error);
+    }];
+}
+```
+
+#### 批量修改房间与群组、设备的关系
+
+```objc
+- (void)saveBatchRoomRelation {
+    [self.room saveBatchRoomRelationWithDeviceGroupList:(NSArray <NSString *> *)deviceGroupList success:^{
+        NSLog(@"save batch room relation success");
+    } failure:^(NSError *error) {
+        NSLog(@"save batch room relation failure: %@", error);
+    }];
+}
+```
