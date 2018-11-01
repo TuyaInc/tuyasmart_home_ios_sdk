@@ -19,8 +19,8 @@ branches:
 
 deploy:
   provider: pages
-  skip_cleanup: true
-  github_token: $GH_TOKEN
-  local_dir: build
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  local-dir: _book
   on:
     branch: master
