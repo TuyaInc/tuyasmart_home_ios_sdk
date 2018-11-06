@@ -221,3 +221,33 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 	//固件升级的进度
 }
 ```
+
+
+### Get history data of DP
+
+Get history data of DP such as battery and other information.
+
+#### Get all history data of DP
+
+```objc
+_request = [[TuyaSmartRequest alloc] init];
+
+[_request requestWithApiName:@"m.smart.dp.his.stat.get.all" postData:@{@"devId":@"your_devId", @"dpId":@"device_dpId"} version:@"1.0" success:^(id result) {
+
+} failure:^(NSError *error) {
+
+}];
+
+```
+
+#### Get history data of DP for one month
+
+```objc
+_request = [[TuyaSmartRequest alloc] init];
+
+[_request requestWithApiName:@"m.smart.dp.his.stat.get.month" postData:@{@"devId":@"your_devId", @"month":@"201809", @"dpId":@"device_dpId"} version:@"1.0" success:^(id result) {
+
+} failure:^(NSError *error) {
+
+}];
+```
