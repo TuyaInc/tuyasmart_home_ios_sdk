@@ -225,3 +225,36 @@
 }
 
 ```
+
+
+### 获取数据点的历史数据
+
+#### 【描述】
+
+获取dp点的历史状态数据，例如电量等信息。
+
+1、获取dp点所有的历史数据
+
+```objective-c
+_request = [[TuyaSmartRequest alloc] init];
+
+[_request requestWithApiName:@"m.smart.dp.his.stat.get.all" postData:@{@"devId":@"your_devId", @"dpId":@"device_dpId"} version:@"1.0" success:^(id result) {
+
+} failure:^(NSError *error) {
+
+}];
+
+```
+
+2、获取dp点一个月的历史数据
+
+```objective-c
+_request = [[TuyaSmartRequest alloc] init];
+
+[_request requestWithApiName:@"m.smart.dp.his.stat.get.month" postData:@{@"devId":@"your_devId", @"month":@"201809", @"dpId":@"device_dpId"} version:@"1.0" success:^(id result) {
+
+} failure:^(NSError *error) {
+
+}];
+
+```
