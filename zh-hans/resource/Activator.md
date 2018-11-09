@@ -12,7 +12,35 @@
 
 **EZ模式配网流程：**
 
-![ez](./images/ios-sdk-act-ez.png)
+
+```sequence
+
+Title: EZ 配网
+
+participant APP
+participant SDK
+participant Device
+participant Service
+
+Note over APP: 连上路由器
+Note over Device: Wifi灯快闪
+
+APP->SDK: 获取token
+SDK->Service: 获取token
+Service-->SDK: 返回token
+SDK-->APP: 返回token
+
+APP->SDK: 开始配网 ssid/pwd/token
+Note over SDK: 通过广播、组播循环发送ssid/pwd/token
+Device->Device: 捕捉到ssid/password/token
+
+Device->Service: 去激活设备
+Service-->Device: 激活成功
+
+Device-->SDK: 激活成功
+SDK-->APP: 激活成功
+
+```
 
 #### 获取token
 
@@ -73,7 +101,36 @@ EZ模式配网：
 
 **AP模式配网流程：**
 
-![ap](./images/ios-sdk-act-ap.png)
+```sequence
+
+Title: AP 配网
+
+participant APP
+participant SDK
+participant Device
+participant Service
+
+Note over Device: Wifi灯慢闪
+APP->SDK: 获取token
+SDK->Service: 获取token
+Service-->SDK: 返回token
+SDK-->APP: 返回token
+
+Note over APP: 连上设备的热点
+
+APP->SDK: 开始配网 ssid/pwd/token
+SDK->Device: 发送配置信息 ssid/pwd/token
+Note over Device: 自动关闭热点
+
+Note over Device: 连上路由器WiFi
+
+Device->Service: 去激活设备
+Service-->Device: 激活成功
+
+Device-->SDK: 激活成功
+SDK-->APP: 激活成功
+
+```
 
 #### 获取token
 
@@ -137,7 +194,34 @@ AP模式配网与EZ模式类似，把`[TuyaSmartActivator startConfigWiFi:ssid:p
 
 Zigbee 网关配网采用有线配网，不用输入路由器的热点名称和密码。
 
-![zigbee](./images/ios-sdk-act-zigbee.png)
+```sequence
+
+Title: Zigbee 网关配网
+
+participant APP
+participant SDK
+participant Zigbee网关
+participant Service
+
+Note over Zigbee网关: 将Zigbee网关重置
+APP->SDK: 获取token
+SDK->Service: 获取token
+Service-->SDK: 返回token
+SDK-->APP: 返回token
+
+APP -> APP: APP连上和网关相同的路由器热点
+
+APP->SDK: 发送激活命令
+SDK->Zigbee网关: 发送激活命令
+Note over Zigbee网关: 设备收到激活信息
+
+Zigbee网关->Service: 去云端进行激活
+Service-->Zigbee网关: 激活成功
+
+Zigbee网关-->SDK: 激活成功
+SDK-->APP: 激活成功
+
+```
 
 #### 获取token
 
@@ -194,7 +278,28 @@ Zigbee 网关配网采用有线配网，不用输入路由器的热点名称和�
 
 ### Zigbee 子设备激活
 
-#### ![sub device](./images/ios-sdk-act-zigbeesub.png)
+```sequence
+
+Title: Zigbee 子设备激活
+
+participant APP
+participant SDK
+participant Zigbee网关
+participant Service
+
+Note over Zigbee网关: 将Zigbee子设备重置
+APP->SDK: 发送子设备激活指令
+SDK->Zigbee网关: 发送子设备激活指令
+
+Note over Zigbee网关: 收到子设备激活信息
+
+Zigbee网关->Service: 通知云端子设备激活
+Service-->Zigbee网关: 子设备激活成功
+
+Zigbee网关-->SDK: 子设备激活成功
+SDK-->APP: 子设备激活成功
+
+```
 
 如果需要中途取消操作或配网完成，需要调用`stopActiveSubDeviceWithGwId`方法
 

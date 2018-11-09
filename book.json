@@ -1,0 +1,3 @@
+{
+  "plugins": ["js-sequence-diagram-full@>=0.3.1"]
+}

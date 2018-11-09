@@ -10,7 +10,34 @@ All functions related to the network configuration are realized by using the `Tu
 
 **Process of EZ mode network configuration:**
 
-![ez](./images/ios-sdk-act-ez.png)
+```sequence
+
+Title: EZ Mode
+
+participant APP
+participant SDK
+participant Device
+participant Service
+
+Note over APP: Connect to the Wifi of router
+Note over Device: Switch to the EZ mode
+
+APP->SDK: Get Token
+SDK->Service: Get Token
+Service-->SDK: Response Token
+SDK-->APP: Response Token
+
+APP->SDK: Start network configuration (send configuration data)
+Note over SDK: broadcast configuration data
+Device->Device: Get configuration data
+
+Device->Service: Activate the device
+Service-->Device: Network configuration succeeds
+
+Device-->SDK: Network configuration succeeds
+SDK-->APP: Network configuration succeeds
+
+```
 
 #### Get Token
 
@@ -72,7 +99,36 @@ The App will continuously broadcast the network configuration information until 
 
 **Process of AP mode network configuration**
 
-![ap](./images/ios-sdk-act-ap.png)
+```sequence
+
+Title: AP Mode
+
+participant APP
+participant SDK
+participant Device
+participant Service
+
+Note over Device: Switch to the AP mode
+APP->SDK: Get Token
+SDK->Service: Get Token
+Service-->SDK: Response Token
+SDK-->APP: Response Token
+
+Note over APP: Connect the hotspot device
+
+APP->SDK: Start network configuration (send configuration data)
+SDK->Device: send configuration data
+Note over Device: Device turns off hotspot automatically
+
+Note over Device: The device is connected to the Wifi of router
+
+Device->Service: Activate the device
+Service-->Device: Network configuration succeeds
+
+Device-->SDK: Network configuration succeeds
+SDK-->APP: Network configuration succeeds
+
+```
 
 #### Get Token
 
@@ -132,8 +188,34 @@ The App will continuously broadcast the network configuration information until 
 
 #### Wired network configuration of zigbee
 
+```sequence
 
-![zigbee](./images/ios-sdk-act-zigbee.png)
+Title: Zigbee Gateway configuration
+
+participant APP
+participant SDK
+participant Zigbee Gateway
+participant Service
+
+Note over Zigbee Gateway: Reset zigbee gateway
+APP->SDK: Get Token
+SDK->Service: Get Token
+Service-->SDK: Response Token
+SDK-->APP: Response Token
+
+APP -> APP: connect mobile phone to the same hotspot of the gateway
+
+APP->SDK: sends the activation instruction
+SDK->Zigbee Gateway: sends the activation instruction
+Note over Zigbee Gateway: device receives the activation data
+
+Zigbee Gateway->Service: activate the device
+Service-->Zigbee Gateway: network configuration succeeds
+
+Zigbee Gateway-->SDK: network configuration succeeds
+SDK-->APP: network configuration succeeds
+
+```
 
 #### Get Token
 
@@ -190,7 +272,28 @@ The App will continuously broadcast the network configuration information until 
 
 ### Activate the ZigBee sub-device
 
-#### ![sub device](./images/ios-sdk-act-zigbeesub.png)
+```sequence
+
+Title: Zigbee sub-device configuration
+
+participant APP
+participant SDK
+participant Zigbee Gateway
+participant Service
+
+Note over Zigbee Gateway: Reset zigbee sub device
+APP->SDK: sends the subdevice activation instruction
+SDK->Zigbee Gateway: sends the activation instruction
+
+Note over Zigbee Gateway: zigbee gateway receives the activation data
+
+Zigbee Gateway->Service: activate the sub device
+Service-->Zigbee Gateway: network configuration succeeds
+
+Zigbee Gateway-->SDK: network configuration succeeds
+SDK-->APP: network configuration succeeds
+
+```
 
 The `stopActiveSubDeviceWithGwId` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
 
