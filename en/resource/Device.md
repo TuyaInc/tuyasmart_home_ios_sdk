@@ -225,7 +225,7 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 
 ### Get historical statistics of DP
 
-Get history data of DP such as battery and other information.
+Get historical statistics of DP such as battery statistics and other information.
 
 #### Get all historical statistics of DP
 

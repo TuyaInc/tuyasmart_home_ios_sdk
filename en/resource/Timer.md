@@ -3,7 +3,7 @@
 The design idea is given in the following figure:
 
 ![Timer](./images/ios-sdk-timer.jpg)
-All functions of timer task are realized by using the `TuyaSmartUser` Class.
+All functions of timer task are realized by using the `TuyaSmartTimer` Class.
 
 *Note: loops: @"0000000", 0 denotes off, and 1 denotes on. Each 0 from the left to the right denotes  Sunday, Monday, Tuesday, Wednesday, Thursday, Friday and Saturday, respectively.*
 
