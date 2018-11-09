@@ -38,6 +38,7 @@
 * Smart scene
   - [Smart scene](./resource/SmartScene.md#smart-scene)
   - [Scene operation](./resource/SmartScene.md#scene-operation)
+* [Data channel](./resource/DataChannel.md)
 * [Message center](./resource/Message.md)
 * [Feedback](./resource/Feedback.md)
 * [Common interface](./resource/CommonInterface.md)
