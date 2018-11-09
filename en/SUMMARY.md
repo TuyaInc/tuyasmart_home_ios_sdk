@@ -29,6 +29,7 @@
   - [Obtain Wifi signal strength of device](./resource/Device.md#obtain-wifi-signal-strength-of-device)
   - [Obtain the sub-device list of a gateway](./resource/Device.md#obtain-the-sub-device-list-of-a-gateway)
   - [Firmware upgrade](./resource/Device.md#firmware-upgrade)
+  - [Get historical statistics of DP](./resource/Device.md#get-historical-statistics-of-dp)
 * [Share devices](./resource/Share.md#shared-devices)
   - [Share with home members](./resource/Share.md#share-with-home-members)
   - [Share devices](./resource/Share.md#share-devices-sharing-based-on-device-dimensions)

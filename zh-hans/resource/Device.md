@@ -227,11 +227,11 @@
 ```
 
 
-### 获取数据点的历史数据
+### 获取数据点的历史统计数据
 
-获取dp点的历史状态数据，例如电量等信息。
+获取dp点的历史统计数据，例如电量统计等信息。
 
-#### 获取dp点所有的历史数据
+#### 获取dp点所有的历史统计数据
 
 ```objc
 _request = [[TuyaSmartRequest alloc] init];
@@ -244,7 +244,7 @@ _request = [[TuyaSmartRequest alloc] init];
 
 ```
 
-#### 获取dp点一个月的历史数据
+#### 获取dp点某个月的历史统计数据
 
 ```objc
 _request = [[TuyaSmartRequest alloc] init];

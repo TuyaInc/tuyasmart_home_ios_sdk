@@ -223,11 +223,11 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 ```
 
 
-### Get history data of DP
+### Get historical statistics of DP
 
 Get history data of DP such as battery and other information.
 
-#### Get all history data of DP
+#### Get all historical statistics of DP
 
 ```objc
 _request = [[TuyaSmartRequest alloc] init];
@@ -240,7 +240,7 @@ _request = [[TuyaSmartRequest alloc] init];
 
 ```
 
-#### Get history data of DP for one month
+#### Get historical statistics of DP for one month
 
 ```objc
 _request = [[TuyaSmartRequest alloc] init];
