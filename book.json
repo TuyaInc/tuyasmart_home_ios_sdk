@@ -1,3 +1,23 @@
 {
-  "plugins": ["js-sequence-diagram-full@>=0.3.1"]
+  "plugins": [
+    "js-sequence-diagram-full@>=0.3.1",
+    "prism",
+    "-highlight",
+    "anchors"
+  ],
+  "pluginsConfig": {
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-okaidia.css"
+      ],
+      "lang": {
+        "oc": "objectivec",
+        "objc": "objectivec",
+        "objective-c": "objectivec"
+      },
+      "ignore": [
+        "sequence"
+      ]
+    }
+  }
 }
