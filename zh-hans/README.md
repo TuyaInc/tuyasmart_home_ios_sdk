@@ -51,12 +51,9 @@ CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
 
 在开发的过程中可以开启 Debug 模式，打印一些日志用于分析问题。
 
-```
+```objc
 #ifdef DEBUG
     [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
 #else
 #endif
 ```
-
-
-
