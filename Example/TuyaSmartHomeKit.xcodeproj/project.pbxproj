@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		2997A940975243E2669DCA82 /* Pods_TuyaSmartHomeKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABEBE22F3ABA8DF506F1ECD /* Pods_TuyaSmartHomeKit_Example.framework */; };
+		3709E6082196E08F00A7146C /* TYBleMeshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E6062196E08F00A7146C /* TYBleMeshViewController.m */; };
+		3709E60C2196E3F900A7146C /* TYBleMeshActivatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E60B2196E3F900A7146C /* TYBleMeshActivatorViewController.m */; };
+		3709E6122196E51A00A7146C /* TYHomeBLEActivatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E60E2196E51900A7146C /* TYHomeBLEActivatorTableViewCell.m */; };
+		3709E6132196E51A00A7146C /* TYBLEActivatorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E6112196E51900A7146C /* TYBLEActivatorCell.m */; };
+		3709E6162196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E6152196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.m */; };
+		3709E61B2196EA4B00A7146C /* TYBLETipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E6182196EA4B00A7146C /* TYBLETipsView.m */; };
+		3709E61C2196EA4B00A7146C /* TYBLEScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E61A2196EA4B00A7146C /* TYBLEScanView.m */; };
+		3709E61F2196EAC000A7146C /* TYActivatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E61D2196EAC000A7146C /* TYActivatorTableViewCell.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -301,6 +309,22 @@
 
 /* Begin PBXFileReference section */
 		2EE166F91D175DBA28FF487B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		3709E6052196E08F00A7146C /* TYBleMeshViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBleMeshViewController.h; sourceTree = "<group>"; };
+		3709E6062196E08F00A7146C /* TYBleMeshViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBleMeshViewController.m; sourceTree = "<group>"; };
+		3709E60A2196E3F900A7146C /* TYBleMeshActivatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYBleMeshActivatorViewController.h; sourceTree = "<group>"; };
+		3709E60B2196E3F900A7146C /* TYBleMeshActivatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYBleMeshActivatorViewController.m; sourceTree = "<group>"; };
+		3709E60E2196E51900A7146C /* TYHomeBLEActivatorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYHomeBLEActivatorTableViewCell.m; sourceTree = "<group>"; };
+		3709E60F2196E51900A7146C /* TYBLEActivatorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBLEActivatorCell.h; sourceTree = "<group>"; };
+		3709E6102196E51900A7146C /* TYHomeBLEActivatorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYHomeBLEActivatorTableViewCell.h; sourceTree = "<group>"; };
+		3709E6112196E51900A7146C /* TYBLEActivatorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBLEActivatorCell.m; sourceTree = "<group>"; };
+		3709E6142196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYMeshBleActivatorSuccessViewController.h; sourceTree = "<group>"; };
+		3709E6152196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYMeshBleActivatorSuccessViewController.m; sourceTree = "<group>"; };
+		3709E6172196EA4B00A7146C /* TYBLEScanView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBLEScanView.h; sourceTree = "<group>"; };
+		3709E6182196EA4B00A7146C /* TYBLETipsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBLETipsView.m; sourceTree = "<group>"; };
+		3709E6192196EA4B00A7146C /* TYBLETipsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYBLETipsView.h; sourceTree = "<group>"; };
+		3709E61A2196EA4B00A7146C /* TYBLEScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBLEScanView.m; sourceTree = "<group>"; };
+		3709E61D2196EAC000A7146C /* TYActivatorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYActivatorTableViewCell.m; sourceTree = "<group>"; };
+		3709E61E2196EAC000A7146C /* TYActivatorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYActivatorTableViewCell.h; sourceTree = "<group>"; };
 		4ABEBE22F3ABA8DF506F1ECD /* Pods_TuyaSmartHomeKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuyaSmartHomeKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F58EA995308C3AE6F045398 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		52AC91F58C1414B14CC57A99 /* Pods_TuyaSmartHomeKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuyaSmartHomeKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -784,6 +808,37 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		3709E6042196E04F00A7146C /* blemesh */ = {
+			isa = PBXGroup;
+			children = (
+				3709E60D2196E51900A7146C /* views */,
+				3709E6052196E08F00A7146C /* TYBleMeshViewController.h */,
+				3709E6062196E08F00A7146C /* TYBleMeshViewController.m */,
+				3709E60A2196E3F900A7146C /* TYBleMeshActivatorViewController.h */,
+				3709E60B2196E3F900A7146C /* TYBleMeshActivatorViewController.m */,
+				3709E6142196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.h */,
+				3709E6152196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.m */,
+			);
+			path = blemesh;
+			sourceTree = "<group>";
+		};
+		3709E60D2196E51900A7146C /* views */ = {
+			isa = PBXGroup;
+			children = (
+				3709E61E2196EAC000A7146C /* TYActivatorTableViewCell.h */,
+				3709E61D2196EAC000A7146C /* TYActivatorTableViewCell.m */,
+				3709E60F2196E51900A7146C /* TYBLEActivatorCell.h */,
+				3709E6112196E51900A7146C /* TYBLEActivatorCell.m */,
+				3709E6172196EA4B00A7146C /* TYBLEScanView.h */,
+				3709E61A2196EA4B00A7146C /* TYBLEScanView.m */,
+				3709E6192196EA4B00A7146C /* TYBLETipsView.h */,
+				3709E6182196EA4B00A7146C /* TYBLETipsView.m */,
+				3709E6102196E51900A7146C /* TYHomeBLEActivatorTableViewCell.h */,
+				3709E60E2196E51900A7146C /* TYHomeBLEActivatorTableViewCell.m */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -877,6 +932,7 @@
 		65FC1F7120C8D2FE00918C6D /* 业务 */ = {
 			isa = PBXGroup;
 			children = (
+				3709E6042196E04F00A7146C /* blemesh */,
 				65FC209320C8D2FE00918C6D /* Base */,
 				65FC1F7220C8D2FE00918C6D /* 设备列表 */,
 				65FC1FFC20C8D2FE00918C6D /* 添加设备 */,
@@ -2006,8 +2062,10 @@
 			files = (
 				65FC21A320C8D2FE00918C6D /* TYLocationItem.m in Sources */,
 				65FC226920C8D31900918C6D /* TPTextView.m in Sources */,
+				3709E60C2196E3F900A7146C /* TYBleMeshActivatorViewController.m in Sources */,
 				65FC224A20C8D31900918C6D /* TYTheme.m in Sources */,
 				65FC226320C8D31900918C6D /* TPBarButtonItem.m in Sources */,
+				3709E6082196E08F00A7146C /* TYBleMeshViewController.m in Sources */,
 				65FC225F20C8D31900918C6D /* TPItemView.m in Sources */,
 				65FC21C820C8D2FE00918C6D /* UserView.m in Sources */,
 				65FC210F20C8D2FE00918C6D /* TPSignUpView.m in Sources */,
@@ -2019,6 +2077,7 @@
 				65FC213420C8D2FE00918C6D /* TYDeviceShareView.m in Sources */,
 				65FC227B20C8DC3B00918C6D /* TYHomeManager.m in Sources */,
 				65FC21A620C8D2FE00918C6D /* TYBaseTableViewCell.m in Sources */,
+				3709E61B2196EA4B00A7146C /* TYBLETipsView.m in Sources */,
 				65FC226520C8D31900918C6D /* TPCountryCodeUtils.m in Sources */,
 				65FC225620C8D31900918C6D /* TPPinyin.c in Sources */,
 				65FC212D20C8D2FE00918C6D /* TYDeviceSharedResultViewController.m in Sources */,
@@ -2032,6 +2091,7 @@
 				65FC225420C8D31900918C6D /* NSMutableDictionary+TPCategory.m in Sources */,
 				65FC225D20C8D31900918C6D /* UIImage+TPAlpha.m in Sources */,
 				65FC20F720C8D2FE00918C6D /* TYDeviceListController.m in Sources */,
+				3709E61F2196EAC000A7146C /* TYActivatorTableViewCell.m in Sources */,
 				65FC213920C8D2FE00918C6D /* TYMemberListCell.m in Sources */,
 				65FC215420C8D2FE00918C6D /* TYSearchOneDeviceLayout.m in Sources */,
 				65FC214E20C8D2FE00918C6D /* TYActivatorFinishViewController.m in Sources */,
@@ -2098,9 +2158,11 @@
 				65FC227820C8D31900918C6D /* TPTextFieldView.m in Sources */,
 				65FC227620C8D31900918C6D /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				65FC214C20C8D2FE00918C6D /* TYAPResetViewController.m in Sources */,
+				3709E6162196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.m in Sources */,
 				65FC234020C927C500918C6D /* TYSelectDPViewController.m in Sources */,
 				65FC214F20C8D2FE00918C6D /* TYAPPrepareViewController.m in Sources */,
 				65FC213320C8D2FE00918C6D /* TYReceiveMemberDeviceListCell.m in Sources */,
+				3709E6122196E51A00A7146C /* TYHomeBLEActivatorTableViewCell.m in Sources */,
 				65FC236420C927E400918C6D /* TYEditSceneTableViewCell.m in Sources */,
 				65FC236E20C927E400918C6D /* TYSceneHeaderView.m in Sources */,
 				65FC236F20C927E400918C6D /* TYActionTableViewCell.m in Sources */,
@@ -2109,6 +2171,7 @@
 				65FC236520C927E400918C6D /* TYLocationCityViewCell.m in Sources */,
 				65FC21A920C8D2FE00918C6D /* TYLBSService.m in Sources */,
 				65FC213520C8D2FE00918C6D /* TYMemberListLayout.m in Sources */,
+				3709E6132196E51A00A7146C /* TYBLEActivatorCell.m in Sources */,
 				65FC237320C9281000918C6D /* TYSceneMapPoint.m in Sources */,
 				65FC21A120C8D2FE00918C6D /* TPBaseViewController.m in Sources */,
 				65FC234120C927C500918C6D /* TYSelectConditionViewController.m in Sources */,
@@ -2128,6 +2191,7 @@
 				65FC21A520C8D2FE00918C6D /* SeparatorTableViewCell.m in Sources */,
 				65FC21BE20C8D2FE00918C6D /* MobileChangeViewController.m in Sources */,
 				65FC236B20C927E400918C6D /* TYEditActionNoDataTableViewCell.m in Sources */,
+				3709E61C2196EA4B00A7146C /* TYBLEScanView.m in Sources */,
 				65FC215020C8D2FE00918C6D /* TYEZPrepareViewController.m in Sources */,
 				65FC237620CA242500918C6D /* TYBackgroundViewController.m in Sources */,
 				65FC224F20C8D31900918C6D /* TPBaseUtils.m in Sources */,

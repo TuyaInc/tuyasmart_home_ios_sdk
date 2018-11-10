@@ -43,6 +43,8 @@ UIViewController *tp_topMostViewController();
 + (BOOL)isChinese;
 
 + (UIImage *)imageNamedLocalize:(NSString *)imageName;
++ (UIImage *)imageWithColor:(UIColor *)color;
++ (uint32_t)getIntValueByHex:(NSString *)getStr;
 
 + (BOOL)IsEnableInternet;
 

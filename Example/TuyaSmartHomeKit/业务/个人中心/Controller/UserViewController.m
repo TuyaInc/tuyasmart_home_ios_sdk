@@ -10,6 +10,7 @@
 #import "TYMemberListViewController.h"
 #import "TYUserInfoViewController.h"
 #import "TYSmartSceneViewController.h"
+#import "TYBleMeshViewController.h"
 
 #import "TPItemView.h"
 #import "UserView.h"
@@ -45,12 +46,14 @@
 //    MenuItem *shareItem   = [MenuItem normalItem:[UIImage imageNamed:@"ty_me_share"]      title:NSLocalizedString(@"menu_title_share", @"") action:@selector(gotoMemberListViewController)];
     MenuItem *smartSceneItem   = [MenuItem firstItem:[UIImage imageNamed:@"ty_me_scene"]      title:NSLocalizedString(@"ty_smart_scene", nil) action:@selector(gotoSmartSceneController)];
 //    MenuItem *FAQItem       = [MenuItem normalItem:[UIImage imageNamed:@"ty_me_faq"] title:NSLocalizedString(@"feedback_faq", @"") action:@selector(gotoFAQViewController)];
+    MenuItem *meshItem   = [MenuItem normalItem:[UIImage imageNamed:@"ty_me_share"]      title:@"mesh" action:@selector(gotoMeshViewController)];
     
     NSMutableArray *list = [NSMutableArray new];
     [list addObject:profileItem];
     [list addObject:[MenuItem separatorItem:16]];
     
     [list addObject:smartSceneItem];
+    [list addObject:meshItem];
 //    [list addObject:shareItem];
 //    [list addObject:FAQItem];
     
@@ -116,6 +119,11 @@
 
 - (void)userInfoCellTap:(UITapGestureRecognizer *)sender {
     [self gotoUserInfoViewcontroller];
+}
+
+- (void)gotoMeshViewController {
+    TYBleMeshViewController *vc = [[TYBleMeshViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark TPItemViewDelegate
