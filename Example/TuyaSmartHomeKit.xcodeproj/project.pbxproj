@@ -16,6 +16,8 @@
 		3709E61B2196EA4B00A7146C /* TYBLETipsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E6182196EA4B00A7146C /* TYBLETipsView.m */; };
 		3709E61C2196EA4B00A7146C /* TYBLEScanView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E61A2196EA4B00A7146C /* TYBLEScanView.m */; };
 		3709E61F2196EAC000A7146C /* TYActivatorTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E61D2196EAC000A7146C /* TYActivatorTableViewCell.m */; };
+		3709E6302197209000A7146C /* TYDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709E62E2197209000A7146C /* TYDeviceViewController.m */; };
+		3709E6312197209000A7146C /* TYDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3709E62F2197209000A7146C /* TYDeviceViewController.xib */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -325,6 +327,9 @@
 		3709E61A2196EA4B00A7146C /* TYBLEScanView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYBLEScanView.m; sourceTree = "<group>"; };
 		3709E61D2196EAC000A7146C /* TYActivatorTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYActivatorTableViewCell.m; sourceTree = "<group>"; };
 		3709E61E2196EAC000A7146C /* TYActivatorTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYActivatorTableViewCell.h; sourceTree = "<group>"; };
+		3709E62D2197209000A7146C /* TYDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYDeviceViewController.h; sourceTree = "<group>"; };
+		3709E62E2197209000A7146C /* TYDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYDeviceViewController.m; sourceTree = "<group>"; };
+		3709E62F2197209000A7146C /* TYDeviceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TYDeviceViewController.xib; sourceTree = "<group>"; };
 		4ABEBE22F3ABA8DF506F1ECD /* Pods_TuyaSmartHomeKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuyaSmartHomeKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F58EA995308C3AE6F045398 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		52AC91F58C1414B14CC57A99 /* Pods_TuyaSmartHomeKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuyaSmartHomeKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -818,6 +823,9 @@
 				3709E60B2196E3F900A7146C /* TYBleMeshActivatorViewController.m */,
 				3709E6142196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.h */,
 				3709E6152196EA2A00A7146C /* TYMeshBleActivatorSuccessViewController.m */,
+				3709E62D2197209000A7146C /* TYDeviceViewController.h */,
+				3709E62E2197209000A7146C /* TYDeviceViewController.m */,
+				3709E62F2197209000A7146C /* TYDeviceViewController.xib */,
 			);
 			path = blemesh;
 			sourceTree = "<group>";
@@ -1875,6 +1883,7 @@
 				65FC21DB20C8D2FE00918C6D /* ty_me_scene@3x.png in Resources */,
 				65FC216620C8D2FE00918C6D /* ty_adddevice_ap_screen_cn@3x.png in Resources */,
 				65FC213C20C8D2FE00918C6D /* ty_member_share_failure@2x.png in Resources */,
+				3709E6312197209000A7146C /* TYDeviceViewController.xib in Resources */,
 				65FC210120C8D2FE00918C6D /* ty_devicelist_share_green@3x.png in Resources */,
 				65FC227420C8D31900918C6D /* tp_nolist_logo@2x.png in Resources */,
 				65FC21BB20C8D2FE00918C6D /* ty_mainbt_about@2x.png in Resources */,
@@ -2163,6 +2172,7 @@
 				65FC214F20C8D2FE00918C6D /* TYAPPrepareViewController.m in Sources */,
 				65FC213320C8D2FE00918C6D /* TYReceiveMemberDeviceListCell.m in Sources */,
 				3709E6122196E51A00A7146C /* TYHomeBLEActivatorTableViewCell.m in Sources */,
+				3709E6302197209000A7146C /* TYDeviceViewController.m in Sources */,
 				65FC236420C927E400918C6D /* TYEditSceneTableViewCell.m in Sources */,
 				65FC236E20C927E400918C6D /* TYSceneHeaderView.m in Sources */,
 				65FC236F20C927E400918C6D /* TYActionTableViewCell.m in Sources */,

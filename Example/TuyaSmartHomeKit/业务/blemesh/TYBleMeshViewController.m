@@ -9,6 +9,7 @@
 #import "TYBleMeshViewController.h"
 #import "TYDeviceListViewCell.h"
 #import "TYBleMeshActivatorViewController.h"
+#import "TYDeviceViewController.h"
 
 #define MeshDeviceListCellViewIdentifier    @"MeshDeviceListCellViewIdentifier"
 @interface TYBleMeshViewController () <TuyaSmartHomeDelegate>
@@ -31,6 +32,11 @@
     // 设置 mesh
     [TuyaSmartUser sharedInstance].mesh = [TuyaSmartBleMesh bleMeshWithMeshId:[TYHomeManager sharedInstance].home.meshModel.meshId homeId:[TYHomeManager sharedInstance].home.meshModel.homeId];
     [TuyaSmartUser sharedInstance].meshModel = [TYHomeManager sharedInstance].home.meshModel;
+    
+    if ([TuyaSmartUser sharedInstance].meshModel ) {
+        [[TYBLEMeshManager sharedInstance] startScanWithName:[TuyaSmartUser sharedInstance].meshModel.code pwd:[TuyaSmartUser sharedInstance].meshModel.password active:NO wifiAddress:0 otaAddress:0];
+    }
+    
     
     [self initView];
     [self initData];
@@ -100,6 +106,29 @@
     
     
     TuyaSmartDeviceModel *deviceModel = [self.meshDevList objectAtIndex:indexPath.row];
+    
+    TYDeviceViewController *vc = [[TYDeviceViewController alloc] initWithNibName:@"TYDeviceViewController" bundle:nil];
+    vc.deviceModel = deviceModel;
+    
+    int address = [deviceModel.nodeId intValue] << 8;
+    // 获取设备信息
+    if ([TYBLEMeshManager sharedInstance].isLogin && deviceModel.isMeshBleOnline) {
+        
+        
+        [[TYBLEMeshManager sharedInstance] getDeviceStatusAllWithAddress:address type:deviceModel.pcc];
+    
+    } else {
+        NSString *raw = [[TYBLEMeshManager sharedInstance] rawDataGetStatusAllWithAddress:address type:deviceModel.pcc];
+    
+        [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:raw pcc:deviceModel.pcc success:^{
+            NSLog(@"success");
+        } failure:^(NSError *error) {
+            NSLog(@"error %@", error);
+        }];
+    }
+    
+    
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
