@@ -901,7 +901,7 @@ NSInteger localId = 0x8001;
 
 流程图
 
-![image-20181110143530597](/Users/huangkai/Library/Application Support/typora-user-images/image-20181110143530597.png)
+![image-20181110143530597](/images/ios-mesh-addgroup.png)
 
 本地添加
 
@@ -1041,7 +1041,7 @@ NSInteger localId = 0x8001;
 
 流程图
 
-![image-20181110151556211](/Users/huangkai/Library/Application Support/typora-user-images/image-20181110151556211.png)
+![image-20181110151556211](/images/ios-mesh-delgroup.png)
 
 本地删除
 
