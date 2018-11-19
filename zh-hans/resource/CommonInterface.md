@@ -33,55 +33,54 @@
 
 
 
-#### 组合接口
+### 组合接口
 
 用于多个业务接口一块请求。
 
-需要写一个继承于类 TYApiMergeService 的请求接口类，然后把需要请求的多个接口放在一块，然后请求的结果也会一块返回。
+需要写一个继承于 `TYApiMergeService` 的请求接口类，然后把需要请求的多个接口放在一块，然后请求的结果也会一块返回。
 
 调用实例：
 
 ```objective-c
-    // @property (nonatomic, strong) TYApiMergeRequest *service;
-	
-	_service = [[TYApiMergeRequest alloc] init];
-	// homeId
-    [_service loadHomeDataWithHomeId:self.home.homeModel.homeId success:^(NSArray<TYApiMergeModel *> *list) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+  // @property (nonatomic, strong) ExampleMergeRequest *service;
+
+  _service = [[ExampleMergeRequest alloc] init];
+  [_service loadHomeDataWithHomeId:homeId success:^(NSArray<TYApiMergeModel *> *list) {
+
+  } failure:^(NSError *error) {
+
+  }];
 ```
 
 
 
-TYApiMergeRequest.h
+ExampleMergeRequest.h
 
 ```objective-c
 #import <TuyaSmartHomeKit/TYApiMergeService.h>
 
-@interface TYApiMergeRequest : TYApiMergeService
+@interface ExampleMergeRequest : TYApiMergeService
 
 - (void)loadHomeDataWithHomeId:(long long)homeId success:(void (^)(NSArray <TYApiMergeModel *> *list))success failure:(TYFailureError)failure;
 
 @end
 ```
 
-TYApiMergeRequest.m
+ExampleMergeRequest.m
 
 ```objective-c
-#import "TYApiMergeRequest.h"
+#import "ExampleMergeRequest.h"
 
-@implementation TYApiMergeRequest
+@implementation ExampleMergeRequest
 
 - (void)loadHomeDataWithHomeId:(long long)homeId success:(void (^)(NSArray <TYApiMergeModel *> *list))success failure:(TYFailureError)failure {
-    
-    self.requestList = [NSMutableArray array];
-    
-    [self addApiRequest:@"tuya.m.my.group.mesh.list" postData:@{} version:@"1.0"];
-    [self addApiRequest:@"tuya.m.location.get" postData:@{@"gid": @(homeId)} version:@"2.0"];
-    
-    [self sendRequest:@{@"gid": @(homeId)} success:success failure:failure];
+
+  self.requestList = [NSMutableArray array];
+
+  [self addApiRequest:@"tuya.m.my.group.mesh.list" postData:@{} version:@"1.0"];
+  [self addApiRequest:@"tuya.m.location.get" postData:@{@"gid": @(homeId)} version:@"2.0"];
+
+  [self sendRequest:@{@"gid": @(homeId)} success:success failure:failure];
 }
 
 @end
