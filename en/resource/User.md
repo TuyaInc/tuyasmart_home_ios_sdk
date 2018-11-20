@@ -306,6 +306,18 @@ Resetting password by using email takes two steps:
 }
 ```
 
+### Update timezone
+
+```objc
+- (void)updateTimeZoneId:(NSString *)timeZoneId {
+	[[TuyaSmartUser sharedInstance] updateTimeZoneWithTimeZoneId:timeZoneId success:^{
+		NSLog(@"update timeZoneId success");
+	} failure:^(NSError *error) {
+		NSLog(@"update timeZoneId failure: %@", error);
+	}];
+}
+```
+
 ### Logout
 
 ```objc

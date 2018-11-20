@@ -10,6 +10,7 @@
   - [第三方登录](./resource/User.md#第三方登录)
   - [用户重置密码](./resource/User.md#用户重置密码)
   - [修改昵称](./resource/User.md#修改昵称)
+  - [更新用户时区](./resource/User.md#更新用户时区)
   - [登出](./resource/User.md#登出)
   - [停用账号](./resource/User.md#停用账号（注销用户）)
   - [Session过期的处理](./resource/User.md#session过期的处理)

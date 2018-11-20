@@ -310,6 +310,18 @@ _注：注册方法调用成功后，就可以正常使用SDK的所有功能了�
 }
 ```
 
+### 更新用户时区
+
+```objc
+- (void)updateTimeZoneId:(NSString *)timeZoneId {
+	[[TuyaSmartUser sharedInstance] updateTimeZoneWithTimeZoneId:timeZoneId success:^{
+		NSLog(@"update timeZoneId success");
+	} failure:^(NSError *error) {
+		NSLog(@"update timeZoneId failure: %@", error);
+	}];
+}
+```
+
 ### 登出
 
 ```objc
