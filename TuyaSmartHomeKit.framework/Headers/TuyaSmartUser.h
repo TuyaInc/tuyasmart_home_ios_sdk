@@ -472,6 +472,17 @@ FOUNDATION_EXPORT NSString * const TuyaSmartUserNotificationNetworkChanged;
 - (void)updateUserInfo:(TYSuccessHandler)success
                failure:(TYFailureError)failure;
 
+/**
+ *  更新用户时区
+ *
+ *  @param timeZoneId 时区 Asia/Shanghai
+ *  @param success    操作成功回调
+ *  @param failure    操作失败回调
+ */
+- (void)updateTimeZoneWithTimeZoneId:(NSString *)timeZoneId
+                             success:(TYSuccessHandler)success
+                             failure:(TYFailureError)failure;
+
 
 /**
  *  停用帐号（注销用户）
