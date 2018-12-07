@@ -52,4 +52,8 @@ Now all the preparatory work has been completed. You can set out to develop your
 
 Refer to details: [Tuya Smart Doc - iOS SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/)
 
+## ChangeLog
+
+[CHANGELOG.md](./CHANGELOG.md)
+
 
