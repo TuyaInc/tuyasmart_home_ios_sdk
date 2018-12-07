@@ -6,11 +6,6 @@ target 'TuyaSmartHomeKit_Example' do
   pod 'MBProgressHUD', '~> 0.9.2'
   pod 'BlocksKit'
   pod 'SDWebImage'
-  pod 'DACircularProgress'
-  pod 'CocoaLumberjack'
-  pod 'libPhoneNumber-iOS'
-  pod 'MJRefresh'
-  pod 'SWTableViewCell'
 
   target 'TuyaSmartHomeKit_Tests' do
     inherit! :search_paths
