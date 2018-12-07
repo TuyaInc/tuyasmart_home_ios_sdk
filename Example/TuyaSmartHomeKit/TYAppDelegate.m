@@ -7,10 +7,20 @@
 //
 
 #import "TYAppDelegate.h"
-#import "TPSignInViewController.h"
-#import "TabBarViewController.h"
-#import "TYAppService.h"
+#import "TYTabBarViewController.h"
 #import "TPNavigationController.h"
+#import <UserNotifications/UserNotifications.h>
+
+/*
+ doc link
+ 
+ en:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/
+ zh-hans:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/
+ */
+
+@interface TYAppDelegate() <UNUserNotificationCenterDelegate>
+
+@end
 
 @implementation TYAppDelegate
 
@@ -22,36 +32,45 @@
     
     //TODO: 修改AppKey和SecretKey
     [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
-    
-    [[TYAppService sharedInstance] configApp:launchOptions];
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    if ([TuyaSmartUser sharedInstance].isLogin) {
-        [self resetRootViewController:[TabBarViewController class]];
-    } else {
-        [self resetRootViewController:[TPSignInViewController class]];
+    TPNavigationController *navigationController = [[TPNavigationController alloc] initWithRootViewController:[TYTabBarViewController new]];
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+    navigationController.navigationBarHidden = YES;
+    
+    // notification
+    [application registerForRemoteNotifications];
+    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+    
+    if (@available(iOS 10.0, *)) {
+        //Codes below is essential in iOS10 or above.
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        UNAuthorizationOptions types10 = UNAuthorizationOptionBadge|UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
+        [center requestAuthorizationWithOptions:types10 completionHandler:^(BOOL granted, NSError * _Nullable error) {
+            if (granted) {
+                //Allow
+            } else {
+                //Deny
+            }
+        }];
     }
     
     return YES;
 }
 
-- (void)resetRootViewController:(Class)rootController {
-    if ([TuyaSmartUser sharedInstance].isLogin) {
-        [[TYAppService sharedInstance] loginDoAction];
-    }
-    [tp_topMostViewController().navigationController popToRootViewControllerAnimated:NO];
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
-    TPNavigationController *navigationController = [[TPNavigationController alloc] initWithRootViewController:[rootController new]];
-    self.window.rootViewController = navigationController;
-    [self.window makeKeyAndVisible];
-    navigationController.navigationBarHidden = YES;
+    NSString *pushId = [[[[deviceToken description]
+                          stringByReplacingOccurrencesOfString:@" " withString:@""]
+                         stringByReplacingOccurrencesOfString:@"<" withString:@""]
+                        stringByReplacingOccurrencesOfString:@">" withString:@""];
+    
+    NSLog(@"pushId is %@", pushId);
+    
+    [[TuyaSmartSDK sharedInstance] setValue:pushId forKey:@"deviceToken"];
 }
-
-- (void)signOut {
-    [[TYAppService sharedInstance] signOut];
-    [self resetRootViewController:[TPSignInViewController class]];
-}
-
 
 @end

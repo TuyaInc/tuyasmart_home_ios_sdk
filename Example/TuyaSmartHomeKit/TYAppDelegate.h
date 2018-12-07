@@ -8,11 +8,15 @@
 
 @import UIKit;
 
+/*
+ doc link
+ 
+ en:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/
+ zh-hans:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/
+ */
+
 @interface TYAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-- (void)signOut;
-- (void)resetRootViewController:(Class)rootController;
 
 @end
