@@ -93,6 +93,7 @@
 }
 
 #pragma mark - Actions.
+
 - (void)loginAndRegisterViewTrigerredAction:(TYLoginAndRegisterViewActionType)actionType {
     if (actionType == TYLoginAndRegisterViewActionTypeLogin) {
         [self passwordLogin];
@@ -174,6 +175,7 @@
     WEAKSELF_AT;
     [[TuyaSmartUser sharedInstance] loginOut:^{
         weakSelf_AT.rootView.tipsLabel.text = @"Logout success!";
+        [TYSmartHomeManager sharedInstance].currentHome = nil;
     } failure:^(NSError *error) {
         weakSelf_AT.rootView.tipsLabel.text = error.localizedDescription;
     }];
@@ -187,6 +189,7 @@
     if ([[TuyaSmartUser sharedInstance] isLogin]) {
         // Log out.
         [[TuyaSmartUser sharedInstance] loginOut:NULL failure:NULL];
+        [TYSmartHomeManager sharedInstance].currentHome = nil;
         
         self.rootView.tipsLabel.text = @"Session expired，you need to login again.";
     }
@@ -201,6 +204,7 @@
 }
 
 #pragma mark - Getters
+
 - (TuyaSmartHomeManager *)homeManager {
     if (!_homeManager) {
         _homeManager = [TuyaSmartHomeManager new];

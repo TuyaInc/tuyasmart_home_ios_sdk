@@ -10,13 +10,6 @@
 
 @implementation TYSmartHomeManager
 
-@synthesize currentHome = _currentHome;
-
-/**
- Singleton constructor.
- 
- @return An singleton instance of this class.
- */
 + (TYSmartHomeManager *)sharedInstance {
 
     static TYSmartHomeManager *sharedInstance = nil;

@@ -8,19 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface TYSmartHomeManager : NSObject
 
 @property (nonatomic, strong) TuyaSmartHome *currentHome;
 
-/**
- Singleton constructor.
-
- @return An singleton instance of this class.
- */
 + (TYSmartHomeManager *)sharedInstance;
 
 @end
-
-NS_ASSUME_NONNULL_END
