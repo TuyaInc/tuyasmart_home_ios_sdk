@@ -18,6 +18,8 @@
 
 场景任务是指当该场景满足已经设定的气象或设备条件时，让一个或多个设备执行某种操作，对应`TuyaSmartSceneActionModel`类。或者关闭、开启一个自动化（带有场景条件的就叫做自动化）
 
+**新增场景时，场景条件和场景任务对象的创建，参考本文档末尾的示例。**
+
 #### 获取场景列表
 
 ```objc
@@ -237,3 +239,82 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
     }];
 }
 ```
+## 场景条件和场景动作对象创建示例
+#### 场景条件
+
+##### 创建场景条件对象TuyaSmartSceneConditionModel
+气象条件包括温度、湿度、天气、PM2.5、空气质量、日落日出，这里以设置温度条件为例创建气象条件对象。场景条件也可以设置定时条件和设备条件。
+
+从“获取条件列表”接口可以获取到所有气象条件的`TuyaSmartSceneDPModel`对象列表。可以根据`TuyaSmartSceneDPModel`对象的`entityName`和`entityId`区分不同的气象条件。从获取城市信息相关的接口，获取到`TuyaSmartCityModel`对象，使用其中的`cityId`值作为定位信息。
+
+选择完具体的条件值之后,如果将界面选择的温度、城市等信息保存在了`TuyaSmartSceneDPModel`对象中(也可以存在任何你喜欢的对象中)，可以通过一个`TuyaSmartSceneDPModel`对象初始化一个`TuyaSmartSceneConditionModel`条件对象，示例方法如下，这里使用了Category为`TuyaSmartSceneConditionModel`增加了一个分类方法：
+
+	
+	//新增初始化方法
+	- (instancetype)initWithSmartSceneDPModel:(TuyaSmartSceneDPModel *)dpModel {
+	    
+	    if (self = [super init]) {
+	        self.entityType = dpModel.entityType;
+	        self.iconUrl = dpModel.iconUrl;
+	        if (dpModel.entityType == 3) {
+	        	//气象条件
+	            self.entityId = dpModel.cityId;
+	            self.entityName = dpModel.cityName;
+	            self.entitySubIds = dpModel.entitySubId;
+	            self.cityName = dpModel.cityName;
+	            self.cityLatitude = dpModel.cityLatitude;
+	            self.cityLongitude = dpModel.cityLongitude;
+	        } else if (dpModel.entityType == 7) {
+	        	//定时条件
+	            NSString *value = dpModel.valueRangeJson[dpModel.selectedRow][0];
+	            self.extraInfo = @{@"delayTime" : value};
+	        } else {
+	        	//设备条件
+	            self.entityId = dpModel.devId;
+	            TuyaSmartDevice *device = [TuyaSmartDevice deviceWithDeviceId:dpModel.devId];
+	            self.entityName = device.deviceModel.name;
+	            self.entitySubIds = [NSString stringWithFormat:@"%ld", (long)dpModel.dpId];
+	        }
+	        //expr数组的组装见下文
+	        self.expr = dpModel.expr;
+	    }
+	    return self;
+	}
+
+##### expr 表达式组装
+`TuyaSmartSceneConditionModel`的expr属性描述了条件的表达式，如“温度低于15℃”这样的一个条件，就可以用expr来描述。expr是一个数组（这里要注意，最外层一定是数组），数组中的每一个对象描述了一个条件，如@[@"$temp",@"<",@15]这个条件数组就描述了温度低于15℃这个条件。注意，每个气象条件都应该对应一个`TuyaSmartSceneConditionModel`，所以expr数组中只包含一个条件数组。
+
+气象条件expr示例：
+
+- 温度 @[@[@"$temp",@"<",@15]]
+- 湿度 @[@[@"$humidity",@"==",@"comfort"]]
+- 天气 @[@[@"$condition",@"==",@"snowy"]]
+- PM2.5 @[@[@"$pm25",@"==",@"fine"]]
+- 空气质量 @[@[@"$aqi",@"==",@"fine"]]
+- 日出日落 @[@[@"$sunsetrise",@"==",@"sunrise"]]
+
+定时条件expr示例:
+
+定时条件使用一个字典表示，例如{timezoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}。其中loops中的每一位分别表示周日到周六的每一天，1表示生效，0表示不生效。注意这个表示定时的字典也需要使用数组包起来，因为expr是个数组。
+
+设备条件expr示例：
+
+设备条件使用一个数组表示选定的条件值。选择的条件组装的expr可以表示为@[@[@"$dp1",@"==",@YES]],这里可以表示一个“电灯开”的条件。其中`dp1`是`TuyaSmartSceneDPModel`中提供的dp点的名称。
+####场景动作
+场景动作类是`TuyaSmartSceneActionModel`，其中的‘actionExecutor’属性即表示场景动作类型。场景动作类型包括:
+
+- dpIssue 设备
+- deviceGroupDpIssue 群组
+- ruleTrigger 触发场景
+- ruleEnable 启动自动化
+- ruleDisable 禁用自动化
+- delay 延时动作
+
+新建完`TuyaSmartSceneActionModel`的对象后，分别设置对应的属性，重点关注三个属性entityId、actionExecutor、executorProperty，这三个属性描述了哪个对象要做动作，做什么类型的动作，具体做什么动作。
+
+1. 设备。entityId属性对应设备的devId，actionExecutor是dpIssue，executorProperty是一个字典，比如{"1":YES},表示dp点“1”，执行的动作是YES，这个可以表示灯打开等布尔类型的dp点。dp点的Id和dp可取的值可以通过“获取任务设备的dp列表”接口获取到。
+2. 群组。entityId属性对应群组的groupId, actionExecutor是deviceGroupDpIssue，其他的属性和设备动作相同。
+3. 触发场景。entityId是场景sceneId，actionExecutor是ruleTrigger，executorProperty不需要。
+4. 启动自动化。entityId是自动化sceneId，actionExecutor是ruleEnable，executorProperty不需要。
+5. 禁用自动化。entityId是自动化sceneId，actionExecutor是ruleDisable，executorProperty不需要。
+6. 延时动作。entityId是delay，actionExecutor是delay，executorProperty是延时的时间，用一个字典表示，形式和key为{@"minutes":@"1",@"seconds":@"30"},表示1分30秒。目前最大支持59分59秒。

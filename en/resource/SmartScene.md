@@ -18,6 +18,8 @@ All scenes conditions are defined in the `TuyaSmartSceneConditionModel` class, a
 
 In this case, one or multiple devices will run some operations or enable or disable an automation action (with scene conditions) when the preset meteorological or device conditions are met. All relevant functions are realized in the `TuyaSmartSceneActionModel` class.
 
+**There are some examples at the end of this document, whice can help you about creating an object of `TuyaSmartSceneActionModel` or `TuyaSmartSceneConditionModel`.**
+
 ### Obtain scene list
 
 ```objc
@@ -316,3 +318,79 @@ User needs to edit the name of scene, background pictures, condition list, task 
     }];
 }
 ```
+## Emample
+#### Scene Condition
+##### Create an object for `TuyaSmartSceneConditionModel`
+From the `Obtain condition list` API, you can obtain the condition list, which is compose of TuyaSmartSceneDPModel object. With the APIs obout city, you can obtain cityId value. Now it's time to create an object of TuyaSmartSceneConditionModel, cause now we know where and what‘s the conditon is to execute the scene.
+
+If you save the values about conditions in an object of TuyaSmartSceneDPModel(you can save it anywhere you like), you can use a initialize method like below to cheate a TuyaSmartSceneConditionModel object. You can use category to add a new method to TuyaSmartSceneConditionModel.
+
+	//new initialize method
+	- (instancetype)initWithSmartSceneDPModel:(TuyaSmartSceneDPModel *)dpModel {
+	    
+	    if (self = [super init]) {
+	        self.entityType = dpModel.entityType;
+	        self.iconUrl = dpModel.iconUrl;
+	        if (dpModel.entityType == 3) {
+	        	//Meteorological conditions
+	            self.entityId = dpModel.cityId;
+	            self.entityName = dpModel.cityName;
+	            self.entitySubIds = dpModel.entitySubId;
+	            self.cityName = dpModel.cityName;
+	            self.cityLatitude = dpModel.cityLatitude;
+	            self.cityLongitude = dpModel.cityLongitude;
+	        } else if (dpModel.entityType == 7) {
+	        	//Timer condition
+	            NSString *value = dpModel.valueRangeJson[dpModel.selectedRow][0];
+	            self.extraInfo = @{@"delayTime" : value};
+	        } else {
+	        	//Device conditon
+	            self.entityId = dpModel.devId;
+	            TuyaSmartDevice *device = [TuyaSmartDevice deviceWithDeviceId:dpModel.devId];
+	            self.entityName = device.deviceModel.name;
+	            self.entitySubIds = [NSString stringWithFormat:@"%ld", (long)dpModel.dpId];
+	        }
+	        self.expr = dpModel.expr;
+	    }
+	    return self;
+	}
+##### Create expr property 
+The `expr` property in TuyaSmartSceneConditionModel is an expression of condition, which is a NSArray object(important, the outermost object is a NSArray object), like @[@"$temp",@"<",@15].
+
+Example for `expr`:
+
+Meteorological conditions:
+
+- Temperature @[@[@"$temp",@"<",@15]]
+- Humidity @[@[@"$humidity",@"==",@"comfort"]]
+- Weather @[@[@"$condition",@"==",@"snowy"]]
+- PM2.5 @[@[@"$pm25",@"==",@"fine"]]
+- Air quality @[@[@"$aqi",@"==",@"fine"]]
+- Sunset/Sunrise @[@[@"$sunsetrise",@"==",@"sunrise"]]
+
+Timer condition:
+
+Timer conditon's `expr` use a NSDictionry to define the timer, for emample, {timezoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}. The loops represent date from Sunday to Saturday, 1 for validate and 0 for invalidate.
+
+Device condition:
+
+Device conditon use a NSArray objcet to define the conditon value, for example, @[@[@"$dp1",@"==",@YES]], which can represent a condition like "when a device is open". The `dp1` is a dpId property from `TuyaSmartSceneDPModel` object.
+####Scene Action
+Scene action is a object of `TuyaSmartSceneActionModel `, the `actionExecutor ` property is the type of the scene action. Action type includs:
+
+- dpIssue 	device action
+- deviceGroupDpIssue 	device group action
+- ruleTrigger 	trigger a smart scene
+- ruleEnable 		enable an auto
+- ruleDisable 	disable an auto
+- delay delay 	action
+
+Create a new object of `TuyaSmartSceneActionModel`,then set the values of properties. There are 3 important properties:entityId、actionExecutor、executorProperty, which describe which entity to act, which action type to do, and exact action execute property.
+
+1. Device。entityId property is the device devId，actionExecutor is `dpIssue`，executorProperty is a dictionary，like {"1":YES}, "1" representing the dp of a device.
+
+2. Group. entityId property is groupId, actionExecutor is `deviceGroupDpIssue `, executorProperty is the same as Device. 
+3. Trigger Scene。entityId is sceneId，actionExecutor is `ruleTrigger`，executorProperty is nil。
+4. Enable an auto。entityId a auto's sceneId，actionExecutor is `ruleEnable`，executorProperty is nil。
+5. Disable an auto。entityId is an auto's sceneId，actionExecutor is `ruleDisable`，executorProperty is nil。
+6. Delay action。entityId is `delay`，actionExecutor is `delay`，executorProperty is the time to delay, which is defined with a diction, for example `{@"minutes":@"1",@"seconds":@"30"}`, representing one minutes and 30 seconds. The max time is 59m59s.
