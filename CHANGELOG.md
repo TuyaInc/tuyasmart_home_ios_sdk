@@ -1,4 +1,10 @@
-# 涂鸦智能iOS SDK版本更新记录
+# TuyaSmartHomeKit iOS SDK Change Log
+
+
+
+## 0.1.4 (2018-12-26)
+
+- bug fixed : TuyaSmartUser Avatars url updated, no update local cache
 
 ## 0.1.3 (2018-11-20)
 
