@@ -213,6 +213,14 @@ typedef enum : NSUInteger {
  */
 - (void)updateDeviceVersion:(NSString *)version type:(NSInteger)type success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
+/**
+ *  唤醒低功耗设备
+ *
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)awakeDeviceWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
+
 
 @end
 

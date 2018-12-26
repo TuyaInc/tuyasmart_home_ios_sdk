@@ -1,6 +1,8 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 0.1.5 (2018-12-26)
 
+- add : Low power consumption wake up method
 
 ## 0.1.4 (2018-12-26)
 
