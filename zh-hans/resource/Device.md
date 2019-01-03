@@ -80,7 +80,7 @@
 - 透传类型传输的byte数组是字符串格式、字母需小写并且必须是偶数位。<br />
   比如正确的格式是: `@{@"1": @"011f"}` 而不是 `@{@"1": @"11f"}`
 
-功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/creatproduct/#_7)
+功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/product/function.html)
 
 #### 设备状态更新
 

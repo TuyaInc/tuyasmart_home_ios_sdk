@@ -76,7 +76,7 @@ According to the definition of function points of the product in the back end, t
 - In the transparent transmission, the byte string shall be the string format, and all letters shall be in the lower case, and the string must have even bits. The correct format shall be: `@{@"1": @"011f"}` instead of `@{@"1": @"11f"}`
 
 
-For more concepts of function points, please refer to the [QuickStart-Related Concepts of Function Points](https://docs.tuya.com/cn/creatproduct/#_7)
+For more concepts of function points, please refer to the [QuickStart-Related Concepts of Function Points](https://docs.tuya.com/en/product/function.html)
 
 #### Update device status
 
