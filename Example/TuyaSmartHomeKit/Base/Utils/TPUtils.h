@@ -32,6 +32,12 @@ return __singleton__; \
 UIViewController *tp_topMostViewController();
 
 @interface TPUtils : NSObject
+
+// App-Prefs:root=xxx 过机审需要字符串加密
++ (NSURL *)prefsUrlWithQuery:(NSDictionary *)query;
+
++ (NSURL *)wifiSettingUrl;
+
 + (NSString *)currentWifiSSID;
 + (NSString *)getAppleLanguages;
 

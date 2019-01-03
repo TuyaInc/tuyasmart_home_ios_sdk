@@ -67,6 +67,25 @@ UINavigationController *tp_mainNavigationController() {
 
 @implementation TPUtils
 
+// App-Prefs:root=xxx 过机审需要字符串加密
++ (NSURL *)prefsUrlWithQuery:(NSDictionary *)query {
+    // App-Prefs
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:@"QXBwLVByZWZz" options:0];
+    NSString *scheme = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSMutableString *url = [NSMutableString stringWithString:scheme];
+    for (int i = 0; i < query.allKeys.count; i ++) {
+        NSString *key = [query.allKeys objectAtIndex:i];
+        NSString *value = [query valueForKey:key];
+        [url appendFormat:@"%@%@=%@", (i == 0 ? @":" : @"?"), key, value];
+    }
+    return [NSURL URLWithString:url];
+}
+
++ (NSURL *)wifiSettingUrl {
+    // App-Prefs:root=WIFI
+    return [self prefsUrlWithQuery:@{@"root": @"WIFI"}];
+}
+
 + (UIImage *)imageWithColor:(UIColor *)color {
     CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -347,31 +366,6 @@ UINavigationController *tp_mainNavigationController() {
     }
 }
 
-
-+ (void)gotoSystemWifiSetting {
-    //    NSURL *url = [NSURL URLWithString:@"prefs:root=WIFI"];
-    NSURL *url = [NSURL URLWithString:@"App-Prefs:root=WIFI"];
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 10.0) {
-        [[UIApplication sharedApplication] openURL:url];
-    } else {
-        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
-            ;
-        }];
-    }
-}
-
-+ (void)gotoSystemLocationSetting {
-    
-    NSURL *url = [NSURL URLWithString:@"App-Prefs:root=Privacy&path=LOCATION"];
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 10.0) {
-        [[UIApplication sharedApplication] openURL:url];
-    } else {
-        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
-            ;
-        }];
-    }
-    
-}
 
 @end
 

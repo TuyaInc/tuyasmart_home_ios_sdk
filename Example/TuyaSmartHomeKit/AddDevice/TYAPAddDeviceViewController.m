@@ -153,7 +153,7 @@ static NSInteger timeout0 = timeLeft0;
         info = [NSString stringWithFormat:@"%@: token fetched, token is %@",NSStringFromSelector(_cmd),token];
         [weakSelf_AT appendConsoleLog:info];
         
-        NSURL *url = [NSURL URLWithString:@"App-Prefs:root=WIFI"];
+        NSURL *url = [TPUtils wifiSettingUrl];
         if (TP_SYSTEM_VERSION < 10.0) {
             [[UIApplication sharedApplication] openURL:url];
         } else {
