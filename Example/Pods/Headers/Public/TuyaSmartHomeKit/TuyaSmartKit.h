@@ -1,0 +1,1 @@
+../../../../../TuyaSmartKit.h

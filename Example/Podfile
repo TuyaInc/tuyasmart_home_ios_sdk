@@ -1,7 +1,22 @@
 use_frameworks!
 
 target 'TuyaSmartHomeKit_Example' do
-  pod 'TuyaSmartHomeKit', :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git", :branch => 'develop_0.2.0'
+
+  pod 'TYBluetooth', :path => '../'
+  pod 'TuyaSmartUtil', :path => '../'
+  
+  pod 'TuyaSmartHomeKit', :path => '../'
+  pod 'TuyaSmartBaseKit', :path => '../'
+  pod 'TuyaSmartDeviceKit', :path => '../'
+  
+  pod 'TuyaSmartBLEKit', :path => '../'
+  pod 'TuyaSmartBLEMeshKit', :path => '../'
+
+  pod 'TuyaSmartMessageKit', :path => '../'
+  pod 'TuyaSmartFeedbackKit', :path => '../'
+  pod 'TuyaSmartTimerKit', :path => '../'
+  pod 'TuyaSmartSceneKit', :path => '../'
+
   
   pod 'MBProgressHUD', '~> 0.9.2'
   pod 'BlocksKit'

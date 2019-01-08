@@ -23,4 +23,6 @@
 #import "TPBaseViewController.h"
 #import "TYTheme.h"
 
+#import <TuyaSmartHomeKit/TuyaSmartKit.h>
+
 #endif

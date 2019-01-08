@@ -12,7 +12,7 @@
     "huangdaxia": "huangkai@tuya.com"
   },
   "source": {
-    "git": "https://registry.code.tuya-inc.top/tuyaIOSSDK/TuyaSmartSDK_iOS.git",
+    "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
     "tag": "0.2.0"
   },
   "platforms": {

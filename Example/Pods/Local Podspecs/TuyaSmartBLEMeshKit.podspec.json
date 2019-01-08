@@ -1,6 +1,6 @@
 {
   "name": "TuyaSmartBLEMeshKit",
-  "version": "2.7.19",
+  "version": "0.2.0",
   "summary": "A short description of TuyaSmartBLEMeshKit.",
   "license": {
     "type": "MIT"
@@ -10,8 +10,8 @@
   },
   "homepage": "https://tuya.com",
   "source": {
-    "http": "http://registry.mvn.tuya-inc.top:8081/nexus/content/repositories/snapshots/com/tuya/ios/TuyaSmartBLEMeshKit/2.7.19-SNAPSHOT/TuyaSmartBLEMeshKit-2.7.19.zip",
-    "type": "zip"
+    "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
+    "tag": "0.2.0"
   },
   "platforms": {
     "ios": "8.0"
@@ -24,13 +24,13 @@
   ],
   "dependencies": {
     "TuyaSmartBaseKit": [
-      "2.7.19"
+
     ],
     "TuyaSmartDeviceKit": [
-      "2.7.19"
+
     ],
     "TYBluetooth": [
-      "2.7.19"
+
     ]
   }
 }
