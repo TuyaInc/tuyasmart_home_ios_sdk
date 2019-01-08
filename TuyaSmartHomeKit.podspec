@@ -15,16 +15,16 @@ Pod::Spec.new do |s|
 
   s.subspec 'All' do |ss|
 
-    ss.dependency 'TuyaSmartBaseKit',
+    ss.dependency 'TuyaSmartBaseKit'
 
-    ss.dependency 'TuyaSmartDeviceKit',
-    ss.dependency 'TuyaSmartBLEKit',
-    ss.dependency 'TuyaSmartBLEMeshKit',
+    ss.dependency 'TuyaSmartDeviceKit'
+    ss.dependency 'TuyaSmartBLEKit'
+    ss.dependency 'TuyaSmartBLEMeshKit'
 
-    ss.dependency 'TuyaSmartSceneKit',
-    ss.dependency 'TuyaSmartTimerKit',
-    ss.dependency 'TuyaSmartMessageKit',
-    ss.dependency 'TuyaSmartFeedbackKit',
+    ss.dependency 'TuyaSmartSceneKit'
+    ss.dependency 'TuyaSmartTimerKit'
+    ss.dependency 'TuyaSmartMessageKit'
+    ss.dependency 'TuyaSmartFeedbackKit'
   end
 
 end

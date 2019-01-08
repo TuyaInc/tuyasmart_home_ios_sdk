@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.static_framework          = true
   s.vendored_frameworks       = 'ios/TuyaSmartMessageKit.framework'
 
-  s.dependency 'TuyaSmartBaseKit',
-  s.dependency 'TuyaSmartDeviceKit',
+  s.dependency 'TuyaSmartBaseKit'
+  s.dependency 'TuyaSmartDeviceKit'
 
 end

@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation', 'CoreBluetooth'
 
-  s.dependency 'TuyaSmartBaseKit',
-  s.dependency 'TuyaSmartDeviceKit',
-  s.dependency 'TYBluetooth',
+  s.dependency 'TuyaSmartBaseKit'
+  s.dependency 'TuyaSmartDeviceKit'
+  s.dependency 'TYBluetooth'
 
 end

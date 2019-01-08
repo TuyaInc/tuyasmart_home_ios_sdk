@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.static_framework          = true
   s.vendored_frameworks       = 'ios/TuyaSmartDeviceKit.framework'
 
-  s.dependency 'TuyaSmartBaseKit',
+  s.dependency 'TuyaSmartBaseKit'
 
   s.dependency 'CocoaAsyncSocket'
   s.dependency 'MQTTClient', '0.14.0'
