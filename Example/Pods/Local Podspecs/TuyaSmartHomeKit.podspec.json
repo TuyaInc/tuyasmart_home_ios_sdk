@@ -1,51 +1,53 @@
 {
   "name": "TuyaSmartHomeKit",
-  "version": "0.1.3",
-  "summary": "涂鸦全屋智能iOS SDK",
-  "description": "涂鸦全屋智能APP SDK提供了与硬件设备、涂鸦云通讯的接口封装，加速应用开发过程。",
-  "homepage": "http://www.tuya.com",
+  "version": "2.7.19",
+  "summary": "A short description of TuyaSmartHomeKit.",
+  "homepage": "https://tuya.com",
   "license": {
-    "type": "MIT",
-    "file": "LICENSE"
+    "type": "MIT"
   },
   "authors": {
-    "xcc": "xucheng@tuya.com"
+    "0x5e": "gaosen@tuya.com"
   },
   "source": {
-    "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
-    "tag": "0.1.3"
+    "git": "https://registry.code.tuya-inc.top/tuyaIOSSDK/TuyaSmartSDK_iOS.git",
+    "tag": "2.7.19"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "vendored_frameworks": "TuyaSmartHomeKit.framework",
-  "preserve_paths": "TuyaSmartHomeKit.framework",
-  "frameworks": "Foundation",
-  "libraries": [
-    "c++",
-    "z"
-  ],
-  "dependencies": {
-    "CocoaAsyncSocket": [
-
-    ],
-    "MQTTClient": [
-      "0.14.0"
-    ],
-    "Mantle": [
-
-    ],
-    "UICKeyChainStore": [
-
-    ],
-    "Reachability": [
-
-    ],
-    "SDVersion": [
-
-    ]
-  },
-  "user_target_xcconfig": {
-    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
-  }
+  "default_subspecs": "All",
+  "static_framework": true,
+  "source_files": "TuyaSmartKit.h",
+  "subspecs": [
+    {
+      "name": "All",
+      "dependencies": {
+        "TuyaSmartBaseKit": [
+          "2.7.19"
+        ],
+        "TuyaSmartDeviceKit": [
+          "2.7.19"
+        ],
+        "TuyaSmartBLEKit": [
+          "2.7.19"
+        ],
+        "TuyaSmartBLEMeshKit": [
+          "2.7.19"
+        ],
+        "TuyaSmartSceneKit": [
+          "2.7.19"
+        ],
+        "TuyaSmartTimerKit": [
+          "2.7.19"
+        ],
+        "TuyaSmartMessageKit": [
+          "2.7.19"
+        ],
+        "TuyaSmartFeedbackKit": [
+          "2.7.19"
+        ]
+      }
+    }
+  ]
 }

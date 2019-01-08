@@ -15,9 +15,6 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - CocoaAsyncSocket (7.6.3)
-  - Mantle (2.1.0):
-    - Mantle/extobjc (= 2.1.0)
-  - Mantle/extobjc (2.1.0)
   - MBProgressHUD (0.9.2)
   - MQTTClient (0.14.0):
     - MQTTClient/Core (= 0.14.0)
@@ -28,53 +25,124 @@ PODS:
     - MQTTClient/Min
   - MQTTClient/Min (0.14.0)
   - Reachability (3.2)
-  - SDVersion (4.3.2)
   - SDWebImage (4.4.3):
     - SDWebImage/Core (= 4.4.3)
   - SDWebImage/Core (4.4.3)
-  - TuyaSmartHomeKit (0.1.3):
-    - CocoaAsyncSocket
-    - Mantle
-    - MQTTClient (= 0.14.0)
+  - TuyaSmartBaseKit (2.7.19):
     - Reachability
-    - SDVersion
+    - TuyaSmartUtil (= 2.7.19)
+    - YYModel
+  - TuyaSmartBLEKit (2.7.19):
+    - TuyaSmartBaseKit (= 2.7.19)
+    - TuyaSmartDeviceKit (= 2.7.19)
+    - TYBluetooth (= 2.7.19)
+  - TuyaSmartBLEMeshKit (2.7.19):
+    - TuyaSmartBaseKit (= 2.7.19)
+    - TuyaSmartDeviceKit (= 2.7.19)
+    - TYBluetooth (= 2.7.19)
+  - TuyaSmartDeviceKit (2.7.19):
+    - CocoaAsyncSocket
+    - MQTTClient (= 0.14.0)
+    - TuyaSmartBaseKit (= 2.7.19)
+  - TuyaSmartFeedbackKit (2.7.19):
+    - TuyaSmartBaseKit (= 2.7.19)
+  - TuyaSmartHomeKit (2.7.19):
+    - TuyaSmartHomeKit/All (= 2.7.19)
+  - TuyaSmartHomeKit/All (2.7.19):
+    - TuyaSmartBaseKit (= 2.7.19)
+    - TuyaSmartBLEKit (= 2.7.19)
+    - TuyaSmartBLEMeshKit (= 2.7.19)
+    - TuyaSmartDeviceKit (= 2.7.19)
+    - TuyaSmartFeedbackKit (= 2.7.19)
+    - TuyaSmartMessageKit (= 2.7.19)
+    - TuyaSmartSceneKit (= 2.7.19)
+    - TuyaSmartTimerKit (= 2.7.19)
+  - TuyaSmartMessageKit (2.7.19):
+    - TuyaSmartBaseKit (= 2.7.19)
+  - TuyaSmartSceneKit (2.7.19):
+    - TuyaSmartBaseKit (= 2.7.19)
+    - TuyaSmartDeviceKit (= 2.7.19)
+  - TuyaSmartTimerKit (2.7.19):
+    - TuyaSmartBaseKit (= 2.7.19)
+    - TuyaSmartDeviceKit (= 2.7.19)
+  - TuyaSmartUtil (2.7.19):
     - UICKeyChainStore
+  - TYBluetooth (2.7.19)
   - UICKeyChainStore (2.1.2)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - BlocksKit
   - MBProgressHUD (~> 0.9.2)
   - SDWebImage
+  - TuyaSmartBaseKit (from `../`)
+  - TuyaSmartBLEKit (from `../`)
+  - TuyaSmartBLEMeshKit (from `../`)
+  - TuyaSmartDeviceKit (from `../`)
+  - TuyaSmartFeedbackKit (from `../`)
   - TuyaSmartHomeKit (from `../`)
+  - TuyaSmartMessageKit (from `../`)
+  - TuyaSmartSceneKit (from `../`)
+  - TuyaSmartTimerKit (from `../`)
+  - TuyaSmartUtil (from `../`)
+  - TYBluetooth (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BlocksKit
     - CocoaAsyncSocket
-    - Mantle
     - MBProgressHUD
     - MQTTClient
     - Reachability
-    - SDVersion
     - SDWebImage
     - UICKeyChainStore
+    - YYModel
 
 EXTERNAL SOURCES:
+  TuyaSmartBaseKit:
+    :path: "../"
+  TuyaSmartBLEKit:
+    :path: "../"
+  TuyaSmartBLEMeshKit:
+    :path: "../"
+  TuyaSmartDeviceKit:
+    :path: "../"
+  TuyaSmartFeedbackKit:
+    :path: "../"
   TuyaSmartHomeKit:
+    :path: "../"
+  TuyaSmartMessageKit:
+    :path: "../"
+  TuyaSmartSceneKit:
+    :path: "../"
+  TuyaSmartTimerKit:
+    :path: "../"
+  TuyaSmartUtil:
+    :path: "../"
+  TYBluetooth:
     :path: "../"
 
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  Mantle: 2fa750afa478cd625a94230fbf1c13462f29395b
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MQTTClient: eea2eaaa6ddef852a1019a4dda091e22ad928b58
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDVersion: 18f32c835c1543611fcfae3c6accd9a04b90597e
   SDWebImage: c5594f1a19c48d526d321e548902b56b479cd508
-  TuyaSmartHomeKit: 9451fbf8322b04cfa02794033bd5bb02f78fb43c
+  TuyaSmartBaseKit: ec74953d9d43bd820f1a36841ef6afb38c45c84b
+  TuyaSmartBLEKit: ebf57c752436aa18f731fd4b4ba141da1543db4d
+  TuyaSmartBLEMeshKit: 8995e59107e646c0f63dfd01b9fc858026f098e9
+  TuyaSmartDeviceKit: 1402b75fe3ee598f64860a2be3a2abc3885f0c4b
+  TuyaSmartFeedbackKit: ddeb8f4f73dcce5f9f70967af95d52a5cfab4620
+  TuyaSmartHomeKit: 3e733488ab1e92493da3d2d18ec26ebb5d8259bd
+  TuyaSmartMessageKit: bcfb2afd9c75f3b2a6628b4613375f71eb68c98c
+  TuyaSmartSceneKit: 8d9ba95c56db98e4626d4658410515ac7897b3f5
+  TuyaSmartTimerKit: bc6300449b0dae18c3359506f01d28bdc7f6ae13
+  TuyaSmartUtil: 68c73c9a74071ec530ba2c2c7e0c06aff219d1fb
+  TYBluetooth: f0c20fae6be4eeeab985ef682b125dba7b619d03
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 153d47348a4b9c164858ed75247b19c293ffd38a
+PODFILE CHECKSUM: 577626f079b59abb27e1003e73578f249a58ef0d
 
 COCOAPODS: 1.5.3
