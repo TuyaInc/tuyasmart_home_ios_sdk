@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'TYBluetooth'
-  s.version          = '0.2.0'
+  s.version          = '0.2.1'
   s.summary          = 'Tuya bluetooth, less write and can use anywhere.'
   s.description      = '🚀Tuya bluetooth, less write and can use anywhere.'
 
