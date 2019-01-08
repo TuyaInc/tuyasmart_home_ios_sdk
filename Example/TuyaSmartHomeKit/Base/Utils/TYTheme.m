@@ -9,6 +9,7 @@
 #import "TYTheme.h"
 #import "TPTopBarView.h"
 #import <WebKit/WebKit.h>
+#import <YYModel/YYModel.h>
 
 @implementation TYTheme
 
@@ -16,8 +17,13 @@ static TYTheme *_theme = nil;
 + (TYTheme *)theme {
     if (!_theme) {
         NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"customColor" ofType:@"plist"];
-        NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-        _theme = [self modelWithJSON:dict];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+        for (NSString *key in [dict.allKeys copy]) {
+            NSString *value = [dict objectForKey:key];
+            [dict setValue:[TPViewUtil colorWithHexString:value] forKey:key];
+        }
+        
+        _theme = [self yy_modelWithJSON:dict];
         
         
         if (!_theme.home_index_bg_start_color) {
@@ -32,17 +38,6 @@ static TYTheme *_theme = nil;
         
     }
     return _theme;
-}
-
-+ (NSValueTransformer *)JSONTransformerForKey:(NSString *)key {
-    return [MTLValueTransformer transformerUsingForwardBlock:^id(id value, BOOL *success, NSError **error) {
-        return [TPViewUtil colorWithHexString:value];
-    } reverseBlock:^id(id value, BOOL *success, NSError **error) {
-        CGFloat red, green, blue;
-        [(UIColor *)value getRed:&red green:&green blue:&blue alpha:nil];
-        NSString *hexString = [NSString stringWithFormat:@"#%02X%02X%02X", (int)(red * 255), (int)(green * 255), (int)(blue * 255)];
-        return hexString;
-    }];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

@@ -1,0 +1,44 @@
+{
+  "name": "TuyaSmartBaseKit",
+  "version": "2.7.19",
+  "summary": "A short description of TuyaSmartBaseKit.",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "0x5e": "gaosen@tuya.com"
+  },
+  "homepage": "https://tuya.com",
+  "source": {
+    "http": "http://registry.mvn.tuya-inc.top:8081/nexus/content/repositories/snapshots/com/tuya/ios/TuyaSmartBaseKit/2.7.19-SNAPSHOT/TuyaSmartBaseKit-2.7.19.zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "frameworks": [
+    "SystemConfiguration",
+    "CoreData",
+    "CoreTelephony"
+  ],
+  "libraries": [
+    "c++",
+    "z"
+  ],
+  "static_framework": true,
+  "vendored_frameworks": "ios/TuyaSmartBaseKit.framework",
+  "dependencies": {
+    "TuyaSmartUtil": [
+      "2.7.19"
+    ],
+    "YYModel": [
+
+    ],
+    "Reachability": [
+
+    ]
+  },
+  "user_target_xcconfig": {
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES": "YES"
+  }
+}

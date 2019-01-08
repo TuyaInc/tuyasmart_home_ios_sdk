@@ -46,9 +46,8 @@
 //----------------------------------------//
 
 #import <Foundation/Foundation.h>
-#import <TuyaSmartHomeKit/TuyaSmartKit.h>
 
-@interface TYTheme : TYModel
+@interface TYTheme : NSObject
 
 @property (class, nonatomic, readonly) TYTheme *theme;
 

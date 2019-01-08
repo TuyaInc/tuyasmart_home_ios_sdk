@@ -1,0 +1,26 @@
+{
+  "name": "TuyaSmartMessageKit",
+  "version": "2.7.19",
+  "summary": "A short description of TuyaSmartMessageKit.",
+  "license": {
+    "type": "MIT"
+  },
+  "authors": {
+    "0x5e": "gaosen@tuya.com"
+  },
+  "homepage": "https://tuya.com",
+  "source": {
+    "http": "http://registry.mvn.tuya-inc.top:8081/nexus/content/repositories/snapshots/com/tuya/ios/TuyaSmartMessageKit/2.7.19-SNAPSHOT/TuyaSmartMessageKit-2.7.19.zip",
+    "type": "zip"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "static_framework": true,
+  "vendored_frameworks": "ios/TuyaSmartMessageKit.framework",
+  "dependencies": {
+    "TuyaSmartBaseKit": [
+      "2.7.19"
+    ]
+  }
+}

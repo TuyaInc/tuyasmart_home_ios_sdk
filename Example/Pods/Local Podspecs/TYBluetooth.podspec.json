@@ -1,0 +1,28 @@
+{
+  "name": "TYBluetooth",
+  "version": "0.2.0",
+  "summary": "Tuya bluetooth, less write and can use anywhere.",
+  "description": "🚀Tuya bluetooth, less write and can use anywhere.",
+  "homepage": "https://tuya.com",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "huangdaxia": "huangkai@tuya.com"
+  },
+  "source": {
+    "git": "https://registry.code.tuya-inc.top/tuyaIOSSDK/TuyaSmartSDK_iOS.git",
+    "tag": "0.2.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "static_framework": true,
+  "vendored_frameworks": "ios/TYBluetooth.framework",
+  "frameworks": [
+    "Foundation",
+    "UIKit",
+    "CoreBluetooth"
+  ]
+}

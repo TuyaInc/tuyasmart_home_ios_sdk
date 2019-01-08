@@ -1,6 +1,6 @@
 {
   "name": "TuyaSmartHomeKit",
-  "version": "0.1.3",
+  "version": "0.1.6",
   "summary": "涂鸦全屋智能iOS SDK",
   "description": "涂鸦全屋智能APP SDK提供了与硬件设备、涂鸦云通讯的接口封装，加速应用开发过程。",
   "homepage": "http://www.tuya.com",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
-    "tag": "0.1.3"
+    "tag": "0.1.6"
   },
   "platforms": {
     "ios": "8.0"

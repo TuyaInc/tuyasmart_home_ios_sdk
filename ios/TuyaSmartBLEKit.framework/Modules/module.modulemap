@@ -1,0 +1,6 @@
+framework module TuyaSmartBLEKit {
+  umbrella header "TuyaSmartBLEKit.h"
+
+  export *
+  module * { export * }
+}
