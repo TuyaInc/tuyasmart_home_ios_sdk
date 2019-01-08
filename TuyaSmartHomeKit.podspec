@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://tuya.com'
   s.license          = { :type => 'MIT' }
   s.author           = { '0x5e' => 'gaosen@tuya.com' }
-  s.source           = { :git => "https://registry.code.tuya-inc.top/tuyaIOSSDK/TuyaSmartSDK_iOS.git", :tag => "#{s.version}" }
+  s.source           = { :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git", :tag => "#{s.version}" }
 
   s.ios.deployment_target = '8.0'
   s.default_subspecs = 'All'
