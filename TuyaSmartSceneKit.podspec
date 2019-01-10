@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target     = '8.0'
 
   s.static_framework          = true
-  s.vendored_frameworks       = 'ios/TuyaSmartMessageKit.framework'
+  s.vendored_frameworks       = 'ios/TuyaSmartSceneKit.framework'
 
   s.dependency 'TuyaSmartBaseKit'
   s.dependency 'TuyaSmartDeviceKit'
