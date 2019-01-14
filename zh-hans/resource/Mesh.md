@@ -85,7 +85,7 @@
 
 一个家庭里可以拥有多个 `mesh`（建议一个家庭只创建一个），`mesh` 中所有操作都建立在家庭数据已经初始化的基础上
 
-> 完全初始化家庭操作可以在查看[此处](https://github.com/TuyaInc/tuyasmart_home_ios_sdk/blob/master/ios-sdk.md#%E8%8E%B7%E5%8F%96%E5%AE%B6%E5%BA%AD%E7%9A%84%E4%BF%A1%E6%81%AF)
+> 完全初始化家庭操作可以在查看[此处](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Home.html#%E5%AE%B6%E5%BA%AD%E7%AE%A1%E7%90%86)
 
 ```objective-c
 /**

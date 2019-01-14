@@ -164,6 +164,23 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
 对于有固件升级的设备，可以通过发送升级固件数据包对设备进行升级。其中升级固件包需要先请求云端接口进行获取固件信息
 
 ```objective-c
+/**
+ 发送OTA包，升级固件。升级前请务必保证设备已通过蓝牙连接
+
+ @param uuid 设备 uuid
+ @param otaData 升级固件的数据
+ @param success 成功回调
+ @param failure 失败回调
+ */
+- (void)sendOTAPack:(NSString *)uuid
+            otaData:(NSData *)otaData
+            success:(TYSuccessHandler)success
+            failure:(TYFailureHandler)failure;
+```
+
+**代码示例**
+
+```objective-c
 - (void)getFirmwareUpgradeInfo {
     // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
 
@@ -175,6 +192,15 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
 }
 
 // 如果有升级，其中 TuyaSmartFirmwareUpgradeModel.url 是固件升级包的下载地址
+// 根据 url 下载固件后，将数据转成 data，传给 sdk 进行固件升级
+// deviceModel -- 需要升级的设备 model
+// data -- 下载的固件包
+[[TuyaSmartBLEManager sharedInstance] sendOTAPack:deviceModel.uuid otaData:data success:^{
+       NSLog(@"upgrade_success", nil);
+    } failure:^{
+       NSLog(@"upgrade_failre", nil);
+}];
+
 ```
 
 
