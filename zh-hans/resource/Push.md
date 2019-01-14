@@ -69,7 +69,7 @@
 接收到远程通知，在代理方法didReceiveRemoteNotification中执行
 
 ```objc
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler {
 
 
 }
@@ -79,6 +79,8 @@
 
 #### 新增运营Push
 涂鸦开发者平台 - 用户运营 - 消息中心 - 新增消息
+![ios-push-setting](./images/ios-push-setting-operation.png)
 
 #### 新增告警Push
 涂鸦开发者平台 - 对应产品 - 扩展功能 - 告警设置 - 新增告警规则(应用推送方式)
+![ios-push-setting](./images/ios-push-setting-warning.png)

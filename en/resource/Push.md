@@ -76,7 +76,7 @@ Execute in the delegate method `didReceiveRemoteNotification` when the remote no
 
 
 ```objc
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void(^)(UIBackgroundFetchResult))completionHandler {
 
 
 }
@@ -87,7 +87,9 @@ Execute in the delegate method `didReceiveRemoteNotification` when the remote no
 #### Add operation push
 
 Tuya Developer Platform -> User operation -> Message center ->Add message
+![ios-push-setting](./images/ios-push-setting-operation.png)
 
 #### Add alarm push
 
 Tuya Developer Platform -> Product -> Extended function ->Set alarm -> Add rules for alarms (apply the push mode)
+![ios-push-setting](./images/ios-push-setting-warning.png)
