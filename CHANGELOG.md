@@ -1,5 +1,33 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 0.2.1(2019-01-08)
+TuyaSmartHomeKit iOS SDK functions split:
+
+ - TuyaSmartUtil 
+    - Utility classes, including category etc
+- TuyaSmartBaseKit 
+    - Account system (phone number, email registration, login, password reset)
+    - HTTP API interface
+- TuyaSmartDeviceKit
+  -  Home, room, group, device manager
+  -  network configuration
+  -  Device control
+  -  Shared devices
+- TuyaSmartTimerKit
+  - Timer task
+- TuyaSmartSceneKit
+  - Smart scene
+- TuyaSmartFeedbackKit
+  - Feedback
+- TuyaSmartMessageKit
+  - Message center
+- TYBluetooth
+   - Bluetooth base 
+- TuyaSmartBLEKit
+  - single bluetooth
+- TuyaSmartBLEMeshKit
+  - Ble mesh
+
 ## 0.1.6 (2018-12-26)
 
 - bug fixed : Time zoneId update 
