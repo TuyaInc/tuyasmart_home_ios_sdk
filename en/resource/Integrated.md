@@ -8,7 +8,7 @@ Add the following content in the `Podfile` file.
 platform :ios, '8.0'
 
 target 'Your_Project_Name' do
-	pod "TuyaSmartHomeKit", :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git"
+	pod "TuyaSmartHomeKit"
 end
 ```
 
