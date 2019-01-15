@@ -1,6 +1,6 @@
 {
   "name": "TuyaSmartBLEMeshKit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "summary": "A short description of TuyaSmartBLEMeshKit.",
   "license": {
     "type": "MIT"
@@ -11,7 +11,7 @@
   "homepage": "https://tuya.com",
   "source": {
     "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
-    "tag": "0.2.0"
+    "tag": "0.2.1"
   },
   "platforms": {
     "ios": "8.0"
