@@ -23,7 +23,7 @@ platform :ios, '8.0'
 
 target 'your_target_name' do
 
-      pod "TuyaSmartHomeKit", :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git"
+      pod "TuyaSmartHomeKit"
 
 end
 ```
