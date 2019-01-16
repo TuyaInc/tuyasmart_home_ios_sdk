@@ -64,6 +64,7 @@
   node id 用于区分每个 mesh 设备在 mesh 网中的「唯一标识」，比如想控制某个设备就向 mesh 网发此设备对应的 nodeId 命令即可
 
 * mesh 群组 local Id
+
   local Id 用于区分每个 mesh 群组在 mesh 网中的「唯一标识」，比如想控制某个群组中的设备就向 mesh 网发此群组对应的 localId 命令即可
 
 * 设备操作需要多步操作
@@ -337,7 +338,7 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 
 
-入网调用比较简单，见 3.4「入网」
+入网调用比较简单，见「入网」
 
 
 
@@ -466,57 +467,47 @@ mesh 配网主要分为两种，一种是针对普通蓝牙 mesh 设备（又称
 
 * 网关激活
 
-
-
   ```objective-c
   // 1. 激活子设备
   [[TYBLEMeshManager sharedInstance] activeMeshDeviceIncludeGateway:NO];
   
   // 2. TYBLEMeshManagerDelegate 回调
   - (void)activeWifiDeviceWithName:(NSString *)name address:(NSInteger)address mac:(NSInteger)mac error:(NSError *)error {
-      
       if (error) {
-          NSLog(@"error : %@", error);
-          return;
+         NSLog(@"error : %@", error);
+         return;
       }
       
       // 激活网关成功，目前只成功蓝牙模块，还需要继续配置 Wi-Fi 模块激活
-      
       // 3. 用户输入密码再去重连，重连成功后再发送ssid, pwd, token，
       // ！！！！注意，一定要做此操作，不然会影响 Wi-Fi 信息写入导致配网失败
-   	[TYBLEMeshManager sharedInstance].wifiMac = (int)mac;
+      [TYBLEMeshManager sharedInstance].wifiMac = (int)mac;
       
-      // 4. 获取 token 
+      // 4. 获取 token
       NSString *nodeId = [NSString stringWithFormat:@"%02x", (int)address];
-      
-       [[TuyaSmartActivator sharedInstance] getTokenWithMeshId:[TuyaSmartUser sharedInstance].meshModel.meshId
-                                                               nodeId:nodeId
-                                                            productId:[TYBLEMeshManager sharedInstance].productId
-                                                                 uuid:[TYBLEMeshManager sharedInstance].uuid
-                                                              authKey:[TYBLEMeshManager sharedInstance].authKey
-                                                              version:[TYBLEMeshManager sharedInstance].version
-                                                              success:^(NSString *token) {
-          
-          	// 5. 设置配网代理，通过代理接收激活结果
-  	        [TuyaSmartActivator sharedInstance].delegate = self;   
-              // 6. 开始 Wi-Fi 配网
-              [[TuyaSmartActivator sharedInstance] startBleMeshConfigWiFiWithSsid:@"Wi-Fi 名称" password:@"Wi-Fi 密码" token:token timeout:100];
-             
-          
-          } failure:^(NSError *error) {
-              NSLog(@"error: %@", error);
-          }];
-      
+      [[TuyaSmartActivator sharedInstance] getTokenWithMeshId:[TuyaSmartUser sharedInstance].meshModel.meshId
+                                                   nodeId:nodeId
+                                                productId:[TYBLEMeshManager sharedInstance].productId
+                                                     uuid:[TYBLEMeshManager sharedInstance].uuid
+                                                  authKey:[TYBLEMeshManager sharedInstance].authKey
+                                                  version:[TYBLEMeshManager sharedInstance].version
+                                                  success:^(NSString *token) {
+                                                      // 5. 设置配网代理，通过代理接收激活结果
+                                                      [TuyaSmartActivator sharedInstance].delegate = self;
+                                                      // 6. 开始 Wi-Fi 配网
+                                                      [[TuyaSmartActivator sharedInstance] startBleMeshConfigWiFiWithSsid:@"Wi-Fi 名称" password:@"Wi-Fi 密码" token:token timeout:100];
+                                                  } failure:^(NSError *error) {
+                                                      NSLog(@"error: %@", error);
+                                                  }];
   }
   
   - (void)meshActivator:(TuyaSmartActivator *)activator didReceiveDeviceId:(NSString *)deviceId meshId:(NSString *)meshId error:(NSError *)error {
-      // 7. 收到激活结果
-      
-  }
-  
+        // 7. 收到激活结果
+        
+    }
   ```
 
-
+    
 
 #### 入网
 
@@ -666,6 +657,24 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
 
 
 
+#### 本地连接和网关连接
+
+mesh 设备的在线情况分为两种
+
+* 本地连接
+
+  手机蓝牙开启且 mesh 设备通过蓝牙进行连接控制，下发命令走蓝牙
+
+  判断条件为: `deviceModel.isOnline && deviceModel.isLocalOnline`
+
+* 网关连接
+
+  手机蓝牙未开启或距离设备远， mesh 设备通过网关进行连接控制，下发命令走 Wi-Fi
+
+  判断条件为: `deviceModel.isOnline && !deviceModel.isLocalOnline`
+
+  
+
 #### 移除设备
 
 移除设备需要云端删除、本地删除
@@ -675,77 +684,69 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
    通过蓝牙
 
    ```objective-c
-   - (void)kickoutLightWithAddress:(uint32_t)address type:(NSString *)type;
+   - (void)kickoutLightWithAddress:(uint32_t)address type:(NSString *)type; 
    ```
-
-
 
    通过网关
 
    ```objective-c
-   - (NSString *)rawDataKickoutLightWithAddress:(uint32_t)address type:(NSString *)type;
-   
-   /**
-    给设备发送透传指令
-    
-    @param raw 透传值
-    @param success 操作成功的回调
-    @param failure 操作失败的回调
-    */
-   - (void)publishRawDataWithRaw:(NSString *)raw
-                             pcc:(NSString *)pcc
-                         success:(TYSuccessHandler)success
-                         failure:(TYFailureError)failure;
+      - (NSString *)rawDataKickoutLightWithAddress:(uint32_t)address type:(NSString *)type;
+      
+      /**
+       给设备发送透传指令
+       
+       @param raw 透传值
+       @param success 操作成功的回调
+       @param failure 操作失败的回调
+       */
+      - (void)publishRawDataWithRaw:(NSString *)raw
+                                pcc:(NSString *)pcc
+                            success:(TYSuccessHandler)success
+                            failure:(TYFailureError)failure;
    ```
-
 
 2. 云端删除
 
-```objective-c
-/**
- 移除mesh子设备
- 
- @param deviceId    设备ID
- @param success     操作成功回调
- @param failure     操作失败回调
- */
-- (void)removeMeshSubDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-```
+   ```objective-c
+   /**
+    移除mesh子设备
+    
+    @param deviceId    设备ID
+    @param success     操作成功回调
+    @param failure     操作失败回调
+    */
+   - (void)removeMeshSubDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+   ```
 
-
-
-「代码示例」
-
-```objective-c
- int address = [smartDevice.deviceModel.nodeId intValue] << 8;
-        
-        //1.  云端删除
-        [[TuyaSmartUser sharedInstance].mesh removeMeshSubDeviceWithDeviceId:[smartDevice.deviceModel.devId success:^{
-            
-            
-        } failure:^(NSError *error) {
+   **代码示例**
+   
+   ```objective-c
+    int address = [smartDevice.deviceModel.nodeId intValue] << 8;
            
-        }];
-        
-        // 2. 本地删除
-        // 判断连接情况，使用网关还是蓝牙
-        if ([TYBLEMeshManager sharedInstance].isLogin) {
-            
-            [[TYBLEMeshManager sharedInstance] kickoutLightWithAddress:address type:[smartDevice.deviceModel.pcc];
-             
-        } else {
-            
-            [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:[[TYBLEMeshManager sharedInstance] rawDataKickoutLightWithAddress:address type:[smartDevice.deviceModel.pcc] pcc:[smartDevice.deviceModel.pcc success:^{
+           // 1.  云端删除
+           [[TuyaSmartUser sharedInstance].mesh removeMeshSubDeviceWithDeviceId:[smartDevice.deviceModel.devId success:^{
+               
+           } failure:^(NSError *error) {
+              
+           }];
+           
+           // 2. 本地删除
+           // 判断连接情况，使用网关还是蓝牙
+           if ([TYBLEMeshManager sharedInstance].isLogin) {
+               
+               [[TYBLEMeshManager sharedInstance] kickoutLightWithAddress:address type:[smartDevice.deviceModel.pcc];
                 
-            } failure:^(NSError *error) {
-                
-            }];
-        }
-         
+           } else {
+               
+               [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:[[TYBLEMeshManager sharedInstance] rawDataKickoutLightWithAddress:address type:[smartDevice.deviceModel.pcc] pcc:[smartDevice.deviceModel.pcc success:^{
+                   
+               } failure:^(NSError *error) {
+                   
+               }];
+           }
+   ```
 
-```
-
-
+   
 
 ### Mesh 群组
 
@@ -1471,7 +1472,7 @@ int otaAddress = [self.device.deviceModel.nodeId intValue] << 8;
     [TYBLEMeshManager sharedInstance].delegate = self;
 
 
-2. 3. 回调并发生升级包
+2. 3. 回调并发送升级包
 - (void)notifyLoginSuccessWithAddress:(uint32_t)address {
     [[TYBLEMeshManager sharedInstance] sendOTAPackWithAddress:address version:@"升级号" otaData:_otaData success:^{
         [self updateVersion];
