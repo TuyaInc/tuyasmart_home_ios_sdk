@@ -21,28 +21,21 @@
 
   `TuyaSmartBLEManager` 的 `delegate` 功能如下，可以按需设置
 
-
-
   ```objective-c
-  @protocol TuyaSmartBLEManagerDelegate <NSObject>
-  
-  /**
-   蓝牙状态变化通知
-  
-   @param isPoweredOn 蓝牙状态，开启或关闭
-   */
+    /**
+     蓝牙状态变化通知
+    
+     @param isPoweredOn 蓝牙状态，开启或关闭
+     */
   - (void)bluetoothDidUpdateState:(BOOL)isPoweredOn;
   
-  
-  /**
-   扫描到未激活的设备
-  
-   @param uuid 未激活设备 uuid
-   @param productKey 未激活设备产品 key
-   */
+    /**
+     扫描到未激活的设备
+    
+     @param uuid 未激活设备 uuid
+     @param productKey 未激活设备产品 key
+     */
   - (void)didDiscoveryDeviceWithUUID:(NSString *)uuid productKey:(NSString *)productKey;
-  
-  @end
   ```
 
 
