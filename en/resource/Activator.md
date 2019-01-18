@@ -203,7 +203,7 @@ SDK->Service: Get Token
 Service-->SDK: Response Token
 SDK-->APP: Response Token
 
-APP -> APP: connect mobile phone to the same hotspot of the gateway
+APP->APP: connect mobile phone to the same hotspot of the gateway
 
 APP->SDK: sends the activation instruction
 SDK->Zigbee Gateway: sends the activation instruction

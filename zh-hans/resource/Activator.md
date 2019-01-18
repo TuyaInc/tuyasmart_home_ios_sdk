@@ -209,7 +209,7 @@ SDK->Service: 获取token
 Service-->SDK: 返回token
 SDK-->APP: 返回token
 
-APP -> APP: APP连上和网关相同的路由器热点
+APP->APP: APP连上和网关相同的路由器热点
 
 APP->SDK: 发送激活命令
 SDK->Zigbee网关: 发送激活命令
