@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TuyaSmartHomeKit'
-  s.version          = '0.2.1'
+  s.version          = '0.2.2'
   s.summary          = 'A short description of TuyaSmartHomeKit.'
   s.homepage         = 'https://tuya.com'
   s.license          = { :type => 'MIT' }

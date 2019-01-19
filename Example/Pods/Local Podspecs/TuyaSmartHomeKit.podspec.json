@@ -1,6 +1,6 @@
 {
   "name": "TuyaSmartHomeKit",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "summary": "A short description of TuyaSmartHomeKit.",
   "homepage": "https://tuya.com",
   "license": {
@@ -11,7 +11,7 @@
   },
   "source": {
     "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
-    "tag": "0.2.1"
+    "tag": "0.2.2"
   },
   "platforms": {
     "ios": "8.0"
