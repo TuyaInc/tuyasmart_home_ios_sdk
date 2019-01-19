@@ -1,5 +1,8 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 0.2.2(2019-01-19)
+bug fixed
+
 ## 0.2.1(2019-01-08)
 TuyaSmartHomeKit iOS SDK functions split:
 
