@@ -15,7 +15,7 @@
 /**
  *  当前SDK的版本号
  */
-#define TUYA_SDK_VERSION @"2.7.17"
+#define TUYA_SDK_VERSION @"2.7.20"
 
 #import "TuyaSmartSDK.h"
 #import "TuyaSmartUser.h"

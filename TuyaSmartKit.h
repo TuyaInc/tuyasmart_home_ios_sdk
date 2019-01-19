@@ -13,6 +13,6 @@
 #import <TuyaSmartBLEKit/TuyaSmartBLEKit.h>
 #import <TuyaSmartBLEMeshKit/TuyaSmartBLEMeshKit.h>
 #import <TuyaSmartSceneKit/TuyaSmartSceneKit.h>
-#import <TuyaSmartTimerKit/TuyaSmartTimer.h>
-#import <TuyaSmartFeedbackKit/TuyaSmartFeedback.h>
-#import <TuyaSmartMessageKit/TuyaSmartMessage.h>
+#import <TuyaSmartTimerKit/TuyaSmartTimerKit.h>
+#import <TuyaSmartFeedbackKit/TuyaSmartFeedbackKit.h>
+#import <TuyaSmartMessageKit/TuyaSmartMessageKit.h>
