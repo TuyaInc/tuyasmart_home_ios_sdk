@@ -43,7 +43,7 @@
     
     if (actionType == TYLoginAndRegisterViewActionTypeSendVerifyCode) {
         [self sendVerifyCode];
-    } else if (actionType == TYLoginAndRegisterViewTypeRegister) {
+    } else if (actionType == TYLoginAndRegisterViewActionTypeRegister) {
         [self registerAction];
     }
 }
