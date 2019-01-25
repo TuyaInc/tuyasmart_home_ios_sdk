@@ -5,6 +5,7 @@
 * [准备工作](./resource/Preparation.md)
 * [集成SDK](./resource/Integrated.md)
 * [用户管理](./resource/User.md#用户管理)
+  - [SDK账户升级](./resource/User.md#SDK账户升级)
   - [用户注册](./resource/User.md#用户注册)
   - [用户登录](./resource/User.md#用户登录)
   - [第三方登录](./resource/User.md#第三方登录)

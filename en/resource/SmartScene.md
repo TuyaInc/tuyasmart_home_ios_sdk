@@ -370,7 +370,7 @@ Meteorological conditions:
 
 Timer condition:
 
-Timer conditon's `expr` use a NSDictionry to define the timer, for emample, {timezoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}. The loops represent date from Sunday to Saturday, 1 for validate and 0 for invalidate.
+Timer conditon's `expr` use a NSDictionry to define the timer, for emample, {timeZoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}. The loops represent date from Sunday to Saturday, 1 for validate and 0 for invalidate.
 
 Device condition:
 

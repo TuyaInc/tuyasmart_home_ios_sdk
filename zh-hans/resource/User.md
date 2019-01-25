@@ -9,6 +9,41 @@
 用户相关的所有功能对应`TuyaSmartUser`类（单例）。
 
 
+
+### SDK账户升级
+
+如果是 tuyasmart_ios_sdk 开发过的用户，现在需要升级到 tuyasmart_home_ios_sdk，否则忽略账户升级
+
+#### 检查是否需要升级
+
+检查是否需要从 tuyasmart_ios_sdk 升级到 tuyasmart_home_ios_sdk
+
+```
+/**
+ * 检测是否需要升级数据 从tuyasmart_ios_sdk 升级到 tuyasmart_home_ios_sdk
+ * @return BOOL
+ */
+- (BOOL)checkVersionUpgrade;
+```
+
+#### 开始升级
+
+升级成功后，服务端会创建一个默认的家庭
+
+```
+/**
+ * SDK数据升级
+ */
+[[TuyaSmartSDK sharedInstance] upgradeVersion:^{
+    
+} failure:^(NSError *error) {
+    
+}];
+```
+
+
+
+
 ### 用户注册
 
 _注：注册方法调用成功后，就可以正常使用SDK的所有功能了（注册成功即为登录成功），不需要再次调用登录方法。_
