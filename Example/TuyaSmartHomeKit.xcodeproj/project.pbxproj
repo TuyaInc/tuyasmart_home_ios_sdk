@@ -91,6 +91,35 @@
 		6B8DEE2021B10EDB004C9C78 /* TYLoginAndRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8DEE1F21B10EDB004C9C78 /* TYLoginAndRegisterView.m */; };
 		6B8DEE2321B11759004C9C78 /* TYLoginAndRegisterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8DEE2221B11759004C9C78 /* TYLoginAndRegisterUtils.m */; };
 		6B8DEE2621B4D49C004C9C78 /* TYAddDeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B8DEE2521B4D49C004C9C78 /* TYAddDeviceUtils.m */; };
+		6BA0E4C42211965100307E67 /* TPBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4C32211965000307E67 /* TPBaseTableViewController.m */; };
+		6BA0E4EF2211A08F00307E67 /* TYSmartSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4C72211A08F00307E67 /* TYSmartSceneViewController.m */; };
+		6BA0E4F02211A08F00307E67 /* TYAddSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4C82211A08F00307E67 /* TYAddSceneViewController.m */; };
+		6BA0E4F12211A08F00307E67 /* TYEditActionTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4CC2211A08F00307E67 /* TYEditActionTitleTableViewCell.m */; };
+		6BA0E4F22211A08F00307E67 /* TYTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4CD2211A08F00307E67 /* TYTextFieldTableViewCell.m */; };
+		6BA0E4F32211A08F00307E67 /* TYActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4CE2211A08F00307E67 /* TYActionTableViewCell.m */; };
+		6BA0E4F42211A08F00307E67 /* TYEditActionNoDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4CF2211A08F00307E67 /* TYEditActionNoDataTableViewCell.m */; };
+		6BA0E4F52211A08F00307E67 /* TYEditActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4D22211A08F00307E67 /* TYEditActionTableViewCell.m */; };
+		6BA0E4F62211A08F00307E67 /* TYSmartSceneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4D32211A08F00307E67 /* TYSmartSceneTableViewCell.m */; };
+		6BA0E4F72211A08F00307E67 /* TYEditSceneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4D72211A08F00307E67 /* TYEditSceneTableViewCell.m */; };
+		6BA0E4F82211A08F00307E67 /* TYSceneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA0E4DB2211A08F00307E67 /* TYSceneHeaderView.m */; };
+		6BA0E4F92211A08F00307E67 /* ty_scene_error@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4DD2211A08F00307E67 /* ty_scene_error@3x.png */; };
+		6BA0E4FA2211A08F00307E67 /* ty_scene_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4DE2211A08F00307E67 /* ty_scene_error@2x.png */; };
+		6BA0E4FB2211A08F00307E67 /* ty_scene_switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4DF2211A08F00307E67 /* ty_scene_switch@2x.png */; };
+		6BA0E4FC2211A08F00307E67 /* ty_scene_custom2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E02211A08F00307E67 /* ty_scene_custom2@3x.png */; };
+		6BA0E4FD2211A08F00307E67 /* ty_index_scene_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E12211A08F00307E67 /* ty_index_scene_close@3x.png */; };
+		6BA0E4FE2211A08F00307E67 /* ty_scene_active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E22211A08F00307E67 /* ty_scene_active@3x.png */; };
+		6BA0E4FF2211A08F00307E67 /* ty_index_scene_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E32211A08F00307E67 /* ty_index_scene_close@2x.png */; };
+		6BA0E5002211A08F00307E67 /* ty_scene_custom2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E42211A08F00307E67 /* ty_scene_custom2@2x.png */; };
+		6BA0E5012211A08F00307E67 /* ty_scene_switch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E52211A08F00307E67 /* ty_scene_switch@3x.png */; };
+		6BA0E5022211A08F00307E67 /* ty_scene_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E62211A08F00307E67 /* ty_scene_gray@3x.png */; };
+		6BA0E5032211A08F00307E67 /* ty_scene_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E72211A08F00307E67 /* ty_scene_selected@2x.png */; };
+		6BA0E5042211A08F00307E67 /* ty_scene_add_action@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E82211A08F00307E67 /* ty_scene_add_action@3x.png */; };
+		6BA0E5052211A08F00307E67 /* ty_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4E92211A08F00307E67 /* ty_add@2x.png */; };
+		6BA0E5062211A08F00307E67 /* ty_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4EA2211A08F00307E67 /* ty_add@3x.png */; };
+		6BA0E5072211A08F00307E67 /* ty_scene_add_action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4EB2211A08F00307E67 /* ty_scene_add_action@2x.png */; };
+		6BA0E5082211A08F00307E67 /* ty_scene_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4EC2211A08F00307E67 /* ty_scene_selected@3x.png */; };
+		6BA0E5092211A08F00307E67 /* ty_index_custom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4ED2211A08F00307E67 /* ty_index_custom@2x.png */; };
+		6BA0E50A2211A08F00307E67 /* ty_index_custom@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6BA0E4EE2211A08F00307E67 /* ty_index_custom@3x.png */; };
 		6BA5189621904C370036DCC2 /* TYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5189521904C370036DCC2 /* TYLoginViewController.m */; };
 		6BA51899219171A90036DCC2 /* TYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA51898219171A90036DCC2 /* TYRegisterViewController.m */; };
 		6BFFC71F219567D400FC35ED /* TYEZAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFFC71E219567D400FC35ED /* TYEZAddDeviceViewController.m */; };
@@ -236,6 +265,46 @@
 		6B8DEE2221B11759004C9C78 /* TYLoginAndRegisterUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYLoginAndRegisterUtils.m; sourceTree = "<group>"; };
 		6B8DEE2421B4D49C004C9C78 /* TYAddDeviceUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAddDeviceUtils.h; sourceTree = "<group>"; };
 		6B8DEE2521B4D49C004C9C78 /* TYAddDeviceUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAddDeviceUtils.m; sourceTree = "<group>"; };
+		6BA0E4C22211965000307E67 /* TPBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPBaseTableViewController.h; sourceTree = "<group>"; };
+		6BA0E4C32211965000307E67 /* TPBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPBaseTableViewController.m; sourceTree = "<group>"; };
+		6BA0E4C72211A08F00307E67 /* TYSmartSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSmartSceneViewController.m; sourceTree = "<group>"; };
+		6BA0E4C82211A08F00307E67 /* TYAddSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAddSceneViewController.m; sourceTree = "<group>"; };
+		6BA0E4C92211A08F00307E67 /* TYSmartSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSmartSceneViewController.h; sourceTree = "<group>"; };
+		6BA0E4CA2211A08F00307E67 /* TYAddSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAddSceneViewController.h; sourceTree = "<group>"; };
+		6BA0E4CC2211A08F00307E67 /* TYEditActionTitleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYEditActionTitleTableViewCell.m; sourceTree = "<group>"; };
+		6BA0E4CD2211A08F00307E67 /* TYTextFieldTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTextFieldTableViewCell.m; sourceTree = "<group>"; };
+		6BA0E4CE2211A08F00307E67 /* TYActionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYActionTableViewCell.m; sourceTree = "<group>"; };
+		6BA0E4CF2211A08F00307E67 /* TYEditActionNoDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYEditActionNoDataTableViewCell.m; sourceTree = "<group>"; };
+		6BA0E4D02211A08F00307E67 /* TYEditSceneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYEditSceneTableViewCell.h; sourceTree = "<group>"; };
+		6BA0E4D12211A08F00307E67 /* TYSceneHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSceneHeaderView.h; sourceTree = "<group>"; };
+		6BA0E4D22211A08F00307E67 /* TYEditActionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYEditActionTableViewCell.m; sourceTree = "<group>"; };
+		6BA0E4D32211A08F00307E67 /* TYSmartSceneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSmartSceneTableViewCell.m; sourceTree = "<group>"; };
+		6BA0E4D42211A08F00307E67 /* TYActionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYActionTableViewCell.h; sourceTree = "<group>"; };
+		6BA0E4D52211A08F00307E67 /* TYTextFieldTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTextFieldTableViewCell.h; sourceTree = "<group>"; };
+		6BA0E4D62211A08F00307E67 /* TYEditActionTitleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYEditActionTitleTableViewCell.h; sourceTree = "<group>"; };
+		6BA0E4D72211A08F00307E67 /* TYEditSceneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYEditSceneTableViewCell.m; sourceTree = "<group>"; };
+		6BA0E4D82211A08F00307E67 /* TYEditActionNoDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYEditActionNoDataTableViewCell.h; sourceTree = "<group>"; };
+		6BA0E4D92211A08F00307E67 /* TYSmartSceneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYSmartSceneTableViewCell.h; sourceTree = "<group>"; };
+		6BA0E4DA2211A08F00307E67 /* TYEditActionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYEditActionTableViewCell.h; sourceTree = "<group>"; };
+		6BA0E4DB2211A08F00307E67 /* TYSceneHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYSceneHeaderView.m; sourceTree = "<group>"; };
+		6BA0E4DD2211A08F00307E67 /* ty_scene_error@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_error@3x.png"; sourceTree = "<group>"; };
+		6BA0E4DE2211A08F00307E67 /* ty_scene_error@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_error@2x.png"; sourceTree = "<group>"; };
+		6BA0E4DF2211A08F00307E67 /* ty_scene_switch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_switch@2x.png"; sourceTree = "<group>"; };
+		6BA0E4E02211A08F00307E67 /* ty_scene_custom2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_custom2@3x.png"; sourceTree = "<group>"; };
+		6BA0E4E12211A08F00307E67 /* ty_index_scene_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_index_scene_close@3x.png"; sourceTree = "<group>"; };
+		6BA0E4E22211A08F00307E67 /* ty_scene_active@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_active@3x.png"; sourceTree = "<group>"; };
+		6BA0E4E32211A08F00307E67 /* ty_index_scene_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_index_scene_close@2x.png"; sourceTree = "<group>"; };
+		6BA0E4E42211A08F00307E67 /* ty_scene_custom2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_custom2@2x.png"; sourceTree = "<group>"; };
+		6BA0E4E52211A08F00307E67 /* ty_scene_switch@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_switch@3x.png"; sourceTree = "<group>"; };
+		6BA0E4E62211A08F00307E67 /* ty_scene_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_gray@3x.png"; sourceTree = "<group>"; };
+		6BA0E4E72211A08F00307E67 /* ty_scene_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_selected@2x.png"; sourceTree = "<group>"; };
+		6BA0E4E82211A08F00307E67 /* ty_scene_add_action@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_add_action@3x.png"; sourceTree = "<group>"; };
+		6BA0E4E92211A08F00307E67 /* ty_add@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_add@2x.png"; sourceTree = "<group>"; };
+		6BA0E4EA2211A08F00307E67 /* ty_add@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_add@3x.png"; sourceTree = "<group>"; };
+		6BA0E4EB2211A08F00307E67 /* ty_scene_add_action@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_add_action@2x.png"; sourceTree = "<group>"; };
+		6BA0E4EC2211A08F00307E67 /* ty_scene_selected@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_scene_selected@3x.png"; sourceTree = "<group>"; };
+		6BA0E4ED2211A08F00307E67 /* ty_index_custom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_index_custom@2x.png"; sourceTree = "<group>"; };
+		6BA0E4EE2211A08F00307E67 /* ty_index_custom@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ty_index_custom@3x.png"; sourceTree = "<group>"; };
 		6BA5189421904C370036DCC2 /* TYLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYLoginViewController.h; sourceTree = "<group>"; };
 		6BA5189521904C370036DCC2 /* TYLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYLoginViewController.m; sourceTree = "<group>"; };
 		6BA51897219171A90036DCC2 /* TYRegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYRegisterViewController.h; sourceTree = "<group>"; };
@@ -325,6 +394,7 @@
 			children = (
 				6003F59C195388D20070C39A /* TYAppDelegate.h */,
 				6003F59D195388D20070C39A /* TYAppDelegate.m */,
+				6BA0E4C52211A08F00307E67 /* Scene */,
 				65FC209320C8D2FE00918C6D /* Base */,
 				6BA51893219049D70036DCC2 /* UserCenter */,
 				6BFE78D12193134F00D39C19 /* DeviceList */,
@@ -400,6 +470,8 @@
 		65FC209420C8D2FE00918C6D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6BA0E4C22211965000307E67 /* TPBaseTableViewController.h */,
+				6BA0E4C32211965000307E67 /* TPBaseTableViewController.m */,
 				65FC209920C8D2FE00918C6D /* TPBaseViewController.h */,
 				65FC209D20C8D2FE00918C6D /* TPBaseViewController.m */,
 				65B6ED7421A9257300EEE134 /* TPNavigationController.h */,
@@ -521,6 +593,75 @@
 				65FC1FA720C8D2FE00918C6D /* TYPanelDpTitleView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6BA0E4C52211A08F00307E67 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				6BA0E4C62211A08F00307E67 /* Controller */,
+				6BA0E4CB2211A08F00307E67 /* View */,
+				6BA0E4DC2211A08F00307E67 /* Resource */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		6BA0E4C62211A08F00307E67 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6BA0E4C72211A08F00307E67 /* TYSmartSceneViewController.m */,
+				6BA0E4C82211A08F00307E67 /* TYAddSceneViewController.m */,
+				6BA0E4C92211A08F00307E67 /* TYSmartSceneViewController.h */,
+				6BA0E4CA2211A08F00307E67 /* TYAddSceneViewController.h */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6BA0E4CB2211A08F00307E67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6BA0E4CC2211A08F00307E67 /* TYEditActionTitleTableViewCell.m */,
+				6BA0E4CD2211A08F00307E67 /* TYTextFieldTableViewCell.m */,
+				6BA0E4CE2211A08F00307E67 /* TYActionTableViewCell.m */,
+				6BA0E4CF2211A08F00307E67 /* TYEditActionNoDataTableViewCell.m */,
+				6BA0E4D02211A08F00307E67 /* TYEditSceneTableViewCell.h */,
+				6BA0E4D12211A08F00307E67 /* TYSceneHeaderView.h */,
+				6BA0E4D22211A08F00307E67 /* TYEditActionTableViewCell.m */,
+				6BA0E4D32211A08F00307E67 /* TYSmartSceneTableViewCell.m */,
+				6BA0E4D42211A08F00307E67 /* TYActionTableViewCell.h */,
+				6BA0E4D52211A08F00307E67 /* TYTextFieldTableViewCell.h */,
+				6BA0E4D62211A08F00307E67 /* TYEditActionTitleTableViewCell.h */,
+				6BA0E4D72211A08F00307E67 /* TYEditSceneTableViewCell.m */,
+				6BA0E4D82211A08F00307E67 /* TYEditActionNoDataTableViewCell.h */,
+				6BA0E4D92211A08F00307E67 /* TYSmartSceneTableViewCell.h */,
+				6BA0E4DA2211A08F00307E67 /* TYEditActionTableViewCell.h */,
+				6BA0E4DB2211A08F00307E67 /* TYSceneHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6BA0E4DC2211A08F00307E67 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				6BA0E4DD2211A08F00307E67 /* ty_scene_error@3x.png */,
+				6BA0E4DE2211A08F00307E67 /* ty_scene_error@2x.png */,
+				6BA0E4DF2211A08F00307E67 /* ty_scene_switch@2x.png */,
+				6BA0E4E02211A08F00307E67 /* ty_scene_custom2@3x.png */,
+				6BA0E4E12211A08F00307E67 /* ty_index_scene_close@3x.png */,
+				6BA0E4E22211A08F00307E67 /* ty_scene_active@3x.png */,
+				6BA0E4E32211A08F00307E67 /* ty_index_scene_close@2x.png */,
+				6BA0E4E42211A08F00307E67 /* ty_scene_custom2@2x.png */,
+				6BA0E4E52211A08F00307E67 /* ty_scene_switch@3x.png */,
+				6BA0E4E62211A08F00307E67 /* ty_scene_gray@3x.png */,
+				6BA0E4E72211A08F00307E67 /* ty_scene_selected@2x.png */,
+				6BA0E4E82211A08F00307E67 /* ty_scene_add_action@3x.png */,
+				6BA0E4E92211A08F00307E67 /* ty_add@2x.png */,
+				6BA0E4EA2211A08F00307E67 /* ty_add@3x.png */,
+				6BA0E4EB2211A08F00307E67 /* ty_scene_add_action@2x.png */,
+				6BA0E4EC2211A08F00307E67 /* ty_scene_selected@3x.png */,
+				6BA0E4ED2211A08F00307E67 /* ty_index_custom@2x.png */,
+				6BA0E4EE2211A08F00307E67 /* ty_index_custom@3x.png */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		6BA51893219049D70036DCC2 /* UserCenter */ = {
@@ -665,37 +806,55 @@
 				65FC21AD20C8D2FE00918C6D /* ty_mainbt_about_active@2x.png in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				65FC210920C8D2FE00918C6D /* ty_devicelist_share_gray@2x.png in Resources */,
+				6BA0E4FC2211A08F00307E67 /* ty_scene_custom2@3x.png in Resources */,
 				65FC20FA20C8D2FE00918C6D /* ty_devicelist_dot_green@3x.png in Resources */,
 				65FC224B20C8D31900918C6D /* customColor.plist in Resources */,
 				65FC21B020C8D2FE00918C6D /* ty_mainbt_add_active@3x.png in Resources */,
 				65FC21B920C8D2FE00918C6D /* ty_mainbt_add@3x.png in Resources */,
+				6BA0E5032211A08F00307E67 /* ty_scene_selected@2x.png in Resources */,
 				65FC210120C8D2FE00918C6D /* ty_devicelist_share_green@3x.png in Resources */,
+				6BA0E4FA2211A08F00307E67 /* ty_scene_error@2x.png in Resources */,
+				6BA0E5042211A08F00307E67 /* ty_scene_add_action@3x.png in Resources */,
 				65FC21BB20C8D2FE00918C6D /* ty_mainbt_about@2x.png in Resources */,
 				65FC20FF20C8D2FE00918C6D /* ty_list_empty@2x.png in Resources */,
 				65FC21B520C8D2FE00918C6D /* ty_mainbt_devicelist@2x.png in Resources */,
 				65FC212820C8D2FE00918C6D /* ty_panel_select@2x.png in Resources */,
+				6BA0E5012211A08F00307E67 /* ty_scene_switch@3x.png in Resources */,
 				65FC21AF20C8D2FE00918C6D /* ty_mainbt_about_active@3x.png in Resources */,
 				65FC211E20C8D2FE00918C6D /* power_on@2x.png in Resources */,
 				65FC21B420C8D2FE00918C6D /* cell_view_arrow@3x.png in Resources */,
 				65FC212420C8D2FE00918C6D /* power_off@2x.png in Resources */,
 				65FC21B320C8D2FE00918C6D /* ty_mainbt_devicelist_active@2x.png in Resources */,
+				6BA0E5092211A08F00307E67 /* ty_index_custom@2x.png in Resources */,
 				65FC227F20C9015800918C6D /* Localizable.strings in Resources */,
 				65FC21B620C8D2FE00918C6D /* ty_mainbt_devicelist@3x.png in Resources */,
 				65B6ED9121A9257500EEE134 /* phoneCodeList.plist in Resources */,
 				65FC210220C8D2FE00918C6D /* ty_devicelist_dot_gray@3x.png in Resources */,
+				6BA0E4FF2211A08F00307E67 /* ty_index_scene_close@2x.png in Resources */,
 				65FC212520C8D2FE00918C6D /* ty_panel_plus@3x.png in Resources */,
+				6BA0E4FB2211A08F00307E67 /* ty_scene_switch@2x.png in Resources */,
 				65FC211D20C8D2FE00918C6D /* ty_panel_arrows@3x.png in Resources */,
 				65FC212120C8D2FE00918C6D /* power_on@3x.png in Resources */,
 				65FC211F20C8D2FE00918C6D /* ty_panel_minus@2x.png in Resources */,
+				6BA0E5052211A08F00307E67 /* ty_add@2x.png in Resources */,
 				65FC21B120C8D2FE00918C6D /* ty_mainbt_add_active@2x.png in Resources */,
 				65FC20FE20C8D2FE00918C6D /* ty_devicelist_share_green@2x.png in Resources */,
+				6BA0E5082211A08F00307E67 /* ty_scene_selected@3x.png in Resources */,
+				6BA0E50A2211A08F00307E67 /* ty_index_custom@3x.png in Resources */,
+				6BA0E4F92211A08F00307E67 /* ty_scene_error@3x.png in Resources */,
 				65FC21BA20C8D2FE00918C6D /* ty_mainbt_about@3x.png in Resources */,
 				65FC210A20C8D2FE00918C6D /* ty_devicelist_share_gray@3x.png in Resources */,
+				6BA0E5062211A08F00307E67 /* ty_add@3x.png in Resources */,
+				6BA0E5072211A08F00307E67 /* ty_scene_add_action@2x.png in Resources */,
+				6BA0E4FE2211A08F00307E67 /* ty_scene_active@3x.png in Resources */,
 				65FC21BC20C8D2FE00918C6D /* ty_mainbt_add@2x.png in Resources */,
 				65FC21B720C8D2FE00918C6D /* cell_view_arrow@2x.png in Resources */,
+				6BA0E5002211A08F00307E67 /* ty_scene_custom2@2x.png in Resources */,
+				6BA0E5022211A08F00307E67 /* ty_scene_gray@3x.png in Resources */,
 				65FC212620C8D2FE00918C6D /* power_off@3x.png in Resources */,
 				65FC210020C8D2FE00918C6D /* ty_list_empty@3x.png in Resources */,
 				65FC20FD20C8D2FE00918C6D /* ty_devicelist_dot_gray@2x.png in Resources */,
+				6BA0E4FD2211A08F00307E67 /* ty_index_scene_close@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,6 +943,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BA0E4F32211A08F00307E67 /* TYActionTableViewCell.m in Sources */,
 				6B8DEE2021B10EDB004C9C78 /* TYLoginAndRegisterView.m in Sources */,
 				65FC224A20C8D31900918C6D /* TYTheme.m in Sources */,
 				65B6ED8321A9257500EEE134 /* TPCellViewItem.m in Sources */,
@@ -791,6 +951,7 @@
 				65FC211C20C8D2FE00918C6D /* TYPanelBoolViewCell.m in Sources */,
 				6BFFC71F219567D400FC35ED /* TYEZAddDeviceViewController.m in Sources */,
 				6003F59E195388D20070C39A /* TYAppDelegate.m in Sources */,
+				6BA0E4F82211A08F00307E67 /* TYSceneHeaderView.m in Sources */,
 				65FC211B20C8D2FE00918C6D /* TYPanelBaseViewCell.m in Sources */,
 				65FC211420C8D2FE00918C6D /* TYPanelStringViewCell.m in Sources */,
 				6BA51899219171A90036DCC2 /* TYRegisterViewController.m in Sources */,
@@ -802,11 +963,16 @@
 				65B6ED7E21A9257500EEE134 /* TPEmptyView.m in Sources */,
 				65FC20F820C8D2FE00918C6D /* TYDeviceListViewCell.m in Sources */,
 				65B6ED7C21A9257500EEE134 /* TPViewUtil.m in Sources */,
+				6BA0E4F62211A08F00307E67 /* TYSmartSceneTableViewCell.m in Sources */,
 				65FC21A220C8D2FE00918C6D /* TYTabBarViewController.m in Sources */,
+				6BA0E4F72211A08F00307E67 /* TYEditSceneTableViewCell.m in Sources */,
 				65B6ED7621A9257500EEE134 /* TPBarButtonItem.m in Sources */,
 				6B8DEE2621B4D49C004C9C78 /* TYAddDeviceUtils.m in Sources */,
+				6BA0E4C42211965100307E67 /* TPBaseTableViewController.m in Sources */,
+				6BA0E4F12211A08F00307E67 /* TYEditActionTitleTableViewCell.m in Sources */,
 				65FC211120C8D2FE00918C6D /* TYSwitchPanelViewController.m in Sources */,
 				6B04FEB02194211500198EF3 /* TYDeviceListViewController.m in Sources */,
+				6BA0E4F52211A08F00307E67 /* TYEditActionTableViewCell.m in Sources */,
 				65FC211720C8D2FE00918C6D /* TYPanelBitmapViewCell.m in Sources */,
 				6BA5189621904C370036DCC2 /* TYLoginViewController.m in Sources */,
 				6B8DEE2321B11759004C9C78 /* TYLoginAndRegisterUtils.m in Sources */,
@@ -815,7 +981,10 @@
 				65B6ED7521A9257500EEE134 /* TPLoadingView.m in Sources */,
 				65B6ED9621A9257500EEE134 /* TPNavigationController.m in Sources */,
 				65B6ED8821A9257500EEE134 /* UIView+TPAdditions.m in Sources */,
+				6BA0E4EF2211A08F00307E67 /* TYSmartSceneViewController.m in Sources */,
+				6BA0E4F42211A08F00307E67 /* TYEditActionNoDataTableViewCell.m in Sources */,
 				65B6ED8121A9257500EEE134 /* TPItemView.m in Sources */,
+				6BA0E4F02211A08F00307E67 /* TYAddSceneViewController.m in Sources */,
 				65B6ED8221A9257500EEE134 /* TPTopBarView.m in Sources */,
 				6B24DE20219D4B63000B17F2 /* TYAddDeviceMenuViewController.m in Sources */,
 				6B7AAB9621996A80005F7CA5 /* TYAPAddDeviceViewController.m in Sources */,
@@ -824,6 +993,7 @@
 				65B6ED7D21A9257500EEE134 /* TPProgressUtils.m in Sources */,
 				65FC211520C8D2FE00918C6D /* TYPanelDpTitleView.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				6BA0E4F22211A08F00307E67 /* TYTextFieldTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

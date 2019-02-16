@@ -10,6 +10,7 @@
 #import "TPNavigationController.h"
 #import "TYLoginViewController.h"
 #import "TYDeviceListViewController.h"
+#import "TYSmartSceneViewController.h"
 #import "TYAddDeviceMenuViewController.h"
 #import "TYSmartHomeManager.h"
 
@@ -18,9 +19,11 @@
 @property (nonatomic, strong) TPNavigationController *deviceListNavigationController;
 @property (nonatomic, strong) TPNavigationController *addDeviceNavigationController;
 @property (nonatomic, strong) TPNavigationController *loginNavigationController;
+@property (nonatomic, strong) TPNavigationController *sceneNavigationController;
 
 @property (nonatomic, strong) UIViewController       *addDeviceViewController;
 @property (nonatomic, strong) TYDeviceListViewController *deviceViewController;
+@property (nonatomic, strong) TYSmartSceneViewController *sceneViewController;
 
 @end
 
@@ -52,6 +55,7 @@
                              self.loginNavigationController,
                              self.deviceListNavigationController,
                              self.addDeviceNavigationController,
+                             self.sceneNavigationController
                              ];
 }
 
@@ -104,6 +108,12 @@
     return _deviceViewController;
 }
 
+- (TPNavigationController *)sceneNavigationController {
+    if (!_sceneNavigationController) {
+        _sceneNavigationController = [[TPNavigationController alloc] initWithRootViewController:self.sceneViewController];
+    }
+    return _sceneNavigationController;
+}
 
 - (UIViewController *)addDeviceViewController {
     if (!_addDeviceViewController) {
@@ -114,6 +124,16 @@
                                                                     selectedImage:[UIImage imageNamed:@"ty_mainbt_add_active"]];
     }
     return _addDeviceViewController;
+}
+
+- (TYSmartSceneViewController *)sceneViewController {
+    if (!_sceneViewController) {
+        _sceneViewController = [[TYSmartSceneViewController alloc] init];
+        _sceneViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Scene"
+                                                                        image:[UIImage imageNamed:@"ty_scene_gray"]
+                                                                selectedImage:[UIImage imageNamed:@"ty_scene_active"]];
+    }
+    return _sceneViewController;
 }
 
 #pragma mark - UITabBarControllerDelegate
