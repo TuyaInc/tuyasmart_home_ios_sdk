@@ -2,8 +2,10 @@
 
 群组相关的所有功能对应`TuyaSmartGroup`类，需要使用群组Id进行初始化。错误的群组Id可能会导致初始化失败，返回`nil`。
 
-
 ### 创建群组
+
+Objc:
+
 ```objc
 - (void)createNewGroup {
     
@@ -15,8 +17,25 @@
 }
 ```
 
+Swift:
+
+```swift
+func createNewGroup() {
+    TuyaSmartGroup.createGroup(withName: "your_group_name", productId: "your_group_product_id", homeId: homeId, devIdList: ["selectedDevIdList"], success: { (group) in
+        print("create new group success: \(group)")
+    }) { (error) in
+        print("create new group failure")
+    }
+}
+```
+
+
+
 ### 获取群组的设备列表
+
 群组没有创建，获取产品的设备列表
+
+Objc:
 
 ```objc
 - (void)getGroupDevList {
@@ -29,7 +48,23 @@
 }
 ```
 
+Swift:
+
+```swift
+func getGroupDevList() {
+    TuyaSmartGroup.getDevList("your_group_product_id", homeId: 1, success: { (list) in
+        print("get group dev list success \(list)")
+    }) { (error) in
+        print("get group dev list failure")
+    }
+}
+```
+
+
+
 群组已经创建，获取群组的设备列表
+
+Objc:
 
 ```objc
 - (void)getGroupDevList {
@@ -42,7 +77,23 @@
 }
 ```
 
+Swift:
+
+```swift
+func getGroupDevList() {
+    smartGroup?.getDevList("your_group_product_id", success: { (list) in
+        print("get group dev list success \(list)")
+    }, failure: { (error) in
+        print("get group dev list failure")
+    })
+}
+```
+
+
+
 ### 群组dp命令下发
+
+Objc:
 
 ```objc
 - (void)publishDps {
@@ -54,8 +105,26 @@
 	} failure:^(NSError *error) {
 		NSLog(@"publishDps failure: %@", error);
 	}];
+}
 ```
+Swift:
+
+```swift
+func publishDps() {
+    let dps = ["1" : true]
+    smartGroup?.publishDps(dps, success: {
+        print("publishDps success")
+    }, failure: { (error) in
+        print("publishDps failure")
+    })
+}
+```
+
+
+
 ### 修改群组名称
+
+Objc:
 
 ```objc
 - (void)updateGroupName {
@@ -68,7 +137,25 @@
     }];
 }
 ```
+Swift:
+
+```swift
+func updateGroupName() {
+    smartGroup?.updateName("your_group_name", success: {
+        print("updateGroupName success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateGroupName failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 修改群组设备列表
+
+Objc:
 
 ```objc
 - (void)updateGroupRelations {
@@ -81,7 +168,25 @@
     }];
 }
 ```
+Swift:
+
+```swift
+func updateGroupRelations() {
+    smartGroup?.updateRelations(["selectedDevIdList"], success: {
+        print("update group relations success")
+    }, failure: { (error) in
+        if let e = error {
+            print("update group relations failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 解散群组
+
+Objc:
 
 ```objc
 - (void)dismissGroup {
@@ -95,9 +200,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func dismissGroup() {
+    smartGroup?.dismiss({
+        print("dismiss group success")
+    }, failure: { (error) in
+        if let e = error {
+            print("dismiss group failure: \(e)")
+        }
+    })
+}
+```
+
+
 
 ### 回调接口
+
 群组DP下发之后的数据回调更新
+
+Objc:
 
 ```objc
 
@@ -108,3 +231,13 @@
 }
 
 ```
+
+Swift:
+
+```swift
+// MARK: TuyaSmartGroupDelegate
+func group(_ group: TuyaSmartGroup!, dpsUpdate dps: [AnyHashable : Any]!) {
+    //可以在这里刷新群组操作面板的UI
+}
+```
+

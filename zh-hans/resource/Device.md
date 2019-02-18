@@ -7,6 +7,8 @@
 
 #### 更新单个设备信息
 
+Objc:
+
 ```objc
 - (void)updateDeviceInfo {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
@@ -15,12 +17,25 @@
 	[self.device syncWithCloud:^{
 		NSLog(@"syncWithCloud success");
 		NSLog(@"deviceModel: %@", weakSelf.device.deviceModel);
-	} failure:^{
+	} failure:^(NSError *error) {
 		NSLog(@"syncWithCloud failure");
 	}];
 }
 ```
 
+Swift:
+
+```swift
+func updateDeviceInfo() {
+    device?.sync(cloud: {
+        print("syncWithCloud success")
+    }, failure: { (error) in
+        if let e = error {
+            print("syncWithCloud failure: \(e)")
+        }
+    })
+}
+```
 
 ### 设备功能点
 
@@ -38,6 +53,8 @@
 `{"<dpId>":"<dpValue>"}`
 
 根据后台该产品的功能点定义，示例代码如下:
+
+Objc:
 
 ```objc
 - (void)publishDps {
@@ -74,7 +91,29 @@
 
 }
 ```
+Swift:
+
+```swift
+func publishDps() {
+    var dps = [String : Any]()
+ 
+    // dp 可参考具体产品定义
+    device?.publishDps(dps, success: {
+ 	    print("publishDps success")
+        
+        //下发成功，状态上报通过 deviceDpsUpdate方法 回调
+    }, failure: { (error) in
+        if let e = error {
+            print("publishDps failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ##### 注意事项：
+
 - 控制命令的发送需要特别注意数据类型。<br />
   比如功能点的数据类型是数值型（value），那控制命令发送的应该是 `@{@"2": @(25)}`  而不是  `@{@"2": @"25"}`<br />
 - 透传类型传输的byte数组是字符串格式、字母需小写并且必须是偶数位。<br />
@@ -85,6 +124,8 @@
 #### 设备状态更新
 
 实现`TuyaSmartDeviceDelegate`代理协议后，可以在设备状态更变的回调中进行处理，刷新APP设备控制面板的UI。
+
+Objc:
 
 ```objc
 - (void)initDevice {
@@ -109,7 +150,35 @@
 
 ```
 
+Swift:
+
+```swift
+func initDevice() {
+    device = TuyaSmartDevice(deviceId: "your_device_id")
+    device?.delegate = self
+}
+
+// MARK: - TuyaSmartDeviceDelegate
+
+func device(_ device: TuyaSmartDevice!, dpsUpdate dps: [AnyHashable : Any]!) {
+    print("deviceDpsUpdate: \(dps)")
+    // TODO: 刷新界面UI
+}
+
+func deviceInfoUpdate(_ device: TuyaSmartDevice!) {
+    //当前设备信息更新 比如 设备名、设备在线状态等
+}
+
+func deviceRemoved(_ device: TuyaSmartDevice!) {
+    //当前设备被移除
+}
+```
+
+
+
 ### 修改设备名称
+
+Objc:
 
 ```objc
 - (void)modifyDeviceName:(NSString *)mame {
@@ -123,9 +192,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func modifyDeviceName(_ name: String) {
+    device?.updateName(name, success: {
+        print("updateName success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateName failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 移除设备
 
 设备被移除后，会重新进入待配网状态（快连模式）。
+
+Objc:
 
 ```objc
 - (void)removeDevice {
@@ -139,7 +226,25 @@
 }
 ```
 
+Swift:
+
+```swift
+func removeDevice() {
+    device?.remove({
+        print("remove success")
+    }, failure: { (error) in
+        if let e = error {
+            print("remove failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 获取设备的wifi信号强度
+
+Objc:
 
 ```objc
 - (void)getWifiSignalStrength {
@@ -160,7 +265,30 @@
 }
 ```
 
+Swift:
+
+```swift
+func getWifiSignalStrength() {
+    self.device?.getWifiSignalStrength(success: {
+        print("get wifi signal strength success")
+    }, failure: { (error) in
+        if let e = error {
+            print("get wifi signal strength failure: \(e)")
+        }
+    })
+}
+
+// MARK: - TuyaSmartDeviceDelegate
+func device(_ device: TuyaSmartDevice!, signal: String!) {
+
+}
+```
+
+
+
 ### 获取网关下的子设备列表
+
+Objc:
 
 ```objc
 - (void)getSubDeviceList {
@@ -174,6 +302,22 @@
 }
 ```
 
+Swift:
+
+```swift
+func getSubDeviceList() {
+    device?.getSubDeviceListFromCloud(success: { (subDeviceList) in
+        print("get sub device list success")
+    }, failure: { (error) in
+        if let e = error {
+            print("get sub device list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 固件升级
 
 **固件升级流程:**
@@ -181,6 +325,8 @@
 获取设备升级信息 -> 下发联网模块升级指令 -> 联网模块升级成功 -> 下发设备控制模块升级指令 -> 设备控制模块升级成功
 
 #### 获取设备升级信息：
+
+Objc:
 
 ```objc
 - (void)getFirmwareUpgradeInfo {
@@ -194,7 +340,25 @@
 }
 ```
 
+Swift:
+
+```swift
+func getFirmwareUpgradeInfo() {
+    device?.getFirmwareUpgradeInfo({ (upgradeModelList) in
+        print("getFirmwareUpgradeInfo success")
+    }, failure: { (error) in
+        if let e = error {
+            print("getFirmwareUpgradeInfo failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 下发升级指令：
+
+Objc:
 
 ```objc
 - (void)upgradeFirmware {
@@ -210,7 +374,28 @@
 }
 ```
 
+Swift:
+
+```swift
+func upgradeFirmware() {
+    // 设备类型type 从获取设备升级信息接口 getFirmwareUpgradeInfo 返回的类型
+    // TuyaSmartFirmwareUpgradeModel - type
+    device?.upgradeFirmware(type, success: {
+        print("upgradeFirmware success")
+    }, failure: { (error) in
+        if let e = error {
+            print("upgradeFirmware failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 回调接口：
+
+Objc:
+
 ```objc
 - (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type {
 	//固件升级成功
@@ -226,12 +411,31 @@
 
 ```
 
+Swift:
+
+```swift
+func deviceFirmwareUpgradeSuccess(_ device: TuyaSmartDevice!, type: Int) {
+    //固件升级成功
+}
+
+func deviceFirmwareUpgradeFailure(_ device: TuyaSmartDevice!, type: Int) {
+    //固件升级失败
+}
+
+func device(_ device: TuyaSmartDevice!, firmwareUpgradeProgress type: Int, progress: Double) {
+    //固件升级的进度
+}
+```
+
+
 
 ### 获取数据点的历史统计数据
 
 获取dp点的历史统计数据，例如电量统计等信息。
 
 #### 获取dp点所有的历史统计数据
+
+Objc:
 
 ```objc
 _request = [[TuyaSmartRequest alloc] init];
@@ -244,7 +448,24 @@ _request = [[TuyaSmartRequest alloc] init];
 
 ```
 
+Swift:
+
+```swift
+// 全局 var request: TuyaSmartRequest?
+request = TuyaSmartRequest()
+
+request?.request(withApiName: "m.smart.dp.his.stat.get.all", postData: ["devId" : "your_devId", "dpId" : "device_dpId"], version: "1.0", success: { (result) in
+
+}, failure: { (error) in
+
+})
+```
+
+
+
 #### 获取dp点某个月的历史统计数据
+
+Objc:
 
 ```objc
 _request = [[TuyaSmartRequest alloc] init];
@@ -255,3 +476,17 @@ _request = [[TuyaSmartRequest alloc] init];
 
 }];
 ```
+
+Swift:
+
+```swift
+// 全局 var request: TuyaSmartRequest?
+request = TuyaSmartRequest()
+
+request?.request(withApiName: "m.smart.dp.his.stat.get.month", postData: ["devId" : "your_devId", "dpId" : "device_dpId", "month" : "201809"], version: "1.0", success: { (result) in
+
+}, failure: { (error) in
+
+})
+```
+

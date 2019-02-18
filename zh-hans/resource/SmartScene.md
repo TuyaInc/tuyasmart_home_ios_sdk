@@ -22,6 +22,8 @@
 
 #### 获取场景列表
 
+Objc:
+
 ```objc
 // 获取家庭下的场景列表
 - (void)getSmartSceneList {
@@ -33,10 +35,29 @@
 }
 ```
 
+Swift:
+
+```swift
+// 获取家庭下的场景列表
+func getSmartSceneList() {
+    TuyaSmartSceneManager.sharedInstance()?.getSceneList(withHomeId: homeId, success: { (list) in
+        print("get scene list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get scene list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 获取条件列表
 
 获取条件列表，如温度、湿度、天气、PM2.5、日落日出等，注意：设备也可作为条件。
 条件中的温度分为摄氏度和华氏度，根据需求传入需要的数据。
+
+Objc:
 
 ```objc
 - (void)getConditionList {
@@ -48,9 +69,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func getConditionList() {
+    TuyaSmartSceneManager.sharedInstance()?.getConditionList(withFahrenheit: true, success: { (list) in
+        print("get condition list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get condition list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 获取任务设备列表
 
 添加任务时，需获取任务的设备列表，用来选择执行相应的任务。
+
+Objc:
 
 ```objc
 - (void)getActionDeviceList {
@@ -62,9 +101,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func getActionDeviceList() {
+    TuyaSmartSceneManager.sharedInstance()?.getActionDeviceList(withHomeId: homeId, success: { (list) in
+        print("get action device list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get action device list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 获取条件设备列表
 
 添加条件时，除了温度、湿度、天气等这些气象条件可以作为任务执行条件外，设备也可以作为条件，即获取条件设备列表，然后选择一个设备执行相应的任务作为条件。
+
+Objc:
 
 ```objc
 - (void)getConditionDeviceList {
@@ -76,9 +133,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func getConditionDeviceList() {
+    TuyaSmartSceneManager.sharedInstance()?.getConditionDeviceList(withHomeId: homeId, success: { (list) in
+        print("get condition device list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get condition device list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 获取任务设备的dp列表
 
 添加或编辑场景任务时，选择设备后，需要根据选择设备的deviceId获取设备dp列表，进而选择某一个dp功能点，即指定该设备执行该项任务。
+
+Objc:
 
 ```objc
 - (void)getActionDeviceDPList {
@@ -90,9 +165,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func getActionDeviceDPList() {
+    TuyaSmartSceneManager.sharedInstance()?.getActionDeviceDPList(withDevId: "your_device_id", success: { (list) in
+        print("get action device dp list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get action device dp list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 获取条件设备的dp列表
 
 选择场景条件时，选择了设备，需要根据选择设备的deviceId获取设备dp列表，进而选择某一个dp功能点，即指定该设备执行该dp功能作为该场景的执行条件。
+
+Objc:
 
 ```objc
 - (void)getCondicationDeviceDPList {
@@ -104,9 +197,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func getCondicationDeviceDPList() {
+    TuyaSmartSceneManager.sharedInstance()?.getCondicationDeviceDPList(withDevId: "your_device_id", success: { (list) in
+        print("get condition device dp list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get condition device dp list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 获取城市列表
 
 选择场景气象条件时，根据国家码获取城市列表，用户可以选择当前城市。（注：国外部分国家的城市列表可能暂时不全，如果是国外用户，建议根据经纬度获取城市信息。）
+
+Objc:
 
 ```objc
 - (void)getCityList {
@@ -118,7 +229,25 @@
 }
 ```
 
+Swift:
+
+```swift
+func getCityList() {
+    TuyaSmartSceneManager.sharedInstance()?.getCityList(withCountryCode: "your_country_code", success: { (list) in
+        print("get city list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get city list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 根据经纬度获取城市信息
+
+Objc:
 
 ```objc
 - (void)getCityInfo {
@@ -130,9 +259,26 @@
 }
 ```
 
+Swift:
+
+```swift
+func getCityInfo() {
+    TuyaSmartSceneManager.sharedInstance()?.getCityInfo(withLatitude: "your_location_latitude", longitude: "your_location_longitude", success: { (city) in
+        print("get city info success: \(city)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get city info failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 根据城市id获取城市信息
 
 根据城市id获取城市信息，城市id可以从城市列表获取。
+Objc:
 
 ```objc
 - (void) getCityInfo {
@@ -144,7 +290,25 @@
 }
 ```
 
+Swift:
+
+```swift
+func getCityInfo() {
+    TuyaSmartSceneManager.sharedInstance()?.getCityInfo(withCityId: "your_city_id", success: { (city) in
+        print("get city info success: \(city)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get city info failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 场景排序
+
+Objc:
 
 ```objc
 - (void) sortScene {
@@ -156,14 +320,32 @@
 }
 ```
 
+Swift:
+
+```swift
+func sortScene() {
+    TuyaSmartSceneManager.sharedInstance()?.sortScene(withHomeId: homeId, sceneIdList: ["sceneId list"], success: {
+        print("sort scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sort scene failure: \(e)")
+        }
+    })
+}
+```
+
+
 
 ## 单个场景操作
-TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是`TuyaSmartSceneModel`的`sceneId`字段，可以从场景列表中获取。
+
+`TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是`TuyaSmartSceneModel`的`sceneId`字段，可以从场景列表中获取。
 
 
 #### 添加场景
 
 添加场景需要传入场景名称，家庭的Id，背景图片的url，是否显示在首页，条件列表，任务列表（至少一个任务），满足任一条件还是满足所有条件时执行。也可以只设置名称和任务，背景图片，不设置条件，但是需要手动执行。
+
+Objc:
 
 
 ```objc
@@ -177,9 +359,27 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
 }
 
 ```
+Swift:
+
+```swift
+func addSmartScene() {
+    TuyaSmartScene.addNewScene(withName: "your_scene_name", homeId: homeId, background: "background_url", showFirstPage: true, conditionList: [TuyaSmartSceneConditionModel]!, actionList: [TuyaSmartSceneActionModel]!, matchType: TuyaSmartConditionMatchAny, success: { (sceneModel) in
+        print("add scene success :\(sceneModel)")
+    }) { (error) in
+        if let e = error {
+            print("add scene failure: \(e)")
+        }
+    }
+}
+```
+
+
+
 #### 编辑场景
 
 编辑场景的名称、背景图、条件列表、任务列表、满足任一条件还是满足所有条件时执行
+
+Objc:
 
 ```objc
 - (void)modifySmartScene {
@@ -191,7 +391,25 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
     }];
 }
 ```
+Swift:
+
+```swift
+func modifySmartScene() {
+    smartScene?.modifyScene(withName: "name", background: "background_url", showFirstPage: true, conditionList: [TuyaSmartSceneConditionModel]!, actionList: [TuyaSmartSceneActionModel]!, matchType: TuyaSmartConditionMatchAny, success: {
+        print("modify scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("modify scene failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 删除场景
+
+Objc:
 
 ```objc
 - (void)deleteSmartScene {
@@ -203,7 +421,25 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
     }];
 }
 ```
+Swift:
+
+```swift
+func deleteSmartScene() {
+    smartScene?.delete(success: {
+        print("delete scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("delete scene failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 执行场景
+
+Objc:
 
 ```objc
 - (void)executeSmartScene {
@@ -216,7 +452,26 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
 }
 ```
 
+Swift:
+
+```swift
+func executeSmartScene() {
+    smartScene?.execute(success: {
+        print("execute scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("execute scene failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 开启场景（只有至少带有至少一个条件的场景才可以开启和失效场景）
+
+Objc:
+
 ```objc
 - (void)enableSmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
@@ -228,7 +483,26 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
 }
 ```
 
+Swift:
+
+```swift
+func enableSmartScene() {
+    smartScene?.enable(success: {
+        print("enable scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("enable scene failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 失效场景（只有至少带有至少一个条件的场景才可以开启和失效场景）
+
+Objc:
+
 ```objc
 - (void)disableSmartScene {
 //    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
@@ -239,7 +513,24 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
     }];
 }
 ```
+Swift:
+
+```swift
+func disableSmartScene() {
+    smartScene?.disableScene(success: {
+        print("disable scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("disable scene failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ## 场景条件和场景动作对象创建示例
+
 #### 场景条件
 
 ##### 创建场景条件对象TuyaSmartSceneConditionModel
@@ -249,7 +540,7 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
 
 选择完具体的条件值之后,如果将界面选择的温度、城市等信息保存在了`TuyaSmartSceneDPModel`对象中(也可以存在任何你喜欢的对象中)，可以通过一个`TuyaSmartSceneDPModel`对象初始化一个`TuyaSmartSceneConditionModel`条件对象，示例方法如下，这里使用了Category为`TuyaSmartSceneConditionModel`增加了一个分类方法：
 
-	
+
 	//新增初始化方法
 	- (instancetype)initWithSmartSceneDPModel:(TuyaSmartSceneDPModel *)dpModel {
 	    
@@ -281,7 +572,10 @@ TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操�
 	    return self;
 	}
 
+
+
 ##### expr 表达式组装
+
 `TuyaSmartSceneConditionModel`的expr属性描述了条件的表达式，如“温度低于15℃”这样的一个条件，就可以用expr来描述。expr是一个数组（这里要注意，最外层一定是数组），数组中的每一个对象描述了一个条件，如@[@"$temp",@"<",@15]这个条件数组就描述了温度低于15℃这个条件。注意，每个气象条件都应该对应一个`TuyaSmartSceneConditionModel`，所以expr数组中只包含一个条件数组。
 
 气象条件expr示例：

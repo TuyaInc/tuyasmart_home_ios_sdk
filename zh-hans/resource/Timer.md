@@ -14,6 +14,8 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 
 增加一个timer到指定device的指定task下
 
+Objc:
+
 ```objc
 - (void)addTimer {
 	// self.timer = [[TuyaSmartTimer alloc] init];
@@ -27,9 +29,28 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
+Swift:
+
+```swift
+func addTimer() {
+    let dps = ["1" : true]
+    timer?.add(withTask: "timer_task_name", loops: "1000000", devId: "device_id", time: "18:00", dps: dps, timeZone: "+08:00", success: {
+        print("addTimerWithTask success")
+    }, failure: { (error) in
+        if let e = error {
+            print("addTimerWithTask failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 获取定时任务状态
 
 获取指定device下所有task模型
+
+Objc:
 
 ```objc
 - (void)getTimer {
@@ -43,9 +64,27 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
+Swift:
+
+```swift
+func getTimer() {
+    timer?.getTaskStatus(withDeviceId: "device_id", success: { (list) in
+        print("getTimer success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getTimer failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 更新定时任务状态
 
 更新指定device下的指定task的状态 0:关闭,1:开启
+
+Objc:
 
 ```objc
 - (void)updateTimer {
@@ -59,9 +98,28 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
+Swift:
+
+```swift
+func updateTimer() {
+
+    timer?.updateTaskStatus(withTask: "timer_task_name", devId: "device_id", status: 1, success: {
+        print("updateTimer success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateTimer failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 更新定时钟状态
 
 更新指定device下的指定task下的指定timer的状态 0:关闭,1:开启
+
+Objc:
 
 ```objc
 - (void)updateTimer {
@@ -75,9 +133,28 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
+Swift:
+
+```swift
+func updateTimer() {
+
+    timer?.updateStatus(withTask: "timer_task_name", devId: "device_id", timerId: "timerID", status: 1, success: {
+        print("updateTimer success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateTimer failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 删除定时钟
 
 删除指定device下的指定task下的指定timer
+
+Objc:
 
 ```objc
 - (void)removeTimer {
@@ -91,9 +168,28 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
+Swift:
+
+```swift
+func removeTimer() {
+
+    timer?.remove(withTask: "timer_task_name", devId: "device_id", timerId: "timer_id", success: {
+        print("removeTimer success")
+    }, failure: { (error) in
+        if let e = error {
+            print("removeTimer failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 更新定时钟
 
 更新指定device下的指定task下的指定timer
+
+Objc:
 
 ```objc
 - (void)updateTimer {
@@ -108,9 +204,28 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
+Swift:
+
+```swift
+func updateTimer() {
+    let dps = ["1" : true]
+    timer?.update(withTask: "timer_task_name", loops: "1000000", devId: "device_id", timerId: "timer_id", time: "18:00", dps: dps, timeZone: "+08:00", success: {
+        print("updateTimer success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateTimer failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 获取定时任务下所有定时钟
 
 获取指定device下的指定task下所有timer模型
+
+Objc:
 
 ```objc
 - (void)getTimer {
@@ -124,18 +239,53 @@ _注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示:
 }
 ```
 
+Swift:
+
+```swift
+func getTimer() {
+
+    timer?.getWithTask("timer_task_name", devId: "device_id", success: { (list) in
+        print("getTimer success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getTimer failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 获取设备所有定时任务下所有定时钟
 
 获取指定device下所有task下所有timer模型
+
+Objc:
 
 ```objc
 - (void)getTimer {
 	// self.timer = [[TuyaSmartTimer alloc] init];
 
 	[self.timer getAllTimerWithDeviceId:@"device_id" success:^(NSDictionary *dict) {
-		NSLog(@"getTimer success %@:", list); 
+		NSLog(@"getTimer success %@:", dict); 
 	} failure:^(NSError *error) {
 		NSLog(@"getTimer failure: %@", error);
 	}];
 }
 ```
+
+Swift:
+
+```swift
+func getTimer() {
+
+    timer?.getAllTimer(withDeviceId: "device_id", success: { (dict) in
+        print("getTimer success: \(dict)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getTimer failure: \(e)")
+        }
+    })
+}
+```
+

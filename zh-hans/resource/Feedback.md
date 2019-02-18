@@ -8,6 +8,8 @@
 
 获取用户已提交反馈会话列表。
 
+Objc:
+
 ```objc
 - (void)getFeedbackTalkList {
 //    self.feedBack = [[TuyaSmartFeedback alloc] init];
@@ -19,9 +21,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func getFeedbackTalkList() {
+    feedBack?.getTalkList({ (list) in
+        print("get feedback talk list success: \(list)");
+    }, failure: { (error) in
+        if let e = error {
+            print("get feedback talk list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 获取反馈列表
 
 获取反馈会话中对应的反馈内容列表，`hdId`和`hdType`字段可以从`TuyaSmartFeedbackTalkListModel`中获取。
+
+Objc:
 
 ```objc
 - (void)getFeedbackList {
@@ -34,9 +54,27 @@
 }
 ```
 
+Swift:
+
+```swift
+func getFeedbackList() {
+    feedBack?.getList("your_hdId", hdType: hdType, success: { (list) in
+        print("get feedback list success: \(list)");
+    }, failure: { (error) in
+        if let e = error {
+            print("get feedback list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 获取反馈类型列表
 
 添加反馈时，可先选择反馈类型。
+
+Objc:
 
 ```objc
 - (void)getFeedbackTypeList {
@@ -49,17 +87,50 @@
 }
 ```
 
+Swift:
+
+```swift
+func getFeedbackTalkList() {
+    feedBack?.getTypeList({ (list) in
+        print("get feedback type list success:\(list)");
+    }, failure: { (error) in
+        if let e = error {
+            print("get feedback type list failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 ### 添加反馈
 
 添加反馈，提交用户输入的反馈的内容，`hdId`和`hdType`字段可以从`TuyaSmartFeedbackTalkListModel`中获取。
 
+Objc:
+
 ```objc
 - (void)addFeedback {
 //    self.feedBack = [[TuyaSmartFeedback alloc] init];
-	[self.feedBack addFeedback:@"your_feedback_content" hdId:@"your_hdId" hdType:(NSInteger)hdType success:^{
+	[self.feedBack addFeedback:@"your_feedback_content" hdId:@"your_hdId" hdType:(NSInteger)hdType contact:@"email..." success:^{
 		NSLog(@"add feedback success");
 	} failure:^(NSError *error) {
 		NSLog(@"add feedback failure:%@", error);
 	}];
 }
 ```
+
+Swift:
+
+```swift
+func getFeedbackTalkList() {
+    feedBack?.add("your_feedback_content", hdId: "your_hdId", hdType: hdType, contact: "email...", success: {
+        print("add feedback success");
+    }, failure: { (error) in
+        if let e = error {
+            print("add feedback failure: \(e)")
+        }
+    })
+}
+```
+

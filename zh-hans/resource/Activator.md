@@ -46,6 +46,8 @@ SDK-->APP: 激活成功
 
 开始配网之前，SDK需要在联网状态下从涂鸦云获取配网Token，然后才可以开始EZ/AP模式配网。Token的有效期为5分钟，且配置成功后就会失效（再次配网需要重新获取）。
 
+Objc:
+
 ```
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
@@ -57,9 +59,28 @@ SDK-->APP: 激活成功
 }
 ```
 
+Swift:
+
+```swift
+func getToken() {
+    TuyaSmartActivator.sharedInstance()?.getTokenWithHomeId(homeId, success: { (token) in
+        print("getToken success: \(token)")
+        // TODO: startConfigWiFi
+    }, failure: { (error) in
+        if let e = error {
+            print("getToken failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 开始配网
 
 EZ模式配网：
+
+Objc:
 
 ```objc
 - (void)startConfigWiFi:(NSString *)ssid password:(NSString *)password token:(NSString *)token {
@@ -84,11 +105,39 @@ EZ模式配网：
 
 ```
 
+Swift:
+
+```swift
+func startConfigWiFi(withSsid ssid: String, password: String, token: String) {
+    // 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
+    TuyaSmartActivator.sharedInstance()?.delegate = self
+    
+    // 开始配网
+    TuyaSmartActivator.sharedInstance()?.startConfigWiFi(TYActivatorModeEZ, ssid: ssid, password: password, token: token, timeout: 100)
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!) {
+    if deviceModel != nil && error == nil {
+        //配网成功
+    }
+        
+    if let e = error {
+        //配网失败
+        print("\(e)")
+    }
+}
+```
+
+
+
 注意`ssid`和`password`需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
 
 #### 停止配网
 
 开始配网操作后，APP会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用`[TuyaSmartActivator stopConfigWiFi]`方法。
+
+Objc:
 
 ```objc
 - (void)stopConfigWifi {
@@ -96,6 +145,17 @@ EZ模式配网：
 	[[TuyaSmartActivator sharedInstance] stopConfigWiFi];
 }
 ```
+
+Swift:
+
+```swift
+func stopConfigWifi() {
+    TuyaSmartActivator.sharedInstance()?.delegate = nil
+    TuyaSmartActivator.sharedInstance()?.stopConfigWiFi()
+}
+```
+
+
 
 ### 热点模式（AP配网）
 
@@ -136,6 +196,8 @@ SDK-->APP: 激活成功
 
 开始配网之前，SDK需要在联网状态下从涂鸦云获取配网Token，然后才可以开始EZ/AP模式配网。Token的有效期为5分钟，且配置成功后就会失效（再次配网需要重新获取）。
 
+Objc:
+
 ```
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
@@ -147,9 +209,28 @@ SDK-->APP: 激活成功
 }
 ```
 
+Swift:
+
+```swift
+func getToken() {
+    TuyaSmartActivator.sharedInstance()?.getTokenWithHomeId(homeId, success: { (token) in
+        print("getToken success: \(token)")
+        // TODO: startConfigWiFi
+    }, failure: { (error) in
+        if let e = error {
+            print("getToken failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### 开始配网
 
 AP模式配网：
+
+Objc:
 
 ```objc
 - (void)startConfigWiFi:(NSString *)ssid password:(NSString *)password token:(NSString *)token {
@@ -174,6 +255,32 @@ AP模式配网：
 
 ```
 
+Swift:
+
+```swift
+func startConfigWiFi(withSsid ssid: String, password: String, token: String) {
+    // 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
+    TuyaSmartActivator.sharedInstance()?.delegate = self
+    
+    // 开始配网
+    TuyaSmartActivator.sharedInstance()?.startConfigWiFi(TYActivatorModeAP, ssid: ssid, password: password, token: token, timeout: 100)
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!) {
+    if deviceModel != nil && error == nil {
+        //配网成功
+    }
+        
+    if let e = error {
+        //配网失败
+        print("\(e)")
+    }
+}
+```
+
+
+
 AP模式配网与EZ模式类似，把`[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]`的第一个参数改为`TYActivatorModeAP`即可。注意`ssid`和`password`需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
 
 注意`ssid`和`password`需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
@@ -182,12 +289,24 @@ AP模式配网与EZ模式类似，把`[TuyaSmartActivator startConfigWiFi:ssid:p
 
 开始配网操作后，APP会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用`[TuyaSmartActivator stopConfigWiFi]`方法。
 
+Objc:
+
 ```objc
 - (void)stopConfigWifi {
 	[TuyaSmartActivator sharedInstance].delegate = nil;
 	[[TuyaSmartActivator sharedInstance] stopConfigWiFi];
 }
 ```
+
+Swift:
+
+```swift
+func stopConfigWifi() {
+    TuyaSmartActivator.sharedInstance()?.delegate = nil
+    TuyaSmartActivator.sharedInstance()?.stopConfigWiFi()
+}
+```
+
 
 
 ### Zigbee 网关配网
@@ -227,6 +346,8 @@ SDK-->APP: 激活成功
 
 开始配网之前，SDK需要在联网状态下从涂鸦云获取配网Token，然后才可以开始EZ/AP模式配网。Token的有效期为5分钟，且配置成功后就会失效（再次配网需要重新获取）。
 
+Objc:
+
 ```
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
@@ -238,7 +359,26 @@ SDK-->APP: 激活成功
 }
 ```
 
+Swift:
+
+```swift
+func getToken() {
+    TuyaSmartActivator.sharedInstance()?.getTokenWithHomeId(homeId, success: { (token) in
+        print("getToken success: \(token)")
+        // TODO: startConfigWiFi
+    }, failure: { (error) in
+        if let e = error {
+            print("getToken failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### Zigbee 网关激活
+
+Objc:
 
 ```objc
 - (void)startConfigWiFiToken:(NSString *)token {
@@ -264,9 +404,37 @@ SDK-->APP: 激活成功
 
 ```
 
+Swift:
+
+```swift
+func startConfigWifiToken(_ token: String) {
+    // 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
+    TuyaSmartActivator.sharedInstance()?.delegate = self
+    
+    // 开始配网
+    TuyaSmartActivator.sharedInstance()?.startConfigWiFi(withToken: token, timeout: 100)
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!) {
+    if deviceModel != nil && error == nil {
+        //配网成功
+    }
+        
+    if let e = error {
+        //配网失败
+        print("\(e)")
+    }
+}
+```
+
+
+
 #### 停止配网
 
 开始配网操作后，APP会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用`[TuyaSmartActivator stopConfigWiFi]`方法。
+
+Objc:
 
 ```objc
 - (void)stopConfigWifi {
@@ -274,6 +442,16 @@ SDK-->APP: 激活成功
 	[[TuyaSmartActivator sharedInstance] stopConfigWiFi];
 }
 ```
+
+Swift:
+
+```swift
+func stopConfigWifi() {
+    TuyaSmartActivator.sharedInstance()?.delegate = nil
+    TuyaSmartActivator.sharedInstance()?.stopConfigWiFi()
+}
+```
+
 
 
 ### Zigbee 子设备激活
@@ -303,14 +481,12 @@ SDK-->APP: 子设备激活成功
 
 如果需要中途取消操作或配网完成，需要调用`stopActiveSubDeviceWithGwId`方法
 
+Objc:
+
 ```objc
 - (void)activeSubDevice {
 
-	[[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:@"your_device_id" timeout:100 success:^{
-		NSLog(@"active sub device success");
-	} failure:^(NSError *error) {
-		NSLog(@"active sub device failure: %@", error);
-	}];
+	[[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:@"your_device_id" timeout:100];
 }
 
 #pragma mark - TuyaSmartActivatorDelegate
@@ -326,10 +502,43 @@ SDK-->APP: 子设备激活成功
 }
 ```
 
+Swift:
+
+```swift
+func activeSubDevice() {
+    TuyaSmartActivator.sharedInstance()?.activeSubDevice(withGwId: "your_device_id", timeout: 100)
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!) {
+    if deviceModel != nil && error == nil {
+        //配网成功
+    }
+        
+    if let e = error {
+        //配网失败
+        print("\(e)")
+    }
+}
+```
+
+
+
 #### 停止激活zigbee子设备
+
+Objc:
 
 ```objc
 - (void)stopActiveSubDevice {
 	[[TuyaSmartActivator sharedInstance] stopActiveSubDeviceWithGwId:@"your_device_id"];
 }
 ```
+
+Swift:
+
+```swift
+func stopActiveSubDevice() {
+    TuyaSmartActivator.sharedInstance()?.stopActiveSubDevice(withGwId: "your_device_id")
+}
+```
+

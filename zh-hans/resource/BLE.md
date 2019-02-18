@@ -11,8 +11,11 @@
 - 导入头文件
 
   ```objective-c
-  使用
+  // OC 使用
   #import <TuyaSmartBLEKit/TuyaSmartBLEKit.h>
+      
+  // Swift
+  import TuyaSmartBLEKit
   ```
 
 - 主要功能
@@ -45,6 +48,8 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
 
 **示例代码**
 
+Objc:
+
 ```objective-c
 // 设置代理
 [TuyaSmartBLEManager sharedInstance].delegate = self;
@@ -58,6 +63,23 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
 - (void)bluetoothDidUpdateState:(BOOL)isPoweredOn {
     NSLog(@"蓝牙状态变化: %d", isPoweredOn ? 1 : 0);
 }
+```
+
+Swift:
+
+```swift
+// 设置代理
+TuyaSmartBLEManager.sharedInstance().delegate = self
+
+/**
+ 蓝牙状态变化通知
+
+ @param isPoweredOn 蓝牙状态，开启或关闭
+ */
+func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
+        
+}
+
 ```
 
 
@@ -90,6 +112,8 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
 
 **示例代码**
 
+Objc:
+
 ```objective-c
 // 设置代理
 [TuyaSmartBLEManager sharedInstance].delegate = self;
@@ -105,6 +129,24 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
  @param productKey 未激活设备产品 key
  */
 - (void)didDiscoveryDeviceWithUUID:(NSString *)uuid productKey:(NSString *)productKey {
+    // 成功扫描到未激活的设备
+    // 若设备已激活，则不会走此回调，且会自动进行激活连接
+}
+```
+
+Swift:
+
+```swift
+TuyaSmartBLEManager.sharedInstance().delegate = self
+TuyaSmartBLEManager.sharedInstance().startListening(true)
+
+/**
+ 扫描到未激活的设备
+
+ @param uuid 未激活设备 uuid
+ @param productKey 未激活设备产品 key
+ */
+func didDiscoveryDevice(withUUID uuid: String, productKey: String) {
     // 成功扫描到未激活的设备
     // 若设备已激活，则不会走此回调，且会自动进行激活连接
 }
@@ -141,6 +183,7 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
 **示例代码**
 
 ```objective-c
+Objc:
 
 [[TuyaSmartBLEManager sharedInstance] activeBLEWithUUID:uuid homeId:#<当前家庭的 home id> productKey:productKey success:^(TuyaSmartDeviceModel *deviceModel) {
         // 激活成功
@@ -148,6 +191,14 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
     } failure:^{
         // 激活中的错误
     }];
+
+
+
+Swift:
+TuyaSmartBLEManager.sharedInstance().activeBLE(withUUID: uuid, homeId: #<当前家庭的 home id>, productKey: productKey, success: { (deviceModel) in
+    // 激活成功                                                                                                                     }) {
+    // 激活中的错误        
+}
 ```
 
 
@@ -173,6 +224,8 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
 
 **代码示例**
 
+Objc:
+
 ```objective-c
 - (void)getFirmwareUpgradeInfo {
     // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
@@ -189,11 +242,35 @@ SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启�
 // deviceModel -- 需要升级的设备 model
 // data -- 下载的固件包
 [[TuyaSmartBLEManager sharedInstance] sendOTAPack:deviceModel.uuid otaData:data success:^{
-       NSLog(@"upgrade_success", nil);
+       NSLog(@"upgrade_success");
     } failure:^{
-       NSLog(@"upgrade_failre", nil);
+       NSLog(@"upgrade_failre");
 }];
 
+```
+
+Swift:
+
+```swift
+func getFirmwareUpgradeInfo() {
+    device?.getFirmwareUpgradeInfo({ (upgradeModelList) in
+        print("getFirmwareUpgradeInfo success");
+    }, failure: { (error) in
+        if let e = error {
+            print("getFirmwareUpgradeInfo failure: \(e)");
+        }
+    })
+}
+
+// 如果有升级，其中 TuyaSmartFirmwareUpgradeModel.url 是固件升级包的下载地址
+// 根据 url 下载固件后，将数据转成 data，传给 sdk 进行固件升级
+// deviceModel -- 需要升级的设备 model
+// data -- 下载的固件包
+TuyaSmartBLEManager.sharedInstance().sendOTAPack(deviceModel.uuid, otaData: data, success: {
+    print("upgrade_success");
+}) {
+    print("upgrade_failre");
+}
 ```
 
 
