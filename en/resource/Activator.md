@@ -43,6 +43,8 @@ SDK-->APP: Network configuration succeeds
 
 Before the EZ/AP mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 5 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
 
+Objc:
+
 ```
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
@@ -54,16 +56,33 @@ Before the EZ/AP mode network configuration, the SDK needs to obtain the network
 }
 ```
 
+Swift:
+
+```swift
+func getToken() {
+    TuyaSmartActivator.sharedInstance()?.getTokenWithHomeId(homeId, success: { (token) in
+        print("getToken success: \(token)")
+        // TODO: startConfigWiFi
+    }, failure: { (error) in
+        if let e = error {
+            print("getToken failure: \(e)")
+        }
+    })
+}
+```
+
 #### Start network configuration.
 
 EZ mode network configuration:
 
+Objc:
+
 ```objc
 - (void)startConfigWiFi:(NSString *)ssid password:(NSString *)password token:(NSString *)token {
-	// 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
+	// Set TuyaSmartActivator delegate，impl delegate method
 	[TuyaSmartActivator sharedInstance].delegate = self;
 
-	// 开始配网
+	// start activator
 	[[TuyaSmartActivator sharedInstance] startConfigWiFi:TYActivatorModeEZ ssid:ssid password:password token:token timeout:100];
 }
 
@@ -71,14 +90,38 @@ EZ mode network configuration:
 - (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
 
 	if (!error && deviceModel) {
-		//配网成功
+		//active success
     }
 
     if (error) {
-        //配网失败
+        //active failure
     }
 }
 
+```
+
+Swift:
+
+```swift
+func startConfigWiFi(withSsid ssid: String, password: String, token: String) {
+    // Set TuyaSmartActivator delegate，impl delegate method
+    TuyaSmartActivator.sharedInstance()?.delegate = self
+    
+    // start activator
+    TuyaSmartActivator.sharedInstance()?.startConfigWiFi(TYActivatorModeEZ, ssid: ssid, password: password, token: token, timeout: 100)
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!) {
+    if deviceModel != nil && error == nil {
+        //active success
+    }
+        
+    if let e = error {
+        //active failure
+        print("\(e)")
+    }
+}
 ```
 
 The AP mode network configuration is the same to the EZ mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
@@ -87,10 +130,21 @@ The AP mode network configuration is the same to the EZ mode network configurati
 
 The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
 
+Objc:
+
 ```objc
 - (void)stopConfigWifi {
 	[TuyaSmartActivator sharedInstance].delegate = nil;
 	[[TuyaSmartActivator sharedInstance] stopConfigWiFi];
+}
+```
+
+Swift:
+
+```swift
+func stopConfigWifi() {
+    TuyaSmartActivator.sharedInstance()?.delegate = nil
+    TuyaSmartActivator.sharedInstance()?.stopConfigWiFi()
 }
 ```
 
@@ -134,6 +188,8 @@ SDK-->APP: Network configuration succeeds
 
 Before the EZ/AP mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 5 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
 
+Objc:
+
 ```
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
@@ -145,16 +201,33 @@ Before the EZ/AP mode network configuration, the SDK needs to obtain the network
 }
 ```
 
+Swift:
+
+```swift
+func getToken() {
+    TuyaSmartActivator.sharedInstance()?.getTokenWithHomeId(homeId, success: { (token) in
+        print("getToken success: \(token)")
+        // TODO: startConfigWiFi
+    }, failure: { (error) in
+        if let e = error {
+            print("getToken failure: \(e)")
+        }
+    })
+}
+```
+
 #### Start network configuration.
 
 AP mode network configuration:
 
+Objc:
+
 ```objc
 - (void)startConfigWiFi:(NSString *)ssid password:(NSString *)password token:(NSString *)token {
-	// 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
+	// Set TuyaSmartActivator delegate，impl delegate method
 	[TuyaSmartActivator sharedInstance].delegate = self;
 
-	// 开始配网
+	// Start activator
 	[[TuyaSmartActivator sharedInstance] startConfigWiFi:TYActivatorModeAP ssid:ssid password:password token:token timeout:100];
 }
 
@@ -162,14 +235,38 @@ AP mode network configuration:
 - (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
 
 	if (!error && deviceModel) {
-		//配网成功
+		//active success
     }
 
     if (error) {
-        //配网失败
+        //active failure
     }
 }
 
+```
+
+Swift:
+
+```swift
+func startConfigWiFi(withSsid ssid: String, password: String, token: String) {
+    // Set TuyaSmartActivator delegate，impl delegate method
+    TuyaSmartActivator.sharedInstance()?.delegate = self
+    
+    // Start activator
+    TuyaSmartActivator.sharedInstance()?.startConfigWiFi(TYActivatorModeAP, ssid: ssid, password: password, token: token, timeout: 100)
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!) {
+    if deviceModel != nil && error == nil {
+        //active success
+    }
+        
+    if let e = error {
+        //active failure
+        print("\(e)")
+    }
+}
 ```
 
 The AP mode network configuration is the same to the EZ mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
@@ -178,10 +275,21 @@ The AP mode network configuration is the same to the EZ mode network configurati
 
 The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
 
+Objc:
+
 ```objc
 - (void)stopConfigWifi {
 	[TuyaSmartActivator sharedInstance].delegate = nil;
 	[[TuyaSmartActivator sharedInstance] stopConfigWiFi];
+}
+```
+
+Swift:
+
+```swift
+func stopConfigWifi() {
+    TuyaSmartActivator.sharedInstance()?.delegate = nil
+    TuyaSmartActivator.sharedInstance()?.stopConfigWiFi()
 }
 ```
 
@@ -221,6 +329,8 @@ SDK-->APP: network configuration succeeds
 
 Before the EZ/AP mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 5 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
 
+Objc:
+
 ```
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
@@ -232,14 +342,31 @@ Before the EZ/AP mode network configuration, the SDK needs to obtain the network
 }
 ```
 
+Swift:
+
+```swift
+func getToken() {
+    TuyaSmartActivator.sharedInstance()?.getTokenWithHomeId(homeId, success: { (token) in
+        print("getToken success: \(token)")
+        // TODO: startConfigWiFi
+    }, failure: { (error) in
+        if let e = error {
+            print("getToken failure: \(e)")
+        }
+    })
+}
+```
+
 ##### Wired network configuration of zigbee
+
+Objc:
 
 ```objc
 - (void)startConfigWiFiToken:(NSString *)token {
-	// 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
+	// Set TuyaSmartActivator delegate，impl delegate method
 	[TuyaSmartActivator sharedInstance].delegate = self;
 
-	// 开始配网
+	// Start activator
 	[[TuyaSmartActivator sharedInstance] startConfigWiFiWithToken:token timeout:100];
 }
 
@@ -247,25 +374,60 @@ Before the EZ/AP mode network configuration, the SDK needs to obtain the network
 - (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
 
 	if (!error && deviceModel) {
-		//配网成功
+		//active success
     }
 
     if (error) {
-        //配网失败
+        //active failure
     }
 
 }
 
 ```
 
+Swift:
+
+```swift
+func startConfigWifiToken(_ token: String) {
+    // Set TuyaSmartActivator delegate，impl delegate method
+    TuyaSmartActivator.sharedInstance()?.delegate = self
+    
+    // Start activator
+    TuyaSmartActivator.sharedInstance()?.startConfigWiFi(withToken: token, timeout: 100)
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!) {
+    if deviceModel != nil && error == nil {
+        //active success
+    }
+        
+    if let e = error {
+        //active failure
+        print("\(e)")
+    }
+}
+```
+
 #### Stop network configuration.
 
 The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
+
+Objc:
 
 ```objc
 - (void)stopConfigWifi {
 	[TuyaSmartActivator sharedInstance].delegate = nil;
 	[[TuyaSmartActivator sharedInstance] stopConfigWiFi];
+}
+```
+
+Swift:
+
+```swift
+func stopConfigWifi() {
+    TuyaSmartActivator.sharedInstance()?.delegate = nil
+    TuyaSmartActivator.sharedInstance()?.stopConfigWiFi()
 }
 ```
 
@@ -300,30 +462,56 @@ The `stopActiveSubDeviceWithGwId` method has to be invoked if you need to cancel
 ```objc
 - (void)activeSubDevice {
 
-	[[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:@"your_device_id" timeout:100 success:^{
-		NSLog(@"active sub device success");
-	} failure:^(NSError *error) {
-		NSLog(@"active sub device failure: %@", error);
-	}];
+	[[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:@"your_device_id" timeout:100];
 }
 
 #pragma mark - TuyaSmartActivatorDelegate
 - (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
 
     if (!error && deviceModel) {
-		//配网成功
+		//active success
     }
 
     if (error) {
-        //配网失败
+        //active failure
+    }
+}
+```
+
+Swift:
+
+```swift
+func activeSubDevice() {
+    TuyaSmartActivator.sharedInstance()?.activeSubDevice(withGwId: "your_device_id", timeout: 100)
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!) {
+    if deviceModel != nil && error == nil {
+        //active success
+    }
+        
+    if let e = error {
+        //active failure
+        print("\(e)")
     }
 }
 ```
 
 #### Stop activating the ZigBee sub-device
 
+Objc:
+
 ```objc
 - (void)stopActiveSubDevice {
 	[[TuyaSmartActivator sharedInstance] stopActiveSubDeviceWithGwId:@"your_device_id"];
+}
+```
+
+Swift:
+
+```swift
+func stopActiveSubDevice() {
+    TuyaSmartActivator.sharedInstance()?.stopActiveSubDevice(withGwId: "your_device_id")
 }
 ```

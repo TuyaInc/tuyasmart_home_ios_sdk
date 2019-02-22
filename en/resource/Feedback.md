@@ -8,6 +8,8 @@ All functions related to the feedback will be realized by using the `TuyaSmartFe
 
 Obtain the feedback talk list submitted by user
 
+Objc:
+
 ```objc
 - (void)getFeedbackTalkList {
 //    self.feedBack = [[TuyaSmartFeedback alloc] init];
@@ -18,9 +20,25 @@ Obtain the feedback talk list submitted by user
 	}];
 }
 ```
+
+Swift:
+
+```swift
+func getFeedbackTalkList() {
+    feedBack?.getTalkList({ (list) in
+        print("get feedback talk list success: \(list)");
+    }, failure: { (error) in
+        if let e = error {
+            print("get feedback talk list failure: \(e)")
+        }
+    })
+}
+```
 ### Obtain feedback list
 
 Obtain the feedback content list from the feedback talk. The `hdId` and `hdType` can be attained from the TuyaSmartFeedbackTalkListModel.
+
+Objc:
 
 ```objc
 - (void)getFeedbackList {
@@ -32,8 +50,24 @@ Obtain the feedback content list from the feedback talk. The `hdId` and `hdType`
 	}];
 }
 ```
+
+Swift:
+
+```swift
+func getFeedbackList() {
+    feedBack?.getList("your_hdId", hdType: hdType, success: { (list) in
+        print("get feedback list success: \(list)");
+    }, failure: { (error) in
+        if let e = error {
+            print("get feedback list failure: \(e)")
+        }
+    })
+}
+```
 ### Obtain feedback type list
 The feedback type can be selected first when adding feedback. 
+
+Objc:
 
 ```objc
 - (void)getFeedbackTypeList {
@@ -45,17 +79,47 @@ The feedback type can be selected first when adding feedback.
 	}];
 }
 ```
+
+Swift:
+
+```swift
+func getFeedbackTalkList() {
+    feedBack?.getTypeList({ (list) in
+        print("get feedback type list success:\(list)");
+    }, failure: { (error) in
+        if let e = error {
+            print("get feedback type list failure: \(e)")
+        }
+    })
+}
+```
 ### Add feedback
 
 Add and submit feedback. The `hdId` and `hdType` can be obtained from the `TuyaSmartFeedbackTalkListModel`.
 
+Objc:
+
 ```objc
 - (void)addFeedback {
 //    self.feedBack = [[TuyaSmartFeedback alloc] init];
-	[self.feedBack addFeedback:@"your_feedback_content" hdId:@"your_hdId" hdType:(NSInteger)hdType success:^{
+	[self.feedBack addFeedback:@"your_feedback_content" hdId:@"your_hdId" hdType:(NSInteger)hdType contact:@"email..." success:^{
 		NSLog(@"add feedback success");
 	} failure:^(NSError *error) {
 		NSLog(@"add feedback failure:%@", error);
 	}];
+}
+```
+
+Swift:
+
+```swift
+func getFeedbackTalkList() {
+    feedBack?.add("your_feedback_content", hdId: "your_hdId", hdType: hdType, contact: "email...", success: {
+        print("add feedback success");
+    }, failure: { (error) in
+        if let e = error {
+            print("add feedback failure: \(e)")
+        }
+    })
 }
 ```

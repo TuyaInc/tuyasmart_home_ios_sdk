@@ -18,13 +18,7 @@ Tuya Smart APP SDK provides the interface package for the communication with har
 Add the following content in file `Podfile`:
 
 ```ruby
-platform :ios, '8.0'
-
-target 'your_target_name' do
-
-      pod "TuyaSmartHomeKit", :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git"
-
-end
+pod "TuyaSmartHomeKit"
 ```
 
 Execute command `pod update` in the project's root directory to begin integration.
@@ -39,10 +33,24 @@ Add the following to the project file `PrefixHeader.pch`：
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
 ```
 
+Swift project add the following to the `xxx_Bridging-Header.h` file:
+
+```swift
+#import <TuyaSmartHomeKit/TuyaSmartKit.h>
+```
+
 Open file `AppDelegate.m`，and use the `App ID` and `App Secret` obtained from the development platform in the `[AppDelegate application:didFinishLaunchingWithOptions:]`method to initialize SDK:
+
+Objc:
 
 ```objc
 [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
+```
+
+Swift:
+
+```swift
+ TuyaSmartSDK.sharedInstance()?.start(withAppKey: <#your_app_key#>, secretKey: <#your_secret_key#>)
 ```
 
 Now all the preparatory work has been completed. You can set out to develop your application.

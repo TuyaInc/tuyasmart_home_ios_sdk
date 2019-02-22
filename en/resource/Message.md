@@ -4,6 +4,8 @@ All functions related to the message center are realized by using the `TuyaSmart
 
 ### Obtain message list
 
+Objc:
+
 ```objc
 - (void)getMessageList {
 //    self.smartMessage = [[TuyaSmartMessage alloc] init];
@@ -12,6 +14,19 @@ All functions related to the message center are realized by using the `TuyaSmart
 	} failure:^(NSError *error) {
 		NSLog(@"get message list failure:%@", error);
 	}];
+}
+```
+Swift:
+
+```swift
+func getMessageList() {
+    smartMessage?.getList({ (list) in
+        print("get message list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get message list failure: \(e)")
+        }
+    })
 }
 ```
 
@@ -29,9 +44,24 @@ Delete messages in batches. `messgeIdList` denotes the id group of messages to b
     }];
 }
 ```
+Swift:
+
+```swift
+func deleteMessage() {
+    smartMessage?.delete(["messgeIdList"], success: {
+        print("delete message success")
+    }, failure: { (error) in
+        if let e = error {
+            print("delete message failure: \(e)")
+        }
+    })
+}
+```
 ### Obtain the timestamp of the latest news
 
 The timestamp of the latest news can be compared with that of local latest message. If the former is bigger than the later, a red dot will be displayed to hint the new message. 
+
+Objc:
 
 ```objc
 - (void)getMessageMaxTime {
@@ -41,5 +71,19 @@ The timestamp of the latest news can be compared with that of local latest messa
 	} failure:^(NSError *error) {
 		NSLog(@"get message max time failure:%@", error);
 	}];
+}
+```
+
+Swift:
+
+```swift
+func getMessageMaxTime() {
+    smartMessage?.getMaxTime({ (result) in
+        print("get message max time success :\(result)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get message max time failure: \(e)")
+        }
+    })
 }
 ```

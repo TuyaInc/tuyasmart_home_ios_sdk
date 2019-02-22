@@ -10,11 +10,13 @@ All functions related to the share with home members are realized by using the `
 
 #### Add home member
 
+Objc:
+
 ```objc
 - (void)addShare {
-    // self.homeMember = [[TuyaSmartHomeMember alloc] init];
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
 
-    [self.homeMember addHomeMemberWithHomeId:homeId countryCode:@"your_country_code" account:@"account" name:@"name" isAdmin:YES success:^{
+	[self.homeMember addHomeMemberWithHomeId:homeId countryCode:@"your_country_code" account:@"account" name:@"name" isAdmin:YES success:^{
         NSLog(@"addNewMember success");
     } failure:^(NSError *error) {
         NSLog(@"addNewMember failure: %@", error);
@@ -22,13 +24,30 @@ All functions related to the share with home members are realized by using the `
 }
 ```
 
+Swift:
+
+```swift
+func addShare() {
+    homeMember?.add(withHomeId: homeId, countryCode: "your_country_code", account: "account", name: "name", isAdmin: true, success: {
+        print("addNewMember success")
+    }, failure: { (error) in
+        if let e = error {
+            print("addNewMember failure: \(e)")
+        }
+    })
+}
+```
+
 ####  Obtain home member list
+
+Objc:
+
 
 ```objc
 - (void)initMemberList {
-    // self.homeMember = [[TuyaSmartHomeMember alloc] init];
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
 
-    [self.homeMember getHomeMemberListWithHomeId:homeId success:^(NSArray<TuyaSmartHomeMemberModel *> *memberList) {
+	[self.homeMember getHomeMemberListWithHomeId:homeId success:^(NSArray<TuyaSmartHomeMemberModel *> *memberList) {
         NSLog(@"getMemberList success: %@", memberList);
     } failure:^(NSError *error) {
         NSLog(@"getMemberList failure");
@@ -36,13 +55,29 @@ All functions related to the share with home members are realized by using the `
 }
 ```
 
+Swift:
+
+```swift
+func initMemberList() {
+    homeMember?.getListWithHomeId(homeId, success: { (memberList) in
+        print("getMemberList success: \(memberList)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getMemberList failure: \(e)")
+        }
+    })
+}
+```
+
 #### Change member name and administrator identity
 
-```objc
-- (void)modifyMemberName:(TuyaSmartMemberModel *)memberModel name:(NSString *)name {
-    // self.homeMember = [[TuyaSmartHomeMember alloc] init];
+Objc:
 
-    [self.homeMember updateHomeMemberNameWithMemberId:memberModel.memberId name:name isAdmin:YES success:^{
+```objc
+- (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
+
+	[self.homeMember updateHomeMemberNameWithMemberId:memberModel.memberId name:name isAdmin:YES success:^{
         NSLog(@"modifyMemberName success");
     } failure:^(NSError *error) {
         NSLog(@"modifyMemberName failure: %@", error);
@@ -50,16 +85,47 @@ All functions related to the share with home members are realized by using the `
 }
 ```
 
+Swift:
+
+```swift
+func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
+    homeMember?.updateHomeMemberName(withMemberId: memberModel.memberId, name: name, isAdmin: true, success: {
+        print("modifyMemberName success")
+    }, failure: { (error) in
+        if let e = error {
+            print("modifyMemberName failure: \(e)")
+        }
+    })
+}
+```
+
 #### Remove home member
 
-```objc
-- (void)removeMember:(TuyaSmartMemberModel *)memberModel {
-    // self.homeMember = [[TuyaSmartHomeMember alloc] init];
+Objc:
 
-    [self.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
+
+```objc
+- (void)removeMember:(TuyaSmartHomeMemberModel *)memberModel {
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
+
+	[self.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
         NSLog(@"removeMember success");
     } failure:^(NSError *error) {
         NSLog(@"removeMember failure: %@", error);
     }];
+}
+```
+
+Swift:
+
+```swift
+func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
+    homeMember?.removeHomeMember(withMemberId: memberModel.memberId, success: {
+        print("removeMember success")
+    }, failure: { (error) in
+        if let e = error {
+            print("removeMember failure: \(e)")
+        }
+    })
 }
 ```

@@ -11,6 +11,8 @@ All functions of timer task are realized by using the `TuyaSmartTimer` Class.
 
 Add a timer to the required task specified by a device.
 
+Objc:
+
 ```objc
 - (void)addTimer {
 	// self.timer = [[TuyaSmartTimer alloc] init];
@@ -24,9 +26,26 @@ Add a timer to the required task specified by a device.
 }
 ```
 
+Swift:
+
+```swift
+func addTimer() {
+    let dps = ["1" : true]
+    timer?.add(withTask: "timer_task_name", loops: "1000000", devId: "device_id", time: "18:00", dps: dps, timeZone: "+08:00", success: {
+        print("addTimerWithTask success")
+    }, failure: { (error) in
+        if let e = error {
+            print("addTimerWithTask failure: \(e)")
+        }
+    })
+}
+```
+
 ### Obtain status of timer task
 
 Obtain all task modules of a specified device.
+
+Objc:
 
 ```objc
 - (void)getTimer {
@@ -40,9 +59,25 @@ Obtain all task modules of a specified device.
 }
 ```
 
+Swift:
+
+```swift
+func getTimer() {
+    timer?.getTaskStatus(withDeviceId: "device_id", success: { (list) in
+        print("getTimer success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getTimer failure: \(e)")
+        }
+    })
+}
+```
+
 ### Update status of timer task
 
 Update the status of a designated task specified by a device. 0 denotes off, and 1 denotes on. 
+
+Objc:
 
 ```objc
 - (void)updateTimer {
@@ -56,9 +91,26 @@ Update the status of a designated task specified by a device. 0 denotes off, and
 }
 ```
 
+Swift:
+
+```swift
+func updateTimer() {
+
+    timer?.updateTaskStatus(withTask: "timer_task_name", devId: "device_id", status: 1, success: {
+        print("updateTimer success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateTimer failure: \(e)")
+        }
+    })
+}
+```
+
 ### Update the status of timer
 
 Update the status of a designated timer specified by a device. 0 denotes off, and 1 denotes on.
+
+Objc:
 
 ```objc
 - (void)updateTimer {
@@ -72,9 +124,26 @@ Update the status of a designated timer specified by a device. 0 denotes off, an
 }
 ```
 
+Swift:
+
+```swift
+func updateTimer() {
+
+    timer?.updateStatus(withTask: "timer_task_name", devId: "device_id", timerId: "timerID", status: 1, success: {
+        print("updateTimer success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateTimer failure: \(e)")
+        }
+    })
+}
+```
+
 ### Remove timer
 
 Remove the timer of a task specified by a device. 
+
+Objc:
 
 ```objc
 - (void)removeTimer {
@@ -88,9 +157,26 @@ Remove the timer of a task specified by a device.
 }
 ```
 
+Swift:
+
+```swift
+func removeTimer() {
+
+    timer?.remove(withTask: "timer_task_name", devId: "device_id", timerId: "timer_id", success: {
+        print("removeTimer success")
+    }, failure: { (error) in
+        if let e = error {
+            print("removeTimer failure: \(e)")
+        }
+    })
+}
+```
+
 ### Update timer
 
 Update the timer of a task specified by a device.
+
+Objc:
 
 ```objc
 - (void)updateTimer {
@@ -105,9 +191,26 @@ Update the timer of a task specified by a device.
 }
 ```
 
+Swift:
+
+```swift
+func updateTimer() {
+    let dps = ["1" : true]
+    timer?.update(withTask: "timer_task_name", loops: "1000000", devId: "device_id", timerId: "timer_id", time: "18:00", dps: dps, timeZone: "+08:00", success: {
+        print("updateTimer success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateTimer failure: \(e)")
+        }
+    })
+}
+```
+
 ### Obtain all timers of timer task
 
 Obtain all timer modules of task required by a device.
+
+Objc:
 
 ```objc
 - (void)getTimer {
@@ -121,18 +224,50 @@ Obtain all timer modules of task required by a device.
 }
 ```
 
+Swift:
+
+```swift
+func getTimer() {
+
+    timer?.getWithTask("timer_task_name", devId: "device_id", success: { (list) in
+        print("getTimer success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getTimer failure: \(e)")
+        }
+    })
+}
+```
+
 ### Obtain all timers of all timer tasks
 
 Obtain all timer modules of task required by a device.
+
+Objc:
 
 ```objc
 - (void)getTimer {
 	// self.timer = [[TuyaSmartTimer alloc] init];
 
 	[self.timer getAllTimerWithDeviceId:@"device_id" success:^(NSDictionary *dict) {
-		NSLog(@"getTimer success %@:", list); 
+		NSLog(@"getTimer success %@:", dict); 
 	} failure:^(NSError *error) {
 		NSLog(@"getTimer failure: %@", error);
 	}];
+}
+```
+
+Swift:
+
+```swift
+func getTimer() {
+
+    timer?.getAllTimer(withDeviceId: "device_id", success: { (dict) in
+        print("getTimer success: \(dict)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getTimer failure: \(e)")
+        }
+    })
 }
 ```

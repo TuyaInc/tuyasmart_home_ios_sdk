@@ -22,6 +22,8 @@ In this case, one or multiple devices will run some operations or enable or disa
 
 ### Obtain scene list
 
+Objc:
+
 ```objc
 // 获取家庭下的场景列表
 - (void)getSmartSceneList {
@@ -33,9 +35,31 @@ In this case, one or multiple devices will run some operations or enable or disa
 }
 ```
 
+Swift:
+
+```swift
+// 获取家庭下的场景列表
+func getSmartSceneList() {
+    TuyaSmartSceneManager.sharedInstance()?.getSceneList(withHomeId: homeId, success: { (list) in
+        print("get scene list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get scene list failure: \(e)")
+        }
+    })
+}
+```
+
+## Scene operation
+
+The `TuyaSmartScene` class provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the `sceneId` of the `TuyaSmartSceneModel`, and it can be obtained from the scene list.
+
 ### Add scenes
 
 User needs to upload the name of scene, Id of home, url of background pictures, showing the picture in the home page or not, task list (one at least) and determine carrying out task(s) when one or multiple conditions are met when he/she add a scene. The user can just set the name, tasks, background picture, but he/she has to set conditions manually.
+
+
+Objc:
 
 
 ```objc
@@ -49,9 +73,24 @@ User needs to upload the name of scene, Id of home, url of background pictures, 
 }
 
 ```
+Swift:
+
+```swift
+func addSmartScene() {
+    TuyaSmartScene.addNewScene(withName: "your_scene_name", homeId: homeId, background: "background_url", showFirstPage: true, conditionList: [TuyaSmartSceneConditionModel]!, actionList: [TuyaSmartSceneActionModel]!, matchType: TuyaSmartConditionMatchAny, success: { (sceneModel) in
+        print("add scene success :\(sceneModel)")
+    }) { (error) in
+        if let e = error {
+            print("add scene failure: \(e)")
+        }
+    }
+}
+```
 ### Edit scene
 
 User needs to edit the name of scene, background pictures, condition list, task list, and determine carrying out task(s) when one or multiple conditions are met.
+
+Objc:
 
 ```objc
 - (void)modifySmartScene {
@@ -63,7 +102,22 @@ User needs to edit the name of scene, background pictures, condition list, task 
     }];
 }
 ```
+Swift:
+
+```swift
+func modifySmartScene() {
+    smartScene?.modifyScene(withName: "name", background: "background_url", showFirstPage: true, conditionList: [TuyaSmartSceneConditionModel]!, actionList: [TuyaSmartSceneActionModel]!, matchType: TuyaSmartConditionMatchAny, success: {
+        print("modify scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("modify scene failure: \(e)")
+        }
+    })
+}
+```
 ### Delete scene
+
+Objc:
 
 ```objc
 - (void)deleteSmartScene {
@@ -75,7 +129,22 @@ User needs to edit the name of scene, background pictures, condition list, task 
     }];
 }
 ```
+Swift:
+
+```swift
+func deleteSmartScene() {
+    smartScene?.delete(success: {
+        print("delete scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("delete scene failure: \(e)")
+        }
+    })
+}
+```
 ### Execute scene
+
+Objc:
 
 ```objc
 - (void)executeSmartScene {
@@ -88,7 +157,23 @@ User needs to edit the name of scene, background pictures, condition list, task 
 }
 ```
 
+Swift:
+
+```swift
+func executeSmartScene() {
+    smartScene?.execute(success: {
+        print("execute scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("execute scene failure: \(e)")
+        }
+    })
+}
+```
+
 ### Enable scene (scene with at least one condition can be enabled or disabled)
+
+Objc:
 
 ```objc
 - (void)enableSmartScene {
@@ -101,7 +186,23 @@ User needs to edit the name of scene, background pictures, condition list, task 
 }
 ```
 
+Swift:
+
+```swift
+func enableSmartScene() {
+    smartScene?.enable(success: {
+        print("enable scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("enable scene failure: \(e)")
+        }
+    })
+}
+```
+
 ### Disable scene (scene with at least one condition can be enabled or disabled)
+
+Objc:
 
 ```objc
 - (void)disableSmartScene {
@@ -113,9 +214,23 @@ User needs to edit the name of scene, background pictures, condition list, task 
     }];
 }
 ```
+Swift:
+
+```swift
+func disableSmartScene() {
+    smartScene?.disableScene(success: {
+        print("disable scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("disable scene failure: \(e)")
+        }
+    })
+}
+```
 ### Obtain condition list
 
 Obtain condition list. The condition can be temperature, humidity, weather, PM2.5, sunrise and sunset. It shall be noted that the device can also be a condition. The temperature can be in the Celsius system and Fahrenheit, and data shall be uploaded based on needs.
+Objc:
 
 ```objc
 - (void)getConditionList {
@@ -126,9 +241,25 @@ Obtain condition list. The condition can be temperature, humidity, weather, PM2.
     }];
 }
 ```
+
+Swift:
+
+```swift
+func getConditionList() {
+    TuyaSmartSceneManager.sharedInstance()?.getConditionList(withFahrenheit: true, success: { (list) in
+        print("get condition list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get condition list failure: \(e)")
+        }
+    })
+}
+```
 ### Obtain the action device list
 
 When adding tasks, the device list of task shall be obtained.
+
+Objc:
 
 ```objc
 - (void)getActionDeviceList {
@@ -139,9 +270,25 @@ When adding tasks, the device list of task shall be obtained.
 	}];
 }
 ```
+
+Swift:
+
+```swift
+func getActionDeviceList() {
+    TuyaSmartSceneManager.sharedInstance()?.getActionDeviceList(withHomeId: homeId, success: { (list) in
+        print("get action device list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get action device list failure: \(e)")
+        }
+    })
+}
+```
 ### Obtain the condition device list
 
 Except for meteorological conditions such as temperature, humidity and weather, etc., the device can also be a condition. The condition device list shall be obtained, and one device that is carrying out some tasks will be used as a condition.
+
+Objc:
 
 ```objc
 - (void)getConditionDeviceList {
@@ -153,9 +300,25 @@ Except for meteorological conditions such as temperature, humidity and weather, 
 }
 ```
 
+Swift:
+
+```swift
+func getConditionDeviceList() {
+    TuyaSmartSceneManager.sharedInstance()?.getConditionDeviceList(withHomeId: homeId, success: { (list) in
+        print("get condition device list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get condition device list failure: \(e)")
+        }
+    })
+}
+```
+
 ### Obtain the dp list of action device
 
 When adding or editing scene actions, the user needs to obtain the device dp list based on the deviceId of devices to select a dp function point so as to assign the action to the device.
+
+Objc:
 
 ```objc
 - (void)getActionDeviceDPList {
@@ -167,9 +330,25 @@ When adding or editing scene actions, the user needs to obtain the device dp lis
 }
 ```
 
+Swift:
+
+```swift
+func getActionDeviceDPList() {
+    TuyaSmartSceneManager.sharedInstance()?.getActionDeviceDPList(withDevId: "your_device_id", success: { (list) in
+        print("get action device dp list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get action device dp list failure: \(e)")
+        }
+    })
+}
+```
+
 ### Obtain the dp list of condition device
 
 When selecting scene conditions, the user needs to obtain the device dp list based on the deviceId to select a dp function point so that the operation of the dp function of a device can be used as the condition of the scene.
+
+Objc:
 
 ```objc
 - (void)getCondicationDeviceDPList {
@@ -181,9 +360,25 @@ When selecting scene conditions, the user needs to obtain the device dp list bas
 }
 ```
 
+Swift:
+
+```swift
+func getCondicationDeviceDPList() {
+    TuyaSmartSceneManager.sharedInstance()?.getCondicationDeviceDPList(withDevId: "your_device_id", success: { (list) in
+        print("get condition device dp list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get condition device dp list failure: \(e)")
+        }
+    })
+}
+```
+
 ### Obtain the city list
 
 When selecting meteorological conditions for scene, user can obtain the city list according to the country code. The user can select the city he is currently in. (Note: city list of some foreign countries may be incomplete temporarily. If you are not in China, it is recommended that you obtain the city information according to the altitude and longitude.)
+
+Objc:
 
 ```objc
 - (void)getCityList {
@@ -195,7 +390,23 @@ When selecting meteorological conditions for scene, user can obtain the city lis
 }
 ```
 
+Swift:
+
+```swift
+func getCityList() {
+    TuyaSmartSceneManager.sharedInstance()?.getCityList(withCountryCode: "your_country_code", success: { (list) in
+        print("get city list success: \(list)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get city list failure: \(e)")
+        }
+    })
+}
+```
+
 ### Obtain the city information according to the altitude and longitude of city
+
+Objc:
 
 ```objc
 - (void)getCityInfo {
@@ -204,6 +415,20 @@ When selecting meteorological conditions for scene, user can obtain the city lis
 	} failure:^(NSError *error) {
 		NSLog(@"get city info failure:%@", error);
 	}];
+}
+```
+
+Swift:
+
+```swift
+func getCityInfo() {
+    TuyaSmartSceneManager.sharedInstance()?.getCityInfo(withLatitude: "your_location_latitude", longitude: "your_location_longitude", success: { (city) in
+        print("get city info success: \(city)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get city info failure: \(e)")
+        }
+    })
 }
 ```
 ### Obtain the city information according to the city id.
@@ -220,8 +445,24 @@ Obtain the city information according to the city id. The city id can be attaine
 }
 ```
 
+Swift:
+
+```swift
+func getCityInfo() {
+    TuyaSmartSceneManager.sharedInstance()?.getCityInfo(withCityId: "your_city_id", success: { (city) in
+        print("get city info success: \(city)")
+    }, failure: { (error) in
+        if let e = error {
+            print("get city info failure: \(e)")
+        }
+    })
+}
+```
+
 ### Sort scene
 
+
+Objc:
 
 ```objc
 - (void) sortScene {
@@ -233,91 +474,20 @@ Obtain the city information according to the city id. The city id can be attaine
 }
 ```
 
+Swift:
 
-## Scene operation
-
-The `TuyaSmartScene` class provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the `sceneId` of the `TuyaSmartSceneModel`, and it can be obtained from the scene list.
-
-### Add scenes
-
-User needs to upload the name of scene, Id of home, url of background pictures, showing the picture in the home page or not, task list (one at least) and determine carrying out task(s) when one or multiple conditions are met when he/she add a scene. The user can just set the name, tasks, background picture, but he/she has to set conditions manually.
-
-
-```objc
-- (void)addSmartScene {
-
-    [TuyaSmartScene addNewSceneWithName:@"your_scene_name" homeId:homeId background:@"background_url" showFirstPage:YES conditionList:(NSArray<TuyaSmartSceneConditionModel *> *) actionList:(NSArray<TuyaSmartSceneActionModel *> *) matchType:TuyaSmartConditionMatchAny success:^(TuyaSmartSceneModel *sceneModel) {
-        NSLog(@"add scene success %@:", sceneModel);
-    } failure:^(NSError *error) {
-        NSLog(@"add scene failure: %@", error);
-    }];
-}
-
-```
-### Edit scene
-
-User needs to edit the name of scene, background pictures, condition list, task list, and determine carrying out task(s) when one or multiple conditions are met.
-
-```objc
-- (void)modifySmartScene {
-//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-    [self.smartScene modifySceneWithName:name background:@"background_url" showFirstPage:YES condition:(NSArray<TuyaSmartSceneConditionModel *> *) actionList:(NSArray<TuyaSmartSceneActionModel *> *) matchType:TuyaSmartConditionMatchAny success:^{
-        NSLog(@"modify scene success");
-    } failure:^(NSError *error) {
-        NSLog(@"modify scene failure: %@", error);
-    }];
-}
-```
-### Delete scene
-
-```objc
-- (void)deleteSmartScene {
-//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-    [self.smartScene deleteSceneWithSuccess:^{
-        NSLog(@"delete scene success");
-    } failure:^(NSError *error) {
-        NSLog(@"delete scene failure: %@", error);
-    }];
-}
-```
-### Execute scene
-
-```objc
-- (void)executeSmartScene {
-//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-    [self.smartScene executeSceneWithSuccess:^{
-        NSLog(@"execute scene success");
-    } failure:^(NSError *error) {
-        NSLog(@"execute scene failure: %@", error);
-    }];
+```swift
+func sortScene() {
+    TuyaSmartSceneManager.sharedInstance()?.sortScene(withHomeId: homeId, sceneIdList: ["sceneId list"], success: {
+        print("sort scene success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sort scene failure: \(e)")
+        }
+    })
 }
 ```
 
-### Enable scene (scene with at least one condition can be enabled or disabled)
-
-```objc
-- (void)enableSmartScene {
-//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-    [self.smartScene enableSceneWithSuccess:^{
-        NSLog(@"enable scene success");
-    } failure:^(NSError *error) {
-        NSLog(@"enable scene failure: %@", error);
-    }];
-}
-```
-
-### Disable scene (scene with at least one condition can be enabled or disabled)
-
-```objc
-- (void)disableSmartScene {
-//    self.smartScene = [TuyaSmartScene sceneWithSceneId:@"your_scene_id"];
-    [self.smartScene disableSceneWithSuccess:^{
-        NSLog(@"disable scene success");
-    } failure:^(NSError *error) {
-        NSLog(@"disable scene failure: %@", error);
-    }];
-}
-```
 ## Emample
 #### Scene Condition
 ##### Create an object for `TuyaSmartSceneConditionModel`

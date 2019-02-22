@@ -18,13 +18,7 @@
 在`Podfile`文件中添加以下内容：
 
 ```ruby
-platform :ios, '8.0'
-
-target 'your_target_name' do
-
-   pod "TuyaSmartHomeKit", :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git"
-
-end
+pod "TuyaSmartHomeKit"
 ```
 
 然后在项目根目录下执行`pod update`命令，集成第三方库。
@@ -36,6 +30,12 @@ CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
 在项目的`PrefixHeader.pch`文件添加以下内容：
 
 ```objc
+#import <TuyaSmartHomeKit/TuyaSmartKit.h>
+```
+
+Swift 项目可以添加在 `xxx_Bridging-Header.h` 桥接文件中添加以下内容
+
+```
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
 ```
 

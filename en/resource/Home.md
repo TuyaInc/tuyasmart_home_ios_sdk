@@ -6,6 +6,8 @@ After login, user shall use the `TuyaSmartHomeManager to obtain` information of 
 
 After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can proceed operations in the home list change.
 
+Objc:
+
 ```objc
 #pragma mark - TuyaSmartHomeManagerDelegate
 
@@ -26,12 +28,38 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 }
 ```
 
+Swift:
+
+```swift
+extension ViewController: TuyaSmartHomeManagerDelegate {
+    
+    // Add a home
+    func homeManager(_ manager: TuyaSmartHomeManager!, didAddHome home: TuyaSmartHomeModel!) {
+        
+    }
+    
+    // Delete a home
+    func homeManager(_ manager: TuyaSmartHomeManager!, didRemoveHome homeId: Int64) {
+        
+    }
+    
+    // The MQTT connection succeeds.
+    func serviceConnectedSuccess() {
+        // Update the current home UI
+    }
+    
+}
+```
+
+
 ### Obtain the home list.
+
+Objc:
 
 ```objc
 - (void)getHomeList {
 
-    [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
+	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
         // home list
     } failure:^(NSError *error) {
         NSLog(@"get home list failure: %@", error);
@@ -39,7 +67,25 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 }
 ```
 
+Swift:
+
+```swift
+let homeManager: TuyaSmartHomeManager = TuyaSmartHomeManager()
+
+func getHomeList() {
+    homeManager.getHomeList(success: { (homes) in
+        // home list
+    }) { (error) in
+        if let e = error {
+            print("get home list failure: \(e)")
+        }
+    }
+}
+```
+
 ### Add home
+
+Objc:
 
 ```objc
 - (void)addHome {
@@ -51,11 +97,26 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
                         longitude:lon
                           success:^(double homeId) {
 
-        // homeId : create homeId of home
+        // homeId 创建的家庭的homeId
         NSLog(@"add home success");
     } failure:^(NSError *error) {
         NSLog(@"add home failure: %@", error);
     }];
+}
+```
+
+Swift:
+
+```swift
+ func addHome() {
+    homeManager.addHome(withName: "you_home_name", geoName: "city_name", rooms: ["room_name"], latitude: lat, longitude: lon, success: { (homeId) in
+        // homeId 创建的家庭的homeId
+        print("add home success")
+    }) { (error) in
+        if let e = error {
+            print("add home failure: \(e)")
+        }
+    }
 }
 ```
 
@@ -69,6 +130,7 @@ The home ID needs to be used to initiate all TuyaSmartHome classes related to al
 
 After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can proceed operations in the home information change.
 
+Objc:
 ```objc
 - (void)initHome {
     self.home = [TuyaSmartHome homeWithHomeId:homeId];
@@ -127,7 +189,7 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
     [self reload];
 }
 
-// Momove group.
+// Remove group.
 - (void)home:(TuyaSmartHome *)home didRemoveGroup:(NSString *)groupId {
     [self reload];
 }
@@ -137,13 +199,88 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
     [self reload];
 }
 ```
+Swift:
+
+```swift
+var home: TuyaSmartHome?
+
+extension ViewController: TuyaSmartHomeDelegate {
+    
+    func initHome() {
+        home = TuyaSmartHome(homeId: homeId)
+        home?.delegate = self
+    }
+    
+    // Update information of home, such as name.
+    func homeDidUpdateInfo(_ home: TuyaSmartHome!) {
+//        reload()
+    }
+    // The change of relation between home and room.
+    func homeDidUpdateRoomInfo(_ home: TuyaSmartHome!) {
+//        reload()
+    }
+    
+    // Received change of shared device list.
+    func homeDidUpdateSharedInfo(_ home: TuyaSmartHome!) {
+        
+    }
+    
+    // room information change, such as name.
+    func home(_ home: TuyaSmartHome!, roomInfoUpdate room: TuyaSmartRoomModel!) {
+//        reload()/
+    }
+    
+    // The change of relation between  room and devices and group.
+    func home(_ home: TuyaSmartHome!, roomRelationUpdate room: TuyaSmartRoomModel!) {
+        
+    }
+    
+    // Add device
+    func home(_ home: TuyaSmartHome!, didAddDeivice device: TuyaSmartDeviceModel!) {
+        
+    }
+    
+    // Remove Device
+    func home(_ home: TuyaSmartHome!, didRemoveDeivice devId: String!) {
+        
+    }
+    
+    // Update information of device, such as name.
+    func home(_ home: TuyaSmartHome!, deviceInfoUpdate device: TuyaSmartDeviceModel!) {
+        
+    }
+    
+    // Update dp data of device.
+    func home(_ home: TuyaSmartHome!, group: TuyaSmartGroupModel!, dpsUpdate dps: [AnyHashable : Any]!) {
+        
+    }
+    
+    // Add group.
+    func home(_ home: TuyaSmartHome!, didAddGroup group: TuyaSmartGroupModel!) {
+        
+    }
+    
+    // Remove group.
+    func home(_ home: TuyaSmartHome!, didRemoveGroup groupId: String!) {
+        
+    }
+    
+    // Update information of group, such as name.
+    func home(_ home: TuyaSmartHome!, groupInfoUpdate group: TuyaSmartGroupModel!) {
+        
+    }
+    
+}
+```
 
 ### Obtain information of home.
+
+Objc:
 
 ```objc
 - (void)getHomeDetailInfo {
 
-    [self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
+	[self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
         // homeModel home information
         NSLog(@"get home detail success");
     } failure:^(NSError *error) {
@@ -152,7 +289,23 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
 }
 ```
 
+Swift:
+
+```swift
+func getHomeDetailInfo() {
+    home?.getDetailWithSuccess({ (homeModel) in
+        print("get home detail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("get home detail failure: \(e)")
+        }
+    })
+}
+```
+
 ### Update home information
+
+Objc:
 
 ```objc
 - (void)updateHomeInfo {
@@ -165,12 +318,28 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
 
 ```
 
+Swift:
+
+```swift
+func updateHomeInfo() {
+    home?.updateInfo(withName: "new_home_name", geoName: "city_name", latitude: lat, longitude: lon, success: {
+        print("update home info success")
+    }, failure: { (error) in
+        if let e = error {
+            print("update home info failure: \(e)")
+        }
+    })
+}
+```
+
 ### Dismiss home
+
+Objc:
 
 ```objc
 - (void)dismissHome {
 
-    [self.home dismissHomeWithSuccess:^() {
+	[self.home dismissHomeWithSuccess:^() {
         NSLog(@"dismiss home success");
     } failure:^(NSError *error) {
         NSLog(@"dismiss home failure: %@", error);
@@ -178,7 +347,23 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
 }
 ```
 
+Swift:
+
+```swift
+func dismissHome() {
+    home?.dismiss(success: {
+        print("dismiss home success")
+    }, failure: { (error) in
+        if let e = error {
+            print("dismiss home failure: \(e)")
+        }
+    })
+}
+```
+
 ### Add room
+
+Objc:
 
 ```objc
 - (void)addHomeRoom {
@@ -190,7 +375,23 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
 }
 ```
 
+Swift:
+
+```swift
+func addHomeRoom() {
+    home?.addRoom(withName: "room_name", success: {
+        print("add room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("add room failure: \(e)")
+        }
+    })
+}
+```
+
 ### Remove room
+
+Objc:
 
 ```objc
 - (void)removeHomeRoom {
@@ -202,7 +403,23 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
 }
 ```
 
+Swift:
+
+```swift
+func removeHomeRoom() {
+    home?.removeRoom(withRoomId: roomId, success: {
+        print("remove room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("remove room failure: \(e)")
+        }
+    })
+}
+```
+
 ### Sort room
+
+Objc:
 
 ```objc
 - (void)sortHomeRoom {
@@ -214,12 +431,28 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
 }
 ```
 
+Swift:
+
+```swift
+func sortHomeRoom() {
+    home?.sortRoomList([TuyaSmartRoomModel]!, success: {
+        print("sort room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sort room failure: \(e)")
+        }
+    })
+}
+```
+
 
 ## Room information management
 
 The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to all functions for room information management. Wrong roomId may cause initiation failure, and the `nil` will be returned.
 
 ### Update room name
+
+Objc:
 
 ```objc
 - (void)updateRoomName {
@@ -231,7 +464,23 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 }
 ```
 
+Swift:
+
+```swift
+func updateRoomName() {
+    room?.updateName("new_room_name", success: {
+        print("update room name success")
+    }, failure: { (error) in
+        if let e = error {
+            print("update room name failure: \(e)")
+        }
+    })
+}
+```
+
 ### Add device to a room
+
+Objc:
 
 ```objc
 - (void)addDevice {
@@ -243,7 +492,23 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 }
 ```
 
+Swift:
+
+```swift
+func addDevice() {
+    room?.addDevice(withDeviceId: "your_devId", success: {
+        print("add device to room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("add device to room failure: \(e)")
+        }
+    })
+}
+```
+
 ### Remove device from a room
+
+Objc:
 
 ```objc
 - (void)removeDevice {
@@ -255,7 +520,23 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 }
 ```
 
+Swift:
+
+```swift
+func removeDevice() {
+    room?.removeDevice(withDeviceId: "your_devId", success: {
+        print("remove device from room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("remove device from room failure: \(e)")
+        }
+    })
+}
+```
+
 ### Add group in a room
+
+Objc:
 
 ```objc
 - (void)addGroup {
@@ -267,7 +548,23 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 }
 ```
 
+Swift:
+
+```swift
+func addGroup() {
+    room?.addGroup(withGroupId: "your_groupId", success: {
+        print("add group to room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("add group to room failure: \(e)")
+        }
+    })
+}
+```
+
 ### Remove group in a room
+
+Objc:
 
 ```objc
 - (void)removeGroup {
@@ -279,7 +576,23 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 }
 ```
 
+Swift:
+
+```swift
+func removeGroup() {
+    room?.removeGroup(withDeviceId: "your_devId", success: {
+        print("remove device from room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("remove device from room failure: \(e)")
+        }
+    })
+}
+```
+
 ### Change relation between room and group and devices in batches.
+
+Objc:
 
 ```objc
 - (void)saveBatchRoomRelation {
@@ -288,5 +601,19 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
     } failure:^(NSError *error) {
         NSLog(@"save batch room relation failure: %@", error);
     }];
+}
+```
+
+Swift:
+
+```swift
+func saveBatchRoomRelation() {
+    room?.saveBatchRoomRelation(withDeviceGroupList: [String]!, success: {
+        print("save batch room relation success")
+    }, failure: { (error) in
+        if let e = error {
+            print("save batch room relation failure: \(e)")
+        }
+    })
 }
 ```

@@ -19,6 +19,8 @@ Registration with mobile phone takes two steps:
 
 - Send the verification code to mobile phone.
 
+Objc:
+
 ```objc
 - (void)sendVerifyCode {
 	[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:1 success:^{
@@ -29,7 +31,25 @@ Registration with mobile phone takes two steps:
 }
 ```
 
+Swift:
+
+```swift
+func sendVerifyCode() {
+    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
+        print("sendVerifyCode success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCode failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 - Use the verification code for registration after it is received on the mobile phone.
+
+Objc:
 
 ```objc
 - (void)registerByPhone {
@@ -41,9 +61,27 @@ Registration with mobile phone takes two steps:
 }
 ```
 
+Swift:
+
+```swift
+func registerByPhone() {
+    TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumber: "your_phone_number", password: "your_password", code: "verify_code", success: {
+        print("register success")
+    }, failure: { (error) in
+        if let e = error {
+            print("register failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### Registration with email (do not need the verification code)
 
 The verification code is not required in registration with email.
+
+Objc:
 
 ```objc
 - (void)registerByEmail {
@@ -55,11 +93,29 @@ The verification code is not required in registration with email.
 }
 ```
 
+Swift:
+
+```swift
+func registerByEmail() {
+    TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "your_email", password: "your_password", success: {
+        print("register success")
+    }, failure: { (error) in
+        if let e = error {
+            print("register failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 #### Registration with email 2.0 (verification code is required.)
 
 Registration with email takes two steps:
 
 - Send the verification code to an email.
+
+Objc:
 
 ```objc
 - (void)sendVerifyCode {
@@ -71,7 +127,23 @@ Registration with email takes two steps:
 }
 ```
 
+Swift:
+
+```swift
+ func sendVerifyCode() {
+     TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "country_code", email: "email", success: {
+        print("sendVerifyCode success")
+     }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCode failure: \(e)")
+        }
+    })
+ }
+```
+
 - Use the verification code for registration after it is received in the email.
+
+Objc:
 
 ```objc
 - (void)registerByEmail {
@@ -82,6 +154,21 @@ Registration with email takes two steps:
     }];
 }
 ```
+
+Swift:
+
+```swift
+func registerByEmail() {
+    TuyaSmartUser.sharedInstance()?.register(byEmail: "country_code", email: "email", password: "password", code: "verify_code", success: {
+        print("register success")
+    }, failure: { (error) in
+        if let e = error {
+            print("register failure: \(e)")
+        }
+    })
+}
+```
+
 
 
 ### User Login
@@ -99,6 +186,8 @@ The process of verification code login with mobile phone is similar to that of r
 
 - Send verification code:
 
+Objc:
+
 ```objc
 - (void)sendVerifyCode {
 	[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:0 success:^{
@@ -109,7 +198,25 @@ The process of verification code login with mobile phone is similar to that of r
 }
 ```
 
+Swift:
+
+```swift
+func sendVerifyCode() {
+    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 0, success: {
+        print("sendVerifyCode success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCode failure: \(e)")
+        }
+    })
+}
+```
+
+
+
 - Login:
+
+Objc:
 
 ```objc
 - (void)loginByPhoneAndCode {
@@ -120,12 +227,27 @@ The process of verification code login with mobile phone is similar to that of r
 	}];
 }
 ```
+Swift:
+
+```swift
+func loginByPhoneAndCode() {
+    TuyaSmartUser.sharedInstance()?.login("your_country_code", phoneNumber: "your_phone_number", code: "verify_code", success: {
+        print("login success")
+    }, failure: { (error) in
+      	if let e = error {
+            print("login failure: \(e)")
+        }
+    })
+}
+```
 
 #### Password login (registration is required)
 
+Objc:
+
 ```objc
 - (void)loginByPhoneAndPassword {
-	[[TuyaSmartUser sharedInstance] loginByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" success:^{
+        [[TuyaSmartUser sharedInstance] loginByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" success:^{
 		NSLog(@"login success");
 	} failure:^(NSError *error) {
 		NSLog(@"login failure: %@", error);
@@ -133,7 +255,23 @@ The process of verification code login with mobile phone is similar to that of r
 }
 ```
 
+Swift:
+
+```swift
+func loginByPhoneAndPassword() {
+    TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber: "your_phone_number", password:"your_password", success: {
+        print("login success")
+    }, failure: { (error) in
+        if let e = error {
+            print("login failure: \(e)")
+        }
+    })
+}
+```
+
 #### Email login
+
+Objc:
 
 ```objc
 - (void)loginByEmail {
@@ -145,12 +283,27 @@ The process of verification code login with mobile phone is similar to that of r
 }
 ```
 
+Swift:
+
+```swift
+func loginByEmail() {
+    TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your_email", password: "your_password", success: {
+        print("login success")
+    }, failure: { (error) in
+        if let e = error {
+           	print("login failure: \(e)")
+        }
+    })
+}
+```
+
 
 ### Third Party Login
 
 User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya developer platform` – `App development` – `Third-party login`. The client shall be developed according to requirements of all platforms. After corresponding code is obtained, relevant login interface of tuyaSDK shall be invoked.
 
 #### Login on Wechat
+Objc:
 ```objc
 - (void)loginByWechat {
   	/**
@@ -169,8 +322,30 @@ User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya devel
 }
 
 ```
+Swift:
+
+```swift
+func loginByWechat() {
+    /**
+	 *  Login on Wechat
+	 *
+	 *  @param countryCode Country code
+	 *  @param code The code obtained from login authorized by Wechat.
+	 *  @param success Callback of successful operation.
+	 *  @param failure Callback of failed operation.
+	 */
+    TuyaSmartUser.sharedInstance()?.login(byWechat: "your_country_code", code: "wechat_code", success: {
+        print("login success")
+    }, failure: { (error) in
+        if let e = error {
+            print("login failure: \(e)")
+        }
+    })
+}
+```
 
 #### Login on QQ
+Objc:
 ```objc
 - (void)loginByQQ {
     /**
@@ -191,8 +366,32 @@ User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya devel
 }
 
 ```
+Swift:
+
+```swift
+ func loginByQQ() {
+     /**
+	 *  QQ登录
+	 *
+	 *  @param countryCode 国家区号
+	 *  @param userId QQ授权登录获取的userId
+	 *  @param accessToken QQ授权登录获取的accessToken
+	 *  @param success 操作成功回调
+	 *  @param failure 操作失败回调
+	 */
+    TuyaSmartUser.sharedInstance()?.login(byQQ: "your_country_code", userId: "qq_open_id", accessToken: "access_token", success: {
+        print("login success")
+    }, failure: { (error) in
+        if let e = error {
+            print("login failure: \(e)")
+        }
+    })
+}
+```
 
 #### Login on Facebook
+Objc:
+
 ```objc
 - (void)loginByFacebook {
 	/**
@@ -212,7 +411,31 @@ User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya devel
 
 ```
 
+Swift:
+
+```swift
+ func loginByFacebook() {
+     /**
+	 *  facebook登录
+	 *
+	 *  @param countryCode 国家区号
+	 *  @param token facebook授权登录获取的token
+	 *  @param success 操作成功回调
+	 *  @param failure 操作失败回调
+	 */
+    TuyaSmartUser.sharedInstance()?.login(byFacebook: "your_country_code", token: "facebook_token", success: {
+        print("login success")
+    }, failure: { (error) in
+        if let e = error {
+            print("login failure: \(e)")
+        }
+    })
+}
+```
+
 #### Login by Twitter
+Objc:
+
 ```objc
 
 - (void)loginByTwitter {
@@ -234,6 +457,29 @@ User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya devel
 }
 ```
 
+Swift:
+
+```swift
+func loginByTwitter() {
+    /**
+	 *  twitter登录
+	 *
+	 *  @param countryCode 国家区号
+	 *  @param key twitter授权登录获取的key
+	 *  @param secret twitter授权登录获取的secret
+	 *  @param success 操作成功回调
+	 *  @param failure 操作失败回调
+	 */
+    TuyaSmartUser.sharedInstance()?.login(byTwitter: "your_country_code", key: "twitter_key", secret: "twitter_secret", success: {
+       	print("login success")
+    }, failure: { (error) in
+        if let e = error {
+            print("login failure: \(e)")
+        }
+    })
+}
+```
+
 
 ### Resetting Password by User
 
@@ -242,6 +488,8 @@ User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya devel
 The process of resetting password by using mobile phone is similar to that of registration with mobile phone.
 
 - Send verification code:
+
+Objc:
 
 ```objc
 - (void)sendVerifyCode {
@@ -253,7 +501,23 @@ The process of resetting password by using mobile phone is similar to that of re
 }
 ```
 
+Swift:
+
+```swift
+func sendVerifyCode() {
+    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 2, success: {
+        print("sendVerifyCode success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCode failure: \(e)")
+        }
+    })
+}
+```
+
 - Reset password:
+
+Objc:
 
 ```objc
 - (void)resetPasswordByPhone {
@@ -265,11 +529,27 @@ The process of resetting password by using mobile phone is similar to that of re
 }
 ```
 
+Swift:
+
+```swift
+func resetPasswordByPhone() {
+    TuyaSmartUser.sharedInstance()?.resetPassword(byPhone: "your_country_code", phoneNumber: "your_phone_number", newPassword: "your_password", code: "verify_code", success: {
+        print("resetPasswordByPhone success")
+    }, failure: { (error) in
+        if let e = error {
+            print("resetPasswordByPhone failure: \(e)")
+        }
+    })
+}
+```
+
 #### Reset email password
 
 Resetting password by using email takes two steps:
 
 - Send the verification code to an email.
+
+Objc:
 
 ```objc
 - (void)sendVerifyCodeByEmail {
@@ -281,7 +561,23 @@ Resetting password by using email takes two steps:
 }
 ```
 
+Swift:
+
+```swift
+func sendVerifyCodeByEmail() {
+    TuyaSmartUser.sharedInstance()?.sendVerifyCode(byEmail: "your_country_code", email: "your_email", success: {
+        print("sendVerifyCodeByEmail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCodeByEmail failure: \(e)")
+        }
+    })
+}
+```
+
 - Use the verification code to reset password after the verification code is received.
+
+Objc:
 
 ```objc
 - (void)resetPasswordByEmail {
@@ -293,8 +589,24 @@ Resetting password by using email takes two steps:
 }
 ```
 
+Swift:
+
+```swift
+func resetPasswordByEmail() {
+    TuyaSmartUser.sharedInstance()?.resetPassword(byEmail: "your_country_code", email: "your_email", newPassword: "your_password", code: "verify_code", success: {
+        print("resetPasswordByEmail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("resetPasswordByEmail failure: \(e)")
+        }
+    })
+}
+```
+
 
 ### Modify nickname
+
+Objc:
 
 ```objc
 - (void)modifyNickname:(NSString *)nickname {
@@ -306,7 +618,23 @@ Resetting password by using email takes two steps:
 }
 ```
 
+Swift:
+
+```swift
+func modifyNickname(_ nickName: String) {
+    TuyaSmartUser.sharedInstance()?.updateNickname(nickName, success: {
+        print("updateNickname success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateNickname failure: \(e)")
+        }
+    })
+}
+```
+
 ### Update timezone
+
+Objc:
 
 ```objc
 - (void)updateTimeZoneId:(NSString *)timeZoneId {
@@ -318,7 +646,23 @@ Resetting password by using email takes two steps:
 }
 ```
 
+Swift:
+
+```swift
+func updateTimeZoneId(_ timeZoneId: String) {
+    TuyaSmartUser.sharedInstance()?.updateTimeZone(withTimeZoneId: timeZoneId, success: {
+        print("update timeZoneId success")
+    }, failure: { (error) in
+        if let e = error {
+            print("update timeZoneId failure: \(e)")
+        }
+    })
+}
+```
+
 ### Logout
+
+Objc:
 
 ```objc
 - (void)loginOut {
@@ -330,9 +674,25 @@ Resetting password by using email takes two steps:
 }
 ```
 
+Swift:
+
+```swift
+func loginOut() {
+    TuyaSmartUser.sharedInstance()?.loginOut({
+        print("logOut success")
+    }, failure: { (error) in
+        if let e = error {
+            print("logOut failure: \(e)")
+        }
+    })
+}
+```
+
 ### Disable account (deregister user)
 After one week, the account will be permanently disabled, and all information in the account will be deleted. If you log in to the account again before it is permanently disabled, your deregistration will be canceled.
 
+
+Objc:
 
 ```objc
 - (void)cancelAccount {
@@ -344,10 +704,26 @@ After one week, the account will be permanently disabled, and all information in
 }
 ```
 
+Swift:
+
+```swift
+func cancelAccount() {
+    TuyaSmartUser.sharedInstance()?.cancelAccount({
+        print("cancel account success")
+    }, failure: { (error) in
+        if let e = error {
+            print("cancel account failure: \(e)")
+        }
+    })
+}
+```
+
 ### Handling of Expired Session
 
 If you have not logged in to your account for a long time, the session expiration error will be returned when you access the server interface. You have to monitor the notification of the 	`TuyaSmartUserNotificationUserSessionInvalid` and log in to the account again after the login page is displayed.
 
+
+Objc:
 
 ```objc
 
@@ -368,3 +744,23 @@ If you have not logged in to your account for a long time, the session expiratio
 	}
 }
 ```
+
+Swift:
+
+```swift
+func loadNotification() {
+    NotificationCenter.default.addObserver(self, selector: #selector(sessionInvalid), name: NSNotification.Name(rawValue: "TuyaSmartUserNotificationUserSessionInvalid"), object: nil)
+}
+    
+@objc func sessionInvalid() {
+    guard TuyaSmartUser.sharedInstance()?.isLogin == true else {
+        return
+    }
+        
+    print("sessionInvalid")
+    // 注销用户
+    TuyaSmartUser.sharedInstance()?.loginOut(nil, failure: nil)
+    //跳转至登录页面
+}
+```
+

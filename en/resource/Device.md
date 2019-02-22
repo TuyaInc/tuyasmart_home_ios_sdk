@@ -6,6 +6,8 @@ The device ID needs to be used to initiate all `TuyaSmartDevice` classes related
 
 #### Update single device information
 
+Objc:
+
 ```objc
 - (void)updateDeviceInfo {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
@@ -14,9 +16,23 @@ The device ID needs to be used to initiate all `TuyaSmartDevice` classes related
 	[self.device syncWithCloud:^{
 		NSLog(@"syncWithCloud success");
 		NSLog(@"deviceModel: %@", weakSelf.device.deviceModel);
-	} failure:^{
+	} failure:^(NSError *error) {
 		NSLog(@"syncWithCloud failure");
 	}];
+}
+```
+
+Swift:
+
+```swift
+func updateDeviceInfo() {
+    device?.sync(cloud: {
+        print("syncWithCloud success")
+    }, failure: { (error) in
+        if let e = error {
+            print("syncWithCloud failure: \(e)")
+        }
+    })
 }
 ```
 
@@ -33,6 +49,8 @@ The control instructions shall be sent in the format given below:
 `{"<dpId>":"<dpValue>"}`
 
 According to the definition of function points of the product in the back end, the example codes are as follows.
+
+Objc:
 
 ```objc
 - (void)publishDps {
@@ -69,6 +87,24 @@ According to the definition of function points of the product in the back end, t
 
 }
 ```
+Swift:
+
+```swift
+func publishDps() {
+    var dps = [String : Any]()
+ 
+    // dp 可参考具体产品定义
+    device?.publishDps(dps, success: {
+ 	    print("publishDps success")
+        
+        //下发成功，状态上报通过 deviceDpsUpdate方法 回调
+    }, failure: { (error) in
+        if let e = error {
+            print("publishDps failure: \(e)")
+        }
+    })
+}
+```
 
 ##### Precautions:
 
@@ -81,6 +117,8 @@ For more concepts of function points, please refer to the [QuickStart-Related Co
 #### Update device status
 
 After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
+
+Objc:
 
 ```objc
 - (void)initDevice {
@@ -105,7 +143,33 @@ After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can upda
 
 ```
 
+Swift:
+
+```swift
+func initDevice() {
+    device = TuyaSmartDevice(deviceId: "your_device_id")
+    device?.delegate = self
+}
+
+// MARK: - TuyaSmartDeviceDelegate
+
+func device(_ device: TuyaSmartDevice!, dpsUpdate dps: [AnyHashable : Any]!) {
+    print("deviceDpsUpdate: \(dps)")
+    // TODO: 刷新界面UI
+}
+
+func deviceInfoUpdate(_ device: TuyaSmartDevice!) {
+    //当前设备信息更新 比如 设备名、设备在线状态等
+}
+
+func deviceRemoved(_ device: TuyaSmartDevice!) {
+    //当前设备被移除
+}
+```
+
 ### Modify the device name
+
+Objc:
 
 ```objc
 - (void)modifyDeviceName:(NSString *)mame {
@@ -119,9 +183,25 @@ After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can upda
 }
 ```
 
+Swift:
+
+```swift
+func modifyDeviceName(_ name: String) {
+    device?.updateName(name, success: {
+        print("updateName success")
+    }, failure: { (error) in
+        if let e = error {
+            print("updateName failure: \(e)")
+        }
+    })
+}
+```
+
 ### Remove device
 
 After a device is removed, it will be in the to-be-network-configured status (quick connection mode).
+
+Objc:
 
 ```objc
 - (void)removeDevice {
@@ -135,10 +215,26 @@ After a device is removed, it will be in the to-be-network-configured status (qu
 }
 ```
 
+Swift:
+
+```swift
+func removeDevice() {
+    device?.remove({
+        print("remove success")
+    }, failure: { (error) in
+        if let e = error {
+            print("remove failure: \(e)")
+        }
+    })
+}
+```
+
 ### Obtain Wifi signal strength of device
 
+Objc:
+
 ```objc
-- (void)removeDevice {
+- (void)getWifiSignalStrength {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
     // self.device.delegate = self;
 
@@ -156,7 +252,28 @@ After a device is removed, it will be in the to-be-network-configured status (qu
 }
 ```
 
+Swift:
+
+```swift
+func getWifiSignalStrength() {
+    self.device?.getWifiSignalStrength(success: {
+        print("get wifi signal strength success")
+    }, failure: { (error) in
+        if let e = error {
+            print("get wifi signal strength failure: \(e)")
+        }
+    })
+}
+
+// MARK: - TuyaSmartDeviceDelegate
+func device(_ device: TuyaSmartDevice!, signal: String!) {
+
+}
+```
+
 ### Obtain the sub-device list of a gateway
+
+Objc:
 
 ```objc
 - (void)getSubDeviceList {
@@ -170,6 +287,20 @@ After a device is removed, it will be in the to-be-network-configured status (qu
 }
 ```
 
+Swift:
+
+```swift
+func getSubDeviceList() {
+    device?.getSubDeviceListFromCloud(success: { (subDeviceList) in
+        print("get sub device list success")
+    }, failure: { (error) in
+        if let e = error {
+            print("get sub device list failure: \(e)")
+        }
+    })
+}
+```
+
 
 ### Firmware upgrade
 
@@ -178,6 +309,8 @@ After a device is removed, it will be in the to-be-network-configured status (qu
 Obtain device upgrade information -> send module upgrade instructions -> module upgrade succeeds -> send upgrade instructions to the device control module -> the upgrade of device control module succeeds
 
 #### Obtain device upgrade information:
+
+Objc:
 
 ```objc
 - (void)getFirmwareUpgradeInfo {
@@ -191,7 +324,23 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 }
 ```
 
+Swift:
+
+```swift
+func getFirmwareUpgradeInfo() {
+    device?.getFirmwareUpgradeInfo({ (upgradeModelList) in
+        print("getFirmwareUpgradeInfo success")
+    }, failure: { (error) in
+        if let e = error {
+            print("getFirmwareUpgradeInfo failure: \(e)")
+        }
+    })
+}
+```
+
 #### Send upgrade instruction:
+
+Objc:
 
 ```objc
 - (void)upgradeFirmware {
@@ -207,7 +356,25 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 }
 ```
 
+Swift:
+
+```swift
+func upgradeFirmware() {
+    // 设备类型type 从获取设备升级信息接口 getFirmwareUpgradeInfo 返回的类型
+    // TuyaSmartFirmwareUpgradeModel - type
+    device?.upgradeFirmware(type, success: {
+        print("upgradeFirmware success")
+    }, failure: { (error) in
+        if let e = error {
+            print("upgradeFirmware failure: \(e)")
+        }
+    })
+}
+```
+
 #### Callback interface:
+Objc:
+
 ```objc
 - (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type {
 	//固件升级成功
@@ -220,6 +387,23 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 - (void)device:(TuyaSmartDevice *)device firmwareUpgradeProgress:(NSInteger)type progress:(double)progress {
 	//固件升级的进度
 }
+
+```
+
+Swift:
+
+```swift
+func deviceFirmwareUpgradeSuccess(_ device: TuyaSmartDevice!, type: Int) {
+    //固件升级成功
+}
+
+func deviceFirmwareUpgradeFailure(_ device: TuyaSmartDevice!, type: Int) {
+    //固件升级失败
+}
+
+func device(_ device: TuyaSmartDevice!, firmwareUpgradeProgress type: Int, progress: Double) {
+    //固件升级的进度
+}
 ```
 
 
@@ -228,6 +412,8 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 Get historical statistics of DP such as battery statistics and other information.
 
 #### Get all historical statistics of DP
+
+Objc:
 
 ```objc
 _request = [[TuyaSmartRequest alloc] init];
@@ -240,7 +426,22 @@ _request = [[TuyaSmartRequest alloc] init];
 
 ```
 
+Swift:
+
+```swift
+//  var request: TuyaSmartRequest?
+request = TuyaSmartRequest()
+
+request?.request(withApiName: "m.smart.dp.his.stat.get.all", postData: ["devId" : "your_devId", "dpId" : "device_dpId"], version: "1.0", success: { (result) in
+
+}, failure: { (error) in
+
+})
+```
+
 #### Get historical statistics of DP for one month
+
+Objc:
 
 ```objc
 _request = [[TuyaSmartRequest alloc] init];
@@ -250,4 +451,17 @@ _request = [[TuyaSmartRequest alloc] init];
 } failure:^(NSError *error) {
 
 }];
+```
+
+Swift:
+
+```swift
+// var request: TuyaSmartRequest?
+request = TuyaSmartRequest()
+
+request?.request(withApiName: "m.smart.dp.his.stat.get.month", postData: ["devId" : "your_devId", "dpId" : "device_dpId", "month" : "201809"], version: "1.0", success: { (result) in
+
+}, failure: { (error) in
+
+})
 ```
