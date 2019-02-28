@@ -232,15 +232,7 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 > mesh 的操作类集中在 `TYBLEMeshManager` 中，且此类为单例
 
-配网指的是将处于重置状态、未入网的设备，添加到 mesh 网中，以下是 mesh 两种设备的配网流程图
-
-![image-20190104194119724](./images/ios-mesh-sub-active.png)
-
-
-
-![image-20190104194313461](./images/ios-mesh-gw-active.png)
-
-
+配网指的是将处于重置状态、未入网的设备，添加到 mesh 网中
 
 下面列举了常用设备的重置方式
 
