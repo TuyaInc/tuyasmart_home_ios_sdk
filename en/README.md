@@ -9,11 +9,11 @@ Tuya Smart APP SDK provides the interface package for the communication with har
 
 - Hardware functions (network configuration, control, status reporting, regular tasks, groups, firmware upgrades, sharing)
 - Account system (phone number, email registration, login, password reset and other general account functions)
-- Tuya Cloud HTTP API interface package
+- Home system (home management, room management)
 
-## Rapid Integration
+## Fast Integration
 
-### Using CocoaPods integration (version 8.0 or above is supported)
+### Using CocoaPods
 
 Add the following content in file `Podfile`:
 
@@ -27,7 +27,11 @@ For the instructions of CocoaPods, please refer to: [CocoaPods Guides](https://g
 
 ## Initializing SDK
 
-Add the following to the project file `PrefixHeader.pch`：
+1. Open project setting, `Target => General`, edit `Bundle Identifier` to the value from Tuya develop center.
+
+2. Import security image to the project and rename as `t_s.bmp`, then add it into `Project Setting => Target => Build Phases => Copy Bundle Resources`.
+
+3. Add the following to the project file `PrefixHeader.pch`：
 
 ```objc
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
@@ -39,7 +43,7 @@ Swift project add the following to the `xxx_Bridging-Header.h` file:
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
 ```
 
-Open file `AppDelegate.m`，and use the `App ID` and `App Secret` obtained from the development platform in the `[AppDelegate application:didFinishLaunchingWithOptions:]`method to initialize SDK:
+4. Open file `AppDelegate.m`，and use the `App Key` and `App Secret` obtained from the development platform in the `[AppDelegate application:didFinishLaunchingWithOptions:]`method to initialize SDK:
 
 Objc:
 
@@ -53,7 +57,29 @@ Swift:
  TuyaSmartSDK.sharedInstance()?.start(withAppKey: <#your_app_key#>, secretKey: <#your_secret_key#>)
 ```
 
-Now all the preparatory work has been completed. You can set out to develop your application.
+Now all the prepare work has been completed. You can use the sdk to develop your application now.
 
 
+
+### Debug Mode
+
+During the development we can open debug mode, print the log to analyze some problem.
+
+Objc:
+
+```objc
+#ifdef DEBUG
+    [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
+#else
+#endif
+```
+
+Swift:
+
+```swift
+#if DEBUG
+   TuyaSmartSDK.sharedInstance()?.debugMode = true
+#else
+#endif
+```
 

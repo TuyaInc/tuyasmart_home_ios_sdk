@@ -26,7 +26,11 @@ CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
 
 ## 初始化SDK
 
-在项目的`PrefixHeader.pch`文件添加以下内容：
+1. 打开项目设置，Target => General，修改`Bundle Identifier`为涂鸦开发者平台对应的iOS包名
+
+2. 导入安全图片到工程根目录，重命名为`t_s.bmp`，并加入「项目设置 => Target => Build Phases => Copy Bundle Resources」中。
+
+3. 在项目的`PrefixHeader.pch`文件添加以下内容：
 
 ```objc
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
@@ -38,7 +42,7 @@ Swift 项目可以添加在 `xxx_Bridging-Header.h` 桥接文件中添加以下�
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
 ```
 
-打开`AppDelegate.m`文件，在`[AppDelegate application:didFinishLaunchingWithOptions:]`方法中初始化SDK：
+4. 打开`AppDelegate.m`文件，在`[AppDelegate application:didFinishLaunchingWithOptions:]`方法中初始化SDK：
 
 Objc:
 
