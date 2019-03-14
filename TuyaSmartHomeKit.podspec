@@ -5,26 +5,22 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://tuya.com'
   s.license          = { :type => 'MIT' }
   s.author           = { '0x5e' => 'gaosen@tuya.com' }
-  s.source           = { :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git", :tag => "#{s.version}" }
+  s.source           = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
 
   s.ios.deployment_target = '8.0'
-  s.default_subspecs = 'All'
-  s.static_framework          = true
-  
+
   s.source_files = 'TuyaSmartKit.h'
 
-  s.subspec 'All' do |ss|
 
-    ss.dependency 'TuyaSmartBaseKit'
+  s.dependency 'TuyaSmartBaseKit'
 
-    ss.dependency 'TuyaSmartDeviceKit'
-    ss.dependency 'TuyaSmartBLEKit'
-    ss.dependency 'TuyaSmartBLEMeshKit'
+  s.dependency 'TuyaSmartDeviceKit'
+  s.dependency 'TuyaSmartBLEKit'
+  s.dependency 'TuyaSmartBLEMeshKit'
 
-    ss.dependency 'TuyaSmartSceneKit'
-    ss.dependency 'TuyaSmartTimerKit'
-    ss.dependency 'TuyaSmartMessageKit'
-    ss.dependency 'TuyaSmartFeedbackKit'
-  end
+  s.dependency 'TuyaSmartSceneKit'
+  s.dependency 'TuyaSmartTimerKit'
+  s.dependency 'TuyaSmartMessageKit'
+  s.dependency 'TuyaSmartFeedbackKit'
 
 end

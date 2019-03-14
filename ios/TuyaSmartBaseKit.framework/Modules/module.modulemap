@@ -1,6 +1,0 @@
-framework module TuyaSmartBaseKit {
-  umbrella header "TuyaSmartBaseKit.h"
-
-  export *
-  module * { export * }
-}
