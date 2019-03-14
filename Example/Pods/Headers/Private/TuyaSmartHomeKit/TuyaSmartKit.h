@@ -1,1 +1,1 @@
-../../../../../TuyaSmartKit.h
+../../../TuyaSmartHomeKit/TuyaSmartKit.h

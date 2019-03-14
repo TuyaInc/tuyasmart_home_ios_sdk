@@ -1,0 +1,6 @@
+framework module TuyaSmartTimerKit {
+  umbrella header "TuyaSmartTimerKit.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module TuyaSmartSceneKit {
+  umbrella header "TuyaSmartSceneKit.h"
+
+  export *
+  module * { export * }
+}

@@ -1,6 +1,0 @@
-framework module Pods_TuyaSmartHomeKit_Example {
-  umbrella header "Pods-TuyaSmartHomeKit_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}
