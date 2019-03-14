@@ -1,11 +1,12 @@
 //
-//  TuyaSmartKit.h
-//  TuyaSmartKit
+//  TuyaSmartBaseKit.h
+//  TuyaSmartBaseKit
 //
-//  Created by fengyu on 15/9/11.
-//  Copyright (c) 2015年 Tuya. All rights reserved.
+//  Created by 高森 on 2019/1/21.
 //
 
+#ifndef TuyaSmartBaseKit_h
+#define TuyaSmartBaseKit_h
 
 /**
  *  当前SDK为全屋智能SDK
@@ -15,9 +16,15 @@
 /**
  *  当前SDK的版本号
  */
-#define TUYA_SDK_VERSION @"2.7.20"
+#define TUYA_SDK_VERSION @"2.8.43"
+
+#import <TuyaSmartUtil/TuyaSmartUtil.h>
 
 #import "TuyaSmartSDK.h"
 #import "TuyaSmartUser.h"
 #import "TuyaSmartRequest.h"
+#import "TYApiMergeModel.h"
+#import "TYApiMergeService.h"
 
+
+#endif /* TuyaSmartBaseKit_h */

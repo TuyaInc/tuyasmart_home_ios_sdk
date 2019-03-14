@@ -71,13 +71,17 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong, readonly) TuyaSmartDeviceModel *deviceModel;
 @property (nonatomic, weak) id<TuyaSmartDeviceDelegate> delegate;
 
-/** 获取设备对象
- @param devId 设备Id
+/**
+ * 获取设备对象
+ *
+ * @param devId 设备Id
  */
 + (instancetype)deviceWithDeviceId:(NSString *)devId;
 
-/** 获取设备对象
- @param devId 设备Id
+/**
+ * 获取设备对象
+ *
+ * @param devId 设备Id
  */
 - (instancetype)initWithDeviceId:(NSString *)devId NS_DESIGNATED_INITIALIZER;
 
@@ -227,7 +231,6 @@ typedef enum : NSUInteger {
  *  @param failure 操作失败回调
  */
 - (void)awakeDeviceWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
 
 @end
 

@@ -6,6 +6,7 @@
 //  Copyright © 2017年 Tuya. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 
 @interface TYApiMergeModel : NSObject
 

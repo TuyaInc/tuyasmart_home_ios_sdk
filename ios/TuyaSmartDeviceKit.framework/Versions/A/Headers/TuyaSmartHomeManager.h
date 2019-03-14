@@ -76,5 +76,17 @@
              success:(TYSuccessHandler)success
              failure:(TYFailureError)failure;
 
+/**
+ *  接受或拒绝加⼊家庭
+ *
+ *  @param homeId       家庭Id
+ *  @param isAccept     是否接受邀请
+ *  @param success      操作成功回调
+ *  @param failure      操作失败回调
+ */
+- (void)joinFamilyWithHomeId:(long long)homeId
+                      action:(BOOL)isAccept
+                     success:(TYSuccessBOOL)success
+                     failure:(TYFailureError)failure;
 
 @end

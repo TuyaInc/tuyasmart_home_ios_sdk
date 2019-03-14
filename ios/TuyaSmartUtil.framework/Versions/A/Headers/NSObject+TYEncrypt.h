@@ -20,8 +20,12 @@
 
 - (NSString *)ty_md5String;
 
-- (NSData *)ty_aes128EncryptWithKey:(NSString *)key;
+- (NSData *)ty_aes128EncryptWithKeyData:(NSData *)keyData;
 
-- (NSData *)ty_aes128DecryptWithKey:(NSString *)key;
+- (NSData *)ty_aes128DecryptWithKeyData:(NSData *)keyData;
+
+- (NSData *)ty_aes256EncryptWithKeyData:(NSData *)keyData;
+
+- (NSData *)ty_aes256DecryptWithKeyData:(NSData *)keyData;
 
 @end

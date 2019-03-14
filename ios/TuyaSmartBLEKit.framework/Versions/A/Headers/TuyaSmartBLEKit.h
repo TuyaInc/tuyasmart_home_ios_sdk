@@ -8,6 +8,4 @@
 #ifndef TuyaSmartBLEKit_h
 #define TuyaSmartBLEKit_h
 
-#import "TuyaSmartBLEManager.h"
-
 #endif /* TuyaSmartBLEKit_h */

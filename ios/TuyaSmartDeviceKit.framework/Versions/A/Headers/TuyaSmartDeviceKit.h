@@ -16,8 +16,9 @@
 /**
  *  当前客户端支持的最高的局域网通信协议
  */
-#define TUYA_CURRENT_LAN_PROTOCOL_VERSION 3.2
+#define TUYA_CURRENT_LAN_PROTOCOL_VERSION 3.3
 
+#import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>
 
 #import "TuyaSmartActivator.h"
 #import "TuyaSmartDevice.h"

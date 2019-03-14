@@ -26,7 +26,7 @@
 - (void)groupInfoUpdate:(TuyaSmartGroup *)group;
 
 /// 群组移除
-- (void)groupRemove:(TuyaSmartGroup *)group;
+- (void)groupRemove:(NSString *)groupId;
 
 /// zigbee 设备加入到网关群组响应
 /// 1:超过场景数上限 2:子设备超时 3:设置值超出范围 4:写文件错误 5:其他错误
@@ -45,13 +45,17 @@
 @property (nonatomic, weak) id<TuyaSmartGroupDelegate> delegate;
 
 
-/** 获取群组对象
- @param groupId 群组Id
+/**
+ *  获取群组对象
+ *
+ *  @param groupId 群组Id
  */
 + (instancetype)groupWithGroupId:(NSString *)groupId;
 
-/** 获取群组对象
- @param groupId 群组Id
+/**
+ *  获取群组对象
+ *
+ *  @param groupId 群组Id
  */
 - (instancetype)initWithGroupId:(NSString *)groupId NS_DESIGNATED_INITIALIZER;
 
@@ -74,6 +78,72 @@
                     success:(void (^)(TuyaSmartGroup *group))success
                     failure:(TYFailureError)failure;
 
+
+/**
+ *  根据 productId 获取对应的支持群组的 wifi 设备列表
+ *
+ *  @param productId 产品Id
+ *  @param homeId    家庭Id
+ *  @param success   操作成功回调
+ *  @param failure   操作失败回调
+ */
++ (void)getDevList:(NSString *)productId
+            homeId:(long long)homeId
+           success:(void(^)(NSArray <TuyaSmartGroupDevListModel *> *list))success
+           failure:(TYFailureError)failure;
+
+/**
+ *  根据 productId 获取对应群组下的设备列表
+ *
+ *  @param productId 产品Id
+ *  @param success   操作成功回调
+ *  @param failure   操作失败回调
+ */
+- (void)getDevList:(NSString *)productId
+           success:(void(^)(NSArray <TuyaSmartGroupDevListModel *> *list))success
+           failure:(TYFailureError)failure;
+
+/** 
+ *  群组dp命令下发
+ *
+ *  @param dps 命令字典
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)publishDps:(NSDictionary *)dps success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+
+/**
+ *  修改群组名称
+ *
+ *  @param name 群组名称
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)updateGroupName:(NSString *)name success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+
+
+/**
+ *  修改群组设备列表
+ *
+ *  @param devList 设备Id列表
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)updateGroupRelations:(NSArray <NSString *>*)devList
+                     success:(TYSuccessHandler)success
+                     failure:(TYFailureError)failure;
+
+/**
+ *  解散群组
+ *
+ *  @param success 操作成功回调
+ *  @param failure 操作失败回调
+ */
+- (void)dismissGroup:(TYSuccessHandler)success failure:(TYFailureError)failure;
+
+
+#pragma mark - zigbee
+
 /**
  *  创建 zigbee 设备群组
  *
@@ -91,22 +161,8 @@
                     success:(void (^)(TuyaSmartGroup *))success
                     failure:(TYFailureError)failure;
 
-
 /**
- *  根据产品ID获取对应的支持群组的 wifi 设备列表
- *
- *  @param productId 产品Id
- *  @param homeId    家庭Id
- *  @param success   操作成功回调
- *  @param failure   操作失败回调
- */
-+ (void)getDevList:(NSString *)productId
-            homeId:(long long)homeId
-           success:(void(^)(NSArray <TuyaSmartGroupDevListModel *> *list))success
-           failure:(TYFailureError)failure;
-
-/**
- *  根据产品ID和网关ID获取对应的支持群组的 zigbee 子设备列表
+ *  根据 productId 和 gwId 获取对应的支持群组的 zigbee 子设备列表
  *
  *  @param productId 产品Id
  *  @param gwId      网关Id
@@ -121,66 +177,26 @@
                         failure:(TYFailureError)failure;
 
 /**
- *  根据产品ID和群组ID获取对应群组下的设备列表
- *
- *  @param productId 产品Id
- *  @param success   操作成功回调
- *  @param failure   操作失败回调
- */
-- (void)getDevList:(NSString *)productId
-           success:(void(^)(NSArray <TuyaSmartGroupDevListModel *> *list))success
-           failure:(TYFailureError)failure;
-
-/** 
- *  群组dp命令下发
- *  @param dps 命令字典
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)publishDps:(NSDictionary *)dps success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
-/** 修改群组名称
- @param name 群组名称
- @param success 操作成功回调
- @param failure 操作失败回调
- */
-- (void)updateGroupName:(NSString *)name success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
-
-/** 修改群组设备列表
- *  @param devList 设备Id列表
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)updateGroupRelations:(NSArray <NSString *>*)devList success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
-/**
- *  解散群组
- *
- *  @param success 操作成功回调
- *  @param failure 操作失败回调
- */
-- (void)dismissGroup:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
-#pragma mark - 和网关本地交互
-
-/**
- *  添加zigbee设备到群组
+ *  添加zigbee设备到群组(和网关本地交互)
  *
  *  @param nodeList zigbee子设备的短地址
  *  @param success 操作成功回调
  *  @param failure 操作失败回调
  */
-- (void)addZigbeeDeviceWithNodeList:(NSArray <NSString *>*)nodeList success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)addZigbeeDeviceWithNodeList:(NSArray <NSString *>*)nodeList
+                            success:(TYSuccessHandler)success
+                            failure:(TYFailureError)failure;
 
 /**
- *  把zigbee设备从群组移除
+ *  把zigbee设备从群组移除(和网关本地交互)
  *
  *  @param nodeList zigbee子设备的短地址
  *  @param success 操作成功回调
  *  @param failure 操作失败回调
  */
-- (void)removeZigbeeDeviceWithNodeList:(NSArray <NSString *>*)nodeList success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)removeZigbeeDeviceWithNodeList:(NSArray <NSString *>*)nodeList
+                               success:(TYSuccessHandler)success
+                               failure:(TYFailureError)failure;
 
 /// 取消未完成的操作
 - (void)cancelRequest;

@@ -47,7 +47,11 @@
                    version:(NSString *)version
                    success:(TYSuccessID)success
                    failure:(TYFailureError)failure;
-@end
 
+
+/// 取消网络请求
+- (void)cancel;
+
+@end
 
 #endif

@@ -6,13 +6,10 @@
 //  Copyright © 2017年 Tuya. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 #import "TuyaSmartCityModel.h"
 #import "TuyaSmartSceneDPModel.h"
 #import "TuyaSmartSceneModel.h"
-
-@class TuyaSmartSceneFeatureModel;
 
 @interface TuyaSmartSceneManager : NSObject
 

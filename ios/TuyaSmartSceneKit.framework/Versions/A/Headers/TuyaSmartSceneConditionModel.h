@@ -19,6 +19,13 @@ typedef NS_ENUM(NSInteger, TYSceneConditionStatus)
 };
 
 
+typedef NS_ENUM(NSInteger, TYConditionAutoType)
+{
+    AutoTypeGeofence = 10,
+    AutoTypeTimer = 6,
+};
+
+
 @interface TuyaSmartSceneConditionModel : NSObject
 
 /**
@@ -44,7 +51,7 @@ typedef NS_ENUM(NSInteger, TYSceneConditionStatus)
 /**
  条件、定时、设备类型（气象数据 = 3、设备数据 = 1、定时 = 6、pir倒计时 = 7）
  */
-@property (nonatomic, assign) NSInteger entityType;
+@property (nonatomic, assign) TYConditionAutoType entityType;
 
 /**
  条件显示内容，如: “湿度 : 舒适” 或 “开关 : 开启”

@@ -6,8 +6,8 @@
 //  Copyright © 2017年 Tuya. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "TYApiMergeModel.h"
+#import "TuyaSmartRequest.h"
 
 @interface TYApiMergeService : TuyaSmartRequest
 

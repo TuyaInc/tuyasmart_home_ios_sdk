@@ -59,6 +59,10 @@
  */
 @property (nonatomic, strong) NSArray    *range;
 
+/**
+ * 用户选择的值，业务字段
+ */
+@property (nonatomic, assign) NSInteger selectedValue;
 
 
 @end

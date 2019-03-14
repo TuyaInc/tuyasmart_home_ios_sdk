@@ -15,6 +15,18 @@
 /// 当用户登录信息过期后发出的通知
 extern NSString *const TuyaSmartUserNotificationUserSessionInvalid;
 
+/// 账号注册的类型
+typedef NS_ENUM(NSInteger, TYRegType) {
+    TYRegEmailType,         // 从邮箱注册
+    TYRegPhoneType,         // 从手机号注册
+    TYRegOtherType,         // 其他
+    TYRegQQType,            // 从QQ注册
+    TYRegWeiboType,         // 从微博注册
+    TYRegFacebookType,      // 从Facebook注册
+    TYRegTwitterType,       // 从Twitter注册
+    TYRegWechatType         // 从Wechat注册
+};
+
 /// 用户相关功能
 @interface TuyaSmartUser : NSObject
 
@@ -61,6 +73,12 @@ extern NSString *const TuyaSmartUserNotificationUserSessionInvalid;
 
 /// 温度
 @property (nonatomic, assign) NSInteger tempUnit;
+
+/// 账号注册的类型
+@property (nonatomic, assign, readonly) TYRegType regFrom;
+
+/// 第三方登录的昵称
+@property (nonatomic, strong, readonly) NSString *snsNickname;
 
 
 #pragma mark - 手机验证码登录

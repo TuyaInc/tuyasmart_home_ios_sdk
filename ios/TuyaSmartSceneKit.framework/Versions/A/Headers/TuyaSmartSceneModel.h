@@ -100,7 +100,10 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, assign) BOOL boundForPanel;
 
-
+/**
+ 是否支持本地联动
+ */
+@property (nonatomic, assign) BOOL localLinkage;
 
 
 @end

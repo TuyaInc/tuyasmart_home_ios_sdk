@@ -38,6 +38,16 @@
 - (void)activeDeviceSuccessWithName:(NSString *)name deviceId:(NSString *)deviceId error:(NSError *)error;
 
 /**
+ 激活子设备成功回调
+ 
+ @param manager mesh manager
+ @param device 设备
+ @param devId 设备 Id
+ @param error 激活中的错误，若发生错误，`name` 以及 `deviceId` 为空
+ */
+- (void)bleMeshManager:(TYBLEMeshManager *)manager didActiveSubDevice:(TYBleMeshDeviceModel *)device devId:(NSString *)devId error:(NSError *)error;
+
+/**
  激活网关设备回调
  
  @param name 设备名称
@@ -47,6 +57,19 @@
  */
 - (void)activeWifiDeviceWithName:(NSString *)name address:(NSInteger)address mac:(NSInteger)mac error:(NSError *)error;
 
+/**
+ 激活设备失败回调
+ 
+ @param manager mesh manager
+ @param device 设备
+ @param error 激活中的错误
+ */
+- (void)bleMeshManager:(TYBLEMeshManager *)manager didFailToActiveDevice:(TYBleMeshDeviceModel *)device error:(NSError *)error;
+
+/**
+ 激活完成回调
+ */
+- (void)didFinishToActiveDevList;
 
 /**
  断开设备回调
@@ -144,6 +167,10 @@
  */
 - (void)activeMeshDevice:(TYBleMeshDeviceModel *)deviceModel;
 
+/**
+ 停止激活设备
+ */
+- (void)stopActiveDevice;
 
 - (void)getLightAllStatus;
 - (BOOL)isConnected;

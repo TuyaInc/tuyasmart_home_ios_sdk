@@ -7,7 +7,6 @@
 //
 
 #import <CoreLocation/CoreLocation.h>
-#import <TuyaSmartDeviceKit/TuyaSmartSchemaModel.h>
 
 typedef enum : NSUInteger {
     SceneDisplayNormal = 1,
@@ -18,6 +17,7 @@ typedef enum : NSUInteger {
     SceneDisplayTemp = (1 << 5)
 } SceneDisplayType;
 
+@class TuyaSmartSchemaModel;
 
 @interface TuyaSmartSceneDPModel : NSObject
 

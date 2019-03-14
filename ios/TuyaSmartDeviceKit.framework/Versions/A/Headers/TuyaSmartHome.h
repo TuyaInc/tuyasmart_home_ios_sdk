@@ -178,7 +178,7 @@
  *  @param headPic      家庭成员头像
  *  @param countryCode  国家码
  *  @param account      用户账号
- *  @param isAdmin        是否是管理员
+ *  @param isAdmin      是否是管理员
  *  @param success      操作成功回调
  *  @param failure      操作失败回调
  */

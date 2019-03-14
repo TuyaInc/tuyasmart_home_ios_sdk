@@ -12,22 +12,37 @@
 
 
 /**
- 城市id
+ city Id
  */
 @property (nonatomic, assign) long long cityId;
 
 /**
- 城市名称
+ city name
  */
 @property (nonatomic, strong) NSString *city;
 
 /**
- 城市名称,客户端由地图取到
+ city Info, achieved from map.
  */
 @property (nonatomic, copy) NSString *cityNameFromMap;
 
 @property (nonatomic, assign) CLLocationDegrees tempLatitude;
 
 @property (nonatomic, assign) CLLocationDegrees tempLongitude;
+
+/**
+ area or city
+ */
+@property (nonatomic, copy) NSString *area;
+
+/**
+ chinese pinyin
+ */
+@property (nonatomic, copy) NSString *pinyin;
+
+/**
+ province
+ */
+@property (nonatomic, copy) NSString *province;
 
 @end

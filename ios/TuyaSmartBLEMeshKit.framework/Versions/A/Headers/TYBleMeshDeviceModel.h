@@ -6,12 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#if __has_include(<TYBluetooth/TYBLEPeripheral.h>)
-    #import <TYBluetooth/TYBLEPeripheral.h>
-#else
-    #import "TYBLEPeripheral.h"
-#endif
+#import <TYBluetooth/TYBLEPeripheral.h>
 
 @interface TYBleMeshDeviceModel : NSObject
 

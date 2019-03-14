@@ -8,6 +8,8 @@
 #ifndef TuyaSmartSceneKit_h
 #define TuyaSmartSceneKit_h
 
+#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
+
 #import "TuyaSmartScene.h"
 #import "TuyaSmartSceneManager.h"
 

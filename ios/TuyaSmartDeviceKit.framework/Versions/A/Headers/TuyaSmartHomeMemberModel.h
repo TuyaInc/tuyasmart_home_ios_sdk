@@ -34,5 +34,7 @@
 // 用户Id
 @property (nonatomic, strong) NSString *uid;
 
+// 处理状态
+@property (nonatomic, assign) NSInteger dealStatus;
 
 @end
