@@ -6,7 +6,7 @@
 ### 获取iOS的App Key、App Secret、安全图片
 前往 开发平台 - 应用管理 - 新建应用 获取`iOS`的`App Key`、`App Secret`、安全图片。
 
-![cmd-markdown-logo](http://images.airtakeapp.com/smart_res/developer_default/sdk_zh.jpeg)
+![](./images/ios-sdk-prepare.png)
 
 
 

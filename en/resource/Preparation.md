@@ -7,7 +7,7 @@ Go to the [Tuya Smart Development Platform](https://developer.tuya.com) to regis
 ### Obtain the iOS App Key, App Secret and Security image.
 Go to the development platform -> App management -> Create App -> Obtain iOS `App Key`,  `App Secret` and Security image.
 
-![cmd-markdown-logo](http://images.airtakeapp.com/smart_res/developer_default/sdk_en.jpeg) 
+![](./images/ios-sdk-prepare.png) 
 
 
 
