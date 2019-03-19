@@ -21,3 +21,7 @@
 `Xcode` -> [Project Name] -> `Targets` -> [Target Name] -> `Capabilities` -> `Access WiFi Information` -> `ON`
 
 打开上述权限即可。
+
+6、升级sdk至>=2.8.0 版本之后，sdk初始化之后app立即闪退。
+
+从SDK 2.8.0版本之后加入了安全图片校验，并启用了新的appkey/secret。请按照[准备工作](./Preparation.md)章节前往开发者平台重新生成sdk初始化所需文件。

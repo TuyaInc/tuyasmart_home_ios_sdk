@@ -21,3 +21,7 @@
    Xcode 10 should open `access wifi information` capability to get ssid. This can be found at:
      `Xcode` -> [Project Name] -> `Targets` -> [Target Name] -> `Capabilities` -> `Access WiFi Information` -> `ON`
 
+6、After update sdk to version >=2.8.0, app crashed immediately after sdk init.
+
+After SDK 2.8.0, we have added security image check and use the new appkey/secret. Please refer to [Preparation work](./Preparation.md) section and go to tuya iot platform to get the appkey/secret/security image which is required by sdk init.
+

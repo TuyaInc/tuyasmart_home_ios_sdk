@@ -4,7 +4,8 @@
 前往 [涂鸦智能开发平台](https://developer.tuya.com) 注册开发者账号、创建产品、创建功能点等，具体流程请参考[接入流程](https://docs.tuya.com/cn/overview/dev-process.html)
 
 ### 获取iOS的App Key、App Secret、安全图片
-前往 开发平台 - 应用管理 - 新建应用 获取`iOS`的`App Key`、`App Secret`、安全图片。
+
+前往 开发平台 - App工作台 - App SDK 获取`iOS`的`App Key`、`App Secret`、安全图片。
 
 ![](./images/ios-sdk-prepare.png)
 
