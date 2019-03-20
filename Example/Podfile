@@ -5,16 +5,6 @@ target 'TuyaSmartHomeKit_Example' do
   pod 'TuyaSmartUtil'
   
   pod 'TuyaSmartHomeKit'
-  pod 'TuyaSmartBaseKit'
-  pod 'TuyaSmartDeviceKit'
-  
-  pod 'TuyaSmartBLEKit'
-  pod 'TuyaSmartBLEMeshKit'
-
-  pod 'TuyaSmartMessageKit'
-  pod 'TuyaSmartFeedbackKit'
-  pod 'TuyaSmartTimerKit'
-  pod 'TuyaSmartSceneKit'
 
   
   pod 'MBProgressHUD', '~> 0.9.2'

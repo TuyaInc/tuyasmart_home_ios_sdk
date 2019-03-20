@@ -73,15 +73,7 @@ DEPENDENCIES:
   - BlocksKit
   - MBProgressHUD (~> 0.9.2)
   - SDWebImage
-  - TuyaSmartBaseKit
-  - TuyaSmartBLEKit
-  - TuyaSmartBLEMeshKit
-  - TuyaSmartDeviceKit
-  - TuyaSmartFeedbackKit
   - TuyaSmartHomeKit
-  - TuyaSmartMessageKit
-  - TuyaSmartSceneKit
-  - TuyaSmartTimerKit
   - TuyaSmartUtil
   - TYBluetooth
 
@@ -128,6 +120,6 @@ SPEC CHECKSUMS:
   UICKeyChainStore: 85db518bb1d294366d15ec9b92a416c4e670518f
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 4ccc8c772ab95c5f23c7efdefb25f127cfd7adce
+PODFILE CHECKSUM: ca64abc527dd2856d175b4c156c4567e0396ddd1
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.0.beta.2
