@@ -54,31 +54,32 @@ Objc:
 
 ```objc
 - (void)publishDps {
-    // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+  // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
 
-    NSDictionary *dps;
-	//设置dpId为1的布尔型功能点示例 作用:开关打开
+  NSDictionary *dps;
+  
+  // Set bool dp value to true
 	dps = @{@"1": @(YES)};
 
-	//设置dpId为4的字符串型功能点示例 作用:设置RGB颜色为ff5500
+  // Set string dp value to "ff5500"
 	dps = @{@"4": @"ff5500"};
 
-	//设置dpId为5的枚举型功能点示例 作用:设置档位为2档
-	dps = @{@"5": @"2"};
+  // Set enum dp value to "Medium"
+	dps = @{@"5": @"Medium"};
 
-	//设置dpId为6的数值型功能点示例 作用:设置温度为20°
+  // Set number dp value to 20
 	dps = @{@"6": @(20)};
 
-	//设置dpId为15的透传型(byte数组)功能点示例 作用:透传红外数据为1122
+  // Set byte dp value to "1122"
 	dps = @{@"15": @"1122"};
 
-	//多个功能合并发送
-	dps = @{@"1": @(YES), @"4": @(ff5500)};
+  // Send multiple dp values together
+	dps = @{@"1": @(YES), @"4": @"ff5500"};
 
 	[self.device publishDps:dps success:^{
 		NSLog(@"publishDps success");
 
-		//下发成功，状态上报通过 deviceDpsUpdate方法 回调
+    // Publish dp success. device state change will be reported from deviceDpsUpdate delegate callback.
 
 	} failure:^(NSError *error) {
 		NSLog(@"publishDps failure: %@", error);
@@ -94,10 +95,11 @@ func publishDps() {
     var dps = [String : Any]()
  
     // dp 可参考具体产品定义
+  
     device?.publishDps(dps, success: {
  	    print("publishDps success")
         
-        //下发成功，状态上报通过 deviceDpsUpdate方法 回调
+      // Publish dp success. device state change will be reported from deviceDpsUpdate delegate callback.
     }, failure: { (error) in
         if let e = error {
             print("publishDps failure: \(e)")
@@ -130,15 +132,15 @@ Objc:
 
 - (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps {
 	NSLog(@"deviceDpsUpdate: %@", dps);
-	// TODO: 刷新界面UI
+	// device dp state was updated
 }
 
 - (void)deviceInfoUpdate:(TuyaSmartDevice *)device {
-	//当前设备信息更新 比如 设备名、设备在线状态等
+  // device name, device online state change, etc.
 }
 
 - (void)deviceRemoved:(TuyaSmartDevice *)device {
-	//当前设备被移除
+  // device was removed.
 }
 
 ```
@@ -155,15 +157,15 @@ func initDevice() {
 
 func device(_ device: TuyaSmartDevice!, dpsUpdate dps: [AnyHashable : Any]!) {
     print("deviceDpsUpdate: \(dps)")
-    // TODO: 刷新界面UI
+    // device dp state was updated
 }
 
 func deviceInfoUpdate(_ device: TuyaSmartDevice!) {
-    //当前设备信息更新 比如 设备名、设备在线状态等
+    // device name, device online state change, etc.
 }
 
 func deviceRemoved(_ device: TuyaSmartDevice!) {
-    //当前设备被移除
+    // device was removed.
 }
 ```
 
@@ -377,15 +379,15 @@ Objc:
 
 ```objc
 - (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type {
-	//固件升级成功
+	// firmware upgrade success
 }
 
 - (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device type:(NSInteger)type {
-	//固件升级失败
+	// firmware upgrade failure
 }
 
 - (void)device:(TuyaSmartDevice *)device firmwareUpgradeProgress:(NSInteger)type progress:(double)progress {
-	//固件升级的进度
+	// firmware upgrade progress
 }
 
 ```
@@ -394,15 +396,15 @@ Swift:
 
 ```swift
 func deviceFirmwareUpgradeSuccess(_ device: TuyaSmartDevice!, type: Int) {
-    //固件升级成功
+    // firmware upgrade success
 }
 
 func deviceFirmwareUpgradeFailure(_ device: TuyaSmartDevice!, type: Int) {
-    //固件升级失败
+    // firmware upgrade failure
 }
 
 func device(_ device: TuyaSmartDevice!, firmwareUpgradeProgress type: Int, progress: Double) {
-    //固件升级的进度
+    // firmware upgrade progress
 }
 ```
 
