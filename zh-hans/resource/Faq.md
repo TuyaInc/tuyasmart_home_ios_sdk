@@ -27,3 +27,11 @@
 ##### 6、升级sdk至>=2.8.0 版本之后，sdk初始化之后app立即闪退。提示 ***\** Terminating app due to uncaught exception 'start sdk error', reason: 'security image not found'**
 
 - 从SDK 2.8.0版本之后加入了安全图片校验，并启用了新的appkey/secret。请按照[准备工作](./Preparation.md)章节前往开发者平台重新生成sdk初始化所需文件。
+
+##### 7、基于Tuya SDK 开发的app，上传了推送证书，却收不到推送信息
+
+- 确认Xcode 的Push Notification 是否打开
+- 去涂鸦开发者平台上传push 证书
+- 在 `didFinishLaunchingWithOptions` 方法中初始化push方法
+- 涂鸦开发者平台 - 用户运营 - 消息中心 - 新增消息
+- 详见：[集成Push](./Push.md)章节

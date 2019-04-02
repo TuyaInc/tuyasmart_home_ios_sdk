@@ -84,3 +84,10 @@
 #### 新增告警Push
 涂鸦开发者平台 - 对应产品 - 扩展功能 - 告警设置 - 新增告警规则(应用推送方式)
 ![ios-push-setting](./images/ios-push-setting-warning.png)
+
+
+
+#### 测试步骤：
+
+- Tuya 平台现在对外只支持正式推送证书，所以需要用正式证书打包成ipa文件，上传到 testflight 或者 App Store 才能正常收到推送
+- 如果通过Xcode 直接安装的包，是测试证书，不能收到推送。用开发证书打包 ipa文件，安装后也是不能收到推送
