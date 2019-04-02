@@ -13,6 +13,8 @@
 
 下载安全图片，重命名为`t_s.bmp`，放入项目根目录，作为资源文件引入app。确认「项目设置 => Target => Build Phases => Copy Bundle Resources」包含`t_s.bmp`文件。
 
+![](./images/ios-sdk-sec-pic.jpg)
+
 集成SDK时请确认`bundleId`、`appKey`、`appSecret`、安全图片是否与平台上的信息一致，任意一个不匹配会导致SDK无法使用。
 
 

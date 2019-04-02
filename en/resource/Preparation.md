@@ -13,6 +13,8 @@ Go to the development platform -> App Service -> App SDK get iOS `App Key`,  `Ap
 
 Download the security image, rename as `t_s.bmp`, import it into the project as a resource file. Confirm that `Project Setting => Target => Build Phases => Copy Bundle Resources` contains `t_s.bmp` file.
 
+![](./images/ios-sdk-sec-pic.jpg)
+
 Please confirm the `bundleId`、`appKey`、`appSceret`、security image in your project is the same as the tuya develop center, any mismatch will cause the SDK unusable.
 
 
