@@ -1,0 +1,895 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Data channel · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Message.html" />
+    
+    
+    <link rel="prev" href="SmartScene.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Overview.html">
+            
+                <a href="Overview.html">
+            
+                    
+                    Function Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    Preparation work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    Initiate SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="User.html">
+            
+                <a href="User.html#user-management">
+            
+                    
+                    User management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="User.html">
+            
+                <a href="User.html#user-registration">
+            
+                    
+                    User Registration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="User.html">
+            
+                <a href="User.html#user-login">
+            
+                    
+                    User Login
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="User.html">
+            
+                <a href="User.html#third-party-login">
+            
+                    
+                    Third Party Login
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="User.html">
+            
+                <a href="User.html#resetting-password-by-user">
+            
+                    
+                    Resetting Password by User
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="User.html">
+            
+                <a href="User.html#modify-nickname">
+            
+                    
+                    Modify nickname
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="User.html">
+            
+                <a href="User.html#update-timezone">
+            
+                    
+                    Update timezone
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="User.html">
+            
+                <a href="User.html#logout">
+            
+                    
+                    Logout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="User.html">
+            
+                <a href="User.html#disable-account-deregister-user">
+            
+                    
+                    Disable account
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="User.html">
+            
+                <a href="User.html#handling-of-expired-session">
+            
+                    
+                    Handling of Expired Session
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Home.html">
+            
+                <a href="Home.html#home-management">
+            
+                    
+                    Home management
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="Home.html">
+            
+                <a href="Home.html#home-information-management">
+            
+                    
+                    Home information management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="Home.html">
+            
+                <a href="Home.html#room-information-management">
+            
+                    
+                    Room information management
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Activator.html">
+            
+                <a href="Activator.html#network-configuration">
+            
+                    
+                    Network Configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="Activator.html">
+            
+                <a href="Activator.html#ez-mode">
+            
+                    
+                    EZ mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="Activator.html">
+            
+                <a href="Activator.html#ap-mode">
+            
+                    
+                    AP mode
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="Activator.html">
+            
+                <a href="Activator.html#wired-network-configuration-of-zigbee">
+            
+                    
+                    Activate the ZigBee Gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="Activator.html">
+            
+                <a href="Activator.html#activate-the-zigbee-sub-device">
+            
+                    
+                    Activate the ZigBee sub-device
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Device.html">
+            
+                <a href="Device.html#device-control">
+            
+                    
+                    Device control
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="Device.html">
+            
+                <a href="Device.html#update-device-information">
+            
+                    
+                    Update device information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="Device.html">
+            
+                <a href="Device.html#functions-of-device">
+            
+                    
+                    Functions of device
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="Device.html">
+            
+                <a href="Device.html#modify-the-device-name">
+            
+                    
+                    Modify the device name
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="Device.html">
+            
+                <a href="Device.html#remove-device">
+            
+                    
+                    Remove device
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="Device.html">
+            
+                <a href="Device.html#obtain-wifi-signal-strength-of-device">
+            
+                    
+                    Obtain Wifi signal strength of device
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="Device.html">
+            
+                <a href="Device.html#obtain-the-sub-device-list-of-a-gateway">
+            
+                    
+                    Obtain the sub-device list of a gateway
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="Device.html">
+            
+                <a href="Device.html#firmware-upgrade">
+            
+                    
+                    Firmware upgrade
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="Device.html">
+            
+                <a href="Device.html#get-historical-statistics-of-dp">
+            
+                    
+                    Get historical statistics of DP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Share.html">
+            
+                <a href="Share.html#shared-devices">
+            
+                    
+                    Share devices
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="Share.html">
+            
+                <a href="Share.html#share-with-home-members">
+            
+                    
+                    Share with home members
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="Share.html">
+            
+                <a href="Share.html#share-devices-sharing-based-on-device-dimensions">
+            
+                    
+                    Share devices
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Timer.html">
+            
+                <a href="Timer.html">
+            
+                    
+                    Timer task
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Group.html">
+            
+                <a href="Group.html">
+            
+                    
+                    Group management
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Smart scene
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="SmartScene.html">
+            
+                <a href="SmartScene.html#smart-scene">
+            
+                    
+                    Smart scene
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="SmartScene.html">
+            
+                <a href="SmartScene.html#scene-operation">
+            
+                    
+                    Scene operation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.13" data-path="DataChannel.html">
+            
+                <a href="DataChannel.html">
+            
+                    
+                    Data channel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="Message.html">
+            
+                <a href="Message.html">
+            
+                    
+                    Message center
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Feedback.html">
+            
+                <a href="Feedback.html">
+            
+                    
+                    Feedback
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="CommonInterface.html">
+            
+                <a href="CommonInterface.html">
+            
+                    
+                    Common interface
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="Push.html">
+            
+                <a href="Push.html">
+            
+                    
+                    Register pushId
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="Faq.html">
+            
+                <a href="Faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Data channel</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="device-data-channel"><a name="device-data-channel" class="plugin-anchor" href="#device-data-channel"><i class="fa fa-link" aria-hidden="true"></i></a>Device data channel</h2>
+<p>Data channel mainly used for big data real-time upload such as sweeper map data, See <code>TuyaSmartSingleTransfer</code> class.</p>
+<h3 id="initialize"><a name="initialize" class="plugin-anchor" href="#initialize"><i class="fa fa-link" aria-hidden="true"></i></a>Initialize</h3>
+<pre class="language-"><code class="lang-objective-c">TuyaSmartSingleTransfer <span class="token operator">*</span>transfer <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartSingleTransfer alloc<span class="token punctuation">]</span> init<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// Set delegate. status changed or data received event will be received through callback.</span>
+transfer<span class="token punctuation">.</span>delegate <span class="token operator">=</span> #<span class="token operator">&lt;</span>TuyaSmartTransferDelegateInstance<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="start-connecting-data-channel"><a name="start-connecting-data-channel" class="plugin-anchor" href="#start-connecting-data-channel"><i class="fa fa-link" aria-hidden="true"></i></a>Start connecting data channel</h3>
+<pre class="language-"><code class="lang-objective-c"><span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>transfer startConnect<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="close-data-channel"><a name="close-data-channel" class="plugin-anchor" href="#close-data-channel"><i class="fa fa-link" aria-hidden="true"></i></a>Close data channel</h3>
+<pre class="language-"><code class="lang-objective-c"><span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>transfer close<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="subscribe-device"><a name="subscribe-device" class="plugin-anchor" href="#subscribe-device"><i class="fa fa-link" aria-hidden="true"></i></a>Subscribe device</h3>
+<pre class="language-"><code class="lang-objective-c"><span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>transfer subscribeDeviceWithDevId<span class="token punctuation">:</span>#<span class="token operator">&lt;</span>DevId<span class="token operator">&gt;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>Device can&apos;t be subscribed before channel connected. Please subscribe device in the channel status callback method.</p>
+</blockquote>
+<h3 id="unsubscribe-device"><a name="unsubscribe-device" class="plugin-anchor" href="#unsubscribe-device"><i class="fa fa-link" aria-hidden="true"></i></a>Unsubscribe device</h3>
+<pre class="language-"><code class="lang-objective-c"><span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>transfer unsubscribeDeviceWithDevId<span class="token punctuation">:</span>#<span class="token operator">&lt;</span>DevId<span class="token operator">&gt;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="get-data-channel-connect-status"><a name="get-data-channel-connect-status" class="plugin-anchor" href="#get-data-channel-connect-status"><i class="fa fa-link" aria-hidden="true"></i></a>Get data channel connect status</h3>
+<pre class="language-"><code class="lang-objective-c">BOOL isConnected <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>transfer isConnected<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="tuyasmarttransferdelegate"><a name="tuyasmarttransferdelegate" class="plugin-anchor" href="#tuyasmarttransferdelegate"><i class="fa fa-link" aria-hidden="true"></i></a>TuyaSmartTransferDelegate</h3>
+<pre class="language-"><code class="lang-objective-c"><span class="token comment">/**
+ Connect status changed
+
+ When data channel connected/disconnected, this method will be called.
+
+ @param transfer
+ @param state Current state&#xFF0C;`TuyaSmartTransferState`
+ */</span>
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>transfer<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartSingleTransfer <span class="token operator">*</span><span class="token punctuation">)</span>transfer didUpdateConnectState<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartTransferState<span class="token punctuation">)</span>state<span class="token punctuation">;</span>
+
+
+<span class="token comment">/**
+ New data received
+
+ @param transfer
+ @param devId Device id
+ @param data Received data
+ */</span>
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>transfer<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartSingleTransfer <span class="token operator">*</span><span class="token punctuation">)</span>transfer didReciveDataWithDevId<span class="token punctuation">:</span><span class="token punctuation">(</span>NSString <span class="token operator">*</span><span class="token punctuation">)</span>devId data<span class="token punctuation">:</span><span class="token punctuation">(</span>NSData <span class="token operator">*</span><span class="token punctuation">)</span>data<span class="token punctuation">;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="SmartScene.html#scene-operation" class="navigation navigation-prev " aria-label="Previous page: Scene operation">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Message.html" class="navigation navigation-next " aria-label="Next page: Message center">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Data channel","level":"1.13","depth":1,"next":{"title":"Message center","level":"1.14","depth":1,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[]},"previous":{"title":"Scene operation","level":"1.12.2","depth":2,"anchor":"#scene-operation","path":"resource/SmartScene.md","ref":"./resource/SmartScene.md#scene-operation","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"oc":"objectivec","objc":"objectivec","objective-c":"objectivec"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/DataChannel.md","mtime":"2018-12-11T02:09:07.457Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-08T12:20:08.633Z"},"basePath":"..","book":{"language":"en"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

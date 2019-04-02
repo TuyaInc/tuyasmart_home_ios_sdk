@@ -1,0 +1,1256 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>设备控制 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Device.html" />
+    
+    
+    <link rel="prev" href="Activator.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Overview.html">
+            
+                <a href="Overview.html">
+            
+                    
+                    功能概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    准备工作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    集成SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="User.html">
+            
+                <a href="User.html#用户管理">
+            
+                    
+                    用户管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="User.html">
+            
+                <a href="User.html#用户注册">
+            
+                    
+                    用户注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="User.html">
+            
+                <a href="User.html#用户登录">
+            
+                    
+                    用户登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="User.html">
+            
+                <a href="User.html#第三方登录">
+            
+                    
+                    第三方登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="User.html">
+            
+                <a href="User.html#用户重置密码">
+            
+                    
+                    用户重置密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="User.html">
+            
+                <a href="User.html#修改昵称">
+            
+                    
+                    修改昵称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="User.html">
+            
+                <a href="User.html#更新用户时区">
+            
+                    
+                    更新用户时区
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="User.html">
+            
+                <a href="User.html#登出">
+            
+                    
+                    登出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="User.html">
+            
+                <a href="User.html#停用账号（注销用户）">
+            
+                    
+                    停用账号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="User.html">
+            
+                <a href="User.html#session过期的处理">
+            
+                    
+                    Session过期的处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Home.html">
+            
+                <a href="Home.html#家庭管理">
+            
+                    
+                    家庭管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="Home.html">
+            
+                <a href="Home.html#单个家庭信息管理">
+            
+                    
+                    单个家庭信息管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="Home.html">
+            
+                <a href="Home.html#房间管理">
+            
+                    
+                    房间管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Activator.html">
+            
+                <a href="Activator.html#设备配网">
+            
+                    
+                    设备配网
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="Activator.html">
+            
+                <a href="Activator.html#快连模式（ez配网）">
+            
+                    
+                    快连模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="Activator.html">
+            
+                <a href="Activator.html#热点模式（ap配网）">
+            
+                    
+                    热点模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="Activator.html">
+            
+                <a href="Activator.html#zigbee-网关配网">
+            
+                    
+                    Zigbee 网关配网
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="Activator.html">
+            
+                <a href="Activator.html#zigbee-子设备激活">
+            
+                    
+                    ZigBee 子设备激活
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Device.html">
+            
+                <a href="Device.html#设备控制">
+            
+                    
+                    设备控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="Device.html">
+            
+                <a href="Device.html#更新设备信息">
+            
+                    
+                    更新设备信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="Device.html">
+            
+                <a href="Device.html#设备功能点">
+            
+                    
+                    设备功能点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="Device.html">
+            
+                <a href="Device.html#修改设备名称">
+            
+                    
+                    修改设备名称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="Device.html">
+            
+                <a href="Device.html#移除设备">
+            
+                    
+                    移除设备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="Device.html">
+            
+                <a href="Device.html#获取设备的wifi信号强度">
+            
+                    
+                    获取设备的wifi信号强度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="Device.html">
+            
+                <a href="Device.html#获取网关下的子设备列表">
+            
+                    
+                    获取网关下的子设备列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="Device.html">
+            
+                <a href="Device.html#固件升级">
+            
+                    
+                    固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="Device.html">
+            
+                <a href="Device.html#获取数据点的历史统计数据">
+            
+                    
+                    获取数据点的历史统计数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Share.html">
+            
+                <a href="Share.html#共享设备">
+            
+                    
+                    共享设备
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="Share.html">
+            
+                <a href="Share.html#家庭成员共享">
+            
+                    
+                    家庭成员共享
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="Share.html">
+            
+                <a href="Share.html#设备共享（基于设备维度的共享）">
+            
+                    
+                    设备共享
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Timer.html">
+            
+                <a href="Timer.html">
+            
+                    
+                    定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Group.html">
+            
+                <a href="Group.html">
+            
+                    
+                    群组管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    智能场景
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="SmartScene.html">
+            
+                <a href="SmartScene.html#智能场景">
+            
+                    
+                    智能场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="SmartScene.html">
+            
+                <a href="SmartScene.html#单个场景操作">
+            
+                    
+                    单个场景操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="DataChannel.html">
+            
+                <a href="DataChannel.html">
+            
+                    
+                    数据流通道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="BLE.html">
+            
+                <a href="BLE.html#单点蓝牙-ble">
+            
+                    
+                    单点蓝牙
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="BLE.html">
+            
+                <a href="BLE.html#系统蓝牙状态监测">
+            
+                    
+                    系统蓝牙状态监测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="BLE.html">
+            
+                <a href="BLE.html#设备扫描">
+            
+                    
+                    设备扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="BLE.html">
+            
+                <a href="BLE.html#设备激活">
+            
+                    
+                    设备激活
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="BLE.html">
+            
+                <a href="BLE.html#设备-ota-升级">
+            
+                    
+                    设备 OTA 升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.5" data-path="BLE.html">
+            
+                <a href="BLE.html#设备-dp-下发">
+            
+                    
+                    设备 DP 下发
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Mesh.html">
+            
+                <a href="Mesh.html#ble-mesh-sdk-使用说明">
+            
+                    
+                    蓝牙 Mesh
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-部分基础概念">
+            
+                    
+                    Mesh 部分基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-操作">
+            
+                    
+                    Mesh 操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-数据获取">
+            
+                    
+                    Mesh 数据获取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="Mesh.html">
+            
+                <a href="Mesh.html#配网与入网">
+            
+                    
+                    配网与入网
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-设备">
+            
+                    
+                    Mesh 设备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-群组">
+            
+                    
+                    Mesh 群组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.7" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-控制">
+            
+                    
+                    Mesh 控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.8" data-path="Mesh.html">
+            
+                <a href="Mesh.html#固件升级">
+            
+                    
+                    固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="Message.html">
+            
+                <a href="Message.html">
+            
+                    
+                    消息中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="Feedback.html">
+            
+                <a href="Feedback.html">
+            
+                    
+                    意见反馈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="CommonInterface.html">
+            
+                <a href="CommonInterface.html">
+            
+                    
+                    通用接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="Push.html">
+            
+                <a href="Push.html">
+            
+                    
+                    集成Push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="Faq.html">
+            
+                <a href="Faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >设备控制</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x8BBE;&#x5907;&#x63A7;&#x5236;"><a name="&#x8BBE;&#x5907;&#x63A7;&#x5236;" class="plugin-anchor" href="#&#x8BBE;&#x5907;&#x63A7;&#x5236;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BBE;&#x5907;&#x63A7;&#x5236;</h2>
+<p>&#x8BBE;&#x5907;&#x63A7;&#x5236;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartDevice</code>&#x7C7B;&#xFF0C;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x8BBE;&#x5907;Id&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#x3002;&#x9519;&#x8BEF;&#x7684;&#x8BBE;&#x5907;Id&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x521D;&#x59CB;&#x5316;&#x5931;&#x8D25;&#xFF0C;&#x8FD4;&#x56DE;<code>nil</code>&#x3002;</p>
+<h3 id="&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x4FE1;&#x606F;"><a name="&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x4FE1;&#x606F;" class="plugin-anchor" href="#&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x65B0;&#x8BBE;&#x5907;&#x4FE1;&#x606F;</h3>
+<h4 id="&#x66F4;&#x65B0;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x4FE1;&#x606F;"><a name="&#x66F4;&#x65B0;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x4FE1;&#x606F;" class="plugin-anchor" href="#&#x66F4;&#x65B0;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x4FE1;&#x606F;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x65B0;&#x5355;&#x4E2A;&#x8BBE;&#x5907;&#x4FE1;&#x606F;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>updateDeviceInfo <span class="token punctuation">{</span>
+    <span class="token comment">// self.device = [TuyaSmartDevice deviceWithDeviceId:@&quot;your_device_id&quot;];</span>
+
+    __weak <span class="token keyword">typeof</span><span class="token punctuation">(</span><span class="token keyword">self</span><span class="token punctuation">)</span> weakSelf <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">;</span>
+    <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>device syncWithCloud<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;syncWithCloud success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;deviceModel: %@&quot;</span><span class="token punctuation">,</span> weakSelf<span class="token punctuation">.</span>device<span class="token punctuation">.</span>deviceModel<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;syncWithCloud failure&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;"><a name="&#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;" class="plugin-anchor" href="#&#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BBE;&#x5907;&#x529F;&#x80FD;&#x70B9;</h3>
+<p><code>TuyaSmartDeviceModel</code>&#x7C7B;&#x7684;<code>dps</code>&#x5C5E;&#x6027;&#xFF08;<code>NSDictionary</code>&#x7C7B;&#x578B;&#xFF09;&#x5B9A;&#x4E49;&#x4E86;&#x5F53;&#x524D;&#x8BBE;&#x5907;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x79F0;&#x4F5C;&#x6570;&#x636E;&#x70B9;&#xFF08;DP&#x70B9;&#xFF09;&#x6216;&#x529F;&#x80FD;&#x70B9;&#x3002;</p>
+<p><code>dps</code>&#x5B57;&#x5178;&#x91CC;&#x7684;&#x6BCF;&#x4E2A;<code>key</code>&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x70B9;&#x7684;<code>dpId</code>&#xFF0C;<code>value</code>&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x70B9;&#x7684;<code>dpValue</code>&#xFF0C;<code>dpValue</code>&#x4E3A;&#x8BE5;&#x529F;&#x80FD;&#x70B9;&#x7684;&#x503C;&#x3002;<br></p>
+<p>&#x4EA7;&#x54C1;&#x529F;&#x80FD;&#x70B9;&#x5B9A;&#x4E49;&#x53C2;&#x89C1;<a href="https://developer.tuya.com/" target="_blank">&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0;</a>&#x7684;&#x4EA7;&#x54C1;&#x529F;&#x80FD;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="images/ios_dp_sample.jpeg" alt="&#x529F;&#x80FD;&#x70B9;"></p>
+<p>&#x53D1;&#x9001;&#x63A7;&#x5236;&#x6307;&#x4EE4;&#x6309;&#x7167;&#x4EE5;&#x4E0B;&#x683C;&#x5F0F;&#xFF1A;</p>
+<p><code>{&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dpId</span><span class="token punctuation">&gt;</span></span>&quot;:&quot;<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dpValue</span><span class="token punctuation">&gt;</span></span>&quot;}</code></p>
+<p>&#x6839;&#x636E;&#x540E;&#x53F0;&#x8BE5;&#x4EA7;&#x54C1;&#x7684;&#x529F;&#x80FD;&#x70B9;&#x5B9A;&#x4E49;&#xFF0C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>publishDps <span class="token punctuation">{</span>
+    <span class="token comment">// self.device = [TuyaSmartDevice deviceWithDeviceId:@&quot;your_device_id&quot;];</span>
+
+    NSDictionary <span class="token operator">*</span>dps<span class="token punctuation">;</span>
+    <span class="token comment">//&#x8BBE;&#x7F6E;dpId&#x4E3A;1&#x7684;&#x5E03;&#x5C14;&#x578B;&#x529F;&#x80FD;&#x70B9;&#x793A;&#x4F8B; &#x4F5C;&#x7528;:&#x5F00;&#x5173;&#x6253;&#x5F00;</span>
+    dps <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@&quot;1&quot;</span><span class="token punctuation">:</span> <span class="token operator">@</span><span class="token punctuation">(</span>YES<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//&#x8BBE;&#x7F6E;dpId&#x4E3A;4&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x578B;&#x529F;&#x80FD;&#x70B9;&#x793A;&#x4F8B; &#x4F5C;&#x7528;:&#x8BBE;&#x7F6E;RGB&#x989C;&#x8272;&#x4E3A;ff5500</span>
+    dps <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@&quot;4&quot;</span><span class="token punctuation">:</span> <span class="token string">@&quot;ff5500&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//&#x8BBE;&#x7F6E;dpId&#x4E3A;5&#x7684;&#x679A;&#x4E3E;&#x578B;&#x529F;&#x80FD;&#x70B9;&#x793A;&#x4F8B; &#x4F5C;&#x7528;:&#x8BBE;&#x7F6E;&#x6863;&#x4F4D;&#x4E3A;2&#x6863;</span>
+    dps <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@&quot;5&quot;</span><span class="token punctuation">:</span> <span class="token string">@&quot;2&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//&#x8BBE;&#x7F6E;dpId&#x4E3A;6&#x7684;&#x6570;&#x503C;&#x578B;&#x529F;&#x80FD;&#x70B9;&#x793A;&#x4F8B; &#x4F5C;&#x7528;:&#x8BBE;&#x7F6E;&#x6E29;&#x5EA6;&#x4E3A;20&#xB0;</span>
+    dps <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@&quot;6&quot;</span><span class="token punctuation">:</span> <span class="token operator">@</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//&#x8BBE;&#x7F6E;dpId&#x4E3A;15&#x7684;&#x900F;&#x4F20;&#x578B;(byte&#x6570;&#x7EC4;)&#x529F;&#x80FD;&#x70B9;&#x793A;&#x4F8B; &#x4F5C;&#x7528;:&#x900F;&#x4F20;&#x7EA2;&#x5916;&#x6570;&#x636E;&#x4E3A;1122</span>
+    dps <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@&quot;15&quot;</span><span class="token punctuation">:</span> <span class="token string">@&quot;1122&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token comment">//&#x591A;&#x4E2A;&#x529F;&#x80FD;&#x5408;&#x5E76;&#x53D1;&#x9001;</span>
+    dps <span class="token operator">=</span> <span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@&quot;1&quot;</span><span class="token punctuation">:</span> <span class="token operator">@</span><span class="token punctuation">(</span>YES<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">@&quot;4&quot;</span><span class="token punctuation">:</span> <span class="token operator">@</span><span class="token punctuation">(</span>ff5500<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>device publishDps<span class="token punctuation">:</span>dps success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;publishDps success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//&#x4E0B;&#x53D1;&#x6210;&#x529F;&#xFF0C;&#x72B6;&#x6001;&#x4E0A;&#x62A5;&#x901A;&#x8FC7; deviceDpsUpdate&#x65B9;&#x6CD5; &#x56DE;&#x8C03;</span>
+
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;publishDps failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h5 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF1A;"><a name="&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF1A;" class="plugin-anchor" href="#&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#xFF1A;</h5>
+<ul>
+<li>&#x63A7;&#x5236;&#x547D;&#x4EE4;&#x7684;&#x53D1;&#x9001;&#x9700;&#x8981;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3002;<br>
+&#x6BD4;&#x5982;&#x529F;&#x80FD;&#x70B9;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x662F;&#x6570;&#x503C;&#x578B;&#xFF08;value&#xFF09;&#xFF0C;&#x90A3;&#x63A7;&#x5236;&#x547D;&#x4EE4;&#x53D1;&#x9001;&#x7684;&#x5E94;&#x8BE5;&#x662F; <code>@{@&quot;2&quot;: @(25)}</code>  &#x800C;&#x4E0D;&#x662F;  <code>@{@&quot;2&quot;: @&quot;25&quot;}</code><br></li>
+<li>&#x900F;&#x4F20;&#x7C7B;&#x578B;&#x4F20;&#x8F93;&#x7684;byte&#x6570;&#x7EC4;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x3001;&#x5B57;&#x6BCD;&#x9700;&#x5C0F;&#x5199;&#x5E76;&#x4E14;&#x5FC5;&#x987B;&#x662F;&#x5076;&#x6570;&#x4F4D;&#x3002;<br>
+&#x6BD4;&#x5982;&#x6B63;&#x786E;&#x7684;&#x683C;&#x5F0F;&#x662F;: <code>@{@&quot;1&quot;: @&quot;011f&quot;}</code> &#x800C;&#x4E0D;&#x662F; <code>@{@&quot;1&quot;: @&quot;11f&quot;}</code></li>
+</ul>
+<p>&#x529F;&#x80FD;&#x70B9;&#x66F4;&#x591A;&#x6982;&#x5FF5;&#x53C2;&#x89C1;<a href="https://docs.tuya.com/cn/product/function.html" target="_blank">&#x5FEB;&#x901F;&#x5165;&#x95E8;-&#x529F;&#x80FD;&#x70B9;&#x76F8;&#x5173;&#x6982;&#x5FF5;</a></p>
+<h4 id="&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x66F4;&#x65B0;"><a name="&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x66F4;&#x65B0;" class="plugin-anchor" href="#&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x66F4;&#x65B0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x66F4;&#x65B0;</h4>
+<p>&#x5B9E;&#x73B0;<code>TuyaSmartDeviceDelegate</code>&#x4EE3;&#x7406;&#x534F;&#x8BAE;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x66F4;&#x53D8;&#x7684;&#x56DE;&#x8C03;&#x4E2D;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5237;&#x65B0;APP&#x8BBE;&#x5907;&#x63A7;&#x5236;&#x9762;&#x677F;&#x7684;UI&#x3002;</p>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>initDevice <span class="token punctuation">{</span>
+    <span class="token keyword">self</span><span class="token punctuation">.</span>device <span class="token operator">=</span> <span class="token punctuation">[</span>TuyaSmartDevice deviceWithDeviceId<span class="token punctuation">:</span><span class="token string">@&quot;your_device_id&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">self</span><span class="token punctuation">.</span>device<span class="token punctuation">.</span>delegate <span class="token operator">=</span> <span class="token keyword">self</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token macro property">#<span class="token directive keyword">pragma</span> mark - TuyaSmartDeviceDelegate</span>
+
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>device<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartDevice <span class="token operator">*</span><span class="token punctuation">)</span>device dpsUpdate<span class="token punctuation">:</span><span class="token punctuation">(</span>NSDictionary <span class="token operator">*</span><span class="token punctuation">)</span>dps <span class="token punctuation">{</span>
+    <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;deviceDpsUpdate: %@&quot;</span><span class="token punctuation">,</span> dps<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// TODO: &#x5237;&#x65B0;&#x754C;&#x9762;UI</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>deviceInfoUpdate<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartDevice <span class="token operator">*</span><span class="token punctuation">)</span>device <span class="token punctuation">{</span>
+    <span class="token comment">//&#x5F53;&#x524D;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x66F4;&#x65B0; &#x6BD4;&#x5982; &#x8BBE;&#x5907;&#x540D;&#x3001;&#x8BBE;&#x5907;&#x5728;&#x7EBF;&#x72B6;&#x6001;&#x7B49;</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>deviceRemoved<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartDevice <span class="token operator">*</span><span class="token punctuation">)</span>device <span class="token punctuation">{</span>
+    <span class="token comment">//&#x5F53;&#x524D;&#x8BBE;&#x5907;&#x88AB;&#x79FB;&#x9664;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x540D;&#x79F0;"><a name="&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x540D;&#x79F0;" class="plugin-anchor" href="#&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x540D;&#x79F0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;&#x8BBE;&#x5907;&#x540D;&#x79F0;</h3>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>modifyDeviceName<span class="token punctuation">:</span><span class="token punctuation">(</span>NSString <span class="token operator">*</span><span class="token punctuation">)</span>mame <span class="token punctuation">{</span>
+    <span class="token comment">// self.device = [TuyaSmartDevice deviceWithDeviceId:@&quot;your_device_id&quot;];</span>
+
+    <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>device updateName<span class="token punctuation">:</span>name success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;updateName success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;updateName failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x79FB;&#x9664;&#x8BBE;&#x5907;"><a name="&#x79FB;&#x9664;&#x8BBE;&#x5907;" class="plugin-anchor" href="#&#x79FB;&#x9664;&#x8BBE;&#x5907;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x79FB;&#x9664;&#x8BBE;&#x5907;</h3>
+<p>&#x8BBE;&#x5907;&#x88AB;&#x79FB;&#x9664;&#x540E;&#xFF0C;&#x4F1A;&#x91CD;&#x65B0;&#x8FDB;&#x5165;&#x5F85;&#x914D;&#x7F51;&#x72B6;&#x6001;&#xFF08;&#x5FEB;&#x8FDE;&#x6A21;&#x5F0F;&#xFF09;&#x3002;</p>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>removeDevice <span class="token punctuation">{</span>
+    <span class="token comment">// self.device = [TuyaSmartDevice deviceWithDeviceId:@&quot;your_device_id&quot;];</span>
+
+    <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>device remove<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;remove success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;remove failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7684;wifi&#x4FE1;&#x53F7;&#x5F3A;&#x5EA6;"><a name="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7684;wifi&#x4FE1;&#x53F7;&#x5F3A;&#x5EA6;" class="plugin-anchor" href="#&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7684;wifi&#x4FE1;&#x53F7;&#x5F3A;&#x5EA6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x7684;wifi&#x4FE1;&#x53F7;&#x5F3A;&#x5EA6;</h3>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>getWifiSignalStrength <span class="token punctuation">{</span>
+    <span class="token comment">// self.device = [TuyaSmartDevice deviceWithDeviceId:@&quot;your_device_id&quot;];</span>
+    <span class="token comment">// self.device.delegate = self;</span>
+
+    <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>device getWifiSignalStrengthWithSuccess<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;get wifi signal strength success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;get wifi signal strength failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token macro property">#<span class="token directive keyword">pragma</span> mark - TuyaSmartDeviceDelegate</span>
+
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>device<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartDevice <span class="token operator">*</span><span class="token punctuation">)</span>device signal<span class="token punctuation">:</span><span class="token punctuation">(</span>NSString <span class="token operator">*</span><span class="token punctuation">)</span>signal <span class="token punctuation">{</span>
+    <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot; signal : %@&quot;</span><span class="token punctuation">,</span> signal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x7F51;&#x5173;&#x4E0B;&#x7684;&#x5B50;&#x8BBE;&#x5907;&#x5217;&#x8868;"><a name="&#x83B7;&#x53D6;&#x7F51;&#x5173;&#x4E0B;&#x7684;&#x5B50;&#x8BBE;&#x5907;&#x5217;&#x8868;" class="plugin-anchor" href="#&#x83B7;&#x53D6;&#x7F51;&#x5173;&#x4E0B;&#x7684;&#x5B50;&#x8BBE;&#x5907;&#x5217;&#x8868;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x7F51;&#x5173;&#x4E0B;&#x7684;&#x5B50;&#x8BBE;&#x5907;&#x5217;&#x8868;</h3>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>getSubDeviceList <span class="token punctuation">{</span>
+    <span class="token comment">// self.device = [TuyaSmartDevice deviceWithDeviceId:@&quot;your_device_id&quot;];</span>
+
+    <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>device getSubDeviceListFromCloudWithSuccess<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSArray<span class="token operator">&lt;</span>TuyaSmartDeviceModel <span class="token operator">*</span><span class="token operator">&gt;</span> <span class="token operator">*</span>subDeviceList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;get sub device list success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;get sub device list failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x56FA;&#x4EF6;&#x5347;&#x7EA7;"><a name="&#x56FA;&#x4EF6;&#x5347;&#x7EA7;" class="plugin-anchor" href="#&#x56FA;&#x4EF6;&#x5347;&#x7EA7;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x56FA;&#x4EF6;&#x5347;&#x7EA7;</h3>
+<p><strong>&#x56FA;&#x4EF6;&#x5347;&#x7EA7;&#x6D41;&#x7A0B;:</strong></p>
+<p>&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F; -&gt; &#x4E0B;&#x53D1;&#x8054;&#x7F51;&#x6A21;&#x5757;&#x5347;&#x7EA7;&#x6307;&#x4EE4; -&gt; &#x8054;&#x7F51;&#x6A21;&#x5757;&#x5347;&#x7EA7;&#x6210;&#x529F; -&gt; &#x4E0B;&#x53D1;&#x8BBE;&#x5907;&#x63A7;&#x5236;&#x6A21;&#x5757;&#x5347;&#x7EA7;&#x6307;&#x4EE4; -&gt; &#x8BBE;&#x5907;&#x63A7;&#x5236;&#x6A21;&#x5757;&#x5347;&#x7EA7;&#x6210;&#x529F;</p>
+<h4 id="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F;&#xFF1A;"><a name="&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F;&#xFF1A;" class="plugin-anchor" href="#&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F;&#xFF1A;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>getFirmwareUpgradeInfo <span class="token punctuation">{</span>
+    <span class="token comment">// self.device = [TuyaSmartDevice deviceWithDeviceId:@&quot;your_device_id&quot;];</span>
+
+    <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>device getFirmwareUpgradeInfo<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSArray<span class="token operator">&lt;</span>TuyaSmartFirmwareUpgradeModel <span class="token operator">*</span><span class="token operator">&gt;</span> <span class="token operator">*</span>upgradeModelList<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;getFirmwareUpgradeInfo success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;getFirmwareUpgradeInfo failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x4E0B;&#x53D1;&#x5347;&#x7EA7;&#x6307;&#x4EE4;&#xFF1A;"><a name="&#x4E0B;&#x53D1;&#x5347;&#x7EA7;&#x6307;&#x4EE4;&#xFF1A;" class="plugin-anchor" href="#&#x4E0B;&#x53D1;&#x5347;&#x7EA7;&#x6307;&#x4EE4;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E0B;&#x53D1;&#x5347;&#x7EA7;&#x6307;&#x4EE4;&#xFF1A;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>upgradeFirmware <span class="token punctuation">{</span>
+    <span class="token comment">// self.device = [TuyaSmartDevice deviceWithDeviceId:@&quot;your_device_id&quot;];</span>
+    <span class="token comment">// &#x8BBE;&#x5907;&#x7C7B;&#x578B;type &#x4ECE;&#x83B7;&#x53D6;&#x8BBE;&#x5907;&#x5347;&#x7EA7;&#x4FE1;&#x606F;&#x63A5;&#x53E3; getFirmwareUpgradeInfo &#x8FD4;&#x56DE;&#x7684;&#x7C7B;&#x578B;</span>
+    <span class="token comment">// TuyaSmartFirmwareUpgradeModel - type</span>
+
+    <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>device upgradeFirmware<span class="token punctuation">:</span>type success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;upgradeFirmware success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;upgradeFirmware failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#xFF1A;"><a name="&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#xFF1A;" class="plugin-anchor" href="#&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#xFF1A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x56DE;&#x8C03;&#x63A5;&#x53E3;&#xFF1A;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>deviceFirmwareUpgradeSuccess<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartDevice <span class="token operator">*</span><span class="token punctuation">)</span>device type<span class="token punctuation">:</span><span class="token punctuation">(</span>NSInteger<span class="token punctuation">)</span>type <span class="token punctuation">{</span>
+    <span class="token comment">//&#x56FA;&#x4EF6;&#x5347;&#x7EA7;&#x6210;&#x529F;</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>deviceFirmwareUpgradeFailure<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartDevice <span class="token operator">*</span><span class="token punctuation">)</span>device type<span class="token punctuation">:</span><span class="token punctuation">(</span>NSInteger<span class="token punctuation">)</span>type <span class="token punctuation">{</span>
+    <span class="token comment">//&#x56FA;&#x4EF6;&#x5347;&#x7EA7;&#x5931;&#x8D25;</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>device<span class="token punctuation">:</span><span class="token punctuation">(</span>TuyaSmartDevice <span class="token operator">*</span><span class="token punctuation">)</span>device firmwareUpgradeProgress<span class="token punctuation">:</span><span class="token punctuation">(</span>NSInteger<span class="token punctuation">)</span>type progress<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span>progress <span class="token punctuation">{</span>
+    <span class="token comment">//&#x56FA;&#x4EF6;&#x5347;&#x7EA7;&#x7684;&#x8FDB;&#x5EA6;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x83B7;&#x53D6;&#x6570;&#x636E;&#x70B9;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;"><a name="&#x83B7;&#x53D6;&#x6570;&#x636E;&#x70B9;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;" class="plugin-anchor" href="#&#x83B7;&#x53D6;&#x6570;&#x636E;&#x70B9;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;&#x6570;&#x636E;&#x70B9;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;</h3>
+<p>&#x83B7;&#x53D6;dp&#x70B9;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;&#xFF0C;&#x4F8B;&#x5982;&#x7535;&#x91CF;&#x7EDF;&#x8BA1;&#x7B49;&#x4FE1;&#x606F;&#x3002;</p>
+<h4 id="&#x83B7;&#x53D6;dp&#x70B9;&#x6240;&#x6709;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;"><a name="&#x83B7;&#x53D6;dp&#x70B9;&#x6240;&#x6709;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;" class="plugin-anchor" href="#&#x83B7;&#x53D6;dp&#x70B9;&#x6240;&#x6709;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;dp&#x70B9;&#x6240;&#x6709;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;</h4>
+<pre class="language-"><code class="lang-objc">_request <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartRequest alloc<span class="token punctuation">]</span> init<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span>_request requestWithApiName<span class="token punctuation">:</span><span class="token string">@&quot;m.smart.dp.his.stat.get.all&quot;</span> postData<span class="token punctuation">:</span><span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@&quot;devId&quot;</span><span class="token punctuation">:</span><span class="token string">@&quot;your_devId&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;dpId&quot;</span><span class="token punctuation">:</span><span class="token string">@&quot;device_dpId&quot;</span><span class="token punctuation">}</span> version<span class="token punctuation">:</span><span class="token string">@&quot;1.0&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>id result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="&#x83B7;&#x53D6;dp&#x70B9;&#x67D0;&#x4E2A;&#x6708;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;"><a name="&#x83B7;&#x53D6;dp&#x70B9;&#x67D0;&#x4E2A;&#x6708;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;" class="plugin-anchor" href="#&#x83B7;&#x53D6;dp&#x70B9;&#x67D0;&#x4E2A;&#x6708;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x83B7;&#x53D6;dp&#x70B9;&#x67D0;&#x4E2A;&#x6708;&#x7684;&#x5386;&#x53F2;&#x7EDF;&#x8BA1;&#x6570;&#x636E;</h4>
+<pre class="language-"><code class="lang-objc">_request <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartRequest alloc<span class="token punctuation">]</span> init<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">[</span>_request requestWithApiName<span class="token punctuation">:</span><span class="token string">@&quot;m.smart.dp.his.stat.get.month&quot;</span> postData<span class="token punctuation">:</span><span class="token operator">@</span><span class="token punctuation">{</span><span class="token string">@&quot;devId&quot;</span><span class="token punctuation">:</span><span class="token string">@&quot;your_devId&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;month&quot;</span><span class="token punctuation">:</span><span class="token string">@&quot;201809&quot;</span><span class="token punctuation">,</span> <span class="token string">@&quot;dpId&quot;</span><span class="token punctuation">:</span><span class="token string">@&quot;device_dpId&quot;</span><span class="token punctuation">}</span> version<span class="token punctuation">:</span><span class="token string">@&quot;1.0&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>id result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+<span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Activator.html#zigbee-子设备激活" class="navigation navigation-prev " aria-label="Previous page: ZigBee 子设备激活">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Device.html#更新设备信息" class="navigation navigation-next " aria-label="Next page: 更新设备信息">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"设备控制","level":"1.8","depth":1,"next":{"title":"更新设备信息","level":"1.8.1","depth":2,"anchor":"#更新设备信息","path":"resource/Device.md","ref":"./resource/Device.md#更新设备信息","articles":[]},"previous":{"title":"ZigBee 子设备激活","level":"1.7.4","depth":2,"anchor":"#zigbee-子设备激活","path":"resource/Activator.md","ref":"./resource/Activator.md#zigbee-子设备激活","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"oc":"objectivec","objc":"objectivec","objective-c":"objectivec"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/Device.md","mtime":"2019-01-04T06:50:23.821Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-08T12:20:08.633Z"},"basePath":"..","book":{"language":"zh-hans"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

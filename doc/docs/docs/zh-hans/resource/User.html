@@ -1,0 +1,1350 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>用户管理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-okaidia.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="User.html" />
+    
+    
+    <link rel="prev" href="Integrated.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Overview.html">
+            
+                <a href="Overview.html">
+            
+                    
+                    功能概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Preparation.html">
+            
+                <a href="Preparation.html">
+            
+                    
+                    准备工作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="Integrated.html">
+            
+                <a href="Integrated.html">
+            
+                    
+                    集成SDK
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="User.html">
+            
+                <a href="User.html#用户管理">
+            
+                    
+                    用户管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="User.html">
+            
+                <a href="User.html#用户注册">
+            
+                    
+                    用户注册
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="User.html">
+            
+                <a href="User.html#用户登录">
+            
+                    
+                    用户登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="User.html">
+            
+                <a href="User.html#第三方登录">
+            
+                    
+                    第三方登录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="User.html">
+            
+                <a href="User.html#用户重置密码">
+            
+                    
+                    用户重置密码
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="User.html">
+            
+                <a href="User.html#修改昵称">
+            
+                    
+                    修改昵称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="User.html">
+            
+                <a href="User.html#更新用户时区">
+            
+                    
+                    更新用户时区
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="User.html">
+            
+                <a href="User.html#登出">
+            
+                    
+                    登出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="User.html">
+            
+                <a href="User.html#停用账号（注销用户）">
+            
+                    
+                    停用账号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="User.html">
+            
+                <a href="User.html#session过期的处理">
+            
+                    
+                    Session过期的处理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="Home.html">
+            
+                <a href="Home.html#家庭管理">
+            
+                    
+                    家庭管理
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="Home.html">
+            
+                <a href="Home.html#单个家庭信息管理">
+            
+                    
+                    单个家庭信息管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="Home.html">
+            
+                <a href="Home.html#房间管理">
+            
+                    
+                    房间管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="Activator.html">
+            
+                <a href="Activator.html#设备配网">
+            
+                    
+                    设备配网
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="Activator.html">
+            
+                <a href="Activator.html#快连模式（ez配网）">
+            
+                    
+                    快连模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="Activator.html">
+            
+                <a href="Activator.html#热点模式（ap配网）">
+            
+                    
+                    热点模式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="Activator.html">
+            
+                <a href="Activator.html#zigbee-网关配网">
+            
+                    
+                    Zigbee 网关配网
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="Activator.html">
+            
+                <a href="Activator.html#zigbee-子设备激活">
+            
+                    
+                    ZigBee 子设备激活
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="Device.html">
+            
+                <a href="Device.html#设备控制">
+            
+                    
+                    设备控制
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="Device.html">
+            
+                <a href="Device.html#更新设备信息">
+            
+                    
+                    更新设备信息
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="Device.html">
+            
+                <a href="Device.html#设备功能点">
+            
+                    
+                    设备功能点
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="Device.html">
+            
+                <a href="Device.html#修改设备名称">
+            
+                    
+                    修改设备名称
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="Device.html">
+            
+                <a href="Device.html#移除设备">
+            
+                    
+                    移除设备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="Device.html">
+            
+                <a href="Device.html#获取设备的wifi信号强度">
+            
+                    
+                    获取设备的wifi信号强度
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="Device.html">
+            
+                <a href="Device.html#获取网关下的子设备列表">
+            
+                    
+                    获取网关下的子设备列表
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="Device.html">
+            
+                <a href="Device.html#固件升级">
+            
+                    
+                    固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="Device.html">
+            
+                <a href="Device.html#获取数据点的历史统计数据">
+            
+                    
+                    获取数据点的历史统计数据
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="Share.html">
+            
+                <a href="Share.html#共享设备">
+            
+                    
+                    共享设备
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="Share.html">
+            
+                <a href="Share.html#家庭成员共享">
+            
+                    
+                    家庭成员共享
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="Share.html">
+            
+                <a href="Share.html#设备共享（基于设备维度的共享）">
+            
+                    
+                    设备共享
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="Timer.html">
+            
+                <a href="Timer.html">
+            
+                    
+                    定时任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="Group.html">
+            
+                <a href="Group.html">
+            
+                    
+                    群组管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    智能场景
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="SmartScene.html">
+            
+                <a href="SmartScene.html#智能场景">
+            
+                    
+                    智能场景
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="SmartScene.html">
+            
+                <a href="SmartScene.html#单个场景操作">
+            
+                    
+                    单个场景操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="DataChannel.html">
+            
+                <a href="DataChannel.html">
+            
+                    
+                    数据流通道
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="BLE.html">
+            
+                <a href="BLE.html#单点蓝牙-ble">
+            
+                    
+                    单点蓝牙
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="BLE.html">
+            
+                <a href="BLE.html#系统蓝牙状态监测">
+            
+                    
+                    系统蓝牙状态监测
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="BLE.html">
+            
+                <a href="BLE.html#设备扫描">
+            
+                    
+                    设备扫描
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="BLE.html">
+            
+                <a href="BLE.html#设备激活">
+            
+                    
+                    设备激活
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.4" data-path="BLE.html">
+            
+                <a href="BLE.html#设备-ota-升级">
+            
+                    
+                    设备 OTA 升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.5" data-path="BLE.html">
+            
+                <a href="BLE.html#设备-dp-下发">
+            
+                    
+                    设备 DP 下发
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="Mesh.html">
+            
+                <a href="Mesh.html#ble-mesh-sdk-使用说明">
+            
+                    
+                    蓝牙 Mesh
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-部分基础概念">
+            
+                    
+                    Mesh 部分基础概念
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-操作">
+            
+                    
+                    Mesh 操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.3" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-数据获取">
+            
+                    
+                    Mesh 数据获取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.4" data-path="Mesh.html">
+            
+                <a href="Mesh.html#配网与入网">
+            
+                    
+                    配网与入网
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.5" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-设备">
+            
+                    
+                    Mesh 设备
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.6" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-群组">
+            
+                    
+                    Mesh 群组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.7" data-path="Mesh.html">
+            
+                <a href="Mesh.html#mesh-控制">
+            
+                    
+                    Mesh 控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.8" data-path="Mesh.html">
+            
+                <a href="Mesh.html#固件升级">
+            
+                    
+                    固件升级
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="Message.html">
+            
+                <a href="Message.html">
+            
+                    
+                    消息中心
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="Feedback.html">
+            
+                <a href="Feedback.html">
+            
+                    
+                    意见反馈
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="CommonInterface.html">
+            
+                <a href="CommonInterface.html">
+            
+                    
+                    通用接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="Push.html">
+            
+                <a href="Push.html">
+            
+                    
+                    集成Push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="Faq.html">
+            
+                <a href="Faq.html">
+            
+                    
+                    FAQ
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >用户管理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="&#x7528;&#x6237;&#x7BA1;&#x7406;"><a name="&#x7528;&#x6237;&#x7BA1;&#x7406;" class="plugin-anchor" href="#&#x7528;&#x6237;&#x7BA1;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6237;&#x7BA1;&#x7406;</h2>
+<p>&#x6D82;&#x9E26;&#x4E91;&#x652F;&#x6301;&#x591A;&#x79CD;&#x7528;&#x6237;&#x4F53;&#x7CFB;&#xFF1A;&#x624B;&#x673A;&#x3001;&#x90AE;&#x7BB1;&#x3001;UID&#x3002;&#x5176;&#x4E2D;&#x624B;&#x673A;&#x652F;&#x6301;&#x9A8C;&#x8BC1;&#x7801;&#x767B;&#x5F55;&#x548C;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x6BCF;&#x79CD;&#x4F53;&#x7CFB;&#x7684;&#x6CE8;&#x518C;&#x767B;&#x5F55;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x5355;&#x72EC;&#x4ECB;&#x7ECD;&#x3002;</p>
+<p>&#x5728;&#x6CE8;&#x518C;&#x767B;&#x5F55;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x63D0;&#x4F9B;<code>countryCode</code>&#x53C2;&#x6570;&#xFF08;&#x56FD;&#x5BB6;&#x533A;&#x53F7;&#xFF09;&#xFF0C;&#x7528;&#x4E8E;&#x5C31;&#x8FD1;&#x9009;&#x62E9;&#x6D82;&#x9E26;&#x4E91;&#x7684;&#x53EF;&#x7528;&#x533A;&#x3002;&#x5404;&#x4E2A;&#x53EF;&#x7528;&#x533A;&#x7684;&#x6570;&#x636E;&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5728;<code>&#x4E2D;&#x56FD;&#x5927;&#x9646;&#xFF08;86&#xFF09;</code>&#x6CE8;&#x518C;&#x7684;&#x8D26;&#x53F7;&#xFF0C;&#x5728;<code>&#x7F8E;&#x56FD;(1)</code>&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF08;&#x7528;&#x6237;&#x4E0D;&#x5B58;&#x5728;&#xFF09;&#x3002;</p>
+<p>&#x53EF;&#x7528;&#x533A;&#x76F8;&#x5173;&#x6982;&#x5FF5;&#x8BF7;&#x67E5;&#x770B;&#xFF1A;<a href="https://docs.tuya.com/cn/cloudapi" target="_blank">&#x6D82;&#x9E26;&#x4E91;-&#x53EF;&#x7528;&#x533A;</a></p>
+<p>&#x7528;&#x6237;&#x76F8;&#x5173;&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x5BF9;&#x5E94;<code>TuyaSmartUser</code>&#x7C7B;&#xFF08;&#x5355;&#x4F8B;&#xFF09;&#x3002;</p>
+<h3 id="&#x7528;&#x6237;&#x6CE8;&#x518C;"><a name="&#x7528;&#x6237;&#x6CE8;&#x518C;" class="plugin-anchor" href="#&#x7528;&#x6237;&#x6CE8;&#x518C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6237;&#x6CE8;&#x518C;</h3>
+<p><em>&#x6CE8;&#xFF1A;&#x6CE8;&#x518C;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x4F7F;&#x7528;SDK&#x7684;&#x6240;&#x6709;&#x529F;&#x80FD;&#x4E86;&#xFF08;&#x6CE8;&#x518C;&#x6210;&#x529F;&#x5373;&#x4E3A;&#x767B;&#x5F55;&#x6210;&#x529F;&#xFF09;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x6B21;&#x8C03;&#x7528;&#x767B;&#x5F55;&#x65B9;&#x6CD5;&#x3002;</em></p>
+<h4 id="&#x624B;&#x673A;&#x6CE8;&#x518C;"><a name="&#x624B;&#x673A;&#x6CE8;&#x518C;" class="plugin-anchor" href="#&#x624B;&#x673A;&#x6CE8;&#x518C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x624B;&#x673A;&#x6CE8;&#x518C;</h4>
+<p>&#x624B;&#x673A;&#x6CE8;&#x518C;&#x9700;&#x8981;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x9001;&#x9A8C;&#x8BC1;&#x7801;&#x5230;&#x624B;&#x673A;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>sendVerifyCode <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> sendVerifyCode<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> phoneNumber<span class="token punctuation">:</span><span class="token string">@&quot;your_phone_number&quot;</span> type<span class="token punctuation">:</span><span class="token number">1</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCode success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCode failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>&#x624B;&#x673A;&#x6536;&#x5230;&#x9A8C;&#x8BC1;&#x7801;&#x540E;&#xFF0C;&#x4F7F;&#x7528;&#x9A8C;&#x8BC1;&#x7801;&#x6CE8;&#x518C;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>registerByPhone <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> registerByPhone<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> phoneNumber<span class="token punctuation">:</span><span class="token string">@&quot;your_phone_number&quot;</span> password<span class="token punctuation">:</span><span class="token string">@&quot;your_password&quot;</span> code<span class="token punctuation">:</span><span class="token string">@&quot;verify_code&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;register success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;register failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x90AE;&#x7BB1;&#x6CE8;&#x518C;-&#xFF08;&#x4E0D;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7801;&#xFF09;"><a name="&#x90AE;&#x7BB1;&#x6CE8;&#x518C;-&#xFF08;&#x4E0D;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7801;&#xFF09;" class="plugin-anchor" href="#&#x90AE;&#x7BB1;&#x6CE8;&#x518C;-&#xFF08;&#x4E0D;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7801;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90AE;&#x7BB1;&#x6CE8;&#x518C; &#xFF08;&#x4E0D;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7801;&#xFF09;</h4>
+<p>&#x90AE;&#x7BB1;&#x6CE8;&#x518C;&#x4E0D;&#x9700;&#x8981;&#x53D1;&#x9001;&#x9A8C;&#x8BC1;&#x7801;&#xFF0C;&#x76F4;&#x63A5;&#x6CE8;&#x518C;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>registerByEmail <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> registerByEmail<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> email<span class="token punctuation">:</span><span class="token string">@&quot;your_email&quot;</span> password<span class="token punctuation">:</span><span class="token string">@&quot;your_password&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;register success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;register failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x90AE;&#x7BB1;&#x6CE8;&#x518C;-20-&#xFF08;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7801;&#xFF09;"><a name="&#x90AE;&#x7BB1;&#x6CE8;&#x518C;-20-&#xFF08;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7801;&#xFF09;" class="plugin-anchor" href="#&#x90AE;&#x7BB1;&#x6CE8;&#x518C;-20-&#xFF08;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7801;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90AE;&#x7BB1;&#x6CE8;&#x518C; 2.0 &#xFF08;&#x9700;&#x8981;&#x9A8C;&#x8BC1;&#x7801;&#xFF09;</h4>
+<p>&#x90AE;&#x7BB1;&#x6CE8;&#x518C;&#x9700;&#x8981;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x9001;&#x9A8C;&#x8BC1;&#x7801;&#x5230;&#x90AE;&#x7BB1;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>sendVerifyCode <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> sendVerifyCodeByRegisterEmail<span class="token punctuation">:</span><span class="token string">@&quot;country_code&quot;</span> email<span class="token punctuation">:</span><span class="token string">@&quot;email&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCode success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCode failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>&#x90AE;&#x7BB1;&#x6536;&#x5230;&#x9A8C;&#x8BC1;&#x7801;&#x540E;&#xFF0C;&#x4F7F;&#x7528;&#x9A8C;&#x8BC1;&#x7801;&#x6CE8;&#x518C;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>registerByEmail <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> registerByEmail<span class="token punctuation">:</span><span class="token string">@&quot;country_code&quot;</span> email<span class="token punctuation">:</span><span class="token string">@&quot;email&quot;</span> password<span class="token punctuation">:</span><span class="token string">@&quot;password&quot;</span> code<span class="token punctuation">:</span><span class="token string">@&quot;verify_code&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;register success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;register failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x7528;&#x6237;&#x767B;&#x5F55;"><a name="&#x7528;&#x6237;&#x767B;&#x5F55;" class="plugin-anchor" href="#&#x7528;&#x6237;&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6237;&#x767B;&#x5F55;</h3>
+<p>&#x7528;&#x6237;&#x767B;&#x5F55;&#x63A5;&#x53E3;&#x8C03;&#x7528;&#x6210;&#x529F;&#x4E4B;&#x540E;&#xFF0C;SDK&#x4F1A;&#x5C06;&#x7528;&#x6237;Session&#x50A8;&#x5B58;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x4E0B;&#x6B21;&#x542F;&#x52A8;APP&#x65F6;&#x5373;&#x9ED8;&#x8BA4;&#x5DF2;&#x7ECF;&#x767B;&#x5F55;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x6B21;&#x767B;&#x5F55;&#x3002;</p>
+<p>&#x957F;&#x671F;&#x672A;&#x4F7F;&#x7528;&#x7684;&#x60C5;&#x51B5;&#x4E0B;Session&#x4F1A;&#x5931;&#x6548;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5BF9;Session&#x8FC7;&#x671F;&#x7684;&#x901A;&#x77E5;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x63D0;&#x793A;&#x7528;&#x6237;&#x91CD;&#x65B0;&#x767B;&#x5F55;&#x3002;&#x53C2;&#x89C1;<a href="User_Session.html">Session&#x8FC7;&#x671F;&#x7684;&#x5904;&#x7406;</a></p>
+<h4 id="&#x624B;&#x673A;&#x767B;&#x5F55;"><a name="&#x624B;&#x673A;&#x767B;&#x5F55;" class="plugin-anchor" href="#&#x624B;&#x673A;&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x624B;&#x673A;&#x767B;&#x5F55;</h4>
+<p>&#x624B;&#x673A;&#x767B;&#x5F55;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;&#x9A8C;&#x8BC1;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x65E0;&#x9700;&#x6CE8;&#x518C;&#xFF0C;&#x76F4;&#x63A5;&#x53EF;&#x4EE5;&#x767B;&#x5F55;&#xFF09;&#xFF0C;&#x5BC6;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x9700;&#x8981;&#x6CE8;&#x518C;&#xFF09;</p>
+<h5 id="&#x9A8C;&#x8BC1;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x65E0;&#x9700;&#x6CE8;&#x518C;&#xFF0C;&#x76F4;&#x63A5;&#x53EF;&#x4EE5;&#x767B;&#x5F55;&#xFF09;"><a name="&#x9A8C;&#x8BC1;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x65E0;&#x9700;&#x6CE8;&#x518C;&#xFF0C;&#x76F4;&#x63A5;&#x53EF;&#x4EE5;&#x767B;&#x5F55;&#xFF09;" class="plugin-anchor" href="#&#x9A8C;&#x8BC1;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x65E0;&#x9700;&#x6CE8;&#x518C;&#xFF0C;&#x76F4;&#x63A5;&#x53EF;&#x4EE5;&#x767B;&#x5F55;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x9A8C;&#x8BC1;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x65E0;&#x9700;&#x6CE8;&#x518C;&#xFF0C;&#x76F4;&#x63A5;&#x53EF;&#x4EE5;&#x767B;&#x5F55;&#xFF09;</h5>
+<p>&#x624B;&#x673A;&#x9A8C;&#x8BC1;&#x7801;&#x767B;&#x5F55;&#x7684;&#x6D41;&#x7A0B;&#x548C;&#x624B;&#x673A;&#x6CE8;&#x518C;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x9001;&#x9A8C;&#x8BC1;&#x7801;&#xFF1A;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>sendVerifyCode <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> sendVerifyCode<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> phoneNumber<span class="token punctuation">:</span><span class="token string">@&quot;your_phone_number&quot;</span> type<span class="token punctuation">:</span><span class="token number">0</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCode success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCode failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>&#x767B;&#x5F55;:</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loginByPhoneAndCode <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> login<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> phoneNumber<span class="token punctuation">:</span><span class="token string">@&quot;your_phone_number&quot;</span> code<span class="token punctuation">:</span><span class="token string">@&quot;verify_code&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x5BC6;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x9700;&#x8981;&#x6CE8;&#x518C;&#xFF09;"><a name="&#x5BC6;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x9700;&#x8981;&#x6CE8;&#x518C;&#xFF09;" class="plugin-anchor" href="#&#x5BC6;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x9700;&#x8981;&#x6CE8;&#x518C;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BC6;&#x7801;&#x767B;&#x5F55;&#xFF08;&#x9700;&#x8981;&#x6CE8;&#x518C;&#xFF09;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loginByPhoneAndPassword <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> loginByPhone<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> phoneNumber<span class="token punctuation">:</span><span class="token string">@&quot;your_phone_number&quot;</span> password<span class="token punctuation">:</span><span class="token string">@&quot;your_password&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x90AE;&#x7BB1;&#x767B;&#x5F55;"><a name="&#x90AE;&#x7BB1;&#x767B;&#x5F55;" class="plugin-anchor" href="#&#x90AE;&#x7BB1;&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90AE;&#x7BB1;&#x767B;&#x5F55;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loginByEmail <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> loginByEmail<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> email<span class="token punctuation">:</span><span class="token string">@&quot;your_email&quot;</span> password<span class="token punctuation">:</span><span class="token string">@&quot;your_password&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;"><a name="&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;" class="plugin-anchor" href="#&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;</h3>
+<p>&#x9700;&#x8981;&#x5728; <code>&#x6D82;&#x9E26;&#x5F00;&#x53D1;&#x8005;&#x5E73;&#x53F0;</code> - <code>&#x5E94;&#x7528;&#x5F00;&#x53D1;</code> - <code>&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x5F55;</code> &#x914D;&#x7F6E;&#x5BF9;&#x5E94;&#x7684;<code>AppID</code>&#x548C;<code>AppSecret</code>;
+&#x5BA2;&#x6237;&#x7AEF;&#x6309;&#x7167;&#x5404;&#x5E73;&#x53F0;&#x8981;&#x6C42;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#xFF0C;&#x83B7;&#x53D6;&#x5230;&#x5BF9;&#x5E94;&#x7684;code&#x4E4B;&#x540E;&#xFF0C;&#x8C03;&#x7528;tuyaSDK&#x5BF9;&#x5E94;&#x7684;&#x767B;&#x5F55;&#x63A5;&#x53E3;&#x3002;</p>
+<h4 id="&#x5FAE;&#x4FE1;&#x767B;&#x5F55;"><a name="&#x5FAE;&#x4FE1;&#x767B;&#x5F55;" class="plugin-anchor" href="#&#x5FAE;&#x4FE1;&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5FAE;&#x4FE1;&#x767B;&#x5F55;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loginByWechat <span class="token punctuation">{</span>
+      <span class="token comment">/**
+     *  &#x5FAE;&#x4FE1;&#x767B;&#x5F55;
+     *
+     *  @param countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
+     *  @param code &#x5FAE;&#x4FE1;&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;code
+     *  @param success &#x64CD;&#x4F5C;&#x6210;&#x529F;&#x56DE;&#x8C03;
+     *  @param failure &#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x56DE;&#x8C03;
+     */</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> loginByWechat<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> code<span class="token punctuation">:</span><span class="token string">@&quot;wechat_code&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="qq&#x767B;&#x5F55;"><a name="qq&#x767B;&#x5F55;" class="plugin-anchor" href="#qq&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>QQ&#x767B;&#x5F55;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loginByQQ <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     *  QQ&#x767B;&#x5F55;
+     *
+     *  @param countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
+     *  @param userId QQ&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;userId
+     *  @param accessToken QQ&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;accessToken
+     *  @param success &#x64CD;&#x4F5C;&#x6210;&#x529F;&#x56DE;&#x8C03;
+     *  @param failure &#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x56DE;&#x8C03;
+     */</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> loginByQQ<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> openId<span class="token punctuation">:</span><span class="token string">@&quot;qq_open_id&quot;</span> accessToken<span class="token punctuation">:</span><span class="token string">@&quot;access_token&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="facebook&#x767B;&#x5F55;"><a name="facebook&#x767B;&#x5F55;" class="plugin-anchor" href="#facebook&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>Facebook&#x767B;&#x5F55;</h4>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loginByFacebook <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     *  facebook&#x767B;&#x5F55;
+     *
+     *  @param countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
+     *  @param token facebook&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;token
+     *  @param success &#x64CD;&#x4F5C;&#x6210;&#x529F;&#x56DE;&#x8C03;
+     *  @param failure &#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x56DE;&#x8C03;
+     */</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> loginByFacebook<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> token<span class="token punctuation">:</span><span class="token string">@&quot;facebook_token&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="twitter&#x767B;&#x5F55;"><a name="twitter&#x767B;&#x5F55;" class="plugin-anchor" href="#twitter&#x767B;&#x5F55;"><i class="fa fa-link" aria-hidden="true"></i></a>Twitter&#x767B;&#x5F55;</h4>
+<pre class="language-"><code class="lang-objc">
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loginByTwitter <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     *  twitter&#x767B;&#x5F55;
+     *
+     *  @param countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
+     *  @param key twitter&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;key
+     *  @param secret twitter&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;secret
+     *  @param success &#x64CD;&#x4F5C;&#x6210;&#x529F;&#x56DE;&#x8C03;
+     *  @param failure &#x64CD;&#x4F5C;&#x5931;&#x8D25;&#x56DE;&#x8C03;
+     */</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> loginByTwitter<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> key<span class="token punctuation">:</span><span class="token string">@&quot;twitter_key&quot;</span> secret<span class="token punctuation">:</span><span class="token string">@&quot;twitter_secret&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;login failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x7528;&#x6237;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"><a name="&#x7528;&#x6237;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;" class="plugin-anchor" href="#&#x7528;&#x6237;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7528;&#x6237;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</h3>
+<h4 id="&#x624B;&#x673A;&#x53F7;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"><a name="&#x624B;&#x673A;&#x53F7;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;" class="plugin-anchor" href="#&#x624B;&#x673A;&#x53F7;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x624B;&#x673A;&#x53F7;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</h4>
+<p>&#x624B;&#x673A;&#x53F7;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#x6D41;&#x7A0B;&#x548C;&#x6CE8;&#x518C;&#x6D41;&#x7A0B;&#x7C7B;&#x4F3C;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x9001;&#x9A8C;&#x8BC1;&#x7801;&#xFF1A;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>sendVerifyCode <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> sendVerifyCode<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> phoneNumber<span class="token punctuation">:</span><span class="token string">@&quot;your_phone_number&quot;</span> type<span class="token punctuation">:</span><span class="token number">2</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCode success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCode failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#xFF1A;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>resetPasswordByPhone <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> resetPasswordByPhone<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> phoneNumber<span class="token punctuation">:</span><span class="token string">@&quot;your_phone_number&quot;</span> newPassword<span class="token punctuation">:</span><span class="token string">@&quot;your_password&quot;</span> code<span class="token punctuation">:</span><span class="token string">@&quot;verify_code&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;resetPasswordByPhone success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;resetPasswordByPhone failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"><a name="&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;" class="plugin-anchor" href="#&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</h4>
+<p>&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#x9700;&#x8981;&#x4E24;&#x4E2A;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x9001;&#x9A8C;&#x8BC1;&#x7801;&#x5230;&#x90AE;&#x7BB1;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>sendVerifyCodeByEmail <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> sendVerifyCodeByEmail<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> email<span class="token punctuation">:</span><span class="token string">@&quot;your_email&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCodeByEmail success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sendVerifyCodeByEmail failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>&#x6536;&#x5230;&#x9A8C;&#x8BC1;&#x7801;&#x540E;&#xFF0C;&#x4F7F;&#x7528;&#x9A8C;&#x8BC1;&#x7801;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</li>
+</ul>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>resetPasswordByEmail <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> resetPasswordByEmail<span class="token punctuation">:</span><span class="token string">@&quot;your_country_code&quot;</span> email<span class="token punctuation">:</span><span class="token string">@&quot;your_email&quot;</span> newPassword<span class="token punctuation">:</span><span class="token string">@&quot;your_password&quot;</span> code<span class="token punctuation">:</span><span class="token string">@&quot;verify_code&quot;</span> success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;resetPasswordByEmail success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;resetPasswordByEmail failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x4FEE;&#x6539;&#x6635;&#x79F0;"><a name="&#x4FEE;&#x6539;&#x6635;&#x79F0;" class="plugin-anchor" href="#&#x4FEE;&#x6539;&#x6635;&#x79F0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4FEE;&#x6539;&#x6635;&#x79F0;</h3>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>modifyNickname<span class="token punctuation">:</span><span class="token punctuation">(</span>NSString <span class="token operator">*</span><span class="token punctuation">)</span>nickname <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> updateNickname<span class="token punctuation">:</span>nickname success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;updateNickname success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;updateNickname failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x66F4;&#x65B0;&#x7528;&#x6237;&#x65F6;&#x533A;"><a name="&#x66F4;&#x65B0;&#x7528;&#x6237;&#x65F6;&#x533A;" class="plugin-anchor" href="#&#x66F4;&#x65B0;&#x7528;&#x6237;&#x65F6;&#x533A;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x66F4;&#x65B0;&#x7528;&#x6237;&#x65F6;&#x533A;</h3>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>updateTimeZoneId<span class="token punctuation">:</span><span class="token punctuation">(</span>NSString <span class="token operator">*</span><span class="token punctuation">)</span>timeZoneId <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> updateTimeZoneWithTimeZoneId<span class="token punctuation">:</span>timeZoneId success<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;update timeZoneId success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;update timeZoneId failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x767B;&#x51FA;"><a name="&#x767B;&#x51FA;" class="plugin-anchor" href="#&#x767B;&#x51FA;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x767B;&#x51FA;</h3>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loginOut <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> loginOut<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;logOut success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;logOut failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x505C;&#x7528;&#x8D26;&#x53F7;&#xFF08;&#x6CE8;&#x9500;&#x7528;&#x6237;&#xFF09;"><a name="&#x505C;&#x7528;&#x8D26;&#x53F7;&#xFF08;&#x6CE8;&#x9500;&#x7528;&#x6237;&#xFF09;" class="plugin-anchor" href="#&#x505C;&#x7528;&#x8D26;&#x53F7;&#xFF08;&#x6CE8;&#x9500;&#x7528;&#x6237;&#xFF09;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x505C;&#x7528;&#x8D26;&#x53F7;&#xFF08;&#x6CE8;&#x9500;&#x7528;&#x6237;&#xFF09;</h3>
+<p>&#x4E00;&#x5468;&#x540E;&#x8D26;&#x53F7;&#x624D;&#x4F1A;&#x6C38;&#x4E45;&#x505C;&#x7528;&#x5E76;&#x5220;&#x9664;&#x4EE5;&#x4E0B;&#x4F60;&#x8D26;&#x6237;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4FE1;&#x606F;&#xFF0C;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#x91CD;&#x65B0;&#x767B;&#x5F55;&#xFF0C;&#x5219;&#x4F60;&#x7684;&#x505C;&#x7528;&#x8BF7;&#x6C42;&#x5C06;&#x88AB;&#x53D6;&#x6D88;</p>
+<pre class="language-"><code class="lang-objc"><span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>cancelAccount <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> cancelAccount<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;cancel account success&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> failure<span class="token punctuation">:</span><span class="token operator">^</span><span class="token punctuation">(</span>NSError <span class="token operator">*</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;cancel account failure: %@&quot;</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="session&#x8FC7;&#x671F;&#x7684;&#x5904;&#x7406;"><a name="session&#x8FC7;&#x671F;&#x7684;&#x5904;&#x7406;" class="plugin-anchor" href="#session&#x8FC7;&#x671F;&#x7684;&#x5904;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>Session&#x8FC7;&#x671F;&#x7684;&#x5904;&#x7406;</h3>
+<p>&#x957F;&#x671F;&#x672A;&#x767B;&#x5F55;&#x7684;&#x8D26;&#x53F7;&#xFF0C;&#x5728;&#x8BBF;&#x95EE;&#x670D;&#x52A1;&#x7AEF;&#x63A5;&#x53E3;&#x7684;&#x65F6;&#x5019;&#x4F1A;&#x8FD4;&#x56DE;Session&#x8FC7;&#x671F;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x9700;&#x8981;&#x76D1;&#x542C;<code>TuyaSmartUserNotificationUserSessionInvalid</code>&#x901A;&#x77E5;&#xFF0C;&#x8DF3;&#x8F6C;&#x81F3;&#x767B;&#x5F55;&#x9875;&#x9762;&#x91CD;&#x65B0;&#x767B;&#x5F55;&#x3002;</p>
+<pre class="language-"><code class="lang-objc">
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>loadNotification <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token punctuation">[</span>NSNotificationCenter defaultCenter<span class="token punctuation">]</span> addObserver<span class="token punctuation">:</span><span class="token keyword">self</span> selector<span class="token punctuation">:</span><span class="token keyword">@selector</span><span class="token punctuation">(</span>sessionInvalid<span class="token punctuation">)</span> name<span class="token punctuation">:</span>TuyaSmartUserNotificationUserSessionInvalid object<span class="token punctuation">:</span>nil<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token operator">-</span> <span class="token punctuation">(</span><span class="token keyword">void</span><span class="token punctuation">)</span>sessionInvalid <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> isLogin<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">NSLog</span><span class="token punctuation">(</span><span class="token string">@&quot;sessionInvalid&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// &#x6CE8;&#x9500;&#x7528;&#x6237;</span>
+        <span class="token punctuation">[</span><span class="token punctuation">[</span>TuyaSmartUser sharedInstance<span class="token punctuation">]</span> loginOut<span class="token punctuation">:</span>nil failure<span class="token punctuation">:</span>nil<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//&#x8DF3;&#x8F6C;&#x81F3;&#x767B;&#x5F55;&#x9875;&#x9762;</span>
+        MyLoginViewController <span class="token operator">*</span>vc <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">[</span>MyLoginViewController alloc<span class="token punctuation">]</span> init<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">self</span><span class="token punctuation">.</span>window<span class="token punctuation">.</span>rootViewController <span class="token operator">=</span> vc<span class="token punctuation">;</span>
+        <span class="token punctuation">[</span><span class="token keyword">self</span><span class="token punctuation">.</span>window makeKeyAndVisible<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Integrated.html" class="navigation navigation-prev " aria-label="Previous page: 集成SDK">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="User.html#用户注册" class="navigation navigation-next " aria-label="Next page: 用户注册">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"用户管理","level":"1.5","depth":1,"next":{"title":"用户注册","level":"1.5.1","depth":2,"anchor":"#用户注册","path":"resource/User.md","ref":"./resource/User.md#用户注册","articles":[]},"previous":{"title":"集成SDK","level":"1.4","depth":1,"path":"resource/Integrated.md","ref":"./resource/Integrated.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"oc":"objectivec","objc":"objectivec","objective-c":"objectivec"},"ignore":["sequence"]},"js-sequence-diagram-full":{},"anchors":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/User.md","mtime":"2018-12-11T02:09:07.474Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-01-08T12:20:08.633Z"},"basePath":"..","book":{"language":"zh-hans"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/sequence-diagram-min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-js-sequence-diagram-full/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
