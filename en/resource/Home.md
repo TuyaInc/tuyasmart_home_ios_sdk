@@ -120,6 +120,39 @@ Swift:
 }
 ```
 
+### Handle home invitation
+
+Objc:
+
+```objc
+- (void)joinHome {
+
+    [self.homeManager joinFamilyWithHomeId:@"home_id"
+                                    action:isAccept
+                                   success: {
+          NSLog(@"handel home success: %@", success);
+                                 } failure:^(NSError *error) {
+          NSLog(@"handel home failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+ let homeManager: TuyaSmartHomeManager = TuyaSmartHomeManager()
+
+ func joinHome() {
+    homeManager.joinFamily(withHomeId: "home_id", action: isAccept,  success: { (success) in
+        print("handel home success")
+    }) { (error) in
+        if let e = error {
+            print("handel home failure: \(e)")
+        }
+    }
+}
+```
+
 
 ## Home information management
 
