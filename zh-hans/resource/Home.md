@@ -128,41 +128,6 @@ Swift:
 
 
 
-### 处理家庭邀请
-
-Objc:
-
-```objc
-- (void)joinHome {
-
-    [self.homeManager joinFamilyWithHomeId:@"home_id"
-                                    action:isAccept
-                                   success: {
-          NSLog(@"handel home success: %@", success);
-                                 } failure:^(NSError *error) {
-          NSLog(@"handel home failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
- let homeManager: TuyaSmartHomeManager = TuyaSmartHomeManager()
-
- func joinHome() {
-    homeManager.joinFamily(withHomeId: "home_id", action: isAccept,  success: { (success) in
-        print("handel home success")
-    }) { (error) in
-        if let e = error {
-            print("handel home failure: \(e)")
-        }
-    }
-}
-```
-
-
-
 ## 单个家庭信息管理
 
 主要功能：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
