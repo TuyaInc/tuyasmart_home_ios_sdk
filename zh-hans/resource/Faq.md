@@ -35,3 +35,8 @@
 - 在 `didFinishLaunchingWithOptions` 方法中初始化push方法
 - 涂鸦开发者平台 - 用户运营 - 消息中心 - 新增消息
 - 详见：[集成Push](./Push.md)章节
+
+##### 8、sdk demo编译失败，提示`library not found for -XXX`
+
+- 确认你打开的工程为`.xcworkspace`而不是`.xcproject`。详见：[CocoaPods Guides](https://guides.cocoapods.org/)
+

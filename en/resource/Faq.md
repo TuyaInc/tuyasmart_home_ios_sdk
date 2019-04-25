@@ -27,3 +27,7 @@
 
 After SDK 2.8.0, we have added security image check and use the new appkey/secret. Please refer to [Preparation work](./Preparation.md) section and go to tuya iot platform to get the appkey/secret/security image which is required by sdk init.
 
+##### 7、sdk demo compile failed: `library not found for -XXX
+
+- Confirm you open the `.xcworkspace` instead of `.xcproject`. See: [CocoaPods Guides](https://guides.cocoapods.org/)
+
