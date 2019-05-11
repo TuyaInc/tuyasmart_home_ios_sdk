@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   s.dependency 'TuyaSmartDeviceKit'
   s.dependency 'TYBluetooth'
   s.dependency 'TuyaSmartActivatorKit'
-  s.dependency 'OpenSSL-Universal'
+#s.dependency 'OpenSSL-Universal'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
