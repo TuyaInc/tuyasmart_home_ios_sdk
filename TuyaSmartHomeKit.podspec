@@ -14,19 +14,19 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Headers/**/*.h'
 
-  ss.dependency 'TuyaSmartBaseKit'
-  ss.dependency 'TuyaSmartDeviceKit'
+  s.dependency 'TuyaSmartBaseKit'
+  s.dependency 'TuyaSmartDeviceKit'
   
-  ss.ios.dependency 'TuyaSmartActivatorKit'
-  ss.ios.dependency 'TuyaSmartMQTTChannelKit'
-  ss.ios.dependency 'TuyaSmartSocketChannelKit'
-  ss.ios.dependency 'TuyaSmartBLEKit'
-  ss.ios.dependency 'TuyaSmartBLEMeshKit'
+  s.ios.dependency 'TuyaSmartActivatorKit'
+  s.ios.dependency 'TuyaSmartMQTTChannelKit'
+  s.ios.dependency 'TuyaSmartSocketChannelKit'
+  s.ios.dependency 'TuyaSmartBLEKit'
+  s.ios.dependency 'TuyaSmartBLEMeshKit'
 
-  ss.dependency 'TuyaSmartSceneKit'
-  ss.dependency 'TuyaSmartTimerKit'
-  ss.dependency 'TuyaSmartMessageKit'
-  ss.dependency 'TuyaSmartFeedbackKit'
+  s.dependency 'TuyaSmartSceneKit'
+  s.dependency 'TuyaSmartTimerKit'
+  s.dependency 'TuyaSmartMessageKit'
+  s.dependency 'TuyaSmartFeedbackKit'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
