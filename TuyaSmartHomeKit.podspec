@@ -8,11 +8,10 @@ Pod::Spec.new do |s|
   s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
 
   s.static_framework = true
-
   s.ios.deployment_target = '8.0'
-#s.watchos.deployment_target = '2.0'
+  s.watchos.deployment_target = '2.0'
 
-  s.source_files = 'TuyaSmartKit.h'
+  s.source_files = 'Headers/**/*.h'
 
   s.dependency 'TuyaSmartBaseKit'
   s.dependency 'TuyaSmartDeviceKit'
