@@ -1,9 +1,6 @@
 
 target 'TuyaSmartHomeKit_Example' do
 
-  pod 'TYBluetooth'
-  pod 'TuyaSmartUtil'
-  
   pod 'TuyaSmartHomeKit'
 
   
@@ -14,6 +11,5 @@ target 'TuyaSmartHomeKit_Example' do
   target 'TuyaSmartHomeKit_Tests' do
     inherit! :search_paths
 
-    
   end
 end
