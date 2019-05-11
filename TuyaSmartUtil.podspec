@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '2.0'
   s.watchos.vendored_frameworks = 'watchos/*.framework'
   # s.watchos.vendored_libraries = 'watchos/*.a'
-  s.watchos.frameworks = 'Foundation', 'WatchKit'
+  s.watchos.frameworks = 'Foundation', 'WatchKit', 'UIKit'
 
   s.source_files = 'Headers/**/*.h'
 
