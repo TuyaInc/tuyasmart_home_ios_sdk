@@ -18,6 +18,7 @@ Pod::Spec.new do |s|
   # s.watchos.vendored_libraries = 'watchos/*.a'
 
   s.source_files = 'Headers/**/*.h'
+  s.watchos.frameworks = 'UIKit'
 
   s.dependency 'TuyaSmartBaseKit'
 
