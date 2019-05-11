@@ -7,13 +7,20 @@ Pod::Spec.new do |s|
   s.homepage = "https://tuya.com"
   s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
 
-  s.ios.deployment_target     = '8.0'
-
   s.static_framework          = true
-  s.source_files              = 'ios/**/*.h'
-  s.vendored_frameworks       = 'ios/*.framework'
-  # s.vendored_libraries        = 'ios/*.a'
+
+  s.ios.deployment_target = '8.0'
+  s.ios.vendored_frameworks = 'ios/*.framework'
+  # s.ios.vendored_libraries = 'ios/*.a'
+
+  s.watchos.deployment_target = '2.0'
+  s.watchos.vendored_frameworks = 'watchos/*.framework'
+  # s.watchos.vendored_libraries = 'watchos/*.a'
+
+  s.source_files = 'Headers/**/*.h'
 
   s.dependency 'TuyaSmartBaseKit'
+
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
 end

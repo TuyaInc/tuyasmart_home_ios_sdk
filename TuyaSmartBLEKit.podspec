@@ -19,5 +19,8 @@ Pod::Spec.new do |s|
   s.dependency 'TuyaSmartBaseKit'
   s.dependency 'TuyaSmartDeviceKit'
   s.dependency 'TYBluetooth'
+  s.dependency 'TuyaSmartActivatorKit'
+
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
 end

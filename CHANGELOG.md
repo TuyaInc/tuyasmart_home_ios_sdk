@@ -2,7 +2,7 @@
 
 ## 2.10.96(2019-05-11)
 
-- bug 修复，新增免密码配网和路由器配网功能，新增消息推送的开启和关闭
+- bug 修复，新增免密码配网，新增消息推送的开启和关闭
 - bug fixed, add device network configuration without password, add push notification to open or close.
 
 ## 2.8.44(2019-03-28)
