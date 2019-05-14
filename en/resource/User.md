@@ -174,7 +174,7 @@ func registerByEmail() {
 ### User Login
 
 After the user login interface is successfully invoked, the SDK will save the user session in local files, and when the App is started again, the login will be bypassed.
-The session will become invalid if it is not used for a long time, therefore the notice to expired sessions has to be handled, and the user will be notified to log in again. See [Handling of Expired Session](#session-invalid)
+The session will become invalid if it is not used for a long time, therefore the notice to expired sessions has to be handled, and the user will be notified to log in again. See [Handling of Expired Session](#handling-of-expired-session)
 
 #### Login of mobile phone
 
