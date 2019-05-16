@@ -1,0 +1,1 @@
+../../../TuyaSmartDeviceKit/Headers/TuyaSmartHomeMemberModel.h

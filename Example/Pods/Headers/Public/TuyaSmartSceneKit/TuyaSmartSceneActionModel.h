@@ -1,0 +1,1 @@
+../../../TuyaSmartSceneKit/Headers/TuyaSmartSceneActionModel.h

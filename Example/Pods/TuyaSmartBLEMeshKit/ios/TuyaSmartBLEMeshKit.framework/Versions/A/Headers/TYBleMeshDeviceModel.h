@@ -1,12 +1,14 @@
 //
 //  TYBleMeshDeviceModel.h
-//  TYBLEMeshKit
+//  TuyaSmartBLEMeshKit
 //
-//  Created by 黄凯 on 2018/11/13.
+//  Created by 黄凯 on 2019/3/21.
 //
 
 #import <Foundation/Foundation.h>
-#import <TYBluetooth/TYBLEPeripheral.h>
+#import <TYBluetooth/TYBluetooth.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface TYBleMeshDeviceModel : NSObject
 
@@ -43,7 +45,7 @@
 /**
  设备 uuid
  */
-@property (nonatomic, assign) NSString *uuid;
+@property (nonatomic, strong) NSString *uuid;
 
 /**
  设备大小类
@@ -55,7 +57,6 @@
  */
 @property (nonatomic, strong) NSString *vendorInfo;
 
-+ (TYBleMeshDeviceModel *)modelWithBLEPeripheral:(TYBLEPeripheral *)peripheral;
-
 @end
 
+NS_ASSUME_NONNULL_END

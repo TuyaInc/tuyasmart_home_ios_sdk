@@ -5,7 +5,7 @@
 //  Created by 高森 on 2018/9/20.
 //
 
-#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
+#import <TuyaSmartActivatorKit/TuyaSmartActivatorKit.h>
 
 @interface TuyaSmartActivator (BleMesh)
 

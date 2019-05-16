@@ -1,0 +1,1 @@
+../../../TuyaSmartMessageKit/Headers/TuyaSmartMessageKit.h

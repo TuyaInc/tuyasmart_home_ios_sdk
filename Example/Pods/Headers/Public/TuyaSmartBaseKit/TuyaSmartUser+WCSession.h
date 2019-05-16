@@ -1,0 +1,1 @@
+../../../TuyaSmartBaseKit/Headers/TuyaSmartUser+WCSession.h

@@ -1,0 +1,6 @@
+framework module TuyaSmartMQTTChannelKit {
+  umbrella header "TuyaSmartMQTTChannelKit.h"
+
+  export *
+  module * { export * }
+}
