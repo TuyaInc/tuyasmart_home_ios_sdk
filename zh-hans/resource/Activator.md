@@ -485,7 +485,9 @@ Objc:
 
 ```objc
 - (void)activeSubDevice {
-
+    // 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
+	[TuyaSmartActivator sharedInstance].delegate = self;
+    
 	[[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:@"your_device_id" timeout:100];
 }
 
@@ -506,6 +508,9 @@ Swift:
 
 ```swift
 func activeSubDevice() {
+    // 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
+    TuyaSmartActivator.sharedInstance()?.delegate = self
+    
     TuyaSmartActivator.sharedInstance()?.activeSubDevice(withGwId: "your_device_id", timeout: 100)
 }
 
