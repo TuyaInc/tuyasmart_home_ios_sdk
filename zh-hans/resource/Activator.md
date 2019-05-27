@@ -542,6 +542,7 @@ Objc:
 
 ```objc
 - (void)stopActiveSubDevice {
+  [TuyaSmartActivator sharedInstance].delegate = nil;
 	[[TuyaSmartActivator sharedInstance] stopActiveSubDeviceWithGwId:@"your_device_id"];
 }
 ```
@@ -550,6 +551,7 @@ Swift:
 
 ```swift
 func stopActiveSubDevice() {
+    TuyaSmartActivator.sharedInstance()?.delegate = nil
     TuyaSmartActivator.sharedInstance()?.stopActiveSubDevice(withGwId: "your_device_id")
 }
 ```
