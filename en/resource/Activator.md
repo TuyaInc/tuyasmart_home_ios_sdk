@@ -461,6 +461,8 @@ The `stopActiveSubDeviceWithGwId` method has to be invoked if you need to cancel
 
 ```objc
 - (void)activeSubDevice {
+    // Set TuyaSmartActivator delegate，impl delegate method
+	[TuyaSmartActivator sharedInstance].delegate = self;
 
 	[[TuyaSmartActivator sharedInstance] activeSubDeviceWithGwId:@"your_device_id" timeout:100];
 }
@@ -482,6 +484,9 @@ Swift:
 
 ```swift
 func activeSubDevice() {
+    // Set TuyaSmartActivator delegate，impl delegate method
+    TuyaSmartActivator.sharedInstance()?.delegate = self
+    
     TuyaSmartActivator.sharedInstance()?.activeSubDevice(withGwId: "your_device_id", timeout: 100)
 }
 
