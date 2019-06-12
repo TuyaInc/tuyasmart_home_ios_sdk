@@ -333,7 +333,7 @@
 
 - (NSUserDefaults *)groupUserDefault {
     if (!_groupUserDefault) {
-        _groupUserDefault = [[NSUserDefaults alloc] initWithSuiteName:kAppGroupName];
+        _groupUserDefault = [[NSUserDefaults alloc] initWithSuiteName:APP_GROUP_NAME];
     }
     return _groupUserDefault;
 }
