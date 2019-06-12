@@ -13,3 +13,17 @@ target 'TuyaSmartHomeKit_Example' do
 
   end
 end
+
+target 'TuyaDeviceWidget_Example' do
+  pod 'SDWebImage'
+  pod 'TuyaSmartBaseKit'
+  pod 'TuyaSmartDeviceKit'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['APPLICATION_EXTENSION_API_ONLY'] = 'NO'
+        end
+    end
+end

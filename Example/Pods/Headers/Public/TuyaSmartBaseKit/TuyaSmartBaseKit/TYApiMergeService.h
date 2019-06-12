@@ -1,0 +1,1 @@
+../../../../TuyaSmartBaseKit/ios/TuyaSmartBaseKit.framework/Versions/A/Headers/TYApiMergeService.h

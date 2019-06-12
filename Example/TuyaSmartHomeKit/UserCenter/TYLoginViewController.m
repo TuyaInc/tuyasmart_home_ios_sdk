@@ -71,18 +71,19 @@
     
     WEAKSELF_AT
     [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
-        
+        NSUserDefaults *groupUserDefault = [[NSUserDefaults alloc] initWithSuiteName:APP_GROUP_NAME];
         if (homes.count > 0) {
             // If homes are already exist, choose the first one as current home.
             TuyaSmartHomeModel *model = [homes firstObject];
             TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:model.homeId];
             [TYSmartHomeManager sharedInstance].currentHome = home;
-            
+            [groupUserDefault setObject:@(model.homeId) forKey:@"kCurrentHomeIdKey"];
         } else {
             // Or else, add a default home named "hangzhou's home" and choose it as current home.
             [weakSelf_AT.homeManager addHomeWithName:@"hangzhou's home" geoName:@"hangzhou" rooms:@[@"bedroom"] latitude:0 longitude:0 success:^(long long homeId) {
                 TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeId];
                 [TYSmartHomeManager sharedInstance].currentHome = home;
+                [groupUserDefault setObject:@(homeId) forKey:@"kCurrentHomeIdKey"];
             } failure:^(NSError *error) {
                 //Do fail action.
             }];

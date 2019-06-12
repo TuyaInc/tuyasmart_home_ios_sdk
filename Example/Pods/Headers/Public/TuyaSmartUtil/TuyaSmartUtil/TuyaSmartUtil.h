@@ -1,0 +1,1 @@
+../../../../TuyaSmartUtil/ios/TuyaSmartUtil.framework/Versions/A/Headers/TuyaSmartUtil.h
