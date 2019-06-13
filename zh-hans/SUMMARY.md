@@ -31,7 +31,6 @@
   - [获取设备的wifi信号强度](./resource/Device.md#获取设备的wifi信号强度)
   - [获取网关下的子设备列表](./resource/Device.md#获取网关下的子设备列表)
   - [固件升级](./resource/Device.md#固件升级)
-  - [获取数据点的历史统计数据](./resource/Device.md#获取数据点的历史统计数据)
 * [共享设备](./resource/Share.md#共享设备)
   - [家庭成员共享](./resource/Share.md#家庭成员共享)
   - [设备共享](./resource/Share.md#设备共享（基于设备维度的共享）)
