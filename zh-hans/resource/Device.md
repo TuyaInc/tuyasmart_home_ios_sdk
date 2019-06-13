@@ -358,13 +358,21 @@ func getFirmwareUpgradeInfo() {
 
 #### 下发升级指令：
 
+每个固件都有对应的类型，可以用TuyaSmartFirmwareUpgradeModel.type取固件的类型。type的值所对应的含义:
+
+* 0: wifi设备 
+* 1: 蓝牙设备
+* 2: GPRS设备
+* 3: zigbee设备
+* 9: MCU
+
 Objc:
 
 ```objc
 - (void)upgradeFirmware {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
 	// type: 从获取设备升级信息接口 getFirmwareUpgradeInfo 返回的固件类型
-	// TuyaSmartFirmwareUpgradeModel - type 0:wifi设备 1:蓝牙设备 2:GPRS设备 3:zigbee设备 9:MCU
+	// TuyaSmartFirmwareUpgradeModel - type
 
 	[self.device upgradeFirmware:type success:^{
 		NSLog(@"upgradeFirmware success");
@@ -379,7 +387,7 @@ Swift:
 ```swift
 func upgradeFirmware() {
     // type: 从获取设备升级信息接口 getFirmwareUpgradeInfo 返回的固件类型
-    // TuyaSmartFirmwareUpgradeModel - type 0:wifi设备 1:蓝牙设备 2:GPRS设备 3:zigbee设备 9:MCU
+    // TuyaSmartFirmwareUpgradeModel - type
     device?.upgradeFirmware(type, success: {
         print("upgradeFirmware success")
     }, failure: { (error) in

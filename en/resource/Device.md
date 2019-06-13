@@ -342,13 +342,21 @@ func getFirmwareUpgradeInfo() {
 
 #### Send upgrade instruction:
 
+Each firmware has a corresponding type，use TuyaSmartFirmwareUpgradeModel.type to get firmware type. The meaning of the type is as follows:
+
+* 0: wifi device
+* 1: bluetooth device
+* 2: GPRS device
+* 3: zigbee device 
+* 9: MCU
+
 Objc:
 
 ```objc
 - (void)upgradeFirmware {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
 	// type: get firmware type from getFirmwareUpgradeInfo interface
-	// TuyaSmartFirmwareUpgradeModel - type 0: wifi device; 1: bluetooth device; 2: GPRS device; 3: zigbee device (currently only zigbee gateway available); 9: MCU
+	// TuyaSmartFirmwareUpgradeModel - type
 
 	[self.device upgradeFirmware:type success:^{
 		NSLog(@"upgradeFirmware success");
@@ -363,7 +371,8 @@ Swift:
 ```swift
 func upgradeFirmware() {
     // type: get firmware type from getFirmwareUpgradeInfo interface
-    // TuyaSmartFirmwareUpgradeModel - type 0: wifi device; 1: bluetooth device; 2: GPRS device; 3: zigbee device (currently only zigbee gateway available); 9: MCU
+    // TuyaSmartFirmwareUpgradeModel - type
+  
     device?.upgradeFirmware(type, success: {
         print("upgradeFirmware success")
     }, failure: { (error) in
