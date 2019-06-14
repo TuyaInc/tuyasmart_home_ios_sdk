@@ -324,6 +324,8 @@ func getSubDeviceList() {
 
 获取设备升级信息 -> 下发联网模块升级指令 -> 联网模块升级成功 -> 下发设备控制模块升级指令 -> 设备控制模块升级成功
 
+使用获取设备升级信息接口获取到的TuyaSmartFirmwareUpgradeModel固件升级模型中，type属性能获取到固件的类型，typeDesc属性能获取到固件类型的描述。
+
 #### 获取设备升级信息：
 
 Objc:
@@ -364,7 +366,7 @@ Objc:
 - (void)upgradeFirmware {
 	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
 	// type: 从获取设备升级信息接口 getFirmwareUpgradeInfo 返回的固件类型
-	// TuyaSmartFirmwareUpgradeModel - type 0:wifi设备 1:蓝牙设备 2:GPRS设备 3:zigbee设备 9:MCU
+	// TuyaSmartFirmwareUpgradeModel - type
 
 	[self.device upgradeFirmware:type success:^{
 		NSLog(@"upgradeFirmware success");
@@ -379,7 +381,7 @@ Swift:
 ```swift
 func upgradeFirmware() {
     // type: 从获取设备升级信息接口 getFirmwareUpgradeInfo 返回的固件类型
-    // TuyaSmartFirmwareUpgradeModel - type 0:wifi设备 1:蓝牙设备 2:GPRS设备 3:zigbee设备 9:MCU
+    // TuyaSmartFirmwareUpgradeModel - type
     device?.upgradeFirmware(type, success: {
         print("upgradeFirmware success")
     }, failure: { (error) in
