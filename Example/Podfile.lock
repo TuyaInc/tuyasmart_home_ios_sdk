@@ -25,12 +25,12 @@ PODS:
     - MQTTClient/Min
   - MQTTClient/Min (0.14.0)
   - Reachability (3.2)
-  - SDWebImage (5.0.3):
-    - SDWebImage/Core (= 5.0.3)
-  - SDWebImage/Core (5.0.3)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
   - TuyaSmartActivatorKit (2.10.96):
     - TuyaSmartDeviceKit
-  - TuyaSmartBaseKit (2.10.96):
+  - TuyaSmartBaseKit (2.10.102):
     - TuyaSmartUtil
     - YYModel
   - TuyaSmartBLEKit (2.10.96):
@@ -43,7 +43,7 @@ PODS:
     - TuyaSmartBaseKit
     - TuyaSmartDeviceKit
     - TYBluetooth
-  - TuyaSmartDeviceKit (2.10.99):
+  - TuyaSmartDeviceKit (2.10.101):
     - TuyaSmartBaseKit
     - TuyaSmartMQTTChannelKit
     - TuyaSmartSocketChannelKit
@@ -116,12 +116,12 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MQTTClient: eea2eaaa6ddef852a1019a4dda091e22ad928b58
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: d4f87d7d36c8a4d9f9459dc282e0caa057fdf935
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   TuyaSmartActivatorKit: f02f4830700939d530981823bde27ce2b7ccbb7f
-  TuyaSmartBaseKit: eca0cd07b0cefcef6f620e135a3e14804e6dbb43
+  TuyaSmartBaseKit: 93ef082a52db2662501dfa5bfefb3e783791c9ab
   TuyaSmartBLEKit: dd1f1529c00c2ee57f350259e6e0d5201834138d
   TuyaSmartBLEMeshKit: db6341dbe86d7212bb1a7d0591292fdd27bff8cf
-  TuyaSmartDeviceKit: fe364d41647a29ce5d330272e83a3d0e899549a4
+  TuyaSmartDeviceKit: b38746893e5e38d0fc9bf66965dbfa88866a235c
   TuyaSmartFeedbackKit: 4b8362a003715422208d21c2738ac19abac30c8e
   TuyaSmartHomeKit: ce49d1a8ff5cd44718535804506e1cc54126487a
   TuyaSmartMessageKit: ffd0ad487b5b71bb1fe3c9f4935d817a6fe04d8e
@@ -135,4 +135,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 01ea45d0ec7c14f013bd9bc54ed273b36d4a89da
 
-COCOAPODS: 1.6.1
+COCOAPODS: 1.7.1
