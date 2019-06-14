@@ -324,6 +324,8 @@ func getSubDeviceList() {
 
 获取设备升级信息 -> 下发联网模块升级指令 -> 联网模块升级成功 -> 下发设备控制模块升级指令 -> 设备控制模块升级成功
 
+使用获取设备升级信息接口获取到的TuyaSmartFirmwareUpgradeModel固件升级模型中，type属性能获取到固件的类型，typeDesc属性能获取到固件类型的描述。
+
 #### 获取设备升级信息：
 
 Objc:
@@ -357,14 +359,6 @@ func getFirmwareUpgradeInfo() {
 
 
 #### 下发升级指令：
-
-每个固件都有对应的类型，可以用TuyaSmartFirmwareUpgradeModel.type取固件的类型。type的值所对应的含义:
-
-* 0: wifi设备 
-* 1: 蓝牙设备
-* 2: GPRS设备
-* 3: zigbee设备
-* 9: MCU
 
 Objc:
 

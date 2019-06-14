@@ -310,6 +310,8 @@ func getSubDeviceList() {
 
 Obtain device upgrade information -> send module upgrade instructions -> module upgrade succeeds -> send upgrade instructions to the device control module -> the upgrade of device control module succeeds
 
+User obtain device upgrade information interface to get TuyaSmartFirmwareUpgradeModel, you can get firmware type from type property, get type description from typeDesc property.
+
 #### Obtain device upgrade information:
 
 Objc:
@@ -341,14 +343,6 @@ func getFirmwareUpgradeInfo() {
 ```
 
 #### Send upgrade instruction:
-
-Each firmware has a corresponding type，use TuyaSmartFirmwareUpgradeModel.type to get firmware type. The meaning of the type is as follows:
-
-* 0: wifi device
-* 1: bluetooth device
-* 2: GPRS device
-* 3: zigbee device 
-* 9: MCU
 
 Objc:
 
