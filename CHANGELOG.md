@@ -1,5 +1,10 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 2.10.97(2019-06-20)
+
+- 兼容新版本Cocoapods (>=1.6.0)
+- Support  CocoaPods (>= 1.6.0)
+
 ## 2.10.96(2019-05-11)
 
 - bug 修复，新增免密码配网，新增消息推送的开启和关闭，新增开发环境推送支持

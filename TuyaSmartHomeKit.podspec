@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartHomeKit"
-  s.version = "2.10.96"
+  s.version = "2.10.97"
   s.summary = "A short description of #{s.name}."
   s.license = {"type"=>"MIT"}
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
@@ -26,7 +26,5 @@ Pod::Spec.new do |s|
   s.dependency 'TuyaSmartTimerKit'
   s.dependency 'TuyaSmartMessageKit'
   s.dependency 'TuyaSmartFeedbackKit'
-
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
 end

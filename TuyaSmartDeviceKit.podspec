@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartDeviceKit"
-  s.version = "2.10.101"
+  s.version = "2.10.102"
   s.summary = "A short description of #{s.name}."
   s.license = {"type"=>"MIT"}
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
@@ -17,13 +17,9 @@ Pod::Spec.new do |s|
   s.watchos.vendored_frameworks = 'watchos/*.framework'
   # s.watchos.vendored_libraries = 'watchos/*.a'
 
-  s.source_files = 'Headers/**/*.h'
-
   s.dependency 'TuyaSmartBaseKit'
 
   s.ios.dependency 'TuyaSmartMQTTChannelKit'
   s.ios.dependency 'TuyaSmartSocketChannelKit'
-
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
 
 end
