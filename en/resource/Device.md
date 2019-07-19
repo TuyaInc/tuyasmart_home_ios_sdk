@@ -94,7 +94,7 @@ Swift:
 func publishDps() {
     var dps = [String : Any]()
  
-    // dp 可参考具体产品定义
+    // dps: Please refers to the specific product definition
   
     device?.publishDps(dps, success: {
  	    print("publishDps success")

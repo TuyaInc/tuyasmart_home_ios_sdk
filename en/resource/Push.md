@@ -31,15 +31,15 @@ Initiate push in the `didFinishLaunchingWithOptions` method.
     
     
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0) {
-        //iOS10需要加下面这段代码。
+        //iOS10 need the following code
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate = self;
         UNAuthorizationOptions types10 = UNAuthorizationOptionBadge|UNAuthorizationOptionAlert|UNAuthorizationOptionSound;
         [center requestAuthorizationWithOptions:types10 completionHandler:^(BOOL granted, NSError * _Nullable error) {
             if (granted) {
-                //点击允许
+                
             } else {
-                //点击不允许
+                
             }
         }];
     }

@@ -216,7 +216,7 @@ Objc:
 #pragma mark - TuyaSmartGroupDelegate
 
 - (void)group:(TuyaSmartGroup *)group dpsUpdate:(NSDictionary *)dps {
-	//可以在这里刷新群组操作面板的UI
+  // TODO: update group panel UI here
 }
 
 ```
@@ -226,6 +226,6 @@ Swift:
 ```swift
 // MARK: TuyaSmartGroupDelegate
 func group(_ group: TuyaSmartGroup!, dpsUpdate dps: [AnyHashable : Any]!) {
-    //可以在这里刷新群组操作面板的UI
+  // TODO: update group panel UI here
 }
 ```

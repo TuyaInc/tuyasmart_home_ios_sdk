@@ -97,7 +97,6 @@ Objc:
                         longitude:lon
                           success:^(double homeId) {
 
-        // homeId 创建的家庭的homeId
         NSLog(@"add home success");
     } failure:^(NSError *error) {
         NSLog(@"add home failure: %@", error);
@@ -110,7 +109,6 @@ Swift:
 ```swift
  func addHome() {
     homeManager.addHome(withName: "you_home_name", geoName: "city_name", rooms: ["room_name"], latitude: lat, longitude: lon, success: { (homeId) in
-        // homeId 创建的家庭的homeId
         print("add home success")
     }) { (error) in
         if let e = error {
