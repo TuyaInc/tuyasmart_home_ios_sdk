@@ -25,7 +25,6 @@ In this case, one or multiple devices will run some operations or enable or disa
 Objc:
 
 ```objc
-// 获取家庭下的场景列表
 - (void)getSmartSceneList {
     [[TuyaSmartSceneManager sharedInstance] getSceneListWithHomeId:homeId success:^(NSArray<TuyaSmartSceneModel *> *list) {
         NSLog(@"get scene list success %@:", list);
@@ -38,7 +37,6 @@ Objc:
 Swift:
 
 ```swift
-// 获取家庭下的场景列表
 func getSmartSceneList() {
     TuyaSmartSceneManager.sharedInstance()?.getSceneList(withHomeId: homeId, success: { (list) in
         print("get scene list success: \(list)")
@@ -382,7 +380,7 @@ Objc:
 
 ```objc
 - (void)getCityList {
-	[[TuyaSmartSceneManager sharedInstance] getCityList:@"your_country_code" success:^(NSArray<TuyaSmartCityModel *> *list) {
+	[[TuyaSmartSceneManager sharedInstance] getCityListWithCountryCode:@"your_country_code" success:^(NSArray<TuyaSmartCityModel *> *list) {
 		NSLog(@"get city list success:%@", list);
 	} failure:^(NSError *error) {
    		NSLog(@"get city list failure: %@", error);

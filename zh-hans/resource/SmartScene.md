@@ -221,7 +221,7 @@ Objc:
 
 ```objc
 - (void)getCityList {
-	[[TuyaSmartSceneManager sharedInstance] getCityList:@"your_country_code" success:^(NSArray<TuyaSmartCityModel *> *list) {
+	[[TuyaSmartSceneManager sharedInstance] getCityListWithCountryCode:@"your_country_code" success:^(NSArray<TuyaSmartCityModel *> *list) {
 		NSLog(@"get city list success:%@", list);
 	} failure:^(NSError *error) {
    		NSLog(@"get city list failure: %@", error);
