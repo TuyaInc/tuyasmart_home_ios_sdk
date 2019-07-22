@@ -92,3 +92,92 @@ func getMessageMaxTime() {
 }
 ```
 
+
+
+### 消息推送设置
+
+#### 获取消息推送开关
+
+消息推送开关为总开关，关闭状态下无法接收到 设备告警、家庭消息、通知消息 等任何消息
+
+```objective-c
+[[TuyaSmartSDK sharedInstance] getPushStatusWithSuccess:^(BOOL result) {
+	// 当 result == YES 时，表示推送开关开启
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### 设置消息推送开关
+
+ ````objective-c
+BOOL enable = YES;
+[[TuyaSmartSDK sharedInstance] setPushStatusWithStatus:enable  success:^{
+	// 设置成功
+} failure:^(NSError *error) {
+
+}];
+ ````
+
+#### 获取设备告警消息开关状态
+
+```objective-c
+[[TuyaSmartSDK sharedInstance] getDevicePushStatusWithSuccess:^(BOOL result) {
+  // 当 result == YES 时，表示接收设备告警消息推送
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### 设置设备告警消息开关
+
+````objective-c
+BOOL enable = YES;
+[[TuyaSmartSDK sharedInstance] setDevicePushStatusWithStauts:enable  success:^{
+	// 设置成功
+} failure:^(NSError *error) {
+
+}];
+````
+
+#### 获取家庭消息开关状态
+
+```objective-c
+[[TuyaSmartSDK sharedInstance] getFamilyPushStatusWithSuccess:^(BOOL result) {
+	// 当 result == YES 时，表示接收家庭消息推送
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### 设置家庭消息开关
+
+```objective-c
+BOOL enable = YES;
+[[TuyaSmartSDK sharedInstance] setFamilyPushStatusWithStauts:enable  success:^{
+	// 设置成功
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### 获取通知消息开关状态
+
+```objective-c
+[[TuyaSmartSDK sharedInstance] getNoticePushStatusWithSuccess:^(BOOL result) {
+	// 当 result == YES 时，表示接收通知消息推送
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### 设置通知消息开关
+
+```objective-c
+BOOL enable = YES;
+[[TuyaSmartSDK sharedInstance] setNoticePushStatusWithStauts:enable  success:^{
+	// 设置成功
+} failure:^(NSError *error) {
+
+}];
+```
