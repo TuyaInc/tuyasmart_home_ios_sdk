@@ -3,7 +3,7 @@
 ## 2.12.46(2019-07-22)
 
 - bug 修复，推送消息可分类开启
-- bug fixed, Push Notification was was classified. 
+- bug fixed, Push Notification was classified. 
 
 ## 2.10.97(2019-06-20)
 
