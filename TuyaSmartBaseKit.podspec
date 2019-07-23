@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
 
   s.watchos.deployment_target = '2.0'
   s.watchos.vendored_frameworks = 'watchos/*.framework'
+  s.watchos.frameworks = 'UIKit'
   # s.watchos.vendored_libraries = 'watchos/*.a'
 
   s.libraries = 'c++', 'z'
