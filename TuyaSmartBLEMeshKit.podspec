@@ -19,6 +19,5 @@ Pod::Spec.new do |s|
   s.dependency 'TuyaSmartDeviceKit'
   s.dependency 'TYBluetooth'
   s.dependency 'TuyaSmartActivatorKit'
-  s.dependency 'OpenSSL-Universal'
 
 end
