@@ -58,299 +58,295 @@ TuyaSmartSDK.sharedInstance()?.upgradeVersion({
 
 
 
+### 手机账号体系
 
-### 用户注册
+涂鸦智能提供手机验证码登陆体系。
 
-_注：注册方法调用成功后，就可以正常使用SDK的所有功能了（注册成功即为登录成功），不需要再次调用登录方法。_
+#### 手机密码注册
 
-#### 手机注册
-
-手机注册需要以下两个步骤：
-
-- 发送验证码到手机
+1. 获取手机验证码
 
 Objc:
 
-```objc
-- (void)sendVerifyCode {
-	[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:1 success:^{
-		NSLog(@"sendVerifyCode success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCode failure: %@", error);
-	}];
-}
+```objective-c
+/**
+ *  发送验证码，用于手机验证码登录/注册，手机密码重置。
+ *  @param type        0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
+ */
+[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:1 success:^{
+    NSLog(@"sendVerifyCode success");
+} failure:^(NSError *error) {
+    NSLog(@"sendVerifyCode failure: %@", error);
+}];
 ```
 
 Swift:
 
 ```swift
-func sendVerifyCode() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
-        print("sendVerifyCode success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
-}
+/**
+ *  发送验证码，用于手机验证码登录/注册，手机密码重置。
+ *  @param type        0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
+ */
+TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
+    print("sendVerifyCode success")
+}, failure: { (error) in
+    if let e = error {
+        print("sendVerifyCode failure: \(e)")
+    }
+})
 ```
 
 
 
-- 手机收到验证码后，使用验证码注册
+2. 注册手机密码账户
 
 Objc:
 
-```objc
-- (void)registerByPhone {
-	[[TuyaSmartUser sharedInstance] registerByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" code:@"verify_code" success:^{
-		NSLog(@"register success");
-	} failure:^(NSError *error) {
-		NSLog(@"register failure: %@", error);
-	}];
-}
+```objective-c
+[[TuyaSmartUser sharedInstance] registerByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" code:@"verify_code" success:^{
+    NSLog(@"register success");
+} failure:^(NSError *error) {
+    NSLog(@"register failure: %@", error);
+}];
 ```
 
 Swift:
 
 ```swift
-func registerByPhone() {
-    TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumber: "your_phone_number", password: "your_password", code: "verify_code", success: {
-        print("register success")
-    }, failure: { (error) in
-        if let e = error {
-            print("register failure: \(e)")
-        }
-    })
-}
+TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumber: "your_phone_number", password: "your_password", code: "verify_code", success: {
+    print("register success")
+}, failure: { (error) in
+    if let e = error {
+        print("register failure: \(e)")
+    }
+})
 ```
 
 
 
-#### 邮箱注册 （不需要验证码）
+#### 手机验证码登录
 
-邮箱注册不需要发送验证码，直接注册即可
+1. 获取手机验证码
 
 Objc:
 
-```objc
-- (void)registerByEmail {
-	[[TuyaSmartUser sharedInstance] registerByEmail:@"your_country_code" email:@"your_email" password:@"your_password" success:^{
-		NSLog(@"register success");
-	} failure:^(NSError *error) {
-		NSLog(@"register failure: %@", error);
-	}];
-}
+```objective-c
+/**
+ *  发送验证码，用于手机验证码登录/注册，手机密码重置。
+ *  @param type        0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
+ */
+[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:0 success:^{
+    NSLog(@"sendVerifyCode success");
+} failure:^(NSError *error) {
+    NSLog(@"sendVerifyCode failure: %@", error);
+}];
 ```
 
 Swift:
 
 ```swift
-func registerByEmail() {
-    TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "your_email", password: "your_password", success: {
-        print("register success")
-    }, failure: { (error) in
-        if let e = error {
-            print("register failure: \(e)")
-        }
-    })
-}
+/**
+ *  发送验证码，用于手机验证码登录/注册，手机密码重置。
+ *  @param type        0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
+ */
+TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 0, success: {
+    print("sendVerifyCode success")
+}, failure: { (error) in
+    if let e = error {
+        print("sendVerifyCode failure: \(e)")
+    }
+})
 ```
 
 
 
-#### 邮箱注册 2.0 （需要验证码）
-
-邮箱注册需要以下两个步骤：
-
-- 发送验证码到邮箱
+2. 验证码登录
 
 Objc:
 
-```objc
-- (void)sendVerifyCode {
-	[[TuyaSmartUser sharedInstance] sendVerifyCodeByRegisterEmail:@"country_code" email:@"email" success:^{
-        NSLog(@"sendVerifyCode success");
-    } failure:^(NSError *error) {
-        NSLog(@"sendVerifyCode failure: %@", error);
-    }];
-}
-```
 
-Swift:
-
-```swift
- func sendVerifyCode() {
-     TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "country_code", email: "email", success: {
-        print("sendVerifyCode success")
-     }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
- }
-```
-
-- 邮箱收到验证码后，使用验证码注册
-
-Objc:
-
-```objc
-- (void)registerByEmail {
-	[[TuyaSmartUser sharedInstance] registerByEmail:@"country_code" email:@"email" password:@"password" code:@"verify_code" success:^{
-        NSLog(@"register success");
-    } failure:^(NSError *error) {
-        NSLog(@"register failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func registerByEmail() {
-    TuyaSmartUser.sharedInstance()?.register(byEmail: "country_code", email: "email", password: "password", code: "verify_code", success: {
-        print("register success")
-    }, failure: { (error) in
-        if let e = error {
-            print("register failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-### 用户登录
-
-用户登录接口调用成功之后，SDK会将用户Session储存在本地，下次启动APP时即默认已经登录，不需要再次登录。
-
-长期未使用的情况下Session会失效，因此需要对Session过期的通知进行处理，提示用户重新登录。参见[Session过期的处理](#session过期的处理)
-
-#### 手机登录
-
-手机登录有两种方式：验证码登录（无需注册，直接可以登录），密码登录（需要注册）
-
-##### 验证码登录（无需注册，直接可以登录）
-
-手机验证码登录的流程和手机注册类似：
-
-- 发送验证码：
-
-Objc:
-
-```objc
-- (void)sendVerifyCode {
-	[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:0 success:^{
-		NSLog(@"sendVerifyCode success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCode failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func sendVerifyCode() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 0, success: {
-        print("sendVerifyCode success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-- 登录
-
-Objc:
-
-```objc
-- (void)loginByPhoneAndCode {
-	[[TuyaSmartUser sharedInstance] login:@"your_country_code" phoneNumber:@"your_phone_number" code:@"verify_code" success:^{
+```objective-c
+[[TuyaSmartUser sharedInstance] loginWithMobile:@"your_phone_number" countryCode:@"your_country_code" code:@"verify_code" success:^{
 		NSLog(@"login success");
-	} failure:^(NSError *error) {
-		NSLog(@"login failure: %@", error);
-	}];
-}
+} failure:^(NSError *error) {
+    NSLog(@"login failure: %@", error);
+}];
 ```
 
 Swift:
 
 ```swift
-func loginByPhoneAndCode() {
-    TuyaSmartUser.sharedInstance()?.login("your_country_code", phoneNumber: "your_phone_number", code: "verify_code", success: {
-        print("login success")
-    }, failure: { (error) in
-      	if let e = error {
-            print("login failure: \(e)")
-        }
-    })
-}
+TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCode: "your_country_code", code: "verify_code", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
 ```
 
 
 
-#### 密码登录（需要注册）
+#### 手机密码登录
 
 Objc:
 
-```objc
-- (void)loginByPhoneAndPassword {
-        [[TuyaSmartUser sharedInstance] loginByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" success:^{
+```objective-c
+[[TuyaSmartUser sharedInstance] loginByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" success:^{
 		NSLog(@"login success");
-	} failure:^(NSError *error) {
+} failure:^(NSError *error) {
 		NSLog(@"login failure: %@", error);
-	}];
-}
+}];
 ```
 
 Swift:
 
 ```swift
-func loginByPhoneAndPassword() {
-    TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber: "your_phone_number", password:"your_password", success: {
-        print("login success")
-    }, failure: { (error) in
-        if let e = error {
-            print("login failure: \(e)")
-        }
-    })
-}
+TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber: "your_phone_number", password: "your_password", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
 ```
 
 
 
-#### 邮箱登录
+### 邮箱账号体系
+
+涂鸦智能提供邮箱密码登陆体系。
+
+#### 邮箱密码注册
+
+1. 获取邮箱验证码
 
 Objc:
 
-```objc
-- (void)loginByEmail {
-	[[TuyaSmartUser sharedInstance] loginByEmail:@"your_country_code" email:@"your_email" password:@"your_password" success:^{
-		NSLog(@"login success");
-	} failure:^(NSError *error) {
-		NSLog(@"login failure: %@", error);
-	}];
-}
+```objective-c
+[[TuyaSmartUser sharedInstance] sendVerifyCodeByRegisterEmail:@"your_country_code" email:@"your_email" success:^{
+  	NSLog(@"sendVerifyCode success");
+} failure:^(NSError *error) {
+    NSLog(@"sendVerifyCode failure: %@", error);
+}];
 ```
 
 Swift:
 
 ```swift
-func loginByEmail() {
-    TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your_email", password: "your_password", success: {
-        print("login success")
-    }, failure: { (error) in
-        if let e = error {
-           	print("login failure: \(e)")
-        }
-    })
-}
+TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "your_country_code", email: "your_email", success: {
+    print("sendVerifyCode success")
+}, failure: { (error) in
+    if let e = error {
+        print("sendVerifyCode failure: \(e)")
+    }
+})
+```
+
+
+
+2. 注册邮箱密码账户
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] registerByEmail:@"your_country_code" email:@"your_email" password:@"your_password" code:@"verify_code" success:^{
+    NSLog(@"register success");
+} failure:^(NSError *error) {
+    NSLog(@"register failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "your_email", password: "your_password", code: "verify_code", success: {
+    print("register success")
+}, failure: { (error) in
+    if let e = error {
+        print("register failure: \(e)")
+    }
+})
+```
+
+
+
+#### 邮箱密码登录
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] loginByEmail:@"your_country_code" email:@"your_email" password:@"your_password" success:^{
+    NSLog(@"login success");
+} failure:^(NSError *error) {
+    NSLog(@"login failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your_email", password: "your_password", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
+```
+
+
+
+### 用户uid登录体系
+
+#### 用户uid注册
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] registerByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
+    NSLog(@"register success");
+} failure:^(NSError *error) {
+    NSLog(@"register failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.register(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
+    print("register success")
+}, failure: { (error) in
+    if let e = error {
+        print("register failure: \(e)")
+    }
+})
+```
+
+
+
+#### 用户uid登陆
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] loginByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
+    NSLog(@"login success");
+} failure:^(NSError *error) {
+    NSLog(@"login failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.login(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
 ```
 
 
