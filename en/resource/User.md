@@ -169,133 +169,297 @@ func registerByEmail() {
 }
 ```
 
+### Use Mobile Phone for Login
 
+Tuya Smart provides the mobile phone verification code login system.
 
-### User Login
+#### Use Mobile Phone Password for Registration
 
-After the user login interface is successfully invoked, the SDK will save the user session in local files, and when the App is started again, the login will be bypassed.
-The session will become invalid if it is not used for a long time, therefore the notice to expired sessions has to be handled, and the user will be notified to log in again. See [Handling of Expired Session](#handling-of-expired-session)
-
-#### Login of mobile phone
-
-Mobile phones has two login modes: verification code login (direct login without registration) and password login (registration is required).
-
-##### Verification code login (direct login without registration)
-
-The process of verification code login with mobile phone is similar to that of registration on mobile phone .
-
-- Send verification code:
+1. Obtain mobile phone verification code.
 
 Objc:
 
-```objc
-- (void)sendVerifyCode {
-	[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:0 success:^{
-		NSLog(@"sendVerifyCode success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCode failure: %@", error);
-	}];
-}
+```objective-c
+/**
+ *  Send verification code. Used for mobile phone verification code login, register, password reset.
+ *  @param type         0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset.
+ */
+[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:1 success:^{
+    NSLog(@"sendVerifyCode success");
+} failure:^(NSError *error) {
+    NSLog(@"sendVerifyCode failure: %@", error);
+}];
 ```
 
 Swift:
 
 ```swift
-func sendVerifyCode() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 0, success: {
-        print("sendVerifyCode success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
-}
+/**
+ *  Send verification code. Used for mobile phone verification code login, register, password reset.
+ *  @param type         0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset.
+ */
+TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
+    print("sendVerifyCode success")
+}, failure: { (error) in
+    if let e = error {
+        print("sendVerifyCode failure: \(e)")
+    }
+})
 ```
 
 
 
-- Login:
+2. Use your mobile phone and password to registration.
 
 Objc:
 
-```objc
-- (void)loginByPhoneAndCode {
-	[[TuyaSmartUser sharedInstance] login:@"your_country_code" phoneNumber:@"your_phone_number" code:@"verify_code" success:^{
+```objective-c
+[[TuyaSmartUser sharedInstance] registerByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" code:@"verify_code" success:^{
+    NSLog(@"register success");
+} failure:^(NSError *error) {
+    NSLog(@"register failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumber: "your_phone_number", password: "your_password", code: "verify_code", success: {
+    print("register success")
+}, failure: { (error) in
+    if let e = error {
+        print("register failure: \(e)")
+    }
+})
+```
+
+
+
+#### Use Mobile Phone Verification Code for Login
+
+1. Obtain mobile phone verification code.
+
+Objc:
+
+```objective-c
+/**
+ *  Send verification code. Used for mobile phone verification code login, register, password reset.
+ *  @param type         0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset.
+ */
+[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:0 success:^{
+    NSLog(@"sendVerifyCode success");
+} failure:^(NSError *error) {
+    NSLog(@"sendVerifyCode failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+/**
+ *  Send verification code. Used for mobile phone verification code login, register, password reset.
+ *  @param type         0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset.
+ */
+TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
+    print("sendVerifyCode success")
+}, failure: { (error) in
+    if let e = error {
+        print("sendVerifyCode failure: \(e)")
+    }
+})
+```
+
+
+
+2. Use mobile phone verification code for login
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] loginWithMobile:@"your_phone_number" countryCode:@"your_country_code" code:@"verify_code" success:^{
 		NSLog(@"login success");
-	} failure:^(NSError *error) {
-		NSLog(@"login failure: %@", error);
-	}];
-}
+} failure:^(NSError *error) {
+    NSLog(@"login failure: %@", error);
+}];
 ```
+
 Swift:
 
 ```swift
-func loginByPhoneAndCode() {
-    TuyaSmartUser.sharedInstance()?.login("your_country_code", phoneNumber: "your_phone_number", code: "verify_code", success: {
-        print("login success")
-    }, failure: { (error) in
-      	if let e = error {
-            print("login failure: \(e)")
-        }
-    })
-}
+TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCode: "your_country_code", code: "verify_code", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
 ```
 
-#### Password login (registration is required)
+
+
+#### Use Mobile Phone Password for Login
 
 Objc:
 
-```objc
-- (void)loginByPhoneAndPassword {
-        [[TuyaSmartUser sharedInstance] loginByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" success:^{
+```objective-c
+[[TuyaSmartUser sharedInstance] loginByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" success:^{
 		NSLog(@"login success");
-	} failure:^(NSError *error) {
+} failure:^(NSError *error) {
 		NSLog(@"login failure: %@", error);
-	}];
-}
+}];
 ```
 
 Swift:
 
 ```swift
-func loginByPhoneAndPassword() {
-    TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber: "your_phone_number", password:"your_password", success: {
-        print("login success")
-    }, failure: { (error) in
-        if let e = error {
-            print("login failure: \(e)")
-        }
-    })
-}
+TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber: "your_phone_number", password: "your_password", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
 ```
 
-#### Email login
+
+
+### Use Email for Login
+
+Tuya Smart provides the email password login system.
+
+#### User Email Password Registration
+
+1. Register your email and obtain the verification code received in the email.
 
 Objc:
 
-```objc
-- (void)loginByEmail {
-	[[TuyaSmartUser sharedInstance] loginByEmail:@"your_country_code" email:@"your_email" password:@"your_password" success:^{
-		NSLog(@"login success");
-	} failure:^(NSError *error) {
-		NSLog(@"login failure: %@", error);
-	}];
-}
+```objective-c
+[[TuyaSmartUser sharedInstance] sendVerifyCodeByRegisterEmail:@"your_country_code" email:@"your_email" success:^{
+  	NSLog(@"sendVerifyCode success");
+} failure:^(NSError *error) {
+    NSLog(@"sendVerifyCode failure: %@", error);
+}];
 ```
 
 Swift:
 
 ```swift
-func loginByEmail() {
-    TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your_email", password: "your_password", success: {
-        print("login success")
-    }, failure: { (error) in
-        if let e = error {
-           	print("login failure: \(e)")
-        }
-    })
-}
+TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "your_country_code", email: "your_email", success: {
+    print("sendVerifyCode success")
+}, failure: { (error) in
+    if let e = error {
+        print("sendVerifyCode failure: \(e)")
+    }
+})
 ```
+
+
+
+2. Select a password for your email.
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] registerByEmail:@"your_country_code" email:@"your_email" password:@"your_password" code:@"verify_code" success:^{
+    NSLog(@"register success");
+} failure:^(NSError *error) {
+    NSLog(@"register failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "your_email", password: "your_password", code: "verify_code", success: {
+    print("register success")
+}, failure: { (error) in
+    if let e = error {
+        print("register failure: \(e)")
+    }
+})
+```
+
+
+
+#### Use Email Password for Login
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] loginByEmail:@"your_country_code" email:@"your_email" password:@"your_password" success:^{
+    NSLog(@"login success");
+} failure:^(NSError *error) {
+    NSLog(@"login failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your_email", password: "your_password", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
+```
+
+
+
+### Use uid for Login
+
+#### User uid Registration
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] registerByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
+    NSLog(@"register success");
+} failure:^(NSError *error) {
+    NSLog(@"register failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.register(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
+    print("register success")
+}, failure: { (error) in
+    if let e = error {
+        print("register failure: \(e)")
+    }
+})
+```
+
+
+
+#### User uid Login
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] loginByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
+    NSLog(@"login success");
+} failure:^(NSError *error) {
+    NSLog(@"login failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.login(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
+```
+
+
 
 
 ### Third Party Login
