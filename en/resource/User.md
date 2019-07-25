@@ -8,174 +8,13 @@ For details about available region, please refer to the [Tuya Cloud-Available Re
 
 All functions of user are realized by using the `TuyaSmartUser` Class (singleton).
 
-
-### User Registration
-
-_Note: after the registration method is successfully invoked, all functions of SDK can be normally used. Successful registration means successful login, and the login method does not need to be invoked again._
-
-#### Registration with mobile phone
-
-Registration with mobile phone takes two steps:
-
-- Send the verification code to mobile phone.
-
-Objc:
-
-```objc
-- (void)sendVerifyCode {
-	[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:1 success:^{
-		NSLog(@"sendVerifyCode success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCode failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func sendVerifyCode() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
-        print("sendVerifyCode success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-- Use the verification code for registration after it is received on the mobile phone.
-
-Objc:
-
-```objc
-- (void)registerByPhone {
-	[[TuyaSmartUser sharedInstance] registerByPhone:@"your_country_code" phoneNumber:@"your_phone_number" password:@"your_password" code:@"verify_code" success:^{
-		NSLog(@"register success");
-	} failure:^(NSError *error) {
-		NSLog(@"register failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func registerByPhone() {
-    TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumber: "your_phone_number", password: "your_password", code: "verify_code", success: {
-        print("register success")
-    }, failure: { (error) in
-        if let e = error {
-            print("register failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### Registration with email (do not need the verification code)
-
-The verification code is not required in registration with email.
-
-Objc:
-
-```objc
-- (void)registerByEmail {
-	[[TuyaSmartUser sharedInstance] registerByEmail:@"your_country_code" email:@"your_email" password:@"your_password" success:^{
-		NSLog(@"register success");
-	} failure:^(NSError *error) {
-		NSLog(@"register failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func registerByEmail() {
-    TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "your_email", password: "your_password", success: {
-        print("register success")
-    }, failure: { (error) in
-        if let e = error {
-            print("register failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### Registration with email 2.0 (verification code is required.)
-
-Registration with email takes two steps:
-
-- Send the verification code to an email.
-
-Objc:
-
-```objc
-- (void)sendVerifyCode {
-	[[TuyaSmartUser sharedInstance] sendVerifyCodeByRegisterEmail:@"country_code" email:@"email" success:^{
-                NSLog(@"sendVerifyCode success");
-            } failure:^(NSError *error) {
-                NSLog(@"sendVerifyCode failure: %@", error);
-            }];
-}
-```
-
-Swift:
-
-```swift
- func sendVerifyCode() {
-     TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "country_code", email: "email", success: {
-        print("sendVerifyCode success")
-     }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
- }
-```
-
-- Use the verification code for registration after it is received in the email.
-
-Objc:
-
-```objc
-- (void)registerByEmail {
-	    [[TuyaSmartUser sharedInstance] registerByEmail:@"country_code" email:@"email" password:@"password" code:@"verify_code" success:^{
-        NSLog(@"register success");
-    } failure:^(NSError *error) {
-        NSLog(@"register failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func registerByEmail() {
-    TuyaSmartUser.sharedInstance()?.register(byEmail: "country_code", email: "email", password: "password", code: "verify_code", success: {
-        print("register success")
-    }, failure: { (error) in
-        if let e = error {
-            print("register failure: \(e)")
-        }
-    })
-}
-```
-
 ### Use Mobile Phone for Login
 
 Tuya Smart provides the mobile phone verification code login system.
 
 #### Use Mobile Phone Password for Registration
 
-1. Obtain mobile phone verification code.
+1.Obtain mobile phone verification code.
 
 Objc:
 
@@ -209,7 +48,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber:
 
 
 
-2. Use your mobile phone and password to registration.
+2.Use your mobile phone and password to registration.
 
 Objc:
 
@@ -237,7 +76,7 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 #### Use Mobile Phone Verification Code for Login
 
-1. Obtain mobile phone verification code.
+1.Obtain mobile phone verification code.
 
 Objc:
 
@@ -271,7 +110,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber:
 
 
 
-2. Use mobile phone verification code for login
+2.Use mobile phone verification code for login
 
 Objc:
 
@@ -329,7 +168,7 @@ Tuya Smart provides the email password login system.
 
 #### User Email Password Registration
 
-1. Register your email and obtain the verification code received in the email.
+1.Register your email and obtain the verification code received in the email.
 
 Objc:
 
@@ -355,7 +194,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "your_country_co
 
 
 
-2. Select a password for your email.
+2.Select a password for your email.
 
 Objc:
 
