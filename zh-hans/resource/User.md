@@ -71,7 +71,7 @@ Objc:
 ```objective-c
 /**
  *  发送验证码，用于手机验证码登录/注册，手机密码重置。
- *  @param type        0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
+ *  @param type 0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
  */
 [[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:1 success:^{
     NSLog(@"sendVerifyCode success");
@@ -85,7 +85,7 @@ Swift:
 ```swift
 /**
  *  发送验证码，用于手机验证码登录/注册，手机密码重置。
- *  @param type        0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
+ *  @param type 0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
  */
 TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
     print("sendVerifyCode success")
@@ -133,7 +133,7 @@ Objc:
 ```objective-c
 /**
  *  发送验证码，用于手机验证码登录/注册，手机密码重置。
- *  @param type        0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
+ *  @param type 0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
  */
 [[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:0 success:^{
     NSLog(@"sendVerifyCode success");
@@ -147,7 +147,7 @@ Swift:
 ```swift
 /**
  *  发送验证码，用于手机验证码登录/注册，手机密码重置。
- *  @param type        0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
+ *  @param type 0: 验证码登录, 1: 验证码注册, 2:验证码重设密码
  */
 TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 0, success: {
     print("sendVerifyCode success")
