@@ -1,1 +1,0 @@
-../../../../TuyaSmartMQTTChannelKit/ios/TuyaSmartMQTTChannelKit.framework/Versions/A/Headers/TuyaSmartMQTTChannel.h

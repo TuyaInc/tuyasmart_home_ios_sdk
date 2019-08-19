@@ -12,7 +12,9 @@
 #import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 
 #import "TuyaSmartActivator.h"
+#import "TuyaSmartDiscovery.h"
 #import "TuyaSmartAutoActivator.h"
 #import "TuyaSmartHomeKitActivator.h"
+#import "TuyaSmartRouterActivator.h"
 
 #endif /* TuyaSmartActivatorKit_h */

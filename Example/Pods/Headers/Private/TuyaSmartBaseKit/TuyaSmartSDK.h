@@ -1,1 +1,0 @@
-../../../TuyaSmartBaseKit/Headers/TuyaSmartSDK.h

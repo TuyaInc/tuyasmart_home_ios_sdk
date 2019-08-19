@@ -32,6 +32,7 @@
 
 @property (nonatomic, assign) BOOL     isOnline;
 @property (nonatomic, strong) NSString *verSw;
+@property (nonatomic, strong) NSString *pv;
 
 @end
 

@@ -13,6 +13,7 @@ typedef enum : NSUInteger {
     TuyaSmartGroupTypeWifi = 0,
     TuyaSmartGroupTypeMesh,
     TuyaSmartGroupTypeZigbee,
+    TuyaSmartGroupTypeSIGMesh,
 } TuyaSmartGroupType;
 
 #import <Foundation/Foundation.h>
@@ -66,6 +67,9 @@ typedef enum : NSUInteger {
 
 // order
 @property (nonatomic, assign) NSInteger displayOrder;
+
+// home all group order
+@property (nonatomic, assign) NSInteger homeDisplayOrder;
 
 // device list
 @property (nonatomic, strong) NSArray<TuyaSmartDeviceModel *> *deviceList;

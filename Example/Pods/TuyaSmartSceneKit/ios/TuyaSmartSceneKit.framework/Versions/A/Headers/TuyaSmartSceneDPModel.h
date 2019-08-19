@@ -14,7 +14,8 @@ typedef enum : NSUInteger {
     SceneDisplayNewPercent = (1 << 2),
     SceneDisplayCountDown = (1 << 3), //倒计时类型
     SceneDisplayBrightness = (1 << 4),
-    SceneDisplayTemp = (1 << 5)
+    SceneDisplayTemp = (1 << 5),
+    SceneDisplayCountDown1 = (1<< 6) //倒计时类型1
 } SceneDisplayType;
 
 @class TuyaSmartSchemaModel;
@@ -132,6 +133,12 @@ typedef enum : NSUInteger {
  * Multi control infomation, value is nil if not belong to any multi control group, format:[{"id":123,"groupName":"多控组1"}]
  */
 @property (nonatomic, strong) NSArray *mcGroups;
+
+/**
+ * dp点额外信息，用于标记dp点的计算类型等额外信息，calType枚举范围:["sum","average","max","min","count","duration"]
+ * extra infomation about dp value's calculate type and other extra infomation, calType's range is ["sum","average","max","min","count","duration"].
+ */
+@property (nonatomic, strong) NSDictionary *condCalExtraInfo;
 
 
 

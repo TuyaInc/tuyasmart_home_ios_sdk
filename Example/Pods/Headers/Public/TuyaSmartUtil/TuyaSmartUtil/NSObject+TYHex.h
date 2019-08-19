@@ -1,1 +1,0 @@
-../../../../TuyaSmartUtil/ios/TuyaSmartUtil.framework/Versions/A/Headers/NSObject+TYHex.h

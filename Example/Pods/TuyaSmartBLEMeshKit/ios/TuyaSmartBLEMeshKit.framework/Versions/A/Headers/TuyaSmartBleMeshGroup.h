@@ -9,8 +9,26 @@
 #import <Foundation/Foundation.h>
 #import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 
+@class TuyaSmartBleMeshGroup;
+@protocol TuyaSmartBleMeshGroupDelegate <NSObject>
+
+/// sig mesh 设备加入到网关的群组响应
+/// 1:超过场景数上限 2:子设备超时 3:设置值超出范围 4:写文件错误 5:其他错误
+/// Group Response of Zigbee Devices Joining Gateway
+/// 1: Over the Scenario Limit 2: Subdevice Timeout 3: Setting Value Out of Range 4: Write File Error 5: Other Errors
+- (void)meshGroup:(TuyaSmartBleMeshGroup *)group addResponseCode:(NSArray <NSNumber *> *)responseCode;
+
+/// sig mesh 设备从网关群组移除响应
+/// 1:超过场景数上限 2:子设备超时 3:设置值超出范围 4:写文件错误 5:其他错误
+/// Group Response of Zigbee Devices removing Gateway
+/// 1: Over the Scenario Limit 2: Subdevice Timeout 3: Setting Value Out of Range 4: Write File Error 5: Other Errors
+- (void)meshGroup:(TuyaSmartBleMeshGroup *)group removeResponseCode:(NSArray <NSNumber *> *)responseCode;
+
+@end
+
 @interface TuyaSmartBleMeshGroup : NSObject
 
+@property (nonatomic, weak, nullable) id<TuyaSmartBleMeshGroupDelegate> delegate;
 
 @property (nonatomic, strong, readonly) TuyaSmartGroupModel *meshGroupModel;
 

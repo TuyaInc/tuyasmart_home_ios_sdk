@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #import "TuyaSmartHomeModel.h"
-#import "TuyaSmartHome.h"
 
 @class TuyaSmartHomeManager;
 
@@ -18,13 +17,28 @@
 
 @optional
 
-// the delegate when a new home is added.
+/**
+ *  the delegate when a new home is added.
+ *  新增一个家庭代理回调
+ *
+ *  @param manager  instance
+ *  @param home     homeModel
+ */
 - (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home;
 
-// the delegate when an existing home is removed.
+/**
+ *  the delegate when an existing home is removed.
+ *  删除一个家庭代理回调
+ *
+ *  @param manager  instance
+ *  @param homeId   homeId
+ */
 - (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId;
 
-// MQTT connected success
+/**
+ *  MQTT connected success
+ *  MQTT 服务连接成功代理回调
+ */
 - (void)serviceConnectedSuccess;
 
 

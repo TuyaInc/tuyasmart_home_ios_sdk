@@ -1,1 +1,0 @@
-../../../../TuyaSmartMessageKit/ios/TuyaSmartMessageKit.framework/Versions/A/Headers/TuyaSmartMessageListModel.h

@@ -1,1 +1,0 @@
-../../../../TuyaSmartTimerKit/ios/TuyaSmartTimerKit.framework/Versions/A/Headers/TuyaSmartTimer.h

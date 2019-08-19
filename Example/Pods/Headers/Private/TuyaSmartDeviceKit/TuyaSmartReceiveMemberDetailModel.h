@@ -1,1 +1,0 @@
-../../../TuyaSmartDeviceKit/Headers/TuyaSmartReceiveMemberDetailModel.h

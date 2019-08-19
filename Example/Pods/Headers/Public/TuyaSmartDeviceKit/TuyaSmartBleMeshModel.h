@@ -1,1 +1,0 @@
-../../../TuyaSmartDeviceKit/Headers/TuyaSmartBleMeshModel.h

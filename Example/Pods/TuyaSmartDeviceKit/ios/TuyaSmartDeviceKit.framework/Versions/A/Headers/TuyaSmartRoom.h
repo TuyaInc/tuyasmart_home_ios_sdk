@@ -29,6 +29,7 @@
  *
  *  @param roomId Room ID
  *  @param homeId Home ID
+ *  @return instance
  */
 + (instancetype)roomWithRoomId:(long long)roomId homeId:(long long)homeId;
 
@@ -38,6 +39,7 @@
  *
  *  @param roomId Room ID
  *  @param homeId Home ID
+ *  @return instance
  */
 - (instancetype)initWithRoomId:(long long)roomId homeId:(long long)homeId NS_DESIGNATED_INITIALIZER;
 

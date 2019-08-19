@@ -15,8 +15,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSMutableArray *requestList;
 
+
+/**
+ add api request
+
+ @param apiName     api name
+ @param postData    post data
+ @param version     version
+ */
 - (void)addApiRequest:(NSString *)apiName postData:(NSDictionary *)postData version:(NSString *)version;
 
+
+/**
+ send request
+
+ @param getData get data
+ @param success Success block
+ @param failure Failure block
+ */
 - (void)sendRequest:(NSDictionary *)getData success:(nullable void (^)(NSArray <TYApiMergeModel *> *list))success failure:(nullable TYFailureError)failure;
 
 @end

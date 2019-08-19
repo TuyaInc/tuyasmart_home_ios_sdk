@@ -10,6 +10,24 @@
 #import "TuyaSmartSocketReadModel.h"
 #import "TuyaSmartSocketWriteModel.h"
 
+// 协议
+#define SOCKET_TYPE_BROADCAST             0x00
+#define SOCKET_TYPE_BROADCAST_V4          0x13
+#define SOCKET_TYPE_AP_CONFIG             0x01
+#define SOCKET_TYPE_AP_ACTIVATE           0x02
+#define SOCKET_TYPE_DP_PUBLISH            0x07
+#define SOCKET_TYPE_DP_REPORT             0x08
+#define SOCKET_TYPE_HEARTBEAT             0x09
+#define SOCKET_TYPE_QUERY_DEV_INFO        0x0a
+#define SOCKET_TYPE_QUERY_SSID_LIST       0x0b
+#define SOCKET_TYPE_DP_CAD_PUBLISH        0x0d
+#define SOCKET_TYPE_LOCL_SCENE_EXE        0x11
+#define SOCKET_TYPE_ENABLE_LOG            0x20
+#define SOCKET_TYPE_BIND_TOKEN            0x0c
+#define SOCKET_TYPE_ACTIVE_SUBDEV         0x0e
+#define SOCKET_TYPE_QUERY_CAD_DEV_INFO    0x10
+#define SOCKET_TYPE_INITIATIVE_QUERY_DPS  0x12
+
 @class TuyaSmartSocketChannel;
 
 @protocol TuyaSmartSocketChannelDelegate <NSObject>
@@ -44,32 +62,38 @@
 
 + (instancetype)sharedInstance;
 
+/**
+ *  未激活的设备列表
+ */
+@property (nonatomic, strong) TYSDKSafeMutableDictionary   *inactiveDevices;
+
 #pragma mark - TCP
 
 // connect TCP
 - (void)initTcpClientWithHost:(NSString *)host devInfo:(NSDictionary *)devInfo;
 
-// register reader
-- (void)registerTcpClientReaderWithDevId:(NSString *)devId tag:(long)tag;
-
 // send TCP message
-- (BOOL)sendTcpRequest:(TuyaSmartSocketWriteModel *)request;
+- (void)sendTcpRequest:(TuyaSmartSocketWriteModel *)request success:(TYSuccessDict)success failure:(TYFailureHandler)failure;
+
+- (void)removeInactiveDevice:(NSString *)gwId;
+
+- (void)removeAllInactiveDevice;
 
 // whether the TCP connection
 - (BOOL)hasTcpClientWithDevId:(NSString *)devId;
 
-// close Tcp connect
+// close TCP connect
 - (void)closeTcpClientWithDevId:(NSString *)devId;
 
-// close all tcp connect
+// close all TCP connect
 - (void)closeAllTcpClient;
 
 #pragma mark - UDP
 
-// init udp serve
+// init UDP serve
 - (void)initUdpServer;
 
-// close udp serve
+// close UDP serve
 - (void)closeUdpServer;
 
 @end

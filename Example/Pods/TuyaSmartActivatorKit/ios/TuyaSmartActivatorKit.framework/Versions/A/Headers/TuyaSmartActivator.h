@@ -28,17 +28,26 @@ typedef enum : NSUInteger {
 
 @required
 
-/*
- * 配网状态更新的回调，wifi单品，zigbee网关，zigbee子设备
- * Callback of Config Network Status Update
+/**
+ Callback of Config Network Status Update
+ 配网状态更新的回调，wifi单品，zigbee网关，zigbee子设备
+
+ @param activator   instance
+ @param deviceModel deviceModel
+ @param error       error
  */
 - (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
 
 @optional
-/*
- * deprecated
- * 配网状态更新的回调 mesh网关
- * Callback of Config Network Status Update (mesh gateway)
+
+/**
+ Callback of Config Network Status Update (mesh gateway),deprecated
+ 配网状态更新的回调 mesh网关，已经废弃
+
+ @param activator   instance
+ @param deviceId    devId
+ @param meshId      meshId
+ @param error       error
  */
 - (void)meshActivator:(TuyaSmartActivator *)activator didReceiveDeviceId:(NSString *)deviceId meshId:(NSString *)meshId error:(NSError *)error __deprecated_msg("Use -[TuyaSmartActivatorDelegate activator:didReceiveDevice:error:] instead. `deviceId` is `deviceModel.devId`, `meshId` is `deviceModel.parentId`.");
 
@@ -46,22 +55,27 @@ typedef enum : NSUInteger {
 
 @interface TuyaSmartActivator : NSObject
 
-
 /**
- *  Single
- *  单例
+ Single
+ 单例
+
+ @return instance
  */
 + (instancetype)sharedInstance;
 
 /**
- *  Get the SSID name of the current Wifi
- *  获取当前Wifi的SSID名称
+ Get the SSID name of the current Wifi
+ 获取当前Wifi的SSID名称
+
+ @return wifi ssid
  */
 + (NSString *)currentWifiSSID;
 
 /**
- *  Get the BSSID name of the current Wifi
- *  获取当前Wifi的BSSID名称
+ Get the BSSID name of the current Wifi
+ 获取当前Wifi的BSSID名称
+
+ @return wifi bssid
  */
 + (NSString *)currentWifiBSSID;
 
@@ -184,6 +198,8 @@ typedef enum : NSUInteger {
 /**
  *  stop active sub device
  *  停止激活子设备
+ *
+ *  @param gwId     gateway Id
  */
 - (void)stopActiveSubDeviceWithGwId:(NSString *)gwId;
 

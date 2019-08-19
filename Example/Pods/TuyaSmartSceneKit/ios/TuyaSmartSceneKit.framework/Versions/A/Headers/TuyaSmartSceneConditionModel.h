@@ -84,13 +84,13 @@ typedef NS_ENUM(NSInteger, TYConditionAutoType)
 /**
  * 条件表达式
  * 如：("$humidity","==","comfort") 或（“$dp1”，“==”，“1”）
- * 定时：{timezoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}
+ * 定时：{timeZoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}
  * loops = "0000000"  表示 ： 周日周一周二周三周四周五周六
  * 详情参见文档:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/SmartScene.html#%E5%8D%95%E4%B8%AA%E5%9C%BA%E6%99%AF%E6%93%8D%E4%BD%9C
  *
  * Condition's expression, like
  * ("$humidity","==","comfort") or（“$dp1”，“==”，“1”）
- * timer：{timezoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}
+ * timer：{timeZoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}
  * loops = "0000000" ,each bit representing from sunday to saturday.
  * Details in Doc: https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/SmartScene.html#smart-scene
  */

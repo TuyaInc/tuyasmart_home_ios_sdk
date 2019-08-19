@@ -9,27 +9,34 @@
 @interface TuyaSmartShareDeviceModel : NSObject
 
 /**
- *  设备图标地址
+ *  device icon url
  */
 @property (nonatomic, strong) NSString *iconUrl;
 
 /**
- *  设备Id
+ *  devId
  */
 @property (nonatomic, strong) NSString *devId;
 
 /**
  *  名称(设备,群组)
+ *  device name or group name
  */
 @property (nonatomic, strong) NSString *name;
 
 /**
- *  是否分享
+ *  Whether or not to share
  */
 @property (nonatomic, assign) BOOL share;
 
+/**
+ *  room name
+ */
 @property (nonatomic, strong) NSString *roomName;
 
+/**
+ *  home name
+ */
 @property (nonatomic, strong) NSString *homeName;
 
 

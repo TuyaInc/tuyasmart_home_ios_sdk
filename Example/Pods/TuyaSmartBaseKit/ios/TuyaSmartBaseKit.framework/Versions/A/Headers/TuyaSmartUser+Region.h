@@ -128,6 +128,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param region      The region to register account, use [TuyaSmartUser
  *                     regionListWithCountryCode:success:failure:] or
  *                     [TuyaSmartUser getDefaultRegionWithCountryCode:] to get region
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
 - (void)switchUserRegion:(NSString *)region
                  success:(TYSuccessHandler)success

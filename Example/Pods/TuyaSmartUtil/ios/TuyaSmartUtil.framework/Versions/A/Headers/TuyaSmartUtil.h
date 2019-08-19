@@ -10,29 +10,30 @@
 
 #import <Foundation/Foundation.h>
 
-#import "NSDate+TYOffset.h"
-#import "NSError+TYDomain.h"
-#import "NSNumber+TYRandom.h"
-#import "NSObject+TYHex.h"
-#import "NSObject+TYJSON.h"
-#import "NSObject+TYURL.h"
-#import "NSObject+TYEncrypt.h"
-#import "NSObject+TYCategory.h"
-#import "NSMutableArray+TYCategory.h"
-#import "NSMutableDictionary+TYCategory.h"
-#import "NSBundle+TYLanguage.h"
+#import "NSDate+TYSDKOffset.h"
+#import "NSError+TYSDKDomain.h"
+#import "NSNumber+TYSDKRandom.h"
+#import "NSObject+TYSDKHex.h"
+#import "NSObject+TYSDKJSON.h"
+#import "NSObject+TYSDKURL.h"
+#import "NSObject+TYSDKEncrypt.h"
+#import "NSObject+TYSDKCategory.h"
+#import "NSBundle+TYSDKLanguage.h"
+#import "NSMutableDictionary+TYSDKCategory.h"
 
-#import "TYUtil.h"
-#import "TYDevice.h"
-#import "TYUserDefault.h"
-#import "TYDarwinNotificationCenter.h"
-#import "TYSafeMutableDictionary.h"
-#import "TYSafeMutableArray.h"
+#import "TYSDKUtil.h"
+#import "TYSDKDevice.h"
+#import "TYSDKUserDefault.h"
+#import "TYSDKSafeMutableArray.h"
+#import "TYSDKSafeMutableDictionary.h"
+#import "TYSDKNotification.h"
+#import "TYSDKLogUtils.h"
+#import "TYSDKFile.h"
 
-#define TY_SINGLETON \
+#define TYSDK_SINGLETON \
 + (instancetype)sharedInstance;
 
-#define TY_DEF_SINGLETON \
+#define TYSDK_DEF_SINGLETON \
 + (instancetype)sharedInstance { \
     static id instance; \
     static dispatch_once_t once; \
@@ -42,10 +43,7 @@
     return instance; \
 }
 
-#define TY_APP_VERSION [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
-#define TY_APP_NAME    [[[NSBundle mainBundle] localizedInfoDictionary] objectForKey:@"CFBundleDisplayName"]
-
-#define WEAKSELF_AT __weak __typeof(&*self)weakSelf_AT = self;
+#define WEAKSELF_TYSDK __weak __typeof(&*self)weakSelf_TYSDK = self;
 
 typedef void (^TYSuccessHandler)(void);
 typedef void (^TYSuccessDict)(NSDictionary *dict);

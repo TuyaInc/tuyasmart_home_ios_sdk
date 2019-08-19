@@ -159,7 +159,7 @@
  * Get groups and devices which can be used as scene's action in specified hoom.
  *
  * @param homeId      homeId
- * @param success     success callback，dict's keys are "groupList" and "deviceList".
+ * @param success     success callback，dict's keys are "groupList" and "deviceList" and @"extendsDictionary", extendsDictionary contains some extra infomation for each device.
  * @param failure     failure
  */
 - (void)getActionGroupListAndDeviceListWithHomeId:(long long)homeId success:(void(^)(NSDictionary *dict))success failure:(TYFailureError)failure;

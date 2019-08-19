@@ -59,9 +59,6 @@ typedef enum : NSUInteger {
 // online of device
 @property (nonatomic, assign) BOOL         isOnline;
 
-// online status of LAN
-@property (nonatomic, assign) BOOL         isLocalOnline;
-
 // whether the device is shared
 @property (nonatomic, assign) BOOL         isShare;
 
@@ -71,7 +68,7 @@ typedef enum : NSUInteger {
 // data point of device
 @property (nonatomic, strong) NSDictionary *dps;
 
-// peoduct Id
+// product Id
 @property (nonatomic, strong) NSString     *productId;
 
 // whether to support group
@@ -84,6 +81,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) double       pv;
 
 #if TARGET_OS_IOS
+
+// online status of LAN
+@property (nonatomic, assign) BOOL         isLocalOnline;
 
 // gateway protocol version of LAN
 @property (nonatomic, assign) double       lpv;
@@ -123,6 +123,10 @@ typedef enum : NSUInteger {
 
 // order
 @property (nonatomic, assign) NSInteger    displayOrder;
+@property (nonatomic, assign) NSInteger    homeDisplayOrder;
+
+@property (nonatomic, strong) NSString     *ip;
+
 // skills
 @property (nonatomic, strong) NSDictionary *skills;
 

@@ -8,6 +8,8 @@
 #ifndef TuyaSmartBLEMeshKit_h
 #define TuyaSmartBLEMeshKit_h
 
+#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
+
 #import "TuyaSmartUser+BleMesh.h"
 #import "TuyaSmartHome+BleMesh.h"
 #import "TuyaSmartActivator+BleMesh.h"

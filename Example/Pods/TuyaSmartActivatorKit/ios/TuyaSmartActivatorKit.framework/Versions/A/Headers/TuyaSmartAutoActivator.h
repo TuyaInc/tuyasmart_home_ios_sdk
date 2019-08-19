@@ -13,17 +13,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol TuyaSmartAutoActivatorDelegate <NSObject>
 
+
+/**
+ Callback of Config Network Status Update
+ 配网状态更新的回调
+
+ @param activator   instance
+ @param deviceModel devicemodel
+ @param error       error
+ */
 - (void)autoActivator:(TuyaSmartAutoActivator *)activator didReceiveAutoConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
 
 @end
 
 @interface TuyaSmartAutoActivator : NSObject
 
+
+/**
+ delegate
+ */
 @property (nonatomic, weak) id<TuyaSmartAutoActivatorDelegate> delegate;
 
 /**
- *  Single
- *  单例
+ Single
+ 单例
+ 
+ @return instance
  */
 + (instancetype)sharedInstance;
 
@@ -44,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param homeId 当前家庭的id
  * @return 当前家庭所有网关路由器设备列表
  */
-- (NSArray <TuyaSmartDeviceModel *> *)autoActiveRouterDeviceListWithHomeId:(long long)homeId;
+- (NSArray <TuyaSmartDeviceModel *> *)autoActiveRouterDeviceListWithHomeId:(long long)homeId __deprecated_msg("Use -[TuyaSmartRouterActivator autoActiveRouterDeviceListWithHomeId:] instead.");
 
 /**
  * start discover device
@@ -74,7 +89,7 @@ NS_ASSUME_NONNULL_BEGIN
                                  type:(NSInteger)type
                               timeout:(NSTimeInterval)timeout
                               success:(TYSuccessHandler)success
-                              failure:(TYFailureError)failure;
+                              failure:(TYFailureError)failure __deprecated_msg("Use -[TuyaSmartRouterActivator startDiscoverRouterWithDevIds:type:timeout:success:failure:] instead.");
 
 /**
  * stop discover
@@ -93,6 +108,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param failure Failure block
  */
 - (void)bindDeviceWithHomeId:(long long)homeId devIds:(NSArray <NSString *>*)devIds success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+
 
 @end
 

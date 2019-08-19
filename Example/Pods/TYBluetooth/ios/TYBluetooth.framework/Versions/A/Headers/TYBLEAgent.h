@@ -10,10 +10,7 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 @class TYBLECentralManager;
-@class TYBLEPeripheralManager;
-@class TYBLECharacteristic;
 @class TYBLEPeripheral;
-@class TYBLEService;
 
 typedef void(^TYBLEAgentCentralNotifyCallback)(NSData *data, NSError *error);
 typedef void(^TYBLEAgentCentralReadCallback)(NSData *data, NSError *error);
@@ -22,13 +19,6 @@ typedef void(^TYBLEAgentCentralDiscoverCallback)(NSArray<TYBLEPeripheral *> *per
 typedef void(^TYBLEAgentCentralConnectionCallback)(TYBLEPeripheral* peripheral,NSError* error) ;
 
 @protocol TYBLEAgent <NSObject>
-
-@optional
-
-- (void)onPeripheralReceiveSubscribingRequest;
-- (void)onPeripheralReceiveReadingRequest;
-- (void)onPeripheralReceiveWritingRequest:(NSData*)data;
-- (void)onPeripheralSendNotifyingData:(NSData*)data EOM:(BOOL)aEom;
 
 @optional
 
@@ -48,7 +38,6 @@ typedef NS_ENUM(int, TYBLEAgentRole)
 @property (nonatomic, assign, readonly) TYBLEAgentRole role;
 @property (nonatomic, assign) id<TYBLEAgent> delegate;
 @property (nonatomic, strong) TYBLECentralManager* cManager;
-@property (nonatomic, strong) TYBLEPeripheralManager* pManager;
 
 
 
@@ -147,30 +136,5 @@ typedef NS_ENUM(int, TYBLEAgentRole)
        CharactUUID:(NSString *)aCharacteristic
        serviceUUID:(NSString *)aService
         completion:(TYBLEAgentCentralNotifyCallback)aCallback;
-
-////////////////////////////////////////////////////////////////////////////////////
-#pragma mark - peripheral  methods
-
-/**
- *  广播服务
- *
- *  @param sUUID     服务的UUID
- *  @param aUUID     特征的UUID
- *  @param aProperty 服务类型
- */
-- (void)advertisingService:(NSString *)sUUID
-            Characteristic:(NSString *)aUUID
-                      Type:(CBCharacteristicProperties)aProperty;
-
-/**
- *  停止广播
- */
-- (void)stopAdvertising;
-/**
- *  用来应答central的read/write操作，每当peripheral收到read/write的请求时，需要用此方法应答
- *
- *  @param data 返回给central的数据
- */
-- (void)responseToCentralWithData:(NSData*)data;
 
 @end

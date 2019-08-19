@@ -75,8 +75,12 @@
     // TodayViewController may be created mant times, but SDK only need initialize once.
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        [TuyaSmartSDK sharedInstance].appGroupId = APP_GROUP_NAME;
         
+#if DEBUG
+        [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
+#endif
+        
+        [TuyaSmartSDK sharedInstance].appGroupId = APP_GROUP_NAME;
         [[TuyaSmartSDK sharedInstance] startWithAppKey:SDK_APPKEY secretKey:SDK_APPSECRET];
     });
 }

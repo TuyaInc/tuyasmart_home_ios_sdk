@@ -33,10 +33,7 @@
 #import "TuyaSmartHome.h"
 #import "TuyaSmartHomeManager.h"
 #import "TuyaSmartHomeMember.h"
-#import "TuyaSmartHomeMemberModel.h"
-#import "TuyaSmartHomeModel.h"
 #import "TuyaSmartRoom.h"
-#import "TuyaSmartRoomModel.h"
 #import "TuyaSmartHomeDeviceShare.h"
 
 #import "TuyaSmartBleMeshModel.h"

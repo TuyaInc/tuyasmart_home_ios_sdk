@@ -1,1 +1,0 @@
-../../../TuyaSmartUtil/Headers/NSObject+TYEncrypt.h

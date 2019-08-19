@@ -1,1 +1,0 @@
-../../../TuyaSmartSceneKit/Headers/TuyaSmartSceneDPModel.h

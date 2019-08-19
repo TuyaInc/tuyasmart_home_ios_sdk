@@ -14,18 +14,20 @@
 #import "TuyaSmartShareDeviceModel.h"
 
 
+///  Sharing device related functions (based on device dimension sharing)
 ///  共享设备相关功能 （基于家庭的设备维度的共享）
 @interface TuyaSmartHomeDeviceShare : NSObject
 
 /**
+ Add Shares
  添加共享
  
- @param homeId      家庭Id
- @param countryCode 国家码
- @param userAccount 账号
- @param devIds      设备Id列表
- @param success     操作成功回调
- @param failure     操作失败回调
+ @param homeId      homeId
+ @param countryCode countryCode
+ @param userAccount userAccount
+ @param devIds      devId list
+ @param success     Success block
+ @param failure     Failure block
  */
 - (void)addShareWithHomeId:(long long)homeId
                countryCode:(NSString *)countryCode
@@ -36,12 +38,13 @@
 
 
 /**
+ Add Shares (new, not overwriting old Shares)
  添加共享 （新增，不覆盖旧的分享）
  
- @param memberId    共享成员ID
- @param devIds      设备列表
- @param success     操作成功回调
- @param failure     操作失败回调
+ @param memberId    memberId
+ @param devIds      devId list
+ @param success     Success block
+ @param failure     Failure block
  */
 - (void)addShareWithMemberId:(NSInteger)memberId
                       devIds:(NSArray <NSString *> *)devIds
@@ -50,11 +53,12 @@
 
 
 /**
+ Get a list of all active shared users in the home
  获取家庭下所有主动共享的用户列表
  
- @param homeId  家庭Id
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param homeId  homeId
+ @param success Success block
+ @param failure Failure block
  */
 - (void)getShareMemberListWithHomeId:(long long)homeId
                              success:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
@@ -62,21 +66,23 @@
 
 
 /**
+ Get a list of all shared users received
  获取所有收到共享的用户列表
  
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param success Success block
+ @param failure Failure block
  */
 - (void)getReceiveMemberListWithSuccess:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
                                 failure:(TYFailureError)failure;
 
 
 /**
+ Obtaining shared data that is actively shared by user
  获取单个 主动共享 的用户共享数据
  
- @param memberId 共享成员ID
- @param success  操作成功回调
- @param failure  操作失败回调
+ @param memberId memberId
+ @param success  Success block
+ @param failure  Failure block
  */
 - (void)getShareMemberDetailWithMemberId:(NSInteger)memberId
                                  success:(void(^)(TuyaSmartShareMemberDetailModel *model))success
@@ -84,11 +90,12 @@
 
 
 /**
+ Getting shared data from a Sharer
  获取单个 收到共享 的用户共享数据
  
- @param memberId    共享成员ID
- @param success     操作成功回调
- @param failure     操作失败回调
+ @param memberId    memberId
+ @param success     Success block
+ @param failure     Failure block
  */
 - (void)getReceiveMemberDetailWithMemberId:(NSInteger)memberId
                                    success:(void(^)(TuyaSmartReceiveMemberDetailModel *model))success
@@ -96,11 +103,12 @@
 
 
 /**
+ Remove active Sharers
  删除主动共享者
  
- @param memberId 共享成员ID
- @param success  操作成功回调
- @param failure  操作失败回调
+ @param memberId memberId
+ @param success  Success block
+ @param failure  Failure block
  */
 - (void)removeShareMemberWithMemberId:(NSInteger)memberId
                               success:(TYSuccessHandler)success
@@ -108,11 +116,12 @@
 
 
 /**
+ Remove Received Sharer
  删除收到共享者
  
  @param memberId 共享成员ID
- @param success  操作成功回调
- @param failure  操作失败回调
+ @param success  Success block
+ @param failure  Failure block
  */
 - (void)removeReceiveShareMemberWithMemberId:(NSInteger)memberId
                                      success:(TYSuccessHandler)success
@@ -120,12 +129,13 @@
 
 
 /**
+ Modify the nickname of an active shared user
  修改某个主动共享用户的昵称
  
- @param memberId 共享成员ID
- @param name     昵称
- @param success  操作成功回调
- @param failure  操作失败回调
+ @param memberId memberId
+ @param name     nickname
+ @param success  Success block
+ @param failure  Failure block
  */
 - (void)renameShareMemberNameWithMemberId:(NSInteger)memberId
                                      name:(NSString *)name
@@ -134,12 +144,13 @@
 
 
 /**
+ Modify the nickname of the Received sharer
  修改收到共享者的昵称
  
- @param memberId 共享成员ID
- @param name     昵称
- @param success  操作成功回调
- @param failure  操作失败回调
+ @param memberId memberId
+ @param name     nickname
+ @param success  Success block
+ @param failure  Failure block
  */
 - (void)renameReceiveShareMemberNameWithMemberId:(NSInteger)memberId
                                             name:(NSString *)name
@@ -150,14 +161,15 @@
 #pragma mark - 单设备共享操作
 
 /**
+ Device Add Sharing
  单设备添加共享
  
- @param homeId      家庭Id
- @param countryCode 国家码
- @param userAccount 账号
- @param devId       设备Id
- @param success     操作成功回调
- @param failure     操作失败回调
+ @param homeId      homeId
+ @param countryCode countryCode
+ @param userAccount userAccount
+ @param devId       devId
+ @param success     Success block
+ @param failure     Failure block
  */
 - (void)addDeviceShareWithHomeId:(long long)homeId
                      countryCode:(NSString *)countryCode
@@ -168,11 +180,12 @@
 
 
 /**
+ Remove Received Shared
  删除收到的共享设备
  
- @param devId   设备Id
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param devId   DevId
+ @param success Success block
+ @param failure Failure block
  */
 - (void)removeReceiveDeviceShareWithDevId:(NSString *)devId
                                   success:(TYSuccessHandler)success
@@ -180,12 +193,13 @@
 
 
 /**
+ remove shares to members
  删除分享出去的设备
  
- @param memberId    共享成员ID
- @param devId       设备号
- @param success     操作成功回调
- @param failure     操作失败回调
+ @param memberId    member Id
+ @param devId       devdId
+ @param success     Success block
+ @param failure     Failure block
  */
 - (void)removeDeviceShareWithMemberId:(NSInteger)memberId
                                 devId:(NSString *)devId
@@ -197,8 +211,8 @@
  获取设备共享用户列表
  
  @param devId   设备号
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param success Success block
+ @param failure Failure block
  */
 - (void)getDeviceShareMemberListWithDevId:(NSString *)devId
                                   success:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
@@ -206,24 +220,26 @@
 
 
 /**
+ Get Device Sharing from
  获取设备分享来自哪里
  
- @param devId   设备号
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param devId   devId
+ @param success Success block
+ @param failure Failure block
  */
 - (void)getShareInfoWithDevId:(NSString *)devId
                       success:(void(^)(TuyaSmartReceivedShareUserModel *model))success
                       failure:(TYFailureError)failure;
 
 /**
- 邀请分享接口
+ Invite to share with other users
+ 邀请分享给其他用户
  
- @param countryCode 国家码
- @param userAccount 账号
- @param devId       设备Id
- @param success     操作成功回调
- @param failure     操作失败回调
+ @param countryCode countryCode
+ @param userAccount userAccount
+ @param devId       devId
+ @param success     Success block
+ @param failure     Failure block
  */
 - (void)inviteShareWithCountryCode:(NSString *)countryCode
                        userAccount:(NSString *)userAccount
@@ -232,11 +248,12 @@
                            failure:(TYFailureError)failure;
 
 /**
+ Confirm invite share
  确认分享接口
  
  @param shareId     邀请分享接口返回的shareId
- @param success     操作成功回调
- @param failure     操作失败回调
+ @param success     Success block
+ @param failure     Failure block
  */
 - (void)confirmInviteShareWithShareId:(NSInteger)shareId
                               success:(TYSuccessHandler)success
@@ -245,24 +262,27 @@
 #pragma mark - group share
 
 /**
+ Get a list of shared users for group (reflected in the panel)
  获取单个群组共享用户列表(面板中体现)
  
- @param groupId 群组号
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param groupId groupId
+ @param success Success block
+ @param failure Failure block
  */
 - (void)getGroupShareMemberListWithGroupId:(NSString *)groupId
                                    success:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
                                    failure:(TYFailureError)failure;
 
 /**
- 分享群组给用户
- @param homeId      家庭号
- @param countryCode 国家代码
- @param userAccount 用户账号
- @param groupId     群组号
- @param success     操作成功回调
- @param failure     操作失败回调
+ Sharing Groups to Other Users
+ 分享群组给其他用户
+ 
+ @param homeId      HomeId
+ @param countryCode Country Code
+ @param userAccount User Account
+ @param groupId     GroupId
+ @param success     Success block
+ @param failure     Failure block
  */
 
 - (void)addGroupShareToMemberWithHomeId:(long long)homeId
@@ -273,11 +293,12 @@
                                 failure:(TYFailureError)failure;
 
 /**
- 获取分享信息
+ Get group share information
+ 获取群组的分享信息
  
- @param groupId 群组号
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param groupId groupId
+ @param success Success block
+ @param failure Failure block
  */
 
 - (void)getShareGroupFromInfoWithGroupId:(NSString *)groupId
@@ -285,11 +306,12 @@
                                  failure:(TYFailureError)failure;
 
 /**
+ Group Remove Sharing
  移除分享群组
  
  @param groupId 群组号
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param success Success block
+ @param failure Failure block
  */
 
 - (void)removeShareGroupWithGroupId:(NSString *)groupId
@@ -297,12 +319,13 @@
                             failure:(TYFailureError)failure;
 
 /**
- 单个群组删除共享
+ Remove group sharing of other members
+ 移除其他成员的群组分享
  
- @param relationId 关系id
- @param groupId 群组id
- @param success 操作成功回调
- @param failure 操作失败回调
+ @param relationId  relationId
+ @param groupId     groupId
+ @param success     Success block
+ @param failure     Failure block
  */
 - (void)removeGroupShareWithRelationId:(NSInteger)relationId
                                groupId:(NSString *)groupId

@@ -1,1 +1,0 @@
-../../../../TYBluetooth/ios/TYBluetooth.framework/Versions/A/Headers/TYBLECharacteristicFactory.h

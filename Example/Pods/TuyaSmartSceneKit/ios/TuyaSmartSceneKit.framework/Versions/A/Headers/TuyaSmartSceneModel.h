@@ -124,4 +124,10 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic, assign) BOOL localLinkage;
 
+/**
+ * 新版本地场景，可以通过tcp或者mqtt协议通知zigbee网关直接执行的场景，由云端打标。
+ * New version of local scene, can be triggered via tcp or mqtt protocol to make zigbee gateway execute this scene.This property is assigned by Tuya cloud server.
+ */
+@property (nonatomic, assign) BOOL newLocalScene;
+
 @end

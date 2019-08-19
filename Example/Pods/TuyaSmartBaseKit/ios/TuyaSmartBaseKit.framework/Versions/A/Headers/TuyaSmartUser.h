@@ -79,6 +79,22 @@ typedef NS_ENUM(NSInteger, TYRegType) {
 /// 用户时区信息
 @property (nonatomic, strong, readonly) NSString *timezoneId;
 
+@property (nonatomic, strong, readonly) NSString *partnerIdentity;
+
+/// mqtt host
+/// mqtt 域名
+@property (nonatomic, strong, readonly) NSString *mbHost;
+
+@property (nonatomic, strong, readonly) NSString *gwHost;
+
+/// mqtt port
+/// mqtt 端口号
+@property (nonatomic, assign, readonly) NSInteger port;
+
+/// SSL
+/// 是否开启SSL
+@property (nonatomic, assign, readonly) BOOL useSSL;
+
 /// Temperature unit. 1 for `°C`, 2 for `°F`.
 /// 温度单位。1：`°C`， 2：`°F`。
 @property (nonatomic, assign) NSInteger tempUnit;
@@ -90,6 +106,8 @@ typedef NS_ENUM(NSInteger, TYRegType) {
 /// Nickname of sns account.
 /// 第三方账号的昵称
 @property (nonatomic, strong, readonly) NSString *snsNickname;
+
+@property (nonatomic, strong, readonly) NSString *ecode;
 
 
 #pragma mark - Mobile phone verification code login
@@ -381,11 +399,46 @@ typedef NS_ENUM(NSInteger, TYRegType) {
  *  @param success      Success block
  *  @param failure      Failure block
  */
+- (void)loginOrRegisterWithCountryCode:(NSString *)countryCode
+                                   uid:(NSString *)uid
+                              password:(NSString *)password
+                               success:(nullable TYSuccessHandler)success
+                               failure:(nullable TYFailureError)failure;
+
+/**
+ *  uid login/register. The account will be registered at first login.
+ *  uid 登录注册接口（如果没有注册就注册，如果注册就登录）
+ *
+ *  @param countryCode  Country code
+ *  @param uid          User ID
+ *  @param password     Password
+ *  @param createHome   Create default home
+ *  @param success      Success block
+ *  @param failure      Failure block
+ */
+- (void)loginOrRegisterWithCountryCode:(NSString *)countryCode
+                                   uid:(NSString *)uid
+                              password:(NSString *)password
+                            createHome:(BOOL)createHome
+                               success:(nullable TYSuccessID)success
+                               failure:(nullable TYFailureError)failure;
+
+/**
+ *  uid login/register. The account will be registered at first login.
+ *  uid 登录注册接口（如果没有注册就注册，如果注册就登录）
+ *
+ *  @param countryCode  Country code
+ *  @param uid          User ID
+ *  @param password     Password
+ *  @param success      Success block
+ *  @param failure      Failure block
+ */
 - (void)loginOrRegisterByPhone:(NSString *)countryCode
                            uid:(NSString *)uid
                       password:(NSString *)password
                        success:(nullable TYSuccessHandler)success
-                       failure:(nullable TYFailureError)failure;
+                       failure:(nullable TYFailureError)failure
+DEPRECATED_MSG_ATTRIBUTE("use loginOrRegisterWithCountryCode:uid:password:success:failure: instead");
 
 /**
  *  uid login/register. The account will be registered at first login.
@@ -403,7 +456,8 @@ typedef NS_ENUM(NSInteger, TYRegType) {
                       password:(NSString *)password
                     createHome:(BOOL)createHome
                        success:(nullable TYSuccessID)success
-                       failure:(nullable TYFailureError)failure;
+                       failure:(nullable TYFailureError)failure
+DEPRECATED_MSG_ATTRIBUTE("use loginOrRegisterWithCountryCode:uid:password:createHome:success:failure: instead");
 
 
 #pragma mark - Social login

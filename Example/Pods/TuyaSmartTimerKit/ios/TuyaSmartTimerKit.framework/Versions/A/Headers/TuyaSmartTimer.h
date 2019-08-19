@@ -43,15 +43,28 @@
  *  @param time         定时任务下的定时钟
  *  @param dps          命令字典
  *  @param timeZone     设备的时区 +08:00，如果没有取手机时区
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)addTimerWithTask:(NSString *)task loops:(NSString *)loops devId:(NSString *)devId time:(NSString *)time dps:(NSDictionary *)dps timeZone:(NSString *)timeZone success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)addTimerWithTask:(NSString *)task
+                   loops:(NSString *)loops
+                   devId:(NSString *)devId
+                    time:(NSString *)time
+                     dps:(NSDictionary *)dps
+                timeZone:(NSString *)timeZone
+                 success:(TYSuccessHandler)success
+                 failure:(TYFailureError)failure;
 
 /**
  *  获取定时任务状态
  *
  *  @param devId        设备Id
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)getTimerTaskStatusWithDeviceId:(NSString *)devId success:(void(^)(NSArray<TYTimerTaskModel *> *list))success failure:(TYFailureError)failure;
+- (void)getTimerTaskStatusWithDeviceId:(NSString *)devId
+                               success:(void(^)(NSArray<TYTimerTaskModel *> *list))success
+                               failure:(TYFailureError)failure;
 
 /**
  *  更新定时任务状态
@@ -59,8 +72,14 @@
  *  @param task         定时任务名称
  *  @param devId        设备Id，只支持单个wifi设备
  *  @param status       定时组状态
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)updateTimerTaskStatusWithTask:(NSString *)task devId:(NSString *)devId status:(NSInteger)status success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)updateTimerTaskStatusWithTask:(NSString *)task
+                                devId:(NSString *)devId
+                               status:(NSInteger)status
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
 
 /**
  *  更新定时钟状态
@@ -69,8 +88,15 @@
  *  @param devId        设备Id
  *  @param timerId      定时钟Id
  *  @param status       定时钟状态
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)updateTimerStatusWithTask:(NSString *)task devId:(NSString *)devId timerId:(NSString *)timerId status:(NSInteger)status success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)updateTimerStatusWithTask:(NSString *)task
+                            devId:(NSString *)devId
+                          timerId:(NSString *)timerId
+                           status:(NSInteger)status
+                          success:(TYSuccessHandler)success
+                          failure:(TYFailureError)failure;
 
 /**
  *  删除定时钟
@@ -78,8 +104,14 @@
  *  @param task         定时任务名称
  *  @param devId        设备Id
  *  @param timerId      定时钟Id
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)removeTimerWithTask:(NSString *)task devId:(NSString *)devId timerId:(NSString *)timerId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)removeTimerWithTask:(NSString *)task
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
 
 /**
  *  更新定时钟
@@ -91,32 +123,58 @@
  *  @param time         定时任务下的定时钟
  *  @param dps          命令字典
  *  @param timeZone     时区 +08:00
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)updateTimerWithTask:(NSString *)task loops:(NSString *)loops devId:(NSString *)devId timerId:(NSString *)timerId time:(NSString *)time dps:(NSDictionary *)dps timeZone:(NSString *)timeZone success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)updateTimerWithTask:(NSString *)task
+                      loops:(NSString *)loops
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                       time:(NSString *)time
+                        dps:(NSDictionary *)dps
+                   timeZone:(NSString *)timeZone
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
 
 /**
  *  获取定时任务下所有定时钟
  *
  *  @param task         定时任务名称
  *  @param devId        设备Id
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)getTimerWithTask:(NSString *)task devId:(NSString *)devId success:(void(^)(NSArray<TYTimerModel *> *list))success failure:(TYFailureError)failure;
+- (void)getTimerWithTask:(NSString *)task devId:(NSString *)devId
+                 success:(void(^)(NSArray<TYTimerModel *> *list))success
+                 failure:(TYFailureError)failure;
 
 /**
  *  获取设备所有定时任务下所有定时钟
+ *
  *  @param devId        设备Id
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)getAllTimerWithDeviceId:(NSString *)devId success:(TYSuccessDict)success failure:(TYFailureError)failure;
+- (void)getAllTimerWithDeviceId:(NSString *)devId
+                        success:(TYSuccessDict)success
+                        failure:(TYFailureError)failure;
 
 /**
  *  修改设备的时区
+ *
  *  @param devId        设备Id
  *  @param timezoneId   时区Id，例如Asia/Shanghai
+ *  @param success     Success block
+ *  @param failure     Failure block
  */
-- (void)updateTimerWithDeviceId:(NSString *)devId timezoneId:(NSString *)timezoneId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+- (void)updateTimerWithDeviceId:(NSString *)devId
+                     timezoneId:(NSString *)timezoneId
+                        success:(TYSuccessHandler)success
+                        failure:(TYFailureError)failure;
 
 /// 取消未完成的操作
 - (void)cancelRequest;
+
 @end
 
 #endif

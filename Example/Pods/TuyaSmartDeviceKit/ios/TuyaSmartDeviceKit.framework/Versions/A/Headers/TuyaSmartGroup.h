@@ -21,28 +21,51 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
-/// 群组dp数据更新
-/// Group dps data update
+/**
+ Group dps data update
+ 群组dp数据更新
+
+ @param group   instance
+ @param dps     dps
+ */
 - (void)group:(TuyaSmartGroup *)group dpsUpdate:(NSDictionary *)dps;
 
-/// 群组信息更新
-/// Group Information Update
+/**
+ Group Information Update
+ 群组信息更新
+
+ @param group instance
+ */
 - (void)groupInfoUpdate:(TuyaSmartGroup *)group;
 
-/// 群组移除
-/// Group removal
+/**
+ Group removal
+ 群组移除
+
+ @param groupId groupId
+ */
 - (void)groupRemove:(NSString *)groupId;
 
-/// zigbee 设备加入到网关的群组响应
-/// 1:超过场景数上限 2:子设备超时 3:设置值超出范围 4:写文件错误 5:其他错误
-/// Group Response of Zigbee Devices Joining Gateway
-/// 1: Over the Scenario Limit 2: Subdevice Timeout 3: Setting Value Out of Range 4: Write File Error 5: Other Errors
+/**
+ zigbee 设备加入到网关的群组响应
+ 1:超过场景数上限 2:子设备超时 3:设置值超出范围 4:写文件错误 5:其他错误
+ Group Response of Zigbee Devices Joining Gateway
+ 1: Over the Scenario Limit 2: Subdevice Timeout 3: Setting Value Out of Range 4: Write File Error 5: Other Errors
+
+ @param group           instance
+ @param responseCode    responseCode
+ */
 - (void)group:(TuyaSmartGroup *)group addResponseCode:(NSArray <NSNumber *>*)responseCode;
 
-/// zigbee 设备从网关群组移除响应
-/// 1:超过场景数上限 2:子设备超时 3:设置值超出范围 4:写文件错误 5:其他错误
-/// Group Response of Zigbee Devices removing Gateway
-/// 1: Over the Scenario Limit 2: Subdevice Timeout 3: Setting Value Out of Range 4: Write File Error 5: Other Errors
+/**
+ zigbee 设备从网关群组移除响应
+ 1:超过场景数上限 2:子设备超时 3:设置值超出范围 4:写文件错误 5:其他错误
+ Group Response of Zigbee Devices removing Gateway
+ 1: Over the Scenario Limit 2: Subdevice Timeout 3: Setting Value Out of Range 4: Write File Error 5: Other Errors
+ 
+ @param group           instance
+ @param responseCode    responseCode
+ */
 - (void)group:(TuyaSmartGroup *)group removeResponseCode:(NSArray <NSNumber *>*)responseCode;
 
 @end
@@ -59,6 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  获取群组对象
  *
  *  @param groupId groupId
+ *  @return instance
  */
 + (nullable instancetype)groupWithGroupId:(NSString *)groupId;
 
@@ -67,6 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  获取群组对象
  *
  *  @param groupId groupId
+ *  @return instance
  */
 - (nullable instancetype)initWithGroupId:(NSString *)groupId NS_DESIGNATED_INITIALIZER;
 

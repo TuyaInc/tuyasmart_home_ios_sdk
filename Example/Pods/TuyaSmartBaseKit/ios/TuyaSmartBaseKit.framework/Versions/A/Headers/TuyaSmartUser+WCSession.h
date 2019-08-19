@@ -25,32 +25,21 @@ extern NSString *const TuyaSmartUserWCSessionKey;
 /**
  Sync TuyaSmartUser context to iWatch. When user login/logout/session expired on iPhone, please use this method to sync manually.
  同步TuyaSmartUser用户信息到iWatch。当用户在iPhone登录、登出、session过期时，需要手动调用此方法同步。
-
-Example:
-
-[TuyaSmartUser.sharedInstance updateApplicationContext:session];
  
+ Example:
+ 
+ [TuyaSmartUser.sharedInstance updateApplicationContext:session];
+
+ @param session session
+ @return results of synchron
  */
 - (BOOL)updateApplicationContext:(WCSession *)session API_AVAILABLE(ios(9.0));
 
 /**
  Receive TuyaSmartUser context from iPhone.
  从iPhone获取TuyaSmartUser用户信息。
- 
-Example:
- 
-#pragma mark - WCSessionDelegate
 
-- (void)session:(WCSession *)session didReceiveApplicationContext:(NSDictionary<NSString *, id> *)applicationContext {
- 
-    // Add following code
-    if ([applicationContext objectForKey:TuyaSmartUserWCSessionKey]) {
-        [TuyaSmartUser.sharedInstance didReceiveApplicationContext:applicationContext];
-    }
- 
-    // Your business logic here
-    // ...
-}
+ @param applicationContext applicationContext
  */
 - (void)didReceiveApplicationContext:(NSDictionary *)applicationContext API_AVAILABLE(watchos(2.0));
 

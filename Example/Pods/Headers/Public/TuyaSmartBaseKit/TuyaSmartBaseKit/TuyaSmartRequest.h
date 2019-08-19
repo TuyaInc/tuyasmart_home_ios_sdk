@@ -1,1 +1,0 @@
-../../../../TuyaSmartBaseKit/ios/TuyaSmartBaseKit.framework/Versions/A/Headers/TuyaSmartRequest.h

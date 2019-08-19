@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
+#import "TYBLEAdvModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,7 +27,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param uuid 未激活设备 uuid
  @param productKey 未激活设备产品 key
  */
-- (void)didDiscoveryDeviceWithUUID:(NSString *)uuid productKey:(NSString *)productKey;
+- (void)didDiscoveryDeviceWithUUID:(NSString *)uuid productKey:(NSString *)productKey __deprecated_msg("This method is deprecated, Use -[TuyaSmartBLEManager -  didDiscoveryDeviceWithDeviceInfo:] instead");
+
+/**
+ 扫描到未激活的设备
+ 
+ @param deviceInfo 未激活设备信息 Model
+ */
+- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo;
 
 @end
 
@@ -95,6 +103,20 @@ NS_ASSUME_NONNULL_BEGIN
                productKey:(NSString *)productKey
                   success:(void(^)(TuyaSmartDeviceModel *deviceModel))success
                   failure:(TYFailureHandler)failure;
+
+/**
+ 激活设备，设备 uuid 来源于搜索发现的设备
+ 激活过程会将设备信息注册到云端
+ 
+ @param deviceInfo 设备信息 Model
+ @param homeId 家庭 id
+ @param success 成功回调
+ @param failure 失败回调
+ */
+- (void)activeBLE:(TYBLEAdvModel *)deviceInfo
+           homeId:(long long)homeId
+          success:(void(^)(TuyaSmartDeviceModel *deviceModel))success
+          failure:(TYFailureHandler)failure;
 
 
 /**

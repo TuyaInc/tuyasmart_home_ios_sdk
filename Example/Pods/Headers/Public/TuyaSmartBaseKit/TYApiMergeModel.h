@@ -1,1 +1,0 @@
-../../../TuyaSmartBaseKit/Headers/TYApiMergeModel.h

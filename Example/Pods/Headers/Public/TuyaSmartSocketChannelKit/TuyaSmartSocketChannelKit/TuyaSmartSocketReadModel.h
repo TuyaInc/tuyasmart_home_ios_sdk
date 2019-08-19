@@ -1,1 +1,0 @@
-../../../../TuyaSmartSocketChannelKit/ios/TuyaSmartSocketChannelKit.framework/Versions/A/Headers/TuyaSmartSocketReadModel.h

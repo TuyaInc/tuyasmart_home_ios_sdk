@@ -1,1 +1,0 @@
-../../../TuyaSmartDeviceKit/Headers/TuyaSmartGroupDevListModel.h

@@ -23,31 +23,31 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  * 场景动作Id.
  * action's Id.
  */
-@property (nonatomic, strong) NSString *actionId;
+@property (nonatomic, copy) NSString *actionId;
 
 /**
  * 实体Id，如果动作是设备则是设备Id；如果动作是群组则是groupId；如果是触发一个场景或者设置自动化启动/禁用，则是操作的场景的sceneId；如果是一个延时动作，则是字符串@"delay"。
  * Entity's Id. If action is a device, entityId is devId, and groupId for group action, @"delay" for a delay action, sceneId of operated scene for scene action.
  */
-@property (nonatomic, strong) NSString *entityId;
+@property (nonatomic, copy) NSString *entityId;
 
 /**
  * 实体名称 如："智能插座","灯群组"等。
  * Entity's name, like "lamp", "lamp group".
  */
-@property (nonatomic, strong) NSString *entityName;
+@property (nonatomic, copy) NSString *entityName;
 
 /**
  * 场景id, 可用来保存所属场景。
  * Scene's Id ,can be used to save the scene's Id which this action belonged to.
  */
-@property (nonatomic, strong) NSString *scenarioId;
+@property (nonatomic, copy) NSString *scenarioId;
 
 /**
  * 动作要做的内容描述 如：“开关 : 关闭”。
  * Describe what this action will do, like "Switch : Open".
  */
-@property (nonatomic, strong) NSString *actionDisplay;
+@property (nonatomic, copy) NSString *actionDisplay;
 
 /**
  * 动作要做的内容的新版描述，可自行拼成要展示的样式。
@@ -71,7 +71,8 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  * 任务执行属性 如："dpIssue","ruleTrigger","ruleEnable","ruleDisable"
  * "dpIssue" 执行设备
  * "deviceGroupDpIssue" 执行群组
- * "irIssue" 执行红外设备
+ * "irIssue" 执行红外设备（执行参数为dp点）
+ * "irIssueVii" 执行红外设备（执行参数为真实红外控制码）
  * "ruleTrigger" 触发场景
  * "ruleEnable"  启用场景
  * "ruleDisable" 禁用场景
@@ -79,7 +80,8 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  * The action type, can be the followed types:
  * "dpIssue" :execute a device action.
  * "deviceGroupDpIssue": execute a group action.
- * "irIssue": execete a infrared device, like a air conditoner which is controled by a remote control.
+ * "irIssue": execete a infrared device, like a air conditoner which is controled by a remote control.ExecutorProperty is dp value.
+ * "irIssueVii": execete a infrared device, like a air conditoner which is controled by a remote control.ExecutorProperty is real infrared ray remotes control code.
  * "ruleTrigger": execute a scene.
  * "ruleEnable":  Enable an automation.
  * "ruleDisable": Disable an antomation.
@@ -104,5 +106,13 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  * Execute actions, you can use this property to store the execute status when executing.
  */
 @property (nonatomic, assign) TYSceneActionStatus status;
+
+#pragma mark - Panel info
+
+/**
+ * 面板id，在使用RN面板处理场景动作时云端会返回这个值。
+ * panel id, this value will be assigned by cloud server when this action should be oprate by a React Native panel.
+ */
+@property (nonatomic, copy) NSString *uiid;
 
 @end
