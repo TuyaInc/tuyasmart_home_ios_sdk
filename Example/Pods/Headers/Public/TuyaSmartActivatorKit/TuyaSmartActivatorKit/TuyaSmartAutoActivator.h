@@ -1,0 +1,1 @@
+../../../../TuyaSmartActivatorKit/ios/TuyaSmartActivatorKit.framework/Versions/A/Headers/TuyaSmartAutoActivator.h

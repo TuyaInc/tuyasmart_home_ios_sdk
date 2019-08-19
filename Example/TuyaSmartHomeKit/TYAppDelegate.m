@@ -29,9 +29,8 @@
 #if DEBUG
     [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
 #endif
-    
-    // TODO: Input your appKey and secretKey
-    [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
+    [TuyaSmartSDK sharedInstance].appGroupId = APP_GROUP_NAME;
+    [[TuyaSmartSDK sharedInstance] startWithAppKey:SDK_APPKEY secretKey:SDK_APPSECRET];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     

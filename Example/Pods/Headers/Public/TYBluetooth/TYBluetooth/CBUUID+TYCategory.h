@@ -1,0 +1,1 @@
+../../../../TYBluetooth/ios/TYBluetooth.framework/Versions/A/Headers/CBUUID+TYCategory.h

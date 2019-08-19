@@ -1,0 +1,1 @@
+../../../../TuyaSmartBLEMeshKit/ios/TuyaSmartBLEMeshKit.framework/Versions/A/Headers/TuyaSmartBleMesh.h

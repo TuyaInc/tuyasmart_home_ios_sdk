@@ -1,0 +1,1 @@
+../../../../TuyaSmartBLEKit/ios/TuyaSmartBLEKit.framework/Versions/A/Headers/TuyaSmartBLEDevice.h

@@ -1,0 +1,1 @@
+../../../../TuyaSmartFeedbackKit/ios/TuyaSmartFeedbackKit.framework/Versions/A/Headers/TuyaSmartFeedbackItemModel.h
