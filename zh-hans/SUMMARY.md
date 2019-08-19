@@ -62,6 +62,7 @@
 * [意见反馈](./resource/Feedback.md)
 * [通用接口](./resource/CommonInterface.md)
 * [集成Push](./resource/Push.md)
+* [配置Widget工程](./resource/Widget.md)
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
 * [FAQ](./resource/Faq.md)
 
