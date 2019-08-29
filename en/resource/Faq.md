@@ -31,3 +31,6 @@ After SDK 2.8.0, we have added security image check and use the new appkey/secre
 
 - Confirm you open the `.xcworkspace` instead of `.xcproject`. See: [CocoaPods Guides](https://guides.cocoapods.org/)
 
+##### 8、iOS 13 Adaptation
+
+- See: [iOS 13 Adaptation](./iOSAdaptation.md)
