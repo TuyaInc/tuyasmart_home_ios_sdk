@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartBLEMeshKit"
-  s.version = "2.12.46"
+  s.version = "2.12.48"
   s.summary = "A short description of #{s.name}."
   s.license = {"type"=>"MIT"}
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
   s.homepage = "https://tuya.com"
-  s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
+  s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/TuyaSmartBLEMeshKit-2.12.47.zip", :type => "zip" }
 
   s.ios.deployment_target     = '8.0'
 
