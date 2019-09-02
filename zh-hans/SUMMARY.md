@@ -28,6 +28,7 @@
 * [设备控制](./resource/Device.md#设备控制)
   - [更新设备信息](./resource/Device.md#更新设备信息)
   - [设备功能点](./resource/Device.md#设备功能点)
+  - [设备控制](./resource/Device.md#设备控制)
   - [修改设备名称](./resource/Device.md#修改设备名称)
   - [移除设备](./resource/Device.md#移除设备)
   - [获取设备的wifi信号强度](./resource/Device.md#获取设备的wifi信号强度)
