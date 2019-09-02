@@ -1,6 +1,6 @@
-## 设备控制
+## 设备管理
 
-设备控制相关的所有功能对应`TuyaSmartDevice`类，需要使用设备Id进行初始化。错误的设备Id可能会导致初始化失败，返回`nil`。
+设备管理相关的所有功能对应`TuyaSmartDevice`类，需要使用设备Id进行初始化。错误的设备Id可能会导致初始化失败，返回`nil`。
 
 ### 更新设备信息
 
@@ -124,31 +124,31 @@ func publishDps() {
 局域网控制：
 
 ```
-		[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
-        NSLog(@"publishDps success");
-    } failure:^(NSError *error) {
-        NSLog(@"publishDps failure: %@", error);
-    }];
+	[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
 ```
 
 云端控制：
 
 ```
-		[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
-        NSLog(@"publishDps success");
-    } failure:^(NSError *error) {
-        NSLog(@"publishDps failure: %@", error);
-    }];
+	[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
 ```
 
 自动控制：
 
 ```
-		[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
-        NSLog(@"publishDps success");
-    } failure:^(NSError *error) {
-        NSLog(@"publishDps failure: %@", error);
-    }];
+	[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
 ```
 
 

@@ -1,4 +1,4 @@
-## Device control
+## Device management
 
 The device ID needs to be used to initiate all `TuyaSmartDevice` classes related to all functions for device control. Wrong device Id may cause initiation failure, and the `nil` will be returned.
 
@@ -124,31 +124,31 @@ Device control supports three kinds of channel control, LAN control, cloud contr
 ##### LAN control:
 
 ```objc
-		[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
-        NSLog(@"publishDps success");
-    } failure:^(NSError *error) {
-        NSLog(@"publishDps failure: %@", error);
-    }];
+	[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
 ```
 
 ##### Cloud control
 
 ```objc
-		[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
-        NSLog(@"publishDps success");
-    } failure:^(NSError *error) {
-        NSLog(@"publishDps failure: %@", error);
-    }];
+	[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
 ```
 
 ##### Auto mode
 
 ```objc
-		[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
-        NSLog(@"publishDps success");
-    } failure:^(NSError *error) {
-        NSLog(@"publishDps failure: %@", error);
-    }];
+	[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
 ```
 
 

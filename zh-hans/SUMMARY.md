@@ -25,7 +25,7 @@
   - [热点模式](./resource/Activator.md#热点模式（ap配网）)
   - [Zigbee 网关配网](./resource/Activator.md#zigbee-网关配网)
   - [ZigBee 子设备激活](./resource/Activator.md#zigbee-子设备激活)
-* [设备控制](./resource/Device.md#设备控制)
+* [设备管理](./resource/Device.md#设备管理)
   - [更新设备信息](./resource/Device.md#更新设备信息)
   - [设备功能点](./resource/Device.md#设备功能点)
   - [设备控制](./resource/Device.md#设备控制)

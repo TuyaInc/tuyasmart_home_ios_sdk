@@ -25,7 +25,7 @@
   - [AP mode](./resource/Activator.md#ap-mode)
   - [Activate the ZigBee Gateway](./resource/Activator.md#wired-network-configuration-of-zigbee)
   - [Activate the ZigBee sub-device](./resource/Activator.md#activate-the-zigbee-sub-device)
-* [Device control](./resource/Device.md#device-control)
+* [Device management](./resource/Device.md#device-management)
   - [Update device information](./resource/Device.md#update-device-information)
   - [Functions of device](./resource/Device.md#functions-of-device)
   - [Device control](./resource/Device.md#device-control)
