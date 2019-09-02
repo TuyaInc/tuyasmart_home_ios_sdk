@@ -14,6 +14,7 @@
   - [Resetting Password by User](./resource/User.md#resetting-password-by-user)
   - [Modify nickname](./resource/User.md#modify-nickname)
   - [Update timezone](./resource/User.md#update-timezone)
+  - [Update location](./resource/User.md#update-location)
   - [Logout](./resource/User.md#logout)
   - [Disable account](./resource/User.md#disable-account-deregister-user)
   - [Handling of Expired Session](./resource/User.md#handling-of-expired-session)

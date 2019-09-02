@@ -736,6 +736,30 @@ func updateTimeZoneId(_ timeZoneId: String) {
 
 
 
+### 更新用户定位
+
+如果有需要的话，定位信息可以通过以下接口上报：
+
+Objc:
+
+```objc
+- (void)updateLocation {
+  double latitude = 30.000;
+  double longitude = 120.000;
+  [[TuyaSmartSDK sharedInstance] updateLatitude:latitude longitude:longitude];
+}
+```
+
+Swift:
+
+```swift
+func updateLocation() {
+  TuyaSmartSDK.sharedInstance()?.updataLatitude(latitude, longitude: longitude);
+}
+```
+
+
+
 ### 登出
 
 Objc:

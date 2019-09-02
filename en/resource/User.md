@@ -595,6 +595,32 @@ func updateTimeZoneId(_ timeZoneId: String) {
 }
 ```
 
+
+
+### Update location
+
+If need, location can be reported through this api:
+
+Objc:
+
+```objc
+- (void)updateLocation {
+  double latitude = 30.000;
+  double longitude = 120.000;
+  [[TuyaSmartSDK sharedInstance] updateLatitude:latitude longitude:longitude];
+}
+```
+
+Swift:
+
+```swift
+func updateLocation() {
+  TuyaSmartSDK.sharedInstance()?.updataLatitude(latitude, longitude: longitude);
+}
+```
+
+
+
 ### Logout
 
 Objc:
