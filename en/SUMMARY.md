@@ -3,6 +3,7 @@
 * [Introduction](/README.md)
 * [Function Overview](./resource/Overview.md)
 * [Preparation work](./resource/Preparation.md)
+* [iOS Adaptation](./resource/iOSAdaptation.md)
 * [Initiate SDK](./resource/Integrated.md)
 * [User management](./resource/User.md#user-management)
   - [User Registration](./resource/User.md#user-registration)

@@ -40,3 +40,9 @@
 
 - 确认你打开的工程为`.xcworkspace`而不是`.xcproject`。详见：[CocoaPods Guides](https://guides.cocoapods.org/)
 
+
+##### 9、iOS 13 SDK 权限变化
+- 详见：[iOS 13 适配](./iOSAdaptation.md#ios-13-适配)章节
+
+
+
