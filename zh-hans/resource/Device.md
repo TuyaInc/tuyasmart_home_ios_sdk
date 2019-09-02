@@ -88,7 +88,6 @@ Objc:
 		NSLog(@"publishDps failure: %@", error);
 	}];
 
-
 }
 ```
 Swift:
@@ -110,8 +109,6 @@ func publishDps() {
 }
 ```
 
-
-
 ##### 注意事项：
 
 - 控制命令的发送需要特别注意数据类型。<br />
@@ -120,6 +117,41 @@ func publishDps() {
   比如正确的格式是: `@{@"1": @"011f"}` 而不是 `@{@"1": @"11f"}`
 
 功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/product/function.html)
+
+#### 设备控制
+
+设备控制支持三种通道控制，局域网控制，云端控制，和自动方式（如果局域网在线，先走局域网控制，局域网不在线，走云端控制）
+
+局域网控制：
+
+```
+		[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
+        NSLog(@"publishDps success");
+    } failure:^(NSError *error) {
+        NSLog(@"publishDps failure: %@", error);
+    }];
+```
+
+云端控制：
+
+```
+		[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
+        NSLog(@"publishDps success");
+    } failure:^(NSError *error) {
+        NSLog(@"publishDps failure: %@", error);
+    }];
+```
+
+自动控制：
+
+```
+		[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
+        NSLog(@"publishDps success");
+    } failure:^(NSError *error) {
+        NSLog(@"publishDps failure: %@", error);
+    }];
+```
+
 
 #### 设备状态更新
 

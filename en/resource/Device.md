@@ -116,6 +116,42 @@ func publishDps() {
 
 For more concepts of function points, please refer to the [QuickStart-Related Concepts of Function Points](https://docs.tuya.com/en/product/function.html)
 
+
+#### Device control
+
+Device control supports three kinds of channel control, LAN control, cloud control, and automatic mode (if LAN is online, first go LAN control, LAN is not online, go cloud control)
+
+##### LAN control:
+
+```objc
+		[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
+        NSLog(@"publishDps success");
+    } failure:^(NSError *error) {
+        NSLog(@"publishDps failure: %@", error);
+    }];
+```
+
+##### Cloud control
+
+```objc
+		[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
+        NSLog(@"publishDps success");
+    } failure:^(NSError *error) {
+        NSLog(@"publishDps failure: %@", error);
+    }];
+```
+
+##### Auto mode
+
+```objc
+		[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
+        NSLog(@"publishDps success");
+    } failure:^(NSError *error) {
+        NSLog(@"publishDps failure: %@", error);
+    }];
+```
+
+
 #### Update device status
 
 After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
