@@ -28,7 +28,7 @@
 * [Device control](./resource/Device.md#device-control)
   - [Update device information](./resource/Device.md#update-device-information)
   - [Functions of device](./resource/Device.md#functions-of-device)
-  - [Control device ](./resource/Device.md#device-control)
+  - [Device control](./resource/Device.md#device-control)
   - [Modify the device name](./resource/Device.md#modify-the-device-name)
   - [Remove device](./resource/Device.md#remove-device)
   - [Obtain Wifi signal strength of device](./resource/Device.md#obtain-wifi-signal-strength-of-device)
