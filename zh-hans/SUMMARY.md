@@ -11,7 +11,6 @@
   - [邮箱账号体系](./resource/User.md#邮箱账号体系)
   - [用户uid登录体系](./resource/User.md#用户uid登录体系)
   - [第三方登录](./resource/User.md#第三方登录)
-  - [用户重置密码](./resource/User.md#用户重置密码)
   - [修改昵称](./resource/User.md#修改昵称)
   - [更新用户时区](./resource/User.md#更新用户时区)
   - [更新用户定位](./resource/User.md#更新用户定位)

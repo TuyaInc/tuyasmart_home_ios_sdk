@@ -211,6 +211,67 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
 })
 ```
 
+#### 手机号重置密码
+
+手机号重置密码流程和注册流程类似：
+
+- 发送验证码
+
+Objc:
+
+```objc
+- (void)sendVerifyCode {
+	[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:2 success:^{
+		NSLog(@"sendVerifyCode success");
+	} failure:^(NSError *error) {
+		NSLog(@"sendVerifyCode failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func sendVerifyCode() {
+    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 2, success: {
+        print("sendVerifyCode success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCode failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+- 重置密码
+
+Objc:
+
+```objc
+- (void)resetPasswordByPhone {
+	[TuyaSmartUser sharedInstance] resetPasswordByPhone:@"your_country_code" phoneNumber:@"your_phone_number" newPassword:@"your_password" code:@"verify_code" success:^{
+		NSLog(@"resetPasswordByPhone success");
+	} failure:^(NSError *error) {
+		NSLog(@"resetPasswordByPhone failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func resetPasswordByPhone() {
+    TuyaSmartUser.sharedInstance()?.resetPassword(byPhone: "your_country_code", phoneNumber: "your_phone_number", newPassword: "your_password", code: "verify_code", success: {
+        print("resetPasswordByPhone success")
+    }, failure: { (error) in
+        if let e = error {
+            print("resetPasswordByPhone failure: \(e)")
+        }
+    })
+}
+```
 
 
 ### 邮箱账号体系
@@ -295,6 +356,65 @@ TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your
 })
 ```
 
+#### 邮箱重置密码
+
+邮箱重置密码需要两个步骤：
+
+- 发送验证码到邮箱
+
+Objc:
+
+```objc
+- (void)sendVerifyCodeByEmail {
+	[TuyaSmartUser sharedInstance] sendVerifyCodeByEmail:@"your_country_code" email:@"your_email" success:^{
+		NSLog(@"sendVerifyCodeByEmail success");
+	} failure:^(NSError *error) {
+		NSLog(@"sendVerifyCodeByEmail failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func sendVerifyCodeByEmail() {
+    TuyaSmartUser.sharedInstance()?.sendVerifyCode(byEmail: "your_country_code", email: "your_email", success: {
+        print("sendVerifyCodeByEmail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCodeByEmail failure: \(e)")
+        }
+    })
+}
+```
+
+- 收到验证码后，使用验证码重置密码
+
+Objc:
+
+```objc
+- (void)resetPasswordByEmail {
+	[TuyaSmartUser sharedInstance] resetPasswordByEmail:@"your_country_code" email:@"your_email" newPassword:@"your_password" code:@"verify_code" success:^{
+		NSLog(@"resetPasswordByEmail success");
+	} failure:^(NSError *error) {
+		NSLog(@"resetPasswordByEmail failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func resetPasswordByEmail() {
+    TuyaSmartUser.sharedInstance()?.resetPassword(byEmail: "your_country_code", email: "your_email", newPassword: "your_password", code: "verify_code", success: {
+        print("resetPasswordByEmail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("resetPasswordByEmail failure: \(e)")
+        }
+    })
+}
+```
 
 
 ### 用户uid登录体系
@@ -545,136 +665,6 @@ func loginByTwitter() {
     })
 }
 ```
-
-
-
-###  用户重置密码
-
-#### 手机号重置密码
-
-手机号重置密码流程和注册流程类似：
-
-- 发送验证码
-
-Objc:
-
-```objc
-- (void)sendVerifyCode {
-	[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:2 success:^{
-		NSLog(@"sendVerifyCode success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCode failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func sendVerifyCode() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 2, success: {
-        print("sendVerifyCode success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-- 重置密码
-
-Objc:
-
-```objc
-- (void)resetPasswordByPhone {
-	[TuyaSmartUser sharedInstance] resetPasswordByPhone:@"your_country_code" phoneNumber:@"your_phone_number" newPassword:@"your_password" code:@"verify_code" success:^{
-		NSLog(@"resetPasswordByPhone success");
-	} failure:^(NSError *error) {
-		NSLog(@"resetPasswordByPhone failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func resetPasswordByPhone() {
-    TuyaSmartUser.sharedInstance()?.resetPassword(byPhone: "your_country_code", phoneNumber: "your_phone_number", newPassword: "your_password", code: "verify_code", success: {
-        print("resetPasswordByPhone success")
-    }, failure: { (error) in
-        if let e = error {
-            print("resetPasswordByPhone failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### 邮箱重置密码
-
-邮箱重置密码需要两个步骤：
-
-- 发送验证码到邮箱
-
-Objc:
-
-```objc
-- (void)sendVerifyCodeByEmail {
-	[TuyaSmartUser sharedInstance] sendVerifyCodeByEmail:@"your_country_code" email:@"your_email" success:^{
-		NSLog(@"sendVerifyCodeByEmail success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCodeByEmail failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func sendVerifyCodeByEmail() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode(byEmail: "your_country_code", email: "your_email", success: {
-        print("sendVerifyCodeByEmail success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCodeByEmail failure: \(e)")
-        }
-    })
-}
-```
-
-- 收到验证码后，使用验证码重置密码
-
-Objc:
-
-```objc
-- (void)resetPasswordByEmail {
-	[TuyaSmartUser sharedInstance] resetPasswordByEmail:@"your_country_code" email:@"your_email" newPassword:@"your_password" code:@"verify_code" success:^{
-		NSLog(@"resetPasswordByEmail success");
-	} failure:^(NSError *error) {
-		NSLog(@"resetPasswordByEmail failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func resetPasswordByEmail() {
-    TuyaSmartUser.sharedInstance()?.resetPassword(byEmail: "your_country_code", email: "your_email", newPassword: "your_password", code: "verify_code", success: {
-        print("resetPasswordByEmail success")
-    }, failure: { (error) in
-        if let e = error {
-            print("resetPasswordByEmail failure: \(e)")
-        }
-    })
-}
-```
-
-
 
 ### 修改昵称
 
