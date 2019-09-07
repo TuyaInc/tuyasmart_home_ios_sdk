@@ -78,7 +78,7 @@
   网关连接:  已配网设备通过网关连接（网关需和设备在一起，距离不能太远）,来控制 mesh 和指令操作
 
 
-### Mesh 操作
+### Mesh 管理
 
 > `mesh` 的主要操作类都在 `TuyaSmartBleMesh.h` 文件中
 
@@ -145,7 +145,7 @@ self.mesh = #<TuyaSmartBleMesh 实例>;
 
 
 
-### Mesh 数据获取
+
 
 #### 获取家庭下的 mesh 列表
 
