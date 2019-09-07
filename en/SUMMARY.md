@@ -50,3 +50,4 @@
 * [Register pushId](./resource/Push.md)
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
 * [FAQ](./resource/Faq.md)
+* [ChangeLog](./resource/ChangeLog.md)

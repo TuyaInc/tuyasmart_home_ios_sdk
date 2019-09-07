@@ -70,4 +70,5 @@
 * [配置Widget工程](./resource/Widget.md)
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
 * [FAQ](./resource/Faq.md)
+* [日志更新](./resource/ChangeLog.md)
 
