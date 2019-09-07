@@ -11,7 +11,6 @@
   - [Use Email for Login](./resource/User.md#use-email-for-login)
   - [Use uid for Login](./resource/User.md#use-uid-for-login)
   - [Third Party Login](./resource/User.md#third-party-login)
-  - [Resetting Password by User](./resource/User.md#resetting-password-by-user)
   - [Modify nickname](./resource/User.md#modify-nickname)
   - [Update timezone](./resource/User.md#update-timezone)
   - [Update location](./resource/User.md#update-location)
