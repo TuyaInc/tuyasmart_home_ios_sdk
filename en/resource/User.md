@@ -76,7 +76,7 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 #### Use Mobile Phone Verification Code for Login
 
-1.Obtain mobile phone verification code.
+#### 1.Obtain mobile phone verification code.
 
 Objc:
 
@@ -110,7 +110,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber:
 
 
 
-2.Use mobile phone verification code for login
+#### 2.Use mobile phone verification code for login
 
 Objc:
 
@@ -159,7 +159,65 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
     }
 })
 ```
+#### Resetting Password by Using Mobile Phone
 
+The process of resetting password by using mobile phone is similar to that of registration with mobile phone.
+
+- #### Send verification code:
+
+Objc:
+
+```objc
+- (void)sendVerifyCode {
+	[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:2 success:^{
+		NSLog(@"sendVerifyCode success");
+	} failure:^(NSError *error) {
+		NSLog(@"sendVerifyCode failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func sendVerifyCode() {
+    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 2, success: {
+        print("sendVerifyCode success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCode failure: \(e)")
+        }
+    })
+}
+```
+
+- #### Reset password:
+
+Objc:
+
+```objc
+- (void)resetPasswordByPhone {
+	[TuyaSmartUser sharedInstance] resetPasswordByPhone:@"your_country_code" phoneNumber:@"your_phone_number" newPassword:@"your_password" code:@"verify_code" success:^{
+		NSLog(@"resetPasswordByPhone success");
+	} failure:^(NSError *error) {
+		NSLog(@"resetPasswordByPhone failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func resetPasswordByPhone() {
+    TuyaSmartUser.sharedInstance()?.resetPassword(byPhone: "your_country_code", phoneNumber: "your_phone_number", newPassword: "your_password", code: "verify_code", success: {
+        print("resetPasswordByPhone success")
+    }, failure: { (error) in
+        if let e = error {
+            print("resetPasswordByPhone failure: \(e)")
+        }
+    })
+}
+```
 
 
 ### Use Email for Login
@@ -244,6 +302,65 @@ TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your
 })
 ```
 
+#### Reset email password
+
+Resetting password by using email takes two steps:
+
+- Send the verification code to an email.
+
+Objc:
+
+```objc
+- (void)sendVerifyCodeByEmail {
+	[TuyaSmartUser sharedInstance] sendVerifyCodeByEmail:@"your_country_code" email:@"your_email" success:^{
+		NSLog(@"sendVerifyCodeByEmail success");
+	} failure:^(NSError *error) {
+		NSLog(@"sendVerifyCodeByEmail failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func sendVerifyCodeByEmail() {
+    TuyaSmartUser.sharedInstance()?.sendVerifyCode(byEmail: "your_country_code", email: "your_email", success: {
+        print("sendVerifyCodeByEmail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sendVerifyCodeByEmail failure: \(e)")
+        }
+    })
+}
+```
+
+- Use the verification code to reset password after the verification code is received.
+
+Objc:
+
+```objc
+- (void)resetPasswordByEmail {
+	[TuyaSmartUser sharedInstance] resetPasswordByEmail:@"your_country_code" email:@"your_email" newPassword:@"your_password" code:@"verify_code" success:^{
+		NSLog(@"resetPasswordByEmail success");
+	} failure:^(NSError *error) {
+		NSLog(@"resetPasswordByEmail failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func resetPasswordByEmail() {
+    TuyaSmartUser.sharedInstance()?.resetPassword(byEmail: "your_country_code", email: "your_email", newPassword: "your_password", code: "verify_code", success: {
+        print("resetPasswordByEmail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("resetPasswordByEmail failure: \(e)")
+        }
+    })
+}
+```
 
 
 ### Use uid for Login
@@ -414,130 +531,6 @@ func loginByTwitter() {
     })
 }
 ```
-
-
-### Resetting Password by User
-
-#### Resetting Password by Using Mobile Phone
-
-The process of resetting password by using mobile phone is similar to that of registration with mobile phone.
-
-- Send verification code:
-
-Objc:
-
-```objc
-- (void)sendVerifyCode {
-	[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:2 success:^{
-		NSLog(@"sendVerifyCode success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCode failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func sendVerifyCode() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 2, success: {
-        print("sendVerifyCode success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
-}
-```
-
-- Reset password:
-
-Objc:
-
-```objc
-- (void)resetPasswordByPhone {
-	[TuyaSmartUser sharedInstance] resetPasswordByPhone:@"your_country_code" phoneNumber:@"your_phone_number" newPassword:@"your_password" code:@"verify_code" success:^{
-		NSLog(@"resetPasswordByPhone success");
-	} failure:^(NSError *error) {
-		NSLog(@"resetPasswordByPhone failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func resetPasswordByPhone() {
-    TuyaSmartUser.sharedInstance()?.resetPassword(byPhone: "your_country_code", phoneNumber: "your_phone_number", newPassword: "your_password", code: "verify_code", success: {
-        print("resetPasswordByPhone success")
-    }, failure: { (error) in
-        if let e = error {
-            print("resetPasswordByPhone failure: \(e)")
-        }
-    })
-}
-```
-
-#### Reset email password
-
-Resetting password by using email takes two steps:
-
-- Send the verification code to an email.
-
-Objc:
-
-```objc
-- (void)sendVerifyCodeByEmail {
-	[TuyaSmartUser sharedInstance] sendVerifyCodeByEmail:@"your_country_code" email:@"your_email" success:^{
-		NSLog(@"sendVerifyCodeByEmail success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCodeByEmail failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func sendVerifyCodeByEmail() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode(byEmail: "your_country_code", email: "your_email", success: {
-        print("sendVerifyCodeByEmail success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCodeByEmail failure: \(e)")
-        }
-    })
-}
-```
-
-- Use the verification code to reset password after the verification code is received.
-
-Objc:
-
-```objc
-- (void)resetPasswordByEmail {
-	[TuyaSmartUser sharedInstance] resetPasswordByEmail:@"your_country_code" email:@"your_email" newPassword:@"your_password" code:@"verify_code" success:^{
-		NSLog(@"resetPasswordByEmail success");
-	} failure:^(NSError *error) {
-		NSLog(@"resetPasswordByEmail failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func resetPasswordByEmail() {
-    TuyaSmartUser.sharedInstance()?.resetPassword(byEmail: "your_country_code", email: "your_email", newPassword: "your_password", code: "verify_code", success: {
-        print("resetPasswordByEmail success")
-    }, failure: { (error) in
-        if let e = error {
-            print("resetPasswordByEmail failure: \(e)")
-        }
-    })
-}
-```
-
 
 ### Modify nickname
 
