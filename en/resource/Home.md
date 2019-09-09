@@ -118,39 +118,6 @@ Swift:
 }
 ```
 
-### Handle home invitation
-
-Objc:
-
-```objc
-- (void)joinHome {
-
-    [self.homeManager joinFamilyWithHomeId:@"home_id"
-                                    action:isAccept
-                                   success: {
-          NSLog(@"handel home success: %@", success);
-                                 } failure:^(NSError *error) {
-          NSLog(@"handel home failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
- let homeManager: TuyaSmartHomeManager = TuyaSmartHomeManager()
-
- func joinHome() {
-    homeManager.joinFamily(withHomeId: "home_id", action: isAccept,  success: { (success) in
-        print("handel home success")
-    }) { (error) in
-        if let e = error {
-            print("handel home failure: \(e)")
-        }
-    }
-}
-```
-
 
 ## Home information management
 
@@ -475,6 +442,167 @@ func sortHomeRoom() {
     })
 }
 ```
+### Home member management
+
+All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember`classes
+
+#### Add Home Member
+
+Objc:
+
+```objc
+- (void)addShare {
+  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
+    [_home addHomeMemberWithName:@"name" headPic:image countryCode:@"your_country_code" userAccount:@"account" isAdmin:YES success:^(NSDictionary *dict) {
+        NSLog(@"addNewMember success");
+    } failure:^(NSError *error) {
+        NSLog(@"addNewMember failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func addShare() {
+    home?.addHomeMember(withName:@"name", headPic:image, countryCode: "your_country_code", account: "account", isAdmin: true, success: {
+        print("addNewMember success")
+    }, failure: { (error) in
+        if let e = error {
+            print("addNewMember failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### Get a list of Home members
+
+Objc:
+
+```objc
+- (void)initMemberList {
+  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
+    [_home getHomeMemberListWithSuccess:^(NSArray<TuyaSmartHomeMemberModel *> *memberList) {
+        NSLog(@"getMemberList success: %@", memberList);
+    } failure:^(NSError *error) {
+        NSLog(@"getMemberList failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func initMemberList() {
+    home.getHomeMemberList(withSuccess: { memberList in
+        print("getMemberList success: \(memberList)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getMemberList failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### Modify the home member's comment name and whether it's an administrator
+
+Objc:
+
+```objc
+- (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
+
+	[self.homeMember updateHomeMemberNameWithMemberId:memberModel.memberId name:name isAdmin:YES success:^{
+        NSLog(@"modifyMemberName success");
+    } failure:^(NSError *error) {
+        NSLog(@"modifyMemberName failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
+    homeMember?.updateHomeMemberName(withMemberId: memberModel.memberId, name: name, isAdmin: true, success: {
+        print("modifyMemberName success")
+    }, failure: { (error) in
+        if let e = error {
+            print("modifyMemberName failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### Delete home members
+
+Objc: 
+
+```objc
+- (void)removeMember:(TuyaSmartHomeMemberModel *)memberModel {
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
+
+	[self.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
+        NSLog(@"removeMember success");
+    } failure:^(NSError *error) {
+        NSLog(@"removeMember failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
+    homeMember?.removeHomeMember(withMemberId: memberModel.memberId, success: {
+        print("removeMember success")
+    }, failure: { (error) in
+        if let e = error {
+            print("removeMember failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+####  Accept or reject home invitations
+
+Objc:
+
+```objc
+- (void)initMemberList {
+  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
+  	[_home joinFamilyWithAccept:YES success:^(BOOL result) {
+        NSLog(@"join success");
+    } failure:^(NSError *error) {
+        NSLog(@"join failure");
+    }];
+}
+```
+
+
+
+Swift:
+
+```swift
+func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
+    home?.joinFamilyWithAccept(true, success: { (result: Bool) in
+        print("join success")
+    }, failure: { (error) in
+        if let e = error {
+            print("join failure: \(e)")
+        }
+    })
+}
+```
+
 
 
 ## Room information management
@@ -648,3 +776,4 @@ func saveBatchRoomRelation() {
     })
 }
 ```
+
