@@ -6,7 +6,6 @@
 * [iOS Adaptation](./resource/iOSAdaptation.md)
 * [Initiate SDK](./resource/Integrated.md)
 * [User management](./resource/User.md#user-management)
-  - [User Registration](./resource/User.md#user-registration)
   - [Use Mobile Phone for Login](./resource/User.md#use-mobile-phone-for-login)
   - [Use Email for Login](./resource/User.md#use-email-for-login)
   - [Use uid for Login](./resource/User.md#use-uid-for-login)
