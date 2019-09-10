@@ -215,7 +215,7 @@ func getCondicationDeviceDPList() {
 
 #### 获取城市列表
 
-选择场景气象条件时，根据国家码获取城市列表，用户可以选择当前城市。（注：国外部分国家的城市列表可能暂时不全，如果是国外用户，建议根据经纬度获取城市信息。）
+选择场景气象条件时，根据国家码获取城市列表，用户可以选择当前城市。（注：国外部分国家的城市列表可能暂时不全，如果是国外用户，建议根据经纬度获取城市信息。）countryCode使用isoCountryCode，例如中国="CN"。
 
 Objc:
 
@@ -330,6 +330,33 @@ func sortScene() {
         if let e = error {
             print("sort scene failure: \(e)")
         }
+    })
+}
+```
+
+#### 获取场景背景图片列表
+获取场景支持的背景图片url列表。
+
+Objc:
+
+```objc
+- (void)getDefaultSceneCover {
+	[[TuyaSmartSceneManager sharedInstance] getSmartSceneBackgroundCoverWithsuccess:^(NSArray *list) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getDefaultSceneCover() {
+    TuyaSmartSceneManager.sharedInstance()?.getSmartSceneBackgroundCover(withsuccess: {(list) in
+        
+    }, failure: { (error) in
+       
     })
 }
 ```
