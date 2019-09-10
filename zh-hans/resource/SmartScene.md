@@ -334,6 +334,33 @@ func sortScene() {
 }
 ```
 
+#### 获取场景背景图片列表
+获取场景支持的背景图片url列表。
+
+Objc:
+
+```objc
+- (void)getDefaultSceneCover {
+	[[TuyaSmartSceneManager sharedInstance] getSmartSceneBackgroundCoverWithsuccess:^(NSArray *list) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getDefaultSceneCover() {
+    TuyaSmartSceneManager.sharedInstance()?.getSmartSceneBackgroundCover(withsuccess: {(list) in
+        
+    }, failure: { (error) in
+       
+    })
+}
+```
+
 
 
 ## 单个场景操作

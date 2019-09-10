@@ -48,6 +48,33 @@ func getSmartSceneList() {
 }
 ```
 
+#### Obtain scene's supported cover list
+Obtain scene's supported cover url list.
+
+Objc:
+
+```objc
+- (void)getDefaultSceneCover {
+	[[TuyaSmartSceneManager sharedInstance] getSmartSceneBackgroundCoverWithsuccess:^(NSArray *list) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getDefaultSceneCover() {
+    TuyaSmartSceneManager.sharedInstance()?.getSmartSceneBackgroundCover(withsuccess: {(list) in
+        
+    }, failure: { (error) in
+       
+    })
+}
+```
+
 ## Scene operation
 
 The `TuyaSmartScene` class provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the `sceneId` of the `TuyaSmartSceneModel`, and it can be obtained from the scene list.
