@@ -1,6 +1,6 @@
 {
   "name": "TuyaSmartBaseKit",
-  "version": "0.2.2",
+  "version": "3.12.0",
   "summary": "A short description of TuyaSmartBaseKit.",
   "license": {
     "type": "MIT"
@@ -10,8 +10,8 @@
   },
   "homepage": "https://tuya.com",
   "source": {
-    "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
-    "tag": "0.2.2"
+    "http": "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/TuyaSmartBaseKit-3.12.0.zip",
+    "type": "zip"
   },
   "platforms": {
     "ios": "8.0"
@@ -26,7 +26,11 @@
     "z"
   ],
   "static_framework": true,
-  "vendored_frameworks": "ios/TuyaSmartBaseKit.framework",
+  "source_files": [
+    "Headers/**/*.h",
+    "ios/**/*.h"
+  ],
+  "vendored_frameworks": "ios/*.framework",
   "dependencies": {
     "TuyaSmartUtil": [
 

@@ -16,7 +16,6 @@ typedef void(^TYBLECentralPeripheralRSSIValueCallback)(NSNumber *RSSI, NSError *
 
 @interface TYBLEPeripheral : NSObject <CBPeripheralDelegate>
 
-
 /**
  *  内部的cbPeripheral对象
  */
@@ -51,7 +50,7 @@ typedef void(^TYBLECentralPeripheralRSSIValueCallback)(NSNumber *RSSI, NSError *
  *
  *  @return TYBLEPeripheral对象
  */
-- (id)initWithCBPeripheral:(CBPeripheral *)p;
+- (instancetype)initWithCBPeripheral:(CBPeripheral *)p;
 
 /**
  *  扫描支持的所有service

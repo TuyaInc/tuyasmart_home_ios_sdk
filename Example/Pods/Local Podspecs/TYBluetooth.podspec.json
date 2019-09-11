@@ -1,6 +1,6 @@
 {
   "name": "TYBluetooth",
-  "version": "0.2.2",
+  "version": "3.12.0",
   "summary": "Tuya bluetooth, less write and can use anywhere.",
   "description": "🚀Tuya bluetooth, less write and can use anywhere.",
   "homepage": "https://tuya.com",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
-    "tag": "0.2.2"
+    "tag": "3.12.0"
   },
   "platforms": {
     "ios": "8.0"

@@ -1,6 +1,6 @@
 {
   "name": "TuyaSmartBLEMeshKit",
-  "version": "0.2.2",
+  "version": "3.12.0",
   "summary": "A short description of TuyaSmartBLEMeshKit.",
   "license": {
     "type": "MIT"
@@ -10,13 +10,14 @@
   },
   "homepage": "https://tuya.com",
   "source": {
-    "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
-    "tag": "0.2.2"
+    "http": "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/TuyaSmartBLEMeshKit-3.12.0.zip",
+    "type": "zip"
   },
   "platforms": {
     "ios": "8.0"
   },
   "static_framework": true,
+  "source_files": "ios/TuyaSmartBLEMeshKit/*.h",
   "vendored_frameworks": "ios/TuyaSmartBLEMeshKit.framework",
   "frameworks": [
     "Foundation",
@@ -31,6 +32,9 @@
     ],
     "TYBluetooth": [
 
+    ],
+    "OpenSSL-Universal": [
+      "1.0.2.17"
     ]
   }
 }

@@ -9,41 +9,9 @@
 #ifndef TYBLEConfig_h
 #define TYBLEConfig_h
 
-#import <CoreBluetooth/CoreBluetooth.h>
-#if __has_include(<TYBluetooth/TYBLEConfig.h>)
-
-#import <TYBluetooth/TYBLECentralManager.h>
-#import <TYBluetooth/TYBLEPeripheral.h>
-#import <TYBluetooth/TYBLECentral.h>
-#import <TYBluetooth/TYBLEPeripheralManager.h>
-#import <TYBluetooth/TYBLEService.h>
-#import <TYBluetooth/TYBLECharacteristic.h>
-#import <TYBluetooth/TYBLECharacteristicFactory.h>
-#import <TYBluetooth/TYBLEServiceFactory.h>
-#import <TYBluetooth/CBUUID+TYCategory.h>
-#import <TYBluetooth/TYBLEAgent.h>
-#import <TYBluetooth/NSNumber+Characteristic.h>
-
-#else
-
-#import "TYBLECentralManager.h"
-#import "TYBLEPeripheral.h"
-#import "TYBLECentral.h"
-#import "TYBLEPeripheralManager.h"
-#import "TYBLEService.h"
-#import "TYBLECharacteristic.h"
-#import "TYBLECharacteristicFactory.h"
-#import "TYBLEServiceFactory.h"
-#import "CBUUID+TYCategory.h"
-#import "TYBLEAgent.h"
-#import "NSNumber+Characteristic.h"
-
-#endif
-
 //error domain
 #define kCBErrorDomain @"CoreBLEErrorDomain"
 
-#define kCBErrorCentralBLEStateError                    396
 #define kCBErrorCentralDidNotFindService                397
 #define kCBErrorCentralDidNotFindCharacteristic         398
 #define kCBErrorCentralDidNotFindPeripheral             399
@@ -59,10 +27,9 @@
 #define kCBErrorPeripheralReadingDataOutofBounds        409
 #define kCBErrorCentralDisConnectionTimeoutCode         410
 
-#define kCBErrorCentralStatePoweredOff                  440
-#define kCBErrorCentralStateUnknown                     441
-#define kCBErrorCentralStateUnauthorized                442
-#define kCBErrorCentralStateUnsupported                 443
+#define kCBErrorPeripheralIsNil                         440
+#define kCBErrorCenteralStateNotPoweredOn               450
+
 
 
 

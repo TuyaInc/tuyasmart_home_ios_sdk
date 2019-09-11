@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartBLEMeshKit"
-  s.version = "2.8.43"
+  s.version = "3.12.0"
   s.summary = "A short description of #{s.name}."
   s.license = {"type"=>"MIT"}
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
   s.ios.deployment_target     = '8.0'
 
   s.static_framework          = true
-  s.source_files              = 'ios/**/*.h'
-  s.vendored_frameworks       = 'ios/*.framework'
+  s.source_files              = 'ios/TuyaSmartBLEMeshKit/*.h'
+  s.vendored_frameworks       = 'ios/TuyaSmartBLEMeshKit.framework'
   # s.vendored_libraries        = 'ios/*.a'
 
   s.frameworks = 'Foundation', 'CoreBluetooth'
@@ -19,5 +19,6 @@ Pod::Spec.new do |s|
   s.dependency 'TuyaSmartBaseKit'
   s.dependency 'TuyaSmartDeviceKit'
   s.dependency 'TYBluetooth'
+  s.dependency 'OpenSSL-Universal', '1.0.2.17'
 
 end

@@ -8,23 +8,18 @@
 #ifndef TuyaSmartBaseKit_h
 #define TuyaSmartBaseKit_h
 
-/**
- *  当前SDK为全屋智能SDK
- */
 #define TUYA_HOMEKIT_SDK
-
-/**
- *  当前SDK的版本号
- */
-#define TUYA_SDK_VERSION @"2.8.43"
+#define TUYA_SDK_VERSION @"2.14.12"
 
 #import <TuyaSmartUtil/TuyaSmartUtil.h>
 
 #import "TuyaSmartSDK.h"
 #import "TuyaSmartUser.h"
+#import "TuyaSmartUser+Region.h"
+#import "TuyaSmartUser+WCSession.h"
 #import "TuyaSmartRequest.h"
-#import "TYApiMergeModel.h"
-#import "TYApiMergeService.h"
 
+#import "TYApiMergeService.h"
+#import "TuyaSmartSpeechService.h"
 
 #endif /* TuyaSmartBaseKit_h */

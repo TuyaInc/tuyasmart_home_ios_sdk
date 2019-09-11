@@ -317,6 +317,7 @@
 		769D196CAEA649F753DF10CE /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		8896FC870A633972D3F5E5C2 /* Pods_TuyaSmartHomeKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuyaSmartHomeKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBEEEE4C4AA2F67DCA271369 /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
+		DEF6E7DA232741B90063CF72 /* t_s.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = t_s.bmp; path = TuyaSmartHomeKit/t_s.bmp; sourceTree = "<group>"; };
 		E08BB6525A2EBFFB8208CB1B /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E2758476270FB654A33AE481 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		FC665B7C3D046640DDBE7430 /* TuyaSmartHomeKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TuyaSmartHomeKit.podspec; path = ../TuyaSmartHomeKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -361,6 +362,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				DEF6E7DA232741B90063CF72 /* t_s.bmp */,
 				6BFFC7212195B7EE00FC35ED /* TuyaSmartHomeKit_Example.entitlements */,
 				6003F593195388D20070C39A /* Example for TuyaSmartHomeKit */,
 				6003F58C195388D20070C39A /* Frameworks */,
@@ -811,6 +813,7 @@
 				65FC210920C8D2FE00918C6D /* ty_devicelist_share_gray@2x.png in Resources */,
 				6BA0E4FC2211A08F00307E67 /* ty_scene_custom2@3x.png in Resources */,
 				65FC20FA20C8D2FE00918C6D /* ty_devicelist_dot_green@3x.png in Resources */,
+				DEF6E7DB232741BA0063CF72 /* t_s.bmp in Resources */,
 				65FC224B20C8D31900918C6D /* customColor.plist in Resources */,
 				65FC21B020C8D2FE00918C6D /* ty_mainbt_add_active@3x.png in Resources */,
 				65FC21B920C8D2FE00918C6D /* ty_mainbt_add@3x.png in Resources */,

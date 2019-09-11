@@ -96,6 +96,7 @@ typedef void (^TYBLECentralCharacteristicWriteCallback) (NSError *error);
 
 - (void)handleWrittenValueWithError:(NSError *)anError;
 
+- (void)handleNotfiyStateUpdate:(NSError *)anError;
 
 @end
 

@@ -1,0 +1,30 @@
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
+
+#ifdef __OBJC__
+  #import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>
+  #undef TYLog
+  #undef TYSDKLogDebug
+  #undef TYSDKLogInfo
+  #undef TYSDKLogWarn
+  #undef TYSDKLogError
+  #define TYSDKLogDebug(...)         TYSDKLog(0, @"TuyaSmartDeviceKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+  #define TYSDKLogInfo(...)         TYSDKLog(1, @"TuyaSmartDeviceKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+  #define TYSDKLogWarn(...)         TYSDKLog(2, @"TuyaSmartDeviceKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+  #define TYSDKLogError(...)         TYSDKLog(3, @"TuyaSmartDeviceKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+  #import <YYModel/YYModel.h>
+  #import "TuyaSmartDeviceKit.h"
+  #import "TYDeviceNotificationUtils.h"
+  #import "TYDeviceUtils.h"
+  #import "TYUserDefault+User.h"
+#endif

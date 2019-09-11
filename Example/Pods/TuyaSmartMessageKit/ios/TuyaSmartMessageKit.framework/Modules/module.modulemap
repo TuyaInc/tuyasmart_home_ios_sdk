@@ -1,0 +1,6 @@
+framework module TuyaSmartMessageKit {
+  umbrella header "TuyaSmartMessageKit.h"
+
+  export *
+  module * { export * }
+}
