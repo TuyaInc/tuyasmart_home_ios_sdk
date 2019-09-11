@@ -193,7 +193,7 @@
     // 先新建群组在添加设备
     WEAKSELF_AT
     [TuyaSmartBleMeshGroup createMeshGroupWithGroupName:name
-                                                 meshId:[TYSmartHomeManager sharedInstance].currentHome.meshModel.meshId
+                                                 meshId:[TYSmartHomeManager sharedInstance].currentHome.sigMeshModel.meshId
                                                 localId:[NSString stringWithFormat:@"%lx", self.address]
                                                     pcc:nil//TODO: wmy pcc怎么加
                                                 success:^(int result) {
