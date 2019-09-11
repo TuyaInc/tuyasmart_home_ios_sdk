@@ -148,7 +148,8 @@
     if (tableView.tag == kDESTableViewTag) {
         return;
     }
-    //TODO: wmy 配网
+    TuyaSmartSIGMeshDiscoverDeviceInfo *info = [self.discoveredDevices objectAtIndex:indexPath.row];
+    [[TuyaSmartSIGMeshManager sharedInstance] startActive:@[info] meshModel:[TYSmartHomeManager sharedInstance].currentHome.sigMeshModel];
 }
 
 #pragma mark - --------------------TuyaSmartSIGMeshManagerDelegate--------------

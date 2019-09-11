@@ -22,6 +22,8 @@
 @property (nonatomic, assign) NSInteger address;
 @property (nonatomic, strong) TuyaSmartBleMeshGroup *group;
 
+@property (nonatomic, strong) NSString *pcc;
+
 @end
 
 @implementation TYDeviceGroupViewController
@@ -40,7 +42,7 @@
     // 根据device的pid搜索家庭中的设备
     
     for (TuyaSmartDeviceModel *deviceModel in [[TYSmartHomeManager sharedInstance] currentHome].deviceList) {
-        if ([deviceModel.productId isEqualToString:self.device.deviceModel.productId]) {
+        if ([deviceModel.pcc isEqualToString:self.device.deviceModel.pcc]) {
             TuyaSmartDevice *device = [TuyaSmartDevice deviceWithDeviceId:deviceModel.devId];
             [self.unselectedDevices addObject:device];
         }
@@ -195,7 +197,7 @@
     [TuyaSmartBleMeshGroup createMeshGroupWithGroupName:name
                                                  meshId:[TYSmartHomeManager sharedInstance].currentHome.sigMeshModel.meshId
                                                 localId:[NSString stringWithFormat:@"%lx", self.address]
-                                                    pcc:nil//TODO: wmy pcc怎么加
+                                                    pcc:self.device.deviceModel.pcc
                                                 success:^(int result) {
                                                     TuyaSmartBleMeshGroup *group = [TuyaSmartBleMeshGroup meshGroupWithGroupId:result];
                                                     weakSelf_AT.group = group;
