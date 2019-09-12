@@ -28,6 +28,7 @@
 
 @implementation TYLoginViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initTopBarView];
