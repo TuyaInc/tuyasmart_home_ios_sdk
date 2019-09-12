@@ -77,12 +77,11 @@
         make.left.mas_equalTo(20);
         make.centerY.equalTo(view);
     }];
-    //TODO: wmy
     if (section == 0) {
-        label.text = @"已添加";
+        label.text = @"already added";
     }
     if (section == 1) {
-        label.text = @"可添加";
+        label.text = @"can add";
     }
     return view;
 }

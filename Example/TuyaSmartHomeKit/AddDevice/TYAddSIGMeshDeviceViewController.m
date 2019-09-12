@@ -55,7 +55,6 @@
 }
 
 - (void)initView {
-    //TODO: wmy 需要多次调用的bug
     [self.view addSubview:self.startBtn];
     [self.view addSubview:self.addAllBtn];
     [self.view addSubview:self.desTableView];
@@ -224,7 +223,6 @@
 
 
 - (void)onClickAddAll {
-    //TODO: wmy
     if (!self.discoveredDevices.count) {
         return;
     }

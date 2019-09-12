@@ -67,7 +67,6 @@
         [weakSelf_AT updateName];
     }];
     if (self.device.deviceModel.deviceType == TuyaSmartDeviceModelTypeSIGMeshSubDev) {
-        //TODO: wmy
         [sheet bk_addButtonWithTitle:NSLocalizedString(@"add_group", @"") handler:^{
             [weakSelf_AT addDeviceGroup];
         }];
