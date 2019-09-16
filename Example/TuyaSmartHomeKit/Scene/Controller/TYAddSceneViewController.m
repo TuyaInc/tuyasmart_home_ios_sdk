@@ -139,13 +139,13 @@
     condition7.entitySubIds = @"timer";
     
     //3.device dp conditon
-    TuyaSmartSceneConditionModel *condition8 = [[TuyaSmartSceneConditionModel alloc] init];
-    condition8.entityType = 1;  //Device dp as a condition, entityType is 1.
-    condition8.entityName = @"device name";
-    condition8.entityId = @"6c1231332d13c35e14rmof";    //devId, device Id.
-    condition8.exprDisplay = @"Switch : ON";
-    condition8.expr = @[@[@"$dp1",@"==",@(YES)]];
-    condition8.entitySubIds = @"1";                 //dpId
+//    TuyaSmartSceneConditionModel *condition8 = [[TuyaSmartSceneConditionModel alloc] init];
+//    condition8.entityType = 1;  //Device dp as a condition, entityType is 1.
+//    condition8.entityName = @"device name";
+//    condition8.entityId = @"6c1231332d13c35e14rmof";    //devId, device Id.
+//    condition8.exprDisplay = @"Switch : ON";
+//    condition8.expr = @[@[@"$dp1",@"==",@(YES)]];
+//    condition8.entitySubIds = @"1";                 //dpId
     
     [self.conditionArray addObject:condition1];
     [self.conditionArray addObject:condition2];
@@ -154,7 +154,7 @@
     [self.conditionArray addObject:condition5];
     [self.conditionArray addObject:condition6];
     [self.conditionArray addObject:condition7];
-    [self.conditionArray addObject:condition8];
+//    [self.conditionArray addObject:condition8];
 }
 
 - (void)simulateSceneActions {
@@ -189,12 +189,12 @@
 //    action6.actionExecutor = @"deviceGroupDpIssue";
 //    action6.executorProperty = @{@"1":@(YES)};
     //7.dpIssue ,device action
-    TuyaSmartSceneActionModel *action7 = [[TuyaSmartSceneActionModel alloc] init];
-    action7.actionExecutor = @"dpIssue";
-    action7.entityId = @"6c1231332d13c35e14rmof";
-    action7.entityName = @"device name";
-    action7.executorProperty = @{@"1":@(YES)};
-    action7.actionDisplay = @"Switch:Open";
+//    TuyaSmartSceneActionModel *action7 = [[TuyaSmartSceneActionModel alloc] init];
+//    action7.actionExecutor = @"dpIssue";
+//    action7.entityId = @"6c1231332d13c35e14rmof";
+//    action7.entityName = @"device name";
+//    action7.executorProperty = @{@"1":@(YES)};
+//    action7.actionDisplay = @"Switch:Open";
     
 //    [self.dataSource addObject:action1];
 //    [self.dataSource addObject:action2];
@@ -202,7 +202,7 @@
     [self.dataSource addObject:action4];
     [self.dataSource addObject:action5];
 //    [self.dataSource addObject:action6];
-    [self.dataSource addObject:action7];
+//    [self.dataSource addObject:action7];
 }
 
 - (NSString *)titleForCenterItem
