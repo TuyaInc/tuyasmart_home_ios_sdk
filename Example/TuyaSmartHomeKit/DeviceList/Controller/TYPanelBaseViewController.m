@@ -7,7 +7,6 @@
 //
 
 #import "TYPanelBaseViewController.h"
-#import "TYDeviceGroupViewController.h"
 
 @interface TYPanelBaseViewController()
 
@@ -66,12 +65,6 @@
     [sheet bk_addButtonWithTitle:NSLocalizedString(@"rename_device", @"") handler:^{
         [weakSelf_AT updateName];
     }];
-    if (self.device.deviceModel.deviceType == TuyaSmartDeviceModelTypeSIGMeshSubDev) {
-        [sheet bk_addButtonWithTitle:NSLocalizedString(@"add_group", @"") handler:^{
-            [weakSelf_AT addDeviceGroup];
-        }];
-    }
-    
     
     //移除设备
     [sheet bk_addButtonWithTitle:NSLocalizedString(@"cancel_connect", @"") handler:^{
@@ -80,12 +73,6 @@
     
     [sheet bk_setCancelButtonWithTitle:NSLocalizedString(@"action_cancel", @"") handler:nil];
     [sheet showInView:self.view];
-}
-
-- (void)addDeviceGroup {
-    TYDeviceGroupViewController *group = [[TYDeviceGroupViewController alloc] init];
-    group.device = self.device;
-    [self.navigationController pushViewController:group animated:YES];
 }
 
 - (void)updateName {

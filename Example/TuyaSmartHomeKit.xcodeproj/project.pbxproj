@@ -148,8 +148,8 @@
 		6BFFC71F219567D400FC35ED /* TYEZAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFFC71E219567D400FC35ED /* TYEZAddDeviceViewController.m */; };
 		C5CA651EADE85088C7EBE2CA /* libPods-TuyaSmartHomeKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733C122EBC7512C7B9CF7C9 /* libPods-TuyaSmartHomeKit_Example.a */; };
 		D387F14ADA751472F9F79FB3 /* libPods-TuyaSmartHomeKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4129804CBE41DF376A20730 /* libPods-TuyaSmartHomeKit_Tests.a */; };
-		DE20A11D232746E800A4983A /* TYAddSIGMeshDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE20A11C232746E800A4983A /* TYAddSIGMeshDeviceViewController.m */; };
-		DEB90A832328E25E00EBA39D /* TYDeviceGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB90A822328E25E00EBA39D /* TYDeviceGroupViewController.m */; };
+		DE20A11D232746E800A4983A /* (null) in Sources */ = {isa = PBXBuildFile; };
+		DEB90A832328E25E00EBA39D /* (null) in Sources */ = {isa = PBXBuildFile; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -710,8 +710,6 @@
 				65FC1FA120C8D2FE00918C6D /* TYCommonPanelViewController.m */,
 				65FC1FA220C8D2FE00918C6D /* TYSwitchPanelViewController.h */,
 				65FC1F9F20C8D2FE00918C6D /* TYSwitchPanelViewController.m */,
-				DEB90A812328E25E00EBA39D /* TYDeviceGroupViewController.h */,
-				DEB90A822328E25E00EBA39D /* TYDeviceGroupViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -836,8 +834,6 @@
 				6B04E1BD21A2DDCD00B605F9 /* TYAddZigBeeViewController.m */,
 				6B8DEE2421B4D49C004C9C78 /* TYAddDeviceUtils.h */,
 				6B8DEE2521B4D49C004C9C78 /* TYAddDeviceUtils.m */,
-				DE20A11B232746E800A4983A /* TYAddSIGMeshDeviceViewController.h */,
-				DE20A11C232746E800A4983A /* TYAddSIGMeshDeviceViewController.m */,
 			);
 			path = AddDevice;
 			sourceTree = "<group>";
@@ -1175,7 +1171,7 @@
 				65B6ED7C21A9257500EEE134 /* TPViewUtil.m in Sources */,
 				6BA0E4F62211A08F00307E67 /* TYSmartSceneTableViewCell.m in Sources */,
 				65FC21A220C8D2FE00918C6D /* TYTabBarViewController.m in Sources */,
-				DE20A11D232746E800A4983A /* TYAddSIGMeshDeviceViewController.m in Sources */,
+				DE20A11D232746E800A4983A /* (null) in Sources */,
 				6BA0E4F72211A08F00307E67 /* TYEditSceneTableViewCell.m in Sources */,
 				65B6ED7621A9257500EEE134 /* TPBarButtonItem.m in Sources */,
 				6B8DEE2621B4D49C004C9C78 /* TYAddDeviceUtils.m in Sources */,
@@ -1194,7 +1190,7 @@
 				65B6ED8821A9257500EEE134 /* UIView+TPAdditions.m in Sources */,
 				6BA0E4EF2211A08F00307E67 /* TYSmartSceneViewController.m in Sources */,
 				6BA0E4F42211A08F00307E67 /* TYEditActionNoDataTableViewCell.m in Sources */,
-				DEB90A832328E25E00EBA39D /* TYDeviceGroupViewController.m in Sources */,
+				DEB90A832328E25E00EBA39D /* (null) in Sources */,
 				65B6ED8121A9257500EEE134 /* TPItemView.m in Sources */,
 				6BA0E4F02211A08F00307E67 /* TYAddSceneViewController.m in Sources */,
 				65B6ED8221A9257500EEE134 /* TPTopBarView.m in Sources */,
@@ -1425,9 +1421,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TuyaSmartHomeKit/TuyaSmartHomeKit-Prefix.pch";
 				INFOPLIST_FILE = "TuyaSmartHomeKit/TuyaSmartHomeKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tuya.smart;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.TuyaSmartHomeKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1446,9 +1442,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TuyaSmartHomeKit/TuyaSmartHomeKit-Prefix.pch";
 				INFOPLIST_FILE = "TuyaSmartHomeKit/TuyaSmartHomeKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tuya.smart;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.TuyaSmartHomeKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
