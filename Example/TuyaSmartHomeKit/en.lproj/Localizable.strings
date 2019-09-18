@@ -389,6 +389,7 @@
 "reget_validation_second" = "(%d s)";
 "rename" = "Rename";
 "rename_device" = "Modify Device Name";
+"add_group" = "add group";
 "repeat" = "Repeat";
 "reset_device_answer_1" = "Please reset device\n\n2.Power off device\n\n3.Power on device after 15 seconds";
 "reset_device_question_1" = "No green light flashes";

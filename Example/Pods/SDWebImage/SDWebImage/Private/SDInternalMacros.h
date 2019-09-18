@@ -17,6 +17,13 @@
 #define SD_UNLOCK(lock) dispatch_semaphore_signal(lock);
 #endif
 
+<<<<<<< HEAD
+=======
+#ifndef SD_OPTIONS_CONTAINS
+#define SD_OPTIONS_CONTAINS(options, value) (((options) & (value)) == (value))
+#endif
+
+>>>>>>> feature/sig_mesh
 #ifndef weakify
 #define weakify(...) \
 sd_keywordify \

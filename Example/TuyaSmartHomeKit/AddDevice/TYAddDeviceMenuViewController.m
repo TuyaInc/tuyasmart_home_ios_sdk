@@ -10,12 +10,14 @@
 #import "TYAPAddDeviceViewController.h"
 #import "TYEZAddDeviceViewController.h"
 #import "TYAddZigBeeViewController.h"
+#import "TYAddSIGMeshDeviceViewController.h"
 
 typedef NS_ENUM(NSInteger, AddDeviceMode) {
     AddDeviceModeEZ,
     AddDeviceModeAP,
     AddZigBeeGateway,
     AddZigBeeSubdevice,
+    AddDeviceSIGMesh,
     AddDeviceModeCount,
 };
 
@@ -79,6 +81,10 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
         case AddZigBeeSubdevice:
             title = @"Add ZigBee subdevice";
             break;
+        case AddDeviceSIGMesh: {
+            title = @"Add SIG Mesh device";
+        }
+            break;
         default:
             break;
     }
@@ -104,6 +110,10 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
         case AddZigBeeSubdevice:
             controller = [TYAddZigBeeViewController new];
             ((TYAddZigBeeViewController *)controller).forZigBeeSubdevice = YES;
+            break;
+        case AddDeviceSIGMesh: {
+            controller = [TYAddSIGMeshDeviceViewController new];
+        }
             break;
         default:
             break;

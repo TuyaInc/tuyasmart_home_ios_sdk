@@ -12,6 +12,10 @@
 #import "SDImageCoderHelper.h"
 #import "SDAnimatedImage.h"
 #import "UIImage+Metadata.h"
+<<<<<<< HEAD
+=======
+#import "SDInternalMacros.h"
+>>>>>>> feature/sig_mesh
 #import "objc/runtime.h"
 
 static void * SDImageLoaderProgressiveCoderKey = &SDImageLoaderProgressiveCoderKey;
@@ -28,7 +32,11 @@ UIImage * _Nullable SDImageLoaderDecodeImageData(NSData * _Nonnull imageData, NS
     } else {
         cacheKey = imageURL.absoluteString;
     }
+<<<<<<< HEAD
     BOOL decodeFirstFrame = options & SDWebImageDecodeFirstFrameOnly;
+=======
+    BOOL decodeFirstFrame = SD_OPTIONS_CONTAINS(options, SDWebImageDecodeFirstFrameOnly);
+>>>>>>> feature/sig_mesh
     NSNumber *scaleValue = context[SDWebImageContextImageScaleFactor];
     CGFloat scale = scaleValue.doubleValue >= 1 ? scaleValue.doubleValue : SDImageScaleFactorForKey(cacheKey);
     SDImageCoderOptions *coderOptions = @{SDImageCoderDecodeFirstFrameOnly : @(decodeFirstFrame), SDImageCoderDecodeScaleFactor : @(scale)};
@@ -60,8 +68,13 @@ UIImage * _Nullable SDImageLoaderDecodeImageData(NSData * _Nonnull imageData, NS
         image = [[SDImageCodersManager sharedManager] decodedImageWithData:imageData options:coderOptions];
     }
     if (image) {
+<<<<<<< HEAD
         BOOL shouldDecode = (options & SDWebImageAvoidDecodeImage) == 0;
         if ([image conformsToProtocol:@protocol(SDAnimatedImage)]) {
+=======
+        BOOL shouldDecode = !SD_OPTIONS_CONTAINS(options, SDWebImageAvoidDecodeImage);
+        if ([image.class conformsToProtocol:@protocol(SDAnimatedImage)]) {
+>>>>>>> feature/sig_mesh
             // `SDAnimatedImage` do not decode
             shouldDecode = NO;
         } else if (image.sd_isAnimated) {
@@ -70,7 +83,11 @@ UIImage * _Nullable SDImageLoaderDecodeImageData(NSData * _Nonnull imageData, NS
         }
         
         if (shouldDecode) {
+<<<<<<< HEAD
             BOOL shouldScaleDown = options & SDWebImageScaleDownLargeImages;
+=======
+            BOOL shouldScaleDown = SD_OPTIONS_CONTAINS(options, SDWebImageScaleDownLargeImages);
+>>>>>>> feature/sig_mesh
             if (shouldScaleDown) {
                 image = [SDImageCoderHelper decodedAndScaledDownImageWithImage:image limitBytes:0];
             } else {
@@ -95,7 +112,11 @@ UIImage * _Nullable SDImageLoaderDecodeProgressiveImageData(NSData * _Nonnull im
     } else {
         cacheKey = imageURL.absoluteString;
     }
+<<<<<<< HEAD
     BOOL decodeFirstFrame = options & SDWebImageDecodeFirstFrameOnly;
+=======
+    BOOL decodeFirstFrame = SD_OPTIONS_CONTAINS(options, SDWebImageDecodeFirstFrameOnly);
+>>>>>>> feature/sig_mesh
     NSNumber *scaleValue = context[SDWebImageContextImageScaleFactor];
     CGFloat scale = scaleValue.doubleValue >= 1 ? scaleValue.doubleValue : SDImageScaleFactorForKey(cacheKey);
     SDImageCoderOptions *coderOptions = @{SDImageCoderDecodeFirstFrameOnly : @(decodeFirstFrame), SDImageCoderDecodeScaleFactor : @(scale)};
@@ -142,8 +163,13 @@ UIImage * _Nullable SDImageLoaderDecodeProgressiveImageData(NSData * _Nonnull im
         image = [progressiveCoder incrementalDecodedImageWithOptions:coderOptions];
     }
     if (image) {
+<<<<<<< HEAD
         BOOL shouldDecode = (options & SDWebImageAvoidDecodeImage) == 0;
         if ([image conformsToProtocol:@protocol(SDAnimatedImage)]) {
+=======
+        BOOL shouldDecode = !SD_OPTIONS_CONTAINS(options, SDWebImageAvoidDecodeImage);
+        if ([image.class conformsToProtocol:@protocol(SDAnimatedImage)]) {
+>>>>>>> feature/sig_mesh
             // `SDAnimatedImage` do not decode
             shouldDecode = NO;
         } else if (image.sd_isAnimated) {

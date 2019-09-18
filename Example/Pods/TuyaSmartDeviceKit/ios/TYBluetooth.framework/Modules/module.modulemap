@@ -1,0 +1,6 @@
+framework module TYBluetooth {
+  umbrella header "TYBluetooth.h"
+
+  export *
+  module * { export * }
+}

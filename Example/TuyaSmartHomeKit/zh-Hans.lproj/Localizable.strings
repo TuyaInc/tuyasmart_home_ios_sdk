@@ -390,6 +390,7 @@
 "reget_validation_second" = "(%d 秒)";
 "rename" = "重命名";
 "rename_device" = "修改设备名称";
+"add_group" = "添加群组";
 "repeat" = "重复";
 "reset_device_answer_1" = "1.请重置设备\n\n2.将设备断点\n\n3.等待15秒后再通电";
 "reset_device_question_1" = "没有发现绿灯闪烁";

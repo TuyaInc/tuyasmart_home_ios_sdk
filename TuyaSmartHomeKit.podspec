@@ -1,4 +1,5 @@
 Pod::Spec.new do |s|
+<<<<<<< HEAD
   s.name = "TuyaSmartHomeKit"
   s.version = "2.12.46"
   s.summary = "A short description of #{s.name}."
@@ -6,6 +7,15 @@ Pod::Spec.new do |s|
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
   s.homepage = "https://tuya.com"
   s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
+=======
+  s.name             = 'TuyaSmartHomeKit'
+  s.version          = '3.12.0'
+  s.summary          = 'A short description of TuyaSmartHomeKit.'
+  s.homepage         = 'https://tuya.com'
+  s.license          = { :type => 'MIT' }
+  s.author           = { '0x5e' => 'gaosen@tuya.com' }
+  s.source           = { :git => "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git", :tag => "#{s.version}" }
+>>>>>>> feature/sig_mesh
 
   s.static_framework = true
   s.ios.deployment_target = '8.0'

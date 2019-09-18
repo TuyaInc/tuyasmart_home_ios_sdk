@@ -185,7 +185,11 @@ static id<SDImageLoader> _defaultImageLoader;
                             progress:(nullable SDImageLoaderProgressBlock)progressBlock
                            completed:(nullable SDInternalCompletionBlock)completedBlock {
     // Check whether we should query cache
+<<<<<<< HEAD
     BOOL shouldQueryCache = (options & SDWebImageFromLoaderOnly) == 0;
+=======
+    BOOL shouldQueryCache = !SD_OPTIONS_CONTAINS(options, SDWebImageFromLoaderOnly);
+>>>>>>> feature/sig_mesh
     if (shouldQueryCache) {
         id<SDWebImageCacheKeyFilter> cacheKeyFilter = context[SDWebImageContextCacheKeyFilter];
         NSString *key = [self cacheKeyForURL:url cacheKeyFilter:cacheKeyFilter];
@@ -218,7 +222,11 @@ static id<SDImageLoader> _defaultImageLoader;
                                progress:(nullable SDImageLoaderProgressBlock)progressBlock
                               completed:(nullable SDInternalCompletionBlock)completedBlock {
     // Check whether we should download image from network
+<<<<<<< HEAD
     BOOL shouldDownload = (options & SDWebImageFromCacheOnly) == 0;
+=======
+    BOOL shouldDownload = !SD_OPTIONS_CONTAINS(options, SDWebImageFromCacheOnly);
+>>>>>>> feature/sig_mesh
     shouldDownload &= (!cachedImage || options & SDWebImageRefreshCached);
     shouldDownload &= (![self.delegate respondsToSelector:@selector(imageManager:shouldDownloadImageForURL:)] || [self.delegate imageManager:self shouldDownloadImageForURL:url]);
     shouldDownload &= [self.imageLoader canRequestImageForURL:url];

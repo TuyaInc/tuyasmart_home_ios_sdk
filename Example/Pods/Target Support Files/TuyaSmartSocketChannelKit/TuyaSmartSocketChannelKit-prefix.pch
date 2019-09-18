@@ -1,0 +1,26 @@
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
+
+#ifdef __OBJC__
+  #import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>
+  #undef TYLog
+  #undef TYSDKLogDebug
+  #undef TYSDKLogInfo
+  #undef TYSDKLogWarn
+  #undef TYSDKLogError
+  #define TYSDKLogDebug(...)         TYSDKLog(0, @"TuyaSmartSocketChannelKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+  #define TYSDKLogInfo(...)         TYSDKLog(1, @"TuyaSmartSocketChannelKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+  #define TYSDKLogWarn(...)         TYSDKLog(2, @"TuyaSmartSocketChannelKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+  #define TYSDKLogError(...)         TYSDKLog(3, @"TuyaSmartSocketChannelKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+  #import "TuyaSmartSocketChannelKit.h"
+#endif
