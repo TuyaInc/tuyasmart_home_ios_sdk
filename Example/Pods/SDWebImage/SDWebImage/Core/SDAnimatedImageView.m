@@ -65,10 +65,7 @@ static NSUInteger SDDeviceFreeMemory() {
 #else
 @property (nonatomic, strong) CADisplayLink *displayLink;
 #endif
-<<<<<<< HEAD
-=======
 @property (nonatomic) CALayer *imageViewLayer; // The actual rendering layer.
->>>>>>> feature/sig_mesh
 
 @end
 
@@ -136,13 +133,6 @@ static NSUInteger SDDeviceFreeMemory() {
     self.shouldIncrementalLoad = YES;
 #if SD_MAC
     self.wantsLayer = YES;
-<<<<<<< HEAD
-    // Default value from `NSImageView`
-    self.layerContentsRedrawPolicy = NSViewLayerContentsRedrawOnSetNeedsDisplay;
-    self.imageScaling = NSImageScaleProportionallyDown;
-    self.imageAlignment = NSImageAlignCenter;
-=======
->>>>>>> feature/sig_mesh
 #endif
 #if SD_UIKIT
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
@@ -243,16 +233,8 @@ static NSUInteger SDDeviceFreeMemory() {
         if (self.shouldAnimate) {
             [self startAnimating];
         }
-<<<<<<< HEAD
-        
-        [self.layer setNeedsDisplay];
-#if SD_MAC
-        [self.layer displayIfNeeded]; // macOS's imageViewLayer may not equal to self.layer. But `[super setImage:]` will impliedly mark it needsDisplay. We call `[self.layer displayIfNeeded]` to immediately refresh the imageViewLayer to avoid flashing
-#endif
-=======
 
         [self.imageViewLayer setNeedsDisplay];
->>>>>>> feature/sig_mesh
     }
 }
 
@@ -637,11 +619,7 @@ static NSUInteger SDDeviceFreeMemory() {
         self.currentFrame = currentFrame;
         self.currentFrameIndex = nextFrameIndex;
         self.bufferMiss = NO;
-<<<<<<< HEAD
-        [self.layer setNeedsDisplay];
-=======
         [self.imageViewLayer setNeedsDisplay];
->>>>>>> feature/sig_mesh
     } else {
         self.bufferMiss = YES;
     }
@@ -681,16 +659,12 @@ static NSUInteger SDDeviceFreeMemory() {
     if (!fetchFrame && !bufferFull && self.fetchQueue.operationCount == 0) {
         // Prefetch next frame in background queue
         UIImage<SDAnimatedImage> *animatedImage = self.animatedImage;
-<<<<<<< HEAD
-        NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
-=======
         @weakify(self);
         NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
             @strongify(self);
             if (!self) {
                 return;
             }
->>>>>>> feature/sig_mesh
             UIImage *frame = [animatedImage animatedImageFrameAtIndex:fetchFrameIndex];
 
             BOOL isAnimating = NO;
@@ -704,13 +678,10 @@ static NSUInteger SDDeviceFreeMemory() {
                 self.frameBuffer[@(fetchFrameIndex)] = frame;
                 SD_UNLOCK(self.lock);
             }
-<<<<<<< HEAD
-=======
             // Ensure when self dealloc, it dealloced on the main queue (UIKit/AppKit rule)
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self class];
             });
->>>>>>> feature/sig_mesh
         }];
         [self.fetchQueue addOperation:operation];
     }
@@ -728,57 +699,21 @@ static NSUInteger SDDeviceFreeMemory() {
 
 - (void)displayLayer:(CALayer *)layer
 {
-<<<<<<< HEAD
-    if (_currentFrame) {
-        layer.contentsScale = self.animatedImageScale;
-        layer.contents = (__bridge id)_currentFrame.CGImage;
-=======
     if (self.currentFrame) {
         layer.contentsScale = self.animatedImageScale;
         layer.contents = (__bridge id)self.currentFrame.CGImage;
->>>>>>> feature/sig_mesh
     }
 }
 
 #if SD_MAC
-<<<<<<< HEAD
-// Layer-backed NSImageView optionally optimize to use a subview to do actual layer rendering.
-// When the optimization is turned on, it calls `updateLayer` instead of `displayLayer:` to update subview's layer.
-// When the optimization it turned off, this return nil and calls `displayLayer:` directly.
-- (CALayer *)imageViewLayer {
-    NSView *imageView = imageView = objc_getAssociatedObject(self, NSSelectorFromString(@"_imageView"));
-=======
 // NSImageView use a subview. We need this subview's layer for actual rendering.
 // Why using this design may because of properties like `imageAlignment` and `imageScaling`, which it's not available for UIImageView.contentMode (it's impossible to align left and keep aspect ratio at the same time)
 - (NSView *)imageView {
     NSImageView *imageView = imageView = objc_getAssociatedObject(self, NSSelectorFromString(@"_imageView"));
->>>>>>> feature/sig_mesh
     if (!imageView) {
         // macOS 10.14
         imageView = objc_getAssociatedObject(self, NSSelectorFromString(@"_imageSubview"));
     }
-<<<<<<< HEAD
-    return imageView.layer;
-}
-
-- (void)updateLayer
-{
-    if (_currentFrame) {
-        [self displayLayer:self.imageViewLayer];
-    } else {
-        [super updateLayer];
-    }
-}
-
-- (BOOL)wantsUpdateLayer {
-    // AppKit is different from UIKit, it need extra check before the layer is updated
-    // When we use the custom animation, the layer.setNeedsDisplay is directly called from display link (See `displayDidRefresh:`). However, for normal image rendering, we must implements and return YES to mark it need display
-    if (_currentFrame) {
-        return NO;
-    } else {
-        return YES;
-    }
-=======
     return imageView;
 }
 
@@ -800,7 +735,6 @@ static NSUInteger SDDeviceFreeMemory() {
 // on iOS, it's the imageView itself's layer
 - (CALayer *)imageViewLayer {
     return self.layer;
->>>>>>> feature/sig_mesh
 }
 
 #endif

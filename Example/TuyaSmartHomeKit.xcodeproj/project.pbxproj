@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		3F416F6F22B0FE070086F3E2 /* t_s.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 3F416F6E22B0FE070086F3E2 /* t_s.bmp */; };
 		3F416F7022B0FE070086F3E2 /* t_s.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 3F416F6E22B0FE070086F3E2 /* t_s.bmp */; };
 		3FDE1FB322A8C09E0085086B /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FDE1FB222A8C09E0085086B /* NotificationCenter.framework */; };
@@ -17,10 +16,6 @@
 		3FDE1FCE22A8C6B00085086B /* TYTodayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE1FCC22A8C6B00085086B /* TYTodayViewController.m */; };
 		3FDE1FD222A8E8C80085086B /* UIView+TPAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B6ED5921A9257000EEE134 /* UIView+TPAdditions.m */; };
 		5710AD9D1AC6EAE2C97F6F82 /* libPods-TuyaDeviceWidget_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FD9F5006742408F03530EF61 /* libPods-TuyaDeviceWidget_Example.a */; };
-=======
-		1E91E3F2CE9E476DE89A166C /* libPods-TuyaSmartHomeKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0C4B127799C15C4186DE46 /* libPods-TuyaSmartHomeKit_Example.a */; };
-		29721387905F4C83479C2C4A /* libPods-TuyaSmartHomeKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BCCDB66D44E5CA6FF961C4DA /* libPods-TuyaSmartHomeKit_Tests.a */; };
->>>>>>> feature/sig_mesh
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -151,13 +146,10 @@
 		6BA5189621904C370036DCC2 /* TYLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA5189521904C370036DCC2 /* TYLoginViewController.m */; };
 		6BA51899219171A90036DCC2 /* TYRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BA51898219171A90036DCC2 /* TYRegisterViewController.m */; };
 		6BFFC71F219567D400FC35ED /* TYEZAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFFC71E219567D400FC35ED /* TYEZAddDeviceViewController.m */; };
-<<<<<<< HEAD
 		C5CA651EADE85088C7EBE2CA /* libPods-TuyaSmartHomeKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733C122EBC7512C7B9CF7C9 /* libPods-TuyaSmartHomeKit_Example.a */; };
 		D387F14ADA751472F9F79FB3 /* libPods-TuyaSmartHomeKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4129804CBE41DF376A20730 /* libPods-TuyaSmartHomeKit_Tests.a */; };
-=======
 		DE20A11D232746E800A4983A /* TYAddSIGMeshDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE20A11C232746E800A4983A /* TYAddSIGMeshDeviceViewController.m */; };
 		DEB90A832328E25E00EBA39D /* TYDeviceGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB90A822328E25E00EBA39D /* TYDeviceGroupViewController.m */; };
->>>>>>> feature/sig_mesh
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,7 +186,6 @@
 /* Begin PBXFileReference section */
 		2733C122EBC7512C7B9CF7C9 /* libPods-TuyaSmartHomeKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TuyaSmartHomeKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EE166F91D175DBA28FF487B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		3F416F1922B0F0480086F3E2 /* TYUserDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYUserDefine.h; sourceTree = "<group>"; };
 		3F416F6E22B0FE070086F3E2 /* t_s.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = t_s.bmp; sourceTree = "<group>"; };
 		3FDE1FB122A8C09E0085086B /* TuyaDeviceWidget_Example.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TuyaDeviceWidget_Example.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,8 +199,6 @@
 		3FDE1FCD22A8C6B00085086B /* TYTodayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTodayViewController.h; sourceTree = "<group>"; };
 		3FDE1FCF22A8E67E0085086B /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		3FDE202922A9040A0085086B /* TuyaDeviceWidget_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TuyaDeviceWidget_Example.entitlements; sourceTree = "<group>"; };
-=======
->>>>>>> feature/sig_mesh
 		4F58EA995308C3AE6F045398 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* TuyaSmartHomeKit_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuyaSmartHomeKit_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -398,23 +387,11 @@
 		6BFFC71D219567D400FC35ED /* TYEZAddDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYEZAddDeviceViewController.h; sourceTree = "<group>"; };
 		6BFFC71E219567D400FC35ED /* TYEZAddDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYEZAddDeviceViewController.m; sourceTree = "<group>"; };
 		6BFFC7212195B7EE00FC35ED /* TuyaSmartHomeKit_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TuyaSmartHomeKit_Example.entitlements; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		7A31E63E294D3A59BD65AEAF /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		A4129804CBE41DF376A20730 /* libPods-TuyaSmartHomeKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TuyaSmartHomeKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9F20759742465F5584699FF /* Pods-TuyaDeviceWidget_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaDeviceWidget_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaDeviceWidget_Example/Pods-TuyaDeviceWidget_Example.release.xcconfig"; sourceTree = "<group>"; };
 		DBEEEE4C4AA2F67DCA271369 /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E245176B7D72A06DD107AFF3 /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-=======
-		769D196CAEA649F753DF10CE /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		8E0C4B127799C15C4186DE46 /* libPods-TuyaSmartHomeKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TuyaSmartHomeKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCCDB66D44E5CA6FF961C4DA /* libPods-TuyaSmartHomeKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TuyaSmartHomeKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DBEEEE4C4AA2F67DCA271369 /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		DE20A11B232746E800A4983A /* TYAddSIGMeshDeviceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYAddSIGMeshDeviceViewController.h; sourceTree = "<group>"; };
-		DE20A11C232746E800A4983A /* TYAddSIGMeshDeviceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYAddSIGMeshDeviceViewController.m; sourceTree = "<group>"; };
-		DEB90A812328E25E00EBA39D /* TYDeviceGroupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TYDeviceGroupViewController.h; sourceTree = "<group>"; };
-		DEB90A822328E25E00EBA39D /* TYDeviceGroupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TYDeviceGroupViewController.m; sourceTree = "<group>"; };
-		E08BB6525A2EBFFB8208CB1B /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
->>>>>>> feature/sig_mesh
 		E2758476270FB654A33AE481 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F1CE4A61F1DAAA21EF27825F /* Pods-TuyaDeviceWidget_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaDeviceWidget_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaDeviceWidget_Example/Pods-TuyaDeviceWidget_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		FC665B7C3D046640DDBE7430 /* TuyaSmartHomeKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TuyaSmartHomeKit.podspec; path = ../TuyaSmartHomeKit.podspec; sourceTree = "<group>"; };
@@ -438,11 +415,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-<<<<<<< HEAD
 				C5CA651EADE85088C7EBE2CA /* libPods-TuyaSmartHomeKit_Example.a in Frameworks */,
-=======
-				1E91E3F2CE9E476DE89A166C /* libPods-TuyaSmartHomeKit_Example.a in Frameworks */,
->>>>>>> feature/sig_mesh
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,11 +425,7 @@
 			files = (
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-<<<<<<< HEAD
 				D387F14ADA751472F9F79FB3 /* libPods-TuyaSmartHomeKit_Tests.a in Frameworks */,
-=======
-				29721387905F4C83479C2C4A /* libPods-TuyaSmartHomeKit_Tests.a in Frameworks */,
->>>>>>> feature/sig_mesh
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,15 +498,10 @@
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
-<<<<<<< HEAD
 				2733C122EBC7512C7B9CF7C9 /* libPods-TuyaSmartHomeKit_Example.a */,
 				3FDE1FB222A8C09E0085086B /* NotificationCenter.framework */,
 				FD9F5006742408F03530EF61 /* libPods-TuyaDeviceWidget_Example.a */,
 				A4129804CBE41DF376A20730 /* libPods-TuyaSmartHomeKit_Tests.a */,
-=======
-				8E0C4B127799C15C4186DE46 /* libPods-TuyaSmartHomeKit_Example.a */,
-				BCCDB66D44E5CA6FF961C4DA /* libPods-TuyaSmartHomeKit_Tests.a */,
->>>>>>> feature/sig_mesh
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -918,10 +882,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-<<<<<<< HEAD
 				3FDE1FC222A8C09E0085086B /* Embed App Extensions */,
-=======
->>>>>>> feature/sig_mesh
 			);
 			buildRules = (
 			);
@@ -1135,7 +1096,6 @@
 			showEnvVarsInLog = 0;
 		};
 		CF8B0613686D1141CC8496A7 /* [CP] Check Pods Manifest.lock */ = {
-<<<<<<< HEAD
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
 			files = (
@@ -1154,8 +1114,6 @@
 			showEnvVarsInLog = 0;
 		};
 		E1E83E6618A5FC67663274C2 /* [CP] Check Pods Manifest.lock */ = {
-=======
->>>>>>> feature/sig_mesh
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
