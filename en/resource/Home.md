@@ -330,6 +330,35 @@ func updateHomeInfo() {
 }
 ```
 
+###Sort device and groups 
+
+Objc:
+
+```objc
+// orderList: [@"devId", @"groupId"]
+- (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
+	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
+        NSLog(@"sort device or group success");
+    } failure:^(NSError *error) {
+        NSLog(@"sort device or group failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
+    home.sortDeviceOrGroup(withOrderList: orderList, success: {
+        print("sort device or group success")
+    }, failure: { error in
+        if let error = error {
+            print("sort device or group failure: \(error)")
+        }
+    })
+}
+```
+
 ### Dismiss home
 
 Objc:

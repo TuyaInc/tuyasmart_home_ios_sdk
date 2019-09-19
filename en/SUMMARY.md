@@ -10,11 +10,8 @@
   - [Use Email for Login](./resource/User.md#use-email-for-login)
   - [Use uid for Login](./resource/User.md#use-uid-for-login)
   - [Third Party Login](./resource/User.md#third-party-login)
-  - [Modify nickname](./resource/User.md#modify-nickname)
-  - [Update timezone](./resource/User.md#update-timezone)
-  - [Update location](./resource/User.md#update-location)
-  - [Logout](./resource/User.md#logout)
-  - [Disable account](./resource/User.md#disable-account-deregister-user)
+  - [Modify User Info](./resource/User.md#modify-user-avatar)
+  - [Logout, Disable Account](./resource/User.md#logout)
   - [Handling of Expired Session](./resource/User.md#handling-of-expired-session)
 * Home management
   - [Home Management Class](./resource/Home.md#home-management)

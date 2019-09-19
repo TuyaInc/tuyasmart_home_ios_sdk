@@ -11,11 +11,8 @@
   - [邮箱账号体系](./resource/User.md#邮箱账号体系)
   - [用户uid登录体系](./resource/User.md#用户uid登录体系)
   - [第三方登录](./resource/User.md#第三方登录)
-  - [修改昵称](./resource/User.md#修改昵称)
-  - [更新用户时区](./resource/User.md#更新用户时区)
-  - [更新用户定位](./resource/User.md#更新用户定位)
-  - [登出](./resource/User.md#登出)
-  - [停用账号](./resource/User.md#停用账号（注销用户）)
+  - [修改用户信息](./resource/User.md#修改用户头像)
+  - [登出，注销账号](./resource/User.md#登出)
   - [Session过期的处理](./resource/User.md#session过期的处理)
 * 家庭管理
   * [家庭管理](./resource/Home.md#家庭管理)

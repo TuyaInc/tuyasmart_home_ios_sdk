@@ -666,6 +666,68 @@ func loginByTwitter() {
 }
 ```
 
+### 修改用户头像
+
+**接口描述**
+
+用于上传用户自定义的头像。
+
+Objc:
+
+```objc
+- (void)updateHeadIcon:(UIImage *)headIcon {
+	[[TuyaSmartUser sharedInstance] updateHeadIcon:headIcon success:^{
+		NSLog(@"update head icon success");
+	} failure:^(NSError *error) {
+		NSLog(@"update head icon failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func updateHeadIcon(_ headIcon: UIImage) {
+    TuyaSmartUser.sharedInstance()?.updateHeadIcon(headIcon, success: {
+        print("update head icon success")
+    }, failure: { (error) in
+        if let e = error {
+            print("update head icon failure: \(e)")
+        }
+    })
+}
+```
+
+### 设置用户温度单位
+
+**接口描述**
+
+设置温度单位是摄氏度还是华氏度
+
+```objc
+- (void)updateTempUnitWithTempUnit:(NSInteger)tempUnit {
+	[[TuyaSmartUser sharedInstance] updateTempUnitWithTempUnit:tempUnit success:^{
+		NSLog(@"update temp unit success");
+	} failure:^(NSError *error) {
+		NSLog(@"update temp unit failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func updateTempUnit(withTempUnit tempUnit: Int) {
+    TuyaSmartUser.sharedInstance().updateTempUnit(withTempUnit: tempUnit, success: {
+        print("update temp unit success")
+    }, failure: { error in
+        if let error = error {
+            print("update temp unit failure: \(error)")
+        }
+    })
+}
+```
+
 ### 修改昵称
 
 Objc:
@@ -725,7 +787,6 @@ func updateTimeZoneId(_ timeZoneId: String) {
 ```
 
 
-
 ### 更新用户定位
 
 如果有需要的话，定位信息可以通过以下接口上报：
@@ -751,6 +812,8 @@ func updateLocation() {
 
 
 ### 登出
+
+用户账号切换的时候需要调用退出登录接口
 
 Objc:
 

@@ -532,6 +532,68 @@ func loginByTwitter() {
 }
 ```
 
+### Modify User Avatar
+
+**Interface description**
+
+Used to upload user-defined avatars.
+
+Objc:
+
+```objc
+- (void)updateHeadIcon:(UIImage *)headIcon {
+	[[TuyaSmartUser sharedInstance] updateHeadIcon:headIcon success:^{
+		NSLog(@"update head icon success");
+	} failure:^(NSError *error) {
+		NSLog(@"update head icon failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func updateHeadIcon(_ headIcon: UIImage) {
+    TuyaSmartUser.sharedInstance()?.updateHeadIcon(headIcon, success: {
+        print("update head icon success")
+    }, failure: { (error) in
+        if let e = error {
+            print("update head icon failure: \(e)")
+        }
+    })
+}
+```
+
+### Set the Unit of Temperature
+
+**Interface description**
+
+Set the temperature in Celsius or Fahrenheit
+
+```objc
+- (void)updateTempUnitWithTempUnit:(NSInteger)tempUnit {
+	[[TuyaSmartUser sharedInstance] updateTempUnitWithTempUnit:tempUnit success:^{
+		NSLog(@"update temp unit success");
+	} failure:^(NSError *error) {
+		NSLog(@"update temp unit failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func updateTempUnit(withTempUnit tempUnit: Int) {
+    TuyaSmartUser.sharedInstance().updateTempUnit(withTempUnit: tempUnit, success: {
+        print("update temp unit success")
+    }, failure: { error in
+        if let error = error {
+            print("update temp unit failure: \(error)")
+        }
+    })
+}
+```
+
 ### Modify nickname
 
 Objc:
