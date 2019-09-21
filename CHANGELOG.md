@@ -1,5 +1,32 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 3.12.0(2019-09-21)
+
+- 功能变化
+
+  - 设备支持更新头像
+  - 支持wifi和蓝牙双模设备
+  - 支持子设备OTA
+  - 固件升级添加升级中的代理回调
+  - AP 配网优化
+  - 定时支持备注和推送功能
+  - 支持 SigMesh 设备
+  - bug 修复
+
+- Functional change
+
+  - Device Support Update Head Image
+
+  - Support Wifi and Bluetooth Dual-mode Devices
+
+  - Support sub device OTA
+
+  - firmware upgrade to add  callbacks in upgrading
+  - AP Distribution Network Optimization
+  - Timing support annotation and push function
+  - Support SigMesh Devices
+  - bug fixed
+
 ## 2.12.46(2019-07-22)
 
 - bug 修复，推送消息可分类开启
