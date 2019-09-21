@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  * 开始发现网关路由器
  *
  * @param devIds    Device Id list
- * @param type      Type
+ * @param type      Type,  0 to start discover device
  * @param timeout   Timeout, default 100 seconds
  * @param success   Success block
  * @param failure   Failure block

@@ -28,19 +28,12 @@ typedef NS_ENUM(NSInteger, TYEnv) {
  */
 + (instancetype)sharedInstance;
 
-/// Push token
-@property (nonatomic, strong) NSString *pushToken;
-
 /**
  *  Application group identifier
  *  If you want to use the SDK in app extension, set `appGroupId` before SDK initialized both in app & app extension.
  *  如果需要开发APP Extension，请在初始化SDK的时候设置 appGroupId
  */
 @property (nonatomic, strong) NSString *appGroupId;
-
-/// Debug mode
-/// 调试模式
-@property (nonatomic, assign) BOOL debugMode;
 
 /// Latitude of the loaction
 @property (nonatomic, assign) double latitude;
@@ -106,6 +99,12 @@ typedef NS_ENUM(NSInteger, TYEnv) {
 
 
 @interface TuyaSmartSDK (PushNotification)
+
+/// Push token
+@property (nonatomic, strong) NSString *pushToken DEPRECATED_MSG_ATTRIBUTE("Use +[TuyaSmartSDK sharedInstance].deviceToken instead.");
+
+/// Push deviceToken
+@property (nonatomic, strong) NSData *deviceToken;
 
 /**
  *  Get notification push status
@@ -186,9 +185,6 @@ typedef NS_ENUM(NSInteger, TYEnv) {
 - (void)setNoticePushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure;
 
 @end
-
-
-void TYLog(NSString *format, ...) NS_FORMAT_FUNCTION(1,2);
 
 NS_ASSUME_NONNULL_END
 

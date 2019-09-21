@@ -55,6 +55,17 @@
                        success:(void(^)(NSArray<TuyaSmartSceneModel *> *list))success
                        failure:(TYFailureError)failure;
 
+/**
+ * 获取家庭的推荐场景列表
+ * Get recommended scene list.
+ *
+ * @param homeId      homeId
+ * @param success  操作成功回调, 返回场景列表  success callback
+ * @param failure     failure callback
+ */
+- (void)getRecommendedSceneListWithHomeId:(long long)homeId
+                       success:(void(^)(NSArray<TuyaSmartSceneModel *> *list))success
+                       failure:(TYFailureError)failure;
 
 /**
  * 获取自动化支持的气象条件列表

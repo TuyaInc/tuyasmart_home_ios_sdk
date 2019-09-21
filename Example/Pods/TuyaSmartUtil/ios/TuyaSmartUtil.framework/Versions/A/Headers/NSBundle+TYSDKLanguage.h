@@ -8,8 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define TYSDKLocalizedString(key, comment) \
+    [NSBundle tysdk_localizedStringForKey:(key) value:@"" table:nil]
+
 @interface NSBundle (TYSDKLanguage)
 
 + (NSString *)tysdk_getAppleLanguages;
+
++ (NSString *)tysdk_localizedStringForKey:(NSString *)key value:(NSString *)value table:(NSString *)tableName;
 
 @end

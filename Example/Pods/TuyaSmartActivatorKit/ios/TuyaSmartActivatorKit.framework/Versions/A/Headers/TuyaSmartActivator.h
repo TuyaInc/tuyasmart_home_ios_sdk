@@ -56,7 +56,7 @@ typedef enum : NSUInteger {
 @interface TuyaSmartActivator : NSObject
 
 /**
- Single
+ Singleton
  单例
 
  @return instance
@@ -64,18 +64,34 @@ typedef enum : NSUInteger {
 + (instancetype)sharedInstance;
 
 /**
- Get the SSID name of the current Wifi
- 获取当前Wifi的SSID名称
-
- @return wifi ssid
+ Get the SSID of the current Wi-Fi
+ 获取当前 Wi-Fi 的 SSID
+ 
+ @discussion To use this function in iOS 12 and later, enable the Access WiFi Information capability for your app in Xcode.
+ To use this function in iOS 13 and later, must also meet at least one of criteria below:
+    - Apps with permission to access location
+    - Currently enabled VPN app
+    - NEHotspotConfiguration (only Wi-Fi networks that the app configured)
+ 
+ 从 iOS 12 开始，调用该函数将默认返回 nil，需要在 Xcode 项目中开启「Access WiFi Information」后才会返回正确的值。这个功能需要在开发者页面的 App IDs 中激活才能使用。
+ 从 iOS 13 开始，还需要符合下列三项条件中的至少一项：
+    - 获得了定位服务权限的应用；
+    - 目前正处于启用状态的 VPN 应用；
+    - 使用 NEHotspotConfiguration（仅支援通过应用配置的 Wi-Fi 网路）。
+ 
+ @see https://developer.apple.com/videos/play/wwdc2019/713/
+ 
+ @return Wi-Fi SSID
  */
 + (NSString *)currentWifiSSID;
 
 /**
- Get the BSSID name of the current Wifi
- 获取当前Wifi的BSSID名称
-
- @return wifi bssid
+ Get the BSSID of the current Wi-Fi
+ 获取当前 Wi-Fi 的 BSSID
+ 
+ @discussion See +[TuyaSmartActivator currentWifiSSID];
+ 
+ @return Wi-Fi BSSID
  */
 + (NSString *)currentWifiBSSID;
 

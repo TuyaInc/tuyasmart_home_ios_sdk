@@ -73,6 +73,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)stopListening:(BOOL)clearCache;
 
+/**
+ 连接设备
+ 
+ @param uuid 设备 uuid
+ @param productKey 产品 key
+ @param success 成功回调
+ @param failure 失败回调
+ */
+- (void)connectBLEWithUUID:(NSString *)uuid
+                productKey:(NSString *)productKey
+                   success:(TYSuccessHandler)success
+                   failure:(TYFailureHandler)failure;
+
 
 /**
  查询设备名称
@@ -102,7 +115,8 @@ NS_ASSUME_NONNULL_BEGIN
                    homeId:(long long)homeId
                productKey:(NSString *)productKey
                   success:(void(^)(TuyaSmartDeviceModel *deviceModel))success
-                  failure:(TYFailureHandler)failure;
+                  failure:(TYFailureHandler)failure __deprecated_msg("This method is deprecated, Use -[TuyaSmartBLEManager -  startActiveBLE:homeId:success:failure] instead");
+
 
 /**
  激活设备，设备 uuid 来源于搜索发现的设备

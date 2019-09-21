@@ -36,6 +36,8 @@
 #import "TuyaSmartRoom.h"
 #import "TuyaSmartHomeDeviceShare.h"
 
+#import "TuyaSmartHomeMemberModel.h"
+#import "TuyaSmartHomeMemberRequestModel.h"
 #import "TuyaSmartBleMeshModel.h"
 #import "TuyaSmartSingleTransfer.h"
 

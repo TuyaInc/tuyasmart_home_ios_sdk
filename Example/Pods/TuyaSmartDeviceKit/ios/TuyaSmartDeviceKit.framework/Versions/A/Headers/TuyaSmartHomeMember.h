@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "TuyaSmartHomeMemberModel.h"
+#import "TuyaSmartHomeMemberRequestModel.h"
 
 @interface TuyaSmartHomeMember : NSObject
 
@@ -114,7 +115,20 @@
                                  headPic:(UIImage *)headPic
                                  isAdmin:(BOOL)isAdmin
                                  success:(TYSuccessHandler)success
-                                 failure:(TYFailureError)failure;
+                                 failure:(TYFailureError)failure  __deprecated_msg("This method will be deprecated and remove, Use [TuyaSmartHomeMember - (void)updateHomeMemberInfoWithMemberRequestModel:success:failure:]");
+
+
+/**
+ Update home member info
+ 修改家庭成员信息
+
+ @param memberRequestModel request model, Set the corresponding property
+ @param success            success callback
+ @param failure            failure callcack
+ */
+- (void)updateHomeMemberInfoWithMemberRequestModel:(TuyaSmartHomeMemberRequestModel *)memberRequestModel
+                                           success:(TYSuccessHandler)success
+                                           failure:(TYFailureError)failure;
 
 /**
  *  Update home member note name

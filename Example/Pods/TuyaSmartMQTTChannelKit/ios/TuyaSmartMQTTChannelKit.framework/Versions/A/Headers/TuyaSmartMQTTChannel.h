@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "TuyaSmartMQTTConfigModel.h"
 
-#define TPMQTTQOS MQTTQosLevelAtLeastOnce
-
 @interface TuyaSmartPublishMessageModel : NSObject
 
 @property (nonatomic, strong) NSString          *devId;
@@ -126,11 +124,12 @@ typedef NS_ENUM (NSInteger, TuyaSmartMqttConnectState){
  *  @param topic   Topic
  *  @param success Success block
  *  @param failure Failure block
+ *  @return the Message Identifier of the publish message. Zero if qos 0. If qos 1 or 2, zero was publish faliure
  */
-- (void)publishMessage:(NSData *)data
-                 topic:(NSString *)topic
-               success:(TYSuccessHandler)success
-               failure:(TYFailureError)failure;
+- (UInt16)publishMessage:(NSData *)data
+                   topic:(NSString *)topic
+                 success:(TYSuccessHandler)success
+                 failure:(TYFailureError)failure;
 
 /**
  *  推送mqtt消息

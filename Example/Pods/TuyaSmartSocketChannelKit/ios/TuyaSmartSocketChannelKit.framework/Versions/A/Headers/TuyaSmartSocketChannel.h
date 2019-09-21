@@ -13,6 +13,7 @@
 // 协议
 #define SOCKET_TYPE_BROADCAST             0x00
 #define SOCKET_TYPE_BROADCAST_V4          0x13
+#define SOCKET_TYPE_AP_ERROR              0x15
 #define SOCKET_TYPE_AP_CONFIG             0x01
 #define SOCKET_TYPE_AP_ACTIVATE           0x02
 #define SOCKET_TYPE_DP_PUBLISH            0x07
@@ -27,6 +28,8 @@
 #define SOCKET_TYPE_ACTIVE_SUBDEV         0x0e
 #define SOCKET_TYPE_QUERY_CAD_DEV_INFO    0x10
 #define SOCKET_TYPE_INITIATIVE_QUERY_DPS  0x12
+#define SOCKET_TYPE_AP_CONFIG             0x01
+#define SOCKET_TYPE_AP_CONFIG_NEW         0x14
 
 @class TuyaSmartSocketChannel;
 
@@ -57,8 +60,6 @@
 @end
 
 @interface TuyaSmartSocketChannel : NSObject
-
-@property (nonatomic, weak) id<TuyaSmartSocketChannelDelegate> delegate;
 
 + (instancetype)sharedInstance;
 
@@ -91,10 +92,21 @@
 #pragma mark - UDP
 
 // init UDP serve
-- (void)initUdpServer;
+- (void)initUdpServerWithPort:(NSInteger)port;
+
+// send UDP message
+- (void)sendUdpRequestWithHost:(NSString *)host port:(NSInteger)port type:(int)type body:(NSDictionary *)body success:(TYSuccessHandler)success failure:(TYFailureHandler)failure;
 
 // close UDP serve
-- (void)closeUdpServer;
+- (void)closeUdpServerWithPort:(uint16_t)port;
+
+#pragma mark - Delegate
+
+// add socket channel delegate
+- (void)addDelegate:(id<TuyaSmartSocketChannelDelegate>)delegate;
+
+// remove socket channel delegate
+- (void)removeDelegate:(id<TuyaSmartSocketChannelDelegate>)delegate;
 
 @end
 

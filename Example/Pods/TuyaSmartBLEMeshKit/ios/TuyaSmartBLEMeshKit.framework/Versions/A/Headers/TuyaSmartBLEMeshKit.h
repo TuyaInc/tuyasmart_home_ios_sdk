@@ -22,4 +22,9 @@
 #import "TYBleMeshDeviceModel.h"
 #import "TYBLEMeshManager.h"
 
+#import "TuyaSmartBleMesh+SIGMesh.h"
+#import "TuyaSmartHome+SIGMesh.h"
+#import "TuyaSmartSIGMeshManager.h"
+#import "TuyaSmartSIGMeshDiscoverDeviceInfo.h"
+
 #endif /* TuyaSmartBLEMeshKit_h */

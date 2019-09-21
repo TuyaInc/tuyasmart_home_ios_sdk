@@ -12,7 +12,6 @@
 //error domain
 #define kCBErrorDomain @"CoreBLEErrorDomain"
 
-#define kCBErrorCentralBLEStateError                    396
 #define kCBErrorCentralDidNotFindService                397
 #define kCBErrorCentralDidNotFindCharacteristic         398
 #define kCBErrorCentralDidNotFindPeripheral             399
@@ -28,10 +27,9 @@
 #define kCBErrorPeripheralReadingDataOutofBounds        409
 #define kCBErrorCentralDisConnectionTimeoutCode         410
 
-#define kCBErrorCentralStatePoweredOff                  440
-#define kCBErrorCentralStateUnknown                     441
-#define kCBErrorCentralStateUnauthorized                442
-#define kCBErrorCentralStateUnsupported                 443
+#define kCBErrorPeripheralIsNil                         440
+#define kCBErrorCenteralStateNotPoweredOn               450
+
 
 
 

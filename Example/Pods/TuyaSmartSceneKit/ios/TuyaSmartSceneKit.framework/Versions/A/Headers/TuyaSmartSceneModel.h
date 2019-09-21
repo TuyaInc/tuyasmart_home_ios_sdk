@@ -14,9 +14,15 @@
 
 
 typedef enum : NSUInteger {
-    TuyaSmartConditionMatchAny = 1,        //满足任一条件
-    TuyaSmartConditionMatchAll      //满足所有条件
+    TuyaSmartConditionMatchAny = 1,        //满足任一条件/any condition matched will execute the scene.
+    TuyaSmartConditionMatchAll      //满足所有条件//all conditions matched
 } TuyaSmartConditionMatchType;
+
+typedef enum : NSUInteger {
+    TuyaSmartSceneRecommendTypeNone,        //不是推荐场景/This not a recommend scene.
+    TuyaSmartSceneRecommendTypeScene,       //推荐的场景类型/This is a normal recommended scene.
+    TuyaSmartSceneRecommendTypeAutomation   //推荐的自动化场景类型//This is a recommended automatic scene.
+} TuyaSmartSceneRecommendType;
 
 /**
  * 场景Model, 有conditons的场景称为自动化。
@@ -129,5 +135,12 @@ typedef enum : NSUInteger {
  * New version of local scene, can be triggered via tcp or mqtt protocol to make zigbee gateway execute this scene.This property is assigned by Tuya cloud server.
  */
 @property (nonatomic, assign) BOOL newLocalScene;
+
+
+/**
+ * 推荐场景类型
+ * Recommend type.
+ */
+@property (nonatomic, assign) TuyaSmartSceneRecommendType recommendType;
 
 @end

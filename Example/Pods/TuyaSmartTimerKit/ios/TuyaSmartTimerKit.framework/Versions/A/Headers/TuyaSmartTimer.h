@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSString *loops;
 @property (nonatomic, strong) NSDictionary *dps;
 @property (nonatomic, strong) NSString *timezoneId;
+@property (nonatomic, copy)   NSString *aliasName;
+@property (nonatomic, assign) BOOL     isAppPush;
 
 @end
 
@@ -43,6 +45,8 @@
  *  @param time         定时任务下的定时钟
  *  @param dps          命令字典
  *  @param timeZone     设备的时区 +08:00，如果没有取手机时区
+ *  @param isAppPush    是否开启推送
+ *  @param aliasName    备注
  *  @param success     Success block
  *  @param failure     Failure block
  */
@@ -52,6 +56,8 @@
                     time:(NSString *)time
                      dps:(NSDictionary *)dps
                 timeZone:(NSString *)timeZone
+               isAppPush:(BOOL)isAppPush
+               aliasName:(NSString *)aliasName
                  success:(TYSuccessHandler)success
                  failure:(TYFailureError)failure;
 
@@ -123,6 +129,8 @@
  *  @param time         定时任务下的定时钟
  *  @param dps          命令字典
  *  @param timeZone     时区 +08:00
+ *  @param isAppPush    是否开启推送
+ *  @param aliasName    备注
  *  @param success     Success block
  *  @param failure     Failure block
  */
@@ -133,6 +141,8 @@
                        time:(NSString *)time
                         dps:(NSDictionary *)dps
                    timeZone:(NSString *)timeZone
+                  isAppPush:(BOOL)isAppPush
+                  aliasName:(NSString *)aliasName
                     success:(TYSuccessHandler)success
                     failure:(TYFailureError)failure;
 

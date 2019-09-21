@@ -19,7 +19,7 @@
 // 设备类型文案
 @property (nonatomic, strong) NSString *typeDesc;
 
-//0:无新版本 1:有新版本 2:在升级中
+//0:无新版本 1:有新版本 2:在升级中 5:等待设备唤醒
 @property (nonatomic, assign) NSInteger upgradeStatus;
 
 //新版本使用的固件版本
@@ -45,7 +45,7 @@
 //固件的md5
 @property (nonatomic, strong) NSString *md5;
 
-//固件包的size
+//固件包的size, byte
 @property (nonatomic, strong) NSString *fileSize;
 
 //上次升级时间
@@ -53,6 +53,9 @@
 
 //固件发布时间
 @property (nonatomic, assign) long long firmwareDeployTime;
+
+// 升级设备是否可控,0可控 1不可控
+@property (nonatomic, assign) BOOL controlType;
 
 @end
 

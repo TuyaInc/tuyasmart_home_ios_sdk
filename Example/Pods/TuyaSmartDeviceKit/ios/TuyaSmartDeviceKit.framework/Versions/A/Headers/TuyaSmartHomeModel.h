@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef NS_ENUM(NSUInteger, TYHomeStatus) {
-    TYHomeStatusPending = 1,
-    TYHomeStatusAccept,
-    TYHomeStatusReject
-};
+#import "TuyaSmartDeviceModelUtils.h"
 
 @interface TuyaSmartHomeModel : NSObject
 
@@ -39,6 +34,9 @@ typedef NS_ENUM(NSUInteger, TYHomeStatus) {
 
 // admin or not
 @property (nonatomic, assign) BOOL admin;
+
+// admin or not
+//@property (nonatomic, assign) TYHomeRoleType role;
 
 // state of deal
 @property (nonatomic, assign) TYHomeStatus dealStatus;

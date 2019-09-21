@@ -15,47 +15,83 @@
 typedef void(^TYBLEAgentCentralNotifyCallback)(NSData *data, NSError *error);
 typedef void(^TYBLEAgentCentralReadCallback)(NSData *data, NSError *error);
 typedef void(^TYBLEAgentCentralWriteCallback)(NSError *error);
-typedef void(^TYBLEAgentCentralDiscoverCallback)(NSArray<TYBLEPeripheral *> *peripherals, NSError *error);
-typedef void(^TYBLEAgentCentralConnectionCallback)(TYBLEPeripheral* peripheral,NSError* error) ;
+typedef void(^TYBLEAgentCentralDiscoverCallback)(TYBLEPeripheral *peripheral, NSError *error);
+typedef void(^TYBLEAgentCentralConnectionCallback)(TYBLEPeripheral *peripheral, NSError *error) ;
+
+typedef NS_ENUM(int, TYBLEAgentRole)
+{
+    kTYBLEAgentDiscovery    = 0x01, // 扫描
+    kTYBLEAgentSession      = 0x10, // 通信
+    kTYBLEAgentBoth         = 0x11, // 扫描 + 通信
+};
+
 
 @protocol TYBLEAgent <NSObject>
 
 @optional
 
-- (void)onCentralDidDisconnecteFromPeripheral:(TYBLEPeripheral*)peripheral;
+- (void)onCentralDidDisconnecteFromPeripheral:(TYBLEPeripheral *)peripheral;
+- (void)onCentralDidUpdateState:(BOOL)isPoweredOn;
+- (void)onBLECentralDidUpdateState:(TYBLECentralManagerState)state;
 
 @end
-typedef NS_ENUM(int, TYBLEAgentRole)
-{
-    kTYBLEAgentPeripheral = 0,
-    kTYBLEAgentCentral = 1,
-    kTYBLEAgentBoth = 2,
-};
 
 
 @interface TYBLEAgent : NSObject
 
 @property (nonatomic, assign, readonly) TYBLEAgentRole role;
-@property (nonatomic, assign) id<TYBLEAgent> delegate;
-@property (nonatomic, strong) TYBLECentralManager* cManager;
+
+@property (nonatomic, copy, readonly) BOOL(^scanFilter)(NSDictionary *advertisementData, NSNumber *rssi);
+
+/**
+ *  蓝牙是否打开
+ */
+@property (nonatomic, assign, readonly) BOOL isPoweredOn;
+
+/**
+ 添加代理
+ 
+ @param delegate 代理
+ */
+- (void)addDelegate:(id<TYBLEAgent>)delegate;
+
+/**
+ 移除代理
+ 
+ @param delegate 代理
+ */
+- (void)removeDelegate:(id<TYBLEAgent>)delegate;
 
 
-
-- (instancetype)initWithType:(TYBLEAgentRole)role;
+//- (instancetype)initWithType:(TYBLEAgentRole)role;
 
 ////////////////////////////////////////////////////////////////////////////////////
 #pragma mark - central  methods
 
 /**
- *  发现周围的BLE设备
- *
- *  @param aCharacteristic 特征UUID
- *  @param aService        服务UUID
- *  @param aCallback       回调
+ 发现周围的BLE设备
+
+ @param services 服务UUIDs
+ @param options 扫描参数
+ @param scanFilter 扫描过滤条件
+ @param aCallback 扫描符合条件的设备回调
  */
-- (void)discoverCharactUUID:(NSString *)aCharacteristic
-                serviceUUID:(NSString *)aService
+- (void)discoverServiceUUID:(NSArray<NSString *> *)services
+                    options:(NSDictionary<NSString *,id> *)options
+                 scanFilter:(BOOL(^)(NSDictionary *advertisementData, NSNumber *rssi))scanFilter
                  completion:(TYBLEAgentCentralDiscoverCallback)aCallback;
+
+
+/**
+ 发现周围的BLE设备
+
+ @param scanFilter 扫描过滤条件
+ @param aCallback 扫描符合条件的设备回调
+ */
+- (void)discoverWithScanFilter:(BOOL(^)(NSDictionary *advertisementData, NSNumber *rssi))scanFilter
+                    completion:(TYBLEAgentCentralDiscoverCallback)aCallback;
+
+
 /**
  *  停止扫描
  */
@@ -69,7 +105,7 @@ typedef NS_ENUM(int, TYBLEAgentRole)
  *  @param aService        服务UUID
  *  @param aCallback       回调
  */
-- (void)connectPeripheral:(TYBLEPeripheral*)peripheral
+- (void)connectPeripheral:(TYBLEPeripheral *)peripheral
               CharactUUID:(NSString *)aCharacteristic
               serviceUUID:(NSString *)aService
                completion:(TYBLEAgentCentralConnectionCallback)aCallback;
@@ -83,18 +119,36 @@ typedef NS_ENUM(int, TYBLEAgentRole)
  *  @param timeout         超时
  *  @param aCallback       回调
  */
-- (void)connectPeripheral:(TYBLEPeripheral*)peripheral
+- (void)connectPeripheral:(TYBLEPeripheral *)peripheral
               CharactUUID:(NSString *)aCharacteristic
               serviceUUID:(NSString *)aService
                   timeout:(NSTimeInterval)timeout
                completion:(TYBLEAgentCentralConnectionCallback)aCallback;
 
 /**
- *  断开链接的BLE设备
+ *  断开连接的BLE设备
  *
- *  @param peripheral 链接的BLE设备
+ *  @param peripheral 连接的BLE设备
  */
-- (void)disconnectPeripheral:(TYBLEPeripheral*)peripheral;
+- (void)disconnectPeripheral:(TYBLEPeripheral *)peripheral;
+
+/**
+ 断开连接的BLE设备
+
+ @param peripheral 连接的BLE设备
+ @param timeout 断开超时
+ */
+- (void)disconnectPeripheral:(TYBLEPeripheral *)peripheral timeout:(NSTimeInterval)timeout;
+
+/**
+ 断开链连接的BLE设备
+
+ @param peripheral 链接的BLE设备
+ @param aCallback 回调
+ */
+- (void)disconnectPeripheral:(TYBLEPeripheral *)peripheral
+                  completion:(TYBLEAgentCentralConnectionCallback)aCallback
+                     timeout:(NSTimeInterval)timeout;
 
 /**
  *  向BLE设备写数据
@@ -110,6 +164,7 @@ typedef NS_ENUM(int, TYBLEAgentRole)
       charactUUID:(NSString *)aCharacteristic
       serviceUUID:(NSString *)aService
        completion:(TYBLEAgentCentralWriteCallback)aCallback;
+
 /**
  *  从BLE设备读数据
  *
@@ -122,6 +177,7 @@ typedef NS_ENUM(int, TYBLEAgentRole)
                     CharactUUID:(NSString *)aCharacteristic
                     serviceUUID:(NSString *)aService
                      completion:(TYBLEAgentCentralReadCallback)aCallback;
+
 /**
  *  接受BLE设备Push来的数据
  *
@@ -136,5 +192,6 @@ typedef NS_ENUM(int, TYBLEAgentRole)
        CharactUUID:(NSString *)aCharacteristic
        serviceUUID:(NSString *)aService
         completion:(TYBLEAgentCentralNotifyCallback)aCallback;
+
 
 @end

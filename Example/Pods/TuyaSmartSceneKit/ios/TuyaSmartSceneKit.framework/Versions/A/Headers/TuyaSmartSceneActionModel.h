@@ -71,7 +71,7 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  * 任务执行属性 如："dpIssue","ruleTrigger","ruleEnable","ruleDisable"
  * "dpIssue" 执行设备
  * "deviceGroupDpIssue" 执行群组
- * "irIssue" 执行红外设备（执行参数为dp点）
+ * "irIssue" 执行红外设备
  * "irIssueVii" 执行红外设备（执行参数为真实红外控制码）
  * "ruleTrigger" 触发场景
  * "ruleEnable"  启用场景
@@ -80,7 +80,7 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  * The action type, can be the followed types:
  * "dpIssue" :execute a device action.
  * "deviceGroupDpIssue": execute a group action.
- * "irIssue": execete a infrared device, like a air conditoner which is controled by a remote control.ExecutorProperty is dp value.
+ * "irIssue": execete a infrared device, like a air conditoner which is controled by a remote control.
  * "irIssueVii": execete a infrared device, like a air conditoner which is controled by a remote control.ExecutorProperty is real infrared ray remotes control code.
  * "ruleTrigger": execute a scene.
  * "ruleEnable":  Enable an automation.

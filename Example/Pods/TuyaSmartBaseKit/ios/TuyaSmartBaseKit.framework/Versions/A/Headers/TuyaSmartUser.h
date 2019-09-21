@@ -586,6 +586,17 @@ DEPRECATED_MSG_ATTRIBUTE("use loginOrRegisterWithCountryCode:uid:password:create
                              success:(nullable TYSuccessHandler)success
                              failure:(nullable TYFailureError)failure;
 
+/**
+ *  Edit user temperature unit
+ *  更新用户温度单位
+ *
+ *  @param tempUnit   Temperature unit. 1 for `°C`, 2 for `°F`.
+ *  @param success    Success block
+ *  @param failure    Failure block
+ */
+- (void)updateTempUnitWithTempUnit:(NSInteger)tempUnit
+                           success:(nullable TYSuccessHandler)success
+                           failure:(nullable TYFailureError)failure;
 
 /**
  *  Destory account. One week after, all of the account information will be removed from server forever. If you login before removed, the destory request will be canceled.

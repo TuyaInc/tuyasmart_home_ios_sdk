@@ -82,6 +82,15 @@ typedef enum : NSUInteger {
 - (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device type:(NSInteger)type;
 
 /**
+ *  Device firmware upgrading
+ *  固件升级中代理回调
+ *
+ *  @param device instance
+ *  @param type   device type
+ */
+- (void)deviceFirmwareUpgrading:(TuyaSmartDevice *)device type:(NSInteger)type;
+
+/**
  *  Firmware upgrade progress.
  *  固件升级进度
  *
@@ -117,7 +126,6 @@ typedef enum : NSUInteger {
  *  @param warningInfo  warning info
  */
 - (void)device:(TuyaSmartDevice *)device warningInfoUpdate:(NSDictionary *)warningInfo;
-
 
 @end
 
@@ -189,6 +197,18 @@ typedef enum : NSUInteger {
  *  @param failure Failure block
  */
 - (void)updateName:(NSString *)name success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+
+/**
+ *  Edit device icon.
+ *  修改设备图片
+ *
+ *  @param icon     icon
+ *  @param success  Success block
+ *  @param failure  Failure block
+ */
+- (void)updateIcon:(UIImage *)icon
+           success:(nullable TYSuccessHandler)success
+           failure:(nullable TYFailureError)failure;
 
 /**
  *  Sync device information.

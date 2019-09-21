@@ -41,7 +41,7 @@
  *
  *  @param home instance
  */
-- (void)homeDidUpdateRoomInfo:(TuyaSmartHome *)home;__deprecated_msg("Use -[TuyaSmartHomeDelegate home:didAddRoom:] or [TuyaSmartHomeDelegate home:didRemoveRoom:] instead.");
+- (void)homeDidUpdateRoomInfo:(TuyaSmartHome *)home __deprecated_msg("Use -[TuyaSmartHomeDelegate home:didAddRoom:] or [TuyaSmartHomeDelegate home:didRemoveRoom:] instead.");
 
 /**
  *  the delegate when a new room is added.
@@ -125,6 +125,16 @@
  *  @param warningInfo  warning Info
  */
 - (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device warningInfoUpdate:(NSDictionary *)warningInfo;
+
+/**
+ *  the delegate of device firmware upgrade status update
+ *  家庭下设备升级状态的回调
+ *
+ *  @param home           instance
+ *  @param device         deviceModel
+ *  @param upgradeStatus  upgrade status
+ */
+- (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device upgradeStatus:(TuyaSmartDeviceUpgradeStatus)upgradeStatus;
 
 /**
  *  the delegate when a new group is added.

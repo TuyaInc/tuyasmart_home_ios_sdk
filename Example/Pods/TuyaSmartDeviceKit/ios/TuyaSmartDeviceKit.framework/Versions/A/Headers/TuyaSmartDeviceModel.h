@@ -11,6 +11,7 @@
 
 #import "TuyaSmartSchemaModel.h"
 #import "TuyaSmartDeviceModuleModel.h"
+#import "TuyaSmartStandSchemaModel.h"
 
 typedef enum : NSUInteger {
     
@@ -156,6 +157,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) long         errorCode;
 
 @property (nonatomic, assign) TuyaSmartDeviceModelType deviceType;
+@property (nonatomic, assign) BOOL         upgrading;
 
 @property (nonatomic, strong) NSDictionary *originJson;
 
@@ -182,6 +184,9 @@ typedef enum : NSUInteger {
 // sig mesh dev key
 @property (nonatomic, strong) NSString     *devKey;
 
+/// 是否标准化
+@property (nonatomic, assign) BOOL standard;
+@property (nonatomic, strong) TuyaSmartStandSchemaModel *standSchemaModel;
 @end
 
 #endif

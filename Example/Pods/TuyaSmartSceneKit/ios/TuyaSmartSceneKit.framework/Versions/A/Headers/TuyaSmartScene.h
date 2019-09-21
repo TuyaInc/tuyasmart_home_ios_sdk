@@ -185,5 +185,36 @@
  */
 - (void)cancelRequest;
 
+#pragma mark - Recommend scene
+
+/**
+ * 执行一个推荐场景
+ * Execute a recommended scene.
+ *
+ * @param homeId    homeId
+ * @param success    success callback
+ * @param failure    failure callback
+ */
+- (void)triggerRecommendSceneWithHomeId:(long long)homeId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+
+/**
+ * 删除一个推荐场景
+ * Delete a recommended scene.
+ *
+ * @param homeId    homeId
+ * @param success    success callback
+ * @param failure    failure callback
+ */
+- (void)removeRecommendSceneWithHomeId:(long long)homeId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+
+/**
+ * 保存一个推荐场景，推荐场景可以在推荐的基础上做修改，保存成功后会变成普通场景，同时被保存的推荐场景也不再推荐。
+ * Save a recommended scene, this scene can be modified by user. this scene will become a normal scene after save successfully, and the recommended scene will not show anymore.
+ *
+ * @param homeId    homeId
+ * @param success    success callback
+ * @param failure    failure callback
+ */
+- (void)saveRecommendSceneWithHomeId:(long long)homeId success:(void (^)(TuyaSmartSceneModel *sceneModel))success failure:(TYFailureError)failure;
 
 @end

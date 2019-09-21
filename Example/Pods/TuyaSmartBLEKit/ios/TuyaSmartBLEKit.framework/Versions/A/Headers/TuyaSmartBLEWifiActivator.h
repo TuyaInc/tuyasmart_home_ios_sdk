@@ -51,16 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
                                  success:(TYSuccessHandler)success
                                  failure:(TYFailureHandler)failure;
 
-
-///**
-// * start discover device
-// * 开始发现设备
-// *
-// * @param timeout 超时时间
-// */
-//- (void)startDiscoverWithTimeout:(NSTimeInterval)timeout;
-//
-
 /**
  * stop discover device
  * 停止发现设备

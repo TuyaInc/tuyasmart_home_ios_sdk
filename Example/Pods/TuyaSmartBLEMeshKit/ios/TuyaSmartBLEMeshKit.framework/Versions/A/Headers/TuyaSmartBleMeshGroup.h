@@ -23,7 +23,7 @@
 /// Group Response of Zigbee Devices removing Gateway
 /// 1: Over the Scenario Limit 2: Subdevice Timeout 3: Setting Value Out of Range 4: Write File Error 5: Other Errors
 - (void)meshGroup:(TuyaSmartBleMeshGroup *)group removeResponseCode:(NSArray <NSNumber *> *)responseCode;
-
+  
 @end
 
 @interface TuyaSmartBleMeshGroup : NSObject
@@ -131,5 +131,34 @@
  */
 - (void)getDeviveListInfoWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *deviceList))success failure:(TYFailureError)failure;
 
+
+@end
+
+#pragma mark - SIG Mesh
+
+@interface TuyaSmartBleMeshGroup (SIGMesh)
+
+/**
+ 通过 sig mesh 网关添加 sig mesh 子设备群组
+ 需要保证子设备的关系归属在在 sig mesh 网关下
+
+ @param subList 待操作的网关下子设备
+ @param success 操作成功回调
+ @param failure 操作失败回调
+ */
+- (void)addSubDeviceWithSubList:(NSArray<TuyaSmartDeviceModel *> * _Nonnull )subList success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+
+/**
+ 通过 sig mesh 网关删除 sig mesh 子设备群组
+ 需要保证子设备的关系归属在在 sig mesh 网关下
+
+ @param subList 待操作的网关下子设备
+ @param success 操作成功回调
+ @param failure 操作失败回调
+ */
+- (void)removeSubDeviceWithSubList:(NSArray<TuyaSmartDeviceModel *> * _Nonnull )subList success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+
+
+- (void)publishDps:(NSDictionary *)dps success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
 
 @end
