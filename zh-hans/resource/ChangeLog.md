@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.12.0(2019-09-21)
+
+- 功能变化
+  - 设备支持更新头像
+  - 支持wifi和蓝牙双模设备
+  - 支持子设备OTA
+  - 固件升级添加升级中的代理回调
+  - AP 配网优化
+  - 定时支持备注和推送功能
+  - 支持 SigMesh 设备
+  - bug 修复
+
 ## 2.12.46(2019-07-22)
 
 - bug 修复，推送消息可分类开启
@@ -33,16 +45,14 @@ bug fixed
 TuyaSmartHomeKit iOS SDK functions split:
 
  - TuyaSmartUtil 
-    
+   
     - Utility classes, including category etc
     
-      
 - TuyaSmartBaseKit 
     - Account system (phone number, email registration, login, password reset)
     
     - HTTP API interface
     
-      
 - TuyaSmartDeviceKit
   -  Home, room, group, device manager
   -  network configuration
@@ -61,7 +71,7 @@ TuyaSmartHomeKit iOS SDK functions split:
   
   - Message center
 - TYBluetooth
-   
+  
    - Bluetooth base 
 - TuyaSmartBLEKit
   

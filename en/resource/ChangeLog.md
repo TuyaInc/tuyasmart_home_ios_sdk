@@ -1,5 +1,20 @@
 # Change Log
 
+## 3.12.0(2019-09-21)
+
+- Functional change
+
+  - Device Support Update Head Image
+  - Support Wifi and Bluetooth Dual-mode Devices
+
+  - Support sub device OTA
+
+  - firmware upgrade to add  callbacks in upgrading
+  - AP Distribution Network Optimization
+  - Timing support annotation and push function
+  - Support SigMesh Devices
+  - bug fixed
+
 ## 2.12.46(2019-07-22)
 
 - bug 修复，推送消息可分类开启
