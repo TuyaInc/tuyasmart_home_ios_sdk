@@ -229,3 +229,162 @@ func group(_ group: TuyaSmartGroup!, dpsUpdate dps: [AnyHashable : Any]!) {
   // TODO: update group panel UI here
 }
 ```
+
+### Zigbee Group
+
+The ZigBee  group requires that all devices belong to the same gateway and cannot cross the gateway.
+
+#### Create Zigbee groups
+
+Objc:
+
+```objc
+- (void)createNewGroup {
+    
+    [TuyaSmartGroup createGroupWithName:@"your_group_name" homeId:homeID gwId:@"gwId" productId:@"your_group_product_id" success:^(TuyaSmartGroup *group) {
+        NSLog(@"create new group success %@:", group); 
+    } failure:^(NSError *error) {
+        NSLog(@"create new group failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func createNewGroup() {
+    TuyaSmartGroup.createGroup(withName: "your_group_name", homeId: homeId, gwId: "gwId" productId: "your_group_product_id", success: { (group) in
+        print("create new group success: \(group)")
+    }) { (error) in
+        print("create new group failure")
+    }
+}
+```
+
+
+
+#### Get a list of devices supported by the ZigBee group
+
+Objc:
+
+```objc
+- (void)getGroupDevList {
+    
+    [TuyaSmartGroup getDevListWithProductId:@"your_group_product_id" gwId:@"gwId" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getGroupDevList() {
+    TuyaSmartGroup.getDevList(withProductId: "your_group_product_id", gwId: "gwId", homeId: hoemId, success: { (list) in
+        print("get group dev list success \(list)")
+    }) { (error) in
+        print("get group dev list failure")
+    }
+}
+```
+
+
+#### Add devices to the ZigBee group
+
+Objc:
+
+```objc
+- (void)addDevice {
+//    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
+    [self.smartGroup addZigbeeDeviceWithNodeList:@[@"nodeId1", @"nodeId2"]  success:^() {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func addDevice() {
+    martGroup.addZigbeeDevice(withNodeList: ["nodeId1", "nodeId2"], success: {
+        print("add device success")
+    }) { (error) in
+        print("add device failure")
+    }
+}
+```
+
+
+
+
+#### Remove devices from ZigBee groups
+
+Objc:
+
+```objc
+- (void)removeDevice {
+    
+    [self.smartGroup removeZigbeeDeviceWithNodeList:@[@"nodeId1", @"nodeId2"]  success:^() {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func removeDevice() {
+    martGroup.addZigbeeDevice(withNodeList: ["nodeId1", "nodeId2"], success: {
+        print("remove device success")
+    }) { (error) in
+        print("remove device failure")
+    }
+}
+```
+
+#### Callback interface
+
+Response of ZigBee devices to join or remove gateway groups
+
+errorCode ：
+
+- 1:Over the Scene Number Upper Limit
+- 2: Subdevice timeout
+- 3: Setting values beyond range
+- 4: Writing errors
+- 5: Other mistakes
+
+Objc:
+
+```objc
+
+#pragma mark - TuyaSmartGroupDelegate
+
+- (void)group:(TuyaSmartGroup *)group addResponseCode:(NSArray <NSNumber *>*)responseCode {
+	// Responses of ZigBee devices joining groups
+}
+
+- (void)group:(TuyaSmartGroup *)group removeResponseCode:(NSArray <NSNumber *>*)responseCode {
+	// sub devices joined the gateway group successfully
+}
+
+```
+
+Swift:
+
+```swift
+// MARK: TuyaSmartGroupDelegate
+func group(_ group: TuyaSmartGroup?, addResponseCode responseCode: [NSNumber]?) {
+    // Responses of ZigBee devices joining groups
+}
+
+func group(_ group: TuyaSmartGroup?, removeResponseCode responseCode: [NSNumber]?) {
+    // sub devices joined the gateway group successfully
+}
+```

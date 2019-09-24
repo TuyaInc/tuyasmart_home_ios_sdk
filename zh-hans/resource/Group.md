@@ -2,7 +2,9 @@
 
 群组相关的所有功能对应`TuyaSmartGroup`类，需要使用群组Id进行初始化。错误的群组Id可能会导致初始化失败，返回`nil`。
 
-### 创建群组
+### wifi 设备群组
+
+#### 创建群组
 
 Objc:
 
@@ -31,7 +33,7 @@ func createNewGroup() {
 
 
 
-### 获取群组的设备列表
+#### 获取群组的设备列表
 
 群组没有创建，获取产品的设备列表
 
@@ -91,7 +93,7 @@ func getGroupDevList() {
 
 
 
-### 群组dp命令下发
+#### 群组dp命令下发
 
 Objc:
 
@@ -122,7 +124,7 @@ func publishDps() {
 
 
 
-### 修改群组名称
+#### 修改群组名称
 
 Objc:
 
@@ -153,7 +155,7 @@ func updateGroupName() {
 
 
 
-### 修改群组设备列表
+#### 修改群组设备列表
 
 Objc:
 
@@ -184,7 +186,7 @@ func updateGroupRelations() {
 
 
 
-### 解散群组
+#### 解散群组
 
 Objc:
 
@@ -216,7 +218,7 @@ func dismissGroup() {
 
 
 
-### 回调接口
+#### 回调接口
 
 群组DP下发之后的数据回调更新
 
@@ -241,3 +243,161 @@ func group(_ group: TuyaSmartGroup!, dpsUpdate dps: [AnyHashable : Any]!) {
 }
 ```
 
+### zigbee 设备群组
+
+zigbee 设备群组需要所有的设备都属于同一个网关，不能跨网关
+
+#### 创建zigbee 群组
+
+Objc:
+
+```objc
+- (void)createNewGroup {
+    
+    [TuyaSmartGroup createGroupWithName:@"your_group_name" homeId:homeID gwId:@"gwId" productId:@"your_group_product_id" success:^(TuyaSmartGroup *group) {
+        NSLog(@"create new group success %@:", group); 
+    } failure:^(NSError *error) {
+        NSLog(@"create new group failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func createNewGroup() {
+    TuyaSmartGroup.createGroup(withName: "your_group_name", homeId: homeId, gwId: "gwId" productId: "your_group_product_id", success: { (group) in
+        print("create new group success: \(group)")
+    }) { (error) in
+        print("create new group failure")
+    }
+}
+```
+
+
+
+#### 获取群组的设备列表
+
+Objc:
+
+```objc
+- (void)getGroupDevList {
+    
+    [TuyaSmartGroup getDevListWithProductId:@"your_group_product_id" gwId:@"gwId" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getGroupDevList() {
+    TuyaSmartGroup.getDevList(withProductId: "your_group_product_id", gwId: "gwId", homeId: hoemId, success: { (list) in
+        print("get group dev list success \(list)")
+    }) { (error) in
+        print("get group dev list failure")
+    }
+}
+```
+
+
+#### 添加设备到zigbee群组
+
+Objc:
+
+```objc
+- (void)addDevice {
+//    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
+    [self.smartGroup addZigbeeDeviceWithNodeList:@[@"nodeId1", @"nodeId2"]  success:^() {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func addDevice() {
+    martGroup.addZigbeeDevice(withNodeList: ["nodeId1", "nodeId2"], success: {
+        print("add device success")
+    }) { (error) in
+        print("add device failure")
+    }
+}
+```
+
+
+
+
+#### 从zigbee 群组中移除设备
+
+Objc:
+
+```objc
+- (void)removeDevice {
+    
+    [self.smartGroup removeZigbeeDeviceWithNodeList:@[@"nodeId1", @"nodeId2"]  success:^() {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func removeDevice() {
+    martGroup.addZigbeeDevice(withNodeList: ["nodeId1", "nodeId2"], success: {
+        print("remove device success")
+    }) { (error) in
+        print("remove device failure")
+    }
+}
+```
+
+#### 回调接口
+
+zigbee 设备加入或者移除网关群组的响应
+
+errorCode ：
+
+- 1:超过场景数上限 
+- 2:子设备超时 
+- 3:设置值超出范围 
+- 4:写文件错误 
+- 5:其他错误
+
+Objc:
+
+```objc
+
+#pragma mark - TuyaSmartGroupDelegate
+
+- (void)group:(TuyaSmartGroup *)group addResponseCode:(NSArray <NSNumber *>*)responseCode {
+	// zigbee 设备加入到网关的群组响应
+}
+
+- (void)group:(TuyaSmartGroup *)group removeResponseCode:(NSArray <NSNumber *>*)responseCode {
+	// zigbee 设备从网关群组移除响应
+}
+
+```
+
+Swift:
+
+```swift
+// MARK: TuyaSmartGroupDelegate
+func group(_ group: TuyaSmartGroup?, addResponseCode responseCode: [NSNumber]?) {
+    // zigbee 设备加入到网关的群组响应
+}
+
+func group(_ group: TuyaSmartGroup?, removeResponseCode responseCode: [NSNumber]?) {
+    // zigbee 设备从网关群组移除响应
+}
+```
