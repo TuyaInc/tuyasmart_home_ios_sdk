@@ -30,7 +30,7 @@
     [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
 #endif
     
-    [TuyaSmartSDK sharedInstance].appGroupId = APP_GROUP_NAME;
+//    [TuyaSmartSDK sharedInstance].appGroupId = APP_GROUP_NAME;
     [[TuyaSmartSDK sharedInstance] startWithAppKey:SDK_APPKEY secretKey:SDK_APPSECRET];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

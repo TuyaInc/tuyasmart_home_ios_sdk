@@ -291,7 +291,7 @@
 		618F2162B448BE4D571697DE86598A26 /* UIImage+MemoryCacheCost.h in Headers */ = {isa = PBXBuildFile; fileRef = B2EB69F5012B56B1986A347EF33CA1B5 /* UIImage+MemoryCacheCost.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		65238037A147F62E769643B8D46EF602 /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A23C3A5622F801DB0C41496D75B0C10 /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		652F445D2487AC90EF216DF5814F7924 /* UIPopoverController+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = FBF408B3192B2605F288C616550B7BE1 /* UIPopoverController+BlocksKit.m */; };
-		6590F9D05EE85CA0ACBEDDCCB9AC8509 /* Pods-TuyaSmartHomeKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8951FC13DE9B907DA848A395B01AD3D8 /* Pods-TuyaSmartHomeKit_Example-dummy.m */; };
+		6590F9D05EE85CA0ACBEDDCCB9AC8509 /* Pods-TuyaSmartHomeKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 41A1A4F654071869D7D385C511F70F03 /* Pods-TuyaSmartHomeKit_Example-dummy.m */; };
 		66706DD5ABBDEBEBCB5CCC06DFB817BF /* UIView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DBCFF1EB2B2ACA0C91BCFA0576339EC /* UIView+WebCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		66E9888FB1D69765A2CC017D1503ABF1 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B9DE935D089C71AAEE335486B46DD5 /* SDWebImagePrefetcher.m */; };
 		6768C90EBD4D2A00C970D5476F078290 /* SDImageCoderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 429035BE42623521187EF51476F4B1D7 /* SDImageCoderHelper.m */; };
@@ -379,7 +379,7 @@
 		BC00029DAD4CBA7A9DA15E1786496E6E /* A2DynamicDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 25021F2AACB1CB751B5C2D12FE50D8E3 /* A2DynamicDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BD2B448C5298B0A22AC19DBC54FC8276 /* SDMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B54291A72C9255154716D59A3B3D3920 /* SDMemoryCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BDFC6900D7B2751F924DC99F79DBF8ED /* Reachability-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C858DB761BB8822D23FEDF6D15D216A1 /* Reachability-dummy.m */; };
-		BFCFAC4591E83C1B17A3B8670896C4C7 /* Pods-TuyaSmartHomeKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA5709F29B8118B0CF53B3292C554CC /* Pods-TuyaSmartHomeKit_Tests-dummy.m */; };
+		BFCFAC4591E83C1B17A3B8670896C4C7 /* Pods-TuyaSmartHomeKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7A3C750F436558D0041CBFEDE82AB1 /* Pods-TuyaSmartHomeKit_Tests-dummy.m */; };
 		C21932194DF4643EF3BDD85516B0A11D /* UIAlertView+BlocksKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FCBB6669089F36AB1158592F119BA01B /* UIAlertView+BlocksKit.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C2513A3FB80E33F0B69F9DB36194BB76 /* SDImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = EFA5CC9F21EF4DDF2FEC596AFE7F69ED /* SDImageLoader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C38ABD16D001FF0B6C75D8001BF0EB52 /* NSObject+A2DynamicDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF58B3A7FDBA4DBC7DE6E3AB30D39D /* NSObject+A2DynamicDelegate.m */; };
@@ -413,7 +413,6 @@
 		E6F024AC9CB81E9CD43E4FA950021605 /* UIImage+ForceDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = BB1E87BB6C7A5F52E6946C3C6EAEECB4 /* UIImage+ForceDecode.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E73F8F043836118436DC68EA4A9BD46B /* MQTTCFSocketDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 822807D5E0BE377998E502AD81DB651C /* MQTTCFSocketDecoder.m */; };
 		E7CD6F561479E69059F78B43B47B6EAA /* NSMutableSet+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F26C0851E09EB1C755C1BBA3B30505D /* NSMutableSet+BlocksKit.m */; };
-		E8D0AEC92ED96FC17D85AAB45CF05C0C /* Pods-TuyaDeviceWidget_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BDDDF2A0AAC5F3CB9E1392AB17770240 /* Pods-TuyaDeviceWidget_Example-dummy.m */; };
 		E918920A392D86FED67F0369F2395399 /* SDWebImageDownloaderRequestModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA0D3CF459CC9061700F1937B0D6C46 /* SDWebImageDownloaderRequestModifier.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E9715AA55DF39BF86F85B6B3F246A558 /* NSDictionary+BlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F4D2CBD2CE3C2927611B8DD8439A42 /* NSDictionary+BlocksKit.m */; };
 		E9DB9BC2397641CFA9D6DE0F3B9D9B27 /* SDWebImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 7BCABCD35AFE71CBCE9B9AD06237E47D /* SDWebImageDownloader.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -455,13 +454,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = B9ED5194E665042005069EF06C82A050;
 			remoteInfo = "OpenSSL-Universal";
-		};
-		1729011373E0AAD0B0EEFB93953BEDA3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B4C0DD5FAAC47641D0889BB772D2352;
-			remoteInfo = TuyaSmartSocketChannelKit;
 		};
 		18560A35FD727851F6B85A3A8EBB3107 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -540,13 +532,6 @@
 			remoteGlobalIDString = 1B4C0DD5FAAC47641D0889BB772D2352;
 			remoteInfo = TuyaSmartSocketChannelKit;
 		};
-		3410B89DDC921D7A2F0EF3871684D772 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 691D622566C8D74D848F874C5729A71F;
-			remoteInfo = TuyaSmartMQTTChannelKit;
-		};
 		3425778A91763E36DB3A00C6B2510997 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -603,20 +588,6 @@
 			remoteGlobalIDString = 1BCE82A0EA51F09BE8A7AC9E6C02E1D1;
 			remoteInfo = TuyaSmartMessageKit;
 		};
-		55FC17B6EC11A069FD42D89600136E3F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 12F41A9D9852EC892919EF02A1637169;
-			remoteInfo = TuyaSmartDeviceKit;
-		};
-		5A0653BCB739BAD13A41F844FEF56974 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 85EAF3BF92126577F2D2A2CCF6883D56;
-			remoteInfo = TuyaSmartUtil;
-		};
 		5DE4BC54E71DD8BC172B6154BCE5DB51 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -665,13 +636,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = CAA047C0F5E4106F3904E8497FA17F97;
 			remoteInfo = Reachability;
-		};
-		889AE5BAB9B4EFE596FDFD5FD4FB6CC0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 18D5937A1FF4E1064BDE592E5E9532EA;
-			remoteInfo = MQTTClient;
 		};
 		88EB9132FF280FBA8726F79A320C0690 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -736,13 +700,6 @@
 			remoteGlobalIDString = 46EBE902EFCC5CFC61BC19B23D13127C;
 			remoteInfo = TuyaSmartBaseKit;
 		};
-		A84E78951C832C7A44FC645F05D04279 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 84B44807A12996D487A4A591A481D6A0;
-			remoteInfo = YYModel;
-		};
 		AA3B798E60E59E5176D53E9EF5D21F87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -785,13 +742,6 @@
 			remoteGlobalIDString = 46EBE902EFCC5CFC61BC19B23D13127C;
 			remoteInfo = TuyaSmartBaseKit;
 		};
-		BD80495153336B944CCBB4214D35F0F1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6083682834ABE0AE7BD1CBF06CADD036;
-			remoteInfo = CocoaAsyncSocket;
-		};
 		C21AC0450A10200DA230602396F099FF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
@@ -805,13 +755,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 46EBE902EFCC5CFC61BC19B23D13127C;
 			remoteInfo = TuyaSmartBaseKit;
-		};
-		C788945916923165F937A982C9E0C46E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3847153A6E5EEFB86565BA840768F429;
-			remoteInfo = SDWebImage;
 		};
 		CA21A1F5051BD514BB2F482D95A148AD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -868,13 +811,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 691D622566C8D74D848F874C5729A71F;
 			remoteInfo = TuyaSmartMQTTChannelKit;
-		};
-		DC603571EB77D25B83165391262CF084 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 46EBE902EFCC5CFC61BC19B23D13127C;
-			remoteInfo = TuyaSmartBaseKit;
 		};
 		E08012DC657411A89D7E81258E8931C8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -952,6 +888,7 @@
 		0955E1E3FFF68D829690787BCBF522C6 /* crypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = crypto.h; path = "include-ios/openssl/crypto.h"; sourceTree = "<group>"; };
 		09BCBAE91705BA00ACD858316E5537C1 /* YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYModel.h; path = YYModel/YYModel.h; sourceTree = "<group>"; };
 		0AEF15095A91C5FD24C80DDED8D10400 /* NSCache+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSCache+BlocksKit.m"; path = "BlocksKit/DynamicDelegate/Foundation/NSCache+BlocksKit.m"; sourceTree = "<group>"; };
+		0B0AA0BD02CCB16087FF061E31CC2442 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TuyaSmartHomeKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0B7088397C473D98462AEC0434DFDE8C /* MQTTClient-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MQTTClient-dummy.m"; sourceTree = "<group>"; };
 		0C1F7AD9EC872673E3C2C7FCF01E4C48 /* SDImageCachesManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCachesManager.h; path = SDWebImage/Core/SDImageCachesManager.h; sourceTree = "<group>"; };
 		0E37910CCC9C2E1106CBB10BD502896D /* MQTTCoreDataPersistence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTCoreDataPersistence.m; path = MQTTClient/MQTTClient/MQTTCoreDataPersistence.m; sourceTree = "<group>"; };
@@ -1017,9 +954,7 @@
 		33DC09B1C9E504AEC45FA9237474847E /* SDWebImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImage.h; path = WebImage/SDWebImage.h; sourceTree = "<group>"; };
 		34B0F545F26DF38DD2F541E75F2C838B /* SDWebImageTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageTransition.m; path = SDWebImage/Core/SDWebImageTransition.m; sourceTree = "<group>"; };
 		3602CEEFCD41D231537A094CC2BA2519 /* UIColor+HexString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIColor+HexString.m"; path = "SDWebImage/Private/UIColor+HexString.m"; sourceTree = "<group>"; };
-		36DE112A45F25B1FC19F68882BD16118 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TuyaSmartHomeKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		371D3E13E6443BA5519C3A142EA5D9D8 /* NSMutableDictionary+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+BlocksKit.h"; path = "BlocksKit/Core/NSMutableDictionary+BlocksKit.h"; sourceTree = "<group>"; };
-		377EBB495FB92A68CD8139E54DD85A61 /* Pods-TuyaDeviceWidget_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaDeviceWidget_Example.release.xcconfig"; sourceTree = "<group>"; };
 		37D20809CBF2748C3DE82B5502BE6D21 /* asn1t.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn1t.h; path = "include-ios/openssl/asn1t.h"; sourceTree = "<group>"; };
 		3804B34C21A5465BA5ED402F4038425F /* idea.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = idea.h; path = "include-ios/openssl/idea.h"; sourceTree = "<group>"; };
 		380E255056ADAA9DBE880CBA5924BBDA /* MQTTClient-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MQTTClient-prefix.pch"; sourceTree = "<group>"; };
@@ -1027,6 +962,7 @@
 		3B7CA541FA3699E7041A7012F84A4E53 /* dtls1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = dtls1.h; path = "include-ios/openssl/dtls1.h"; sourceTree = "<group>"; };
 		3BAD997369F2C2F4AF61D9986F357712 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = Source/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		3BCBB2CD91D4768FCB780F3E3317DA00 /* ts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ts.h; path = "include-ios/openssl/ts.h"; sourceTree = "<group>"; };
+		3C5C8F73E8F821F4E60A3F5A8538494F /* Pods-TuyaSmartHomeKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TuyaSmartHomeKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		3C62593D0A725E04BD2817F6A0DA67CF /* TuyaSmartSceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuyaSmartSceneKit.framework; path = ios/TuyaSmartSceneKit.framework; sourceTree = "<group>"; };
 		3C8667AD2CC3C68B8113F80014CADA41 /* SDWebImage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.xcconfig; sourceTree = "<group>"; };
 		3ED7B4589008E27BD93F9A05215AB1CF /* MQTTCFSocketEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTCFSocketEncoder.h; path = MQTTClient/MQTTClient/MQTTCFSocketEncoder.h; sourceTree = "<group>"; };
@@ -1040,10 +976,10 @@
 		405F7D7907E3C75A2A5DB0F676AE0D9F /* ssl3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl3.h; path = "include-ios/openssl/ssl3.h"; sourceTree = "<group>"; };
 		415AA3C8AB47B043D58508EC721884D2 /* NSMutableOrderedSet+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableOrderedSet+BlocksKit.m"; path = "BlocksKit/Core/NSMutableOrderedSet+BlocksKit.m"; sourceTree = "<group>"; };
 		418A4056E242453B56392B84D9815D4A /* NSImage+Compatibility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSImage+Compatibility.m"; path = "SDWebImage/Core/NSImage+Compatibility.m"; sourceTree = "<group>"; };
+		41A1A4F654071869D7D385C511F70F03 /* Pods-TuyaSmartHomeKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TuyaSmartHomeKit_Example-dummy.m"; sourceTree = "<group>"; };
 		420386F28EF067C4AEB90CAD36B760E4 /* seed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = seed.h; path = "include-ios/openssl/seed.h"; sourceTree = "<group>"; };
 		429035BE42623521187EF51476F4B1D7 /* SDImageCoderHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCoderHelper.m; path = SDWebImage/Core/SDImageCoderHelper.m; sourceTree = "<group>"; };
 		43787A8ACADA287C300222C8D917763D /* bn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = bn.h; path = "include-ios/openssl/bn.h"; sourceTree = "<group>"; };
-		437DFB69385E9D251A464F58BB268032 /* libPods-TuyaDeviceWidget_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TuyaDeviceWidget_Example.a"; path = "libPods-TuyaDeviceWidget_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4413E4511A5F2E59E1D41928E5AF64F1 /* NSInvocation+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+BlocksKit.m"; path = "BlocksKit/Core/NSInvocation+BlocksKit.m"; sourceTree = "<group>"; };
 		44148B10AC428EBADB4E8DF7C2E5A943 /* SDmetamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDmetamacros.h; path = SDWebImage/Private/SDmetamacros.h; sourceTree = "<group>"; };
 		4421701DDCB8C0B2E5F9DE1CE08C7260 /* ssl23.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl23.h; path = "include-ios/openssl/ssl23.h"; sourceTree = "<group>"; };
@@ -1074,20 +1010,20 @@
 		58198E8A8AE22C221F9ECA9DB9BD792F /* MQTTSSLSecurityPolicyTransport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSSLSecurityPolicyTransport.h; path = MQTTClient/MQTTClient/MQTTSSLSecurityPolicyTransport.h; sourceTree = "<group>"; };
 		5881BC91942563D0CEF9383B3B80FD4A /* UIAlertView+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+BlocksKit.m"; path = "BlocksKit/UIKit/UIAlertView+BlocksKit.m"; sourceTree = "<group>"; };
 		588B18FE5F97F7CCBD720463BE6F0110 /* camellia.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = camellia.h; path = "include-ios/openssl/camellia.h"; sourceTree = "<group>"; };
+		5902BF970608A4CF062D8A4D4CDE92B4 /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		593BF665D1C782ED2C6DFEA263A07A4A /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5965D7713A1652299498F1CD59F8295F /* YYModel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YYModel-dummy.m"; sourceTree = "<group>"; };
 		59B805BB7A550D176E6A904535D3872C /* UIImage+Transform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Transform.h"; path = "SDWebImage/Core/UIImage+Transform.h"; sourceTree = "<group>"; };
 		59BB62ACFBBF5A89F24778DEF3E63C44 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/Core/SDWebImageCompat.h; sourceTree = "<group>"; };
+		59DA5F805B33194B1AD6B90670EF98F8 /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		59FE31C3DD91678CA5FC3DADB1BCEA0E /* MQTTLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTLog.h; path = MQTTClient/MQTTClient/MQTTLog.h; sourceTree = "<group>"; };
 		5A4C64145563793CF9DE41FAAAA51D4B /* MQTTSSLSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSSLSecurityPolicy.h; path = MQTTClient/MQTTClient/MQTTSSLSecurityPolicy.h; sourceTree = "<group>"; };
 		5AFB41D49822D2327B22F6C8676632FF /* SDImageCachesManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCachesManager.m; path = SDWebImage/Core/SDImageCachesManager.m; sourceTree = "<group>"; };
-		5BA5709F29B8118B0CF53B3292C554CC /* Pods-TuyaSmartHomeKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TuyaSmartHomeKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		5C5E727E6DC6BEF47688CCC98789392C /* NSMutableArray+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+BlocksKit.h"; path = "BlocksKit/Core/NSMutableArray+BlocksKit.h"; sourceTree = "<group>"; };
 		5C65BA55A9E4FB4FD42394AD362F37B0 /* BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BlocksKit.h; path = BlocksKit/BlocksKit.h; sourceTree = "<group>"; };
 		5EE8C24C7BE99988C2D4905D2C48171D /* SDImageCacheConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCacheConfig.m; path = SDWebImage/Core/SDImageCacheConfig.m; sourceTree = "<group>"; };
 		5EF616B1BC53E175EAC28EE362931560 /* MFMessageComposeViewController+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MFMessageComposeViewController+BlocksKit.m"; path = "BlocksKit/MessageUI/MFMessageComposeViewController+BlocksKit.m"; sourceTree = "<group>"; };
 		5F4F258CA7C45B4168EB98FC9B46607C /* NSObject+BKAssociatedObjects.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+BKAssociatedObjects.m"; path = "BlocksKit/Core/NSObject+BKAssociatedObjects.m"; sourceTree = "<group>"; };
-		600E8039140866BAF5308A1B1293B56B /* Pods-TuyaSmartHomeKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TuyaSmartHomeKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		6044293FD4CF0B28D63CDC9FA20940E3 /* SDWebImageDownloaderConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderConfig.m; path = SDWebImage/Core/SDWebImageDownloaderConfig.m; sourceTree = "<group>"; };
 		60E135AA30B5BC63A41071531C8B33FA /* SDWebImageDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDefine.h; path = SDWebImage/Core/SDWebImageDefine.h; sourceTree = "<group>"; };
 		615AECBBDD5D7E36243E9F7004D2BED0 /* MQTTSSLSecurityPolicyEncoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTSSLSecurityPolicyEncoder.m; path = MQTTClient/MQTTClient/MQTTSSLSecurityPolicyEncoder.m; sourceTree = "<group>"; };
@@ -1101,11 +1037,12 @@
 		65E2EDC950430E225798BAEDBCAD1248 /* NSTimer+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSTimer+BlocksKit.h"; path = "BlocksKit/Core/NSTimer+BlocksKit.h"; sourceTree = "<group>"; };
 		66BC5CEB5D2C208BFC7BC49BCD11204A /* UIImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebCache.h"; path = "SDWebImage/Core/UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		69A050050218A22A72C0547681DA8351 /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/Core/SDWebImageOperation.h; sourceTree = "<group>"; };
+		6A3064D42DD3B1711592A90F2D9DB733 /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6A354F607197D4DC9D8BC84A20467F69 /* SDImageFrame.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageFrame.h; path = SDWebImage/Core/SDImageFrame.h; sourceTree = "<group>"; };
 		6C5DDF6CDA7E392E63F2387871293FB9 /* NSURLConnection+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLConnection+BlocksKit.m"; path = "BlocksKit/DynamicDelegate/Foundation/NSURLConnection+BlocksKit.m"; sourceTree = "<group>"; };
 		6CBEFE4F9E22AFDC6347A739BB35FF8C /* libCocoaAsyncSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCocoaAsyncSocket.a; path = libCocoaAsyncSocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DBE20882EE6ABF94CED0BC062953478 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6EF69644908A3FF079A53F1E8780130B /* SDImageGIFCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageGIFCoder.h; path = SDWebImage/Core/SDImageGIFCoder.h; sourceTree = "<group>"; };
-		6F06962E0744087E5E076A9696A331FB /* Pods-TuyaDeviceWidget_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TuyaDeviceWidget_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		6F26C0851E09EB1C755C1BBA3B30505D /* NSMutableSet+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableSet+BlocksKit.m"; path = "BlocksKit/Core/NSMutableSet+BlocksKit.m"; sourceTree = "<group>"; };
 		6F70BF603CE98579EE97E286801E741E /* libBlocksKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libBlocksKit.a; path = libBlocksKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		70499562E056B6631695344A148FC0AB /* CocoaAsyncSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-prefix.pch"; sourceTree = "<group>"; };
@@ -1136,7 +1073,6 @@
 		7BEE229645AD5D2FFDE6ADF0E7229E9E /* MQTTSSLSecurityPolicyDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTSSLSecurityPolicyDecoder.m; path = MQTTClient/MQTTClient/MQTTSSLSecurityPolicyDecoder.m; sourceTree = "<group>"; };
 		7C7B1FF4DC5E2E6A9DD514221BC732A7 /* krb5_asn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = krb5_asn.h; path = "include-ios/openssl/krb5_asn.h"; sourceTree = "<group>"; };
 		7DA222140A37C208B6435895DB91ACB9 /* asn1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn1.h; path = "include-ios/openssl/asn1.h"; sourceTree = "<group>"; };
-		7DD4C44A66583714B57D398B9FA0CFC6 /* Pods-TuyaDeviceWidget_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaDeviceWidget_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7DDB4AB6CD285FC57517BBAB280A106E /* pkcs12.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pkcs12.h; path = "include-ios/openssl/pkcs12.h"; sourceTree = "<group>"; };
 		7E5D41E0E2BDD7E56645E29D186F350D /* UIButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIButton+WebCache.m"; path = "SDWebImage/Core/UIButton+WebCache.m"; sourceTree = "<group>"; };
 		8073BD4883D83DA2C1917FD8B148FEB5 /* NSBezierPath+RoundedCorners.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSBezierPath+RoundedCorners.m"; path = "SDWebImage/Private/NSBezierPath+RoundedCorners.m"; sourceTree = "<group>"; };
@@ -1151,10 +1087,9 @@
 		8815D72E4C8B6D1B5945BAC17DE497B0 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/Core/UIImage+GIF.h"; sourceTree = "<group>"; };
 		88A571D0404EA7494EA320446E6E6EDE /* SDImageIOCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageIOCoder.h; path = SDWebImage/Core/SDImageIOCoder.h; sourceTree = "<group>"; };
 		88AF7D6C8E98D346AA2F600FF58C1C1C /* TuyaSmartActivatorKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuyaSmartActivatorKit.framework; path = ios/TuyaSmartActivatorKit.framework; sourceTree = "<group>"; };
-		8951FC13DE9B907DA848A395B01AD3D8 /* Pods-TuyaSmartHomeKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TuyaSmartHomeKit_Example-dummy.m"; sourceTree = "<group>"; };
 		89D9B64047CEFF0E570F08FCE44A7C48 /* kssl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = kssl.h; path = "include-ios/openssl/kssl.h"; sourceTree = "<group>"; };
 		8A011F9CBFD4873C877BFD876CBE9363 /* libcrypto.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libcrypto.a; path = "lib-ios/libcrypto.a"; sourceTree = "<group>"; };
-		8B3B75F008BAB9AF403D3511C8A0D665 /* Pods-TuyaDeviceWidget_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TuyaDeviceWidget_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		8ABA46117E3A0A5969BBF9BF04204B08 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TuyaSmartHomeKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B909998E58FE066C8E58EC2890F8BD6 /* NSButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSButton+WebCache.h"; path = "SDWebImage/Core/NSButton+WebCache.h"; sourceTree = "<group>"; };
 		8BCA9906DC12BCA997C53690C90E5AD5 /* SDImageIOCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageIOCoder.m; path = SDWebImage/Core/SDImageIOCoder.m; sourceTree = "<group>"; };
@@ -1162,12 +1097,10 @@
 		8C4E511568E925C4F53C27E23231C13F /* cms.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cms.h; path = "include-ios/openssl/cms.h"; sourceTree = "<group>"; };
 		8C725CA1B39C233FD3F394AC1B541CFF /* UIActionSheet+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+BlocksKit.m"; path = "BlocksKit/UIKit/UIActionSheet+BlocksKit.m"; sourceTree = "<group>"; };
 		8F1B53E542C001215B8467AE11941F12 /* NSMutableArray+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+BlocksKit.m"; path = "BlocksKit/Core/NSMutableArray+BlocksKit.m"; sourceTree = "<group>"; };
-		8F74B12071DDA179EEF355BAE7AF71BC /* Pods-TuyaSmartHomeKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TuyaSmartHomeKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8F7D45E24424AA11BC5A291337DA9709 /* TuyaSmartMQTTChannelKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartMQTTChannelKit.xcconfig; sourceTree = "<group>"; };
 		90204AF3E1FB1EC13B899BF214D6AB8E /* des.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = des.h; path = "include-ios/openssl/des.h"; sourceTree = "<group>"; };
 		90C2BFB2C6602DC6FAC220D55CEFF600 /* x509.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = x509.h; path = "include-ios/openssl/x509.h"; sourceTree = "<group>"; };
 		91E1AEA62B56BEA02C06B502C0DB2924 /* UIControl+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+BlocksKit.m"; path = "BlocksKit/UIKit/UIControl+BlocksKit.m"; sourceTree = "<group>"; };
-		92B7AA25828DB54B91D83B961A71F31E /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		933CFAFC73166A23D632AAF64E20D0BF /* lhash.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = lhash.h; path = "include-ios/openssl/lhash.h"; sourceTree = "<group>"; };
 		938C37C3F8B23D623A476D44C5CD8CFA /* TuyaSmartBLEKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuyaSmartBLEKit.framework; path = ios/TuyaSmartBLEKit.framework; sourceTree = "<group>"; };
 		938D0AB60A2A6184A046C0973E0CA65D /* MQTTProperties.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTProperties.h; path = MQTTClient/MQTTClient/MQTTProperties.h; sourceTree = "<group>"; };
@@ -1195,7 +1128,6 @@
 		A0720B550E02500560732B5FE52F06A5 /* SDWebImage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-prefix.pch"; sourceTree = "<group>"; };
 		A074E7EFF474360D349E84DFEF507070 /* SDWebImageCacheKeyFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheKeyFilter.h; path = SDWebImage/Core/SDWebImageCacheKeyFilter.h; sourceTree = "<group>"; };
 		A080783C44CCAA2769F0A6F057DCC4FA /* NSObject+YYModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+YYModel.m"; path = "YYModel/NSObject+YYModel.m"; sourceTree = "<group>"; };
-		A2530CF5C411DC61BE2EB0D4F1E7B722 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-TuyaSmartHomeKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		A2826CC6F6CF1E683E035219278CB82E /* rand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = rand.h; path = "include-ios/openssl/rand.h"; sourceTree = "<group>"; };
 		A318E21249B3136D466BC6894378D22A /* SDImageLoadersManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageLoadersManager.m; path = SDWebImage/Core/SDImageLoadersManager.m; sourceTree = "<group>"; };
 		A3F4D2CBD2CE3C2927611B8DD8439A42 /* NSDictionary+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+BlocksKit.m"; path = "BlocksKit/Core/NSDictionary+BlocksKit.m"; sourceTree = "<group>"; };
@@ -1208,6 +1140,7 @@
 		A90F8512D03BF7BFD48C9A94725CF7CF /* SDImageGraphics.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageGraphics.m; path = SDWebImage/Core/SDImageGraphics.m; sourceTree = "<group>"; };
 		AA0684D3BFF2B79051A51FAD4985C742 /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes.h; path = "include-ios/openssl/aes.h"; sourceTree = "<group>"; };
 		AA43F50EADC265B454F11322A0A1EA35 /* BlocksKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "BlocksKit-prefix.pch"; sourceTree = "<group>"; };
+		AA7A3C750F436558D0041CBFEDE82AB1 /* Pods-TuyaSmartHomeKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TuyaSmartHomeKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		AA895827738F2ECDCBF5A3F2A74035B6 /* NSObject+BKAssociatedObjects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+BKAssociatedObjects.h"; path = "BlocksKit/Core/NSObject+BKAssociatedObjects.h"; sourceTree = "<group>"; };
 		AAD79D9349110B3D8A32390B226270BD /* UIBarButtonItem+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+BlocksKit.m"; path = "BlocksKit/UIKit/UIBarButtonItem+BlocksKit.m"; sourceTree = "<group>"; };
 		AB7AF5B234C69087CE295863C7817A2E /* NSTimer+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSTimer+BlocksKit.m"; path = "BlocksKit/Core/NSTimer+BlocksKit.m"; sourceTree = "<group>"; };
@@ -1244,7 +1177,6 @@
 		BBA8872BF9F3AD36F32629D51560A1A3 /* BlocksKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "BlocksKit-dummy.m"; sourceTree = "<group>"; };
 		BC6A50BFDF6D23EE69FB17720F34FF9A /* SDImageCacheConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheConfig.h; path = SDWebImage/Core/SDImageCacheConfig.h; sourceTree = "<group>"; };
 		BCA75DF041551FA0EBB3A5C41FE1105D /* UIImage+Metadata.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Metadata.h"; path = "SDWebImage/Core/UIImage+Metadata.h"; sourceTree = "<group>"; };
-		BDDDF2A0AAC5F3CB9E1392AB17770240 /* Pods-TuyaDeviceWidget_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TuyaDeviceWidget_Example-dummy.m"; sourceTree = "<group>"; };
 		BE5F16461A7DE4390253C87BFB5694B2 /* TuyaSmartSocketChannelKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuyaSmartSocketChannelKit.framework; path = ios/TuyaSmartSocketChannelKit.framework; sourceTree = "<group>"; };
 		BFA2828086CD57BD677FE98FA989A9A2 /* cast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cast.h; path = "include-ios/openssl/cast.h"; sourceTree = "<group>"; };
 		BFF22D77AA76DD3C2D7C2368CED3BF02 /* TuyaSmartDeviceKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartDeviceKit.xcconfig; sourceTree = "<group>"; };
@@ -1253,7 +1185,6 @@
 		C11FB5FAE71D4ED89A2E85FB97892B85 /* SDWebImageIndicator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageIndicator.h; path = SDWebImage/Core/SDWebImageIndicator.h; sourceTree = "<group>"; };
 		C170CA9868BF86049F7306E9F4BE585B /* hmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = hmac.h; path = "include-ios/openssl/hmac.h"; sourceTree = "<group>"; };
 		C205F3018E89235E90AF97686DC5E57A /* dsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = dsa.h; path = "include-ios/openssl/dsa.h"; sourceTree = "<group>"; };
-		C33D7578C32FB0092E85CD6C446D37B4 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		C480C8FB5BD3AF4EB94F1BB7A0403B64 /* NSMutableDictionary+BlocksKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+BlocksKit.m"; path = "BlocksKit/Core/NSMutableDictionary+BlocksKit.m"; sourceTree = "<group>"; };
 		C4B914C891DC1DDD073BECCC37374540 /* TuyaSmartHomeKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartHomeKit.xcconfig; sourceTree = "<group>"; };
 		C4B9182845BA3707811A3FBCEC3C9C4B /* SDImageCacheDefine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCacheDefine.m; path = SDWebImage/Core/SDImageCacheDefine.m; sourceTree = "<group>"; };
@@ -1309,9 +1240,9 @@
 		EC654E92EFA66BCF7D6A66E9C3A8905E /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/Core/SDWebImageManager.m; sourceTree = "<group>"; };
 		ECA3B32492383F22BCD9CC302D1D1327 /* MQTTDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTDecoder.h; path = MQTTClient/MQTTClient/MQTTDecoder.h; sourceTree = "<group>"; };
 		ECB993138402ED8E87313D46FA7308CB /* NSObject+BKBlockExecution.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+BKBlockExecution.h"; path = "BlocksKit/Core/NSObject+BKBlockExecution.h"; sourceTree = "<group>"; };
+		EDDC10D8DF7DEC30042110C2BB87049C /* Pods-TuyaSmartHomeKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TuyaSmartHomeKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		EE21DF00D464736B8A99D18D778670BF /* UIImage+Transform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Transform.m"; path = "SDWebImage/Core/UIImage+Transform.m"; sourceTree = "<group>"; };
 		EFA5CC9F21EF4DDF2FEC596AFE7F69ED /* SDImageLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageLoader.h; path = SDWebImage/Core/SDImageLoader.h; sourceTree = "<group>"; };
-		F03FC86C638F01D61F521022EACA8ED9 /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F0438C4082570F0082A41D726A142165 /* SDAnimatedImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAnimatedImage.m; path = SDWebImage/Core/SDAnimatedImage.m; sourceTree = "<group>"; };
 		F06027EEFB09F8336ADC196CF16F68A8 /* NSObject+YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYModel.h"; path = "YYModel/NSObject+YYModel.h"; sourceTree = "<group>"; };
 		F4A3E462507E46125236CDE5550B5981 /* MQTTDecoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTDecoder.m; path = MQTTClient/MQTTClient/MQTTDecoder.m; sourceTree = "<group>"; };
@@ -1332,18 +1263,10 @@
 		FD7259166C93FA7F7657BBD03DD11A37 /* MQTTClient.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MQTTClient.xcconfig; sourceTree = "<group>"; };
 		FDF6629A7F1B5A966A3E8A2C40F59F46 /* NSArray+BlocksKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+BlocksKit.h"; path = "BlocksKit/Core/NSArray+BlocksKit.h"; sourceTree = "<group>"; };
 		FE19388280DE702C0319D5C520A21DF7 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/Core/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
-		FEBA149C71EE7790D03C8A7D39C080E4 /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFB2C7F03365AFECC87E26F6B2A71415 /* UIView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+WebCache.m"; path = "SDWebImage/Core/UIView+WebCache.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1AF57957A96EE5A4CBD96EC2D1FFE4A9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		20BA100C85EA53F9E47A90738553B93B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1440,6 +1363,15 @@
 			path = TuyaSmartSocketChannelKit;
 			sourceTree = "<group>";
 		};
+		10B7DF4CB67A86DFBDE3890B91F1FE2D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4B7149489E0A99F39A6882C2E100E774 /* Pods-TuyaSmartHomeKit_Example */,
+				91C951B0FB8A9A882E6DC39EA00C8FE1 /* Pods-TuyaSmartHomeKit_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
 		1114BC2A63D3A8BA6096265763E9FB4D /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1503,19 +1435,6 @@
 			);
 			name = TuyaSmartUtil;
 			path = TuyaSmartUtil;
-			sourceTree = "<group>";
-		};
-		3E06DD8E79B49C790BA8A50CAE55F327 /* Pods-TuyaDeviceWidget_Example */ = {
-			isa = PBXGroup;
-			children = (
-				8B3B75F008BAB9AF403D3511C8A0D665 /* Pods-TuyaDeviceWidget_Example-acknowledgements.markdown */,
-				6F06962E0744087E5E076A9696A331FB /* Pods-TuyaDeviceWidget_Example-acknowledgements.plist */,
-				BDDDF2A0AAC5F3CB9E1392AB17770240 /* Pods-TuyaDeviceWidget_Example-dummy.m */,
-				7DD4C44A66583714B57D398B9FA0CFC6 /* Pods-TuyaDeviceWidget_Example.debug.xcconfig */,
-				377EBB495FB92A68CD8139E54DD85A61 /* Pods-TuyaDeviceWidget_Example.release.xcconfig */,
-			);
-			name = "Pods-TuyaDeviceWidget_Example";
-			path = "Target Support Files/Pods-TuyaDeviceWidget_Example";
 			sourceTree = "<group>";
 		};
 		3FFFA1E985524DF96FC0773F8F62AD6B /* TYBluetooth */ = {
@@ -1674,6 +1593,19 @@
 			path = BlocksKit;
 			sourceTree = "<group>";
 		};
+		4B7149489E0A99F39A6882C2E100E774 /* Pods-TuyaSmartHomeKit_Example */ = {
+			isa = PBXGroup;
+			children = (
+				0B0AA0BD02CCB16087FF061E31CC2442 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.markdown */,
+				8ABA46117E3A0A5969BBF9BF04204B08 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.plist */,
+				41A1A4F654071869D7D385C511F70F03 /* Pods-TuyaSmartHomeKit_Example-dummy.m */,
+				6DBE20882EE6ABF94CED0BC062953478 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */,
+				6A3064D42DD3B1711592A90F2D9DB733 /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */,
+			);
+			name = "Pods-TuyaSmartHomeKit_Example";
+			path = "Target Support Files/Pods-TuyaSmartHomeKit_Example";
+			sourceTree = "<group>";
+		};
 		55988A955732DAC0E46ECFD6A8DABC89 /* Min */ = {
 			isa = PBXGroup;
 			children = (
@@ -1762,19 +1694,6 @@
 			path = "../Target Support Files/Reachability";
 			sourceTree = "<group>";
 		};
-		66ACAFCC5140C2DF12D71F7E40A66E64 /* Pods-TuyaSmartHomeKit_Example */ = {
-			isa = PBXGroup;
-			children = (
-				36DE112A45F25B1FC19F68882BD16118 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.markdown */,
-				A2530CF5C411DC61BE2EB0D4F1E7B722 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.plist */,
-				8951FC13DE9B907DA848A395B01AD3D8 /* Pods-TuyaSmartHomeKit_Example-dummy.m */,
-				C33D7578C32FB0092E85CD6C446D37B4 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */,
-				92B7AA25828DB54B91D83B961A71F31E /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */,
-			);
-			name = "Pods-TuyaSmartHomeKit_Example";
-			path = "Target Support Files/Pods-TuyaSmartHomeKit_Example";
-			sourceTree = "<group>";
-		};
 		6A29CDCE916E860E00AC41BF05D8CEA5 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -1845,6 +1764,19 @@
 			path = "../Target Support Files/TuyaSmartUtil";
 			sourceTree = "<group>";
 		};
+		91C951B0FB8A9A882E6DC39EA00C8FE1 /* Pods-TuyaSmartHomeKit_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EDDC10D8DF7DEC30042110C2BB87049C /* Pods-TuyaSmartHomeKit_Tests-acknowledgements.markdown */,
+				3C5C8F73E8F821F4E60A3F5A8538494F /* Pods-TuyaSmartHomeKit_Tests-acknowledgements.plist */,
+				AA7A3C750F436558D0041CBFEDE82AB1 /* Pods-TuyaSmartHomeKit_Tests-dummy.m */,
+				5902BF970608A4CF062D8A4D4CDE92B4 /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */,
+				59DA5F805B33194B1AD6B90670EF98F8 /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */,
+			);
+			name = "Pods-TuyaSmartHomeKit_Tests";
+			path = "Target Support Files/Pods-TuyaSmartHomeKit_Tests";
+			sourceTree = "<group>";
+		};
 		92816BB82A6B72EDAFFDFA27975ABACB /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1896,23 +1828,6 @@
 				0281938995E545A7198A5F4F98259ED8 /* TuyaSmartMQTTChannelKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		99CE9306097D15BE3F3E5366D75A542E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6F70BF603CE98579EE97E286801E741E /* libBlocksKit.a */,
-				6CBEFE4F9E22AFDC6347A739BB35FF8C /* libCocoaAsyncSocket.a */,
-				8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */,
-				C0E79AD53820186F5DE86726D150F447 /* libMQTTClient.a */,
-				437DFB69385E9D251A464F58BB268032 /* libPods-TuyaDeviceWidget_Example.a */,
-				4043E1FD35DD50B67C791E3B13F15FE5 /* libPods-TuyaSmartHomeKit_Example.a */,
-				10DB16AA7830F7602975522CCA8CB754 /* libPods-TuyaSmartHomeKit_Tests.a */,
-				400FF55D0451E7A8F33A3D0D3E11C1B9 /* libReachability.a */,
-				B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */,
-				E460D5B0416D36F66EE8EC89E5D2FA0A /* libYYModel.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		9B8E97CF34F50F13BE22BFAECEE6DDF0 /* Support Files */ = {
@@ -2105,6 +2020,22 @@
 			name = MessageUI;
 			sourceTree = "<group>";
 		};
+		C83D9DA57408B855A6F035B8F0201C1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F70BF603CE98579EE97E286801E741E /* libBlocksKit.a */,
+				6CBEFE4F9E22AFDC6347A739BB35FF8C /* libCocoaAsyncSocket.a */,
+				8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */,
+				C0E79AD53820186F5DE86726D150F447 /* libMQTTClient.a */,
+				4043E1FD35DD50B67C791E3B13F15FE5 /* libPods-TuyaSmartHomeKit_Example.a */,
+				10DB16AA7830F7602975522CCA8CB754 /* libPods-TuyaSmartHomeKit_Tests.a */,
+				400FF55D0451E7A8F33A3D0D3E11C1B9 /* libReachability.a */,
+				B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */,
+				E460D5B0416D36F66EE8EC89E5D2FA0A /* libYYModel.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		CA68F84230FBC7CEBCF61A63F37A23C7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -2275,16 +2206,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		CD09AF822717443ACB5CBA38C9D9305F /* Targets Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				3E06DD8E79B49C790BA8A50CAE55F327 /* Pods-TuyaDeviceWidget_Example */,
-				66ACAFCC5140C2DF12D71F7E40A66E64 /* Pods-TuyaSmartHomeKit_Example */,
-				F9176A76C603997AC78804A45E6CE073 /* Pods-TuyaSmartHomeKit_Tests */,
-			);
-			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
 		CD240B2D444530E4CE5D9E51DEC0A72B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -2308,8 +2229,8 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
 				CCB9952E5CFA1F25160406D36F5495B7 /* Pods */,
-				99CE9306097D15BE3F3E5366D75A542E /* Products */,
-				CD09AF822717443ACB5CBA38C9D9305F /* Targets Support Files */,
+				C83D9DA57408B855A6F035B8F0201C1A /* Products */,
+				10B7DF4CB67A86DFBDE3890B91F1FE2D /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2425,19 +2346,6 @@
 			path = TuyaSmartMessageKit;
 			sourceTree = "<group>";
 		};
-		F9176A76C603997AC78804A45E6CE073 /* Pods-TuyaSmartHomeKit_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				8F74B12071DDA179EEF355BAE7AF71BC /* Pods-TuyaSmartHomeKit_Tests-acknowledgements.markdown */,
-				600E8039140866BAF5308A1B1293B56B /* Pods-TuyaSmartHomeKit_Tests-acknowledgements.plist */,
-				5BA5709F29B8118B0CF53B3292C554CC /* Pods-TuyaSmartHomeKit_Tests-dummy.m */,
-				FEBA149C71EE7790D03C8A7D39C080E4 /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */,
-				F03FC86C638F01D61F521022EACA8ED9 /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */,
-			);
-			name = "Pods-TuyaSmartHomeKit_Tests";
-			path = "Target Support Files/Pods-TuyaSmartHomeKit_Tests";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -2448,13 +2356,6 @@
 				A4880FCB985D25A843DB1CC116BED73E /* NSObject+YYModel.h in Headers */,
 				71299DE003D55B82F0CF2F94954EF418 /* YYClassInfo.h in Headers */,
 				B5AE5D755C3FB1C6C4E946BAF7C9C7A1 /* YYModel.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0FEC65CBC1145D0C31BF52B48EA6FE3D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2733,32 +2634,6 @@
 			productReference = 6CBEFE4F9E22AFDC6347A739BB35FF8C /* libCocoaAsyncSocket.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		7AEAAE5BEF7275DECE0AA3FE94AFC37B /* Pods-TuyaDeviceWidget_Example */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 29631146DD9928ED7C06DD72B40A190D /* Build configuration list for PBXNativeTarget "Pods-TuyaDeviceWidget_Example" */;
-			buildPhases = (
-				0FEC65CBC1145D0C31BF52B48EA6FE3D /* Headers */,
-				9AE44F6C85039AAA0423FFEB1B6F1A7D /* Sources */,
-				1AF57957A96EE5A4CBD96EC2D1FFE4A9 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				079A80D5EE2931D4F3ADB1F49CBCA506 /* PBXTargetDependency */,
-				877AFFB0DC812447CD67AF5CE4E1435C /* PBXTargetDependency */,
-				22E2591B420F6DB6C5ABF3BF2C1A6261 /* PBXTargetDependency */,
-				D197474807BE02EE4EEFF34854D36A05 /* PBXTargetDependency */,
-				F795C997E7514189EF43DF3592FA9037 /* PBXTargetDependency */,
-				9640208D86A14CF5C94CB4685CC68687 /* PBXTargetDependency */,
-				D8164EBBFEE1CD040DA4652167A797E6 /* PBXTargetDependency */,
-				86EC292D55CD4D70EFF3C9A765DD43E9 /* PBXTargetDependency */,
-				03EC1010DB7768F7C2A30611C6D6765D /* PBXTargetDependency */,
-			);
-			name = "Pods-TuyaDeviceWidget_Example";
-			productName = "Pods-TuyaDeviceWidget_Example";
-			productReference = 437DFB69385E9D251A464F58BB268032 /* libPods-TuyaDeviceWidget_Example.a */;
-			productType = "com.apple.product-type.library.static";
-		};
 		82B0A41D3031FF27D78E17B0A9A46FB0 /* MBProgressHUD */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 20217F7F18136BEC6503B8147352D3E3 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
@@ -2862,7 +2737,7 @@
 				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 99CE9306097D15BE3F3E5366D75A542E /* Products */;
+			productRefGroup = C83D9DA57408B855A6F035B8F0201C1A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -2871,7 +2746,6 @@
 				82B0A41D3031FF27D78E17B0A9A46FB0 /* MBProgressHUD */,
 				18D5937A1FF4E1064BDE592E5E9532EA /* MQTTClient */,
 				B9ED5194E665042005069EF06C82A050 /* OpenSSL-Universal */,
-				7AEAAE5BEF7275DECE0AA3FE94AFC37B /* Pods-TuyaDeviceWidget_Example */,
 				1D0425968889A882D53E68C7B435CF5A /* Pods-TuyaSmartHomeKit_Example */,
 				AACBD433293B162EAE9FE78E630D4E85 /* Pods-TuyaSmartHomeKit_Tests */,
 				CAA047C0F5E4106F3904E8497FA17F97 /* Reachability */,
@@ -3026,14 +2900,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9AE44F6C85039AAA0423FFEB1B6F1A7D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E8D0AEC92ED96FC17D85AAB45CF05C0C /* Pods-TuyaDeviceWidget_Example-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A6B708BDDA38EEF515F2383D1BB1E85A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3114,12 +2980,6 @@
 			target = 0EF0D58F44BCCBCD8DE8004D8036EF52 /* TuyaSmartBLEKit */;
 			targetProxy = 3425778A91763E36DB3A00C6B2510997 /* PBXContainerItemProxy */;
 		};
-		03EC1010DB7768F7C2A30611C6D6765D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = YYModel;
-			target = 84B44807A12996D487A4A591A481D6A0 /* YYModel */;
-			targetProxy = A84E78951C832C7A44FC645F05D04279 /* PBXContainerItemProxy */;
-		};
 		04827AC009E806A529EFABF98590B73E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TuyaSmartBLEKit;
@@ -3131,12 +2991,6 @@
 			name = TuyaSmartFeedbackKit;
 			target = 11A0E3A74D6CC5BF4840BD76B3BCFD9D /* TuyaSmartFeedbackKit */;
 			targetProxy = DA3F75860F77FF4E2C9FE68B07D9B105 /* PBXContainerItemProxy */;
-		};
-		079A80D5EE2931D4F3ADB1F49CBCA506 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CocoaAsyncSocket;
-			target = 6083682834ABE0AE7BD1CBF06CADD036 /* CocoaAsyncSocket */;
-			targetProxy = BD80495153336B944CCBB4214D35F0F1 /* PBXContainerItemProxy */;
 		};
 		0F3866B69528D44512D8AEBF18D466C5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3161,12 +3015,6 @@
 			name = Reachability;
 			target = CAA047C0F5E4106F3904E8497FA17F97 /* Reachability */;
 			targetProxy = 81D1622A7B088AA588960A920DAF966F /* PBXContainerItemProxy */;
-		};
-		22E2591B420F6DB6C5ABF3BF2C1A6261 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SDWebImage;
-			target = 3847153A6E5EEFB86565BA840768F429 /* SDWebImage */;
-			targetProxy = C788945916923165F937A982C9E0C46E /* PBXContainerItemProxy */;
 		};
 		2CA687ABE4D0FDAF8C9C231DE0BA10B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3288,18 +3136,6 @@
 			target = 691D622566C8D74D848F874C5729A71F /* TuyaSmartMQTTChannelKit */;
 			targetProxy = E8EFE28FB7BA3F1A35935F056ED56956 /* PBXContainerItemProxy */;
 		};
-		86EC292D55CD4D70EFF3C9A765DD43E9 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TuyaSmartUtil;
-			target = 85EAF3BF92126577F2D2A2CCF6883D56 /* TuyaSmartUtil */;
-			targetProxy = 5A0653BCB739BAD13A41F844FEF56974 /* PBXContainerItemProxy */;
-		};
-		877AFFB0DC812447CD67AF5CE4E1435C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MQTTClient;
-			target = 18D5937A1FF4E1064BDE592E5E9532EA /* MQTTClient */;
-			targetProxy = 889AE5BAB9B4EFE596FDFD5FD4FB6CC0 /* PBXContainerItemProxy */;
-		};
 		8A7D94D828855A8ABC0523505B12F6EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TuyaSmartBLEMeshKit;
@@ -3329,12 +3165,6 @@
 			name = TuyaSmartTimerKit;
 			target = E00F48D815B45234FDB34423D101A0F8 /* TuyaSmartTimerKit */;
 			targetProxy = 278385AC241CD0D357933064B2F6D2F9 /* PBXContainerItemProxy */;
-		};
-		9640208D86A14CF5C94CB4685CC68687 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TuyaSmartMQTTChannelKit;
-			target = 691D622566C8D74D848F874C5729A71F /* TuyaSmartMQTTChannelKit */;
-			targetProxy = 3410B89DDC921D7A2F0EF3871684D772 /* PBXContainerItemProxy */;
 		};
 		A088E8436BEB13E1405844C124B66B6A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3444,12 +3274,6 @@
 			target = 46EBE902EFCC5CFC61BC19B23D13127C /* TuyaSmartBaseKit */;
 			targetProxy = DA02FEFE6A923AAD7F7A6B293DF6D174 /* PBXContainerItemProxy */;
 		};
-		D197474807BE02EE4EEFF34854D36A05 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TuyaSmartBaseKit;
-			target = 46EBE902EFCC5CFC61BC19B23D13127C /* TuyaSmartBaseKit */;
-			targetProxy = DC603571EB77D25B83165391262CF084 /* PBXContainerItemProxy */;
-		};
 		D5C94A33B41DCB70E9FE6D2A325F99D4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TuyaSmartMQTTChannelKit;
@@ -3468,12 +3292,6 @@
 			target = 46EBE902EFCC5CFC61BC19B23D13127C /* TuyaSmartBaseKit */;
 			targetProxy = B76A628FF2204D9EA6AA7D4B4995F43D /* PBXContainerItemProxy */;
 		};
-		D8164EBBFEE1CD040DA4652167A797E6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TuyaSmartSocketChannelKit;
-			target = 1B4C0DD5FAAC47641D0889BB772D2352 /* TuyaSmartSocketChannelKit */;
-			targetProxy = 1729011373E0AAD0B0EEFB93953BEDA3 /* PBXContainerItemProxy */;
-		};
 		DB318FDB5E723D35E68058B77D2F7773 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TuyaSmartDeviceKit;
@@ -3485,12 +3303,6 @@
 			name = TuyaSmartBaseKit;
 			target = 46EBE902EFCC5CFC61BC19B23D13127C /* TuyaSmartBaseKit */;
 			targetProxy = C7619DDC00B89BB20588E10CAB17145E /* PBXContainerItemProxy */;
-		};
-		F795C997E7514189EF43DF3592FA9037 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TuyaSmartDeviceKit;
-			target = 12F41A9D9852EC892919EF02A1637169 /* TuyaSmartDeviceKit */;
-			targetProxy = 55FC17B6EC11A069FD42D89600136E3F /* PBXContainerItemProxy */;
 		};
 		F93B80B2A81BE22D36B478560C27DA0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -3519,6 +3331,31 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0087B79ED753C967FA4DD69F171A4DED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2B626306BA3CFAACCF3E0DA2A00F69E /* CocoaAsyncSocket.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/CocoaAsyncSocket/CocoaAsyncSocket-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = CocoaAsyncSocket;
+				PRODUCT_NAME = CocoaAsyncSocket;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		025C0F30C0558D16D9089D089DCF5AA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C4B914C891DC1DDD073BECCC37374540 /* TuyaSmartHomeKit.xcconfig */;
@@ -3535,7 +3372,7 @@
 		};
 		04181F882C187EA7B18D44C9E2CCBCA0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 92B7AA25828DB54B91D83B961A71F31E /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */;
+			baseConfigurationReference = 6A3064D42DD3B1711592A90F2D9DB733 /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -3558,7 +3395,7 @@
 		};
 		0BC2C9CA806E916C0D7B757276F32D14 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F03FC86C638F01D61F521022EACA8ED9 /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */;
+			baseConfigurationReference = 59DA5F805B33194B1AD6B90670EF98F8 /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -3609,33 +3446,23 @@
 			};
 			name = Release;
 		};
-		216E45C456395656EE21BBCC3EDA9FD2 /* Debug */ = {
+		11B61B56E7CA80F88E6EA5216EA73BD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD7259166C93FA7F7657BBD03DD11A37 /* MQTTClient.xcconfig */;
+			baseConfigurationReference = 08976B6A629609ABA641D42EE277F828 /* TuyaSmartSocketChannelKit.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/MQTTClient/MQTTClient-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = MQTTClient;
-				PRODUCT_NAME = MQTTClient;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		232E41EAB95F267EB48027D43B021E28 /* Release */ = {
+		137E27CCDE4E90FFAD1D4E45BD553B99 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2DF45D1F5D8E9761202D4342A5F5D88 /* TuyaSmartUtil.xcconfig */;
+			baseConfigurationReference = BFF22D77AA76DD3C2D7C2368CED3BF02 /* TuyaSmartDeviceKit.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3647,35 +3474,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		24F341A7CCC222FEBA13D13970B40ADB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 495749E3007DCBCD0275968C546ACCDD /* TuyaSmartBaseKit.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		281842B64D79717BC2413664E373C423 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F7D45E24424AA11BC5A291337DA9709 /* TuyaSmartMQTTChannelKit.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 		2C4303D51E312F9D63DD181CA07B3C69 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3691,30 +3489,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		2CE2E7DA4D213AF90637332390A7025A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 187C633D0F0E6364FA91F5A61573FC51 /* YYModel.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = YYModel;
-				PRODUCT_NAME = YYModel;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 		2D421A5973B48E6AA96BC0FFC2BC4D35 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3741,30 +3515,19 @@
 			};
 			name = Release;
 		};
-		317B2C60920F303D904A95E34DDA92D5 /* Release */ = {
+		3A72AFB80A2A8C11B5B5FD0CEE82AC12 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD7259166C93FA7F7657BBD03DD11A37 /* MQTTClient.xcconfig */;
+			baseConfigurationReference = 495749E3007DCBCD0275968C546ACCDD /* TuyaSmartBaseKit.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/MQTTClient/MQTTClient-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = MQTTClient;
-				PRODUCT_NAME = MQTTClient;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		4396F0432E8E29765B1709BD99E77AC5 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3781,36 +3544,7 @@
 			};
 			name = Release;
 		};
-		46C51BA1D92BF52FC2D23216A134C673 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F7D45E24424AA11BC5A291337DA9709 /* TuyaSmartMQTTChannelKit.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		477AA637F12C81D63E29FB8A5A38F5DC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFF22D77AA76DD3C2D7C2368CED3BF02 /* TuyaSmartDeviceKit.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		4ACFB8B48C8012FF31277DC0C9EB8A55 /* Release */ = {
+		47E2991C2E2D6D59CAEEA65534E909C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 187C633D0F0E6364FA91F5A61573FC51 /* YYModel.xcconfig */;
 			buildSettings = {
@@ -3831,9 +3565,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -3925,7 +3658,36 @@
 			};
 			name = Release;
 		};
-		5A48F18F7B1B84BC0C87FB024BB7F763 /* Debug */ = {
+		66B94CAB792AE00EFC14D8AC5CC83538 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C67CAD082EA3A99258646BBE2525F5DB /* TuyaSmartFeedbackKit.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		67AF4E6B1B4FBCC5E3C21A3C8ED46CC2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F7D45E24424AA11BC5A291337DA9709 /* TuyaSmartMQTTChannelKit.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6D5EB22B4678B09159CD72FDC1491D7B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E2B626306BA3CFAACCF3E0DA2A00F69E /* CocoaAsyncSocket.xcconfig */;
 			buildSettings = {
@@ -3949,33 +3711,30 @@
 			};
 			name = Debug;
 		};
-		66B94CAB792AE00EFC14D8AC5CC83538 /* Debug */ = {
+		754B4EA17635189B2931DD0ACE350337 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C67CAD082EA3A99258646BBE2525F5DB /* TuyaSmartFeedbackKit.xcconfig */;
+			baseConfigurationReference = 187C633D0F0E6364FA91F5A61573FC51 /* YYModel.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/YYModel/YYModel-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = YYModel;
+				PRODUCT_NAME = YYModel;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
-		};
-		77E4D7D7F4BB457F53BDBE3B0AD475DE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 495749E3007DCBCD0275968C546ACCDD /* TuyaSmartBaseKit.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
+			name = Release;
 		};
 		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -4069,6 +3828,30 @@
 			};
 			name = Debug;
 		};
+		82B8ABCE77720BEF5A99B57FA1E2B437 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD7259166C93FA7F7657BBD03DD11A37 /* MQTTClient.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MQTTClient/MQTTClient-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = MQTTClient;
+				PRODUCT_NAME = MQTTClient;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		85179D61A823C15EBEDE375E61731263 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 069A411A0A93BEBE70E15BC423C53BB1 /* Reachability.xcconfig */;
@@ -4095,7 +3878,7 @@
 		};
 		88FC4FEC7EA4031945B13F1210CCBA42 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C33D7578C32FB0092E85CD6C446D37B4 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */;
+			baseConfigurationReference = 6DBE20882EE6ABF94CED0BC062953478 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -4131,7 +3914,7 @@
 		};
 		931B9325FBAC406CE5D7F6187D070AC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEBA149C71EE7790D03C8A7D39C080E4 /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */;
+			baseConfigurationReference = 5902BF970608A4CF062D8A4D4CDE92B4 /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
@@ -4151,6 +3934,36 @@
 			};
 			name = Debug;
 		};
+		95504EE67A53C357BBAA9EFFD6FC5FFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 495749E3007DCBCD0275968C546ACCDD /* TuyaSmartBaseKit.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9602C4936779751717C80A89FA864913 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08976B6A629609ABA641D42EE277F828 /* TuyaSmartSocketChannelKit.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		9ABF951494BFFD2ECB01094B82A60AED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 45615DFD06D78EA9206165BE461A5240 /* TuyaSmartSceneKit.xcconfig */;
@@ -4165,9 +3978,9 @@
 			};
 			name = Debug;
 		};
-		9B47880B0CD560C13B2C2FDD988A732E /* Release */ = {
+		9EC4F20D07F7EEA9CF395AEDFA8881A7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08976B6A629609ABA641D42EE277F828 /* TuyaSmartSocketChannelKit.xcconfig */;
+			baseConfigurationReference = D2DF45D1F5D8E9761202D4342A5F5D88 /* TuyaSmartUtil.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4179,6 +3992,20 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		A19AE264ACA6007769A4509C61339AAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFF22D77AA76DD3C2D7C2368CED3BF02 /* TuyaSmartDeviceKit.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 		A26081984499868E52C81B028654CC22 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -4246,7 +4073,7 @@
 			};
 			name = Release;
 		};
-		B1D9E94CAC367CFBEA8CB4E3DE7E22D2 /* Release */ = {
+		B22A117ECEBD0D69131D1D08DFDA46FA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C8667AD2CC3C68B8113F80014CADA41 /* SDWebImage.xcconfig */;
 			buildSettings = {
@@ -4267,9 +4094,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		B88BF22CBA969A0E1641F09D1C3833D4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -4286,9 +4112,9 @@
 			};
 			name = Release;
 		};
-		C262C66B4B3C525CC5F15C8C0D0FBD51 /* Debug */ = {
+		C171FEB86071E1FF5FE7DDA2B640B127 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7B6BDBD399CF183E9D90963544105EA /* TuyaSmartTimerKit.xcconfig */;
+			baseConfigurationReference = D2DF45D1F5D8E9761202D4342A5F5D88 /* TuyaSmartUtil.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -4300,26 +4126,16 @@
 			};
 			name = Debug;
 		};
-		C7FA11FB00A9F7B1BDF033B40F0C5573 /* Debug */ = {
+		C262C66B4B3C525CC5F15C8C0D0FBD51 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C8667AD2CC3C68B8113F80014CADA41 /* SDWebImage.xcconfig */;
+			baseConfigurationReference = B7B6BDBD399CF183E9D90963544105EA /* TuyaSmartTimerKit.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = SDWebImage;
-				PRODUCT_NAME = SDWebImage;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -4367,39 +4183,26 @@
 			};
 			name = Release;
 		};
-		D4F04E521858EBD3166D86A31BC2BDD8 /* Release */ = {
+		E13130B37DEF8E3EE0B676986D2412B1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 377EBB495FB92A68CD8139E54DD85A61 /* Pods-TuyaDeviceWidget_Example.release.xcconfig */;
+			baseConfigurationReference = 3C8667AD2CC3C68B8113F80014CADA41 /* SDWebImage.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SDWebImage;
+				PRODUCT_NAME = SDWebImage;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		E1F409C5C832D32C432E306373C9E28C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BFF22D77AA76DD3C2D7C2368CED3BF02 /* TuyaSmartDeviceKit.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4430,27 +4233,44 @@
 			};
 			name = Debug;
 		};
-		EA98CC5C84073374623A523491F18121 /* Debug */ = {
+		EB5B0BB013F86A1AF1512EAA206B7A62 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7DD4C44A66583714B57D398B9FA0CFC6 /* Pods-TuyaDeviceWidget_Example.debug.xcconfig */;
+			baseConfigurationReference = 8F7D45E24424AA11BC5A291337DA9709 /* TuyaSmartMQTTChannelKit.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ECE90D115F3D72209DA76135283216C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD7259166C93FA7F7657BBD03DD11A37 /* MQTTClient.xcconfig */;
+			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/MQTTClient/MQTTClient-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = MQTTClient;
+				PRODUCT_NAME = MQTTClient;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		EED22867E8F2133FCA4BB78619B85443 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -4476,20 +4296,6 @@
 			};
 			name = Debug;
 		};
-		F259A149C05DC9675CF13E88E5D8C0A7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 08976B6A629609ABA641D42EE277F828 /* TuyaSmartSocketChannelKit.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		F2ADF0ABA629463C5CEE486588EEB8CE /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7AB7818C984368C88938422C207C2D0 /* TuyaSmartBLEMeshKit.xcconfig */;
@@ -4500,45 +4306,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		F71D4E7271B3D673F5F6E7D79ED54836 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2DF45D1F5D8E9761202D4342A5F5D88 /* TuyaSmartUtil.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		FB22F92B6ECEAE6785E7F82F49A70806 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2B626306BA3CFAACCF3E0DA2A00F69E /* CocoaAsyncSocket.xcconfig */;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/CocoaAsyncSocket/CocoaAsyncSocket-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = CocoaAsyncSocket;
-				PRODUCT_NAME = CocoaAsyncSocket;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -4584,15 +4351,6 @@
 			buildConfigurations = (
 				E674C296819F57A75520CE43F948A157 /* Debug */,
 				ABA61C783362551EE8E219B350178437 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		29631146DD9928ED7C06DD72B40A190D /* Build configuration list for PBXNativeTarget "Pods-TuyaDeviceWidget_Example" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EA98CC5C84073374623A523491F18121 /* Debug */,
-				D4F04E521858EBD3166D86A31BC2BDD8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4645,8 +4403,8 @@
 		4D7E54305218A96F88DAA6BDEC790DCD /* Build configuration list for PBXAggregateTarget "TuyaSmartBaseKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				77E4D7D7F4BB457F53BDBE3B0AD475DE /* Debug */,
-				24F341A7CCC222FEBA13D13970B40ADB /* Release */,
+				3A72AFB80A2A8C11B5B5FD0CEE82AC12 /* Debug */,
+				95504EE67A53C357BBAA9EFFD6FC5FFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4663,8 +4421,8 @@
 		57830657CB3B7CF1A67590CCC4A03245 /* Build configuration list for PBXAggregateTarget "TuyaSmartMQTTChannelKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				281842B64D79717BC2413664E373C423 /* Debug */,
-				46C51BA1D92BF52FC2D23216A134C673 /* Release */,
+				EB5B0BB013F86A1AF1512EAA206B7A62 /* Debug */,
+				67AF4E6B1B4FBCC5E3C21A3C8ED46CC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4699,8 +4457,8 @@
 		8F9D06540E4E56DEA8B7139E4E9E0481 /* Build configuration list for PBXNativeTarget "MQTTClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				216E45C456395656EE21BBCC3EDA9FD2 /* Debug */,
-				317B2C60920F303D904A95E34DDA92D5 /* Release */,
+				82B8ABCE77720BEF5A99B57FA1E2B437 /* Debug */,
+				ECE90D115F3D72209DA76135283216C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4708,8 +4466,8 @@
 		A845F0BF74D93B5125C301ABCDBEB1C3 /* Build configuration list for PBXAggregateTarget "TuyaSmartDeviceKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				477AA637F12C81D63E29FB8A5A38F5DC /* Debug */,
-				E1F409C5C832D32C432E306373C9E28C /* Release */,
+				A19AE264ACA6007769A4509C61339AAE /* Debug */,
+				137E27CCDE4E90FFAD1D4E45BD553B99 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4717,8 +4475,8 @@
 		BB42778341E5E7091340CDB8D287E223 /* Build configuration list for PBXNativeTarget "SDWebImage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C7FA11FB00A9F7B1BDF033B40F0C5573 /* Debug */,
-				B1D9E94CAC367CFBEA8CB4E3DE7E22D2 /* Release */,
+				B22A117ECEBD0D69131D1D08DFDA46FA /* Debug */,
+				E13130B37DEF8E3EE0B676986D2412B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4726,8 +4484,8 @@
 		BF535641E00BECC6FFAF53CFB25A8755 /* Build configuration list for PBXNativeTarget "CocoaAsyncSocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5A48F18F7B1B84BC0C87FB024BB7F763 /* Debug */,
-				FB22F92B6ECEAE6785E7F82F49A70806 /* Release */,
+				6D5EB22B4678B09159CD72FDC1491D7B /* Debug */,
+				0087B79ED753C967FA4DD69F171A4DED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4744,8 +4502,8 @@
 		D15562259C5437C2E33AE168319D382B /* Build configuration list for PBXNativeTarget "YYModel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2CE2E7DA4D213AF90637332390A7025A /* Debug */,
-				4ACFB8B48C8012FF31277DC0C9EB8A55 /* Release */,
+				47E2991C2E2D6D59CAEEA65534E909C1 /* Debug */,
+				754B4EA17635189B2931DD0ACE350337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4753,8 +4511,8 @@
 		D2C076BAF92CC76A42ED5842596C5FAB /* Build configuration list for PBXAggregateTarget "TuyaSmartSocketChannelKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F259A149C05DC9675CF13E88E5D8C0A7 /* Debug */,
-				9B47880B0CD560C13B2C2FDD988A732E /* Release */,
+				11B61B56E7CA80F88E6EA5216EA73BD2 /* Debug */,
+				9602C4936779751717C80A89FA864913 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -4780,8 +4538,8 @@
 		F1C6C662FF8B01359AA47CE8A75E2628 /* Build configuration list for PBXAggregateTarget "TuyaSmartUtil" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F71D4E7271B3D673F5F6E7D79ED54836 /* Debug */,
-				232E41EAB95F267EB48027D43B021E28 /* Release */,
+				C171FEB86071E1FF5FE7DDA2B640B127 /* Debug */,
+				9EC4F20D07F7EEA9CF395AEDFA8881A7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

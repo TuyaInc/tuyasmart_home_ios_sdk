@@ -11,4 +11,4 @@
 #define SDK_APPSECRET  <#your_secret_key#>
 
 // TODO: Input your app group name
-#define APP_GROUP_NAME <#your_app_group_name#>
+//#define APP_GROUP_NAME <#your_app_group_name#>

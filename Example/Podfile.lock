@@ -88,8 +88,6 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.2)
   - Reachability
   - SDWebImage
-  - TuyaSmartBaseKit
-  - TuyaSmartDeviceKit
   - TuyaSmartHomeKit
 
 SPEC REPOS:
@@ -141,6 +139,6 @@ SPEC CHECKSUMS:
   TYBluetooth: 1eb0b1fdd7b6bc810e4c7c4a87d42084562a6a2e
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 12aec77f5642ba974cb10691c1596267df9f03e7
+PODFILE CHECKSUM: 3a9984f45117cdd40ef870904e285cf1ee664394
 
 COCOAPODS: 1.7.5

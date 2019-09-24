@@ -148,8 +148,8 @@
     WEAKSELF_AT
     [self.refreshControl beginRefreshing];
     [[TYSmartHomeManager sharedInstance].currentHome getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
-        NSUserDefaults *groupUserDefault = [[NSUserDefaults alloc] initWithSuiteName:APP_GROUP_NAME];
-        [groupUserDefault setObject:@(homeModel.homeId) forKey:@"kCurrentHomeIdKey"];
+//        NSUserDefaults *groupUserDefault = [[NSUserDefaults alloc] initWithSuiteName:APP_GROUP_NAME];
+//        [groupUserDefault setObject:@(homeModel.homeId) forKey:@"kCurrentHomeIdKey"];
         
         [weakSelf_AT hideProgressView];
         [weakSelf_AT reloadData];
