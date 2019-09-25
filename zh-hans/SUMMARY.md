@@ -60,7 +60,7 @@
   - [固件升级](./resource/Mesh.md#固件升级)
 * 消息中心
   * [消息列表](./resource/Message.md#获取消息列表)
-  * [消息开关](./resource/Message.md#消息推送设置)
+  * [消息推送设置](./resource/Message.md#消息推送设置)
 * [意见反馈](./resource/Feedback.md)
 * [通用接口](./resource/CommonInterface.md)
 * [集成Push](./resource/Push.md)

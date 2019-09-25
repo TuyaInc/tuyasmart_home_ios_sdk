@@ -43,7 +43,9 @@
   - [Smart scene](./resource/SmartScene.md#smart-scene)
   - [Scene operation](./resource/SmartScene.md#scene-operation)
 * [Data channel](./resource/DataChannel.md)
-* [Message center](./resource/Message.md)
+* Message center
+  * [Message list](./resource/Message.md#obtain-message-list)
+  * [Message push settings](./resource/Message.md#message-push-settings)
 * [Feedback](./resource/Feedback.md)
 * [Common interface](./resource/CommonInterface.md)
 * [Register pushId](./resource/Push.md)
