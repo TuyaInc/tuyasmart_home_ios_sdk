@@ -87,3 +87,93 @@ func getMessageMaxTime() {
     })
 }
 ```
+
+
+
+### Message push settings
+
+#### Get message push status
+
+The main control of all message push, including device alert, family message, notification message.
+
+```objective-c
+[[TuyaSmartSDK sharedInstance] getPushStatusWithSuccess:^(BOOL result) {
+
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### Switch message push on/off
+
+```objective-c
+BOOL enable = YES;
+[[TuyaSmartSDK sharedInstance] setPushStatusWithStatus:enable  success:^{
+
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### Get status of device alert status
+
+```objective-c
+[[TuyaSmartSDK sharedInstance] getDevicePushStatusWithSuccess:^(BOOL result) {
+
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### Switch device alert on.off
+
+```objective-c
+BOOL enable = YES;
+[[TuyaSmartSDK sharedInstance] setDevicePushStatusWithStauts:enable  success:^{
+
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### Get family message status
+
+```objective-c
+[[TuyaSmartSDK sharedInstance] getFamilyPushStatusWithSuccess:^(BOOL result) {
+
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### Switch family message on/off
+
+```objective-c
+BOOL enable = YES;
+[[TuyaSmartSDK sharedInstance] setFamilyPushStatusWithStauts:enable  success:^{
+
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### Get notification message status
+
+```objective-c
+[[TuyaSmartSDK sharedInstance] getNoticePushStatusWithSuccess:^(BOOL result) {
+
+} failure:^(NSError *error) {
+
+}];
+```
+
+#### Switch notification message on/off
+
+```objective-c
+BOOL enable = YES;
+[[TuyaSmartSDK sharedInstance] setNoticePushStatusWithStauts:enable  success:^{
+
+} failure:^(NSError *error) {
+
+}];
+```
