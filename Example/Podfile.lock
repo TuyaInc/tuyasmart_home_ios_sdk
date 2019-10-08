@@ -15,6 +15,7 @@ PODS:
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
   - CocoaAsyncSocket (7.6.3)
+  - Masonry (1.1.0)
   - MBProgressHUD (0.9.2)
   - MQTTClient (0.14.0):
     - MQTTClient/Core (= 0.14.0)
@@ -26,9 +27,9 @@ PODS:
   - MQTTClient/Min (0.14.0)
   - OpenSSL-Universal (1.0.2.17)
   - Reachability (3.2)
-  - SDWebImage (5.1.1):
-    - SDWebImage/Core (= 5.1.1)
-  - SDWebImage/Core (5.1.1)
+  - SDWebImage (5.2.2):
+    - SDWebImage/Core (= 5.2.2)
+  - SDWebImage/Core (5.2.2)
   - TuyaSmartActivatorKit (3.12.7):
     - Reachability
     - TuyaSmartDeviceKit
@@ -85,6 +86,7 @@ PODS:
 
 DEPENDENCIES:
   - BlocksKit
+  - Masonry
   - MBProgressHUD (~> 0.9.2)
   - Reachability
   - SDWebImage
@@ -94,6 +96,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BlocksKit
     - CocoaAsyncSocket
+    - Masonry
     - MBProgressHUD
     - MQTTClient
     - OpenSSL-Universal
@@ -118,11 +121,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MQTTClient: eea2eaaa6ddef852a1019a4dda091e22ad928b58
   OpenSSL-Universal: ff04c2e6befc3f1247ae039e60c93f76345b3b5a
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
-  SDWebImage: 96d7f03415ccb28d299d765f93557ff8a617abd8
+  SDWebImage: 5fcdb02cc35e05fc35791ec514b191d27189f872
   TuyaSmartActivatorKit: 5fbff80e389d56f605b9ec6101a17d0766939ad2
   TuyaSmartBaseKit: fd8e2e0f7d7781f57850091f3c7d27216fe89362
   TuyaSmartBLEKit: 28e1bf6ed3fc6b422c40fe1c807f6837b7eb0ffb
@@ -139,6 +143,6 @@ SPEC CHECKSUMS:
   TYBluetooth: 1eb0b1fdd7b6bc810e4c7c4a87d42084562a6a2e
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 3a9984f45117cdd40ef870904e285cf1ee664394
+PODFILE CHECKSUM: d40578d972a53cf119d317b2573556a6a1dc0c55
 
 COCOAPODS: 1.7.5

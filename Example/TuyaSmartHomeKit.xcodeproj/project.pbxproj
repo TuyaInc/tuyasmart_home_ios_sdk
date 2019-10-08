@@ -17,6 +17,10 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6539381F223A364C00704EF3 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 6539381E223A364C00704EF3 /* CHANGELOG.md */; };
+		657D5A29234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D5A28234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m */; };
+		657D5A2A234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D5A28234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m */; };
+		657D5A2D234C2550005CADCE /* TYDeviceGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */; };
+		657D5A2E234C2550005CADCE /* TYDeviceGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */; };
 		65AB0CBD228676ED00A2123F /* TuyaSmartMessageKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 65AB0CAF228676EB00A2123F /* TuyaSmartMessageKit.podspec */; };
 		65AB0CBE228676ED00A2123F /* TuyaSmartBLEKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 65AB0CB0228676EB00A2123F /* TuyaSmartBLEKit.podspec */; };
 		65AB0CBF228676ED00A2123F /* TYBluetooth.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 65AB0CB1228676EB00A2123F /* TYBluetooth.podspec */; };
@@ -140,8 +144,6 @@
 		6BFFC71F219567D400FC35ED /* TYEZAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BFFC71E219567D400FC35ED /* TYEZAddDeviceViewController.m */; };
 		C5CA651EADE85088C7EBE2CA /* libPods-TuyaSmartHomeKit_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2733C122EBC7512C7B9CF7C9 /* libPods-TuyaSmartHomeKit_Example.a */; };
 		D387F14ADA751472F9F79FB3 /* libPods-TuyaSmartHomeKit_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A4129804CBE41DF376A20730 /* libPods-TuyaSmartHomeKit_Tests.a */; };
-		DE20A11D232746E800A4983A /* TYAddSIGMeshDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE20A11C232746E800A4983A /* TYAddSIGMeshDeviceViewController.m */; };
-		DEB90A832328E25E00EBA39D /* TYDeviceGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEB90A822328E25E00EBA39D /* TYDeviceGroupViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,6 +189,10 @@
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* TuyaSmartHomeKit_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TuyaSmartHomeKit_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6539381E223A364C00704EF3 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
+		657D5A27234C2512005CADCE /* TYAddSIGMeshDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAddSIGMeshDeviceViewController.h; sourceTree = "<group>"; };
+		657D5A28234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAddSIGMeshDeviceViewController.m; sourceTree = "<group>"; };
+		657D5A2B234C2550005CADCE /* TYDeviceGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDeviceGroupViewController.h; sourceTree = "<group>"; };
+		657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDeviceGroupViewController.m; sourceTree = "<group>"; };
 		65AB0CAF228676EB00A2123F /* TuyaSmartMessageKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TuyaSmartMessageKit.podspec; path = ../../../TuyaSmartMessageKit.podspec; sourceTree = "<group>"; };
 		65AB0CB0228676EB00A2123F /* TuyaSmartBLEKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TuyaSmartBLEKit.podspec; path = ../../../TuyaSmartBLEKit.podspec; sourceTree = "<group>"; };
 		65AB0CB1228676EB00A2123F /* TYBluetooth.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TYBluetooth.podspec; path = ../../../TYBluetooth.podspec; sourceTree = "<group>"; };
@@ -643,6 +649,8 @@
 		6B04FE9C2193D73600198EF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				657D5A2B234C2550005CADCE /* TYDeviceGroupViewController.h */,
+				657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */,
 				6B04FEAE2194211500198EF3 /* TYDeviceListViewController.h */,
 				6B04FEAF2194211500198EF3 /* TYDeviceListViewController.m */,
 				65FC1FA320C8D2FE00918C6D /* TYPanelBaseViewController.h */,
@@ -651,8 +659,6 @@
 				65FC1FA120C8D2FE00918C6D /* TYCommonPanelViewController.m */,
 				65FC1FA220C8D2FE00918C6D /* TYSwitchPanelViewController.h */,
 				65FC1F9F20C8D2FE00918C6D /* TYSwitchPanelViewController.m */,
-				DEB90A812328E25E00EBA39D /* TYDeviceGroupViewController.h */,
-				DEB90A822328E25E00EBA39D /* TYDeviceGroupViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -767,6 +773,8 @@
 		6BFE78D02192EC5300D39C19 /* AddDevice */ = {
 			isa = PBXGroup;
 			children = (
+				657D5A27234C2512005CADCE /* TYAddSIGMeshDeviceViewController.h */,
+				657D5A28234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m */,
 				6B24DE1E219D4B63000B17F2 /* TYAddDeviceMenuViewController.h */,
 				6B24DE1F219D4B63000B17F2 /* TYAddDeviceMenuViewController.m */,
 				6BFFC71D219567D400FC35ED /* TYEZAddDeviceViewController.h */,
@@ -777,8 +785,6 @@
 				6B04E1BD21A2DDCD00B605F9 /* TYAddZigBeeViewController.m */,
 				6B8DEE2421B4D49C004C9C78 /* TYAddDeviceUtils.h */,
 				6B8DEE2521B4D49C004C9C78 /* TYAddDeviceUtils.m */,
-				DE20A11B232746E800A4983A /* TYAddSIGMeshDeviceViewController.h */,
-				DE20A11C232746E800A4983A /* TYAddSIGMeshDeviceViewController.m */,
 			);
 			path = AddDevice;
 			sourceTree = "<group>";
@@ -1036,6 +1042,7 @@
 				65FC211420C8D2FE00918C6D /* TYPanelStringViewCell.m in Sources */,
 				6BA51899219171A90036DCC2 /* TYRegisterViewController.m in Sources */,
 				65FC211320C8D2FE00918C6D /* TYCommonPanelViewController.m in Sources */,
+				657D5A2D234C2550005CADCE /* TYDeviceGroupViewController.m in Sources */,
 				65FC211920C8D2FE00918C6D /* TYPanelEnumViewCell.m in Sources */,
 				65FC211820C8D2FE00918C6D /* TYPanelValueViewCell.m in Sources */,
 				65FC211220C8D2FE00918C6D /* TYPanelBaseViewController.m in Sources */,
@@ -1045,7 +1052,6 @@
 				65B6ED7C21A9257500EEE134 /* TPViewUtil.m in Sources */,
 				6BA0E4F62211A08F00307E67 /* TYSmartSceneTableViewCell.m in Sources */,
 				65FC21A220C8D2FE00918C6D /* TYTabBarViewController.m in Sources */,
-				DE20A11D232746E800A4983A /* TYAddSIGMeshDeviceViewController.m in Sources */,
 				6BA0E4F72211A08F00307E67 /* TYEditSceneTableViewCell.m in Sources */,
 				65B6ED7621A9257500EEE134 /* TPBarButtonItem.m in Sources */,
 				6B8DEE2621B4D49C004C9C78 /* TYAddDeviceUtils.m in Sources */,
@@ -1064,13 +1070,13 @@
 				65B6ED8821A9257500EEE134 /* UIView+TPAdditions.m in Sources */,
 				6BA0E4EF2211A08F00307E67 /* TYSmartSceneViewController.m in Sources */,
 				6BA0E4F42211A08F00307E67 /* TYEditActionNoDataTableViewCell.m in Sources */,
-				DEB90A832328E25E00EBA39D /* TYDeviceGroupViewController.m in Sources */,
 				65B6ED8121A9257500EEE134 /* TPItemView.m in Sources */,
 				6BA0E4F02211A08F00307E67 /* TYAddSceneViewController.m in Sources */,
 				65B6ED8221A9257500EEE134 /* TPTopBarView.m in Sources */,
 				6B24DE20219D4B63000B17F2 /* TYAddDeviceMenuViewController.m in Sources */,
 				6B7AAB9621996A80005F7CA5 /* TYAPAddDeviceViewController.m in Sources */,
 				65CA52FF2155371D00D9F17E /* TPUtils.m in Sources */,
+				657D5A29234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m in Sources */,
 				6B04FEA42193DBA700198EF3 /* TYSmartHomeManager.m in Sources */,
 				65B6ED7D21A9257500EEE134 /* TPProgressUtils.m in Sources */,
 				65FC211520C8D2FE00918C6D /* TYPanelDpTitleView.m in Sources */,
@@ -1083,6 +1089,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				657D5A2A234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m in Sources */,
+				657D5A2E234C2550005CADCE /* TYDeviceGroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1203,9 +1211,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TuyaSmartHomeKit/TuyaSmartHomeKit-Prefix.pch";
 				INFOPLIST_FILE = "TuyaSmartHomeKit/TuyaSmartHomeKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tuya.smart;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.TuyaSmartHomeKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1224,9 +1232,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TuyaSmartHomeKit/TuyaSmartHomeKit-Prefix.pch";
 				INFOPLIST_FILE = "TuyaSmartHomeKit/TuyaSmartHomeKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tuya.smart;
+				PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.demo.TuyaSmartHomeKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
