@@ -335,7 +335,7 @@ func updateHomeInfo() {
 Objc:
 
 ```objc
-// orderList: [@"devId", @"groupId"]
+// orderList: [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] bizId is devId or groupId, device's bizType = @"6" group's bizType = @"5"
 - (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
 	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
         NSLog(@"sort device or group success");
