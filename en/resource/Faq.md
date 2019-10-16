@@ -34,3 +34,8 @@ After SDK 2.8.0, we have added security image check and use the new appkey/secre
 ##### 8、iOS 13 Adaptation
 
 - See: [iOS 13 Adaptation](./iOSAdaptation.md)
+
+##### 9、Why does the SDK obtain that the local language is English, rather than the language of the mobile phone system?
+
+- Because the SDK is based on the local language obtained from  [[NSBundle mainBundle] preferredLocalizations], you need to create an international language in the project.
+

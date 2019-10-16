@@ -44,5 +44,9 @@
 ##### 9、iOS 13 SDK 权限变化
 - 详见：[iOS 13 适配](./iOSAdaptation.md#ios-13-适配)章节
 
+##### 10、为什么SDK 获取本地语言为英文，而不是手机系统的语言？
+
+- 因为SDK 现在获取的本地语言是根据[[NSBundle mainBundle] preferredLocalizations] 获取的，所以需要在工程中创建国际化语言
+
 
 
