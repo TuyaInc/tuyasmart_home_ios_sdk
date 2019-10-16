@@ -358,7 +358,7 @@ func updateHomeInfo() {
 Objc:
 
 ```objc
-// orderList: [@"devId", @"groupId"]
+// orderList: [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] 其中bizId为设备的devId或群组的groupId, device的bizType = @"6" group的bizType = @"5"
 - (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
 	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
         NSLog(@"sort device or group success");
