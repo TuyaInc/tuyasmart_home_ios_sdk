@@ -48,5 +48,7 @@
 
 - 因为SDK 现在获取的本地语言是根据[[NSBundle mainBundle] preferredLocalizations] 获取的，所以需要在工程中创建国际化语言
 
+##### 11、SDK 是否支持红外设备控制？
 
+- 现在TuyaSmartHomeKit SDK 不支持红外设备控制，如果要接入可以考虑使用Panel SDK 方式接入
 
