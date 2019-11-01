@@ -39,3 +39,41 @@ After SDK 2.8.0, we have added security image check and use the new appkey/secre
 
 - Because the SDK is based on the local language obtained from  [[NSBundle mainBundle] preferredLocalizations], you need to create an international language in the project.
 
+#####10. Does the SDK support infrared device control?
+
+- Now TuyaSmartHomeKit SDK does not support infrared device control
+
+#####11. Why did the device control send multiple function points (DPS) and did not receive all data function point responses?
+
+- When the device controls the transmission of multiple functions, it is necessary to first determine whether there is a conflict between the function points. For example, for lighting devices, the brightness of the light and the function points of heating and cooling can be put together to send.
+- However, when the switch, brightness and temperature are put together, there will be some problems that the function points do not respond.
+-  Therefore, it is recommended to send the function without function conflict together.
+
+#####12. If there is no Bluetooth function, can you reduce the package size without relying on the SDK Bluetooth module?
+
+- Yes, you can only rely on the following two modules for device distribution and control functions
+
+```ruby
+# home management, device, room, group management related functions
+pod 'TuyaSmartDeviceKit',
+# Relevant functions of device activator
+pod 'TuyaSmartActivatorKit',
+```
+
+- The following modules can be referenced according to actual needs
+
+```ruby
+# Single point Bluetooth related functions
+pod 'TuyaSmartBLEKit', 
+# Sigmesh related functions
+pod 'TuyaSmartBLEMeshKit',
+# Intelligent scene related functions
+pod 'TuyaSmartSceneKit', 
+# device and group timing related functions
+pod 'TuyaSmartTimerKit',
+# Message center related functions
+pod 'TuyaSmartMessageKit',
+# Fault feedback related functions
+pod 'TuyaSmartFeedbackKit',
+```
+

@@ -56,3 +56,31 @@
 
 - 设备控制发送多个功能的时候，需要先去判断功能点是否有冲突，例如照明的设备，可以把灯的亮度，冷暖功能点放在一块发送。但是当把开关，亮度，冷暖3个功能点放在一块，就会存在有些功能点执行没有响应的问题。所以建议将没功能冲突的功能放在一块发送。
 
+##### 13、如果没有蓝牙功能是否可以不依赖SDK 蓝牙模块，减少包大小？
+
+- 可以的，只需要设备配网和控制功能可以只依赖下面两个模块
+
+```ruby
+# 家庭管理，设备，房间，群组管理相关功能
+pod 'TuyaSmartDeviceKit',
+# 设备配网相关功能
+pod 'TuyaSmartActivatorKit',
+```
+
+- 下面模块可以根据实际需要去引用
+
+```ruby
+# 单点蓝牙相关功能
+pod 'TuyaSmartBLEKit', 
+# sigMesh 相关功能
+pod 'TuyaSmartBLEMeshKit',
+# 智能场景相关功能
+pod 'TuyaSmartSceneKit', 
+# 设备和群组定时相关功能
+pod 'TuyaSmartTimerKit',
+# 消息中心相关功能
+pod 'TuyaSmartMessageKit',
+# 问题反馈相关功能
+pod 'TuyaSmartFeedbackKit',
+```
+
