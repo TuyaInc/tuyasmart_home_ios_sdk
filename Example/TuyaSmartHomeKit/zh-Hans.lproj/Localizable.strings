@@ -41,6 +41,7 @@
 "gesture_password_reset" = "是否重新设置手势密码？";
 "gesture_password_set_successful" = "手势密码设置成功，请牢记";
 "home_no_device" = "还没有添加设备";
+"home_no_group" = "该家庭下无群组";
 "input_login_password" = "请输入登录密码";
 "input_password_again" = "再次输入密码";
 "key_num_not_reasonable" = "密码长度为6~13位，请重新输入";
@@ -390,6 +391,7 @@
 "reget_validation_second" = "(%d 秒)";
 "rename" = "重命名";
 "rename_device" = "修改设备名称";
+"rename_group" = "修改群组名称";
 "add_group" = "添加群组";
 "repeat" = "重复";
 "reset_device_answer_1" = "1.请重置设备\n\n2.将设备断点\n\n3.等待15秒后再通电";
