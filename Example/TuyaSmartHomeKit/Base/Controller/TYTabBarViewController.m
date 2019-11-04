@@ -9,7 +9,7 @@
 #import "TYTabBarViewController.h"
 #import "TPNavigationController.h"
 #import "TYLoginViewController.h"
-#import "TYDeviceListViewController.h"
+#import "TYDeviceHomeViewController.h"
 #import "TYSmartSceneViewController.h"
 #import "TYAddDeviceMenuViewController.h"
 #import "TYSmartHomeManager.h"
@@ -22,7 +22,7 @@
 @property (nonatomic, strong) TPNavigationController *sceneNavigationController;
 
 @property (nonatomic, strong) UIViewController       *addDeviceViewController;
-@property (nonatomic, strong) TYDeviceListViewController *deviceViewController;
+@property (nonatomic, strong) TYDeviceHomeViewController *deviceViewController;
 @property (nonatomic, strong) TYSmartSceneViewController *sceneViewController;
 
 @end
@@ -97,11 +97,11 @@
 }
 
 
-- (TYDeviceListViewController *)deviceViewController {
+- (TYDeviceHomeViewController *)deviceViewController {
     if (!_deviceViewController) {
-        _deviceViewController = [TYDeviceListViewController new];
-        [_deviceViewController setTitle:@"Device"];
-        _deviceViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Device"
+        _deviceViewController = [TYDeviceHomeViewController new];
+        [_deviceViewController setTitle:@"Home"];
+        _deviceViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Home"
                                                                          image:[UIImage imageNamed:@"ty_mainbt_devicelist"]
                                                                  selectedImage:[UIImage imageNamed:@"ty_mainbt_devicelist_active"]];
     }
@@ -144,7 +144,7 @@
         viewController != self.loginNavigationController &&
         ![TYSmartHomeManager sharedInstance].currentHome) {
         
-        UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"Attention" message:@"Login to visity this page." ];
+        UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"Attention" message:@"Login to visit this page." ];
         [alert bk_setCancelButtonWithTitle:@"OK" handler:NULL];
         [alert show];
         
