@@ -1,11 +1,14 @@
+
+
 ## Network Configuration
 
 The network configuration modes supported by Tuya hardware module including:
 
 - quick connection mode (TLink, it is referred to as the EZ mode) 
 -  hotspot mode (AP mode). 
--  wired network configuration (Zigbee gateway use, no wifi configuration information required)
+-  wired network configuration (Wired gateway use, no wifi configuration information required)
 - sub-device configuration 
+- bluetooth-wifi configuration
 
 The quick connection mode features convenient operation. It is recommended to use the hotspot mode as the backup in case the quick connection mode fails. 
 
@@ -300,7 +303,7 @@ func stopConfigWifi() {
 ```
 
 
-#### Wired network configuration of zigbee
+#### Wired network configuration 
 
 ```sequence
 
@@ -438,7 +441,7 @@ func stopConfigWifi() {
 ```
 
 
-### Activate the ZigBee sub-device
+### Activate the  sub-device
 
 ```sequence
 
@@ -509,7 +512,7 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 }
 ```
 
-#### Stop activating the ZigBee sub-device
+#### Stop activating the sub-device
 
 Objc:
 
@@ -528,3 +531,172 @@ func stopActiveSubDevice() {
     TuyaSmartActivator.sharedInstance()?.stopActiveSubDevice(withGwId: "your_device_id")
 }
 ```
+
+
+
+### Bluetooth-Wifi configuration
+
+If Tuya wifi hardwares support Bluetooth protocol,  Bluetooth-Wifi configuration method can be used to connect  devices. Use bluetooth to transfer information about wifi,  success rate is higher.
+
+
+
+```sequence
+Title: Bluetooth-WiFi configuration
+
+participant APP
+participant SDK
+participant device
+participant Service
+
+Note over device: reset device
+APP->SDK: sends the discovery instruction 
+SDK->device: connects device through bluetooth
+device->SDK: successfully connected to the device
+SDK->APP: get device info
+
+APP->SDK: sends the activation instruction
+SDK->device: sends the activation instruction
+Note over device: Successfully connected to the router
+device->Service: active the device
+Service-->device: network configuration succeeds
+
+device->SDK: network configuration succeeds
+SDK->APP: network configuration succeeds
+
+Note over APP: stop discovery
+			
+```
+
+#### Discovery device
+
+Objc:
+
+```objective-c
+// set delegate
+[TuyaSmartBLEManager sharedInstance].delegate = self;
+
+// start scanning device
+[[TuyaSmartBLEManager sharedInstance] startListening:YES];
+
+
+/**
+  get unactive device
+ @param deviceInfo unactive device Model
+ */
+- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo {
+   // get device -- deviceInfo
+}
+```
+
+Swift:
+
+```swift
+TuyaSmartBLEManager.sharedInstance().delegate = self
+TuyaSmartBLEManager.sharedInstance().startListening(true)
+
+/**
+  get unactive device
+ @param deviceInfo unactive device Model
+ */
+func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
+   // get device -- deviceInfo
+}
+```
+
+
+
+#### Device Active
+
+Can use the following API to active the Discovered  devices and register them to Tuya Cloud.
+
+```objective-c
+/**
+ *  connect ble wifi device
+ *
+ *  @param UUID        Unique identifier of the Bluetooth device
+ *  @param homeId      current homeId
+ *  @param productId   productId
+ *  @param ssid        name of wifi
+ *  @param password    password of wifi
+ *  @param timeout     time 
+ *  @param success     success handler
+ *  @param failure     failure handler
+ */
+- (void)startConfigBLEWifiDeviceWithUUID:(NSString *)UUID
+                                  homeId:(long long)homeId
+                               productId:(NSString *)productId
+                                    ssid:(NSString *)ssid
+                                password:(NSString *)password
+                                timeout:(NSTimeInterval)timeout
+                                 success:(TYSuccessHandler)success
+                                 failure:(TYFailureHandler)failure;
+```
+
+Objc :
+
+```objective-c
+  [[TuyaSmartBLEWifiActivator sharedInstance] startConfigBLEWifiDeviceWithUUID:TYBLEAdvModel.uuid homeId:homeId productId:TYBLEAdvModel.productId ssid:ssid password:password  timeout:100 success:^{
+     // active success
+        } failure:^{
+     // active failure
+        }];
+```
+
+Swift :
+
+```swift
+  TuyaSmartBLEWifiActivator.sharedInstance() .startConfigBLEWifiDevice(withUUID: TYBLEAdvModel.uuid, homeId: homeId, productId:TYBLEAdvModel.productId, ssid: ssid, password: password, timeout: 100, success: {
+            // active success
+        }) {
+            // active failure
+        }
+```
+
+
+
+#### Callback of Device Active
+
+Objc :
+
+```objective-c
+ - (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
+    if (!error && deviceModel) {
+		// active success
+    }
+  
+    if (error) {
+    // active failure
+    }
+}
+```
+
+Swift :
+
+```swift
+func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiConfigDevice deviceModel: TuyaSmartDeviceModel, error: Error) {
+    if (!error && deviceModel) {
+		// active success
+    }
+
+    if (error) {
+       // active failure
+    }
+}
+```
+
+
+
+#### Stop discovery
+
+Objc :
+
+```objective-c
+[[TuyaSmartBLEWifiActivator sharedInstance] stopDiscover];
+```
+
+Swift :
+
+```swift
+TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
+```
+

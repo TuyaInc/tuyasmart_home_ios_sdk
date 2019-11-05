@@ -1,11 +1,12 @@
-## 设备配网
+设备配网
 
 涂鸦硬件 Wifi 模块主要支持以下**配网模式**：
 
 - 快连模式（Smart Config 模式）
 - 热点模式（AP模式）
-- 有线激活，不需要输入ssid, password (例如 Zigbee 有线网关配网)
-- 子设备激活  (例如 Zigbee 子设备配网)
+- 有线激活，不需要输入ssid, password (例如 有线网关配网)
+- 子设备激活  (例如 子设备配网)
+- 蓝牙-WiFi 配网
 
 ```
 快连模式操作较为简便，建议在配网失败后，再使用热点模式作为备选方案。
@@ -315,9 +316,9 @@ func stopConfigWifi() {
 
 
 
-### Zigbee 网关配网
+### 有线网关配网
 
-Zigbee 网关配网采用有线配网，不用输入路由器的热点名称和密码。
+有线网关已通过网线连接着网络，不用输入路由器的热点名称和密码。下图以 ZigBee 有线网关为例，描述有线网关配网流程。
 
 ```sequence
 
@@ -382,7 +383,7 @@ func getToken() {
 
 
 
-#### Zigbee 网关激活
+#### 有线网关激活
 
 Objc:
 
@@ -460,7 +461,7 @@ func stopConfigWifi() {
 
 
 
-### Zigbee 子设备激活
+### 子设备激活
 
 ```sequence
 
@@ -516,7 +517,6 @@ Swift:
 func activeSubDevice() {
     // 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
     TuyaSmartActivator.sharedInstance()?.delegate = self
-    
     TuyaSmartActivator.sharedInstance()?.activeSubDevice(withGwId: "your_device_id", timeout: 100)
 }
 
@@ -535,7 +535,7 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 
 
-#### 停止激活zigbee子设备
+#### 停止激活子设备
 
 Objc:
 
@@ -555,3 +555,178 @@ func stopActiveSubDevice() {
 }
 ```
 
+
+
+### 蓝牙 WiFi 配网
+
+如果 WiFi 模块支持蓝牙协议，可以选择蓝牙 WiFi 配网方式，通过蓝牙将 WiFi 信息发送给设备，然后设备拿到 WiFi 信息后进行配网操作，该方案成功率较高。
+
+```sequence
+Title: 蓝牙 WiFi 配网
+
+participant APP
+participant SDK
+participant device
+participant Service
+
+Note over device: 将设备重置
+APP->SDK: 发送搜寻设备指令
+SDK->device: 通过蓝牙连接设备
+device->SDK: 连接成功
+SDK->APP: 返回设备信息
+
+APP->SDK: 激活设备（ssid、password等）
+SDK->device: 通过蓝牙发送激活信息
+Note over device: 连接路由器成功
+device->Service: 到云端激活注册
+Service-->device: 设备激活成功
+
+device->SDK: 返回激活成功信息
+SDK->APP: 返回成功设备信息
+
+Note over APP: 停止配网
+			
+			
+			
+			
+			
+		
+```
+
+#### 发现设备
+
+Objc:
+
+```objective-c
+// 设置代理
+[TuyaSmartBLEManager sharedInstance].delegate = self;
+
+// 开始扫描
+[[TuyaSmartBLEManager sharedInstance] startListening:YES];
+
+
+/**
+ 扫描到未激活的设备
+ 
+ @param deviceInfo 未激活设备信息 Model
+ */
+- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo {
+  
+}
+```
+
+Swift:
+
+```swift
+TuyaSmartBLEManager.sharedInstance().delegate = self
+TuyaSmartBLEManager.sharedInstance().startListening(true)
+
+/**
+ 扫描到未激活的设备
+ 
+ @param deviceInfo 未激活设备信息 Model
+ */
+func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
+  // 扫描到未激活的设备
+}
+```
+
+
+
+#### 设备激活
+
+扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下
+
+使用方法：
+
+```objective-c
+/**
+ *  connect ble wifi device
+ *  连接蓝牙 Wifi 设备
+ *
+ *  @param UUID        蓝牙设备唯一标识
+ *  @param homeId      当前家庭Id
+ *  @param productId   产品Id
+ *  @param ssid        路由器热点名称
+ *  @param password    路由器热点密码
+ *  @param timeout     轮询时间
+ *  @param success     操作成功回调
+ *  @param failure     操作失败回调
+ */
+- (void)startConfigBLEWifiDeviceWithUUID:(NSString *)UUID
+                                  homeId:(long long)homeId
+                               productId:(NSString *)productId
+                                    ssid:(NSString *)ssid
+                                password:(NSString *)password
+                                timeout:(NSTimeInterval)timeout
+                                 success:(TYSuccessHandler)success
+                                 failure:(TYFailureHandler)failure;
+```
+
+Objc 示例:
+
+```objective-c
+  [[TuyaSmartBLEWifiActivator sharedInstance] startConfigBLEWifiDeviceWithUUID:TYBLEAdvModel.uuid homeId:homeId productId:TYBLEAdvModel.productId ssid:ssid password:password  timeout:100 success:^{
+     // 激活成功
+        } failure:^{
+     // 激活失败
+        }];
+```
+
+Swift 示例:
+
+```swift
+  TuyaSmartBLEWifiActivator.sharedInstance() .startConfigBLEWifiDevice(withUUID: TYBLEAdvModel.uuid, homeId: homeId, productId:TYBLEAdvModel.productId, ssid: ssid, password: password, timeout: 100, success: {
+            // 激活成功
+        }) {
+            // 激活失败
+        }
+```
+
+
+
+#### 设备激活回调
+
+Objc 示例:
+
+```objective-c
+- (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
+    if (!error && deviceModel) {
+		//配网成功
+    }
+  
+    if (error) {
+        //配网失败
+    }
+}
+```
+
+Swift 示例:
+
+```swift
+func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiConfigDevice deviceModel: TuyaSmartDeviceModel, error: Error) {
+    if (!error && deviceModel) {
+		//配网成功
+    }
+
+    if (error) {
+        //配网失败
+    }
+}
+```
+
+
+
+#### 停止发现设备
+
+Objc 示例:
+
+```objective-c
+[[TuyaSmartBLEWifiActivator sharedInstance] stopDiscover];
+```
+
+Swift 示例:
+
+```swift
+TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
+```
