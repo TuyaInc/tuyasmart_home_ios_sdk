@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class TuyaSmartDevice;
 
 @interface TYDeviceGroupViewController : TPBaseViewController
-
+// 当前选中的设备
 @property (nonatomic, strong) TuyaSmartDevice *device;
 
 @end

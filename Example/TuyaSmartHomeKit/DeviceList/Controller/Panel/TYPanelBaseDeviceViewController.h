@@ -6,12 +6,12 @@
 //  Copyright © 2016年 Tuya. All rights reserved.
 //
 
-@interface TYPanelBaseViewController : TPBaseViewController <TuyaSmartDeviceDelegate>
+#import "TYPanelBaseViewController.h"
+
+@interface TYPanelBaseDeviceViewController : TYPanelBaseViewController <TuyaSmartDeviceDelegate>
 
 @property (nonatomic, strong) NSString *devId;
 
 @property (nonatomic, strong) TuyaSmartDevice *device;
-
-- (void)updateOfflineView;
 
 @end

@@ -20,7 +20,6 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
         [self.bgView addSubview:self.plusButton];
         [self.bgView addSubview:self.rightLine];
         [self.bgView addSubview:self.titleLabel];
@@ -36,7 +35,7 @@
     if (!_plusButton) {
         _plusButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _plusButton.backgroundColor = [UIColor clearColor];
-        _plusButton.frame = CGRectMake(0, (self.bgView.height - 15)/2.f, 15, 15);
+        _plusButton.frame = CGRectMake(0, (self.bgView.height - 44)/2.f, 44, 44);
         _plusButton.right = APP_CONTENT_WIDTH - 25;
         [_plusButton setImage:[UIImage imageNamed:@"ty_panel_plus"] forState:UIControlStateNormal];
     }
@@ -80,7 +79,7 @@
     if (!_minButton) {
         _minButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _minButton.backgroundColor = [UIColor clearColor];
-        _minButton.frame = CGRectMake(0, (self.bgView.height - 15)/2.f, 15, 15);
+        _minButton.frame = CGRectMake(0, (self.bgView.height - 44)/2.f, 44, 44);
         [_minButton setImage:[UIImage imageNamed:@"ty_panel_minus"] forState:UIControlStateNormal];
         _minButton.right = self.leftLine.left - 22;
     }

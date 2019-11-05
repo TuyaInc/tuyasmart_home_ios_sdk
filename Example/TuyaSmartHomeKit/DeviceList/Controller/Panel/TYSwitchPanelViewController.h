@@ -6,8 +6,8 @@
 //  Copyright © 2016年 Tuya. All rights reserved.
 //
 
-#import "TYPanelBaseViewController.h"
+#import "TYPanelBaseDeviceViewController.h"
 
-@interface TYSwitchPanelViewController : TYPanelBaseViewController
+@interface TYSwitchPanelViewController : TYPanelBaseDeviceViewController
 
 @end

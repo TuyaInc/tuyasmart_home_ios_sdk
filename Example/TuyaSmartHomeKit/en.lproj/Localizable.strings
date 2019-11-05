@@ -391,6 +391,8 @@
 "rename" = "Rename";
 "rename_device" = "Modify Device Name";
 "rename_group" = "Modify Group Name";
+"delete_group" = "delete group";
+"really_to_delete_group" = "Sure to delete group？";
 "add_group" = "add group";
 "repeat" = "Repeat";
 "reset_device_answer_1" = "Please reset device\n\n2.Power off device\n\n3.Power on device after 15 seconds";

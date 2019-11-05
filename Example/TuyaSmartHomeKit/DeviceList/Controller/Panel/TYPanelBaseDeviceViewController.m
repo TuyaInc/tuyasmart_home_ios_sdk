@@ -6,16 +6,16 @@
 //  Copyright © 2016年 Tuya. All rights reserved.
 //
 
-#import "TYPanelBaseViewController.h"
+#import "TYPanelBaseDeviceViewController.h"
 #import "TYDeviceGroupViewController.h"
 
-@interface TYPanelBaseViewController()
+@interface TYPanelBaseDeviceViewController() <UIActionSheetDelegate>
 
-@property (nonatomic, strong) UILabel  *offlineLabel;
+
 
 @end
 
-@implementation TYPanelBaseViewController
+@implementation TYPanelBaseDeviceViewController
 
 
 - (void)viewDidLoad {
@@ -31,53 +31,55 @@
     [self.view addSubview:self.topBarView];
 }
 
-- (void)updateOfflineView {
-    self.offlineLabel.hidden = self.device.deviceModel.isOnline;
-    
-    [self.view bringSubviewToFront:self.offlineLabel];
+- (BOOL)isOfflineLabelNeedShow {
+    return self.device.deviceModel.isOnline;
 }
 
-- (TuyaSmartDevice *)device {
-    if (!_device) {
-        _device = [TuyaSmartDevice deviceWithDeviceId:self.devId];
-        _device.delegate = self;
-    }
-    return _device;
+- (void)publishDps:(NSDictionary *)dictionary success:(TYSuccessHandler)success failure:(TYFailureError)failure {
+    [self.device publishDps:dictionary success:success failure:failure];
 }
 
-- (UILabel *)offlineLabel {
-    if (!_offlineLabel) {
-        _offlineLabel = [TPViewUtil simpleLabel:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_CONTENT_WIDTH, APP_VISIBLE_HEIGHT) f:14 tc:HEXCOLOR(0xffffff) t:NSLocalizedString(@"title_device_offline", nil)];
-        _offlineLabel.textAlignment = NSTextAlignmentCenter;
-        _offlineLabel.backgroundColor = HEXCOLORA(0x000000, 0.6);
-        [self.view addSubview:self.offlineLabel];
-    }
-    return _offlineLabel;
+- (NSDictionary *)dps {
+    return self.device.deviceModel.dps;
+}
+
+- (NSArray<TuyaSmartSchemaModel *> *)schemaArray {
+    return self.device.deviceModel.schemaArray;
+}
+
+#pragma mark - TuyaSmartDeviceDelegate
+
+/// dp数据更新
+- (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps {
+    [self reloadDatas];
+}
+
+/// 设备信息更新
+- (void)deviceInfoUpdate:(TuyaSmartDevice *)device {
+    [self reloadDatas];
+}
+
+/// 设备被移除
+- (void)deviceRemoved:(TuyaSmartDevice *)device {
 }
 
 #pragma mark - menu
 
 - (void)rightBtnAction {
     UIActionSheet *sheet = [UIActionSheet bk_actionSheetWithTitle:NSLocalizedString(@"action_more", @"")];
-    
     WEAKSELF_AT
-    
-    //修改设备名称
     [sheet bk_addButtonWithTitle:NSLocalizedString(@"rename_device", @"") handler:^{
         [weakSelf_AT updateName];
     }];
-    if (self.device.deviceModel.deviceType == TuyaSmartDeviceModelTypeSIGMeshSubDev) {
+    if (self.device.deviceModel.deviceType != TuyaSmartDeviceModelTypeBle &&
+        self.device.deviceModel.supportGroup) {
         [sheet bk_addButtonWithTitle:NSLocalizedString(@"add_group", @"") handler:^{
             [weakSelf_AT addDeviceGroup];
         }];
     }
-    
-    
-    //移除设备
     [sheet bk_addButtonWithTitle:NSLocalizedString(@"cancel_connect", @"") handler:^{
         [weakSelf_AT removeDevice];
     }];
-    
     [sheet bk_setCancelButtonWithTitle:NSLocalizedString(@"action_cancel", @"") handler:nil];
     [sheet showInView:self.view];
 }
@@ -89,7 +91,6 @@
 }
 
 - (void)updateName {
-    
     UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:NSLocalizedString(@"rename_device", @"")];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     UITextField *textField = [alertView textFieldAtIndex:0];
@@ -102,24 +103,17 @@
     WEAKSELF_AT
     [alertView bk_addButtonWithTitle:NSLocalizedString(@"confirm", @"") handler:^{
         [weakSelf_AT.device updateName:textField.text success:^{
-            ;
-            
             UIButton *btn = [weakSelf_AT.topBarView viewWithTag:TP_CENTER_VIEW_TAG];
-            
             [btn setTitle:textField.text forState:UIControlStateNormal];
-        
         } failure:^(NSError *error) {
             [TPProgressUtils showError:error.localizedDescription];
         }];
     }];
-    
     [alertView bk_setCancelButtonWithTitle:NSLocalizedString(@"action_cancel", @"") handler:nil];
-    
     [alertView show];
 }
 
 - (void)removeDevice {
-    
     WEAKSELF_AT
     [UIAlertView bk_showAlertViewWithTitle:NSLocalizedString(@"cancel_connect", @"")
                                    message:NSLocalizedString(@"device_confirm_remove", @"")
@@ -138,6 +132,14 @@
             }];
         }
     }];
+}
+
+- (TuyaSmartDevice *)device {
+    if (!_device) {
+        _device = [TuyaSmartDevice deviceWithDeviceId:self.devId];
+        _device.delegate = self;
+    }
+    return _device;
 }
 
 @end

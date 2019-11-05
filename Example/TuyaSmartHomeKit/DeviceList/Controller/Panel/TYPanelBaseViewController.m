@@ -1,17 +1,10 @@
 //
-//  TYCommonPanelViewController.m
-//  TuyaSmartKitDemo
+//  TYPanelBaseViewController.m
+//  TuyaSmartHomeKit_Example
 //
-//  Created by 冯晓 on 16/8/27.
-//  Copyright © 2016年 Tuya. All rights reserved.
+//  Created by 温明妍 on 2019/11/4.
+//  Copyright © 2019 xuchengcheng. All rights reserved.
 //
-
-#import "TYCommonPanelViewController.h"
-#import "TYPanelBoolViewCell.h"
-#import "TYPanelValueViewCell.h"
-#import "TYPanelEnumViewCell.h"
-#import "TYPanelStringViewCell.h"
-#import "TYPanelBitmapViewCell.h"
 
 /*
  doc link
@@ -19,54 +12,69 @@
  en:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Device.html#device-control
  zh-hans:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%91
  */
+#import "TYPanelBaseViewController.h"
+#import "TYPanelBoolViewCell.h"
+#import "TYPanelValueViewCell.h"
+#import "TYPanelEnumViewCell.h"
+#import "TYPanelStringViewCell.h"
+#import "TYPanelBitmapViewCell.h"
 
-@interface TYCommonPanelViewController() <UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate>
+@interface TYPanelBaseViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) UILabel *offlineLabel;
 @property (nonatomic, strong) UITableView *tableView;
-
+@property (nonatomic, strong) NSArray<TuyaSmartSchemaModel *> *schemaArray;
+@property (nonatomic, strong) NSDictionary *dps;
+    
 @end
 
-@implementation TYCommonPanelViewController
+@implementation TYPanelBaseViewController
 
+
+#pragma mark - dealloc
+#pragma mark - life cycle
 
 - (void)viewDidLoad {
-
     [super viewDidLoad];
-    [self initView];
-}
-
-- (void)initView {
     self.view.backgroundColor = MAIN_BACKGROUND_COLOR;
-    
     [self.view addSubview:self.tableView];
-    
     [self updateOfflineView];
+    [self reloadDatas];
 }
-
-- (UITableView *)tableView {
-    if (!_tableView) {
-        
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_SCREEN_WIDTH,APP_VISIBLE_HEIGHT)
-                                                  style:UITableViewStylePlain];
-        _tableView.backgroundColor = MAIN_BACKGROUND_COLOR;
-        _tableView.dataSource = self;
-        _tableView.delegate = self;
-        _tableView.separatorStyle = NO;
+- (void)reloadDatas {
+    [self.tableView reloadData];
+}
+- (void)publishDps:(NSDictionary *)dictionary success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure {
+    if (failure) {
+        failure(nil);
     }
-    return _tableView;
+}
+- (NSArray<TuyaSmartSchemaModel *> *)schemaArray {
+    return nil;
 }
 
-#pragma mark - UITableViewDataSource
+- (NSDictionary *)dps {
+    return nil;
+}
+
+- (TuyaSmartSchemaModel *)getSchemaModelFromSubview:(UIView *)view {
+    CGPoint pointInTable = [view convertPoint:view.bounds.origin toView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:pointInTable];
+    TuyaSmartSchemaModel *schemaModel = [[self schemaArray] objectAtIndex:indexPath.row];//self.device.deviceModel.schemaArray[indexPath.row];
+    return schemaModel;
+}
+
+#pragma mark - UITableViewDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.device.deviceModel.schemaArray.count;
+    return [self schemaArray].count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    TuyaSmartSchemaModel *schemaModel = self.device.deviceModel.schemaArray[indexPath.row];
+    TuyaSmartSchemaModel *schemaModel = [[self schemaArray] objectAtIndex:indexPath.row];
     
-    NSDictionary *dps = self.device.deviceModel.dps;
+    NSDictionary *dps = self.dps;
     
     NSString *dpId = schemaModel.dpId;
     
@@ -105,7 +113,7 @@
             }
             
             cell.switchLabel.text = [dps objectForKey:dpId];
-        
+            
             [cell.titleView setItem:(indexPath.row + 1) title:schemaModel.name subTitle:[self getDpDesc:schemaModel]];
             
             return cell;
@@ -168,7 +176,7 @@
             return nil;
         }
     } else if ([schemaModel.type isEqualToString:@"raw"]) {
-
+        
         static NSString *CellIdentifier = @"CellRaw";
         TYPanelStringViewCell *cell = (TYPanelStringViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         
@@ -181,7 +189,7 @@
                 [weakSelf_AT textFieldAction:cell.textField];
             }];
         }
-
+        
         cell.textField.text = [dps objectForKey:dpId];
         
         [cell.titleView setItem:(indexPath.row + 1) title:schemaModel.name subTitle:[self getDpDesc:schemaModel]];
@@ -192,8 +200,6 @@
     }
 }
 
-#pragma mark - UITableViewDelegate
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 74;
 }
@@ -201,41 +207,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
-#pragma mark - TuyaSmartDeviceDelegate
-
-/// dp数据更新
-- (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps {
-    [self.tableView reloadData];
-}
-
-/// 设备信息更新
-- (void)deviceInfoUpdate:(TuyaSmartDevice *)device {
-    
-}
-
-/// 设备被移除
-- (void)deviceRemoved:(TuyaSmartDevice *)device {
-    
-}
+#pragma mark - CustomDelegate
 
 #pragma mark - action
 
 - (void)switchAction:(UISwitch *)sender {
-    
-    
     TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:sender];
     NSString *dpId = schemaModel.dpId;
     
-    [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
-    
-    [self.device publishDps:@{dpId:@(sender.isOn)} success:^{
-       
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-        
+    [self publishDps:@{dpId:@(sender.isOn)} success:^{
+        [self reloadDatas];
     } failure:^(NSError *error) {
-       
-        [TPProgressUtils hideHUDForView:nil animated:YES];
         [TPProgressUtils showError:error.localizedDescription];
     }];
 }
@@ -244,21 +226,13 @@
     
     TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:sender];
     NSString *dpId = schemaModel.dpId;
-    
-    NSInteger currentValue = [[self.device.deviceModel.dps objectForKey:dpId] integerValue];
-    
+    NSInteger currentValue = [[self.dps objectForKey:dpId] integerValue];
     currentValue += schemaModel.property.step;
-    
-    
-    [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
 
-    [self.device publishDps:@{dpId:@(currentValue)} success:^{
-        
+    [self publishDps:@{dpId:@(currentValue)} success:^{
         [TPProgressUtils hideHUDForView:nil animated:YES];
-        
     } failure:^(NSError *error) {
         
-        [TPProgressUtils hideHUDForView:nil animated:YES];
         [TPProgressUtils showError:error.localizedDescription];
         
     }];
@@ -267,56 +241,14 @@
 - (void)minAction:(UIButton *)sender {
     TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:sender];
     NSString *dpId = schemaModel.dpId;
-
-    NSInteger currentValue = [[self.device.deviceModel.dps objectForKey:dpId] integerValue];
-
+    NSInteger currentValue = [[self.dps objectForKey:dpId] integerValue];
     currentValue -= schemaModel.property.step;
-    
-    [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
-    
-    [self.device publishDps:@{dpId:@(currentValue)} success:^{
-
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-
-    } failure:^(NSError *error) {
+    [self publishDps:@{dpId:@(currentValue)} success:^{
         
-        [TPProgressUtils hideHUDForView:nil animated:YES];
+    } failure:^(NSError *error) {
         [TPProgressUtils showError:error.localizedDescription];
         
     }];
-}
-
-- (void)modeAction:(UILabel *)label {
-    
-    TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:label];
-    NSString *dpId = schemaModel.dpId;
-    
-    UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:NSLocalizedString(@"action_more", @"")];
-    
-    WEAKSELF_AT
-    
-    for (NSString *range in schemaModel.property.range) {
-        
-        [actionSheet bk_addButtonWithTitle:range handler:^{
-            
-            [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
-            
-            [weakSelf_AT.device publishDps:@{dpId:range} success:^{
-                
-                [TPProgressUtils hideHUDForView:nil animated:YES];
-                
-            } failure:^(NSError *error) {
-                
-                [TPProgressUtils hideHUDForView:nil animated:YES];
-                [TPProgressUtils showError:error.localizedDescription];
-            
-            }];
-        }];
-    }
-    
-    [actionSheet bk_setCancelButtonWithTitle:NSLocalizedString(@"action_cancel", nil) handler:nil];
-    
-    [actionSheet showInView:self.view];
 }
 
 - (void)textFieldAction:(UITextField *)textField {
@@ -328,10 +260,9 @@
     TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:textField];
     NSString *dpId = schemaModel.dpId;
     
-    
     [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
     
-    [self.device publishDps:@{dpId:textField.text} success:^{
+    [self publishDps:@{dpId:textField.text} success:^{
 
         [TPProgressUtils hideHUDForView:nil animated:YES];
         
@@ -342,16 +273,7 @@
     }];
 }
 
-- (TuyaSmartSchemaModel *)getSchemaModelFromSubview:(UIView *)view {
-    
-    CGPoint pointInTable = [view convertPoint:view.bounds.origin toView:_tableView];
-    NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:pointInTable];
-    
-    TuyaSmartSchemaModel *schemaModel = self.device.deviceModel.schemaArray[indexPath.row];
-    
-    return schemaModel;
-}
-
+#pragma mark - Event Response
 
 - (NSString *)getDpDesc:(TuyaSmartSchemaModel *)schemaModel {
     
@@ -405,6 +327,76 @@
     }
     
     return string;
+}
+
+- (void)modeAction:(UILabel *)label {
+    
+    TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:label];
+    NSString *dpId = schemaModel.dpId;
+    
+    UIActionSheet *actionSheet = [UIActionSheet bk_actionSheetWithTitle:NSLocalizedString(@"action_more", @"")];
+    
+    WEAKSELF_AT
+    
+    for (NSString *range in schemaModel.property.range) {
+        
+        [actionSheet bk_addButtonWithTitle:range handler:^{
+            
+            [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
+            
+            [weakSelf_AT publishDps:@{dpId:range} success:^{
+                
+                [TPProgressUtils hideHUDForView:nil animated:YES];
+                
+            } failure:^(NSError *error) {
+                
+                [TPProgressUtils hideHUDForView:nil animated:YES];
+                [TPProgressUtils showError:error.localizedDescription];
+            
+            }];
+        }];
+    }
+    
+    [actionSheet bk_setCancelButtonWithTitle:NSLocalizedString(@"action_cancel", nil) handler:nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+- (BOOL)isOfflineLabelNeedShow {
+    return YES;
+}
+
+- (void)updateOfflineView {
+    BOOL needShow = [self isOfflineLabelNeedShow];
+    self.offlineLabel.hidden = needShow;
+    [self.view bringSubviewToFront:self.offlineLabel];
+}
+
+#pragma mark - private methods
+#pragma mark - getters & setters & init members
+
+
+- (UILabel *)offlineLabel {
+    if (!_offlineLabel) {
+        _offlineLabel = [TPViewUtil simpleLabel:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_CONTENT_WIDTH, APP_VISIBLE_HEIGHT) f:14 tc:HEXCOLOR(0xffffff) t:NSLocalizedString(@"title_device_offline", nil)];
+        _offlineLabel.textAlignment = NSTextAlignmentCenter;
+        _offlineLabel.backgroundColor = HEXCOLORA(0x000000, 0.6);
+        [self.view addSubview:self.offlineLabel];
+    }
+    return _offlineLabel;
+}
+
+- (UITableView *)tableView {
+    if (!_tableView) {
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_SCREEN_WIDTH,APP_VISIBLE_HEIGHT)
+                                                  style:UITableViewStylePlain];
+        _tableView.backgroundColor = MAIN_BACKGROUND_COLOR;
+        _tableView.dataSource = self;
+        _tableView.delegate = self;
+        _tableView.separatorStyle = NO;
+    }
+    return _tableView;
 }
 
 @end
