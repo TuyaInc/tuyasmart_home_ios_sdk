@@ -571,8 +571,8 @@ participant Service
 
 Note over device: 将设备重置
 APP->SDK: 发送搜寻设备指令
-SDK->device: 通过蓝牙连接设备
-device->SDK: 连接成功
+SDK->device: 扫描蓝牙设备
+device->SDK: 返回设备信息
 SDK->APP: 返回设备信息
 
 APP->SDK: 激活设备（ssid、password等）

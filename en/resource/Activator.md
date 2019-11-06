@@ -550,9 +550,9 @@ participant Service
 
 Note over device: reset device
 APP->SDK: sends the discovery instruction 
-SDK->device: connects device through bluetooth
-device->SDK: successfully connected to the device
-SDK->APP: get device info
+SDK->device: discovery device through bluetooth
+device->SDK: return device infomation
+SDK->APP: return device infomation
 
 APP->SDK: sends the activation instruction
 SDK->device: sends the activation instruction
