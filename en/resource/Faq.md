@@ -77,3 +77,14 @@ pod 'TuyaSmartMessageKit',
 pod 'TuyaSmartFeedbackKit',
 ```
 
+##### 14、iOS sdk build error `Undefined symbols xxx`  
+
+* Generally, due to the version of sdk referenced is different, it's need confirmed whether each library referenced is a unified version (for example: 3.12.1, 3.12.5..), if not, `pod update` and recompiling.
+
+##### 15、Xcode 11 not included application loader
+
+* `Application Loader` is no longer included with Xcode 11. `Transporter` tool announced that replaces Application Loader.
+
+##### 16、Prompt permission check failed when logging in
+
+* Please check the `bundleId`、`appKey`、`appSecret`、`Security img`, any one of the mismatches will fail the verification. Please refer to [Preparation work](./Preparation.md) section
