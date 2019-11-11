@@ -303,9 +303,9 @@ TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
 
 #### SIG Mesh 网关配网
 
-SIG Mesh 网关配网为 EZ 配网，具体请参考 [ 快连模式（EZ配网）]([https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#%E5%BF%AB%E8%BF%9E%E6%A8%A1%E5%BC%8F%EF%BC%88ez%E9%85%8D%E7%BD%91%EF%BC%89](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#快连模式（ez配网）))
+SIG Mesh 网关配网为 EZ 配网，具体请参考 [ 快连模式（EZ配网）](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#快连模式（ez配网）)
 
-SIG Mesh 网关激活子设备具体参考 [激活子设备]([https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#zigbee-%E5%AD%90%E8%AE%BE%E5%A4%87%E6%BF%80%E6%B4%BB](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#zigbee-子设备激活))
+SIG Mesh 网关激活子设备具体参考 [激活子设备](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#zigbee-子设备激活)
 
 ### Mesh 设备
 
@@ -351,13 +351,13 @@ sig mesh 设备的在线情况分为两种
 
 #### 移除设备
 
-移除设备简化了，所有的设备移除都保持一致，详细参考 [移除设备]([https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#%E4%BF%AE%E6%94%B9%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#修改设备名称))
+移除设备简化了，所有的设备移除都保持一致，详细参考 [移除设备](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#修改设备名称)
 
 ### Mesh 群组
 
 在蓝牙Mesh网中，可以将一些设备组成群组，使用群组命令控制群组中的设备，例如，将所有灯组添加到某个群组中，通过控制群组的开关、颜色等，直接控制群组中所有的灯具有相同的属性
 
-> 具体的添加、删除流程图可以参考 [mesh 群组流程图]([https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Mesh.html#%E5%90%91%E7%BE%A4%E7%BB%84%E5%86%85%E6%B7%BB%E5%8A%A0%E8%AE%BE%E5%A4%87](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Mesh.html#向群组内添加设备))
+> 具体的添加、删除流程图可以参考 [mesh 群组流程图](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Mesh.html#向群组内添加设备)
 
 #### 1. 添加群组
 
@@ -696,4 +696,4 @@ sig mesh 设备的在线情况分为两种
 
 #### mesh 网关升级
 
-mesh 网关升级和普通的设备升级一样，参考 [固件升级]([https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#%E5%9B%BA%E4%BB%B6%E5%8D%87%E7%BA%A7](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#固件升级))
+mesh 网关升级和普通的设备升级一样，参考 [固件升级](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#固件升级)
