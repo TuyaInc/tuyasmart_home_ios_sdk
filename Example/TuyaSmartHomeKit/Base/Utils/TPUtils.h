@@ -28,6 +28,7 @@ return __singleton__; \
 
 #define WEAKSELF_AT __weak __typeof(&*self)weakSelf_AT = self;
 
+CGFloat TY_ScreenWidth(void);
 
 UIViewController *tp_topMostViewController();
 
