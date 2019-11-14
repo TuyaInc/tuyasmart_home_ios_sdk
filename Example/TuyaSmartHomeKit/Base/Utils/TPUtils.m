@@ -14,6 +14,9 @@
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreLocation/CoreLocation.h>
 
+inline CGFloat TY_ScreenWidth(void) {
+    return [UIScreen mainScreen].bounds.size.width;
+}
 
 UIWindow *tp_mainWindow() {
     id appDelegate = [UIApplication sharedApplication].delegate;
