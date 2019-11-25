@@ -92,7 +92,7 @@ pod 'TuyaSmartFeedbackKit',
 
 * 从 Xcode 11 开始，不再内置 `application loader` ，苹果官方出了一个新的 ipa 上传工具，可以直接在 mac 应用商店搜 `Transporter` 进行 ipa 上传
 
-##### 16、登录时提示权限校验失败
+##### 16、接口提示签名错误
 
 * 确认 bundleId、appKey、appSecret、安全图片是否与 IoT 平台上的信息一致，任意一个不匹配都将校验失败。具体请按照[准备工作](./Preparation.md)章节来进行检查
 
