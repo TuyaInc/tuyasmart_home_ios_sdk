@@ -85,6 +85,7 @@ pod 'TuyaSmartFeedbackKit',
 
 * `Application Loader` is no longer included with Xcode 11. `Transporter` tool announced that replaces Application Loader.
 
-##### 16、Prompt permission check failed when logging in
+##### 16、Signature check error
 
 * Please check the `bundleId`、`appKey`、`appSecret`、`Security img`, any one of the mismatches will fail the verification. Please refer to [Preparation work](./Preparation.md) section
+
