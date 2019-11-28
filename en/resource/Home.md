@@ -142,14 +142,19 @@ Objc:
     [self reload];
 }
 
-// The change of relation between home and room.
-- (void)homeDidUpdateRoomInfo:(TuyaSmartHome *)home {
-    [self reload];
-}
-
 // Received change of shared device list.
 - (void)homeDidUpdateSharedInfo:(TuyaSmartHome *)home {
     [self reload];
+}
+
+// the delegate when a new room is added.
+- (void)home:(TuyaSmartHome *)home didAddRoom:(TuyaSmartRoomModel *)room {
+  	[self reload];
+}
+
+// the delegate when an existing room is removed.
+- (void)home:(TuyaSmartHome *)home didRemoveRoom:(long long)roomId {
+  	[self reload];
 }
 
 // room information change, such as name.
@@ -177,7 +182,7 @@ Objc:
     [self reload];
 }
 
-//Update dp data of device.
+// the delegate of device dps update.
 - (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device dpsUpdate:(NSDictionary *)dps {
     [self reload];
 }
@@ -196,6 +201,21 @@ Objc:
 - (void)home:(TuyaSmartHome *)home groupInfoUpdate:(TuyaSmartGroupModel *)group {
     [self reload];
 }
+
+// the delegate of group dps update.
+- (void)home:(TuyaSmartHome *)home group:(TuyaSmartGroupModel *)group dpsUpdate:(NSDictionary *)dps {
+    [self reload];
+}
+
+// the delegate of warning information update
+- (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device warningInfoUpdate:(NSDictionary *)warningInfo {
+	//...  
+}
+
+// the delegate of device firmware upgrade status update
+- (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device upgradeStatus:(TuyaSmartDeviceUpgradeStatus)upgradeStatus {
+  	//...
+}
 ```
 Swift:
 
@@ -213,16 +233,22 @@ extension ViewController: TuyaSmartHomeDelegate {
     func homeDidUpdateInfo(_ home: TuyaSmartHome!) {
 //        reload()
     }
-    // The change of relation between home and room.
-    func homeDidUpdateRoomInfo(_ home: TuyaSmartHome!) {
-//        reload()
-    }
-    
+
     // Received change of shared device list.
     func homeDidUpdateSharedInfo(_ home: TuyaSmartHome!) {
         
     }
     
+    // the delegate when a new room is added.
+    func home(_ home: TuyaSmartHome!, didAddRoom room: TuyaSmartRoomModel!) {
+          //...
+    }
+
+    // the delegate when an existing room is removed.
+    func home(_ home: TuyaSmartHome!, didRemoveRoom roomId: int32!) {
+       //...
+    }
+
     // room information change, such as name.
     func home(_ home: TuyaSmartHome!, roomInfoUpdate room: TuyaSmartRoomModel!) {
 //        reload()/
@@ -248,11 +274,11 @@ extension ViewController: TuyaSmartHomeDelegate {
         
     }
     
-    // Update dp data of device.
-    func home(_ home: TuyaSmartHome!, group: TuyaSmartGroupModel!, dpsUpdate dps: [AnyHashable : Any]!) {
-        
+    // the delegate of device dps update.
+    func home(_ home: TuyaSmartHome!, device: TuyaSmartDeviceModel!, dpsUpdate dps: [AnyHashable : Any]!) {
+         //...
     }
-    
+
     // Add group.
     func home(_ home: TuyaSmartHome!, didAddGroup group: TuyaSmartGroupModel!) {
         
@@ -266,6 +292,21 @@ extension ViewController: TuyaSmartHomeDelegate {
     // Update information of group, such as name.
     func home(_ home: TuyaSmartHome!, groupInfoUpdate group: TuyaSmartGroupModel!) {
         
+    }
+
+    // he delegate of group dps update.
+    func home(_ home: TuyaSmartHome!, group: TuyaSmartGroupModel!, dpsUpdate dps: [AnyHashable : Any]!) {
+        
+    }
+
+      // the delegate of warning information update
+    func home(_ home: TuyaSmartHome!, device: TuyaSmartDeviceModel!, warningInfoUpdate warningInfo: [AnyHashable : Any]!) {
+    	//...
+    }
+  
+    //  the delegate of device firmware upgrade status update
+    func home(_ home: TuyaSmartHome!, device: TuyaSmartDeviceModel!, upgradeStatus status TuyaSmartDeviceUpgradeStatus) {
+    	//....
     }
     
 }
@@ -473,7 +514,7 @@ func sortHomeRoom() {
 ```
 ### Home member management
 
-All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember`classes
+All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember`classes, member role type is `TYHomeRoleType`
 
 #### Add Home Member
 
@@ -482,7 +523,7 @@ Objc:
 ```objc
 - (void)addShare {
   //	_home = [TuyaSmartHome homeWithHomeId:homeId];
-    [_home addHomeMemberWithName:@"name" headPic:image countryCode:@"your_country_code" userAccount:@"account" isAdmin:YES success:^(NSDictionary *dict) {
+    [_home addHomeMemberWithName:@"name" headPic:image countryCode:@"your_country_code" userAccount:@"account" role:TYHomeRoleType_Admin success:^(NSDictionary *dict) {
         NSLog(@"addNewMember success");
     } failure:^(NSError *error) {
         NSLog(@"addNewMember failure: %@", error);
@@ -494,7 +535,7 @@ Swift:
 
 ```swift
 func addShare() {
-    home?.addHomeMember(withName:@"name", headPic:image, countryCode: "your_country_code", account: "account", isAdmin: true, success: {
+    home?.addHomeMember(withName:@"name", headPic:image, countryCode: "your_country_code", account: "account", role: TYHomeRoleType_Admin, success: {
         print("addNewMember success")
     }, failure: { (error) in
         if let e = error {
@@ -545,7 +586,8 @@ Objc:
 - (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
 	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
 
-	[self.homeMember updateHomeMemberNameWithMemberId:memberModel.memberId name:name isAdmin:YES success:^{
+	TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
+	[self.homeMember updateHomeMemberInfoWithMemberRequestModel:requestModel  success:^{
         NSLog(@"modifyMemberName success");
     } failure:^(NSError *error) {
         NSLog(@"modifyMemberName failure: %@", error);
@@ -557,7 +599,7 @@ Swift:
 
 ```swift
 func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
-    homeMember?.updateHomeMemberName(withMemberId: memberModel.memberId, name: name, isAdmin: true, success: {
+    homeMember?.updateHomeMemberName(withMemberRequestModel:requestModel, success: {
         print("modifyMemberName success")
     }, failure: { (error) in
         if let e = error {
