@@ -1,4 +1,4 @@
-## 单点蓝牙 BLE
+## 单点 BLE SDK 使用说明
 
 
 
@@ -34,7 +34,7 @@
 
   
   
-  TuyaSmartBLEManager` 的 `delegate` 功能如下，可以按需设置
+  `TuyaSmartBLEManager` 的 `delegate` 功能如下，可以按需设置
   
   ```objective-c
   /**
@@ -56,7 +56,7 @@
 
 #### 系统蓝牙状态监测
 
-SDK 提供了对系统蓝牙的状态监测，在蓝牙状态变化（如开启或关闭）时，可以通过设置代理收到具体的消息
+SDK 提供了对系统蓝牙的状态监测的方法，在蓝牙状态变化（如开启或关闭）时，可以通过设置代理收到具体的消息
 
 **示例代码**
 
@@ -171,7 +171,7 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 ```objective-c
 /**
- 激活设备，设备 uuid 来源于搜索发现的设备
+ 激活设备
  激活过程会将设备信息注册到云端
  
  @param deviceInfo 设备信息 Model
@@ -347,6 +347,8 @@ TuyaSmartBLEManager.sharedInstance().queryName(withUUID: bleAdvInfo.uuid, produc
 
 #### 发现设备
 
+**示例代码**
+
 Objc:
 
 ```objective-c
@@ -415,6 +417,8 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
                                  failure:(TYFailureHandler)failure;
 ```
 
+**示例代码**
+
 Objc:
 
 ```objective-c
@@ -439,30 +443,32 @@ Swift:
 
 #### 设备激活回调
 
-Objc 示例:
+**示例代码**
+
+Objc:
 
 ```objective-c
 - (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
     if (!error && deviceModel) {
-		//配网成功
+			// 配网成功
     }
   
     if (error) {
-        //配网失败
+    	// 配网失败
     }
 }
 ```
 
-Swift 示例:
+Swift:
 
 ```swift
 func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiConfigDevice deviceModel: TuyaSmartDeviceModel, error: Error) {
     if (!error && deviceModel) {
-		//配网成功
+			// 配网成功
     }
 
     if (error) {
-        //配网失败
+    	// 配网失败
     }
 }
 ```
@@ -471,14 +477,18 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 #### 停止发现设备
 
+**示例代码**
+
 Objc:
 
 ```objective-c
+//在配网结束后调用
 [[TuyaSmartBLEWifiActivator sharedInstance] stopDiscover];
 ```
 
 Swift:
 
 ```swift
+//在配网结束后调用
 TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
 ```
