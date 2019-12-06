@@ -1,5 +1,16 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 3.13.0(2019-12-06)
+
+* 新增功能
+  - 支持标准DPCode 控制
+  - 家庭权限角色支持多样性
+* New Feature
+  * Support DP Code Control
+  * Support more family member role
+
+
+
 ## 3.12.0(2019-09-21)
 
 - 功能变化
