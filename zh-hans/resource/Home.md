@@ -158,14 +158,19 @@ Objc:
     [self reload];
 }
 
-// 家庭和房间关系变化
-- (void)homeDidUpdateRoomInfo:(TuyaSmartHome *)home {
-    [self reload];
-}
-
 // 我收到的共享设备列表变化
 - (void)homeDidUpdateSharedInfo:(TuyaSmartHome *)home {
     [self reload];
+}
+
+// 家庭下新增房间代理回调
+- (void)home:(TuyaSmartHome *)home didAddRoom:(TuyaSmartRoomModel *)room {
+  	[self reload];
+}
+
+// 家庭下删除房间代理回调
+- (void)home:(TuyaSmartHome *)home didRemoveRoom:(long long)roomId {
+  	[self reload];
 }
 
 // 房间信息变更，例如name
@@ -193,7 +198,7 @@ Objc:
     [self reload];
 }
 
-// 设备dp数据更新
+// 家庭下设备的 dps 变化代理回调
 - (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device dpsUpdate:(NSDictionary *)dps {
     [self reload];
 }
@@ -212,6 +217,23 @@ Objc:
 - (void)home:(TuyaSmartHome *)home groupInfoUpdate:(TuyaSmartGroupModel *)group {
     [self reload];
 }
+
+// 家庭下群组 dps 变化代理回调
+- (void)home:(TuyaSmartHome *)home group:(TuyaSmartGroupModel *)group dpsUpdate:(NSDictionary *)dps {
+    [self reload];
+}
+
+// the delegate of warning information update
+// 家庭下设备的告警信息变化的代理回调
+- (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device warningInfoUpdate:(NSDictionary *)warningInfo {
+	//...  
+}
+
+// the delegate of device firmware upgrade status update
+// 家庭下设备升级状态的回调
+- (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device upgradeStatus:(TuyaSmartDeviceUpgradeStatus)upgradeStatus {
+  	//...
+}
 ```
 
 Swift:
@@ -220,71 +242,92 @@ Swift:
 var home: TuyaSmartHome?
 
 extension ViewController: TuyaSmartHomeDelegate {
-    
-    func initHome() {
-        home = TuyaSmartHome(homeId: homeId)
-        home?.delegate = self
-    }
-    
-    // 家庭的信息更新，例如name
-    func homeDidUpdateInfo(_ home: TuyaSmartHome!) {
+  
+  func initHome() {
+      home = TuyaSmartHome(homeId: homeId)
+      home?.delegate = self
+  }
+  
+  // 家庭的信息更新，例如name
+  func homeDidUpdateInfo(_ home: TuyaSmartHome!) {
 //        reload()
-    }
-    // 家庭和房间关系变化
-    func homeDidUpdateRoomInfo(_ home: TuyaSmartHome!) {
-//        reload()
-    }
-    
-    // 我收到的共享设备列表变化
-    func homeDidUpdateSharedInfo(_ home: TuyaSmartHome!) {
-        
-    }
-    
-    // 房间信息变更，例如name
-    func home(_ home: TuyaSmartHome!, roomInfoUpdate room: TuyaSmartRoomModel!) {
+  }
+
+  // 我收到的共享设备列表变化
+  func homeDidUpdateSharedInfo(_ home: TuyaSmartHome!) {
+
+  }
+
+  // 家庭下新增房间代理回调
+  func home(_ home: TuyaSmartHome!, didAddRoom room: TuyaSmartRoomModel!) {
+      //...
+  }
+
+  // 家庭下删除房间代理回调
+  func home(_ home: TuyaSmartHome!, didRemoveRoom roomId: int32!) {
+      //...
+  }
+
+  // 房间信息变更，例如name
+  func home(_ home: TuyaSmartHome!, roomInfoUpdate room: TuyaSmartRoomModel!) {
 //        reload()/
-    }
-    
-    // 房间与设备，群组的关系变化
-    func home(_ home: TuyaSmartHome!, roomRelationUpdate room: TuyaSmartRoomModel!) {
-        
-    }
-    
-    // 添加设备
-    func home(_ home: TuyaSmartHome!, didAddDeivice device: TuyaSmartDeviceModel!) {
-        
-    }
-    
-    // 删除设备
-    func home(_ home: TuyaSmartHome!, didRemoveDeivice devId: String!) {
-        
-    }
-    
-    // 设备信息更新，例如name
-    func home(_ home: TuyaSmartHome!, deviceInfoUpdate device: TuyaSmartDeviceModel!) {
-        
-    }
-    
-    // 设备dp数据更新
-    func home(_ home: TuyaSmartHome!, group: TuyaSmartGroupModel!, dpsUpdate dps: [AnyHashable : Any]!) {
-        
-    }
-    
-    // 添加群组
-    func home(_ home: TuyaSmartHome!, didAddGroup group: TuyaSmartGroupModel!) {
-        
-    }
-    
-    // 删除群组
-    func home(_ home: TuyaSmartHome!, didRemoveGroup groupId: String!) {
-        
-    }
-    
-    // 群组信息更新，例如name
-    func home(_ home: TuyaSmartHome!, groupInfoUpdate group: TuyaSmartGroupModel!) {
-        
-    }
-    
+  }
+
+  // 房间与设备，群组的关系变化
+  func home(_ home: TuyaSmartHome!, roomRelationUpdate room: TuyaSmartRoomModel!) {
+
+  }
+
+  // 添加设备
+  func home(_ home: TuyaSmartHome!, didAddDeivice device: TuyaSmartDeviceModel!) {
+
+  }
+
+  // 删除设备
+  func home(_ home: TuyaSmartHome!, didRemoveDeivice devId: String!) {
+
+  }
+
+  // 设备信息更新，例如name
+  func home(_ home: TuyaSmartHome!, deviceInfoUpdate device: TuyaSmartDeviceModel!) {
+
+  }
+
+  // 家庭下设备的 dps 变化代理回调
+  func home(_ home: TuyaSmartHome!, device: TuyaSmartDeviceModel!, dpsUpdate dps: [AnyHashable : Any]!) {
+      //...
+  }
+
+  // 添加群组
+  func home(_ home: TuyaSmartHome!, didAddGroup group: TuyaSmartGroupModel!) {
+
+  }
+
+  // 删除群组
+  func home(_ home: TuyaSmartHome!, didRemoveGroup groupId: String!) {
+
+  }
+
+  // 群组信息更新，例如name
+  func home(_ home: TuyaSmartHome!, groupInfoUpdate group: TuyaSmartGroupModel!) {
+
+  }
+
+  // 家庭下群组的 dps 变化代理回调
+  func home(_ home: TuyaSmartHome!, group: TuyaSmartGroupModel!, dpsUpdate dps: [AnyHashable : Any]!) {
+			//...
+  }
+  
+  // 家庭下设备的告警信息变化的代理回调
+  func home(_ home: TuyaSmartHome!, device: TuyaSmartDeviceModel!, warningInfoUpdate warningInfo: [AnyHashable : Any]!) {
+    	//...
+  }
+  
+  // 家庭下设备升级状态的回调
+  func home(_ home: TuyaSmartHome!, device: TuyaSmartDeviceModel!, upgradeStatus status TuyaSmartDeviceUpgradeStatus) {
+    	//....
+  }
+  
 }
 ```
 
@@ -443,7 +486,7 @@ func addHomeRoom() {
 
 
 
-### 解散房间
+### 删除房间
 
 Objc:
 
@@ -503,16 +546,18 @@ func sortHomeRoom() {
 
 ### 家庭成员管理
 
-家庭成员管理相关的所有功能对应`TuyaSmartHome`和 `TuyaSmartHomeMember`类
+家庭成员管理相关的所有功能对应`TuyaSmartHome`和 `TuyaSmartHomeMember`类，成员角色类型TYHomeRoleType
 
 #### 添加家庭成员
+
+拥有者(TYHomeRoleType_Owner) 可以添加管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以添加普通成员及以下角色
 
 Objc:
 
 ```objc
 - (void)addShare {
   //	_home = [TuyaSmartHome homeWithHomeId:homeId];
-    [_home addHomeMemberWithName:@"name" headPic:image countryCode:@"your_country_code" userAccount:@"account" isAdmin:YES success:^(NSDictionary *dict) {
+    [_home addHomeMemberWithName:@"name" headPic:image countryCode:@"your_country_code" userAccount:@"account" role:TYHomeRoleType_Admin success:^(NSDictionary *dict) {
         NSLog(@"addNewMember success");
     } failure:^(NSError *error) {
         NSLog(@"addNewMember failure: %@", error);
@@ -524,7 +569,7 @@ Swift:
 
 ```swift
 func addShare() {
-    home?.addHomeMember(withName:@"name", headPic:image, countryCode: "your_country_code", account: "account", isAdmin: true, success: {
+    home?.addHomeMember(withName:@"name", headPic:image, countryCode: "your_country_code", account: "account", role: TYHomeRoleType_Admin, success: {
         print("addNewMember success")
     }, failure: { (error) in
         if let e = error {
@@ -567,15 +612,18 @@ func initMemberList() {
 
 
 
-#### 修改家庭成员的备注名称和是否是管理员
+#### 修改家庭成员的备注名称和成员角色
+
+拥有者(TYHomeRoleType_Owner) 可以修改管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以修改普通成员及以下角色
 
 Objc:
 
 ```objc
 - (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
 	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
-
-	[self.homeMember updateHomeMemberNameWithMemberId:memberModel.memberId name:name isAdmin:YES success:^{
+	
+  TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
+	[self.homeMember updateHomeMemberInfoWithMemberRequestModel:requestModel  success:^{
         NSLog(@"modifyMemberName success");
     } failure:^(NSError *error) {
         NSLog(@"modifyMemberName failure: %@", error);
@@ -587,7 +635,7 @@ Swift:
 
 ```swift
 func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
-    homeMember?.updateHomeMemberName(withMemberId: memberModel.memberId, name: name, isAdmin: true, success: {
+    homeMember?.updateHomeMemberName(withMemberRequestModel:requestModel, success: {
         print("modifyMemberName success")
     }, failure: { (error) in
         if let e = error {
@@ -600,6 +648,10 @@ func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
 
 
 #### 删除家庭成员
+
+拥有者(TYHomeRoleType_Owner) 可以删除管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以删除普通成员及以下角色
+
+若成员传入自身memberId，家庭管理员，普通成员，自定义角色，调用此接口为离开家庭，若家庭拥有者调用此接口为解散家庭，同时该家庭下所有设备会被重置，效果与上文解散家庭一致。
 
 Objc:
 
