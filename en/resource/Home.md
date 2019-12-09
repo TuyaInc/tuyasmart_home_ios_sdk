@@ -645,6 +645,8 @@ func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
 
 ####  Accept or reject home invitations
 
+Whether the member accepts the home‘s invitation corresponds to the dealStatus in TuyaSmartHomeModel, The invited state will correspond to TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject.
+
 Objc:
 
 ```objc
