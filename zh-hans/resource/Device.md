@@ -36,7 +36,101 @@ func updateDeviceInfo() {
 }
 ```
 
-### 设备功能点
+
+
+### 标准设备控制
+
+#### 标准设备功能集
+
+具体品类的设备标准 dpCode 功能集可以参照对应的文档
+
+#### 设备操作控制
+
+```objective-c
+[self.device publishDpWithCommands:dpCodesCommand success:^{
+    NSLog(@"publishDpWithCommands success");
+} failure:^(NSError *error) {
+    NSLog(@"publishDpWithCommands failure: %@", error);
+}];
+```
+
+【指令格式】
+
+```json
+// 以灯为例
+// 每种产品都有标准的一套规则
+// 作用: 开关打开 
+{"switch_led" : true}
+
+// 字符串型功能点示例 作用: 设置彩光颜色
+{"colour_data" : "009003e803e8"}
+
+// 枚举型功能点示例 作用: 设置模式为 "white" 白光模式
+{"work_mode" : "white"}
+
+// 设置数值型功能点示例 作用: 设置亮度为100
+{"bright_value" : 100}
+
+// 多个功能合并发送
+{"work_mode" : "colour"}
+{"colour_data" : "009003e803e8"}
+```
+
+#### 设备状态更新
+
+实现 `TuyaSmartDeviceDelegate`代理协议后，可以在设备状态更变的回调中进行处理，刷新APP设备控制面板的UI。
+
+Objc:
+
+```objective-c
+- (void)initDevice {
+    self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+    self.device.delegate = self;
+}
+
+#pragma mark - TuyaSmartDeviceDelegate
+
+- (void)device:(TuyaSmartDevice *)device dpCommandsUpdate:(NSDictionary *)dpCodes {
+    NSLog(@"dpCommandsUpdate: %@", dpCodes);
+    // TODO: 刷新界面UI
+}
+
+- (void)deviceInfoUpdate:(TuyaSmartDevice *)device {
+    //当前设备信息更新 比如 设备名、设备在线状态等
+}
+
+- (void)deviceRemoved:(TuyaSmartDevice *)device {
+    //当前设备被移除
+}
+```
+
+Swift:
+
+```objective-c
+func initDevice() {
+    device = TuyaSmartDevice(deviceId: "your_device_id")
+    device?.delegate = self
+}
+
+// MARK: - TuyaSmartDeviceDelegate
+
+func device(_ device: TuyaSmartDevice!, dpCommandsUpdate dpCodes: [AnyHashable : Any]!) {
+    print("dpCommandsUpdate: \(dpCodes)")
+    // TODO: 刷新界面UI
+}
+
+func deviceInfoUpdate(_ device: TuyaSmartDevice!) {
+    //当前设备信息更新 比如 设备名、设备在线状态等
+}
+
+func deviceRemoved(_ device: TuyaSmartDevice!) {
+    //当前设备被移除
+}
+```
+
+### 自定义设备控制
+
+#### 设备功能点
 
 `TuyaSmartDeviceModel`类的`dps`属性（`NSDictionary`类型）定义了当前设备的状态，称作数据点（DP点）或功能点。
 

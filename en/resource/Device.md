@@ -36,7 +36,102 @@ func updateDeviceInfo() {
 }
 ```
 
-### Functions of device
+
+
+### Standard Device Control
+
+#### Functions of standard device
+
+Specific category of device standard dpCode feature set can refer to the corresponding document.
+
+#### Standard device control
+
+```objective-c
+[self.device publishDpWithCommands:dpCodesCommand success:^{
+    NSLog(@"publishDpWithCommands success");
+} failure:^(NSError *error) {
+    NSLog(@"publishDpWithCommands failure: %@", error);
+}];
+```
+
+【Commands】
+
+```json
+// light 
+// Each product has a standard set of rules
+// bool: open light
+{"switch_led" : true}
+
+// string: set color 
+{"colour_data" : "009003e803e8"}
+
+// enum: set white mode
+{"work_mode" : "white"}
+
+// value: set brightness 100
+{"bright_value" : 100}
+
+// Multiple combinations
+{"work_mode" : "colour"}
+{"colour_data" : "009003e803e8"}
+```
+
+#### Update device status
+
+After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
+
+Objc:
+
+```objective-c
+- (void)initDevice {
+    self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+    self.device.delegate = self;
+}
+
+#pragma mark - TuyaSmartDeviceDelegate
+
+- (void)device:(TuyaSmartDevice *)device dpCommandsUpdate:(NSDictionary *)dpCodes {
+    NSLog(@"dpCommandsUpdate: %@", dpCodes);
+    // TODO: refresh ui
+}
+
+- (void)deviceInfoUpdate:(TuyaSmartDevice *)device {
+    // device info update
+}
+
+- (void)deviceRemoved:(TuyaSmartDevice *)device {
+    // device removed
+}
+```
+
+Swift:
+
+```objective-c
+func initDevice() {
+    device = TuyaSmartDevice(deviceId: "your_device_id")
+    device?.delegate = self
+}
+
+// MARK: - TuyaSmartDeviceDelegate
+
+func device(_ device: TuyaSmartDevice!, dpCommandsUpdate dpCodes: [AnyHashable : Any]!) {
+    print("dpCommandsUpdate: \(dpCodes)")
+    // TODO: refresh ui
+}
+
+func deviceInfoUpdate(_ device: TuyaSmartDevice!) {
+    // device info update
+}
+
+func deviceRemoved(_ device: TuyaSmartDevice!) {
+    // device removed 
+}
+```
+
+
+### Custom Device Control
+
+#### Functions of device
 
 The `dps` (`NSDictionary` type) attribute of the `TuyaSmartDeviceModel` class defines the state of the device, and the state is called data point (DP) or function point.
 Each `key` in the `dps` dictionary refers to a `dpId` of a function point, and `Value` refers to the `dpValue` of a function point. The `dpValue` is the value of the function point.
