@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.description      = '🚀Tuya bluetooth, less write and can use anywhere.'
 
   s.homepage         = 'https://tuya.com'
-  #s.license          = { :type => 'MIT' }
+  s.license          = "none"
   s.author           = { 'huangdaxia' => 'huangkai@tuya.com' }
   s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
 
