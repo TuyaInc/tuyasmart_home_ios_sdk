@@ -63,14 +63,7 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     
-    NSString *pushId = [[[[deviceToken description]
-                          stringByReplacingOccurrencesOfString:@" " withString:@""]
-                         stringByReplacingOccurrencesOfString:@"<" withString:@""]
-                        stringByReplacingOccurrencesOfString:@">" withString:@""];
-    
-    NSLog(@"pushId is %@", pushId);
-    
-    [[TuyaSmartSDK sharedInstance] setValue:pushId forKey:@"deviceToken"];
+    [TuyaSmartSDK sharedInstance].deviceToken = deviceToken;
 }
 
 @end
