@@ -96,4 +96,14 @@ pod 'TuyaSmartFeedbackKit',
 
 * 确认 bundleId、appKey、appSecret、安全图片是否与 IoT 平台上的信息一致，任意一个不匹配都将校验失败。具体请按照[准备工作](./Preparation.md)章节来进行检查
 
+##### 17、pod install时提示"CDN: trunk Repo update failed / trunk URL couldn't be downloaded"
+
+- CocoaPods 1.8.0版本默认会使用CDN Repo作为源，如果因为网络原因导致无法访问，可以改回原先的Master Repo。编辑`Podfile`，设置Master Repo作为主要的源：
+
+  ```diff
+  - source 'https://cdn.cocoapods.org/'
+  + source 'https://github.com/CocoaPods/Specs.git'
+  ```
+
+- 详情：http://blog.cocoapods.org/CocoaPods-1.8.0-beta/
 
