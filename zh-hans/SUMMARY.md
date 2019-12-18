@@ -26,13 +26,9 @@
   - [ZigBee 子设备激活](./resource/Activator.md#zigbee-子设备激活)
 * [设备管理](./resource/Device.md#设备管理)
   - [更新设备信息](./resource/Device.md#更新设备信息)
-  - [设备控制](./resource/Device.md)
-    - [标准设备控制](./resource/Device.md#标准设备控制)
-      - [标准设备功能集](./resource/Device.md#标准设备功能集)
-      - [设备控制](./resource/Device.md#设备操作控制)
+  - [设备控制](./resource/Device.md#设备控制)
+    - [标准设备控制](./resource/Device.md#标准设备控制-beta)
     - [自定义设备控制](./resource/Device.md#自定义设备控制)
-      - [设备功能点](./resource/Device.md#设备功能点)
-      - [设备控制](./resource/Device.md#设备控制)
   - [修改设备名称](./resource/Device.md#修改设备名称)
   - [移除设备](./resource/Device.md#移除设备)
   - [获取设备的wifi信号强度](./resource/Device.md#获取设备的wifi信号强度)
@@ -81,4 +77,6 @@
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
 * [FAQ](./resource/Faq.md)
 * [日志更新](./resource/ChangeLog.md)
+* [标准功能集](./resource/StandardDpCode.md)
+
 

@@ -38,13 +38,42 @@ func updateDeviceInfo() {
 
 
 
-### 标准设备控制
+###设备控制
 
-#### 标准设备功能集
+设备控制目前分为**标准设备控制**和**自定义设备控制**
 
-具体品类的设备标准 dpCode 功能集可以参照对应的文档
 
-#### 设备操作控制
+
+#### 标准设备控制 (Beta)
+
+##### 标准设备功能集
+
+什么是标准设备功能集？
+
+不同品类的产品，功能点都不一样。例如照明品类中，以灯为例，有开关、调色等功能，但对于电工品类，以插座为例，就没有 “调色” 功能
+
+但对于某个大的品类而言，基本的通用功能都是一致的。比如，所有的照明品类，都有开关这个功能
+
+统一同类产品的功能集定义，制定一套功能指令集规则，这就是标准功能集
+
+> 因为需要兼容繁多的多样化产品功能，所以目前标准设备控制功能处于阶段性开放产品适配功能
+> 若您要使用该功能，可以联系涂鸦或咨询相关的对接负责人
+
+
+
+##### 设备否支持标准化
+
+`TuyaSmartDeviceModel` 类的 `standard` 属性（ `BOOL` 类型）定义了当前设备是否支持标准化控制
+
+`dpCodes` 属性定义了当前设备的状态，称作标准数据点(标准 dp code)
+
+`dpCodes` 字典里的每个 `key` 对应一个功能点的 `dpCode`，`value` 对应一个功能点的 `dpValue `，`dpValue` 为该功能点的值
+
+具体品类的设备标准 dpCode 功能集可以参照对应的[文档](./StandardDpCode.md)
+
+
+
+#####设备操作控制
 
 ```objective-c
 [self.device publishDpWithCommands:dpCodesCommand success:^{
@@ -76,7 +105,7 @@ func updateDeviceInfo() {
 {"colour_data" : "009003e803e8"}
 ```
 
-#### 设备状态更新
+##### 设备状态更新
 
 实现 `TuyaSmartDeviceDelegate`代理协议后，可以在设备状态更变的回调中进行处理，刷新APP设备控制面板的UI。
 
@@ -128,15 +157,15 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 }
 ```
 
-### 自定义设备控制
+#### 自定义设备控制
 
-#### 设备功能点
+##### 设备功能点
 
 `TuyaSmartDeviceModel`类的`dps`属性（`NSDictionary`类型）定义了当前设备的状态，称作数据点（DP点）或功能点。
 
 `dps`字典里的每个`key`对应一个功能点的`dpId`，`value`对应一个功能点的`dpValue `，`dpValue`为该功能点的值。<br />
 
-产品功能点定义参见[涂鸦开发者平台](https://developer.tuya.com/)的产品功能，如下图所示：
+产品功能点定义参见[涂鸦开发者平台](https://docs.tuya.com/zh/iot/configure-in-platform/function-definition/custom-functions)的产品功能，如下图所示：
 
 ![功能点](./images/ios_dp_sample.jpeg)
 
@@ -211,7 +240,7 @@ func publishDps() {
 
 功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/product/function.html)
 
-#### 设备控制
+##### 设备控制
 
 设备控制支持三种通道控制，局域网控制，云端控制，和自动方式（如果局域网在线，先走局域网控制，局域网不在线，走云端控制）
 
@@ -246,7 +275,7 @@ func publishDps() {
 ```
 
 
-#### 设备状态更新
+##### 设备状态更新
 
 实现`TuyaSmartDeviceDelegate`代理协议后，可以在设备状态更变的回调中进行处理，刷新APP设备控制面板的UI。
 
