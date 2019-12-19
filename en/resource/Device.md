@@ -38,13 +38,39 @@ func updateDeviceInfo() {
 
 
 
-### Standard Device Control
+### Device Control
 
-#### Functions of standard device
+Device control is currently divided into **standard device control** and **custom device control**.
 
-Specific category of device standard dpCode feature set can refer to the corresponding document.
+#### Standard Device Control (Beta)
 
-#### Standard device control
+##### Standard device feature set
+
+What is the standard device feature set?
+
+The functions of different products are different. For example, in the lighting category, the lamp is used as an example, there are functions such as switching, color adjustment, but for the electrical category, the socket is used as an example, there is no "color" function.
+
+But for a large category, the basic common functions are the same. For example, all lighting categories have the function of switching.
+
+Unify the definition of the function set of similar products and formulate a set of function instruction set rules, which is the standard function set.
+
+> Because it needs to be compatible with a wide variety of product functions, the standard equipment control function is currently in a phase of open product adaptation.
+>
+> If you want to use this function, you can contact Tuya.
+
+
+
+##### Does the device support standardization
+
+The `standard` property (type `BOOL`) of the `TuyaSmartDeviceModel` class defines whether the current device supports standardized control
+
+The `dpCodes` property defines the status of the current device and is called a standard dp code
+
+Each key in the dpCodes dictionary corresponds to a dpCode of a function point, value corresponds to a dpValue of a function point, and dpValue is the value of the function point
+
+
+
+##### Standard device control
 
 ```objective-c
 [self.device publishDpWithCommands:dpCodesCommand success:^{
@@ -76,7 +102,7 @@ Specific category of device standard dpCode feature set can refer to the corresp
 {"colour_data" : "009003e803e8"}
 ```
 
-#### Update device status
+##### Update device status
 
 After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
 
@@ -129,13 +155,13 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 ```
 
 
-### Custom Device Control
+#### Custom Device Control
 
-#### Functions of device
+##### Functions of device
 
 The `dps` (`NSDictionary` type) attribute of the `TuyaSmartDeviceModel` class defines the state of the device, and the state is called data point (DP) or function point.
 Each `key` in the `dps` dictionary refers to a `dpId` of a function point, and `Value` refers to the `dpValue` of a function point. The `dpValue` is the value of the function point.
-Refer to the functions of product in the [Tuya developer platform](https://developer.tuya.com/) for definition of function points of products. See the following figure.
+Refer to the functions of product in the [Tuya developer platform](https://iot.tuya.com/) for definition of function points of products. See the following figure.
 
 ![功能点](./images/ios_dp_sample.png)
 
@@ -212,7 +238,7 @@ func publishDps() {
 For more concepts of function points, please refer to the [QuickStart-Related Concepts of Function Points](https://docs.tuya.com/en/product/function.html)
 
 
-#### Device control
+##### Device control
 
 Device control supports three kinds of channel control, LAN control, cloud control, and automatic mode (if LAN is online, first go LAN control, LAN is not online, go cloud control)
 
@@ -247,7 +273,7 @@ Device control supports three kinds of channel control, LAN control, cloud contr
 ```
 
 
-#### Update device status
+##### Update device status
 
 After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
 
