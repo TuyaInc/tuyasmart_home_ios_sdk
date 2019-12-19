@@ -2,7 +2,7 @@
 
 ### Register Tuya Developer Account
 
-Go to the [Tuya Smart Development Platform](https://developer.tuya.com) to register a developer account, create products and create function points, etc. Please refer to the [Contact workflow](https://docs.tuya.com/cn/overview/dev-process.html) for details. 
+Go to the [Tuya Smart Development Platform](https://iot.tuya.com) to register a developer account, create products and create function points, etc. Please refer to the [Contact workflow](https://docs.tuya.com/cn/overview/dev-process.html) for details. 
 
 ### Obtain the iOS App Key, App Secret and Security image.
 Go to the development platform -> App Service -> App SDK get iOS `App Key`,  `App Secret` and Security image.

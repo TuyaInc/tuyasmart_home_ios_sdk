@@ -165,7 +165,7 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 
 `dps`字典里的每个`key`对应一个功能点的`dpId`，`value`对应一个功能点的`dpValue `，`dpValue`为该功能点的值。<br />
 
-产品功能点定义参见[涂鸦开发者平台](https://docs.tuya.com/zh/iot/configure-in-platform/function-definition/custom-functions)的产品功能，如下图所示：
+产品功能点定义参见[涂鸦开发者平台](https://iot.tuya.com/)的产品功能，如下图所示：
 
 ![功能点](./images/ios_dp_sample.jpeg)
 
