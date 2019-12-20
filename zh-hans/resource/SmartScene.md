@@ -1,5 +1,9 @@
 ## 智能场景
 
+智能分为场景和自动化。场景是用户添加动作，手动触发；自动化是由用户设定条件，当条件触发后自动执行设定的动作。
+
+**以下文档中手动场景和自动化场景简称为场景。**
+
 涂鸦云支持用户根据实际生活场景，通过设置气象或设备条件，当条件满足时，让一个或多个设备执行相应的任务。
 
 场景相关的功能对应`TuyaSmartScene`和`TuyaSmartSceneManager`两个类，`TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是`TuyaSmartSceneModel`的`sceneId`字段，可以从场景列表中获取。`TuyaSmartSceneManager`类（单例）则主要提供了场景里条件、任务、设备、城市相关的所有数据。
@@ -8,7 +12,7 @@
 
 #### 场景条件
 
-场景条件对应`TuyaSmartSceneConditionModel`类，涂鸦云支持两种条件类型：
+场景条件对应`TuyaSmartSceneConditionModel`类，涂鸦云支持以下条件类型：
 
 - 气象条件：包括温度、湿度、天气、PM2.5、空气质量、日落日出，用户选择气象条件时，可以选择当前城市。
 - 设备条件：指用户可预先选择一个设备的功能状态，当该设备达到该状态时，会触发当前场景里的任务，但同一设备不能同时作为条件和任务，避免操作冲突。
@@ -558,6 +562,11 @@ func disableSmartScene() {
 
 ## 场景条件和场景动作对象创建示例
 
+SDK在3.14.0及以上版本加入了TuyaSmartSceneDataFactory这个工具类集合，用于便捷的创建场景的条件、动作、生效时间段条件。
+
+如果使用的是3.14.0以前的版本，请参照以下示例创建条件和动作。
+如果使用的是3.14.0及以上版本，推荐使用TuyaSmartSceneDataFactory提供的工具类创建条件和动作。
+
 #### 场景条件
 
 ##### 创建场景条件对象TuyaSmartSceneConditionModel
@@ -639,3 +648,26 @@ func disableSmartScene() {
 4. 启动自动化。entityId是自动化sceneId，actionExecutor是ruleEnable，executorProperty不需要。
 5. 禁用自动化。entityId是自动化sceneId，actionExecutor是ruleDisable，executorProperty不需要。
 6. 延时动作。entityId是delay，actionExecutor是delay，executorProperty是延时的时间，用一个字典表示，形式和key为{@"minutes":@"1",@"seconds":@"30"},表示1分30秒。目前最大支持59分59秒。
+
+#### TuyaSmartSceneDataFactory工具类集合
+
+TuyaSmartSceneDataFactory中包涵以下创建工具类：
+
+- TuyaSmartScenePreConditionFactory.h 用于创建自动化场景的前置条件，如生效时间段。
+- TuyaSmartSceneConditionFactory.h 用于创建自动化场景的条件，如天气条件、设备条件。
+- TuyaSmartSceneActionFactory.h 用于创建场景动作，如设备动作。
+
+以及两个辅助类：
+
+- TuyaSmartSceneExprModel.h 用于储存场景条件中的expr表达式。
+- TuyaSmartSceneConditionExprBuilder.h 自动化场景中条件表达式的生成工具类。
+
+生效时间段、条件、动作的创建，所有支持的类型可以参照SDK头文件中的注释使用。注意：因为要适配多语言，条件和动作中，未生成用来显示条件和动作的详情的`exprDisplay`和`actionDisplayNew`，需要开发者根据条件中的表达式`expr`和动作中的执行参数`executorProperty`手动拼接生成。
+
+以创建一个设备条件为例，使用顺序如下：
+1. 使用`TuyaSmartSceneConditionExprBuilder`创建一个`TuyaSmartSceneExprModel`对象，生成创建条件所需的表达式`expr`。
+2. 使用`TuyaSmartSceneConditionFactory`中的API，传入第一步中生成的`TuyaSmartSceneExprModel`对象以及其他必需参数，生成条件对象。
+
+生成前置条件和动作直接使用`TuyaSmartScenePreConditionFactory`和`TuyaSmartSceneActionFactory`中提供的API即可。
+
+To generate preconditions and actions, use the APIs provided in `TuyaSmartScenePreConditionFactory` and` TuyaSmartSceneActionFactory`.
