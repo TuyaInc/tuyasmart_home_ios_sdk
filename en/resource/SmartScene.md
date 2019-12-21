@@ -1,14 +1,18 @@
 ## Smart scene
 
+Smart divides into scene or automation actions. Scene is a condition that users add actions and it is triggered manually; automation action is a action set by users, and the set action is automatically executed when the condition is triggered.
+
 The Tuya Cloud allows users to set meteorological or device conditions based on actual scenes in life, and if conditions are met, one or multiple devices will carry out corresponding tasks.
 
 All functions related to scenes will be realized by using the `TuyaSmartScene` class and the `TuyaSmartSceneManager` class. The `TuyaSmartScene` class provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the `sceneId` of the `TuyaSmartSceneModel`, and it can be obtained from the scene list. The `TuyaSmartSceneManager` class (singleton) mainly provides all data related to conditions, tasks, devices and city for scenes.
 
 Before using interfaces related to the smart scene, you have to understand the scene conditions of scene tasks first.
 
+**In the following documents, manual scene and automated scene are simply referred to as scene.**
+
 ### Scene conditions
 
-All scenes conditions are defined in the `TuyaSmartSceneConditionModel` class, and Tuya supports two types of conditions:
+All scenes conditions are defined in the `TuyaSmartSceneConditionModel` class, and Tuya supports three types of conditions:
 
 - Meteorological conditions including temperature, humidity, weather, PM2.5, air quality and sunrise and sunset. User can select city when he/she selects the meteorological conditions.
 - Device conditions: if you have preset a function status for a device, the task in the scene will be triggered when the device status is reached. To avoid conflicts in operation, the same device cannot be used for both conditions and task at the same time.
@@ -514,6 +518,12 @@ func sortScene() {
 ```
 
 ## Emample
+
+The SDK has added TuyaSmartSceneDataFactory as a tool class collection in 3.14.0 and above, which is used to conveniently create the conditions, actions, and effective time period conditions of the scene.
+
+If you are using a version earlier than 3.14.0, refer to the following example to create conditions and actions.
+If you are using version 3.14.0 or above, it is recommended to use the tool classes provided by TuyaSmartSceneDataFactory to create conditions and actions.
+
 #### Scene Condition
 ##### Create an object for `TuyaSmartSceneConditionModel`
 From the `Obtain condition list` API, you can obtain the condition list, which is compose of TuyaSmartSceneDPModel object. With the APIs obout city, you can obtain cityId value. Now it's time to create an object of TuyaSmartSceneConditionModel, cause now we know where and what‘s the conditon is to execute the scene.
@@ -589,3 +599,27 @@ Create a new object of `TuyaSmartSceneActionModel`,then set the values of proper
 4. Enable an auto。entityId a auto's sceneId，actionExecutor is `ruleEnable`，executorProperty is nil。
 5. Disable an auto。entityId is an auto's sceneId，actionExecutor is `ruleDisable`，executorProperty is nil。
 6. Delay action。entityId is `delay`，actionExecutor is `delay`，executorProperty is the time to delay, which is defined with a diction, for example `{@"minutes":@"1",@"seconds":@"30"}`, representing one minutes and 30 seconds. The max time is 59m59s.
+
+#### TuyaSmartSceneDataFactory tool class collection
+
+TuyaSmartSceneDataFactory contains the following creation tool classes:
+
+- TuyaSmartScenePreConditionFactory.h Pre-conditions for creating automation scenarios, such as the effective time period.
+
+- TuyaSmartSceneConditionFactory.h Conditions for creating automated scenarios, such as weather conditions, device conditions.
+
+- TuyaSmartSceneActionFactory.h is used to create scene actions, such as device actions.
+
+And two auxiliary classes:
+
+- TuyaSmartSceneExprModel.h is used to store expr expressions in scene conditions.
+- TuyaSmartSceneConditionExprBuilder.h A tool class for generating conditional expressions in automated scenarios.
+
+For the creation of effective time periods, conditions, and actions, all supported types can be used by referring to the comments in the SDK header file. 
+
+Note: Because of the need to adapt to multiple languages, `exprDisplay` and `actionDisplayNew` are not generated in conditions and actions to display the details of conditions and actions. Developers need to manually generate them according to the expression `expr` in the conditions and the execution parameter `executorProperty` in the action.
+
+Taking the creation of an device condition as an example, the usage sequence is as follows:
+
+1. Use `TuyaSmartSceneConditionExprBuilder` to create a` TuyaSmartSceneExprModel` object, and generate the expression `expr` required to create conditions.
+2. Using the API in `TuyaSmartSceneConditionFactory`, pass in the` TuyaSmartSceneExprModel` object generated in the first step and other required parameters to generate a condition object.
