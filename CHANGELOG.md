@@ -1,5 +1,22 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 3.14.0(2019-12-21)
+
+- 新增功能
+  - `MQTTClient` 升级到 `0.15.2` 版本
+  - HTTP 请求和响应数据加密
+  - 新增家庭角色权限管理
+  - 场景 SDK 增加缓存
+  - 增加创建场景条件和场景动作的便捷工具类
+  - bug fixed
+- New Feature
+  - `MQTTClient` use `0.15.2`
+  - HTTP request and response data encryption
+  - Manager more family member role
+  - Add scene cache
+  - Add scene conditions and actions class
+  - Bug fixed
+
 ## 3.13.0(2019-12-06)
 
 * 新增功能
