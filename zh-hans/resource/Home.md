@@ -651,7 +651,7 @@ func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
 
 拥有者(TYHomeRoleType_Owner) 可以删除管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以删除普通成员及以下角色
 
-若成员传入自身memberId，家庭管理员，普通成员，自定义角色，调用此接口为离开家庭，若家庭拥有者调用此接口为解散家庭，同时该家庭下所有设备会被重置，效果与上文解散家庭一致。
+若成员传入自身memberId，家庭管理员，普通成员，自定义角色，调用此接口为离开家庭，此时该家庭未解散，设备也不会被重置；拥有者为解散家庭，同时该家庭下所有设备会被重置，效果与上文解散家庭一致。
 
 Objc:
 
@@ -684,6 +684,8 @@ func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
 
 
 ####  接受或者拒绝家庭邀请
+
+成员是否接受该家庭的邀请对应TuyaSmartHomeModel下的dealStatus，受邀状态会分别对应TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject，未接受加入的家庭成员将无法使用该家庭下的设备等功能，拒绝加入家庭后将无法在获取家庭列表接口中获取到该家庭信息。
 
 Objc:
 
