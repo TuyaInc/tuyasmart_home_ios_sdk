@@ -365,57 +365,31 @@ func resetPasswordByEmail() {
 
 ### Use uid for Login
 
-#### User uid Registration
+#### User uid Registration And Login
+
+If had registered, then automatically logged in. If had not registered, then automatically registered and logged in.
 
 Objc:
 
 ```objective-c
-[[TuyaSmartUser sharedInstance] registerByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
-    NSLog(@"register success");
+[[TuyaSmartUser sharedInstance] loginOrRegisterWithCountryCode:@"your_country_code" uid:@"your_uid" password:@"your_password" createHome:YES success:^(id result) {
+        NSLog(@"loginOrRegisterWithCountryCode success: %@", result);
 } failure:^(NSError *error) {
-    NSLog(@"register failure: %@", error);
+        NSLog(@"loginOrRegisterWithCountryCode failure: %@", error);
 }];
 ```
 
 Swift:
 
 ```swift
-TuyaSmartUser.sharedInstance()?.register(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
-    print("register success")
-}, failure: { (error) in
-    if let e = error {
-        print("register failure: \(e)")
+TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_code", uid: "your_uid", password: "your_password", createHome: true, success: { (result) in 
+		print("loginOrRegisterWithCountryCode success: \(result)")
+}, failure: { (error) in 
+		if let e = error {
+    		print("loginOrRegisterWithCountryCode failure: \(e)")
     }
 })
 ```
-
-
-
-#### User uid Login
-
-Objc:
-
-```objective-c
-[[TuyaSmartUser sharedInstance] loginByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
-    NSLog(@"login success");
-} failure:^(NSError *error) {
-    NSLog(@"login failure: %@", error);
-}];
-```
-
-Swift:
-
-```swift
-TuyaSmartUser.sharedInstance()?.login(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
-    print("login success")
-}, failure: { (error) in
-    if let e = error {
-        print("login failure: \(e)")
-    }
-})
-```
-
-
 
 
 ### Third Party Login
