@@ -421,6 +421,8 @@ func resetPasswordByEmail() {
 
 #### 用户uid注册和登录
 
+注册和登录为一体的接口，如果注册了就自动登录，如果没有注册就自动注册并且登录。
+
 Objc:
 
 ```objective-c
