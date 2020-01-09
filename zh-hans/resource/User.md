@@ -650,22 +650,22 @@ Objc:
 
 ```objc
 - (void)loginWithAuth2 {
-		/**
-		*  third login.
-		*
-		*  @param Auth2登录的类型(@"ap"为苹果登录)
-		*  @param countryCode 国家区号
-		*  @param accessToken 授权登录的token
- 		*  @param extraInfo 额外的参数
-		*  @param success 操作成功回调
-		*  @param failure 操作失败回调
-		*/
+	/**
+	*  third login.
+	*
+	*  @param Auth2登录的类型(@"ap"为苹果登录)
+	*  @param countryCode 国家区号
+	*  @param accessToken 授权登录的token
+ 	*  @param extraInfo 额外的参数
+	*  @param success 操作成功回调
+	*  @param failure 操作失败回调
+	*/
     
-		[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"auth2_type" countryCode:@"your_country_code" accessToken:@"auth2_token" extraInfo:@{@"info_key": @"info_value"} success:^{
-				NSLog(@"login success");
-		} failure:^(NSError *error) {
-				NSLog(@"login failure: %@", error);
-		}];
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"auth2_type" countryCode:@"your_country_code" accessToken:@"auth2_token" extraInfo:@{@"info_key": @"info_value"} success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
 }
 ```
 
@@ -673,23 +673,23 @@ Swift:
 
 ```swift
 func loginWithAuth2() {
-		/**
-		*  third login.
-		*
-		*  @param Auth2登录的类型(@"ap"为苹果登录)
-		*  @param countryCode 国家区号
-		*  @param accessToken 授权登录的token
-		*  @param extraInfo 额外的参数
-		*  @param success 操作成功回调
-		*  @param failure 操作失败回调
-		*/
-		TuyaSmartUser.sharedInstance().loginByAuth2WithType("auth2_type", countryCode: "your_country_code", accessToken: "auth2_token", extraInfo: ["info_key":"info_value"], success: {
+	/**
+	*  third login.
+	*
+	*  @param Auth2登录的类型(@"ap"为苹果登录)
+	*  @param countryCode 国家区号
+	*  @param accessToken 授权登录的token
+	*  @param extraInfo 额外的参数
+	*  @param success 操作成功回调
+	*  @param failure 操作失败回调
+	*/
+	TuyaSmartUser.sharedInstance().loginByAuth2WithType("auth2_type", countryCode: "your_country_code", accessToken: "auth2_token", extraInfo: ["info_key":"info_value"], success: {
 		print("login success")
-		}, failure: { (error) in
-				if let e = error {
-						print("login failure: \(e)")
-				}
-		})
+	}, failure: { (error) in
+		if let e = error {
+				print("login failure: \(e)")
+		}
+	})
 }
 ```
 
@@ -701,18 +701,18 @@ Objc:
 
 ```objc
 - (void)loginWithApple {
-		/**
-		* type: @"ap"
-		* accessToken: credential.identityToken
-		* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
-		*/
-		ASAuthorizationAppleIDCredential *credential = authorization.credential;
+	/**
+	* type: @"ap"
+	* accessToken: credential.identityToken
+	* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
+	*/
+	ASAuthorizationAppleIDCredential *credential = authorization.credential;
   
-		[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"ap" countryCode:@"your_country_code" accessToken:credential.identityToken extraInfo:{@"userIdentifier": credential.user, @"email": credential.email, @"nickname": credential.fullName.nickname, @"snsNickname": credential.fullName.nickname} success:^{
-				NSLog(@"login success");
-		} failure:^(NSError *error) {
-        NSLog(@"login failure: %@", error);
-    }];
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"ap" countryCode:@"your_country_code" accessToken:credential.identityToken extraInfo:{@"userIdentifier": credential.user, @"email": credential.email, @"nickname": credential.fullName.nickname, @"snsNickname": credential.fullName.nickname} success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
 }
 ```
 
@@ -720,19 +720,19 @@ Swift:
 
 ```swift
 func loginWithApple() {
-		/**
-		* type: ap
-		* accessToken: credential.identityToken
-		* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
-		*/
-		let credential = authorization.credential
-		TuyaSmartUser.sharedInstance().loginByAuth2(withType: "ap", countryCode: "your_country_code", accessToken: credential?.identityToken, extraInfo: 	["userIdentifier": user,"email": email,"nickname": nickname,"snsNickname": nickname], success: {
-				print("login success")
-		}, failure: { (error) in
-				if let e = error {
-						print("login failure: \(e)")
-				}
-		})
+	/**
+	* type: ap
+	* accessToken: credential.identityToken
+	* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
+	*/
+	let credential = authorization.credential
+	TuyaSmartUser.sharedInstance().loginByAuth2(withType: "ap", countryCode: "your_country_code", accessToken: credential?.identityToken, extraInfo: 	["userIdentifier": user,"email": email,"nickname": nickname,"snsNickname": nickname], success: {
+		print("login success")
+	}, failure: { (error) in
+		if let e = error {
+				print("login failure: \(e)")
+		}
+	})
 }
 ```
 
