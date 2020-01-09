@@ -535,7 +535,7 @@ Objc:
 }
 ```
 
-swift:
+Swift:
 
 ```swift
 func loginWithAuth2() {
@@ -563,7 +563,7 @@ func loginWithAuth2() {
 
 The SDK supports Login with Apple from 3.14.0. After Apple login authorization is successful, information such as token and extraInfo are passed to the SDK through the Auth2 interface.
 
-objc:
+Objc:
 
 ```objc
 - (void)loginWithApple {
@@ -582,7 +582,7 @@ objc:
 }
 ```
 
-swift:
+Swift:
 
 ```swift
 func loginWithApple() {
