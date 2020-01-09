@@ -873,7 +873,7 @@ Objc:
 }
 ```
 
-Swift:
+SDK从3.14.0开始支持苹果登录了，授权成功后通过Auth2的接口传入token和extraInfo等信息，可以实现苹果登录。
 
 ```swift
 func updateLocation() {
