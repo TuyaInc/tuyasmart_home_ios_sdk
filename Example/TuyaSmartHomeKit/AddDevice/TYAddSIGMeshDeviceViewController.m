@@ -32,6 +32,7 @@
 
 @property (nonatomic, strong) NSMutableArray<TuyaSmartSIGMeshDiscoverDeviceInfo *> *discoveredDevices;
 @property (nonatomic, strong) NSMutableArray<NSString *> *steps;
+@property (nonatomic, strong) TuyaSmartHome *home;
 
 @end
 
@@ -52,6 +53,7 @@
     self.centerTitleItem.title = @"SIG Mesh Device";
     self.topBarView.centerItem = self.centerTitleItem;
     [TuyaSmartSIGMeshManager sharedInstance].delegate = self;
+    self.home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
 }
 
 - (void)initView {
@@ -148,7 +150,7 @@
         return;
     }
     TuyaSmartSIGMeshDiscoverDeviceInfo *info = [self.discoveredDevices objectAtIndex:indexPath.row];
-    [[TuyaSmartSIGMeshManager sharedInstance] startActive:@[info] meshModel:[TYSmartHomeManager sharedInstance].currentHome.sigMeshModel];
+    [[TuyaSmartSIGMeshManager sharedInstance] startActive:@[info] meshModel:self.home.sigMeshModel];
 }
 
 #pragma mark - --------------------TuyaSmartSIGMeshManagerDelegate--------------
@@ -227,7 +229,7 @@
         return;
     }
     [self addItemAndReloadTableView:@"start add all sig mesh device(s)"];
-    [[TuyaSmartSIGMeshManager sharedInstance] startActive:self.discoveredDevices meshModel:[self currentHome].sigMeshModel];
+    [[TuyaSmartSIGMeshManager sharedInstance] startActive:self.discoveredDevices meshModel:self.home.sigMeshModel];
 }
 
 - (void)onClickStartSearch {
@@ -244,15 +246,14 @@
         return;
     }
     
-    if (![self currentHome]) {
+    if (!self.home) {
         [self addItemAndReloadTableView:@"current account has no family, now fetch family from net"];
         [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
             if (!homes.count) {
                 [self addItemAndReloadTableView:@"please create a new home"];
             } else {
                 TuyaSmartHomeModel *homeModel = [homes objectAtIndex:0];
-                TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeModel.homeId];
-                [TYSmartHomeManager sharedInstance].currentHome = home;
+                [TYSmartHomeManager sharedInstance].currentHomeModel = homeModel;
             }
             [self fetchMeshModel];
         } failure:^(NSError *error) {
@@ -260,18 +261,17 @@
         }];
 
     } else {
-        TuyaSmartHome *home = [self currentHome];
-        [self addItemAndReloadTableView:[NSString stringWithFormat:@"curren home's name is %@",home.homeModel.name]];
+        [self addItemAndReloadTableView:[NSString stringWithFormat:@"curren home's name is %@", self.home.homeModel.name]];
         [self fetchMeshModel];
     }
 }
 
 - (void)fetchMeshModel {
-    if (![self currentHome].sigMeshModel) {
+    if (![TYSmartHomeManager sharedInstance].currentHomeModel) {
         [self addItemAndReloadTableView:@"current has no meshModel, now create A meshModel"];
         //TODO: wmy weakify
 //        @weakify(self);
-        [TuyaSmartBleMesh createSIGMeshWithHomeId:[self currentHome].homeModel.homeId success:^(TuyaSmartBleMeshModel * _Nonnull meshModel) {
+        [TuyaSmartBleMesh createSIGMeshWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId success:^(TuyaSmartBleMeshModel * _Nonnull meshModel) {
             [self addItemAndReloadTableView:@"meshModel create success"];
             [self startSearch];
         } failure:^(NSError *error) {
@@ -286,7 +286,7 @@
 - (void)startSearch {
     self.startBtn.selected = YES;
     [self addItemAndReloadTableView:@"start search sig mesh device(s)"];
-    [[TuyaSmartSIGMeshManager sharedInstance] startScanWithScanType:ScanForUnprovision meshModel:[self currentHome].sigMeshModel];
+    [[TuyaSmartSIGMeshManager sharedInstance] startScanWithScanType:ScanForUnprovision meshModel:self.home.sigMeshModel];
 }
 
 #pragma mark - --------------------private methods--------------
@@ -317,10 +317,6 @@
 }
 
 #pragma mark - --------------------getters & setters & init members ------------------
-
-- (TuyaSmartHome *)currentHome {
-    return [TYSmartHomeManager sharedInstance].currentHome;
-}
 
 - (UIButton *)startBtn {
     if (!_startBtn) {

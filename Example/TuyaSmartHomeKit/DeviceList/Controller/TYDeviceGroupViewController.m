@@ -41,7 +41,8 @@
 - (void)initData {
     // 根据device的pid搜索家庭中的设备
     
-    for (TuyaSmartDeviceModel *deviceModel in [[TYSmartHomeManager sharedInstance] currentHome].deviceList) {
+    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
+    for (TuyaSmartDeviceModel *deviceModel in home.deviceList) {
         if ([deviceModel.pcc isEqualToString:self.device.deviceModel.pcc]) {
             TuyaSmartDevice *device = [TuyaSmartDevice deviceWithDeviceId:deviceModel.devId];
             [self.unselectedDevices addObject:device];
@@ -169,8 +170,9 @@
 
 - (void)createGroup {
     WEAKSELF_AT
+    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
     [TuyaSmartBleMeshGroup
-     getBleMeshGroupAddressFromCluondWithMeshId:[TYSmartHomeManager sharedInstance].currentHome.sigMeshModel.meshId
+     getBleMeshGroupAddressFromCluondWithMeshId:home.sigMeshModel.meshId
      success:^(int result) {
          NSInteger address = result + 0x4000;
          self.address = address;
@@ -179,7 +181,6 @@
          [TPProgressUtils showError:error.localizedDescription];
      }];
 }
-
 
 - (void)newMeshGroupHandle{
     NSInteger benchmark = 49153;
@@ -193,8 +194,9 @@
 - (void)saveNewGroupWithName:(NSString *)name {
     // 先新建群组在添加设备
     WEAKSELF_AT
+    TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
     [TuyaSmartBleMeshGroup createMeshGroupWithGroupName:name
-                                                 meshId:[TYSmartHomeManager sharedInstance].currentHome.sigMeshModel.meshId
+                                                 meshId:home.sigMeshModel.meshId
                                                 localId:[NSString stringWithFormat:@"%lx", self.address]
                                                     pcc:self.device.deviceModel.pcc
                                                 success:^(int result) {

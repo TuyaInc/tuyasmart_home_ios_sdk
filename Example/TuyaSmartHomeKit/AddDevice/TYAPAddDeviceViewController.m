@@ -147,7 +147,7 @@ static NSInteger timeout0 = timeLeft0;
     info = [NSString stringWithFormat:@"%@: start get token",NSStringFromSelector(_cmd)];
     [self appendConsoleLog:info];
     WEAKSELF_AT
-    long long homeId = [TYSmartHomeManager sharedInstance].currentHome.homeModel.homeId;
+    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
     [[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
         
         info = [NSString stringWithFormat:@"%@: token fetched, token is %@",NSStringFromSelector(_cmd),token];

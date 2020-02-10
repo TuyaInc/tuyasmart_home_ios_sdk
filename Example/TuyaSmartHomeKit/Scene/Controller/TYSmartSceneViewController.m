@@ -31,6 +31,7 @@
     [self initView];
     [self loadSceneList];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSceneList) name:@"kNotificationSmartSceneListUpdate" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSceneList) name:kNotificationSwitchHome object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -92,7 +93,7 @@
 - (void)loadSceneList
 {
     [self showLoadingView];
-    long long homeId = [TYSmartHomeManager sharedInstance].currentHome.homeModel.homeId;
+    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
     WEAKSELF_AT
     [[TuyaSmartSceneManager sharedInstance] getSceneListWithHomeId:homeId success:^(NSArray<TuyaSmartSceneModel *> *list) {
         [weakSelf_AT hideLoadingView];

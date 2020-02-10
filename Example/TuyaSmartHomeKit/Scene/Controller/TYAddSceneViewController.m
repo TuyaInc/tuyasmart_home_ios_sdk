@@ -303,7 +303,7 @@
 - (void)addSmartSceneWithName:(NSString *)name
 {
     [TPProgressUtils showMessag:NSLocalizedString(@"loading", nil) toView:self.view];
-    long long homeId = [TYSmartHomeManager sharedInstance].currentHome.homeModel.homeId;
+    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
     WEAKSELF_AT
     [TuyaSmartScene addNewSceneWithName:name homeId:homeId background:_backImageUrl showFirstPage:YES preConditionList:nil conditionList:self.conditionArray actionList:self.dataSource matchType:_matchType success:^(TuyaSmartSceneModel *sceneModel) {
         [TPProgressUtils hideHUDForView:weakSelf_AT.view animated:NO];

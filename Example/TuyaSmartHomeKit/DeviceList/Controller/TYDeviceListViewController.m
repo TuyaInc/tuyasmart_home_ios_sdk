@@ -27,6 +27,7 @@
 @property (nonatomic, strong) TuyaSmartRequest *request;
 @property (nonatomic, strong) TuyaSmartHomeManager *homeManager;
 @property (nonatomic, strong) UIButton *emptyButton;
+@property (nonatomic, strong) TuyaSmartHome *home;
 
 @end
 
@@ -35,11 +36,12 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    
     [self initView];
     [self initData];
     
-    [TYSmartHomeManager sharedInstance].currentHome.delegate = self;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataFromCloud) name:kNotificationLogin object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchHome) name:kNotificationSwitchHome object:nil];
 }
 
 #pragma mark - Initializations.
@@ -73,14 +75,17 @@
     [_emptyButton addTarget:self action:@selector(getTestDevice) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_emptyButton];
     
-    if ([TYSmartHomeManager sharedInstance].currentHome.deviceList.count) {
+    if (self.home.deviceList.count > 0) {
         [self.tableView reloadData];
     }
-    _emptyButton.hidden = [TYSmartHomeManager sharedInstance].currentHome.deviceList.count;
+    _emptyButton.hidden = self.home.deviceList.count > 0;
     self.tableView.hidden = !_emptyButton.hidden;
 }
 
 - (void)initData {
+    
+    self.home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
+    self.home.delegate = self;
 
     _emptyButton.hidden = YES;
     [self showProgressView:NSLocalizedString(@"loading", @"")];
@@ -110,14 +115,13 @@
     UIAlertController *homeListAC = [UIAlertController alertControllerWithTitle:@"all homes" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     for (TuyaSmartHomeModel *homeModel in homes) {
         NSString *homeName = homeModel.name;
-        if (homeModel.homeId == [TYSmartHomeManager sharedInstance].currentHome.homeModel.homeId) {
+        if (homeModel.homeId == [TYSmartHomeManager sharedInstance].currentHomeModel.homeId) {
             homeName = [NSString stringWithFormat:@"%@ is primary", homeModel.name];
         }
         
-        __weak typeof(self) weakSelf = self;
         UIAlertAction *action = [UIAlertAction actionWithTitle:homeName style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [TYSmartHomeManager sharedInstance].currentHome = [TuyaSmartHome homeWithHomeId:homeModel.homeId];
-            [weakSelf reloadDataFromCloud];
+            [TYSmartHomeManager sharedInstance].currentHomeModel = homeModel;
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSwitchHome object:nil];
         }];
         [homeListAC addAction:action];
     }
@@ -131,10 +135,10 @@
 - (void)reloadDataFromCloud {
     [self showProgressView:NSLocalizedString(@"loading", @"")];
     // sigmesh
-    [[TuyaSmartSIGMeshManager sharedInstance] startScanWithScanType:ScanForProxyed meshModel:[TYSmartHomeManager sharedInstance].currentHome.sigMeshModel];
+    [[TuyaSmartSIGMeshManager sharedInstance] startScanWithScanType:ScanForProxyed meshModel:self.home.sigMeshModel];
     WEAKSELF_AT
     [self.refreshControl beginRefreshing];
-    [[TYSmartHomeManager sharedInstance].currentHome getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
+    [self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
         
         [weakSelf_AT hideProgressView];
         [weakSelf_AT reloadData];
@@ -146,9 +150,15 @@
 
 - (void)reloadData {
     [self.refreshControl endRefreshing];
-    _emptyButton.hidden = [TYSmartHomeManager sharedInstance].currentHome.deviceList.count;
+    _emptyButton.hidden = self.home.deviceList.count;
     self.tableView.hidden = !_emptyButton.hidden;
     [self.tableView reloadData];
+}
+
+- (void)switchHome {
+    self.home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
+    self.home.delegate = self;
+    [self reloadDataFromCloud];
 }
 
 // add experience device
@@ -159,7 +169,7 @@
     if (!self.request) {
         self.request = [TuyaSmartRequest new];
     }
-    long long gid = [TYSmartHomeManager sharedInstance].currentHome.homeModel.homeId;
+    long long gid = self.home.homeModel.homeId;
     [self.request requestWithApiName:@"s.m.dev.sdk.demo.list" postData:nil getData:@{@"gid" : @(gid)} version:@"1.0" success:^(id result) {
         
         [weakSelf_AT hideProgressView];
@@ -199,7 +209,7 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [TYSmartHomeManager sharedInstance].currentHome.deviceList.count;
+    return self.home.deviceList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -209,7 +219,7 @@
         cell = [[TYDeviceListViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NSStringFromClass([TYDeviceListViewCell class])];
     }
     
-    TuyaSmartDeviceModel *deviceModel = [[TYSmartHomeManager sharedInstance].currentHome.deviceList objectAtIndex:indexPath.row];
+    TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:indexPath.row];
     [cell setItem:deviceModel];
     
     return cell;
@@ -219,7 +229,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    TuyaSmartDeviceModel *deviceModel = [[TYSmartHomeManager sharedInstance].currentHome.deviceList objectAtIndex:indexPath.row];
+    TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:indexPath.row];
     //演示设备produckId
     if ([deviceModel.productId isEqualToString:@"4eAeY1i5sUPJ8m8d"]) {
         

@@ -140,7 +140,7 @@
     
     if (![TuyaSmartUser sharedInstance].isLogin &&
         viewController != self.loginNavigationController &&
-        ![TYSmartHomeManager sharedInstance].currentHome) {
+        ![TYSmartHomeManager sharedInstance].currentHomeModel) {
         
         UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"Attention" message:@"Login to visity this page." ];
         [alert bk_setCancelButtonWithTitle:@"OK" handler:NULL];

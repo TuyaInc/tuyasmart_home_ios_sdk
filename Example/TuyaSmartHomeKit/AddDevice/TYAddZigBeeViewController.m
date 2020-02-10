@@ -110,7 +110,8 @@
     
     if (self.forZigBeeSubdevice) {
         
-        NSArray *devices = [TYSmartHomeManager sharedInstance].currentHome.deviceList;
+        TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
+        NSArray *devices = home.deviceList;
         TuyaSmartDeviceModel *gatewayDevice = nil;
         for (TuyaSmartDeviceModel *deviceModel in devices) {
             if (deviceModel.deviceType == TuyaSmartDeviceModelTypeZigbeeGateway && deviceModel.isOnline) {
@@ -138,7 +139,8 @@
 - (void)stopConfigWiFi {
     
     if (self.forZigBeeSubdevice) {
-        NSArray *devices = [TYSmartHomeManager sharedInstance].currentHome.deviceList;
+        TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
+        NSArray *devices = home.deviceList;
         TuyaSmartDeviceModel *gatewayDevice = nil;
         for (TuyaSmartDeviceModel *deviceModel in devices) {
             if (deviceModel.deviceType == TuyaSmartDeviceModelTypeZigbeeGateway && deviceModel.isOnline) {
@@ -172,7 +174,7 @@
     info = [NSString stringWithFormat:@"%@: start get token",NSStringFromSelector(_cmd)];
     [self appendConsoleLog:info];
     WEAKSELF_AT
-    long long homeId = [TYSmartHomeManager sharedInstance].currentHome.homeModel.homeId;
+    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
     [[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
         
         info = [NSString stringWithFormat:@"%@: token fetched, token is %@",NSStringFromSelector(_cmd),token];

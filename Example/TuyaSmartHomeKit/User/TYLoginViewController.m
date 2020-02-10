@@ -83,15 +83,16 @@
         if (homes.count > 0) {
             // If homes are already exist, choose the first one as current home.
             TuyaSmartHomeModel *model = [homes firstObject];
-            TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:model.homeId];
-            [TYSmartHomeManager sharedInstance].currentHome = home;
+            [TYSmartHomeManager sharedInstance].currentHomeModel = model;
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLogin object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSwitchHome object:nil];
         } else {
             // Or else, add a default home named "hangzhou's home" and choose it as current home.
             [weakSelf_AT.homeManager addHomeWithName:@"hangzhou's home" geoName:@"hangzhou" rooms:@[@"bedroom"] latitude:0 longitude:0 success:^(long long homeId) {
                 TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeId];
-                [TYSmartHomeManager sharedInstance].currentHome = home;
+                [TYSmartHomeManager sharedInstance].currentHomeModel = home.homeModel;
                 [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLogin object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSwitchHome object:nil];
             } failure:^(NSError *error) {
                 
             }];
@@ -183,7 +184,7 @@
     WEAKSELF_AT;
     [[TuyaSmartUser sharedInstance] loginOut:^{
         weakSelf_AT.rootView.tipsLabel.text = @"Logout success!";
-        [TYSmartHomeManager sharedInstance].currentHome = nil;
+        [TYSmartHomeManager sharedInstance].currentHomeModel = nil;
     } failure:^(NSError *error) {
         weakSelf_AT.rootView.tipsLabel.text = error.localizedDescription;
     }];
@@ -199,7 +200,7 @@
     if ([[TuyaSmartUser sharedInstance] isLogin]) {
         // Log out.
         [[TuyaSmartUser sharedInstance] loginOut:nil failure:nil];
-        [TYSmartHomeManager sharedInstance].currentHome = nil;
+        [TYSmartHomeManager sharedInstance].currentHomeModel = nil;
         
         self.rootView.tipsLabel.text = @"Session expired，you need to login again.";
     }

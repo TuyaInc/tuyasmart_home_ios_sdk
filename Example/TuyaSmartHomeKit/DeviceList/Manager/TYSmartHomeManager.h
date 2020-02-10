@@ -10,7 +10,7 @@
 
 @interface TYSmartHomeManager : NSObject
 
-@property (nonatomic, strong) TuyaSmartHome *currentHome;
+@property (nonatomic, strong) TuyaSmartHomeModel *currentHomeModel;
 
 + (TYSmartHomeManager *)sharedInstance;
 
