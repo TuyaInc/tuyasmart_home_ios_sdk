@@ -425,57 +425,31 @@ func resetPasswordByEmail() {
 
 ### 用户uid登录体系
 
-#### 用户uid注册
+#### 用户uid注册和登录
+
+注册和登录为一体的接口，如果注册了就自动登录，如果没有注册就自动注册并且登录。
 
 Objc:
 
 ```objective-c
-[[TuyaSmartUser sharedInstance] registerByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
-    NSLog(@"register success");
+[[TuyaSmartUser sharedInstance] loginOrRegisterWithCountryCode:@"your_country_code" uid:@"your_uid" password:@"your_password" createHome:YES success:^(id result) {
+        NSLog(@"loginOrRegisterWithCountryCode success: %@", result);
 } failure:^(NSError *error) {
-    NSLog(@"register failure: %@", error);
+        NSLog(@"loginOrRegisterWithCountryCode failure: %@", error);
 }];
 ```
 
 Swift:
 
 ```swift
-TuyaSmartUser.sharedInstance()?.register(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
-    print("register success")
-}, failure: { (error) in
-    if let e = error {
-        print("register failure: \(e)")
+TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_code", uid: "your_uid", password: "your_password", createHome: true, success: { (result) in 
+		print("loginOrRegisterWithCountryCode success: \(result)")
+}, failure: { (error) in 
+		if let e = error {
+    		print("loginOrRegisterWithCountryCode failure: \(e)")
     }
 })
 ```
-
-
-
-#### 用户uid登陆
-
-Objc:
-
-```objective-c
-[[TuyaSmartUser sharedInstance] loginByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
-    NSLog(@"login success");
-} failure:^(NSError *error) {
-    NSLog(@"login failure: %@", error);
-}];
-```
-
-Swift:
-
-```swift
-TuyaSmartUser.sharedInstance()?.login(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
-    print("login success")
-}, failure: { (error) in
-    if let e = error {
-        print("login failure: \(e)")
-    }
-})
-```
-
-
 
 ### 第三方登录
 
@@ -671,6 +645,104 @@ func loginByTwitter() {
     })
 }
 ```
+
+
+
+### Auth2登录
+
+auth2的接口是一个通用的登录接口，可以根据传参来确认正在使用Auth2的类型。
+
+Objc:
+
+```objc
+- (void)loginWithAuth2 {
+	/**
+	*  third login.
+	*
+	*  @param Auth2登录的类型(@"ap"为苹果登录)
+	*  @param countryCode 国家区号
+	*  @param accessToken 授权登录的token
+ 	*  @param extraInfo 额外的参数
+	*  @param success 操作成功回调
+	*  @param failure 操作失败回调
+	*/
+    
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"auth2_type" countryCode:@"your_country_code" accessToken:@"auth2_token" extraInfo:@{@"info_key": @"info_value"} success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func loginWithAuth2() {
+	/**
+	*  third login.
+	*
+	*  @param Auth2登录的类型(@"ap"为苹果登录)
+	*  @param countryCode 国家区号
+	*  @param accessToken 授权登录的token
+	*  @param extraInfo 额外的参数
+	*  @param success 操作成功回调
+	*  @param failure 操作失败回调
+	*/
+	TuyaSmartUser.sharedInstance().loginByAuth2WithType("auth2_type", countryCode: "your_country_code", accessToken: "auth2_token", extraInfo: ["info_key":"info_value"], success: {
+		print("login success")
+	}, failure: { (error) in
+		if let e = error {
+				print("login failure: \(e)")
+		}
+	})
+}
+```
+
+#### 苹果登录
+
+SDK从3.14.0开始支持苹果登录了，授权成功后通过Auth2的接口传入token和extraInfo等信息，可以实现苹果登录。
+
+Objc:
+
+```objc
+- (void)loginWithApple {
+	/**
+	* type: @"ap"
+	* accessToken: credential.identityToken
+	* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
+	*/
+	ASAuthorizationAppleIDCredential *credential = authorization.credential;
+  
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"ap" countryCode:@"your_country_code" accessToken:credential.identityToken extraInfo:{@"userIdentifier": credential.user, @"email": credential.email, @"nickname": credential.fullName.nickname, @"snsNickname": credential.fullName.nickname} success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func loginWithApple() {
+	/**
+	* type: ap
+	* accessToken: credential.identityToken
+	* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
+	*/
+	let credential = authorization.credential
+	TuyaSmartUser.sharedInstance().loginByAuth2(withType: "ap", countryCode: "your_country_code", accessToken: credential?.identityToken, extraInfo: 	["userIdentifier": user,"email": email,"nickname": nickname,"snsNickname": nickname], success: {
+		print("login success")
+	}, failure: { (error) in
+		if let e = error {
+				print("login failure: \(e)")
+		}
+	})
+}
+```
+
+
 
 ### 修改用户头像
 

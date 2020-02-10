@@ -365,57 +365,31 @@ func resetPasswordByEmail() {
 
 ### Use uid for Login
 
-#### User uid Registration
+#### User uid Registration And Login
+
+If had registered, then automatically logged in. If had not registered, then automatically registered and logged in.
 
 Objc:
 
 ```objective-c
-[[TuyaSmartUser sharedInstance] registerByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
-    NSLog(@"register success");
+[[TuyaSmartUser sharedInstance] loginOrRegisterWithCountryCode:@"your_country_code" uid:@"your_uid" password:@"your_password" createHome:YES success:^(id result) {
+        NSLog(@"loginOrRegisterWithCountryCode success: %@", result);
 } failure:^(NSError *error) {
-    NSLog(@"register failure: %@", error);
+        NSLog(@"loginOrRegisterWithCountryCode failure: %@", error);
 }];
 ```
 
 Swift:
 
 ```swift
-TuyaSmartUser.sharedInstance()?.register(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
-    print("register success")
-}, failure: { (error) in
-    if let e = error {
-        print("register failure: \(e)")
+TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_code", uid: "your_uid", password: "your_password", createHome: true, success: { (result) in 
+		print("loginOrRegisterWithCountryCode success: \(result)")
+}, failure: { (error) in 
+		if let e = error {
+    		print("loginOrRegisterWithCountryCode failure: \(e)")
     }
 })
 ```
-
-
-
-#### User uid Login
-
-Objc:
-
-```objective-c
-[[TuyaSmartUser sharedInstance] loginByUid:@"your_uid" password:@"your_password" countryCode:@"your_country_code" success:^{
-    NSLog(@"login success");
-} failure:^(NSError *error) {
-    NSLog(@"login failure: %@", error);
-}];
-```
-
-Swift:
-
-```swift
-TuyaSmartUser.sharedInstance()?.login(byUid: "your_uid", password: "your_password", countryCode: "your_country_code", success: {
-    print("login success")
-}, failure: { (error) in
-    if let e = error {
-        print("login failure: \(e)")
-    }
-})
-```
-
-
 
 
 ### Third Party Login
@@ -531,6 +505,104 @@ func loginByTwitter() {
     })
 }
 ```
+
+
+
+### Login by Auth2
+
+Auth2 is a general login interface. You can use some auth2 login type by passed type parameters.
+
+Objc:
+
+```objc
+- (void)loginWithAuth2 {
+	/**
+	*  third login.
+	*
+	*  @param type of Auth2 login(@"ap" for login with apple)
+	*  @param countryCode country code
+	*  @param accessToken access token
+	*  @param extraInfo extra info
+	*  @param success success block
+	*  @param failure failure block
+	*/
+    
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"auth2_type" countryCode:@"your_country_code" accessToken:@"auth2_token" extraInfo:@{@"info_key": @"info_value"} success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func loginWithAuth2() {
+	/**
+	*  third login.
+	*
+	*  @param type of Auth2 login(@"ap" for login with apple)
+	*  @param countryCode country code
+	*  @param accessToken access token
+	*  @param extraInfo extra info
+	*  @param success success block
+	*  @param failure failure block
+	*/
+	TuyaSmartUser.sharedInstance().loginByAuth2WithType("auth2_type", countryCode: "your_country_code", accessToken: "auth2_token", extraInfo: ["info_key":"info_value"], success: {
+		print("login success")
+	}, failure: { (error) in
+		if let e = error {
+				print("login failure: \(e)")
+		}
+	})
+}
+```
+
+#### Login with Apple
+
+The SDK supports Login with Apple from 3.14.0. After Apple login authorization is successful, information such as token and extraInfo are passed to the SDK through the Auth2 interface.
+
+Objc:
+
+```objc
+- (void)loginWithApple {
+	/**
+	* type: @"ap"
+	* accessToken: credential.identityToken
+	* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
+	*/
+	ASAuthorizationAppleIDCredential *credential = authorization.credential;
+  
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"ap" countryCode:@"your_country_code" accessToken:credential.identityToken extraInfo:{@"userIdentifier": credential.user, @"email": credential.email, @"nickname": credential.fullName.nickname, @"snsNickname": credential.fullName.nickname} success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func loginWithApple() {
+	/**
+	* type: ap
+	* accessToken: credential.identityToken
+	* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
+	*/
+	let credential = authorization.credential
+	TuyaSmartUser.sharedInstance().loginByAuth2(withType: "ap", countryCode: "your_country_code", accessToken: credential?.identityToken, extraInfo: 	["userIdentifier": user,"email": email,"nickname": nickname,"snsNickname": nickname], success: {
+		print("login success")
+	}, failure: { (error) in
+		if let e = error {
+				print("login failure: \(e)")
+		}
+	})
+}
+```
+
+
 
 ### Modify User Avatar
 

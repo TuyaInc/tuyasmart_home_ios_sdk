@@ -609,7 +609,6 @@ SDK在3.14.0及以上版本加入了TuyaSmartSceneDataFactory这个工具类集�
 	}
 
 
-
 ##### expr 表达式组装
 
 `TuyaSmartSceneConditionModel`的expr属性描述了条件的表达式，如“温度低于15℃”这样的一个条件，就可以用expr来描述。expr是一个数组（这里要注意，最外层一定是数组），数组中的每一个对象描述了一个条件，如@[@"$temp",@"<",@15]这个条件数组就描述了温度低于15℃这个条件。注意，每个气象条件都应该对应一个`TuyaSmartSceneConditionModel`，所以expr数组中只包含一个条件数组。
@@ -669,5 +668,3 @@ TuyaSmartSceneDataFactory中包涵以下创建工具类：
 2. 使用`TuyaSmartSceneConditionFactory`中的API，传入第一步中生成的`TuyaSmartSceneExprModel`对象以及其他必需参数，生成条件对象。
 
 生成前置条件和动作直接使用`TuyaSmartScenePreConditionFactory`和`TuyaSmartSceneActionFactory`中提供的API即可。
-
-To generate preconditions and actions, use the APIs provided in `TuyaSmartScenePreConditionFactory` and` TuyaSmartSceneActionFactory`.

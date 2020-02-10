@@ -10,6 +10,7 @@
   - [Use Email for Login](./resource/User.md#use-email-for-login)
   - [Use uid for Login](./resource/User.md#use-uid-for-login)
   - [Third Party Login](./resource/User.md#third-party-login)
+  - [Login by Auth2(Login with Apple)](./resource/User.md#login-by-auth2)
   - [Modify User Info](./resource/User.md#modify-user-avatar)
   - [Logout, Disable Account](./resource/User.md#logout)
   - [Handling of Expired Session](./resource/User.md#handling-of-expired-session)

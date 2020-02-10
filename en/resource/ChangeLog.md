@@ -1,5 +1,22 @@
 # Change Log
 
+## 3.14.0(2019-12-21)
+
+- New Feature
+  - `MQTTClient` use `0.15.2`
+  - HTTP request and response data encryption
+  - Manager more family member role
+  - Add scene cache
+  - Add scene conditions and actions class
+  - Support for Login With Apple
+  - Bug fixed
+
+## 3.13.0(2019-12-06)
+
+- New Feature
+  - Support DP Code Control
+  - Support more family member role
+
 ## 3.12.0(2019-09-21)
 
 - Functional change
@@ -17,27 +34,22 @@
 
 ## 2.12.46(2019-07-22)
 
-- bug 修复，推送消息可分类开启
 - bug fixed, Push Notification was classified. 
 
 ## 2.10.97(2019-06-20)
 
-- 兼容新版本Cocoapods (>=1.6.0)
 - Support  CocoaPods (>= 1.6.0)
 
 ## 2.10.96(2019-05-11)
 
-- bug 修复，新增免密码配网，新增消息推送的开启和关闭，新增开发环境推送支持
 - bug fixed, add device network configuration without password, add push notification to open or close, add development environment push support
 
 ## 2.8.44(2019-03-28)
 
-- 修复 Wi-Fi 子设备在线异常问题
 - Fixed an online problem with Wi-Fi subdevices
 
 ## 2.8.43(2019-03-15)
 
-- 新的加密方式：需要在涂鸦开发者平台申请应用的 Appkey，AppSecret，iOS安全图片，bundleId
 - New encryption:  Appkey, AppSecret, iOS security images, bundleId for application on Tuya Developer Platform
 
 ## 0.2.2(2019-01-19)
@@ -52,7 +64,6 @@ TuyaSmartHomeKit iOS SDK functions split:
 
   - Utility classes, including category etc
 
-    
 
 - TuyaSmartBaseKit 
 
@@ -60,7 +71,6 @@ TuyaSmartHomeKit iOS SDK functions split:
 
   - HTTP API interface
 
-    
 
 - TuyaSmartDeviceKit
 

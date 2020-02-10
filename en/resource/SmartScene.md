@@ -623,3 +623,5 @@ Taking the creation of an device condition as an example, the usage sequence is 
 
 1. Use `TuyaSmartSceneConditionExprBuilder` to create a` TuyaSmartSceneExprModel` object, and generate the expression `expr` required to create conditions.
 2. Using the API in `TuyaSmartSceneConditionFactory`, pass in the` TuyaSmartSceneExprModel` object generated in the first step and other required parameters to generate a condition object.
+
+To generate preconditions and actions, use the APIs provided in `TuyaSmartScenePreConditionFactory` and`TuyaSmartSceneActionFactory`.
