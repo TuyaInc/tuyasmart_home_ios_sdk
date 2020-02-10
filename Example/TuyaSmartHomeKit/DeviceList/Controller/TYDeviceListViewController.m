@@ -26,12 +26,12 @@
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic, strong) TuyaSmartRequest *request;
 @property (nonatomic, strong) TuyaSmartHomeManager *homeManager;
+@property (nonatomic, strong) UIButton *emptyButton;
+
 @end
 
 @implementation TYDeviceListViewController
-{
-    UIButton *emptyButton;
-}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
@@ -39,6 +39,7 @@
     [self initData];
     
     [TYSmartHomeManager sharedInstance].currentHome.delegate = self;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataFromCloud) name:kNotificationLogin object:nil];
 }
 
 #pragma mark - Initializations.
@@ -63,26 +64,25 @@
     
     self.emptyView = [[TPEmptyView alloc] initWithFrame:self.tableView.bounds title:NSLocalizedString(@"no_device", @"") imageName:@"ty_list_empty"];
     
-    
-    emptyButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    emptyButton.frame = CGRectMake(APP_SCREEN_WIDTH / 2 - 100, 250, 200, 44);
-    emptyButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-    emptyButton.backgroundColor = [UIColor orangeColor];
-    emptyButton.layer.cornerRadius = 5;
-    [emptyButton setTitle:@"Add Test Device" forState:UIControlStateNormal];
-    [emptyButton addTarget:self action:@selector(getTestDevice) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:emptyButton];
+    _emptyButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _emptyButton.frame = CGRectMake(APP_SCREEN_WIDTH / 2 - 100, 250, 200, 44);
+    _emptyButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+    _emptyButton.backgroundColor = [UIColor orangeColor];
+    _emptyButton.layer.cornerRadius = 5;
+    [_emptyButton setTitle:@"Add Test Device" forState:UIControlStateNormal];
+    [_emptyButton addTarget:self action:@selector(getTestDevice) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_emptyButton];
     
     if ([TYSmartHomeManager sharedInstance].currentHome.deviceList.count) {
         [self.tableView reloadData];
     }
-    emptyButton.hidden = [TYSmartHomeManager sharedInstance].currentHome.deviceList.count;
-    self.tableView.hidden = !emptyButton.hidden;
+    _emptyButton.hidden = [TYSmartHomeManager sharedInstance].currentHome.deviceList.count;
+    self.tableView.hidden = !_emptyButton.hidden;
 }
 
 - (void)initData {
 
-    emptyButton.hidden = YES;
+    _emptyButton.hidden = YES;
     [self showProgressView:NSLocalizedString(@"loading", @"")];
     self.homeManager = [TuyaSmartHomeManager new];
     self.homeManager.delegate = self;
@@ -98,25 +98,9 @@
     WEAKSELF_AT
     [self showLoadingView];
     [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
-        
-        if (homes.count > 0) {
-            // If homes are already exist, choose the first one as current home.
-            [weakSelf_AT showHomeList:homes];
-            [weakSelf_AT hideLoadingView];
-        } else {
-            // Or else, add a default home named "hangzhou's home" and choose it as current home.
-            [weakSelf_AT.homeManager addHomeWithName:@"hangzhou's home" geoName:@"hangzhou" rooms:@[@"bedroom"] latitude:0 longitude:0 success:^(long long homeId) {
-                TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeId];
-                [weakSelf_AT showHomeList:@[home.homeModel]];
-                [TYSmartHomeManager sharedInstance].currentHome = home;
-                [weakSelf_AT hideLoadingView];
-            } failure:^(NSError *error) {
-                //Do fail action.
-                [weakSelf_AT hideLoadingView];
-            }];
-        }
+        [weakSelf_AT showHomeList:homes];
+        [weakSelf_AT hideLoadingView];
     } failure:^(NSError *error) {
-        //Do fail action.
         [weakSelf_AT hideLoadingView];
     }];
 }
@@ -146,12 +130,11 @@
 
 - (void)reloadDataFromCloud {
     [self showProgressView:NSLocalizedString(@"loading", @"")];
+    // sigmesh
     [[TuyaSmartSIGMeshManager sharedInstance] startScanWithScanType:ScanForProxyed meshModel:[TYSmartHomeManager sharedInstance].currentHome.sigMeshModel];
     WEAKSELF_AT
     [self.refreshControl beginRefreshing];
     [[TYSmartHomeManager sharedInstance].currentHome getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
-//        NSUserDefaults *groupUserDefault = [[NSUserDefaults alloc] initWithSuiteName:APP_GROUP_NAME];
-//        [groupUserDefault setObject:@(homeModel.homeId) forKey:@"kCurrentHomeIdKey"];
         
         [weakSelf_AT hideProgressView];
         [weakSelf_AT reloadData];
@@ -163,8 +146,8 @@
 
 - (void)reloadData {
     [self.refreshControl endRefreshing];
-    emptyButton.hidden = [TYSmartHomeManager sharedInstance].currentHome.deviceList.count;
-    self.tableView.hidden = !emptyButton.hidden;
+    _emptyButton.hidden = [TYSmartHomeManager sharedInstance].currentHome.deviceList.count;
+    self.tableView.hidden = !_emptyButton.hidden;
     [self.tableView reloadData];
 }
 
@@ -211,23 +194,6 @@
         [weakSelf_AT alertMessage:msg];
     }];
 
-}
-
-#pragma mark - TuyaSmartHomeManagerDelegate
-
-// 添加一个家庭
-- (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home {
-    NSLog(@"Add a home %@", home.name);
-}
-
-// 删除一个家庭
-- (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId {
-    // remove home
-}
-
-// MQTT连接成功
-- (void)serviceConnectedSuccess {
-    [self reloadDataFromCloud];
 }
 
 #pragma mark - UITableViewDataSource
@@ -337,6 +303,23 @@
 // 群组信息更新，例如name
 - (void)home:(TuyaSmartHome *)home groupInfoUpdate:(TuyaSmartGroupModel *)group {
     [self.tableView reloadData];
+}
+
+#pragma mark - TuyaSmartHomeManagerDelegate
+
+// add home
+- (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home {
+    NSLog(@"Add a home %@", home.name);
+}
+
+// remove home
+- (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId {
+    // remove home
+}
+
+// MQTT connect success
+- (void)serviceConnectedSuccess {
+    [self reloadDataFromCloud];
 }
 
 @end

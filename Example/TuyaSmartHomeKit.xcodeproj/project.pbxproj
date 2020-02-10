@@ -574,7 +574,7 @@
 				3F416F6E22B0FE070086F3E2 /* t_s.bmp */,
 				6BA0E4C52211A08F00307E67 /* Scene */,
 				65FC209320C8D2FE00918C6D /* Base */,
-				6BA51893219049D70036DCC2 /* UserCenter */,
+				6BA51893219049D70036DCC2 /* User */,
 				6BFE78D12193134F00D39C19 /* DeviceList */,
 				6BFE78D02192EC5300D39C19 /* AddDevice */,
 				182C1348237D4F2800AECD7E /* Timer */,
@@ -670,14 +670,14 @@
 		65FC209420C8D2FE00918C6D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				65FC209820C8D2FE00918C6D /* TYTabBarViewController.h */,
+				65FC209E20C8D2FE00918C6D /* TYTabBarViewController.m */,
 				6BA0E4C22211965000307E67 /* TPBaseTableViewController.h */,
 				6BA0E4C32211965000307E67 /* TPBaseTableViewController.m */,
 				65FC209920C8D2FE00918C6D /* TPBaseViewController.h */,
 				65FC209D20C8D2FE00918C6D /* TPBaseViewController.m */,
 				65B6ED7421A9257300EEE134 /* TPNavigationController.h */,
 				65B6ED7221A9257200EEE134 /* TPNavigationController.m */,
-				65FC209820C8D2FE00918C6D /* TYTabBarViewController.h */,
-				65FC209E20C8D2FE00918C6D /* TYTabBarViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -766,10 +766,10 @@
 		6B04FE9C2193D73600198EF3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				657D5A2B234C2550005CADCE /* TYDeviceGroupViewController.h */,
-				657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */,
 				6B04FEAE2194211500198EF3 /* TYDeviceListViewController.h */,
 				6B04FEAF2194211500198EF3 /* TYDeviceListViewController.m */,
+				657D5A2B234C2550005CADCE /* TYDeviceGroupViewController.h */,
+				657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */,
 				65FC1FA320C8D2FE00918C6D /* TYPanelBaseViewController.h */,
 				65FC1FA020C8D2FE00918C6D /* TYPanelBaseViewController.m */,
 				65FC1F9E20C8D2FE00918C6D /* TYCommonPanelViewController.h */,
@@ -816,10 +816,10 @@
 		6BA0E4C62211A08F00307E67 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				6BA0E4C72211A08F00307E67 /* TYSmartSceneViewController.m */,
-				6BA0E4C82211A08F00307E67 /* TYAddSceneViewController.m */,
 				6BA0E4C92211A08F00307E67 /* TYSmartSceneViewController.h */,
+				6BA0E4C72211A08F00307E67 /* TYSmartSceneViewController.m */,
 				6BA0E4CA2211A08F00307E67 /* TYAddSceneViewController.h */,
+				6BA0E4C82211A08F00307E67 /* TYAddSceneViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -827,22 +827,22 @@
 		6BA0E4CB2211A08F00307E67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6BA0E4D62211A08F00307E67 /* TYEditActionTitleTableViewCell.h */,
 				6BA0E4CC2211A08F00307E67 /* TYEditActionTitleTableViewCell.m */,
+				6BA0E4D52211A08F00307E67 /* TYTextFieldTableViewCell.h */,
 				6BA0E4CD2211A08F00307E67 /* TYTextFieldTableViewCell.m */,
+				6BA0E4D42211A08F00307E67 /* TYActionTableViewCell.h */,
 				6BA0E4CE2211A08F00307E67 /* TYActionTableViewCell.m */,
+				6BA0E4D82211A08F00307E67 /* TYEditActionNoDataTableViewCell.h */,
 				6BA0E4CF2211A08F00307E67 /* TYEditActionNoDataTableViewCell.m */,
 				6BA0E4D02211A08F00307E67 /* TYEditSceneTableViewCell.h */,
-				6BA0E4D12211A08F00307E67 /* TYSceneHeaderView.h */,
-				6BA0E4D22211A08F00307E67 /* TYEditActionTableViewCell.m */,
-				6BA0E4D32211A08F00307E67 /* TYSmartSceneTableViewCell.m */,
-				6BA0E4D42211A08F00307E67 /* TYActionTableViewCell.h */,
-				6BA0E4D52211A08F00307E67 /* TYTextFieldTableViewCell.h */,
-				6BA0E4D62211A08F00307E67 /* TYEditActionTitleTableViewCell.h */,
 				6BA0E4D72211A08F00307E67 /* TYEditSceneTableViewCell.m */,
-				6BA0E4D82211A08F00307E67 /* TYEditActionNoDataTableViewCell.h */,
 				6BA0E4D92211A08F00307E67 /* TYSmartSceneTableViewCell.h */,
-				6BA0E4DA2211A08F00307E67 /* TYEditActionTableViewCell.h */,
+				6BA0E4D32211A08F00307E67 /* TYSmartSceneTableViewCell.m */,
+				6BA0E4D12211A08F00307E67 /* TYSceneHeaderView.h */,
 				6BA0E4DB2211A08F00307E67 /* TYSceneHeaderView.m */,
+				6BA0E4DA2211A08F00307E67 /* TYEditActionTableViewCell.h */,
+				6BA0E4D22211A08F00307E67 /* TYEditActionTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -872,7 +872,7 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		6BA51893219049D70036DCC2 /* UserCenter */ = {
+		6BA51893219049D70036DCC2 /* User */ = {
 			isa = PBXGroup;
 			children = (
 				6BA5189421904C370036DCC2 /* TYLoginViewController.h */,
@@ -884,7 +884,7 @@
 				6B8DEE2121B11759004C9C78 /* TYLoginAndRegisterUtils.h */,
 				6B8DEE2221B11759004C9C78 /* TYLoginAndRegisterUtils.m */,
 			);
-			path = UserCenter;
+			path = User;
 			sourceTree = "<group>";
 		};
 		6BFE78D02192EC5300D39C19 /* AddDevice */ = {

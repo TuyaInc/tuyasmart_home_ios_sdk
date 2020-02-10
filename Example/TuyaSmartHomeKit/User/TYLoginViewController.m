@@ -39,8 +39,7 @@
     // session invalid
     [self loadNotification];
     [self loadHomeData];
-    //Add this function or not, by yourself.
-    [self autoFillCountryCodeWithDeviceInfo];
+    [self autoFillCountryCode];
 }
 
 - (void)initTopBarView {
@@ -66,35 +65,43 @@
     [self.navigationController pushViewController:self.registerViewController animated:YES];
 }
 
+- (void)autoFillCountryCode {
+    
+    NSString *code = [TYLoginAndRegisterUtils getDefaultCountryCode];
+    if (code.length > 0) {
+        self.rootView.countryCodeField.text = code;
+    }
+}
+
 - (void)loadHomeData {
     
     if (![TuyaSmartUser sharedInstance].isLogin) return;
     
     WEAKSELF_AT
     [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
-//        NSUserDefaults *groupUserDefault = [[NSUserDefaults alloc] initWithSuiteName:APP_GROUP_NAME];
+
         if (homes.count > 0) {
             // If homes are already exist, choose the first one as current home.
             TuyaSmartHomeModel *model = [homes firstObject];
             TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:model.homeId];
             [TYSmartHomeManager sharedInstance].currentHome = home;
-//            [groupUserDefault setObject:@(model.homeId) forKey:@"kCurrentHomeIdKey"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLogin object:nil];
         } else {
             // Or else, add a default home named "hangzhou's home" and choose it as current home.
             [weakSelf_AT.homeManager addHomeWithName:@"hangzhou's home" geoName:@"hangzhou" rooms:@[@"bedroom"] latitude:0 longitude:0 success:^(long long homeId) {
                 TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeId];
                 [TYSmartHomeManager sharedInstance].currentHome = home;
-//                [groupUserDefault setObject:@(homeId) forKey:@"kCurrentHomeIdKey"];
+                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLogin object:nil];
             } failure:^(NSError *error) {
-                //Do fail action.
+                
             }];
         }
     } failure:^(NSError *error) {
-        //Do fail action.
+        
     }];
 }
 
-#pragma mark - Actions.
+#pragma mark - TYLoginAndRegisterViewDelegate
 
 - (void)loginAndRegisterViewTrigerredAction:(TYLoginAndRegisterViewActionType)actionType {
     if (actionType == TYLoginAndRegisterViewActionTypeLogin) {
@@ -104,18 +111,18 @@
 
 - (void)passwordLogin {
     [self.view endEditing:YES];
-    if (!self.rootView.accountField.text.length) {
-        self.rootView.tipsLabel.text = @"account field can't be nil.";
+    if (self.rootView.accountField.text.length == 0) {
+        self.rootView.tipsLabel.text = @"Account number cannot be empty.";
         return;
     }
     
-    if (!self.rootView.countryCodeField.text.length) {
-        self.rootView.tipsLabel.text = @"Country code is essential.";
+    if (self.rootView.countryCodeField.text.length == 0) {
+        self.rootView.tipsLabel.text = @"Country code cannot be empty.";
         return;
     }
     
     if (self.rootView.passwordField.text.length < 6) {
-        self.rootView.tipsLabel.text = @"Invalid password formmat.";
+        self.rootView.tipsLabel.text = @"Password length cannot be less than 6";
         return;
     }
     if ([TYLoginAndRegisterUtils isValidateEmail:self.rootView.accountField.text]) {
@@ -125,9 +132,8 @@
     }
 }
 
-
 /**
- @brief Login with email address and password.
+ @brief Email login
  */
 - (void)loginWithEmailAndPassword {
     
@@ -150,7 +156,7 @@
 
 
 /**
- @brief Login with phone number and password.
+ @brief Mobile phone login
  */
 - (void)loginWithPhoneNumberAndPassword {
     NSString *countryCode   = self.rootView.countryCodeField.text;
@@ -171,7 +177,7 @@
 }
 
 /**
- @brief Log out action.
+ @brief Log out
  */
 - (void)CancelButtonTap {
     WEAKSELF_AT;
@@ -183,6 +189,8 @@
     }];
 }
 
+#pragma mark - Session invalid
+
 - (void)loadNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionInvalid) name:TuyaSmartUserNotificationUserSessionInvalid object:nil];
 }
@@ -190,18 +198,10 @@
 - (void)sessionInvalid {
     if ([[TuyaSmartUser sharedInstance] isLogin]) {
         // Log out.
-        [[TuyaSmartUser sharedInstance] loginOut:NULL failure:NULL];
+        [[TuyaSmartUser sharedInstance] loginOut:nil failure:nil];
         [TYSmartHomeManager sharedInstance].currentHome = nil;
         
         self.rootView.tipsLabel.text = @"Session expired，you need to login again.";
-    }
-}
-
-- (void)autoFillCountryCodeWithDeviceInfo {
-    
-    NSString *code = [TYLoginAndRegisterUtils getDefaultCountryCode];
-    if (code.length) {
-        self.rootView.countryCodeField.text = code;
     }
 }
 

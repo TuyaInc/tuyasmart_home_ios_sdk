@@ -39,6 +39,8 @@
     [self autoFillCountryCodeWithDeviceInfo];
 }
 
+#pragma mark - TYLoginAndRegisterViewDelegate
+
 - (void)loginAndRegisterViewTrigerredAction:(TYLoginAndRegisterViewActionType)actionType {
     
     if (actionType == TYLoginAndRegisterViewActionTypeSendVerifyCode) {
@@ -47,6 +49,7 @@
         [self registerAction];
     }
 }
+
 - (void)sendVerifyCode {
     
     [self.view endEditing:YES];

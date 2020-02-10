@@ -59,7 +59,6 @@
                              ];
 }
 
-
 - (void)customView {
     [self.tabBar setTintColor:TAB_BAR_TEXT_COLOR];
     self.tabBar.translucent  = NO;
@@ -83,6 +82,13 @@
     return _addDeviceNavigationController;
 }
 
+- (TPNavigationController *)sceneNavigationController {
+    if (!_sceneNavigationController) {
+        _sceneNavigationController = [[TPNavigationController alloc] initWithRootViewController:self.sceneViewController];
+    }
+    return _sceneNavigationController;
+}
+
 - (TPNavigationController *)loginNavigationController {
     if (!_loginNavigationController) {
         TYLoginViewController *loginViewController = [TYLoginViewController new];
@@ -96,7 +102,6 @@
     return _loginNavigationController;
 }
 
-
 - (TYDeviceListViewController *)deviceViewController {
     if (!_deviceViewController) {
         _deviceViewController = [TYDeviceListViewController new];
@@ -106,13 +111,6 @@
                                                                  selectedImage:[UIImage imageNamed:@"ty_mainbt_devicelist_active"]];
     }
     return _deviceViewController;
-}
-
-- (TPNavigationController *)sceneNavigationController {
-    if (!_sceneNavigationController) {
-        _sceneNavigationController = [[TPNavigationController alloc] initWithRootViewController:self.sceneViewController];
-    }
-    return _sceneNavigationController;
 }
 
 - (UIViewController *)addDeviceViewController {
