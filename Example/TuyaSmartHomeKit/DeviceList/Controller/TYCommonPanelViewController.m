@@ -40,7 +40,9 @@
     
     [self.view addSubview:self.tableView];
     
-    [self updateOfflineView];
+    if (self.device) {
+        [self updateOfflineView];
+    }
 }
 
 - (UITableView *)tableView {
@@ -59,14 +61,25 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.device.deviceModel.schemaArray.count;
+    if (self.device) {
+        return self.device.deviceModel.schemaArray.count;
+    } else {
+        return self.group.groupModel.schemaArray.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     TuyaSmartSchemaModel *schemaModel = self.device.deviceModel.schemaArray[indexPath.row];
     
-    NSDictionary *dps = self.device.deviceModel.dps;
+    NSDictionary *dps = [NSDictionary dictionary];
+    if (self.device) {
+        schemaModel = self.device.deviceModel.schemaArray[indexPath.row];
+        dps = self.device.deviceModel.dps;
+    } else {
+        schemaModel = self.group.groupModel.schemaArray[indexPath.row];
+        dps = self.group.groupModel.dps;
+    }
     
     NSString *dpId = schemaModel.dpId;
     
@@ -219,25 +232,45 @@
     
 }
 
+#pragma mark - TuyaSmartGroupDelegate
+
+- (void)group:(TuyaSmartGroup *)group dpsUpdate:(NSDictionary *)dps {
+    [self.tableView reloadData];
+}
+
 #pragma mark - action
+
+- (void)messagePublishWithDps:(NSDictionary *)dps {
+    [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
+    
+    if (self.device) {
+        [self.device publishDps:dps success:^{
+
+            [TPProgressUtils hideHUDForView:nil animated:YES];
+
+        } failure:^(NSError *error) {
+
+            [TPProgressUtils hideHUDForView:nil animated:YES];
+            [TPProgressUtils showError:error.localizedDescription];
+        }];
+    } else {
+        [self.group publishDps:dps success:^{
+
+            [TPProgressUtils hideHUDForView:nil animated:YES];
+
+        } failure:^(NSError *error) {
+
+            [TPProgressUtils hideHUDForView:nil animated:YES];
+            [TPProgressUtils showError:error.localizedDescription];
+        }];
+    }
+}
 
 - (void)switchAction:(UISwitch *)sender {
     
-    
     TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:sender];
     NSString *dpId = schemaModel.dpId;
-    
-    [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
-    
-    [self.device publishDps:@{dpId:@(sender.isOn)} success:^{
-       
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-        
-    } failure:^(NSError *error) {
-       
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-        [TPProgressUtils showError:error.localizedDescription];
-    }];
+    [self messagePublishWithDps:@{dpId:@(sender.isOn)}];
 }
 
 - (void)plusAction:(UIButton *)sender {
@@ -249,19 +282,7 @@
     
     currentValue += schemaModel.property.step;
     
-    
-    [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
-
-    [self.device publishDps:@{dpId:@(currentValue)} success:^{
-        
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-        
-    } failure:^(NSError *error) {
-        
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-        [TPProgressUtils showError:error.localizedDescription];
-        
-    }];
+    [self messagePublishWithDps:@{dpId:@(currentValue)}];
 }
 
 - (void)minAction:(UIButton *)sender {
@@ -272,18 +293,7 @@
 
     currentValue -= schemaModel.property.step;
     
-    [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
-    
-    [self.device publishDps:@{dpId:@(currentValue)} success:^{
-
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-
-    } failure:^(NSError *error) {
-        
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-        [TPProgressUtils showError:error.localizedDescription];
-        
-    }];
+    [self messagePublishWithDps:@{dpId: @(currentValue)}];
 }
 
 - (void)modeAction:(UILabel *)label {
@@ -328,18 +338,7 @@
     TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:textField];
     NSString *dpId = schemaModel.dpId;
     
-    
-    [TPProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
-    
-    [self.device publishDps:@{dpId:textField.text} success:^{
-
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-        
-    } failure:^(NSError *error) {
-
-        [TPProgressUtils hideHUDForView:nil animated:YES];
-        [TPProgressUtils showError:error.localizedDescription];
-    }];
+    [self messagePublishWithDps:@{dpId: textField.text}];
 }
 
 - (TuyaSmartSchemaModel *)getSchemaModelFromSubview:(UIView *)view {
@@ -347,7 +346,12 @@
     CGPoint pointInTable = [view convertPoint:view.bounds.origin toView:_tableView];
     NSIndexPath *indexPath = [_tableView indexPathForRowAtPoint:pointInTable];
     
-    TuyaSmartSchemaModel *schemaModel = self.device.deviceModel.schemaArray[indexPath.row];
+    TuyaSmartSchemaModel *schemaModel = nil;
+    if (self.device) {
+        schemaModel = self.device.deviceModel.schemaArray[indexPath.row];
+    } else {
+        schemaModel = self.group.groupModel.schemaArray[indexPath.row];
+    }
     
     return schemaModel;
 }

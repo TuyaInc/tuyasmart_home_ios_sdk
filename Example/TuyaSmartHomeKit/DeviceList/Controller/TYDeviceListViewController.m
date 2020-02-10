@@ -74,12 +74,6 @@
     [_emptyButton setTitle:@"Add Test Device" forState:UIControlStateNormal];
     [_emptyButton addTarget:self action:@selector(getTestDevice) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_emptyButton];
-    
-    if (self.home.deviceList.count > 0) {
-        [self.tableView reloadData];
-    }
-    _emptyButton.hidden = self.home.deviceList.count > 0;
-    self.tableView.hidden = !_emptyButton.hidden;
 }
 
 - (void)initData {
@@ -150,7 +144,7 @@
 
 - (void)reloadData {
     [self.refreshControl endRefreshing];
-    _emptyButton.hidden = self.home.deviceList.count;
+    _emptyButton.hidden = self.home.deviceList.count + self.home.groupList.count;
     self.tableView.hidden = !_emptyButton.hidden;
     [self.tableView reloadData];
 }
@@ -161,14 +155,18 @@
     [self reloadDataFromCloud];
 }
 
+- (TuyaSmartRequest *)request {
+    if (!_request) {
+        _request = [[TuyaSmartRequest alloc] init];
+    }
+    return _request;
+}
+
 // add experience device
 - (void)getTestDevice {
     
     [self showProgressView:NSLocalizedString(@"loading", @"")];
     WEAKSELF_AT
-    if (!self.request) {
-        self.request = [TuyaSmartRequest new];
-    }
     long long gid = self.home.homeModel.homeId;
     [self.request requestWithApiName:@"s.m.dev.sdk.demo.list" postData:nil getData:@{@"gid" : @(gid)} version:@"1.0" success:^(id result) {
         
@@ -203,13 +201,12 @@
         NSString *msg = [NSString stringWithFormat:@"Add home fail: %@",error.localizedDescription];
         [weakSelf_AT alertMessage:msg];
     }];
-
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.home.deviceList.count;
+    return self.home.deviceList.count + self.home.groupList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -219,8 +216,13 @@
         cell = [[TYDeviceListViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NSStringFromClass([TYDeviceListViewCell class])];
     }
     
-    TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:indexPath.row];
-    [cell setItem:deviceModel];
+    if (indexPath.row < self.home.groupList.count) {
+        TuyaSmartGroupModel *groupModel = [self.home.groupList objectAtIndex:indexPath.row];
+        [cell setItem:groupModel];
+    } else if (indexPath.row < self.home.deviceList.count + self.home.groupList.count) {
+        TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:(indexPath.row - self.home.groupList.count)];
+        [cell setItem:deviceModel];
+    }
     
     return cell;
 }
@@ -229,18 +231,27 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:indexPath.row];
-    //演示设备produckId
-    if ([deviceModel.productId isEqualToString:@"4eAeY1i5sUPJ8m8d"]) {
-        
-        TYSwitchPanelViewController *vc = [[TYSwitchPanelViewController alloc] init];
-        vc.devId = deviceModel.devId;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else {
-        
+    
+    if (indexPath.row < self.home.groupList.count) {
+        TuyaSmartGroupModel *groupModel = [self.home.groupList objectAtIndex:indexPath.row];
         TYCommonPanelViewController *vc = [[TYCommonPanelViewController alloc] init];
-        vc.devId = deviceModel.devId;
+        vc.groupId = groupModel.groupId;
         [self.navigationController pushViewController:vc animated:YES];
+        
+    } else if (indexPath.row < self.home.deviceList.count + self.home.groupList.count) {
+        TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:(indexPath.row - self.home.groupList.count)];
+        //演示设备produckId
+        if ([deviceModel.productId isEqualToString:@"4eAeY1i5sUPJ8m8d"]) {
+            
+            TYSwitchPanelViewController *vc = [[TYSwitchPanelViewController alloc] init];
+            vc.devId = deviceModel.devId;
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            
+            TYCommonPanelViewController *vc = [[TYCommonPanelViewController alloc] init];
+            vc.devId = deviceModel.devId;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 

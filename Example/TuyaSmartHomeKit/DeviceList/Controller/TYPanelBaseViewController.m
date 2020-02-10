@@ -7,7 +7,6 @@
 //
 
 #import "TYPanelBaseViewController.h"
-#import "TYDeviceGroupViewController.h"
 
 @interface TYPanelBaseViewController()
 
@@ -45,6 +44,13 @@
     return _device;
 }
 
+- (TuyaSmartGroup *)group {
+    if (!_group) {
+        _group = [TuyaSmartGroup groupWithGroupId:self.groupId];
+    }
+    return _group;
+}
+
 - (UILabel *)offlineLabel {
     if (!_offlineLabel) {
         _offlineLabel = [TPViewUtil simpleLabel:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_CONTENT_WIDTH, APP_VISIBLE_HEIGHT) f:14 tc:HEXCOLOR(0xffffff) t:NSLocalizedString(@"title_device_offline", nil)];
@@ -66,12 +72,12 @@
     [sheet bk_addButtonWithTitle:NSLocalizedString(@"rename_device", @"") handler:^{
         [weakSelf_AT updateName];
     }];
-    if (self.device.deviceModel.deviceType == TuyaSmartDeviceModelTypeSIGMeshSubDev) {
-        [sheet bk_addButtonWithTitle:NSLocalizedString(@"add_group", @"") handler:^{
-            [weakSelf_AT addDeviceGroup];
-        }];
-    }
     
+//    if (self.device.deviceModel.deviceType == TuyaSmartDeviceModelTypeSIGMeshSubDev) {
+//        [sheet bk_addButtonWithTitle:NSLocalizedString(@"add_group", @"") handler:^{
+//            [weakSelf_AT addDeviceGroup];
+//        }];
+//    }
     
     //移除设备
     [sheet bk_addButtonWithTitle:NSLocalizedString(@"cancel_connect", @"") handler:^{
@@ -82,18 +88,22 @@
     [sheet showInView:self.view];
 }
 
-- (void)addDeviceGroup {
-    TYDeviceGroupViewController *group = [[TYDeviceGroupViewController alloc] init];
-    group.device = self.device;
-    [self.navigationController pushViewController:group animated:YES];
-}
+//- (void)addDeviceGroup {
+//    TYDeviceGroupViewController *group = [[TYDeviceGroupViewController alloc] init];
+//    group.device = self.device;
+//    [self.navigationController pushViewController:group animated:YES];
+//}
 
 - (void)updateName {
     
     UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:NSLocalizedString(@"rename_device", @"")];
     alertView.alertViewStyle = UIAlertViewStylePlainTextInput;
     UITextField *textField = [alertView textFieldAtIndex:0];
-    textField.text = self.device.deviceModel.name;
+    if (self.device) {
+        textField.text = self.device.deviceModel.name;
+    } else {
+        textField.text = self.group.groupModel.name;
+    }
     
     if (textField.text.length == 0) {
         return;
@@ -101,16 +111,29 @@
     
     WEAKSELF_AT
     [alertView bk_addButtonWithTitle:NSLocalizedString(@"confirm", @"") handler:^{
-        [weakSelf_AT.device updateName:textField.text success:^{
-            ;
+        if (weakSelf_AT.device) {
+            [weakSelf_AT.device updateName:textField.text success:^{
+                ;
+                
+                UIButton *btn = [weakSelf_AT.topBarView viewWithTag:TP_CENTER_VIEW_TAG];
+                
+                [btn setTitle:textField.text forState:UIControlStateNormal];
             
-            UIButton *btn = [weakSelf_AT.topBarView viewWithTag:TP_CENTER_VIEW_TAG];
+            } failure:^(NSError *error) {
+                [TPProgressUtils showError:error.localizedDescription];
+            }];
+        } else if (weakSelf_AT.group) {
+            [weakSelf_AT.group updateGroupName:textField.text success:^{
+                ;
+                
+                UIButton *btn = [weakSelf_AT.topBarView viewWithTag:TP_CENTER_VIEW_TAG];
+                
+                [btn setTitle:textField.text forState:UIControlStateNormal];
             
-            [btn setTitle:textField.text forState:UIControlStateNormal];
-        
-        } failure:^(NSError *error) {
-            [TPProgressUtils showError:error.localizedDescription];
-        }];
+            } failure:^(NSError *error) {
+                [TPProgressUtils showError:error.localizedDescription];
+            }];
+        }
     }];
     
     [alertView bk_setCancelButtonWithTitle:NSLocalizedString(@"action_cancel", @"") handler:nil];
@@ -127,15 +150,25 @@
                          otherButtonTitles:@[NSLocalizedString(@"confirm", @"")]
                                    handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
         if (buttonIndex == 1) {
-            [weakSelf_AT.device remove:^{
-                
-                [TPProgressUtils showSuccess:NSLocalizedString(@"device_has_unbinded", @"") toView:nil block:^{
-                    [tp_topMostViewController().navigationController popViewControllerAnimated:YES];
+            if (weakSelf_AT.device) {
+                [weakSelf_AT.device remove:^{
+                    
+                    [TPProgressUtils showSuccess:NSLocalizedString(@"device_has_unbinded", @"") toView:nil block:^{
+                        [tp_topMostViewController().navigationController popViewControllerAnimated:YES];
+                    }];
+                    
+                } failure:^(NSError *error) {
+                    [TPProgressUtils showError:error.localizedDescription];
                 }];
-                
-            } failure:^(NSError *error) {
-                [TPProgressUtils showError:error.localizedDescription];
-            }];
+            } else if (weakSelf_AT.group) {
+                [weakSelf_AT.group dismissGroup:^{
+                    [TPProgressUtils showSuccess:NSLocalizedString(@"device_has_unbinded", @"") toView:nil block:^{
+                        [tp_topMostViewController().navigationController popViewControllerAnimated:YES];
+                    }];
+                } failure:^(NSError *error) {
+                    [TPProgressUtils showError:error.localizedDescription];
+                }];
+            }
         }
     }];
 }

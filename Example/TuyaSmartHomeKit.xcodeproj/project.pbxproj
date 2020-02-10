@@ -36,8 +36,6 @@
 		6539381F223A364C00704EF3 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 6539381E223A364C00704EF3 /* CHANGELOG.md */; };
 		657D5A29234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D5A28234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m */; };
 		657D5A2A234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D5A28234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m */; };
-		657D5A2D234C2550005CADCE /* TYDeviceGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */; };
-		657D5A2E234C2550005CADCE /* TYDeviceGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */; };
 		65AB0CBD228676ED00A2123F /* TuyaSmartMessageKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 65AB0CAF228676EB00A2123F /* TuyaSmartMessageKit.podspec */; };
 		65AB0CBE228676ED00A2123F /* TuyaSmartBLEKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 65AB0CB0228676EB00A2123F /* TuyaSmartBLEKit.podspec */; };
 		65AB0CBF228676ED00A2123F /* TYBluetooth.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 65AB0CB1228676EB00A2123F /* TYBluetooth.podspec */; };
@@ -242,8 +240,6 @@
 		6539381E223A364C00704EF3 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../../CHANGELOG.md; sourceTree = "<group>"; };
 		657D5A27234C2512005CADCE /* TYAddSIGMeshDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYAddSIGMeshDeviceViewController.h; sourceTree = "<group>"; };
 		657D5A28234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYAddSIGMeshDeviceViewController.m; sourceTree = "<group>"; };
-		657D5A2B234C2550005CADCE /* TYDeviceGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDeviceGroupViewController.h; sourceTree = "<group>"; };
-		657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDeviceGroupViewController.m; sourceTree = "<group>"; };
 		65AB0CAF228676EB00A2123F /* TuyaSmartMessageKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TuyaSmartMessageKit.podspec; path = ../../../TuyaSmartMessageKit.podspec; sourceTree = "<group>"; };
 		65AB0CB0228676EB00A2123F /* TuyaSmartBLEKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TuyaSmartBLEKit.podspec; path = ../../../TuyaSmartBLEKit.podspec; sourceTree = "<group>"; };
 		65AB0CB1228676EB00A2123F /* TYBluetooth.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TYBluetooth.podspec; path = ../../../TYBluetooth.podspec; sourceTree = "<group>"; };
@@ -768,8 +764,6 @@
 			children = (
 				6B04FEAE2194211500198EF3 /* TYDeviceListViewController.h */,
 				6B04FEAF2194211500198EF3 /* TYDeviceListViewController.m */,
-				657D5A2B234C2550005CADCE /* TYDeviceGroupViewController.h */,
-				657D5A2C234C2550005CADCE /* TYDeviceGroupViewController.m */,
 				65FC1FA320C8D2FE00918C6D /* TYPanelBaseViewController.h */,
 				65FC1FA020C8D2FE00918C6D /* TYPanelBaseViewController.m */,
 				65FC1F9E20C8D2FE00918C6D /* TYCommonPanelViewController.h */,
@@ -1164,7 +1158,6 @@
 				6BA51899219171A90036DCC2 /* TYRegisterViewController.m in Sources */,
 				182C1372237D4F2800AECD7E /* TYTimerDatePickerTableViewCell.m in Sources */,
 				65FC211320C8D2FE00918C6D /* TYCommonPanelViewController.m in Sources */,
-				657D5A2D234C2550005CADCE /* TYDeviceGroupViewController.m in Sources */,
 				65FC211920C8D2FE00918C6D /* TYPanelEnumViewCell.m in Sources */,
 				65FC211820C8D2FE00918C6D /* TYPanelValueViewCell.m in Sources */,
 				65FC211220C8D2FE00918C6D /* TYPanelBaseViewController.m in Sources */,
@@ -1224,7 +1217,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				657D5A2A234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m in Sources */,
-				657D5A2E234C2550005CADCE /* TYDeviceGroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

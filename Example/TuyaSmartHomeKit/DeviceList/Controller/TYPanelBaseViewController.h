@@ -9,8 +9,10 @@
 @interface TYPanelBaseViewController : TPBaseViewController <TuyaSmartDeviceDelegate>
 
 @property (nonatomic, strong) NSString *devId;
+@property (nonatomic, strong) NSString *groupId;
 
 @property (nonatomic, strong) TuyaSmartDevice *device;
+@property (nonatomic, strong) TuyaSmartGroup *group;
 
 - (void)updateOfflineView;
 

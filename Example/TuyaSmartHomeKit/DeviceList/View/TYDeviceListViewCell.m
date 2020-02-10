@@ -81,18 +81,22 @@
   
     [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:[item iconUrl]] placeholderImage:nil];
     
-    if ([item isOnline]) {
-        if ([item isShare]) {
-            _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_share_green.png"];
+    if ([item isKindOfClass:[TuyaSmartDeviceModel class]]) {
+        if ([item isOnline]) {
+            if ([item isShare]) {
+                _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_share_green.png"];
+            } else {
+                _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_dot_green.png"];
+            }
         } else {
-            _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_dot_green.png"];
+            if ([item isShare]) {
+                _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_share_gray.png"];
+            } else {
+                _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_dot_gray.png"];
+            }
         }
     } else {
-        if ([item isShare]) {
-            _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_share_gray.png"];
-        } else {
-            _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_dot_gray.png"];
-        }
+        _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_dot_green.png"];
     }
     
     _groupTipLabel.hidden = ![item isKindOfClass:[TuyaSmartGroupModel class]];
