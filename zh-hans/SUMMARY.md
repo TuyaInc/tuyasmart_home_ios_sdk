@@ -11,7 +11,7 @@
   - [邮箱账号体系](./resource/User.md#邮箱账号体系)
   - [用户uid登录体系](./resource/User.md#用户uid登录体系)
   - [第三方登录](./resource/User.md#第三方登录)
-  - [Auth2登录(苹果登录)](./resource/User.md#Auth2登录)
+  - [Auth2登录(苹果登录)](./resource/User.md#Auth2 登录)
   - [修改用户信息](./resource/User.md#修改用户头像)
   - [登出，注销账号](./resource/User.md#登出)
   - [Session过期的处理](./resource/User.md#session过期的处理)
