@@ -423,9 +423,9 @@ func resetPasswordByEmail() {
 
 
 
-### 用户uid登录体系
+### 用户 uid 登录体系
 
-#### 用户uid注册和登录
+#### 用户 uid 注册和登录（已经拥有账号体系）
 
 注册和登录为一体的接口，如果注册了就自动登录，如果没有注册就自动注册并且登录。
 
@@ -450,6 +450,8 @@ TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_cod
     }
 })
 ```
+
+
 
 ### 第三方登录
 
@@ -648,9 +650,9 @@ func loginByTwitter() {
 
 
 
-### Auth2登录
+### Auth2 登录
 
-auth2的接口是一个通用的登录接口，可以根据传参来确认正在使用Auth2的类型。
+auth2 的接口是一个通用的登录接口，可以根据传参来确认正在使用 Auth2 的类型。
 
 Objc:
 
@@ -699,9 +701,11 @@ func loginWithAuth2() {
 }
 ```
 
+
+
 #### 苹果登录
 
-SDK从3.14.0开始支持苹果登录了，授权成功后通过Auth2的接口传入token和extraInfo等信息，可以实现苹果登录。
+SDK 从 3.14.0 开始支持苹果登录了，授权成功后通过 Auth2 的接口传入 token 和 extraInfo 等信息，可以实现苹果登录。
 
 Objc:
 
@@ -776,6 +780,8 @@ func updateHeadIcon(_ headIcon: UIImage) {
 }
 ```
 
+
+
 ### 设置用户温度单位
 
 **接口描述**
@@ -805,6 +811,8 @@ func updateTempUnit(withTempUnit tempUnit: Int) {
     })
 }
 ```
+
+
 
 ### 修改昵称
 
@@ -863,6 +871,7 @@ func updateTimeZoneId(_ timeZoneId: String) {
     })
 }
 ```
+
 
 
 ### 更新用户定位
@@ -955,7 +964,7 @@ func cancelAccount() {
 
 ### Session过期的处理
 
-长期未登录的账号，在访问服务端接口的时候会返回Session过期的错误，需要监听`TuyaSmartUserNotificationUserSessionInvalid`通知，跳转至登录页面重新登录。
+长期未登录或者密码修改后的账号，在访问服务端接口的时候会返回Session过期的错误，需要监听`TuyaSmartUserNotificationUserSessionInvalid`通知，跳转至登录页面重新登录。
 
 Objc:
 
