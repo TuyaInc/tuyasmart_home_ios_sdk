@@ -650,7 +650,7 @@ func loginByTwitter() {
 
 
 
-### Auth2 登录
+### Auth2登录
 
 auth2 的接口是一个通用的登录接口，可以根据传参来确认正在使用 Auth2 的类型。
 
