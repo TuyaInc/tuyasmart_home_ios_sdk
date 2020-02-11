@@ -19,6 +19,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (UITextField *)textField;
 
 - (void)alertMessage:(NSString *)message;
+
+/*
+ * go system to connect wifi
+ */
+- (void)gotoSettingWifi;
+
+/*
+ * get current network status
+ */
+- (BOOL)currentNetworkStatus;
+
+
+
 @end
 
 TYAddDeviceUtils * sharedAddDeviceUtils();
