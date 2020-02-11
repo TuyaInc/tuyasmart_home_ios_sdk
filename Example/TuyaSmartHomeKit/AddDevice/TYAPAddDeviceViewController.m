@@ -51,10 +51,11 @@ static NSInteger timeout0 = timeLeft0;
     
     [self.view endEditing:YES];
     
-    if (!self.ssidField.text.length) {
+    if (self.ssidField.text.length == 0) {
         [sharedAddDeviceUtils() alertMessage:@"ssid can't be nil"];
         return;
     }
+    
     //If already in AP mode progress, do nothing.
     if (timeout0 < timeLeft0) {
         [self appendConsoleLog:@"Activitor is still in progress, please wait..."];
@@ -130,12 +131,10 @@ static NSInteger timeout0 = timeLeft0;
         [self presentViewController:wifiAlert animated:YES completion:nil];
     }
     
-    
     // get the current authorization status of the application
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     // get the current wifi name
     NSString *ssid = [TuyaSmartActivator currentWifiSSID];
-    
     
     if (@available(iOS 13, *)) {
         if (!ssid || ssid.length == 0) {
@@ -153,9 +152,7 @@ static NSInteger timeout0 = timeLeft0;
                 [self presentViewController:wifiAlert animated:YES completion:nil];
             }
         }
-    
     }
-    
 }
 
 - (void)gotoConnectDeviceHotspot {
@@ -208,7 +205,6 @@ static NSInteger timeout0 = timeLeft0;
     } else {
         [sharedAddDeviceUtils() alertMessage:@"check the device hotspots connected"];
     }
-
 }
 
 - (void)countDown {
