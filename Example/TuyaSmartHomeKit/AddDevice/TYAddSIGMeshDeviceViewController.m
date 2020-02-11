@@ -267,7 +267,8 @@
 }
 
 - (void)fetchMeshModel {
-    if (![TYSmartHomeManager sharedInstance].currentHomeModel) {
+    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
+    if (![TuyaSmartHome homeWithHomeId:homeId].sigMeshModel) {
         [self addItemAndReloadTableView:@"current has no meshModel, now create A meshModel"];
         //TODO: wmy weakify
 //        @weakify(self);
