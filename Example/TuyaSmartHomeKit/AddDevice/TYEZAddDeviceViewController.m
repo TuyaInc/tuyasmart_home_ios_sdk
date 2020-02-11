@@ -37,7 +37,140 @@ static NSInteger timeout = timeLeft;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
+    [self checkLocationAndWifiStatus];
 }
+
+#pragma mark - wif config
+
+- (void)addDeviceWithEZMode {
+    
+    [self.view endEditing:YES];
+    if (!self.ssidField.text.length) {
+        [sharedAddDeviceUtils() alertMessage:@"ssid can't be nil"];
+        return;
+    }
+    //If already in EZ mode progress, do nothing.
+    if (timeout < timeLeft) {
+        [self appendConsoleLog:@"Activitor is still in progress, please wait..."];
+        return;
+    }
+    //Get token from server with current homeId before commit activit progress.
+    __block NSString *info = [NSString stringWithFormat:@"%@: start add device in EZMode",NSStringFromSelector(_cmd)];
+    [self appendConsoleLog:info];
+    info = [NSString stringWithFormat:@"%@: start get token",NSStringFromSelector(_cmd)];
+    [self appendConsoleLog:info];
+    WEAKSELF_AT
+    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
+    [[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
+
+        info = [NSString stringWithFormat:@"%@: token fetched, token is %@",NSStringFromSelector(_cmd),token];
+        [weakSelf_AT appendConsoleLog:info];
+
+        [weakSelf_AT commitEZModeActionWithToken:token];
+    } failure:^(NSError *error) {
+        
+        info = [NSString stringWithFormat:@"%@: token fetch failed, error message is %@",NSStringFromSelector(_cmd),error.localizedDescription];
+        [weakSelf_AT appendConsoleLog:info];
+    }];
+}
+
+- (void)commitEZModeActionWithToken:(NSString *)token {
+    [TuyaSmartActivator sharedInstance].delegate = self;
+    [[TuyaSmartActivator sharedInstance] startConfigWiFi:TYActivatorModeEZ ssid:self.ssidField.text password:self.passwordField.text token:token timeout:timeout];
+    [self countDown];
+}
+
+- (void)stopConfigWiFi {
+    [[TuyaSmartActivator sharedInstance] stopConfigWiFi];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(countDown) object:nil];
+    timeout = timeLeft;
+    [self hideProgressView];
+    [self appendConsoleLog:@"Activator action canceled"];
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+
+- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(countDown) object:nil];
+    timeout = timeLeft;
+    [self hideProgressView];
+    
+    NSString *info = [NSString stringWithFormat:@"%@: Finished!", NSStringFromSelector(_cmd)];
+    [self appendConsoleLog:info];
+    if (error) {
+        info = [NSString stringWithFormat:@"%@: Error-%@!", NSStringFromSelector(_cmd), error.localizedDescription];
+        [self appendConsoleLog:info];
+    } else {
+        info = [NSString stringWithFormat:@"%@: Success-You've added device %@ successfully!", NSStringFromSelector(_cmd), deviceModel.name];
+        [self appendConsoleLog:info];
+    }
+}
+
+#pragma Mark - private
+
+- (void)checkLocationAndWifiStatus {
+    if (![[TYAddDeviceUtils sharedInstance] currentNetworkStatus]) {
+        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:@"The mobile phone is not connected to Wi-Fi" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"goto connect Wi-fi" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[TYAddDeviceUtils sharedInstance] gotoSettingWifi];
+        }];
+        [wifiAlert addAction:action];
+        [self presentViewController:wifiAlert animated:YES completion:nil];
+    }
+    
+    
+    // get the current authorization status of the application
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    // get the current wifi name
+    NSString *ssid = [TuyaSmartActivator currentWifiSSID];
+    
+    
+    if (@available(iOS 13, *)) {
+        if (!ssid || ssid.length == 0) {
+            if (![CLLocationManager locationServicesEnabled]) {
+                
+            }
+            
+            if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusNotDetermined || status == kCLAuthorizationStatusRestricted) {
+                UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:@"Enable the location permission to get the Wi-Fi name automatically" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [wifiAlert addAction:action];
+                [self presentViewController:wifiAlert animated:YES completion:nil];
+            }
+        }
+    
+    }
+    
+}
+
+- (void)countDown {
+    timeout --;
+    
+    if (timeout) {
+        [self performSelector:@selector(countDown) withObject:nil afterDelay:1];
+        [self appendConsoleLog:[NSString stringWithFormat:@"%@: %@ seconds left before timeout.",NSStringFromSelector(_cmd),@(timeout)]];
+    } else {
+        timeout = timeLeft;
+    }
+}
+
+- (void)appendConsoleLog:(NSString *)logString {
+    
+    if (!logString) {
+        logString = [NSString stringWithFormat:@"%@ : param error",NSStringFromSelector(_cmd)];
+    }
+    NSString *result = self.console.text?:@"";
+    result = [[result stringByAppendingString:logString] stringByAppendingString:@"\n"];
+    self.console.text = result;
+    [self.console scrollRangeToVisible:NSMakeRange(result.length, 1)];
+}
+
+#pragma mark - UI
 
 - (void)initView {
     
@@ -121,94 +254,6 @@ static NSInteger timeout = timeLeft;
     [cancelButton addTarget:self action:@selector(stopConfigWiFi) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:cancelButton];
     currentY += labelHeight;
-}
-
-- (void)countDown {
-    timeout --;
-    
-    if (timeout) {
-        [self performSelector:@selector(countDown) withObject:nil afterDelay:1];
-        [self appendConsoleLog:[NSString stringWithFormat:@"%@: %@ seconds left before timeout.",NSStringFromSelector(_cmd),@(timeout)]];
-    } else {
-        timeout = timeLeft;
-    }
-}
-
-- (void)commitEZModeActionWithToken:(NSString *)token {
-    [TuyaSmartActivator sharedInstance].delegate = self;
-    [[TuyaSmartActivator sharedInstance] startConfigWiFi:TYActivatorModeEZ ssid:self.ssidField.text password:self.passwordField.text token:token timeout:timeout];
-    [self countDown];
-}
-
-- (void)stopConfigWiFi {
-    [[TuyaSmartActivator sharedInstance] stopConfigWiFi];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(countDown) object:nil];
-    timeout = timeLeft;
-    [self hideProgressView];
-    [self appendConsoleLog:@"Activator action canceled"];
-}
-
-- (void)addDeviceWithEZMode {
-    
-    [self.view endEditing:YES];
-    if (!self.ssidField.text.length) {
-        [sharedAddDeviceUtils() alertMessage:@"ssid can't be nil"];
-        return;
-    }
-    //If already in EZ mode progress, do nothing.
-    if (timeout < timeLeft) {
-        [self appendConsoleLog:@"Activitor is still in progress, please wait..."];
-        return;
-    }
-    //Get token from server with current homeId before commit activit progress.
-    __block NSString *info = [NSString stringWithFormat:@"%@: start add device in EZMode",NSStringFromSelector(_cmd)];
-    [self appendConsoleLog:info];
-    info = [NSString stringWithFormat:@"%@: start get token",NSStringFromSelector(_cmd)];
-    [self appendConsoleLog:info];
-    WEAKSELF_AT
-    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
-    [[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
-
-        info = [NSString stringWithFormat:@"%@: token fetched, token is %@",NSStringFromSelector(_cmd),token];
-        [weakSelf_AT appendConsoleLog:info];
-
-        [weakSelf_AT commitEZModeActionWithToken:token];
-    } failure:^(NSError *error) {
-        
-        info = [NSString stringWithFormat:@"%@: token fetch failed, error message is %@",NSStringFromSelector(_cmd),error.localizedDescription];
-        [weakSelf_AT appendConsoleLog:info];
-    }];
-}
-
-- (void)appendConsoleLog:(NSString *)logString {
-    
-    if (!logString) {
-        logString = [NSString stringWithFormat:@"%@ : param error",NSStringFromSelector(_cmd)];
-    }
-    NSString *result = self.console.text?:@"";
-    result = [[result stringByAppendingString:logString] stringByAppendingString:@"\n"];
-    self.console.text = result;
-    [self.console scrollRangeToVisible:NSMakeRange(result.length, 1)];
-}
-
-
-#pragma mark - TuyaSmartActivatorDelegate
-
-- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
-    
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(countDown) object:nil];
-    timeout = timeLeft;
-    [self hideProgressView];
-    
-    NSString *info = [NSString stringWithFormat:@"%@: Finished!", NSStringFromSelector(_cmd)];
-    [self appendConsoleLog:info];
-    if (error) {
-        info = [NSString stringWithFormat:@"%@: Error-%@!", NSStringFromSelector(_cmd), error.localizedDescription];
-        [self appendConsoleLog:info];
-    } else {
-        info = [NSString stringWithFormat:@"%@: Success-You've added device %@ successfully!", NSStringFromSelector(_cmd), deviceModel.name];
-        [self appendConsoleLog:info];
-    }
 }
 
 

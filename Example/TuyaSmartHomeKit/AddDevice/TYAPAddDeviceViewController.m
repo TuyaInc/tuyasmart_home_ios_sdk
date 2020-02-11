@@ -40,15 +40,195 @@ static NSInteger timeout0 = timeLeft0;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initView];
+    [self checkLocationAndWifiStatus];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:UIApplicationDidBecomeActiveNotification object:nil];
 }
+
+#pragma mark - Ap config
+
+- (void)addDeviceWithAPMode {
+    
+    [self.view endEditing:YES];
+    
+    if (!self.ssidField.text.length) {
+        [sharedAddDeviceUtils() alertMessage:@"ssid can't be nil"];
+        return;
+    }
+    //If already in AP mode progress, do nothing.
+    if (timeout0 < timeLeft0) {
+        [self appendConsoleLog:@"Activitor is still in progress, please wait..."];
+        return;
+    }
+    //Get token from server with current homeId before commit activit progress.
+    __block NSString *info = [NSString stringWithFormat:@"%@: start add device in APMode",NSStringFromSelector(_cmd)];
+    [self appendConsoleLog:info];
+    info = [NSString stringWithFormat:@"%@: start get token",NSStringFromSelector(_cmd)];
+    [self appendConsoleLog:info];
+    WEAKSELF_AT
+    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
+    [[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
+        
+        info = [NSString stringWithFormat:@"%@: token fetched, token is %@",NSStringFromSelector(_cmd),token];
+        [weakSelf_AT appendConsoleLog:info];
+        
+        // goto connect devie hotspot
+        [weakSelf_AT gotoConnectDeviceHotspot];
+
+        currentToken = token;
+    } failure:^(NSError *error) {
+        
+        info = [NSString stringWithFormat:@"%@: token fetch failed, error message is %@",NSStringFromSelector(_cmd),error.localizedDescription];
+        [weakSelf_AT appendConsoleLog:info];
+    }];
+}
+
+- (void)commitAPModeActionWithToken:(NSString *)token {
+    [TuyaSmartActivator sharedInstance].delegate = self;
+    [[TuyaSmartActivator sharedInstance] startConfigWiFi:TYActivatorModeAP ssid:self.ssidField.text password:self.passwordField.text token:token timeout:timeout0];
+    
+    [self countDown];
+}
+
+- (void)stopConfigWiFi {
+    [[TuyaSmartActivator sharedInstance] stopConfigWiFi];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(countDown) object:nil];
+    timeout0 = timeLeft0;
+    [self hideProgressView];
+    [self appendConsoleLog:@"Activator action canceled"];
+}
+
+#pragma mark - TuyaSmartActivatorDelegate
+
+- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
+    
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(countDown) object:nil];
+    timeout0 = timeLeft0;
+    [self hideProgressView];
+    
+    NSString *info = [NSString stringWithFormat:@"%@: Finished!", NSStringFromSelector(_cmd)];
+    [self appendConsoleLog:info];
+    if (error) {
+        info = [NSString stringWithFormat:@"%@: Error-%@!", NSStringFromSelector(_cmd), error.localizedDescription];
+        [self appendConsoleLog:info];
+    } else {
+        info = [NSString stringWithFormat:@"%@: Success-You've added device %@ successfully!", NSStringFromSelector(_cmd), deviceModel.name];
+        [self appendConsoleLog:info];
+    }
+}
+
+#pragma mark - private
+
+- (void)checkLocationAndWifiStatus {
+    if (![[TYAddDeviceUtils sharedInstance] currentNetworkStatus]) {
+        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:@"The mobile phone is not connected to Wi-Fi" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"goto connect Wi-fi" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [[TYAddDeviceUtils sharedInstance] gotoSettingWifi];
+        }];
+        [wifiAlert addAction:action];
+        [self presentViewController:wifiAlert animated:YES completion:nil];
+    }
+    
+    
+    // get the current authorization status of the application
+    CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+    // get the current wifi name
+    NSString *ssid = [TuyaSmartActivator currentWifiSSID];
+    
+    
+    if (@available(iOS 13, *)) {
+        if (!ssid || ssid.length == 0) {
+            if (![CLLocationManager locationServicesEnabled]) {
+                
+            }
+            
+            if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusNotDetermined || status == kCLAuthorizationStatusRestricted) {
+                UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:@"Enable the location permission to get the Wi-Fi name automatically" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction *action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }];
+                [wifiAlert addAction:action];
+                [self presentViewController:wifiAlert animated:YES completion:nil];
+            }
+        }
+    
+    }
+    
+}
+
+- (void)gotoConnectDeviceHotspot {
+    UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:@"Go to connect device's Wi-Fi hotspot and transmit network configuration information to the device" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"goto connect device hotSpot" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [[TYAddDeviceUtils sharedInstance] gotoSettingWifi];
+    }];
+    [wifiAlert addAction:action];
+    [self presentViewController:wifiAlert animated:YES completion:nil];
+}
+
+- (void)appendConsoleLog:(NSString *)logString {
+    
+    if (!logString) {
+        logString = [NSString stringWithFormat:@"%@ : param error",NSStringFromSelector(_cmd)];
+    }
+    NSString *result = self.console.text?:@"";
+    result = [[result stringByAppendingString:logString] stringByAppendingString:@"\n"];
+    self.console.text = result;
+    [self.console scrollRangeToVisible:NSMakeRange(result.length, 1)];
+}
+
+- (void)reachabilityChanged:(NSNotification *)notification {
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) {
+        return;
+    }
+    
+    /**
+     *  兼容多种情况： 1.*-xxxx 2.TuyaSmart-xxxx 3.SmartLife-xxxx 4.ESP-xxxx 5.undefined-xxxx 6.*-TLinkAP-xxxx 7.SL-
+     */
+    NSString *ssid = [TuyaSmartActivator currentWifiSSID];
+    
+    [self appendConsoleLog:[NSString stringWithFormat:@"WIFI changed: %@",ssid]];
+    
+    if (timeout0 < timeLeft0) {
+        [self appendConsoleLog:[NSString stringWithFormat:@"Wifi...."]];
+        return;
+    }
+
+    NSString *ssidLow = ssid.lowercaseString;
+    if ([ssidLow hasPrefix:@"smartlife"]
+        || [ssidLow hasSuffix:@"sl"]
+        || [ssidLow hasPrefix:@"sl"]
+        || [ssidLow hasPrefix:@"tuyasmart"]
+        || [ssidLow hasPrefix:@"esp"]
+        || [ssidLow hasPrefix:@"undefined"]
+        || [ssidLow rangeOfString:@"tlinkap" options:NSCaseInsensitiveSearch].length > 0) {
+        [self commitAPModeActionWithToken:currentToken];
+    } else {
+        [sharedAddDeviceUtils() alertMessage:@"check the device hotspots connected"];
+    }
+
+}
+
+- (void)countDown {
+    timeout0 --;
+    
+    if (timeout0) {
+        [self performSelector:@selector(countDown) withObject:nil afterDelay:1];
+        [self appendConsoleLog:[NSString stringWithFormat:@"%@: %@ seconds left before timeout.",NSStringFromSelector(_cmd),@(timeout0)]];
+    } else {
+        timeout0 = timeLeft0;
+    }
+}
+
+#pragma mark - UI 
 
 - (void)initView {
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.topBarView.leftItem = self.leftBackItem;
-    self.centerTitleItem.title = @"Add device AP";
+    self.centerTitleItem.title = @"AP mode";
     self.topBarView.centerItem = self.centerTitleItem;
     
     CGFloat currentY = self.topBarView.height;
@@ -126,126 +306,6 @@ static NSInteger timeout0 = timeLeft0;
     [cancelButton addTarget:self action:@selector(stopConfigWiFi) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:cancelButton];
     currentY += labelHeight;
-}
-
-- (void)addDeviceWithAPMode {
-    
-    [self.view endEditing:YES];
-    
-    if (!self.ssidField.text.length) {
-        [sharedAddDeviceUtils() alertMessage:@"ssid can't be nil"];
-        return;
-    }
-    //If already in AP mode progress, do nothing.
-    if (timeout0 < timeLeft0) {
-        [self appendConsoleLog:@"Activitor is still in progress, please wait..."];
-        return;
-    }
-    //Get token from server with current homeId before commit activit progress.
-    __block NSString *info = [NSString stringWithFormat:@"%@: start add device in APMode",NSStringFromSelector(_cmd)];
-    [self appendConsoleLog:info];
-    info = [NSString stringWithFormat:@"%@: start get token",NSStringFromSelector(_cmd)];
-    [self appendConsoleLog:info];
-    WEAKSELF_AT
-    long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
-    [[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
-        
-        info = [NSString stringWithFormat:@"%@: token fetched, token is %@",NSStringFromSelector(_cmd),token];
-        [weakSelf_AT appendConsoleLog:info];
-        
-        NSURL *url = [TPUtils wifiSettingUrl];
-        if (TP_SYSTEM_VERSION < 10.0) {
-            [[UIApplication sharedApplication] openURL:url];
-        } else {
-            [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
-                ;
-            }];
-        }
-        currentToken = token;
-    } failure:^(NSError *error) {
-        
-        info = [NSString stringWithFormat:@"%@: token fetch failed, error message is %@",NSStringFromSelector(_cmd),error.localizedDescription];
-        [weakSelf_AT appendConsoleLog:info];
-    }];
-}
-
-- (void)appendConsoleLog:(NSString *)logString {
-    
-    if (!logString) {
-        logString = [NSString stringWithFormat:@"%@ : param error",NSStringFromSelector(_cmd)];
-    }
-    NSString *result = self.console.text?:@"";
-    result = [[result stringByAppendingString:logString] stringByAppendingString:@"\n"];
-    self.console.text = result;
-    [self.console scrollRangeToVisible:NSMakeRange(result.length, 1)];
-}
-
-- (void)reachabilityChanged:(NSNotification *)notification {
-    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive) {
-        return;
-    }
-    
-    /**
-     *  设备ssid目前有4种情况: 1.TuyaSmart-xxxx 2.SmartLife-xxx 3.prefix-xxxx 4.prefix-TLinkAP-xxxx
-     */
-    NSString *ssid = [TuyaSmartActivator currentWifiSSID];
-    [self appendConsoleLog:[NSString stringWithFormat:@"WIFI changed: %@",ssid]];
-    
-    if (timeout0 < timeLeft0) {
-        [self appendConsoleLog:[NSString stringWithFormat:@"Wifi...."]];
-        return;
-    }
-
-    if ([ssid hasPrefix:@"SmartLife"]
-        || [ssid hasPrefix:@"TuyaSmart"]
-        || [ssid rangeOfString:@"TLinkAP" options:NSCaseInsensitiveSearch].length > 0) {
-        [self commitAPModeActionWithToken:currentToken];
-    }
-}
-
-- (void)countDown {
-    timeout0 --;
-    
-    if (timeout0) {
-        [self performSelector:@selector(countDown) withObject:nil afterDelay:1];
-        [self appendConsoleLog:[NSString stringWithFormat:@"%@: %@ seconds left before timeout.",NSStringFromSelector(_cmd),@(timeout0)]];
-    } else {
-        timeout0 = timeLeft0;
-    }
-}
-
-- (void)stopConfigWiFi {
-    [[TuyaSmartActivator sharedInstance] stopConfigWiFi];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(countDown) object:nil];
-    timeout0 = timeLeft0;
-    [self hideProgressView];
-    [self appendConsoleLog:@"Activator action canceled"];
-}
-
-- (void)commitAPModeActionWithToken:(NSString *)token {
-    [TuyaSmartActivator sharedInstance].delegate = self;
-    [[TuyaSmartActivator sharedInstance] startConfigWiFi:TYActivatorModeAP ssid:self.ssidField.text password:self.passwordField.text token:token timeout:timeout0];
-    
-    [self countDown];
-}
-
-#pragma mark - TuyaSmartActivatorDelegate
-
-- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
-    
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(countDown) object:nil];
-    timeout0 = timeLeft0;
-    [self hideProgressView];
-    
-    NSString *info = [NSString stringWithFormat:@"%@: Finished!", NSStringFromSelector(_cmd)];
-    [self appendConsoleLog:info];
-    if (error) {
-        info = [NSString stringWithFormat:@"%@: Error-%@!", NSStringFromSelector(_cmd), error.localizedDescription];
-        [self appendConsoleLog:info];
-    } else {
-        info = [NSString stringWithFormat:@"%@: Success-You've added device %@ successfully!", NSStringFromSelector(_cmd), deviceModel.name];
-        [self appendConsoleLog:info];
-    }
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "TYAddDeviceUtils.h"
+#import "Reachability.h"
 
 TYAddDeviceUtils * sharedAddDeviceUtils() {
     return [TYAddDeviceUtils sharedInstance];
@@ -47,4 +48,21 @@ TYAddDeviceUtils * sharedAddDeviceUtils() {
                                            otherButtonTitles:nil];
     [alert show];
 }
+
+- (void)gotoSettingWifi {
+    NSURL *url = [TPUtils wifiSettingUrl];
+    if (TP_SYSTEM_VERSION < 10.0) {
+        [[UIApplication sharedApplication] openURL:url];
+    } else {
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {
+        }];
+    }
+}
+
+- (BOOL)currentNetworkStatus {
+    Reachability *reachability = [Reachability reachabilityForInternetConnection];
+    return [reachability currentReachabilityStatus] == ReachableViaWiFi;
+}
+
+
 @end
