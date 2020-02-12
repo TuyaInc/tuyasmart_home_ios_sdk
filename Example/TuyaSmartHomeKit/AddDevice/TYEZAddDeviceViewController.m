@@ -45,15 +45,18 @@ static NSInteger timeout = timeLeft;
 - (void)addDeviceWithEZMode {
     
     [self.view endEditing:YES];
-    if (!self.ssidField.text.length) {
+  
+    if (self.ssidField.text.length == 0) {
         [sharedAddDeviceUtils() alertMessage:NSLocalizedString(@"wifi_ssid_empty", @"")];
         return;
     }
+    
     //If already in EZ mode progress, do nothing.
     if (timeout < timeLeft) {
         [self appendConsoleLog:@"Activitor is still in progress, please wait..."];
         return;
     }
+    
     //Get token from server with current homeId before commit activit progress.
     __block NSString *info = [NSString stringWithFormat:@"%@: start add device in EZMode",NSStringFromSelector(_cmd)];
     [self appendConsoleLog:info];
@@ -120,12 +123,10 @@ static NSInteger timeout = timeLeft;
         [self presentViewController:wifiAlert animated:YES completion:nil];
     }
     
-    
     // get the current authorization status of the application
     CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
     // get the current wifi name
     NSString *ssid = [TuyaSmartActivator currentWifiSSID];
-    
     
     if (@available(iOS 13, *)) {
         if (!ssid || ssid.length == 0) {
@@ -143,9 +144,7 @@ static NSInteger timeout = timeLeft;
                 [self presentViewController:wifiAlert animated:YES completion:nil];
             }
         }
-    
     }
-    
 }
 
 - (void)countDown {

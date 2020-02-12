@@ -89,7 +89,6 @@
             
             return;
         }
-        
     } else {
         //ZigBee gateway...
         [[TuyaSmartActivator sharedInstance] startConfigWiFiWithToken:token timeout:timeout];
