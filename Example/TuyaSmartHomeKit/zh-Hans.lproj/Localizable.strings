@@ -596,6 +596,11 @@
 "ty_ez_unkown_device" = "智能设备";
 "ty_ez_wifi_title" = "设置设备工作Wi-Fi";
 "ty_offline_note" = "1.设备连接电源是否正常；\n2.Wi-Fi网络是否正常；\n3.重置设备,重新添加。";
+"ty_activator_locationAlert_tips" = "请开启“位置”权限以自动获取Wi-Fi名称";
+"ty_activator_locationAlert_settingNow" = "立即设置";
+"ty_wifi_remind_title" = "将手机 Wi-Fi 连接到设备热点";
+"config_connect_fail_content" = "设备热点错误，请重新连接正确的设备热点";
+"wifi_ssid_empty" = "Wi-Fi名称不能为空";
 
 //登录注册
 "code_has_send_to_email" = "验证码已经发送到你的邮箱:";

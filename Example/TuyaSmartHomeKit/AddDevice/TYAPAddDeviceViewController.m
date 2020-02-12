@@ -32,6 +32,7 @@ static NSInteger timeout0 = timeLeft0;
 @property (nonatomic, strong) UITextField *ssidField;
 @property (nonatomic, strong) UITextField *passwordField;
 @property (nonatomic, strong) UITextView *console;
+@property (nonatomic, strong) NSString   *configSSID;
 
 @end
 
@@ -52,7 +53,7 @@ static NSInteger timeout0 = timeLeft0;
     [self.view endEditing:YES];
     
     if (self.ssidField.text.length == 0) {
-        [sharedAddDeviceUtils() alertMessage:@"ssid can't be nil"];
+        [sharedAddDeviceUtils() alertMessage:NSLocalizedString(@"wifi_ssid_empty", @"")];
         return;
     }
     
@@ -66,6 +67,9 @@ static NSInteger timeout0 = timeLeft0;
     [self appendConsoleLog:info];
     info = [NSString stringWithFormat:@"%@: start get token",NSStringFromSelector(_cmd)];
     [self appendConsoleLog:info];
+    
+    self.configSSID = self.ssidField.text;
+    
     WEAKSELF_AT
     long long homeId = [TYSmartHomeManager sharedInstance].currentHomeModel.homeId;
     [[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
@@ -122,9 +126,9 @@ static NSInteger timeout0 = timeLeft0;
 
 - (void)checkLocationAndWifiStatus {
     if (![[TYAddDeviceUtils sharedInstance] currentNetworkStatus]) {
-        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:@"The mobile phone is not connected to Wi-Fi" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ty_ez_current_no_wifi", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *action = [UIAlertAction actionWithTitle:@"goto connect Wi-fi" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[TYAddDeviceUtils sharedInstance] gotoSettingWifi];
         }];
         [wifiAlert addAction:action];
@@ -143,9 +147,9 @@ static NSInteger timeout0 = timeLeft0;
             }
             
             if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusNotDetermined || status == kCLAuthorizationStatusRestricted) {
-                UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:@"Enable the location permission to get the Wi-Fi name automatically" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ty_activator_locationAlert_tips", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
                 
-                UIAlertAction *action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_activator_locationAlert_settingNow", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
                 }];
                 [wifiAlert addAction:action];
@@ -156,9 +160,9 @@ static NSInteger timeout0 = timeLeft0;
 }
 
 - (void)gotoConnectDeviceHotspot {
-    UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:@"Go to connect device's Wi-Fi hotspot and transmit network configuration information to the device" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ty_wifi_remind_title", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"goto connect device hotSpot" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[TYAddDeviceUtils sharedInstance] gotoSettingWifi];
     }];
     [wifiAlert addAction:action];
@@ -186,7 +190,18 @@ static NSInteger timeout0 = timeLeft0;
      */
     NSString *ssid = [TuyaSmartActivator currentWifiSSID];
     
-    [self appendConsoleLog:[NSString stringWithFormat:@"WIFI changed: %@",ssid]];
+    [self appendConsoleLog:[NSString stringWithFormat:@"Config Wifi: %@ , WIFI changed: %@",self.configSSID,ssid]];
+    
+    if (self.configSSID == ssid) {
+        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"config_connect_fail_content", @"") message:[NSString stringWithFormat:@"WIFI: %@",ssid] preferredStyle:UIAlertControllerStyleAlert];
+               
+        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+           [[TYAddDeviceUtils sharedInstance] gotoSettingWifi];
+        }];
+        [wifiAlert addAction:action];
+        [self presentViewController:wifiAlert animated:YES completion:nil];;
+        return;
+    }
     
     if (timeout0 < timeLeft0) {
         [self appendConsoleLog:[NSString stringWithFormat:@"Wifi...."]];
@@ -203,7 +218,7 @@ static NSInteger timeout0 = timeLeft0;
         || [ssidLow rangeOfString:@"tlinkap" options:NSCaseInsensitiveSearch].length > 0) {
         [self commitAPModeActionWithToken:currentToken];
     } else {
-        [sharedAddDeviceUtils() alertMessage:@"check the device hotspots connected"];
+        [sharedAddDeviceUtils() alertMessage:NSLocalizedString(@"config_connect_fail_content", @"")];
     }
 }
 

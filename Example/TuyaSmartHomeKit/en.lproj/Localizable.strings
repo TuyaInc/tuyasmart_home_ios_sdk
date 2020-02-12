@@ -595,6 +595,11 @@
 "ty_ez_unkown_device" = "Smart device";
 "ty_ez_wifi_title" = "Set up the Wi-Fi for device";
 "ty_offline_note" = "1. Whether device is powered on; \n2.Wi-Fi network is normal；\n3.Reset and re-add device";
+"ty_activator_locationAlert_tips" = "Enable the location permission to get the Wi-Fi name automatically.";
+"ty_activator_locationAlert_settingNow" = "Set Now";
+"ty_wifi_remind_title" = "Connect your mobile phone to the device's hotspot";
+"config_connect_fail_content" = "Hotspot error, please reconnect to the correct hotspot";
+"wifi_ssid_empty" = "Wi-Fi name cannot be blank";
 
 //登录注册
 "code_has_send_to_email" = "The verification code is sent to your email:";
