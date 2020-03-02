@@ -1,6 +1,6 @@
-消息中心相关的所有功能对应`TuyaSmartMessage`类，支持获取消息列表，批量删除消息，以及是否有消息更新。
+消息中心相关的所有功能对应 `TuyaSmartMessage` 类，支持获取消息列表，批量删除消息，以及是否有消息更新。
 
-### 获取消息列表
+## 获取消息列表
 
 Objc:
 
@@ -30,9 +30,9 @@ func getMessageList() {
 
 
 
-### 删除消息
+## 删除消息
 
-批量删除消息，`messgeIdList`是要删除消息的id数组，消息id可以从消息列表中获取。
+批量删除消息，`messgeIdList` 是要删除消息的 id 数组，消息 id 可以从消息列表中获取。
 Objc:
 
 ```objc
@@ -61,7 +61,7 @@ func deleteMessage() {
 
 
 
-### 获取最新一条消息的时间戳
+## 获取最新一条消息的时间戳
 
 获取最新一条消息的时间戳，可以用于与本地最新一条消息的时间戳比较，大于本地最新消息时间，则展示红点，表示有新消息。
 
@@ -94,11 +94,11 @@ func getMessageMaxTime() {
 
 
 
-### 消息推送设置
+## 消息推送设置
 
-#### 获取消息推送开关
+### 获取消息推送开关
 
-消息推送开关为总开关，关闭状态下无法接收到 设备告警、家庭消息、通知消息 等任何消息
+消息推送开关为总开关，关闭状态下无法接收到设备告警、家庭消息、通知消息等任何消息
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getPushStatusWithSuccess:^(BOOL result) {
@@ -108,7 +108,7 @@ func getMessageMaxTime() {
 }];
 ```
 
-#### 设置消息推送开关
+### 设置消息推送开关
 
  ````objective-c
 BOOL enable = YES;
@@ -119,7 +119,7 @@ BOOL enable = YES;
 }];
  ````
 
-#### 获取设备告警消息开关状态
+### 获取设备告警消息开关状态
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getDevicePushStatusWithSuccess:^(BOOL result) {
@@ -129,7 +129,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### 设置设备告警消息开关
+### 设置设备告警消息开关
 
 ````objective-c
 BOOL enable = YES;
@@ -140,7 +140,7 @@ BOOL enable = YES;
 }];
 ````
 
-#### 获取家庭消息开关状态
+### 获取家庭消息开关状态
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getFamilyPushStatusWithSuccess:^(BOOL result) {
@@ -150,7 +150,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### 设置家庭消息开关
+### 设置家庭消息开关
 
 ```objective-c
 BOOL enable = YES;
@@ -161,7 +161,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### 获取通知消息开关状态
+### 获取通知消息开关状态
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getNoticePushStatusWithSuccess:^(BOOL result) {
@@ -171,7 +171,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### 设置通知消息开关
+### 设置通知消息开关
 
 ```objective-c
 BOOL enable = YES;
