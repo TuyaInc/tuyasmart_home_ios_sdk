@@ -1,8 +1,8 @@
-## Message center
+# Message Center
 
 All functions related to the message center are realized by using the `TuyaSmartMessage` class. Obtaining message list, deleting messages in batches and checking for message update are supported. 
 
-### Obtain message list
+## Obtain Message List
 
 Objc:
 
@@ -30,7 +30,7 @@ func getMessageList() {
 }
 ```
 
-### Delete messages
+## Delete Messages
 
 Delete messages in batches. `messgeIdList` denotes the id group of messages to be deleted, and the message id can be attained from the message list. 
 
@@ -57,7 +57,7 @@ func deleteMessage() {
     })
 }
 ```
-### Obtain the timestamp of the latest news
+## Obtain The Timestamp Of The Latest News
 
 The timestamp of the latest news can be compared with that of local latest message. If the former is bigger than the later, a red dot will be displayed to hint the new message. 
 
@@ -90,9 +90,9 @@ func getMessageMaxTime() {
 
 
 
-### Message push settings
+## Message Push Settings
 
-#### Get message push status
+### Get Message Push Status
 
 The main control of all message push, including device alert, family message, notification message.
 
@@ -104,7 +104,7 @@ The main control of all message push, including device alert, family message, no
 }];
 ```
 
-#### Switch message push on/off
+### Switch Message Push On / Off
 
 ```objective-c
 BOOL enable = YES;
@@ -115,7 +115,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### Get status of device alert status
+### Get Status Of Device Alert Status
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getDevicePushStatusWithSuccess:^(BOOL result) {
@@ -125,7 +125,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### Switch device alert on.off
+### Switch Device Alert On / Off
 
 ```objective-c
 BOOL enable = YES;
@@ -136,7 +136,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### Get family message status
+### Get Family Message Status
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getFamilyPushStatusWithSuccess:^(BOOL result) {
@@ -146,7 +146,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### Switch family message on/off
+### Switch Family Message On / Off
 
 ```objective-c
 BOOL enable = YES;
@@ -157,7 +157,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### Get notification message status
+### Get Notification Message Status
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getNoticePushStatusWithSuccess:^(BOOL result) {
@@ -167,7 +167,7 @@ BOOL enable = YES;
 }];
 ```
 
-#### Switch notification message on/off
+### Switch Notification Message On / Off
 
 ```objective-c
 BOOL enable = YES;
