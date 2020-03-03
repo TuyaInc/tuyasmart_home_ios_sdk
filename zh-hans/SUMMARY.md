@@ -3,7 +3,7 @@
 * [前言](/README.md)
 * [功能概述](./resource/Overview.md)
 * [准备工作](./resource/Preparation.md)
-* [集成SDK](./resource/Integrated.md)
+* [集成 SDK](./resource/Integrated.md)
 * [Demo App](./resource/Demo.md)
 * [iOS 版本适配](./resource/iOSAdaptation.md)
 * [用户管理](./resource/User.md#用户管理)
