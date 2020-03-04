@@ -1,4 +1,4 @@
-## 单点 BLE SDK 使用说明
+## 单点蓝牙 SDK 使用说明
 
 
 
@@ -10,7 +10,7 @@
 
 ### 准备工作
 
-涂鸦 iOS 单点 BLE SDK (下文简称 BLE SDK 或单点蓝牙 SDK)，是基于[涂鸦智能全屋 SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/) 的基础上进行开发
+涂鸦 iOS 单点蓝牙 SDK （下文简称 BLE SDK 或单点蓝牙 SDK），是基于[涂鸦智能全屋 SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/) 的基础上进行开发
 
 
 
@@ -19,7 +19,7 @@
 - 导入头文件
 
   ```objective-c
-  // OC 使用
+  // Objective
   #import <TuyaSmartBLEKit/TuyaSmartBLEKit.h>
       
   // Swift
@@ -28,9 +28,9 @@
 
 - 主要功能
 
-  单点蓝牙 SDK 功能主要类为 `TuyaSmartBLEManager`，此类包含单点蓝牙 SDK 的所有相关功能，包含蓝牙状态监测、设备扫描、设备名称查询、设备激活、设备 ota 升级等功能
+  单点蓝牙 SDK 功能主要类为 `TuyaSmartBLEManager`，此类包含单点蓝牙 SDK 的所有相关功能，包含蓝牙状态监测、设备扫描、设备名称查询、设备激活、设备 OTA 升级等功能
 
-  其中，支持双模配网功能的类为`TuyaSmartBLEWifiActivator`，此类包含设备双模配网所需方法
+  其中，支持双模配网功能的类为 `TuyaSmartBLEWifiActivator`，此类包含设备双模配网所需方法
 
   
   
@@ -38,16 +38,16 @@
   
   ```objective-c
   /**
-   蓝牙状态变化通知
-    
-   @param isPoweredOn 蓝牙状态，开启或关闭
-  */
+   * 蓝牙状态变化通知
+   *  
+   * @param isPoweredOn 蓝牙状态，开启或关闭
+   */
   - (void)bluetoothDidUpdateState:(BOOL)isPoweredOn;
   
   /**
-   扫描到未激活的设备
-   
-   @param deviceInfo 未激活设备信息 Model
+   * 扫描到未激活的设备
+   *
+   * @param deviceInfo 未激活设备信息 Model
    */
   - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo;
   
@@ -57,6 +57,8 @@
 #### 系统蓝牙状态监测
 
 SDK 提供了对系统蓝牙的状态监测的方法，在蓝牙状态变化（如开启或关闭）时，可以通过设置代理收到具体的消息
+
+
 
 **示例代码**
 
@@ -68,9 +70,9 @@ Objc:
 
 
 /**
- 蓝牙状态变化通知
-
- @param isPoweredOn 蓝牙状态，开启或关闭
+ * 蓝牙状态变化通知
+ *
+ * @param isPoweredOn 蓝牙状态，开启或关闭
  */
 - (void)bluetoothDidUpdateState:(BOOL)isPoweredOn {
     NSLog(@"蓝牙状态变化: %d", isPoweredOn ? 1 : 0);
@@ -84,9 +86,9 @@ Swift:
 TuyaSmartBLEManager.sharedInstance().delegate = self
 
 /**
- 蓝牙状态变化通知
-
- @param isPoweredOn 蓝牙状态，开启或关闭
+ * 蓝牙状态变化通知
+ *
+ * @param isPoweredOn 蓝牙状态，开启或关闭
  */
 func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
         
@@ -102,20 +104,20 @@ func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
 
 ```objective-c
 /**
- 开始扫描
-
- 如果扫描到未激活设备，结果会通过 `TuyaSmartBLEManagerDelegate` 中的 `- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo` 返回;
- 
- 如果扫描到激活设备，会自动进行连接入网，不会返回扫描结果
- 
- @param clearCache 是否清理已扫描到的设备
+ * 开始扫描
+ *
+ * 如果扫描到未激活设备，结果会通过 `TuyaSmartBLEManagerDelegate` 中的 `- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo` 返回;
+ *
+ * 如果扫描到激活设备，会自动进行连接入网，不会返回扫描结果
+ *
+ * @param clearCache 是否清理已扫描到的设备
  */
 - (void)startListening:(BOOL)clearCache;
 
 /**
- 停止扫描
-
- @param clearCache 是否清理已扫描到的设备
+ * 停止扫描
+ *
+ * @param clearCache 是否清理已扫描到的设备
  */
 - (void)stopListening:(BOOL)clearCache;
 ```
@@ -135,9 +137,9 @@ Objc:
 
 
 /**
- 扫描到未激活的设备
-
- @param deviceInfo 未激活设备信息 Model 
+ * 扫描到未激活的设备
+ *
+ * @param deviceInfo 未激活设备信息 Model 
  */
 - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo {
     // 成功扫描到未激活的设备
@@ -152,10 +154,10 @@ TuyaSmartBLEManager.sharedInstance().delegate = self
 TuyaSmartBLEManager.sharedInstance().startListening(true)
 
 /**
- 扫描到未激活的设备
-
- @param uuid 未激活设备 uuid
- @param productKey 未激活设备产品 key
+ * 扫描到未激活的设备
+ *
+ * @param uuid 未激活设备 uuid
+ * @param productKey 未激活设备产品 key
  */
 func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
     // 成功扫描到未激活的设备
@@ -171,13 +173,8 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 ```objective-c
 /**
- 激活设备
- 激活过程会将设备信息注册到云端
- 
- @param deviceInfo 设备信息 Model
- @param homeId 家庭 id
- @param success 成功回调
- @param failure 失败回调
+ * 激活设备
+ * 激活过程会将设备信息注册到云端
  */
 - (void)activeBLE:(TYBLEAdvModel *)deviceInfo
            homeId:(long long)homeId
@@ -185,7 +182,16 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
           failure:(TYFailureHandler)failure;
 ```
 
->接口中的 `deviceInfo` 来源于扫描代理方法返回的结果
+
+
+**参数说明**
+
+| 参数       | 说明                                         |
+| ---------- | -------------------------------------------- |
+| deviceInfo | 设备信息 Model，来源于扫描代理方法返回的结果 |
+| homeId     | 当前家庭 Id                                  |
+| success    | 成功回调                                     |
+| failure    | 失败回调                                     |
 
 
 
@@ -220,13 +226,7 @@ TuyaSmartBLEManager.sharedInstance().activeBLE(<deviceInfo: deviceInfo, homeId: 
 
 ```objective-c
 /**
- 发送OTA包，升级固件。升级前请务必保证设备已通过蓝牙连接
- 
- @param uuid    设备 uuid
- @param pid     设备 pid
- @param otaData 升级固件的数据
- @param success 成功回调
- @param failure 失败回调
+ * 发送 OTA 包，升级固件。升级前请务必保证设备已通过蓝牙连接
  */
 - (void)sendOTAPack:(NSString *)uuid
                 pid:(NSString *)pid
@@ -235,7 +235,21 @@ TuyaSmartBLEManager.sharedInstance().activeBLE(<deviceInfo: deviceInfo, homeId: 
             failure:(TYFailureHandler)failure;
 ```
 
-**代码示例**
+
+
+**参数说明**
+
+| 参数    | 说明           |
+| ------- | -------------- |
+| uuid    | 设备 uuid      |
+| pid     | 产品 Id        |
+| otaData | 升级固件的数据 |
+| success | 成功回调       |
+| failure | 失败回调       |
+
+
+
+**示例代码**
 
 Objc:
 
@@ -294,18 +308,24 @@ TuyaSmartBLEManager.sharedInstance().sendOTAPack(deviceModel.uuid, pid: deviceMo
 
 ```objective-c
 /**
- 查询设备名称
- 
- @param uuid 设备 uuid
- @param productKey 产品 key
- @param success 成功回调
- @param failure 失败回调
+ * 查询设备名称
  */
 - (void)queryNameWithUUID:(NSString *)uuid
                productKey:(NSString *)productKey
                   success:(void(^)(NSString *name))success
                   failure:(TYFailureError)failure;
 ```
+
+
+
+**参数说明**
+
+| 参数       | 说明      |
+| ---------- | --------- |
+| uuid       | 设备 uuid |
+| productKey | 产品 Id   |
+| success    | 成功回调  |
+| failure    | 失败回调  |
 
 
 
@@ -341,11 +361,9 @@ TuyaSmartBLEManager.sharedInstance().queryName(withUUID: bleAdvInfo.uuid, produc
 
 
 
-### 蓝牙 WiFi 配网
+#### 双模配网发现设备
 
 
-
-#### 发现设备
 
 **示例代码**
 
@@ -360,9 +378,9 @@ Objc:
 
 
 /**
- 扫描到未激活的设备
- 
- @param deviceInfo 未激活设备信息 Model
+ * 扫描到未激活的设备
+ * 
+ * @param deviceInfo 未激活设备信息 Model
  */
 - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo {
   
@@ -376,9 +394,9 @@ TuyaSmartBLEManager.sharedInstance().delegate = self
 TuyaSmartBLEManager.sharedInstance().startListening(true)
 
 /**
- 扫描到未激活的设备
- 
- @param deviceInfo 未激活设备信息 Model
+ *扫描到未激活的设备
+ *
+ * @param deviceInfo 未激活设备信息 Model
  */
 func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
   // 扫描到未激活的设备
@@ -387,7 +405,7 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 
 
-#### 设备激活
+#### 双模配网设备激活
 
 扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下
 
@@ -397,15 +415,6 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 /**
  *  connect ble wifi device
  *  连接蓝牙 Wifi 设备
- *
- *  @param UUID        蓝牙设备唯一标识
- *  @param homeId      当前家庭Id
- *  @param productId   产品Id
- *  @param ssid        路由器热点名称
- *  @param password    路由器热点密码
- *  @param timeout     轮询时间
- *  @param success     操作成功回调
- *  @param failure     操作失败回调
  */
 - (void)startConfigBLEWifiDeviceWithUUID:(NSString *)UUID
                                   homeId:(long long)homeId
@@ -416,6 +425,23 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
                                  success:(TYSuccessHandler)success
                                  failure:(TYFailureHandler)failure;
 ```
+
+
+
+**参数说明**
+
+| 参数      | 说明           |
+| --------- | -------------- |
+| UUID      | 设备 uuid      |
+| homeId    | 当前家庭 Id    |
+| productId | 产品 Id        |
+| ssid      | 路由器热点名称 |
+| password  | 路由器热点密码 |
+| timeout   | 轮询时间       |
+| success   | 成功回调       |
+| failure   | 失败回调       |
+
+
 
 **示例代码**
 
@@ -441,7 +467,9 @@ Swift:
 
 
 
-#### 设备激活回调
+#### 双模配网设备激活回调
+
+
 
 **示例代码**
 
@@ -475,7 +503,9 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 
 
-#### 停止发现设备
+#### 双模配网停止发现设备
+
+
 
 **示例代码**
 

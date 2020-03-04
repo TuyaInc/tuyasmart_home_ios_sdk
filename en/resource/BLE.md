@@ -4,7 +4,7 @@
 
 
 
-### Single BLE
+### Single BLE Introduce
 
 Single BLE Device is a devcie that able to **one-to-one connect to smart phone by bluetooth**。Such as Bluetooth bracelet, Bluetooth headset, Bluetooth speaker, etc. Each device can connect to one smart phone by bluetooth at most at the same time，At present, **the number of bluetooth connections for each mobile phone terminal is controlled within 6 ~ 7**
 
@@ -12,7 +12,7 @@ Single BLE Device is a devcie that able to **one-to-one connect to smart phone b
 
 ### Preparatory Work
 
-Tuya iOS Single BLE SDK ( Hereinafter referred to as BLE SDK or Single BLE SDK )，is developed on the basis of TuyaSmart SDK
+Tuya iOS Single BLE SDK （ Hereinafter referred to as BLE SDK or Single BLE SDK ），is developed on the basis of [TuyaSmart SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/)
 
 
 
@@ -30,7 +30,7 @@ Tuya iOS Single BLE SDK ( Hereinafter referred to as BLE SDK or Single BLE SDK )
 
 - Main function
 
-  The main class of the BLE SDK is  `TuyaSmartBLEManager`，This class contains all the features of the BLE SDK，Includes Bluetooth status monitor, ble device scan, query ble device name, ble device activator, device ota upgrade, etc.
+  The main class of the BLE SDK is  `TuyaSmartBLEManager`，This class contains all the features of the BLE SDK，Includes Bluetooth status monitor, ble device scan, query ble device name, ble device activator, device OTA upgrade, etc.
 
   Among them，`TuyaSmartBLEWifiActivator`  is the class that support dual-mode device activator
 
@@ -40,16 +40,16 @@ Tuya iOS Single BLE SDK ( Hereinafter referred to as BLE SDK or Single BLE SDK )
 
   ```objective-c
   /**
-   Notification of bluetooth state change
-    
-   @param isPoweredOn   bluetooth state，turn on or turn off
+   * Notification of bluetooth state change
+   * 
+   * @param isPoweredOn   bluetooth state，turn on or turn off
   */
   - (void)bluetoothDidUpdateState:(BOOL)isPoweredOn;
   
   /**
-   The inactive device that discovered
-   
-   @param deviceInfo   inactive device Model
+   * The inactive device that discovered
+   *
+   * @param deviceInfo   inactive device Model
    */
   - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo;
   
@@ -57,9 +57,7 @@ Tuya iOS Single BLE SDK ( Hereinafter referred to as BLE SDK or Single BLE SDK )
 
 #### Bluetooth status monitor
 
-BLE SDK provides the method of Bluetooth status monitor，while bluetooth state changing （turn on or turn off），you can receive the notification by setting delegate
-
-
+BLE SDK provides the method of Bluetooth status monitor，while bluetooth state changing （turn on or turn off ），you can receive the notification by setting delegate
 
 **Code Example**
 
@@ -71,9 +69,9 @@ Objc:
 
 
 /**
- Notification of bluetooth state change
-
- @param isPoweredOn   bluetooth state，turn on or turn off  
+ * Notification of bluetooth state change
+ *
+ * @param isPoweredOn   bluetooth state，turn on or turn off  
  */
 - (void)bluetoothDidUpdateState:(BOOL)isPoweredOn {
     NSLog(@"bluetooth state: %d", isPoweredOn ? 1 : 0);
@@ -87,9 +85,9 @@ Swift:
 TuyaSmartBLEManager.sharedInstance().delegate = self
 
 /**
-  Notification of bluetooth state change
-
- @param isPoweredOn   bluetooth state，turn on or turn off  
+  * Notification of bluetooth state change
+  *
+  * @param isPoweredOn   bluetooth state，turn on or turn off  
  */
 func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
    print("bluetooth state: \(isPoweredOn ? 1 : 0)");
@@ -105,16 +103,16 @@ The BLE device to be active will continuously send Bluetooth broadcast packets t
 
 ```objective-c
 /**
- Start scan
- 
- @param clearCache   wheather clean up the caches of scaned devices 
+ * Start scan
+ *
+ * @param clearCache   wheather clean up the caches of scaned devices 
  */
 - (void)startListening:(BOOL)clearCache;
 
 /**
- Stop scan
-
- @param clearCache   wheather clean up the caches of scaned devices 
+ * Stop scan
+ *
+ * @param clearCache   wheather clean up the caches of scaned devices 
  */
 - (void)stopListening:(BOOL)clearCache;
 ```
@@ -133,9 +131,9 @@ Objc:
 
 
 /**
- The inactive device that discovered
-
- @param deviceInfo 	inactive device Model 
+ * The inactive device that discovered
+ *
+ * @param deviceInfo 	inactive device Model 
  */
 - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo {
     // scaned inactive device successfully
@@ -152,9 +150,9 @@ TuyaSmartBLEManager.sharedInstance().delegate = self
 TuyaSmartBLEManager.sharedInstance().startListening(true)
 
 /**
- The inactive device that discovered
-
- @param deviceInfo 	inactive device Model 
+ * The inactive device that discovered
+ * 
+ * @param deviceInfo 	inactive device Model 
  */
 func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
     // scaned inactive device successfully
@@ -170,13 +168,8 @@ After scanning an inactive device, the device can be activated and registered to
 
 ```objective-c
 /**
- Active device
- The activation process will register device to the tuya cloud
- 
- @param deviceInfo    device Model
- @param homeId   			currect home id
- @param success			  success Callback
- @param failure 			failure Callback
+ * Active device
+ * The activation process will register device to the tuya cloud
  */
 - (void)activeBLE:(TYBLEAdvModel *)deviceInfo
            homeId:(long long)homeId
@@ -184,7 +177,16 @@ After scanning an inactive device, the device can be activated and registered to
           failure:(TYFailureHandler)failure;
 ```
 
-> The parameter `deviceInfo`  is from the delegate of scan method
+
+
+**Parameter  description**
+
+| Parameter  | Description                                       |
+| ---------- | ------------------------------------------------- |
+| deviceInfo | Device Model，is from the delegate of scan method |
+| homeId     | Currect home Id                                   |
+| success    | Success callback                                  |
+| failure    | Failure callback                                  |
 
 
 
@@ -219,13 +221,7 @@ For device with firmware upgrade, the device can be upgraded by sending firmware
 
 ```objective-c
 /**
- Send OTA package, make sure the device is connected before upgrading
- 
- @param uuid    	device uuid
- @param pid     	device pid
- @param otaData 	OTA upgrade data
- @param success 	success Callback
- @param failure 	failure Callback
+ * Send OTA package, make sure the device is connected before upgrading
  */
 - (void)sendOTAPack:(NSString *)uuid
                 pid:(NSString *)pid
@@ -233,6 +229,18 @@ For device with firmware upgrade, the device can be upgraded by sending firmware
             success:(TYSuccessHandler)success
             failure:(TYFailureHandler)failure;
 ```
+
+
+
+**Parameter  description**
+
+| Parameter | Description      |
+| --------- | ---------------- |
+| uuid      | Device uuid      |
+| pid       | Product Id       |
+| otaData   | OTA upgrade data |
+| success   | Success callback |
+| failure   | Failure callback |
 
 
 
@@ -287,18 +295,24 @@ After receiving the device broadcast package, the device name can be queried by 
 
 ```objective-c
 /**
- Query device name
- 
- @param uuid 				device uuid
- @param productKey 	proudct key
- @param success 		success Callback
- @param failure 		failure Callback
+ * Query device name
  */
 - (void)queryNameWithUUID:(NSString *)uuid
                productKey:(NSString *)productKey
                   success:(void(^)(NSString *name))success
                   failure:(TYFailureError)failure;
 ```
+
+
+
+**Parameter  description**
+
+| Parameter  | Description      |
+| ---------- | ---------------- |
+| uuid       | Device uuid      |
+| productKey | Product Id       |
+| success    | Success callback |
+| failure    | Failure callback |
 
 
 
@@ -333,11 +347,7 @@ Dp publish refer to [Functions of device](https://tuyainc.github.io/tuyasmart_ho
 
 
 
-### Dual-mode Activator
-
-
-
-#### BLE device scan
+#### BLE device scan ( Dual-mode )
 
 Objc:
 
@@ -350,9 +360,9 @@ Objc:
 
 
 /**
- The inactive device that discovered
- 
- @param deviceInfo  inactive device Model
+ * The inactive device that discovered
+ *
+ * @param deviceInfo  inactive device Model
  */
 - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo {
       // scaned inactive device
@@ -369,9 +379,9 @@ TuyaSmartBLEManager.sharedInstance().delegate = self
 TuyaSmartBLEManager.sharedInstance().startListening(true)
 
 /**
- The inactive device that discovered
- 
- @param deviceInfo  inactive device Model
+ * The inactive device that discovered
+ *
+ * @param deviceInfo  inactive device Model
  */
 func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
     // scaned inactive device
@@ -380,22 +390,13 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 
 
-#### Active device
+#### Active device ( Dual-mode )
 
 After scanning an inactive device, the device can be activated and registered to the Tuya cloud
 
 ```objective-c
 /**
  *  connect ble wifi device
- *
- *  @param UUID        device uuid
- *  @param homeId      currect home Id
- *  @param productId   product Id
- *  @param ssid        router hotspot name
- *  @param password    router hotspot password
- *  @param timeout     scan timeout
- *  @param success     success Callback
- *  @param failure     failure Callback
  */
 - (void)startConfigBLEWifiDeviceWithUUID:(NSString *)UUID
                                   homeId:(long long)homeId
@@ -406,6 +407,21 @@ After scanning an inactive device, the device can be activated and registered to
                                  success:(TYSuccessHandler)success
                                  failure:(TYFailureHandler)failure;
 ```
+
+
+
+**Parameter  description**
+
+| Parameter | Description             |
+| --------- | ----------------------- |
+| UUID      | Device uuid             |
+| homeId    | Currect home Id         |
+| productId | Product Id              |
+| ssid      | Router hotspot name     |
+| password  | Router hotspot password |
+| timeout   | Scan timeout            |
+| success   | Success callback        |
+| failure   | Failure callback        |
 
 
 
@@ -433,7 +449,7 @@ Swift:
 
 
 
-#### Callback of device activator
+#### Callback of device activator ( Dual-mode )
 
 
 
@@ -469,7 +485,7 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 
 
-#### Stop discover device
+#### Stop discover device ( Dual-mode )
 
 
 
