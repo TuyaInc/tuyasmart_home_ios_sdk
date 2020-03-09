@@ -47,6 +47,23 @@ Swift project add the following to the `xxx_Bridging-Header.h` file:
 
 4. Open file `AppDelegate.m`，and use the `App Key` and `App Secret` obtained from the development platform in the `[AppDelegate application:didFinishLaunchingWithOptions:]`method to initialize SDK:
 
+**Interface description**
+
+Init SDK
+
+```objc
+- (void)startWithAppKey:(NSString *)appKey secretKey:(NSString *)secretKey;
+```
+
+**Parameter description**
+
+| **Parameter** | **Description** |
+| ------------- | ----------------- |
+| appKey        | App key           |
+| secretKey     | App secret key |
+
+**Example code**
+
 Objc:
 
 ```objc
