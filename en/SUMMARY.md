@@ -1,9 +1,11 @@
 # Summary
 
 * [Introduction](/README.md)
-* [Function Overview](./resource/Overview.md)
+* [Function overview](./resource/Overview.md)
 * [Preparation work](./resource/Preparation.md)
-* [iOS Adaptation](./resource/iOSAdaptation.md)
+* [Integrated](./resource/Integrated.md)
+* [Demo App](./resource/Demo.md)
+* [iOS adaptation](./resource/iOSAdaptation.md)
 * [Initiate SDK](./resource/Integrated.md)
 * [User management](./resource/User.md#user-management)
   - [Use Mobile Phone for Login](./resource/User.md#use-mobile-phone-for-login)

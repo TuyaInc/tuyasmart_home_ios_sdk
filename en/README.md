@@ -3,17 +3,19 @@
 ---
 
 
-## Features Overview
+## Features overview
 
-Tuya Smart APP SDK provides the interface package for the communication with hardware and Tuya Cloud to accelerate the application development process, including the following features:
+Tuya Smart iOS Home SDK is the iOS 8.0 and above version provided by Tuya for the field of smart home. iOS developers can quickly develop app functions based on SDK, realize the activation of intelligent hardware, hardware control, firmware upgrades, timed tasks, intelligent scenarios and other operations.
 
-- Hardware functions (network configuration, control, status reporting, regular tasks, groups, firmware upgrades, sharing)
+The SDK includes the following features::
+
 - Account system (phone number, email registration, login, password reset and other general account functions)
-- Home system (home management, room management)
+- Home system (home management, room management, home sharing and other functions)
+- Hardware functions (network configuration, control, status reporting, timed tasks, groups, firmware upgrades, sharing)
 
-## Fast Integration
+## Fast integration
 
-### Using CocoaPods
+### Using cocoaPods
 
 Add the following content in file `Podfile`:
 
@@ -61,7 +63,7 @@ Now all the prepare work has been completed. You can use the sdk to develop your
 
 
 
-### Debug Mode
+### Debug mode
 
 During the development we can open debug mode, print the log to analyze some problem.
 

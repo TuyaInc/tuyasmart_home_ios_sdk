@@ -54,6 +54,23 @@ Swift 项目可以添加在 `xxx_Bridging-Header.h` 桥接文件中添加以下�
 
 4. 打开`AppDelegate.m`文件，在`[AppDelegate application:didFinishLaunchingWithOptions:]`方法中初始化SDK：
 
+**接口说明**
+
+初始化 SDK
+
+```objc
+- (void)startWithAppKey:(NSString *)appKey secretKey:(NSString *)secretKey;
+```
+
+**参数说明**
+
+| **参数**  | **说明**    |
+| --------- | ----------- |
+| appKey    | App key     |
+| secretKey | App 密钥key |
+
+**实例代码**
+
 Objc:
 
 ```objc
@@ -73,6 +90,8 @@ Swift:
 ### Debug 模式
 
 在开发的过程中可以开启 Debug 模式，打印一些日志用于分析问题。
+
+
 
 Objc:
 
