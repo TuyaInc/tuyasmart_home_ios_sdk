@@ -2,13 +2,41 @@
 
 服务端api调用功能对应`TuyaSmartRequest`类
 
-接口示例：
+**接口说明**
 
-| 接口名称 | 接口描述 | 接口版本 | 业务入参 |
+调用服务端API
+
+```objc
+- (void)requestWithApiName:(NSString *)apiName
+                  postData:(nullable NSDictionary *)postData
+                   getData:(nullable NSDictionary *)getData
+                   version:(NSString *)version
+                   success:(nullable TYSuccessID)success
+                   failure:(nullable TYFailureError)failure;
+```
+
+
+
+**参数说明**
+
+| 参数     | 说明      |
+| -------- | --------- |
+| apiName  | API名称   |
+| postData | 业务参数  |
+| getData  | 公共参数  |
+| version  | API版本号 |
+| success  | 成功回调  |
+| failure  | 失败回调  |
+
+
+
+**接口示例**
+
+| 接口名称 | 接口描述 | 接口版本 | 业务参数 |
 | ------ | ------ | ------ | ------ |
 | tuya.m.country.list | 获取国家列表 | 1.0 | - |
 
-代码示例：
+**代码示例**
 
 ```objc
 - (void)getCountryList {
@@ -23,65 +51,51 @@
 }
 ```
 
-**注意**
-
-`TuyaSmartRequest`实例对象需要被持有，否则局部变量会被回收，导致网络请求被取消，出现以下错误：
-
-`Error Domain=NSURLErrorDomain Code=-999 "已取消"`
-
-参见：[ARC内存管理 - 苹果开发者文档](https://developer.apple.com/library/archive/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html)
-
 
 
 ### 组合接口
 
-用于多个业务接口一块请求。
+**接口说明**
 
-需要写一个继承于 `TYApiMergeService` 的请求接口类，然后把需要请求的多个接口放在一块，然后请求的结果也会一块返回。
+用于多个业务接口一块请求，两个方法需要一起使用。
 
-调用实例：
+```objc
+- (void)addMergeRequestWithApiName:(NSString *)apiName
+                          postData:(nullable NSDictionary *)postData
+                           version:(NSString *)version
+                           success:(nullable TYSuccessID)success
+                           failure:(nullable TYFailureError)failure;
 
-```objective-c
-  // @property (nonatomic, strong) ExampleMergeRequest *service;
-
-  _service = [[ExampleMergeRequest alloc] init];
-  [_service loadHomeDataWithHomeId:homeId success:^(NSArray<TYApiMergeModel *> *list) {
-
-  } failure:^(NSError *error) {
-
-  }];
+- (void)sendMergeRequestWithGetData:(nullable NSDictionary *)getData
+                            success:(nullable TYSuccessList)success
+                            failure:(nullable TYFailureError)failure;
 ```
 
 
 
-ExampleMergeRequest.h
+**参数说明**
+
+| 参数     | 说明      |
+| -------- | --------- |
+| apiName  | API名称   |
+| postData | 业务参数  |
+| version  | API版本号 |
+| getData  | 公共参数  |
+| success  | 成功回调  |
+| failure  | 失败回调  |
+
+
+
+**代码示例**
 
 ```objective-c
-#import <TuyaSmartHomeKit/TYApiMergeService.h>
+- (void)loadHomeDataWithHomeId:(long long)homeId {
+  // self.request = [TuyaSmartRequest alloc] init];
 
-@interface ExampleMergeRequest : TYApiMergeService
+  [self.request addMergeRequestWithApiName:@"tuya.m.my.group.mesh.list" postData:@{} version:@"1.0" success:nil failure:nil];
+  [self.request addApiRequest:@"tuya.m.location.get" postData:@{@"gid": @(homeId)} version:@"2.0" success:nil failure:nil];
 
-- (void)loadHomeDataWithHomeId:(long long)homeId success:(void (^)(NSArray <TYApiMergeModel *> *list))success failure:(TYFailureError)failure;
-
-@end
-```
-
-ExampleMergeRequest.m
-
-```objective-c
-#import "ExampleMergeRequest.h"
-
-@implementation ExampleMergeRequest
-
-- (void)loadHomeDataWithHomeId:(long long)homeId success:(void (^)(NSArray <TYApiMergeModel *> *list))success failure:(TYFailureError)failure {
-
-  self.requestList = [NSMutableArray array];
-
-  [self addApiRequest:@"tuya.m.my.group.mesh.list" postData:@{} version:@"1.0"];
-  [self addApiRequest:@"tuya.m.location.get" postData:@{@"gid": @(homeId)} version:@"2.0"];
-
-  [self sendRequest:@{@"gid": @(homeId)} success:success failure:failure];
+  [self.request sendMergeRequestWithGetData:@{@"gid": @(homeId)} success:success failure:failure];
 }
 
-@end
 ```

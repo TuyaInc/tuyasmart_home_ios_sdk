@@ -1,6 +1,6 @@
 ## FAQ
 
-##### 1. Why are errors reported in running the `pod install`? 
+##### 1. Why are errors reported in running the `pod install` ? 
 
    - Please confirm that the latest version cocoapod is used. Run the `pod --version` command to check the version of pod, and ensure that the version 1.3.0 or beyond is used. 
 
