@@ -70,7 +70,7 @@ SDK-->APP: 激活成功
 
 #### 获取token
 
-开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始快连模式配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）。
+开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始快连模式配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）
 
 
 
@@ -231,13 +231,13 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 
 
-注意 `ssid ` 和 `password` 需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
+注意 `ssid ` 和 `password` 需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码
 
 
 
 #### 停止配网
 
-开始配网操作后，App 会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用 `[TuyaSmartActivator stopConfigWiFi]` 方法。
+开始配网操作后，App 会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用 `[TuyaSmartActivator stopConfigWiFi]` 方法
 
 **接口说明**
 
@@ -306,9 +306,9 @@ SDK-->APP: 激活成功
 
 
 
-#### 获取token
+#### 获取 Token
 
-开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始热点模式配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）。
+开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始热点模式配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）
 
 
 
@@ -443,7 +443,7 @@ Objc:
 
 ```
 
-Swift 示例:
+Swift:
 
 ```swift
 func startConfigWiFi(withSsid ssid: String, password: String, token: String) {
@@ -542,9 +542,9 @@ SDK-->APP: 激活成功
 
 
 
-#### 获取token
+#### 获取 Token
 
-开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始有线设备激活配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）。
+开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始有线设备激活配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）
 
 
 
@@ -679,7 +679,7 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 #### 停止配网
 
-开始配网操作后，App 会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用 `[TuyaSmartActivator stopConfigWiFi]` 方法。
+开始配网操作后，App 会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用 `[TuyaSmartActivator stopConfigWiFi]` 方法
 
 
 
@@ -850,7 +850,7 @@ func stopActiveSubDevice() {
 
 ### 蓝牙 Wi-Fi 双模配网
 
-如果设备模块支持蓝牙协议，可以选择蓝牙 WiFi 配网方式，通过蓝牙将 WiFi 信息发送给设备，然后设备拿到 WiFi 信息后进行配网操作，该方案成功率较高。
+如果设备模块支持蓝牙协议，可以选择蓝牙 WiFi 配网方式，通过蓝牙将 WiFi 信息发送给设备，然后设备拿到 WiFi 信息后进行配网操作，该方案成功率较高
 
 ```sequence
 Title: 蓝牙 WiFi 配网
@@ -966,7 +966,7 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 #### 设备激活
 
-扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下。
+扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下
 
 
 
