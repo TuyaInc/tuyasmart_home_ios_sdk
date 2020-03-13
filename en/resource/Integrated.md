@@ -1,6 +1,6 @@
 ## Integrated SDK
 
-### Use CocoaPods for quick integration (SDK basically supports system version 8.0)
+### Use CocoaPods for Quick Integration (SDK Basically Supports System Version 8.0)
 
 Add the following content in the `Podfile` file.
 

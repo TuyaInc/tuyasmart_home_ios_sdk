@@ -1,10 +1,10 @@
-## Preparation work
+## Preparation Work
 
-### Register tuya developer account
+### Register Tuya Developer Account
 
 Go to the [Tuya Smart Development Platform](https://iot.tuya.com) to register a developer account, create products and create function points, etc. Please refer to the [Contact workflow](https://docs.tuya.com/cn/overview/dev-process.html) for details. 
 
-### Obtain the iOS App Key, App Secret and Security image.
+### Obtain the iOS App Key, App Secret and Security Image.
 Go to the development platform -> App Service -> App SDK get iOS `App Key`,  `App Secret` and Security image.
 
 ![](./images/ios-sdk-prepare.jpg) 
@@ -19,7 +19,7 @@ Please confirm the `bundleId`、`appKey`、`appSceret`、security image in your 
 
 
 
-### Joint debugging mode
+### Joint Debugging Mode
 
 - Use the hardware control panel to perform debugging on real devices.
 - Use the development platform to simulate device debugging. 

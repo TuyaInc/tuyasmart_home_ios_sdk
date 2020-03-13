@@ -1,8 +1,8 @@
-## iOS version adaptation
+## iOS Version Adaptation
 
 ### iOS 13 Adaptation
 
-#### Wi-Fi permission changed
+#### Wi-Fi Permission Changed
 
   Since iOS 13, if you disable the permission to access location, `[[TuyaSmartActivator sharedInstance] currentWifiSSID]` will return false SSID. Here's the Apple email:
 
@@ -17,7 +17,7 @@
   
 2. When BSSID is "00:00:00:00:00:00", SSID is "Wi-Fi" or "WLAN" which is actually false and should be ignored. In this situation, let user input SSID manually is an option.
   
-#### Bluetooth permission changed
+#### Bluetooth Permission Changed
 
 If you have integrated TuyaSmartHomeKit with Tuya bluetooth device, please pay attention on "Bluetooth" permission. In iOS 13, every application will have a "Bluetooth" permission independent. When application first launched, user will be asked to switch on/off this permission.
 
