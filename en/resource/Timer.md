@@ -1,15 +1,52 @@
-## Timer task
+## Timer Task
 
-The design idea is given in the following figure:
+`TuyaSmartTimerKit` provides timer feature for device and group.
+
+### Design
+
+Like device, the timer design idea is given in the following figure:
 
 ![Timer](./images/ios-sdk-timer.jpg)
-All functions of timer task are realized by using the `TuyaSmartTimer` Class.
 
-*Note: loops: @"0000000", 0 denotes off, and 1 denotes on. Each 0 from the left to the right denotes  Sunday, Monday, Tuesday, Wednesday, Thursday, Friday and Saturday, respectively.*
+
+
+| Class          | Description                   |
+| -------------- | ----------------------------- |
+| TuyaSmartTimer | Device and group time feature |
 
 ### Add timer task
 
-Add a timer to the required task specified by a device.
+> Up to 30 timers per device or group
+
+Add a timer to the required task specified by a device or group.
+
+**Declaration**
+
+```objective-c
+- (void)addTimerWithTask:(NSString *)task
+                   loops:(NSString *)loops
+                   devId:(NSString *)devId
+                    time:(NSString *)time
+                     dps:(NSDictionary *)dps
+                timeZone:(NSString *)timeZone
+                 success:(TYSuccessHandler)success
+                 failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| task      | Task name                                                    |
+| loops     | Loops: "0000000"<br />0 denotes off, and 1 denotes on. Each 0 from the left to the right denotes  Sunday, Monday, Tuesday, Wednesday, Thursday, Friday and Saturday, respectively. |
+| devId     | Device id，if group, set group id                            |
+| time      | Time 18:00                                                   |
+| dps       | Dps command                                                  |
+| timeZone  | The time zone of the device or group, like +08:00            |
+| success   | Success block                                                |
+| failure   | Failure block                                                |
+
+**Example**
 
 Objc:
 
@@ -45,6 +82,31 @@ func addTimer() {
 
 Obtain all task modules of a specified device.
 
+**Declaration**
+
+```objective-c
+- (void)getTimerTaskStatusWithDeviceId:(NSString *)devId
+                               success:(void(^)(NSArray<TYTimerTaskModel *> *list))success
+                               failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                       |
+| --------- | --------------------------------- |
+| devId     | Device id，if grouo, set group id |
+| success   | Success block                     |
+| failure   | Failure block                     |
+
+**`TYTimerTaskModel` ** Description
+
+| Field    | Type      | Description                  |
+| -------- | --------- | ---------------------------- |
+| taskName | NSString  | Timer task name              |
+| status   | NSInteger | Task status，0:close, 1:open |
+
+**Example**
+
 Objc:
 
 ```objc
@@ -76,6 +138,28 @@ func getTimer() {
 ### Update status of timer task
 
 Update the status of a designated task specified by a device. 0 denotes off, and 1 denotes on. 
+
+**Declaration**
+
+```objective-c
+- (void)updateTimerTaskStatusWithTask:(NSString *)task
+                                devId:(NSString *)devId
+                               status:(NSInteger)status
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                       |
+| --------- | --------------------------------- |
+| task      | Timer task name                   |
+| devId     | Device id，if grouo, set group id |
+| status    | Task status，0:close, 1:open      |
+| success   | Success block                     |
+| failure   | Failure block                     |
+
+**Example**
 
 Objc:
 
@@ -110,6 +194,30 @@ func updateTimer() {
 
 Update the status of a designated timer specified by a device. 0 denotes off, and 1 denotes on.
 
+**Declaration**
+
+```objective-c
+- (void)updateTimerStatusWithTask:(NSString *)task
+                            devId:(NSString *)devId
+                          timerId:(NSString *)timerId
+                           status:(NSInteger)status
+                          success:(TYSuccessHandler)success
+                          failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                       |
+| --------- | --------------------------------- |
+| task      | Timer task name                   |
+| devId     | Device id，if grouo, set group id |
+| timerId   | Timer id                          |
+| status    | Task status，0:close, 1:open      |
+| success   | Success block                     |
+| failure   | Failure block                     |
+
+**Example**
+
 Objc:
 
 ```objc
@@ -143,6 +251,28 @@ func updateTimer() {
 
 Remove the timer of a task specified by a device. 
 
+**Declaration**
+
+```objective-c
+- (void)removeTimerWithTask:(NSString *)task
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                       |
+| --------- | --------------------------------- |
+| task      | Timer task name                   |
+| devId     | Device id，if grouo, set group id |
+| timerId   | Timer id                          |
+| success   | Success block                     |
+| failure   | Failure block                     |
+
+**Example**
+
 Objc:
 
 ```objc
@@ -175,6 +305,36 @@ func removeTimer() {
 ### Update timer
 
 Update the timer of a task specified by a device.
+
+**Declaration**
+
+```objective-c
+- (void)updateTimerWithTask:(NSString *)task
+                      loops:(NSString *)loops
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                       time:(NSString *)time
+                        dps:(NSDictionary *)dps
+                   timeZone:(NSString *)timeZone
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| task      | Timer task name                                              |
+| loops     | Loops: "0000000"<br />0 denotes off, and 1 denotes on. Each 0 from the left to the right denotes  Sunday, Monday, Tuesday, Wednesday, Thursday, Friday and Saturday, respectively. |
+| devId     | Device id，if grouo, set group id                            |
+| timerId   | Timer id                                                     |
+| time      | Time，如 18:00                                               |
+| dps       | Dps command                                                  |
+| timeZone  | The time zone of the device or group, like +08:00            |
+| success   | Success block                                                |
+| failure   | Failure block                                                |
+
+**Example**
 
 Objc:
 
@@ -210,6 +370,26 @@ func updateTimer() {
 
 Obtain all timer modules of task required by a device.
 
+**Declaration**
+
+```objective-c
+- (void)getTimerWithTask:(NSString *)task
+                   devId:(NSString *)devId
+                 success:(void(^)(NSArray<TYTimerModel *> *list))success
+                 failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                       |
+| --------- | --------------------------------- |
+| task      | Timer task name                   |
+| devId     | Device id，if grouo, set group id |
+| success   | Success block                     |
+| failure   | Failure block                     |
+
+**Example**
+
 Objc:
 
 ```objc
@@ -242,6 +422,16 @@ func getTimer() {
 ### Obtain all timers of all timer tasks
 
 Obtain all timer modules of task required by a device.
+
+**Declaration**
+
+```objective-c
+- (void)getAllTimerWithDeviceId:(NSString *)devId
+                        success:(TYSuccessDict)success
+                        failure:(TYFailureError)failure
+```
+
+**Example**
 
 Objc:
 
