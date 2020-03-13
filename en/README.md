@@ -62,7 +62,7 @@ Init SDK
 | appKey        | App key           |
 | secretKey     | App secret key |
 
-**Example Code**
+**Example**
 
 Objc:
 
