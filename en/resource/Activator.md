@@ -14,11 +14,11 @@ The network configuration modes supported by Tuya SDK including:
 
 ## Instructions 
 
-| Class Name                         | Description                                                | Note                   |
-| :--------------------------------- | :--------------------------------------------------------- | :--------------------- |
-| TuyaSmartActivator（单例）         | 提供快连模式、热点模式、有线设备激活、子设备激活等配网能力 | 需要在主线程中调用该类 |
-| TuyaSmartBLEManager （单例）       | 提供扫描蓝牙能力                                           | 需要在主线程中调用该类 |
-| TuyaSmartBLEWifiActivator （单例） | 提供蓝牙-WiFi 双模配网能力                                 | 需要在主线程中调用该类 |
+| Class Name                              | Description                                                  | Note                      |
+| :-------------------------------------- | :----------------------------------------------------------- | :------------------------ |
+| TuyaSmartActivator（Singleton）         | Provides Quick Connection Mode, Hotspot Mode, Wired  Network Configuration and Sub-device Configuration. | Called in the main thread |
+| TuyaSmartBLEManager （Singleton）       | Provides the ability to scan Bluetooth                       | Called in the main thread |
+| TuyaSmartBLEWifiActivator （Singleton） | Provides Bluetooth Wi-Fi dual-mode network configuration     | Called in the main thread |
 
 
 
@@ -270,7 +270,7 @@ SDK-->APP: Network configuration succeeds
 
 #### Get Token
 
-Before the hotsopt mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+Before the Hotsopt Mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
 
 **Declaration**
 
@@ -288,7 +288,28 @@ Before the hotsopt mode network configuration, the SDK needs to obtain the netwo
 | success    | Success block, return Token |
 | failure    | Failure block               |
 
-**Example**
+
+
+**Declaration**
+
+Callback of config network status update.
+
+```objc
+- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
+
+```
+
+**Parameters**
+
+| Parameters  | **Description**                                  |
+| :---------- | :----------------------------------------------- |
+| activator   | Instance object of TuyaSmartActivator            |
+| deviceModel | Return deviceModel when network config successed |
+| error       | Retrun error message when network config failed  |
+
+
+
+Example**
 
 Objc:
 
@@ -318,7 +339,7 @@ func getToken() {
 }
 ```
 
-#### Start network configuration.
+#### Start network configuration
 
 Hotsopt mode network configuration:
 
@@ -395,7 +416,7 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 }
 ```
 
-The hotspot mode network configuration is the same to the quick connection mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
+The Hotspot Mode network configuration is the same to the Quick Connection Mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
 
 #### Stop network configuration.
 
@@ -429,7 +450,7 @@ func stopConfigWifi() {
 
 #### Wired network configuration 
 
-
+The wired device is connected to the network, not need the name and password of router during the network configuration.  The figure below uses ZigBee wired gateway as an example to describe the wired gateway network configuration process.
 
 ```sequence
 
@@ -462,11 +483,29 @@ SDK-->APP: network configuration succeeds
 
 #### Get Token
 
-Before the EZ/AP mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+Before the Wired Network Configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+
+**Declaration**
+
+```objc
+- (void)getTokenWithHomeId:(long long)homeId
+                   success:(TYSuccessString)success
+                   failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | **Description**             |
+| :--------- | :-------------------------- |
+| homeId     | Home Id                     |
+| success    | Success block, return Token |
+| failure    | Failure block               |
+
+**Example**
 
 Objc:
 
-```
+```objc
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
 		NSLog(@"getToken success: %@", token);
@@ -492,7 +531,24 @@ func getToken() {
 }
 ```
 
-##### Wired network configuration of zigbee
+#### Wired Network Configuration 
+
+**Declaration**
+
+```objc
+- (void)startConfigWiFiWithToken:(NSString *)token timeout:(NSTimeInterval)timeout
+```
+
+
+
+**Parameters**
+
+| **Parameters** | **Description**              |
+| :------------- | :--------------------------- |
+| token          | Config Token                 |
+| timeout        | Timeout, default 100 seconds |
+
+**Example**
 
 Objc:
 
@@ -548,6 +604,14 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
 
+**Declaration**
+
+```objc
+- (void)stopConfigWiFi;
+```
+
+**Example**
+
 Objc:
 
 ```objc
@@ -592,7 +656,26 @@ SDK-->APP: network configuration succeeds
 
 ```
 
-The `stopActiveSubDeviceWithGwId` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
+
+
+#### Start network configuration
+
+**Declaration**
+
+```objc
+- (void)activeSubDeviceWithGwId:(NSString *)gwId timeout:(NSTimeInterval)timeout
+```
+
+**Parameters**
+
+| **Parameters** | **Description**              |
+| :------------- | :--------------------------- |
+| gwId           | Gateway Id                   |
+| timeout        | Timeout, default 100 seconds |
+
+**Example**
+
+Objc:
 
 ```objc
 - (void)activeSubDevice {
@@ -640,6 +723,22 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 #### Stop activating the sub-device
 
+The `stopActiveSubDeviceWithGwId` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
+
+**Declaration**
+
+```objc
+- (void)stopActiveSubDeviceWithGwId:(NSString *)gwId
+```
+
+**Parameters**
+
+| Parameters | **Description** |
+| ---------- | --------------- |
+| gwId       | Gateway Id      |
+
+**Example**
+
 Objc:
 
 ```objc
@@ -660,7 +759,7 @@ func stopActiveSubDevice() {
 
 
 
-### Bluetooth-Wifi configuration
+### Bluetooth Wi-Fi configuration
 
 If Tuya wifi hardwares support Bluetooth protocol,  Bluetooth-Wifi configuration method can be used to connect  devices. Use bluetooth to transfer information about wifi,  success rate is higher.
 
@@ -694,6 +793,20 @@ Note over APP: stop discovery
 ```
 
 #### Discovery device
+
+**Declaration**
+
+```objc
+- (void)startListening:(BOOL)clearCache
+```
+
+**Parameters**
+
+| Parameters | **Description**                   |
+| :--------- | :-------------------------------- |
+| clearCache | Whether to clear the cache device |
+
+**Example**
 
 Objc:
 
@@ -735,19 +848,9 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 Can use the following API to active the Discovered  devices and register them to Tuya Cloud.
 
-```objective-c
-/**
- *  connect ble wifi device
- *
- *  @param UUID        Unique identifier of the Bluetooth device
- *  @param homeId      current homeId
- *  @param productId   productId
- *  @param ssid        name of wifi
- *  @param password    password of wifi
- *  @param timeout     time 
- *  @param success     success handler
- *  @param failure     failure handler
- */
+**Declaration**
+
+```objc
 - (void)startConfigBLEWifiDeviceWithUUID:(NSString *)UUID
                                   homeId:(long long)homeId
                                productId:(NSString *)productId
@@ -758,6 +861,22 @@ Can use the following API to active the Discovered  devices and register them to
                                  failure:(TYFailureHandler)failure;
 ```
 
+
+
+**Parameters**
+
+| **Parameters** | **Description**                           |
+| :------------- | :---------------------------------------- |
+| UUID           | Unique identifier of the Bluetooth device |
+| homeId         | Current homeId                            |
+| productId      | Product Id                                |
+| ssid           | Name of router                            |
+| password       | Password of router                        |
+| timeout        | Timeout                                   |
+| success        | Success callback                          |
+| failure        | Failure callback                          |
+
+**Example**
 Objc :
 
 ```objective-c
@@ -781,6 +900,20 @@ Swift :
 
 
 #### Callback of Device Active
+
+**Declaration**
+
+```objc
+- (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error
+```
+
+**Parameters**
+
+| **Parameters** | **Description**                                  |
+| :------------- | :----------------------------------------------- |
+| activator      | Instance object of  TuyaSmartBLEWifiActivator    |
+| deviceModel    | Return deviceModel when network config successed |
+| error          | Retrun error message when network config failed  |
 
 Objc :
 
@@ -813,6 +946,14 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 
 #### Stop discovery
+
+**Declaration**
+
+```objc
+- (void)stopDiscover;
+```
+
+**Parameters**
 
 Objc :
 

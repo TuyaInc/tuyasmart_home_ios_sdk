@@ -610,7 +610,7 @@ func getToken() {
 | 参数    | 说明       |
 | ------- | ---------- |
 | token   | 配网 Token |
-| Timeout | 超时时间   |
+| timeout | 超时时间   |
 
 
 
