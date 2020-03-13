@@ -63,15 +63,29 @@ Before the Quick Connection Mode network configuration, SDK needs to obtain the 
 
 
 
-**Interface**
+**Declaration**
+
+```objc
+- (void)getTokenWithHomeId:(long long)homeId
+                   success:(TYSuccessString)success
+                   failure:(TYFailureError)failure;
+```
 
 
 
+**Parameters**
 
+| Parameters | **Description**             |
+| :--------- | :-------------------------- |
+| homeId     | Home Id                     |
+| success    | Success block, return Token |
+| failure    | Failure block               |
+
+**Example**
 
 Objc:
 
-```
+```objc
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
 		NSLog(@"getToken success: %@", token);
@@ -99,7 +113,39 @@ func getToken() {
 
 #### Start network configuration.
 
-EZ mode network configuration:
+**Declaration**
+
+```objc
+- (void)startConfigWiFi:(TYActivatorMode)mode
+                   ssid:(NSString *)ssid
+               password:(NSString *)password
+                  token:(NSString *)token
+                timeout:(NSTimeInterval)timeout;
+```
+
+**Parameters**
+
+| Parameters | Description                  |
+| :--------- | :--------------------------- |
+| mode       | Config mode                  |
+| ssid       | Name of route                |
+| password   | Password of route            |
+| token      | Config Token                 |
+| timeout    | Timeout, default 100 seconds |
+
+
+
+**Declaration**
+
+Callback of config network status update.
+
+```objc
+- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
+```
+
+
+
+**Example**
 
 Objc:
 
@@ -150,11 +196,21 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 }
 ```
 
-The AP mode network configuration is the same to the EZ mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
+
 
 #### Stop network configuration.
 
 The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
+
+**Declaration**
+
+```objc
+- (void)stopConfigWiFi;
+```
+
+
+
+**Example**
 
 Objc:
 
@@ -175,20 +231,20 @@ func stopConfigWifi() {
 ```
 
 
-## AP mode
+## Hotsopt Mode
 
-**Process of AP mode network configuration**
+**Process of hotsopt mode network configuration**
 
 ```sequence
 
-Title: AP Mode
+Title: Hotsopt Mode
 
 participant APP
 participant SDK
 participant Device
 participant Service
 
-Note over Device: Switch to the AP mode
+Note over Device: Switch to the hotspot mode
 APP->SDK: Get Token
 SDK->Service: Get Token
 Service-->SDK: Response Token
@@ -210,13 +266,33 @@ SDK-->APP: Network configuration succeeds
 
 ```
 
+
+
 #### Get Token
 
-Before the EZ/AP mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+Before the hotsopt mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+
+**Declaration**
+
+```objc
+- (void)getTokenWithHomeId:(long long)homeId
+                   success:(TYSuccessString)success
+                   failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | **Description**             |
+| :--------- | :-------------------------- |
+| homeId     | Home Id                     |
+| success    | Success block, return Token |
+| failure    | Failure block               |
+
+**Example**
 
 Objc:
 
-```
+```objc
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
 		NSLog(@"getToken success: %@", token);
@@ -244,7 +320,31 @@ func getToken() {
 
 #### Start network configuration.
 
-AP mode network configuration:
+Hotsopt mode network configuration:
+
+**Declaration**
+
+```objc
+- (void)startConfigWiFi:(TYActivatorMode)mode
+                   ssid:(NSString *)ssid
+               password:(NSString *)password
+                  token:(NSString *)token
+                timeout:(NSTimeInterval)timeout;
+```
+
+
+
+**Parameters**
+
+| Parameters | Description                  |
+| :--------- | :--------------------------- |
+| mode       | Config mode                  |
+| ssid       | Name of route                |
+| password   | Password of route            |
+| token      | Config Token                 |
+| timeout    | Timeout, default 100 seconds |
+
+**Example**
 
 Objc:
 
@@ -295,11 +395,19 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 }
 ```
 
-The AP mode network configuration is the same to the EZ mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
+The hotspot mode network configuration is the same to the quick connection mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
 
 #### Stop network configuration.
 
 The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
+
+**Declaration**
+
+```
+- (void)stopConfigWiFi;
+```
+
+**Example**
 
 Objc:
 
@@ -319,8 +427,9 @@ func stopConfigWifi() {
 }
 ```
 
-
 #### Wired network configuration 
+
+
 
 ```sequence
 

@@ -78,7 +78,7 @@ SDK-->APP: 激活成功
 
 配网 Token 获取接口
 
-```
+```objc
 - (void)getTokenWithHomeId:(long long)homeId
                    success:(TYSuccessString)success
                    failure:(TYFailureError)failure;
@@ -130,13 +130,11 @@ func getToken() {
 
 #### 开始配网
 
-
-
 **接口说明**
 
 开始配网接口
 
-```
+```objc
 - (void)startConfigWiFi:(TYActivatorMode)mode
                    ssid:(NSString *)ssid
                password:(NSString *)password
@@ -148,13 +146,13 @@ func getToken() {
 
 **参数说明**
 
-| 参数     | 说明       |
-| :------- | :--------- |
-| mode     | 配网模式   |
-| ssid     | WiFi 名称  |
-| password | WiFi 密码  |
-| token    | 配网 Token |
-| timeout  | 超时时间   |
+| 参数     | 说明                  |
+| :------- | :-------------------- |
+| mode     | 配网模式              |
+| ssid     | WiFi 名称             |
+| password | WiFi 密码             |
+| token    | 配网 Token            |
+| timeout  | 超时时间，默认 100 秒 |
 
 
 
@@ -162,7 +160,7 @@ func getToken() {
 
 配网代理回调
 
-```
+```objc
 - (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
 ```
 
@@ -231,17 +229,13 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 
 
-注意 `ssid ` 和 `password` 需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
-
-
-
 #### 停止配网
 
 开始配网操作后，App 会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用 `[TuyaSmartActivator stopConfigWiFi]` 方法。
 
 **接口说明**
 
-```
+```objc
 - (void)stopConfigWiFi;
 ```
 
@@ -316,7 +310,7 @@ SDK-->APP: 激活成功
 
 配网 Token 获取接口
 
-```
+```objc
 - (void)getTokenWithHomeId:(long long)homeId
                    success:(TYSuccessString)success
                    failure:(TYFailureError)failure;
@@ -374,7 +368,7 @@ func getToken() {
 
 开始配网接口
 
-```
+```objc
 - (void)startConfigWiFi:(TYActivatorMode)mode
                    ssid:(NSString *)ssid
                password:(NSString *)password
@@ -470,10 +464,6 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 
 热点模式配网与快连模式类似，把`[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]`的第一个参数改为 `TYActivatorModeAP` 即可。注意 `ssid` 和 `password` 需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
-
-注意 `ssid` 和 `password` 需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
-
-
 
 #### 停止配网
 
