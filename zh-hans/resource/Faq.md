@@ -36,7 +36,7 @@
 - 涂鸦开发者平台 - 用户运营 - 消息中心 - 新增消息
 - 详见：[集成 Push ](./Push.md)章节
 
-##### 8. Demo编译失败，提示 `library not found for -XXX`
+##### 8. Demo 编译失败，提示 `library not found for -XXX`
 
 - 确认你打开的工程为 `.xcworkspace` 而不是 `.xcproject` 。详见：[CocoaPods Guides](https://guides.cocoapods.org/)
 
@@ -44,7 +44,7 @@
 ##### 9. iOS 13 SDK 权限变化
 - 详见：[iOS 13 适配](./iOSAdaptation.md#ios-13-适配)章节
 
-##### 10. 为什么SDK 获取本地语言为英文，而不是手机系统的语言？
+##### 10. 为什么 SDK 获取本地语言为英文，而不是手机系统的语言？
 
 - 因为 SDK 现在获取的本地语言是根据 `[[NSBundle mainBundle] preferredLocalizations]` 获取的，所以需要在工程中创建国际化语言
 
@@ -98,7 +98,7 @@ pod 'TuyaSmartFeedbackKit',
 
 ##### 17. pod install 时提示 `CDN: trunk Repo update failed / trunk URL couldn't be downloaded`
 
-- CocoaPods 1.8.0 版本默认会使用CDN Repo作为源，如果因为网络原因导致无法访问，可以改回原先的Master Repo。编辑 `Podfile` ，设置 Master Repo 作为主要的源：
+- CocoaPods 1.8.0 版本默认会使用 CDN Repo作为源，如果因为网络原因导致无法访问，可以改回原先的Master Repo。编辑 `Podfile` ，设置 Master Repo 作为主要的源：
 
   ```diff
   - source 'https://cdn.cocoapods.org/'

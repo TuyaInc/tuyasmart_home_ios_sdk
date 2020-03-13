@@ -1,10 +1,10 @@
 ## 通用接口
 
-服务端api调用功能对应`TuyaSmartRequest`类
+服务端 API 调用功能对应 `TuyaSmartRequest` 类
 
 **接口说明**
 
-调用服务端API
+调用服务端 API
 
 ```objc
 - (void)requestWithApiName:(NSString *)apiName
@@ -19,22 +19,16 @@
 
 **参数说明**
 
-| 参数     | 说明      |
-| -------- | --------- |
-| apiName  | API名称   |
-| postData | 业务参数  |
-| getData  | 公共参数  |
-| version  | API版本号 |
-| success  | 成功回调  |
-| failure  | 失败回调  |
+| 参数     | 说明       |
+| -------- | ---------- |
+| apiName  | API 名称   |
+| postData | 业务参数   |
+| getData  | 公共参数   |
+| version  | API 版本号 |
+| success  | 成功回调   |
+| failure  | 失败回调   |
 
 
-
-**接口示例**
-
-| 接口名称 | 接口描述 | 接口版本 | 业务参数 |
-| ------ | ------ | ------ | ------ |
-| tuya.m.country.list | 获取国家列表 | 1.0 | - |
 
 **代码示例**
 

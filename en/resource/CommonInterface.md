@@ -26,14 +26,6 @@ Invoke cloud API
 | success  | Success Callback |
 | failure  | Failure Callback |
 
-
-
-**Api example**
-
-| name | description | version | params |
-| ------ | ------ | ------ | ------ |
-| tuya.m.country.list | get country list | 1.0 | - |
-
 **Code example**
 
 ```objc
