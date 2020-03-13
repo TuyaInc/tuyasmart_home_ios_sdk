@@ -1,9 +1,12 @@
-## Guidelines for Accessing Tuya Smart iOS SDK
+## Function Overview
 
-### Function Overview
 
-The Tuya Smart App SDK provides the interface encapsulation for the communication with hardware and Tuya Cloud to accelerate the App R&D. Main functions of it include:
 
-- Network configuration, control, state reporting, timer task, group, firmware upgrading and sharing related to hardware.
-- Account system (general account functions such as registration, login, resetting password, etc. of mobile phone number and Email)
+Tuya Smart iOS Home SDK is the iOS 8.0 and above version provided by Tuya for the field of smart home. iOS developers can quickly develop app functions based on SDK, realize the activation of intelligent hardware, hardware control, firmware upgrades, timed tasks, intelligent scenarios and other operations.
+
+The SDK includes the following features::
+
+- Account system (phone number, email registration, login, password reset and other general account functions)
+- Home system (home management, room management, home sharing and other functions)
+- Hardware functions (network configuration, control, status reporting, timed tasks, groups, firmware upgrades, sharing)
 

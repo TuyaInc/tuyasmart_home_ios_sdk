@@ -2,7 +2,9 @@
 
 * [Introduction](/README.md)
 * [Function Overview](./resource/Overview.md)
-* [Preparation work](./resource/Preparation.md)
+* [Preparation Work](./resource/Preparation.md)
+* [Integrated](./resource/Integrated.md)
+* [Demo App](./resource/Demo.md)
 * [iOS Adaptation](./resource/iOSAdaptation.md)
 * [Initiate SDK](./resource/Integrated.md)
 * [User management](./resource/User.md#user-management)
@@ -44,7 +46,6 @@
 * Smart scene
   - [Smart scene](./resource/SmartScene.md#smart-scene)
   - [Scene operation](./resource/SmartScene.md#scene-operation)
-* [Data channel](./resource/DataChannel.md)
 * [Single BLE](./resource/BLE.md#single-ble)
   - [Bluetooth Status Monitor](./resource/BLE.md#bluetooth-status-monitor)
   - [Bluetooth Scan](./resource/BLE.md#ble-device-scan)

@@ -2,27 +2,58 @@
 
 Tuya Cloud supports various kinds of user systems such as mobile phone, email and UID. Mobile phone supports verification code login and password login. The registration and login of each user system will be separately described later.
 
+|    Class Name    |         Description         |
+| :--------------: | :-------------------------: |
+|  TuyaSmartUser   |    User-related classes     |
+| TuyaSmartRequest | Universal interface classes |
+
+
+
 The `countryCode` parameter (country code) needs to be provided in the registration and login method for region selection of Tuya Cloud. Data of all available regions is independent. The Chinese Mainland account `(country code: 86)` cannot be used in the `USA (country code: 1)`. The Chinese Mainland account does not exist in the USA region.
 
 For details about available region, please refer to the [Tuya Cloud-Available Region](https://docs.tuya.com/cn/cloudapi/api/cloudapi/)
 
 All functions of user are realized by using the `TuyaSmartUser` Class (singleton).
 
+
+
 ### Use Mobile Phone for Login
 
 Tuya Smart provides the mobile phone verification code login system.
 
+
+
 #### Use Mobile Phone Password for Registration
 
-1.Obtain mobile phone verification code.
+The mobile phone and password registration process is divided into the following two steps: get a mobile phone verification code - Register a mobile phone and password account.
+
+**API Description**
+
+Send verification code. Used for mobile phone verification code login, register, password reset.
+
+```objective-c
+- (void)sendVerifyCode:(NSString *)countryCode
+           phoneNumber:(NSString *)phoneNumber
+                  type:(NSInteger)type
+               success:(nullable TYSuccessHandler)success
+               failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                                                  |
+| :---------- | :----------------------------------------------------------- |
+| countryCode | country code, for example: 86                                |
+| phoneNumber | Mobile phone number                                          |
+| type        | 0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset. |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Api Example**
 
 Objc:
 
 ```objective-c
-/**
- *  Send verification code. Used for mobile phone verification code login, register, password reset.
- *  @param type         0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset.
- */
 [[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:1 success:^{
     NSLog(@"sendVerifyCode success");
 } failure:^(NSError *error) {
@@ -33,10 +64,6 @@ Objc:
 Swift:
 
 ```swift
-/**
- *  Send verification code. Used for mobile phone verification code login, register, password reset.
- *  @param type         0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset.
- */
 TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
     print("sendVerifyCode success")
 }, failure: { (error) in
@@ -48,7 +75,31 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber:
 
 
 
-2.Use your mobile phone and password to registration.
+**API Description**
+
+Register a mobile phone and password account.
+
+```objective-c
+- (void)registerByPhone:(NSString *)countryCode
+            phoneNumber:(NSString *)phoneNumber
+               password:(NSString *)password
+                   code:(NSString *)code
+                success:(nullable TYSuccessHandler)success
+                failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                                                  |
+| :---------- | :----------------------------------------------------------- |
+| countryCode | country code, for example: 86                                |
+| phoneNumber | Mobile phone number                                          |
+| password    | password                                                     |
+| code        | After the verification code sending, the verification code received |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Api Example**
 
 Objc:
 
@@ -76,41 +127,31 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 #### Use Mobile Phone Verification Code for Login
 
-#### 1.Obtain mobile phone verification code.
+The mobile phone number and verification code login process is divided into the following two steps: get the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - verification code login.
 
-Objc:
+**API Description**
+
+verification code login
 
 ```objective-c
-/**
- *  Send verification code. Used for mobile phone verification code login, register, password reset.
- *  @param type         0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset.
- */
-[[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:0 success:^{
-    NSLog(@"sendVerifyCode success");
-} failure:^(NSError *error) {
-    NSLog(@"sendVerifyCode failure: %@", error);
-}];
+- (void)loginWithMobile:(NSString *)mobile
+            countryCode:(NSString *)countryCode
+                   code:(NSString *)code
+                success:(TYSuccessHandler)success
+                failure:(TYFailureError)failure;
 ```
 
-Swift:
+**Param Description**
 
-```swift
-/**
- *  Send verification code. Used for mobile phone verification code login, register, password reset.
- *  @param type         0: mobile phone verification code login, 1: mobile phone verification code register, 2: mobile phone password reset.
- */
-TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 1, success: {
-    print("sendVerifyCode success")
-}, failure: { (error) in
-    if let e = error {
-        print("sendVerifyCode failure: \(e)")
-    }
-})
-```
+| Param       | Description                                                  |
+| :---------- | :----------------------------------------------------------- |
+| mobile      | Mobile phone number                                          |
+| countryCode | country code, for example: 86                                |
+| code        | After the verification code sending, the verification code received |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
 
-
-
-#### 2.Use mobile phone verification code for login
+**Api Example**
 
 Objc:
 
@@ -138,6 +179,30 @@ TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCo
 
 #### Use Mobile Phone Password for Login
 
+**API Description**
+
+SDK provides mobile phone number and password login method.
+
+```objective-c
+- (void)loginByPhone:(NSString *)countryCode
+         phoneNumber:(NSString *)phoneNumber
+            password:(NSString *)password
+             success:(nullable TYSuccessHandler)success
+             failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                   |
+| :---------- | :---------------------------- |
+| countryCode | country code, for example: 86 |
+| phoneNumber | Mobile phone number           |
+| password    | password                      |
+| success     | Success Callback              |
+| failure     | Failure Callback              |
+
+**Api Example**
+
 Objc:
 
 ```objective-c
@@ -159,39 +224,38 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
     }
 })
 ```
+
+
+
 #### Resetting Password by Using Mobile Phone
 
-The process of resetting password by using mobile phone is similar to that of registration with mobile phone.
+The process of resetting the password of the mobile phone number is divided into the following two steps: obtain the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - reset the password.
 
-- #### Send verification code:
+**API Description**
 
-Objc:
+Resetting Password by Using Mobile Phone
 
-```objc
-- (void)sendVerifyCode {
-	[TuyaSmartUser sharedInstance] sendVerifyCode:@"your_country_code" phoneNumber:@"your_phone_number" type:2 success:^{
-		NSLog(@"sendVerifyCode success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCode failure: %@", error);
-	}];
-}
+```
+- (void)resetPasswordByPhone:(NSString *)countryCode
+                 phoneNumber:(NSString *)phoneNumber
+                 newPassword:(NSString *)newPassword
+                        code:(NSString *)code
+                     success:(nullable TYSuccessHandler)success
+                     failure:(nullable TYFailureError)failure;
 ```
 
-Swift:
+**Param Description**
 
-```swift
-func sendVerifyCode() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber: "your_phone_number", type: 2, success: {
-        print("sendVerifyCode success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCode failure: \(e)")
-        }
-    })
-}
-```
+| Param       | Description                   |
+| :---------- | :---------------------------- |
+| countryCode | country code, for example: 86 |
+| phoneNumber | Mobile phone number           |
+| newPassword | new password                  |
+| code | After the verification code sending, the verification code received                  |
+| success     | Success Callback              |
+| failure     | Failure Callback              |
 
-- #### Reset password:
+**Api Example**
 
 Objc:
 
@@ -220,13 +284,38 @@ func resetPasswordByPhone() {
 ```
 
 
+
 ### Use Email for Login
 
 Tuya Smart provides the email password login system.
 
+
+
 #### User Email Password Registration
 
-1.Register your email and obtain the verification code received in the email.
+The email registration process is divided into the following two steps: get email verification code - register email password account.
+
+**API Description**
+
+send verification code, used for email password register.
+
+```objective-c
+- (void)sendVerifyCodeByRegisterEmail:(NSString *)countryCode
+                                email:(NSString *)email
+                              success:(nullable TYSuccessHandler)success
+                              failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                                                  |
+| :---------- | :----------------------------------------------------------- |
+| countryCode | country code, for example: 86                                |
+| email       | email                                                        |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Api Example**
 
 Objc:
 
@@ -252,7 +341,31 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "your_country_co
 
 
 
-2.Select a password for your email.
+**API Description**
+
+Email register
+
+```objective-c
+- (void)registerByEmail:(NSString *)countryCode
+                  email:(NSString *)email
+               password:(NSString *)password
+                   code:(NSString *)code
+                success:(nullable TYSuccessHandler)success
+                failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                                                  |
+| :---------- | :----------------------------------------------------------- |
+| countryCode | Country code, for example: 86                                |
+| email       | Email                                                        |
+| password    | Password                                                     |
+| code        | After the verification code sending, the verification code received |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Api Example**
 
 Objc:
 
@@ -280,6 +393,30 @@ TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "y
 
 #### Use Email Password for Login
 
+**API Description**
+
+SDK provides email and password login method.
+
+```objective-c
+- (void)loginByEmail:(NSString *)countryCode
+               email:(NSString *)email
+            password:(NSString *)password
+             success:(nullable TYSuccessHandler)success
+             failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                   |
+| :---------- | :---------------------------- |
+| countryCode | Country code, for example: 86 |
+| phoneNumber | Mobile phone number           |
+| password    | Password                      |
+| success     | Success Callback              |
+| failure     | Failure Callback              |
+
+**Api Example**
+
 Objc:
 
 ```objective-c
@@ -302,39 +439,35 @@ TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your
 })
 ```
 
+
+
 #### Reset email password
 
-Resetting password by using email takes two steps:
+**API Description**
 
-- Send the verification code to an email.
+The process of resetting the password of the email is divided into the following two steps: obtain the email verification code (the API refers to the first interface of "User Email Password Registration") - reset the password.
 
-Objc:
-
-```objc
-- (void)sendVerifyCodeByEmail {
-	[TuyaSmartUser sharedInstance] sendVerifyCodeByEmail:@"your_country_code" email:@"your_email" success:^{
-		NSLog(@"sendVerifyCodeByEmail success");
-	} failure:^(NSError *error) {
-		NSLog(@"sendVerifyCodeByEmail failure: %@", error);
-	}];
-}
+```objective-c
+- (void)resetPasswordByEmail:(NSString *)countryCode
+                       email:(NSString *)email
+                 newPassword:(NSString *)newPassword
+                        code:(NSString *)code
+                     success:(nullable TYSuccessHandler)success
+                     failure:(nullable TYFailureError)failure;
 ```
 
-Swift:
+**Param Description**
 
-```swift
-func sendVerifyCodeByEmail() {
-    TuyaSmartUser.sharedInstance()?.sendVerifyCode(byEmail: "your_country_code", email: "your_email", success: {
-        print("sendVerifyCodeByEmail success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sendVerifyCodeByEmail failure: \(e)")
-        }
-    })
-}
-```
+| Param       | Description                                                  |
+| :---------- | :----------------------------------------------------------- |
+| countryCode | Country code, for example: 86                                |
+| email       | Email                                                        |
+| newPassword | New password                                                 |
+| code        | After the verification code sending, the verification code received |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
 
-- Use the verification code to reset password after the verification code is received.
+**Api Example**
 
 Objc:
 
@@ -363,11 +496,36 @@ func resetPasswordByEmail() {
 ```
 
 
+
 ### Use uid for Login
 
 #### User uid Registration And Login
 
+**API Description**
+
 If had registered, then automatically logged in. If had not registered, then automatically registered and logged in.
+
+```objective-c
+- (void)loginOrRegisterWithCountryCode:(NSString *)countryCode
+                                   uid:(NSString *)uid
+                              password:(NSString *)password
+                            createHome:(BOOL)createHome
+                               success:(nullable TYSuccessID)success
+                               failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                        |
+| :---------- | :--------------------------------- |
+| countryCode | Country code, for example: 86      |
+| uid         | Email                              |
+| password    | Password                           |
+| createHome  | Whether to create a default family |
+| success     | Success Callback                   |
+| failure     | Failure Callback                   |
+
+**Api Example**
 
 Objc:
 
@@ -392,11 +550,37 @@ TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_cod
 ```
 
 
+
 ### Third Party Login
 
 User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya developer platform` – `App development` – `Third-party login`. The client shall be developed according to requirements of all platforms. After corresponding code is obtained, relevant login interface of tuyaSDK shall be invoked.
 
+
+
 #### Login on Wechat
+
+**API Description**
+
+Login on Wechat
+
+```objective-c
+- (void)loginByWechat:(NSString *)countryCode
+                 code:(NSString *)code
+              success:(nullable TYSuccessHandler)success
+              failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                        |
+| :---------- | :--------------------------------- |
+| countryCode | Country code, for example: 86      |
+| code         | Code from Wechat authorization login                             |
+| success     | Success Callback                   |
+| failure     | Failure Callback                   |
+
+**Api Example**
+
 Objc:
 ```objc
 - (void)loginByWechat {
@@ -422,7 +606,34 @@ func loginByWechat() {
 }
 ```
 
+
+
 #### Login on QQ
+
+**API Description**
+
+Login on QQ
+
+```objective-c
+- (void)loginByQQ:(NSString *)countryCode
+           userId:(NSString *)userId
+      accessToken:(NSString *)accessToken
+          success:(nullable TYSuccessHandler)success
+          failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                          |
+| :---------- | :----------------------------------- |
+| countryCode | Country code, for example: 86        |
+| userId        | User id |
+| accessToken        | AccessToken from QQ authorization login |
+| success     | Success Callback                     |
+| failure     | Failure Callback                     |
+
+**Api Example**
+
 Objc:
 ```objc
 - (void)loginByQQ {
@@ -449,7 +660,32 @@ Swift:
 }
 ```
 
+
+
 #### Login on Facebook
+
+**API Description**
+
+Login on Facebook
+
+```objective-c
+- (void)loginByFacebook:(NSString *)countryCode
+                  token:(NSString *)token
+                success:(nullable TYSuccessHandler)success
+                failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                             |
+| :---------- | :-------------------------------------- |
+| countryCode | Country code, for example: 86           |
+| token       | Token from Facebook authorization login |
+| success     | Success Callback                        |
+| failure     | Failure Callback                        |
+
+**Api Example**
+
 Objc:
 
 ```objc
@@ -477,7 +713,34 @@ Swift:
 }
 ```
 
+
+
 #### Login by Twitter
+
+**API Description**
+
+Login by Twitter
+
+```objective-c
+- (void)loginByTwitter:(NSString *)countryCode
+                   key:(NSString *)key
+                secret:(NSString *)secret
+               success:(nullable TYSuccessHandler)success
+               failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                            |
+| :---------- | :------------------------------------- |
+| countryCode | Country code, for example: 86          |
+| key         | Key from Twitter authorization login   |
+| secret      | ecret from Twitter authorization login |
+| success     | Success Callback                       |
+| failure     | Failure Callback                       |
+
+**Api Example**
+
 Objc:
 
 ```objc
@@ -510,23 +773,36 @@ func loginByTwitter() {
 
 ### Login by Auth2
 
+**API Description**
+
 Auth2 is a general login interface. You can use some auth2 login type by passed type parameters.
+
+```objective-c
+- (void)loginByAuth2WithType:(NSString *)type
+                 countryCode:(NSString *)countryCode
+                 accessToken:(NSString *)accessToken
+                   extraInfo:(NSDictionary *)extraInfo
+                     success:(nullable TYSuccessHandler)success
+                     failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param       | Description                                     |
+| :---------- | :---------------------------------------------- |
+| type        | type of Auth2 login(@"ap" for login with apple) |
+| countryCode | Country code, for example: 86                   |
+| accessToken | AccessToken                                     |
+| extraInfo   | Extra info                                      |
+| success     | Success Callback                                |
+| failure     | Failure Callback                                |
+
+**Api Example**
 
 Objc:
 
 ```objc
 - (void)loginWithAuth2 {
-	/**
-	*  third login.
-	*
-	*  @param type of Auth2 login(@"ap" for login with apple)
-	*  @param countryCode country code
-	*  @param accessToken access token
-	*  @param extraInfo extra info
-	*  @param success success block
-	*  @param failure failure block
-	*/
-    
 	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"auth2_type" countryCode:@"your_country_code" accessToken:@"auth2_token" extraInfo:@{@"info_key": @"info_value"} success:^{
 		NSLog(@"login success");
 	} failure:^(NSError *error) {
@@ -539,16 +815,6 @@ Swift:
 
 ```swift
 func loginWithAuth2() {
-	/**
-	*  third login.
-	*
-	*  @param type of Auth2 login(@"ap" for login with apple)
-	*  @param countryCode country code
-	*  @param accessToken access token
-	*  @param extraInfo extra info
-	*  @param success success block
-	*  @param failure failure block
-	*/
 	TuyaSmartUser.sharedInstance().loginByAuth2WithType("auth2_type", countryCode: "your_country_code", accessToken: "auth2_token", extraInfo: ["info_key":"info_value"], success: {
 		print("login success")
 	}, failure: { (error) in
@@ -559,19 +825,31 @@ func loginWithAuth2() {
 }
 ```
 
+
+
 #### Login with Apple
 
+**API Description**
+
 The SDK supports Login with Apple from 3.14.0. After Apple login authorization is successful, information such as token and extraInfo are passed to the SDK through the Auth2 interface.
+
+**Param Description**
+
+| Param       | Description                                                  |
+| :---------- | :----------------------------------------------------------- |
+| type        | @"ap"                                                        |
+| countryCode | Country code, for example: 86                                |
+| accessToken | credential.identityToken                                     |
+| extraInfo   | @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname} |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Api Example**
 
 Objc:
 
 ```objc
 - (void)loginWithApple {
-	/**
-	* type: @"ap"
-	* accessToken: credential.identityToken
-	* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
-	*/
 	ASAuthorizationAppleIDCredential *credential = authorization.credential;
   
 	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"ap" countryCode:@"your_country_code" accessToken:credential.identityToken extraInfo:{@"userIdentifier": credential.user, @"email": credential.email, @"nickname": credential.fullName.nickname, @"snsNickname": credential.fullName.nickname} success:^{
@@ -586,11 +864,6 @@ Swift:
 
 ```swift
 func loginWithApple() {
-	/**
-	* type: ap
-	* accessToken: credential.identityToken
-	* extraInfo: @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname}
-	*/
 	let credential = authorization.credential
 	TuyaSmartUser.sharedInstance().loginByAuth2(withType: "ap", countryCode: "your_country_code", accessToken: credential?.identityToken, extraInfo: 	["userIdentifier": user,"email": email,"nickname": nickname,"snsNickname": nickname], success: {
 		print("login success")
@@ -608,7 +881,19 @@ func loginWithApple() {
 
 **Interface description**
 
+**API Description**
+
 Used to upload user-defined avatars.
+
+**Param Description**
+
+| Param    | Description                             |
+| :------- | :-------------------------------------- |
+| headIcon | Head Icon Image                         |
+| success  | Success Callback                        |
+| failure  | Failure Callback                        |
+
+**Api Example**
 
 Objc:
 
@@ -636,11 +921,29 @@ func updateHeadIcon(_ headIcon: UIImage) {
 }
 ```
 
+
+
 ### Set the Unit of Temperature
 
-**Interface description**
+**API Description**
 
 Set the temperature in Celsius or Fahrenheit
+
+```objective-c
+- (void)updateTempUnitWithTempUnit:(NSInteger)tempUnit
+                           success:(nullable TYSuccessHandler)success
+                           failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param    | Description                              |
+| :------- | :--------------------------------------- |
+| tempUnit | Temperature unit. 1 for `°C`, 2 for `°F` |
+| success  | Success Callback                         |
+| failure  | Failure Callback                         |
+
+**Api Example**
 
 ```objc
 - (void)updateTempUnitWithTempUnit:(NSInteger)tempUnit {
@@ -666,7 +969,29 @@ func updateTempUnit(withTempUnit tempUnit: Int) {
 }
 ```
 
+
+
 ### Modify nickname
+
+**API Description**
+
+Modify nickname
+
+```objective-c
+- (void)updateNickname:(NSString *)nickName
+               success:(nullable TYSuccessHandler)success
+               failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param    | Description      |
+| :------- | :--------------- |
+| nickName | Nick name        |
+| success  | Success Callback |
+| failure  | Failure Callback |
+
+**Api Example**
 
 Objc:
 
@@ -694,7 +1019,29 @@ func modifyNickname(_ nickName: String) {
 }
 ```
 
+
+
 ### Update timezone
+
+**API Description**
+
+Update timezone
+
+```objective-c
+- (void)updateTimeZoneWithTimeZoneId:(NSString *)timeZoneId
+                             success:(nullable TYSuccessHandler)success
+                             failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param      | Description                        |
+| :--------- | :--------------------------------- |
+| timeZoneId | TimeZone ID. e.g. `Asia/Shanghai`. |
+| success    | Success Callback                   |
+| failure    | Failure Callback                   |
+
+**Api Example**
 
 Objc:
 
@@ -726,7 +1073,22 @@ func updateTimeZoneId(_ timeZoneId: String) {
 
 ### Update location
 
+**API Description**
+
 If need, location can be reported through this api:
+
+```objective-c
+- (void)updateLatitude:(double)latitude longitude:(double)longitude;
+```
+
+**Param Description**
+
+| Param     | Description                        |
+| :-------- | :--------------------------------- |
+| latitude  | latitude |
+| longitude | longitude                   |
+
+**Api Example**
 
 Objc:
 
@@ -749,6 +1111,24 @@ func updateLocation() {
 
 
 ### Logout
+
+**API Description**
+
+When the user account is switched, it is necessary to call the logout interface.
+
+```objective-c
+- (void)loginOut:(nullable TYSuccessHandler)success
+         failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param      | Description                        |
+| :--------- | :--------------------------------- |
+| success    | Success Callback                   |
+| failure    | Failure Callback                   |
+
+**Api Example**
 
 Objc:
 
@@ -776,9 +1156,27 @@ func loginOut() {
 }
 ```
 
+
+
 ### Disable account (deregister user)
+
+**API Description**
+
 After one week, the account will be permanently disabled, and all information in the account will be deleted. If you log in to the account again before it is permanently disabled, your deregistration will be canceled.
 
+```objective-c
+- (void)cancelAccount:(nullable TYSuccessHandler)success
+              failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param   | Description      |
+| :------ | :--------------- |
+| success | Success Callback |
+| failure | Failure Callback |
+
+**Api Example**
 
 Objc:
 
@@ -805,6 +1203,8 @@ func cancelAccount() {
     })
 }
 ```
+
+
 
 ### Handling of Expired Session
 

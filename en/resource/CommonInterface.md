@@ -2,13 +2,31 @@
 
 Server api invoke can be found in `TuyaSmartRequest` class.
 
-Api example:
+**API Description**
 
-| name | description | version | params |
-| ------ | ------ | ------ | ------ |
-| tuya.m.country.list | get country list | 1.0 | - |
+Invoke cloud API
 
-Code example:
+```objc
+- (void)requestWithApiName:(NSString *)apiName
+                  postData:(nullable NSDictionary *)postData
+                   getData:(nullable NSDictionary *)getData
+                   version:(NSString *)version
+                   success:(nullable TYSuccessID)success
+                   failure:(nullable TYFailureError)failure;
+```
+
+**Param Description**
+
+| Param    | Description      |
+| -------- | ---------------- |
+| apiName  | API Name         |
+| postData | Business Params  |
+| getData  | Common Params    |
+| version  | API Version      |
+| success  | Success Callback |
+| failure  | Failure Callback |
+
+**Code example**
 
 ```objc
 - (void)getCountryList {
@@ -23,64 +41,48 @@ Code example:
 }
 ```
 
-**Attention**
-
-`TuyaSmartRequest` instance should be retained, otherwise, the local object will be released, api request will be canceled, and response with following error:
-
-`Error Domain=NSURLErrorDomain Code=-999 "Canceled"`
-
-See: [ARC Memory Management - Apple Developer Documentation](https://developer.apple.com/library/archive/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html)
 
 
 ### Merge interface
 
-Merge multiple api request to one request.
+**API Description**
 
-Usage:
+Merge multiple api request to one request. Use two api together.
 
-Subclass `TYApiMergeService`, then add the requests you want to merge and send.
+```objc
+- (void)addMergeRequestWithApiName:(NSString *)apiName
+                          postData:(nullable NSDictionary *)postData
+                           version:(NSString *)version
+                           success:(nullable TYSuccessID)success
+                           failure:(nullable TYFailureError)failure;
 
-Example:
-
-```objective-c
-  // @property (nonatomic, strong) ExampleMergeRequest *service;
-
-  _service = [[ExampleMergeRequest alloc] init];
-  [_service loadHomeDataWithHomeId:homeId success:^(NSArray<TYApiMergeModel *> *list) {
-
-  } failure:^(NSError *error) {
-
-  }];
+- (void)sendMergeRequestWithGetData:(nullable NSDictionary *)getData
+                            success:(nullable TYSuccessList)success
+                            failure:(nullable TYFailureError)failure;
 ```
 
-ExampleMergeRequest.h
+**Param Description**
+
+| Param    | Description      |
+| -------- | ---------------- |
+| apiName  | API Name         |
+| postData | Business Params  |
+| version  | API Version      |
+| getData  | Common Params    |
+| success  | Success Callback |
+| failure  | Failure Callback |
+
+**Code example**
 
 ```objective-c
-#import <TuyaSmartHomeKit/TYApiMergeService.h>
+- (void)loadHomeDataWithHomeId:(long long)homeId {
+  // self.request = [TuyaSmartRequest alloc] init];
 
-@interface ExampleMergeRequest : TYApiMergeService
+  [self.request addMergeRequestWithApiName:@"tuya.m.my.group.mesh.list" postData:@{} version:@"1.0" success:nil failure:nil];
+  [self.request addApiRequest:@"tuya.m.location.get" postData:@{@"gid": @(homeId)} version:@"2.0" success:nil failure:nil];
 
-- (void)loadHomeDataWithHomeId:(long long)homeId success:(void (^)(NSArray <TYApiMergeModel *> *list))success failure:(TYFailureError)failure;
-
-@end
-```
-
-ExampleMergeRequest.m
-
-```objective-c
-#import "ExampleMergeRequest.h"
-
-@implementation ExampleMergeRequest
-
-- (void)loadHomeDataWithHomeId:(long long)homeId success:(void (^)(NSArray <TYApiMergeModel *> *list))success failure:(TYFailureError)failure {
-
-  self.requestList = [NSMutableArray array];
-
-  [self addApiRequest:@"tuya.m.my.group.mesh.list" postData:@{} version:@"1.0"];
-  [self addApiRequest:@"tuya.m.location.get" postData:@{@"gid": @(homeId)} version:@"2.0"];
-
-  [self sendRequest:@{@"gid": @(homeId)} success:success failure:failure];
+  [self.request sendMergeRequestWithGetData:@{@"gid": @(homeId)} success:success failure:failure];
 }
 
-@end
 ```
+

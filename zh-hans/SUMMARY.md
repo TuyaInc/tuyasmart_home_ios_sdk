@@ -3,8 +3,9 @@
 * [前言](/README.md)
 * [功能概述](./resource/Overview.md)
 * [准备工作](./resource/Preparation.md)
+* [集成 SDK](./resource/Integrated.md)
+* [Demo App](./resource/Demo.md)
 * [iOS 版本适配](./resource/iOSAdaptation.md)
-* [集成SDK](./resource/Integrated.md)
 * [用户管理](./resource/User.md#用户管理)
   - [SDK账户升级](./resource/User.md#SDK账户升级)
   - [手机账号体系](./resource/User.md#手机账号体系)
@@ -46,7 +47,6 @@
 * 智能场景
   - [智能场景](./resource/SmartScene.md#智能场景)
   - [单个场景操作](./resource/SmartScene.md#单个场景操作)
-* [数据流通道](./resource/DataChannel.md)
 * [单点蓝牙](./resource/BLE.md#单点蓝牙-ble)
   - [系统蓝牙状态监测](./resource/BLE.md#系统蓝牙状态监测)
   - [设备扫描](./resource/BLE.md#设备扫描)

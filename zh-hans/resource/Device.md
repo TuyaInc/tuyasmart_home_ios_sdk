@@ -1,10 +1,33 @@
 ## 设备管理
 
-设备管理相关的所有功能对应`TuyaSmartDevice`类，需要使用设备Id进行初始化。错误的设备Id可能会导致初始化失败，返回`nil`。
+涂鸦支持多种设备类型，设备管理相关的所有功能都对应在
+
+| 类名            | 说明             |
+| --------------- | ---------------- |
+| TuyaSmartDevice | 涂鸦设备相关的类 |
+
+`TuyaSmartDevice`类需要使用设备 id 进行初始化。错误的设备 id 可能会导致初始化失败，此时的实例返回 `nil`
 
 ### 更新设备信息
 
 #### 更新单个设备信息
+
+**接口说明**
+
+从云端拉取、同步更新设备信息
+
+```objective-c
+- (void)syncWithCloud:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
 
 Objc:
 
@@ -75,12 +98,46 @@ func updateDeviceInfo() {
 
 #####设备操作控制
 
+**接口说明**
+
+标准功能指令下发
+
+```objective-c
+- (void)publishDpWithCommands:(NSDictionary *)commands
+                      success:(nullable TYSuccessHandler)success
+                      failure:(nullable TYFailureError)failure
+```
+
+**参数说明**
+
+| 参数     | 说明       |
+| -------- | ---------- |
+| commands | 标准指令集 |
+| success  | 成功回调   |
+| failure  | 失败回调   |
+
+**示例代码**
+
+Objc:
+
 ```objective-c
 [self.device publishDpWithCommands:dpCodesCommand success:^{
     NSLog(@"publishDpWithCommands success");
 } failure:^(NSError *error) {
     NSLog(@"publishDpWithCommands failure: %@", error);
 }];
+```
+
+Swift:
+
+```swift
+self.device.publishDp(withCommands: command, success: {
+      print("publishDpWithCommands success")
+    }) { (error) in
+        if let e = error {
+          print("error: \(e)")
+        }
+     }
 ```
 
 【指令格式】
@@ -107,7 +164,9 @@ func updateDeviceInfo() {
 
 ##### 设备状态更新
 
-实现 `TuyaSmartDeviceDelegate`代理协议后，可以在设备状态更变的回调中进行处理，刷新APP设备控制面板的UI。
+实现 `TuyaSmartDeviceDelegate` 代理协议后，可以在设备状态更变的回调中进行处理，刷新 App 设备控制面板的 UI
+
+**示例代码**
 
 Objc:
 
@@ -161,9 +220,9 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 
 ##### 设备功能点
 
-`TuyaSmartDeviceModel`类的`dps`属性（`NSDictionary`类型）定义了当前设备的状态，称作数据点（DP点）或功能点。
+`TuyaSmartDeviceModel` 类的 `dps` 属性（`NSDictionary` 类型）定义了当前设备的状态，称作数据点（DP 点）或功能点
 
-`dps`字典里的每个`key`对应一个功能点的`dpId`，`value`对应一个功能点的`dpValue `，`dpValue`为该功能点的值。<br />
+`dps` 字典里的每个 `key` 对应一个功能点的 `dpId`，`value` 对应一个功能点的 `dpValue `，`dpValue` 为该功能点的值<br />
 
 产品功能点定义参见[涂鸦开发者平台](https://iot.tuya.com/)的产品功能，如下图所示：
 
@@ -174,7 +233,9 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 
 `{"<dpId>":"<dpValue>"}`
 
-根据后台该产品的功能点定义，示例代码如下:
+根据后台该产品的功能点定义，如下:
+
+**示例代码**
 
 Objc:
 
@@ -233,16 +294,16 @@ func publishDps() {
 
 ##### 注意事项：
 
-- 控制命令的发送需要特别注意数据类型。<br />
+- 控制命令的发送需要特别注意数据类型<br />
   比如功能点的数据类型是数值型（value），那控制命令发送的应该是 `@{@"2": @(25)}`  而不是  `@{@"2": @"25"}`<br />
-- 透传类型传输的byte数组是字符串格式、字母需小写并且必须是偶数位。<br />
+- 透传类型传输的 byte 数组是字符串格式（16 进制字符串）、字母需小写并且必须是**偶数位**<br />
   比如正确的格式是: `@{@"1": @"011f"}` 而不是 `@{@"1": @"11f"}`
 
 功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/product/function.html)
 
 ##### 设备控制
 
-设备控制支持三种通道控制，局域网控制，云端控制，和自动方式（如果局域网在线，先走局域网控制，局域网不在线，走云端控制）
+设备控制支持三种通道控制，局域网控制，云端控制和自动方式（如果局域网在线，先走局域网控制，局域网不在线，走云端控制）
 
 局域网控制：
 
@@ -277,7 +338,9 @@ func publishDps() {
 
 ##### 设备状态更新
 
-实现`TuyaSmartDeviceDelegate`代理协议后，可以在设备状态更变的回调中进行处理，刷新APP设备控制面板的UI。
+实现 `TuyaSmartDeviceDelegate` 代理协议后，可以在设备状态更变的回调中进行处理，刷新 App 设备控制面板的 UI
+
+**示例代码**
 
 Objc:
 
@@ -332,6 +395,22 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 
 ### 修改设备名称
 
+**接口说明**
+
+```objective-c
+- (void)updateName:(NSString *)name success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| name    | 设备名称 |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -364,7 +443,22 @@ func modifyDeviceName(_ name: String) {
 
 ### 移除设备
 
-设备被移除后，会重新进入待配网状态（快连模式）。
+设备被移除后，会重新进入待配网状态（快连模式）
+
+**接口说明**
+
+```objective-c
+- (void)remove:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
 
 Objc:
 
@@ -396,7 +490,24 @@ func removeDevice() {
 
 
 
-### 获取设备的wifi信号强度
+### 获取设备的 wifi 信号强度
+
+**接口说明**
+
+调用获取设备 Wi-Fi 信号之后，会通过 `TuyaSmartDeviceDelegate` 的 `device:signal:` 方法进行回调
+
+```objective-c
+- (void)getWifiSignalStrengthWithSuccess:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                        |
+| ------- | --------------------------- |
+| success | 发送获取 Wi-Fi 强度成功回调 |
+| failure | 失败回调                    |
+
+**示例代码**
 
 Objc:
 
@@ -442,6 +553,21 @@ func device(_ device: TuyaSmartDevice!, signal: String!) {
 
 ### 获取网关下的子设备列表
 
+**接口说明**
+
+```objective-c
+- (void)getSubDeviceListFromCloudWithSuccess:(nullable void (^)(NSArray <TuyaSmartDeviceModel *> *subDeviceList))success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                         |
+| ------- | ---------------------------- |
+| success | 成功回调，网关下的子设备信息 |
+| failure | 失败回调                     |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -474,13 +600,42 @@ func getSubDeviceList() {
 
 ### 固件升级
 
-**固件升级流程:**
+**固件升级流程**
 
 获取设备升级信息 -> 下发联网模块升级指令 -> 联网模块升级成功 -> 下发设备控制模块升级指令 -> 设备控制模块升级成功
 
-使用获取设备升级信息接口获取到的TuyaSmartFirmwareUpgradeModel固件升级模型中，type属性能获取到固件的类型，typeDesc属性能获取到固件类型的描述。
+使用获取设备升级信息接口获取到的 `TuyaSmartFirmwareUpgradeModel` 固件升级模型中，type 属性能获取到固件的类型，typeDesc 属性能获取到固件类型的描述
 
-#### 获取设备升级信息：
+#### 获取设备升级信息
+
+**接口说明**
+
+```objective-c
+- (void)getFirmwareUpgradeInfo:(nullable void (^)(NSArray <TuyaSmartFirmwareUpgradeModel *> *upgradeModelList))success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                             |
+| ------- | -------------------------------- |
+| success | 成功回调，设备的固件升级信息列表 |
+| failure | 失败回调                         |
+
+**`TuyaSmartFirmwareUpgradeModel` 数据模型**
+
+| 字段          | 类型      | 说明                                            |
+| ------------- | --------- | ----------------------------------------------- |
+| desc          | NSString  | 升级文案                                        |
+| typeDesc      | NSString  | 设备类型文案                                    |
+| upgradeStatus | NSInteger | 0:无新版本 1:有新版本 2:在升级中 5:等待设备唤醒 |
+| version       | NSString  | 新版本使用的固件版本                            |
+| upgradeType   | NSInteger | 0:app 提醒升级 2:app强制升级 3:检测升级         |
+| url           | NSString  | 蓝牙设备的升级固件包下载 URL                    |
+| fileSize      | NSString  | 固件包的 size, byte                             |
+| md5           | NSString  | 固件的md5                                       |
+| upgradingDesc | NSString  | 固件升级中的提示文案                            |
+
+**示例代码**
 
 Objc:
 
@@ -510,9 +665,7 @@ func getFirmwareUpgradeInfo() {
 }
 ```
 
-
-
-#### 下发升级指令：
+下发升级指令
 
 Objc:
 
@@ -548,7 +701,7 @@ func upgradeFirmware() {
 
 
 
-#### 回调接口：
+回调接口：
 
 Objc:
 
