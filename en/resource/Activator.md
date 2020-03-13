@@ -111,7 +111,7 @@ func getToken() {
 }
 ```
 
-#### Start network configuration.
+#### Start Network Configuration
 
 **Declaration**
 
@@ -198,7 +198,7 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 
 
-#### Stop network configuration.
+#### Stop Network Configuration.
 
 The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
 
@@ -230,14 +230,13 @@ func stopConfigWifi() {
 }
 ```
 
+### HotSpot Mode
 
-## Hotsopt Mode
-
-**Process of hotsopt mode network configuration**
+**Process of HotSpot mode network configuration**
 
 ```sequence
 
-Title: Hotsopt Mode
+Title: HotSpot Mode
 
 participant APP
 participant SDK
@@ -270,7 +269,7 @@ SDK-->APP: Network configuration succeeds
 
 #### Get Token
 
-Before the Hotsopt Mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+Before the HotSpot Mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
 
 **Declaration**
 
@@ -287,8 +286,6 @@ Before the Hotsopt Mode network configuration, the SDK needs to obtain the netwo
 | homeId     | Home Id                     |
 | success    | Success block, return Token |
 | failure    | Failure block               |
-
-
 
 **Declaration**
 
@@ -307,9 +304,7 @@ Callback of config network status update.
 | deviceModel | Return deviceModel when network config successed |
 | error       | Retrun error message when network config failed  |
 
-
-
-Example**
+**Example**
 
 Objc:
 
@@ -339,9 +334,9 @@ func getToken() {
 }
 ```
 
-#### Start network configuration
+#### Start Network Configuration
 
-Hotsopt mode network configuration:
+HotSpot mode network configuration
 
 **Declaration**
 
@@ -352,8 +347,6 @@ Hotsopt mode network configuration:
                   token:(NSString *)token
                 timeout:(NSTimeInterval)timeout;
 ```
-
-
 
 **Parameters**
 
@@ -418,7 +411,7 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 The Hotspot Mode network configuration is the same to the Quick Connection Mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
 
-#### Stop network configuration.
+#### Stop Network Configuration.
 
 The App will continuously broadcast the network configuration information until the network configuration succeeds or the timeout is reached once the network configuration starts. The `[TuyaSmartActivator stopConfigWiFi]` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
 
@@ -448,7 +441,7 @@ func stopConfigWifi() {
 }
 ```
 
-#### Wired network configuration 
+### Wired Network Configuration 
 
 The wired device is connected to the network, not need the name and password of router during the network configuration.  The figure below uses ZigBee wired gateway as an example to describe the wired gateway network configuration process.
 
@@ -631,7 +624,7 @@ func stopConfigWifi() {
 ```
 
 
-### Activate the  sub-device
+### Activate the Sub-Device
 
 ```sequence
 
@@ -656,9 +649,7 @@ SDK-->APP: network configuration succeeds
 
 ```
 
-
-
-#### Start network configuration
+#### Start Network Configuration
 
 **Declaration**
 
@@ -721,7 +712,7 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 }
 ```
 
-#### Stop activating the sub-device
+#### Stop Activating the Sub-Device
 
 The `stopActiveSubDeviceWithGwId` method has to be invoked if you need to cancel the network configuration or the network configuration is completed.
 
@@ -759,7 +750,7 @@ func stopActiveSubDevice() {
 
 
 
-### Bluetooth Wi-Fi configuration
+### Bluetooth Wi-Fi Configuration
 
 If Tuya wifi hardwares support Bluetooth protocol,  Bluetooth-Wifi configuration method can be used to connect  devices. Use bluetooth to transfer information about wifi,  success rate is higher.
 
@@ -792,7 +783,7 @@ Note over APP: stop discovery
 			
 ```
 
-#### Discovery device
+#### Discovery Device
 
 **Declaration**
 
@@ -915,6 +906,8 @@ Swift :
 | deviceModel    | Return deviceModel when network config successed |
 | error          | Retrun error message when network config failed  |
 
+**Example**
+
 Objc :
 
 ```objective-c
@@ -945,7 +938,7 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 
 
-#### Stop discovery
+#### Stop Discovery
 
 **Declaration**
 
@@ -953,7 +946,7 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 - (void)stopDiscover;
 ```
 
-**Parameters**
+**Example**
 
 Objc :
 
