@@ -1,28 +1,45 @@
-设备配网
-
-涂鸦硬件 Wifi 模块主要支持以下**配网模式**：
-
-- 快连模式（Smart Config 模式）
-- 热点模式（AP模式）
-- 有线激活，不需要输入ssid, password (例如 有线网关配网)
-- 子设备激活  (例如 子设备配网)
-- 蓝牙-WiFi 配网
-
-```
-快连模式操作较为简便，建议在配网失败后，再使用热点模式作为备选方案。
-```
-
-配网相关的所有功能对应`TuyaSmartActivator`类（单例）。
 
 
-### 快连模式（EZ配网）
+# 设备配网
 
-**EZ模式配网流程：**
+## 功能概述
+
+
+
+设备配网 SDK 提供了把智能设备配置上路由器的能力，具体包括：
+
+- 快连模式
+
+- 热点模式
+
+- 有线设备配网  
+
+- 子设备配网  
+
+- 蓝牙 WiFi 双模配网
+
+  
+
+## 使用说明
+
+
+
+| 类名                               | 说明                                                       | 注意                   |
+| :--------------------------------- | :--------------------------------------------------------- | :--------------------- |
+| TuyaSmartActivator（单例）         | 提供快连模式、热点模式、有线设备激活、子设备激活等配网能力 | 需要在主线程中调用该类 |
+| TuyaSmartBLEManager （单例）       | 提供扫描蓝牙能力                                           | 需要在主线程中调用该类 |
+| TuyaSmartBLEWifiActivator （单例） | 提供蓝牙-WiFi 双模配网能力                                 | 需要在主线程中调用该类 |
+
+
+
+### 快连模式
+
+快连模式配网流程：
 
 
 ```sequence
 
-Title: EZ 配网
+Title: 快连模式配网
 
 participant APP
 participant SDK
@@ -49,13 +66,41 @@ SDK-->APP: 激活成功
 
 ```
 
+
+
 #### 获取token
 
-开始配网之前，SDK需要在联网状态下从涂鸦云获取配网Token，然后才可以开始EZ/AP模式配网。Token的有效期为10分钟，且配置成功后就会失效（再次配网需要重新获取）。
+开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始快连模式配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）。
+
+
+
+**接口说明**
+
+配网 Token 获取接口
+
+```
+- (void)getTokenWithHomeId:(long long)homeId
+                   success:(TYSuccessString)success
+                   failure:(TYFailureError)failure;
+```
+
+
+
+**参数说明**
+
+| 参数    | 说明                      |
+| :------ | :------------------------ |
+| homeId  | 设备将要绑定到的家庭的 Id |
+| success | 成功回调，返回配网 Token  |
+| failure | 失败回调，返回失败原因    |
+
+
+
+**示例代码**
 
 Objc:
 
-```
+```objective-c
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
 		NSLog(@"getToken success: %@", token);
@@ -85,16 +130,64 @@ func getToken() {
 
 #### 开始配网
 
-EZ模式配网：
 
-Objc:
+
+**接口说明**
+
+开始配网接口
+
+```
+- (void)startConfigWiFi:(TYActivatorMode)mode
+                   ssid:(NSString *)ssid
+               password:(NSString *)password
+                  token:(NSString *)token
+                timeout:(NSTimeInterval)timeout;
+```
+
+
+
+**参数说明**
+
+| 参数     | 说明       |
+| :------- | :--------- |
+| mode     | 配网模式   |
+| ssid     | WiFi 名称  |
+| password | WiFi 密码  |
+| token    | 配网 Token |
+| timeout  | 超时时间   |
+
+
+
+**接口说明**
+
+配网代理回调
+
+```
+- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
+```
+
+
+
+**参数说明**
+
+| 参数        | 说明                                               |
+| :---------- | :------------------------------------------------- |
+| activator   | 配网使用 TuyaSmartActivator 对象实例               |
+| deviceModel | 配网成功时，返回此次配网的设备模型，失败时返回 nil |
+| error       | 配网失败时，标示错误信息，成功时为 nil             |
+
+
+
+**示例代码**
+
+Objc :
 
 ```objc
 - (void)startConfigWiFi:(NSString *)ssid password:(NSString *)password token:(NSString *)token {
 	// 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
 	[TuyaSmartActivator sharedInstance].delegate = self;
 
-	// 开始配网
+	// 开始配网，快连模式对应 mode 为 TYActivatorModeEZ
 	[[TuyaSmartActivator sharedInstance] startConfigWiFi:TYActivatorModeEZ ssid:ssid password:password token:token timeout:100];
 }
 
@@ -112,7 +205,7 @@ Objc:
 
 ```
 
-Swift:
+Swift :
 
 ```swift
 func startConfigWiFi(withSsid ssid: String, password: String, token: String) {
@@ -138,11 +231,23 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 
 
-注意`ssid`和`password`需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
+注意 `ssid ` 和 `password` 需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
+
+
 
 #### 停止配网
 
-开始配网操作后，APP会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用`[TuyaSmartActivator stopConfigWiFi]`方法。
+开始配网操作后，App 会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用 `[TuyaSmartActivator stopConfigWiFi]` 方法。
+
+**接口说明**
+
+```
+- (void)stopConfigWiFi;
+```
+
+
+
+**示例代码**
 
 Objc:
 
@@ -164,13 +269,13 @@ func stopConfigWifi() {
 
 
 
-### 热点模式（AP配网）
+### 热点模式
 
-**AP模式配网流程：**
+热点模式配网流程：
 
 ```sequence
 
-Title: AP 配网
+Title: 热点配网
 
 participant APP
 participant SDK
@@ -199,13 +304,41 @@ SDK-->APP: 激活成功
 
 ```
 
+
+
 #### 获取token
 
-开始配网之前，SDK需要在联网状态下从涂鸦云获取配网Token，然后才可以开始EZ/AP模式配网。Token的有效期为10分钟，且配置成功后就会失效（再次配网需要重新获取）。
+开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始热点模式配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）。
+
+
+
+**接口说明**
+
+配网 Token 获取接口
+
+```
+- (void)getTokenWithHomeId:(long long)homeId
+                   success:(TYSuccessString)success
+                   failure:(TYFailureError)failure;
+```
+
+
+
+**参数说明**
+
+| 参数    | 说明                      |
+| :------ | :------------------------ |
+| homeId  | 设备将要绑定到的家庭的 Id |
+| success | 成功回调，返回配网 Token  |
+| failure | 失败回调，返回失败原因    |
+
+
+
+**示例代码**
 
 Objc:
 
-```
+```objective-c
 - (void)getToken {
 	[[TuyaSmartActivator sharedInstance] getTokenWithHomeId:homeId success:^(NSString *token) {
 		NSLog(@"getToken success: %@", token);
@@ -235,7 +368,55 @@ func getToken() {
 
 #### 开始配网
 
-AP模式配网：
+
+
+**接口说明**
+
+开始配网接口
+
+```
+- (void)startConfigWiFi:(TYActivatorMode)mode
+                   ssid:(NSString *)ssid
+               password:(NSString *)password
+                  token:(NSString *)token
+                timeout:(NSTimeInterval)timeout;
+```
+
+
+
+**参数说明**
+
+| 参数     | 说明       |
+| :------- | :--------- |
+| mode     | 配网模式   |
+| ssid     | WiFi 名称  |
+| password | WiFi 密码  |
+| token    | 配网 Token |
+| timeout  | 超时时间   |
+
+
+
+**接口说明**
+
+配网代理回调
+
+```objc
+- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
+```
+
+
+
+**参数说明**
+
+| 参数        | 说明                                               |
+| :---------- | :------------------------------------------------- |
+| activator   | 配网使用 TuyaSmartActivator 对象实例               |
+| deviceModel | 配网成功时，返回此次配网的设备模型，失败时返回 nil |
+| error       | 配网失败时，标示错误信息，成功时为 nil             |
+
+
+
+**示例代码**
 
 Objc:
 
@@ -244,7 +425,7 @@ Objc:
 	// 设置 TuyaSmartActivator 的 delegate，并实现 delegate 方法
 	[TuyaSmartActivator sharedInstance].delegate = self;
 
-	// 开始配网
+	// 开始配网，热点模式对应 mode 为 TYActivatorModeAP
 	[[TuyaSmartActivator sharedInstance] startConfigWiFi:TYActivatorModeAP ssid:ssid password:password token:token timeout:100];
 }
 
@@ -262,7 +443,7 @@ Objc:
 
 ```
 
-Swift:
+Swift 示例:
 
 ```swift
 func startConfigWiFi(withSsid ssid: String, password: String, token: String) {
@@ -288,13 +469,23 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 
 
-AP模式配网与EZ模式类似，把`[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]`的第一个参数改为`TYActivatorModeAP`即可。注意`ssid`和`password`需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
+热点模式配网与快连模式类似，把`[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]`的第一个参数改为 `TYActivatorModeAP` 即可。注意 `ssid` 和 `password` 需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
 
-注意`ssid`和`password`需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
+注意 `ssid` 和 `password` 需要填写的是路由器的热点名称和密码，并不是设备的热点名称和密码。
+
+
 
 #### 停止配网
 
-开始配网操作后，APP会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用`[TuyaSmartActivator stopConfigWiFi]`方法。
+开始配网操作后，App 会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用 `[TuyaSmartActivator stopConfigWiFi]` 方法。
+
+**接口说明**
+
+```objc
+- (void)stopConfigWiFi;
+```
+
+**示例代码**
 
 Objc:
 
@@ -316,9 +507,9 @@ func stopConfigWifi() {
 
 
 
-### 有线网关配网
+### 有线设备配网
 
-有线网关已通过网线连接着网络，不用输入路由器的热点名称和密码。下图以 ZigBee 有线网关为例，描述有线网关配网流程。
+有线设备已通过网线连接着网络，设备激活过程无需输入路由器的名称和密码。下图以 ZigBee 有线网关为例，描述有线网关配网流程。
 
 ```sequence
 
@@ -349,9 +540,37 @@ SDK-->APP: 激活成功
 
 ```
 
+
+
 #### 获取token
 
-开始配网之前，SDK需要在联网状态下从涂鸦云获取配网Token，然后才可以开始EZ/AP模式配网。Token的有效期为10分钟，且配置成功后就会失效（再次配网需要重新获取）。
+开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始有线设备激活配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）。
+
+
+
+**接口说明**
+
+配网 Token 获取接口
+
+```objc
+- (void)getTokenWithHomeId:(long long)homeId
+                   success:(TYSuccessString)success
+                   failure:(TYFailureError)failure;
+```
+
+
+
+**参数说明**
+
+| 参数    | 说明                      |
+| :------ | :------------------------ |
+| homeId  | 设备将要绑定到的家庭的 Id |
+| success | 成功回调，返回配网 Token  |
+| failure | 失败回调，返回失败原因    |
+
+
+
+**示例代码**
 
 Objc:
 
@@ -383,7 +602,28 @@ func getToken() {
 
 
 
-#### 有线网关激活
+#### 开始配网
+
+
+
+**接口说明**
+
+```objc
+- (void)startConfigWiFiWithToken:(NSString *)token timeout:(NSTimeInterval)timeout
+```
+
+
+
+**参数说明**
+
+| 参数    | 说明       |
+| ------- | ---------- |
+| token   | 配网 Token |
+| Timeout | 超时时间   |
+
+
+
+**示例代码**
 
 Objc:
 
@@ -439,7 +679,17 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 #### 停止配网
 
-开始配网操作后，APP会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用`[TuyaSmartActivator stopConfigWiFi]`方法。
+开始配网操作后，App 会持续广播配网信息（直到配网成功，或是超时）。如果需要中途取消操作或配网完成，需要调用 `[TuyaSmartActivator stopConfigWiFi]` 方法。
+
+
+
+**接口说明**
+
+```objc
+- (void)stopConfigWiFi;
+```
+
+**示例代码**
 
 Objc:
 
@@ -461,7 +711,7 @@ func stopConfigWifi() {
 
 
 
-### 子设备激活
+### 子设备配网
 
 ```sequence
 
@@ -486,7 +736,30 @@ SDK-->APP: 子设备激活成功
 
 ```
 
-如果需要中途取消操作或配网完成，需要调用`stopActiveSubDeviceWithGwId`方法
+
+
+#### 开始子设备配网
+
+
+
+**接口说明**
+
+```objc
+- (void)activeSubDeviceWithGwId:(NSString *)gwId timeout:(NSTimeInterval)timeout
+```
+
+
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| gwId    | 网关 Id  |
+| timeout | 超时时间 |
+
+
+
+**示例代码**
 
 Objc:
 
@@ -537,6 +810,24 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 
 #### 停止激活子设备
 
+**接口说明**
+
+```objc
+- (void)stopActiveSubDeviceWithGwId:(NSString *)gwId
+```
+
+
+
+**参数说明**
+
+| 参数 | 说明    |
+| ---- | ------- |
+| gwId | 网关 Id |
+
+
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -557,9 +848,9 @@ func stopActiveSubDevice() {
 
 
 
-### 蓝牙 WiFi 配网
+### 蓝牙 Wi-Fi 双模配网
 
-如果 WiFi 模块支持蓝牙协议，可以选择蓝牙 WiFi 配网方式，通过蓝牙将 WiFi 信息发送给设备，然后设备拿到 WiFi 信息后进行配网操作，该方案成功率较高。
+如果设备模块支持蓝牙协议，可以选择蓝牙 WiFi 配网方式，通过蓝牙将 WiFi 信息发送给设备，然后设备拿到 WiFi 信息后进行配网操作，该方案成功率较高。
 
 ```sequence
 Title: 蓝牙 WiFi 配网
@@ -593,7 +884,47 @@ Note over APP: 停止配网
 		
 ```
 
+
+
 #### 发现设备
+
+
+
+**接口说明**
+
+开始扫描接口
+
+```objc
+- (void)startListening:(BOOL)clearCache
+```
+
+
+
+**参数说明**
+
+| 参数       | 说明             |
+| ---------- | ---------------- |
+| clearCache | 是否清空缓存设备 |
+
+
+
+设备回调接口
+
+```objc
+- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo
+```
+
+
+
+**参数说明**
+
+| 参数       | 说明                   |
+| ---------- | ---------------------- |
+| deviceInfo | 扫描到的未激活设备信息 |
+
+
+
+**代码示例**
 
 Objc:
 
@@ -615,7 +946,7 @@ Objc:
 }
 ```
 
-Swift:
+Swift 示例:
 
 ```swift
 TuyaSmartBLEManager.sharedInstance().delegate = self
@@ -635,24 +966,13 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 #### 设备激活
 
-扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下
+扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下。
 
-使用方法：
+
+
+**接口说明**
 
 ```objective-c
-/**
- *  connect ble wifi device
- *  连接蓝牙 Wifi 设备
- *
- *  @param UUID        蓝牙设备唯一标识
- *  @param homeId      当前家庭Id
- *  @param productId   产品Id
- *  @param ssid        路由器热点名称
- *  @param password    路由器热点密码
- *  @param timeout     轮询时间
- *  @param success     操作成功回调
- *  @param failure     操作失败回调
- */
 - (void)startConfigBLEWifiDeviceWithUUID:(NSString *)UUID
                                   homeId:(long long)homeId
                                productId:(NSString *)productId
@@ -663,7 +983,26 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
                                  failure:(TYFailureHandler)failure;
 ```
 
-Objc 示例:
+
+
+**参数说明**
+
+| 参数      | 说明           |
+| --------- | -------------- |
+| UUID      | 设备唯一标识   |
+| homeId    | 当前家庭 Id    |
+| productId | 产品 Id        |
+| ssid      | 路由器热点名称 |
+| password  | 路由器热点密码 |
+| timeout   | 超时时间       |
+| success   | 操作成功回调   |
+| failure   | 操作失败回调   |
+
+
+
+**示例代码**
+
+Objc:
 
 ```objective-c
   [[TuyaSmartBLEWifiActivator sharedInstance] startConfigBLEWifiDeviceWithUUID:TYBLEAdvModel.uuid homeId:homeId productId:TYBLEAdvModel.productId ssid:ssid password:password  timeout:100 success:^{
@@ -673,7 +1012,7 @@ Objc 示例:
         }];
 ```
 
-Swift 示例:
+Swift:
 
 ```swift
   TuyaSmartBLEWifiActivator.sharedInstance() .startConfigBLEWifiDevice(withUUID: TYBLEAdvModel.uuid, homeId: homeId, productId:TYBLEAdvModel.productId, ssid: ssid, password: password, timeout: 100, success: {
@@ -687,7 +1026,29 @@ Swift 示例:
 
 #### 设备激活回调
 
-Objc 示例:
+
+
+**接口说明**
+
+```objc
+- (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error
+```
+
+
+
+**参数说明**
+
+| 参数        | 说明                                               |
+| ----------- | -------------------------------------------------- |
+| activator   | 配网使用 TuyaSmartBLEWifiActivator 对象实例        |
+| deviceModel | 配网成功时，返回此次配网的设备模型，失败时返回 nil |
+| error       | 配网失败时，标示错误信息，成功时为 nil             |
+
+
+
+**示例代码**
+
+Objc:
 
 ```objective-c
 - (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
@@ -701,7 +1062,7 @@ Objc 示例:
 }
 ```
 
-Swift 示例:
+Swift:
 
 ```swift
 func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiConfigDevice deviceModel: TuyaSmartDeviceModel, error: Error) {
@@ -719,13 +1080,23 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 #### 停止发现设备
 
-Objc 示例:
+**接口说明**
 
-```objective-c
+```objc
+- (void)stopDiscover;
+```
+
+
+
+**示例代码**
+
+Objc:
+
+```objc
 [[TuyaSmartBLEWifiActivator sharedInstance] stopDiscover];
 ```
 
-Swift 示例:
+Swift :
 
 ```swift
 TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover

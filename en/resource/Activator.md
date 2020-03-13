@@ -1,27 +1,34 @@
+# Network Configuration
+
+## Functional Overview
+
+The network configuration modes supported by Tuya SDK including:
+
+- Quick Connection Mode 
+-  Hotspot Mode
+-  Wired Network Configuration
+- Sub-device Configuration 
+- Bluetooth Wi-Fi Configuration
 
 
-## Network Configuration
 
-The network configuration modes supported by Tuya hardware module including:
+## Instructions 
 
-- quick connection mode (TLink, it is referred to as the EZ mode) 
--  hotspot mode (AP mode). 
--  wired network configuration (Wired gateway use, no wifi configuration information required)
-- sub-device configuration 
-- bluetooth-wifi configuration
-
-The quick connection mode features convenient operation. It is recommended to use the hotspot mode as the backup in case the quick connection mode fails. 
-
-All functions related to the network configuration are realized by using the `TuyaSmartActivator` Class (singleton).
+| Class Name                         | Description                                                | Note                   |
+| :--------------------------------- | :--------------------------------------------------------- | :--------------------- |
+| TuyaSmartActivator（单例）         | 提供快连模式、热点模式、有线设备激活、子设备激活等配网能力 | 需要在主线程中调用该类 |
+| TuyaSmartBLEManager （单例）       | 提供扫描蓝牙能力                                           | 需要在主线程中调用该类 |
+| TuyaSmartBLEWifiActivator （单例） | 提供蓝牙-WiFi 双模配网能力                                 | 需要在主线程中调用该类 |
 
 
-### EZ mode
 
-**Process of EZ mode network configuration:**
+### Quick Connection Mode
+
+**Process of Quick Connection Mode network configuration:**
 
 ```sequence
 
-Title: EZ Mode
+Title: Quick Connection Mode
 
 participant APP
 participant SDK
@@ -48,9 +55,19 @@ SDK-->APP: Network configuration succeeds
 
 ```
 
+
+
 #### Get Token
 
-Before the EZ/AP mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+Before the Quick Connection Mode network configuration, SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+
+
+
+**Interface**
+
+
+
+
 
 Objc:
 
