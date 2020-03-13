@@ -46,7 +46,6 @@
 * Smart scene
   - [Smart scene](./resource/SmartScene.md#smart-scene)
   - [Scene operation](./resource/SmartScene.md#scene-operation)
-* [Data channel](./resource/DataChannel.md)
 * [Single BLE](./resource/BLE.md#single-ble)
   - [Bluetooth Status Monitor](./resource/BLE.md#bluetooth-status-monitor)
   - [Bluetooth Scan](./resource/BLE.md#ble-device-scan)
