@@ -46,7 +46,6 @@
 * 智能场景
   - [智能场景](./resource/SmartScene.md#智能场景)
   - [单个场景操作](./resource/SmartScene.md#单个场景操作)
-* [数据流通道](./resource/DataChannel.md)
 * [单点蓝牙](./resource/BLE.md#单点蓝牙-ble)
   - [系统蓝牙状态监测](./resource/BLE.md#系统蓝牙状态监测)
   - [设备扫描](./resource/BLE.md#设备扫描)
