@@ -48,7 +48,7 @@ Initiate push in the `didFinishLaunchingWithOptions` method.
 
 ```
 
-### Register pushId
+### Register PushId
 
 Register pushId in Tuya SDK in the `didRegisterForRemoteNotificationsWithDeviceToken`. 
 
@@ -61,7 +61,7 @@ Register pushId in Tuya SDK in the `didRegisterForRemoteNotificationsWithDeviceT
 ```
 
 
-### Receive notification
+### Receive Notification
 
 Execute in the delegate method `didReceiveRemoteNotification` when the remote notification is received. 
 
@@ -73,14 +73,14 @@ Execute in the delegate method `didReceiveRemoteNotification` when the remote no
 }
 ```
 
-### Send push
+### Send Push
 
-#### Add operation push
+#### Add Operation Push
 
 Tuya Developer Platform -> User operation -> Message center ->Add message
 ![ios-push-setting](./images/ios-push-setting-operation.png)
 
-#### Add alarm push
+#### Add Alarm Push
 
 Tuya Developer Platform -> Product -> Extended function ->Set alarm -> Add rules for alarms (apply the push mode)
 ![ios-push-setting](./images/ios-push-setting-warning.png)
