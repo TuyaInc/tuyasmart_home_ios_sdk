@@ -14,15 +14,15 @@
 ## 3.13.0(2019-12-06)
 
 - 新增功能
-  - 支持标准DPCode 控制
+  - 支持标准 DPCode 控制
   - 家庭权限角色支持多样性
 
 ## 3.12.0(2019-09-21)
 
 - 功能变化
   - 设备支持更新头像
-  - 支持wifi和蓝牙双模设备
-  - 支持子设备OTA
+  - 支持 wifi 和蓝牙双模设备
+  - 支持子设备 OTA
   - 固件升级添加升级中的代理回调
   - AP 配网优化
   - 定时支持备注和推送功能
@@ -32,28 +32,23 @@
 ## 2.12.46(2019-07-22)
 
 - bug 修复，推送消息可分类开启
-- bug fixed, Push Notification was classified. 
 
 ## 2.10.97(2019-06-20)
 
 - 兼容新版本Cocoapods (>=1.6.0)
-- Support  CocoaPods (>= 1.6.0)
 
 ## 2.10.96(2019-05-11)
 
 - bug 修复，新增免密码配网，新增消息推送的开启和关闭，新增开发环境推送支持
-- bug fixed, add device network configuration without password, add push notification to open or close, add development environment push support
 
 ## 2.8.44(2019-03-28)
 
 - 修复 Wi-Fi 子设备在线异常问题
-- Fixed an online problem with Wi-Fi subdevices
 
 ## 2.8.43(2019-03-15)
 
-- 新的加密方式：需要在涂鸦开发者平台申请应用的 Appkey，AppSecret，iOS安全图片，bundleId
+- 新的加密方式：需要在涂鸦开发者平台申请应用的 Appkey，AppSecret，iOS 安全图片，bundleId
 
-- New encryption:  Appkey, AppSecret, iOS security images, bundleId for application on Tuya Developer Platform
 
 ## 0.2.2(2019-01-19)
 bug fixed
