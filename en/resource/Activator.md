@@ -14,11 +14,11 @@ The network configuration modes supported by Tuya SDK including:
 
 ## Instructions 
 
-| Class Name                         | Description                                                | Note                   |
-| :--------------------------------- | :--------------------------------------------------------- | :--------------------- |
-| TuyaSmartActivator（单例）         | 提供快连模式、热点模式、有线设备激活、子设备激活等配网能力 | 需要在主线程中调用该类 |
-| TuyaSmartBLEManager （单例）       | 提供扫描蓝牙能力                                           | 需要在主线程中调用该类 |
-| TuyaSmartBLEWifiActivator （单例） | 提供蓝牙-WiFi 双模配网能力                                 | 需要在主线程中调用该类 |
+| Class Name                              | Description                                                  | Note                      |
+| :-------------------------------------- | :----------------------------------------------------------- | :------------------------ |
+| TuyaSmartActivator（Singleton）         | Provides Quick Connection Mode, Hotspot Mode, Wired  Network Configuration and Sub-device Configuration. | Called in the main thread |
+| TuyaSmartBLEManager （Singleton）       | Provides the ability to scan Bluetooth                       | Called in the main thread |
+| TuyaSmartBLEWifiActivator （Singleton） | Provides Bluetooth Wi-Fi dual-mode network configuration     | Called in the main thread |
 
 
 
@@ -270,7 +270,7 @@ SDK-->APP: Network configuration succeeds
 
 #### Get Token
 
-Before the hotsopt mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+Before the Hotsopt Mode network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
 
 **Declaration**
 
@@ -416,7 +416,7 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
 }
 ```
 
-The hotspot mode network configuration is the same to the quick connection mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
+The Hotspot Mode network configuration is the same to the Quick Connection Mode network configuration. You just need to change the first parameter of the `[TuyaSmartActivator startConfigWiFi:ssid:password:token:timeout:]` to TYActivatorModeAP. But the `ssid` and `password` needs to be the name and password of router hotspot instead of the device hotspot.
 
 #### Stop network configuration.
 
@@ -483,7 +483,7 @@ SDK-->APP: network configuration succeeds
 
 #### Get Token
 
-Before the wired network configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
+Before the Wired Network Configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
 
 **Declaration**
 
