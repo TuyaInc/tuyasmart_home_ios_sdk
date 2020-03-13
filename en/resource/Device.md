@@ -1,10 +1,33 @@
-## Device management
+## Device Management
+
+Tuya supports multiple device types, and all functions related to device management.
+
+| Class           | Description                  |
+| --------------- | ---------------------------- |
+| TuyaSmartDevice | Tuya device management class |
 
 The device ID needs to be used to initiate all `TuyaSmartDevice` classes related to all functions for device control. Wrong device Id may cause initiation failure, and the `nil` will be returned.
 
-### Update device information
+### Update Device Information
 
-#### Update single device information
+#### Update Single Device Information
+
+**Declaration**
+
+Sync device info from cloud
+
+```objective-c
+- (void)syncWithCloud:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description   |
+| --------- | ------------- |
+| success   | Success block |
+| failure   | Failure block |
+
+**Example**
 
 Objc:
 
@@ -44,7 +67,7 @@ Device control is currently divided into **standard device control** and **custo
 
 #### Standard Device Control (Beta)
 
-##### Standard device feature set
+##### Standard Device Feature Set
 
 What is the standard device feature set?
 
@@ -60,7 +83,7 @@ Unify the definition of the function set of similar products and formulate a set
 
 
 
-##### Does the device support standardization
+##### Does the Device Support Standardization
 
 The `standard` property (type `BOOL`) of the `TuyaSmartDeviceModel` class defines whether the current device supports standardized control
 
@@ -70,7 +93,27 @@ Each key in the dpCodes dictionary corresponds to a dpCode of a function point, 
 
 
 
-##### Standard device control
+##### Standard Device Control
+
+**Declaration**
+
+```objective-c
+- (void)publishDpWithCommands:(NSDictionary *)commands
+                      success:(nullable TYSuccessHandler)success
+                      failure:(nullable TYFailureError)failure
+```
+
+**Parameters**
+
+| Parameter | Description      |
+| --------- | ---------------- |
+| commands  | Standard command |
+| success   | Success block    |
+| failure   | Failure block    |
+
+**Example**
+
+Objc:
 
 ```objective-c
 [self.device publishDpWithCommands:dpCodesCommand success:^{
@@ -78,6 +121,18 @@ Each key in the dpCodes dictionary corresponds to a dpCode of a function point, 
 } failure:^(NSError *error) {
     NSLog(@"publishDpWithCommands failure: %@", error);
 }];
+```
+
+Swift:
+
+```swift
+self.device.publishDp(withCommands: command, success: {
+      print("publishDpWithCommands success")
+    }) { (error) in
+        if let e = error {
+          print("error: \(e)")
+        }
+     }
 ```
 
 【Commands】
@@ -102,9 +157,11 @@ Each key in the dpCodes dictionary corresponds to a dpCode of a function point, 
 {"colour_data" : "009003e803e8"}
 ```
 
-##### Update device status
+##### Update Device Status
 
 After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
+
+**Example**
 
 Objc:
 
@@ -157,7 +214,7 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 
 #### Custom Device Control
 
-##### Functions of device
+##### Functions of Device
 
 The `dps` (`NSDictionary` type) attribute of the `TuyaSmartDeviceModel` class defines the state of the device, and the state is called data point (DP) or function point.
 Each `key` in the `dps` dictionary refers to a `dpId` of a function point, and `Value` refers to the `dpValue` of a function point. The `dpValue` is the value of the function point.
@@ -170,6 +227,8 @@ The control instructions shall be sent in the format given below:
 `{"<dpId>":"<dpValue>"}`
 
 According to the definition of function points of the product in the back end, the example codes are as follows.
+
+**Example**
 
 Objc:
 
@@ -229,7 +288,7 @@ func publishDps() {
 }
 ```
 
-##### Precautions:
+##### Precautions
 
 - Special attention shall be paid to the type of data in sending the control commands. For example, the data type of function points shall be value, and the `@{@"2": @(25)}` instead of `@{@"2": @"25"}` shall be sent for the control command.
 - In the transparent transmission, the byte string shall be the string format, and all letters shall be in the lower case, and the string must have even bits. The correct format shall be: `@{@"1": @"011f"}` instead of `@{@"1": @"11f"}`
@@ -238,11 +297,11 @@ func publishDps() {
 For more concepts of function points, please refer to the [QuickStart-Related Concepts of Function Points](https://docs.tuya.com/en/product/function.html)
 
 
-##### Device control
+##### Device Control
 
 Device control supports three kinds of channel control, LAN control, cloud control, and automatic mode (if LAN is online, first go LAN control, LAN is not online, go cloud control)
 
-##### LAN control:
+##### LAN Control
 
 ```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
@@ -252,7 +311,7 @@ Device control supports three kinds of channel control, LAN control, cloud contr
 	}];
 ```
 
-##### Cloud control
+##### Cloud Control
 
 ```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
@@ -262,7 +321,7 @@ Device control supports three kinds of channel control, LAN control, cloud contr
 	}];
 ```
 
-##### Auto mode
+##### Auto Mode
 
 ```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
@@ -273,9 +332,11 @@ Device control supports three kinds of channel control, LAN control, cloud contr
 ```
 
 
-##### Update device status
+##### Update Device Status
 
 After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
+
+**Example**
 
 Objc:
 
@@ -326,7 +387,23 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 }
 ```
 
-### Modify the device name
+### Modify the Device Name
+
+**Declaration**
+
+```objective-c
+- (void)updateName:(NSString *)name success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description     |
+| --------- | --------------- |
+| name      | New device name |
+| success   | Success block   |
+| failure   | Failure block   |
+
+**Example**
 
 Objc:
 
@@ -356,9 +433,24 @@ func modifyDeviceName(_ name: String) {
 }
 ```
 
-### Remove device
+### Remove Device
 
 After a device is removed, it will be in the to-be-network-configured status (quick connection mode).
+
+**Declaration**
+
+```objective-c
+- (void)remove:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description   |
+| --------- | ------------- |
+| success   | Success block |
+| failure   | Failure block |
+
+**Example**
 
 Objc:
 
@@ -388,7 +480,24 @@ func removeDevice() {
 }
 ```
 
-### Obtain Wifi signal strength of device
+### Obtain Wifi Signal Strength of Device
+
+**Declaration**
+
+After calling Get Device Wi-Fi Signal,  `TuyaSmartDeviceDelegate`  `device:signal:` will be called
+
+```objective-c
+- (void)getWifiSignalStrengthWithSuccess:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description        |
+| --------- | ------------------ |
+| success   | Send success block |
+| failure   | Failure block      |
+
+**Example**
 
 Objc:
 
@@ -430,7 +539,22 @@ func device(_ device: TuyaSmartDevice!, signal: String!) {
 }
 ```
 
-### Obtain the sub-device list of a gateway
+### Obtain the Sub-Device List of a Gateway
+
+**Declaration**
+
+```objective-c
+- (void)getSubDeviceListFromCloudWithSuccess:(nullable void (^)(NSArray <TuyaSmartDeviceModel *> *subDeviceList))success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description   |
+| --------- | ------------- |
+| success   | Success block |
+| failure   | Failure block |
+
+**Example**
 
 Objc:
 
@@ -461,7 +585,7 @@ func getSubDeviceList() {
 ```
 
 
-### Firmware upgrade
+### Firmware Upgrade
 
 **Firmware upgrade process:**
 
@@ -469,7 +593,36 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 
 User obtain device upgrade information interface to get TuyaSmartFirmwareUpgradeModel, you can get firmware type from type property, get type description from typeDesc property.
 
-#### Obtain device upgrade information:
+#### Obtain Device Upgrade Information
+
+**Declaration**
+
+```objective-c
+- (void)getFirmwareUpgradeInfo:(nullable void (^)(NSArray <TuyaSmartFirmwareUpgradeModel *> *upgradeModelList))success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description   |
+| --------- | ------------- |
+| success   | Success block |
+| failure   | Failure block |
+
+**`TuyaSmartFirmwareUpgradeModel` Description**
+
+| Field         | Type      | Description                                                  |
+| ------------- | --------- | ------------------------------------------------------------ |
+| desc          | NSString  | Upgrade title                                                |
+| typeDesc      | NSString  | Device type upgrade content                                  |
+| upgradeStatus | NSInteger | 0:No upgrade 1:Has new version 2:Upgrading 5:Waiting for wake up |
+| version       | NSString  | Firmware version                                             |
+| upgradeType   | NSInteger | 0:App Remind upgrade 2:app force upgrade 3:check upgrade     |
+| url           | NSString  | URL for firmware                                             |
+| fileSize      | NSString  | Firmware size                                                |
+| md5           | NSString  | MD5 for Firmware                                             |
+| upgradingDesc | NSString  | The content when upgrading                                   |
+
+**Example**
 
 Objc:
 
@@ -499,7 +652,7 @@ func getFirmwareUpgradeInfo() {
 }
 ```
 
-#### Send upgrade instruction:
+#### Send Upgrade Instruction
 
 Objc:
 
@@ -534,7 +687,7 @@ func upgradeFirmware() {
 }
 ```
 
-#### Callback interface:
+#### Callback Interface
 Objc:
 
 ```objc
