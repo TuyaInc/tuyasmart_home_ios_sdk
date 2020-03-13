@@ -1,18 +1,52 @@
-#### 定时任务
+##定时任务
 
+`TuyaSmartTimerKit` 内提供了**设备**与**群组**设置定时执行相应动作的接口封装
 
+### 设计思路
 
-设计思路如下图所示：
+以设备为例，定时的设计思路如下图所示:
 
 ![Timer](./images/ios-sdk-timer.jpg)
 
-定时任务相关的所有功能对应`TuyaSmartTimer`类。
 
-_注：loops: @"0000000", 每一位 0:关闭,1:开启, 从左至右依次表示: 周日 周一 周二 周三 周四 周五 周六_
+
+| 类名           | 说明             |
+| -------------- | ---------------- |
+| TuyaSmartTimer | 定时任务接口封装 |
 
 ### 增加定时任务
 
-增加一个timer到指定device的指定task下
+> 每个设备或群组定时的上限为 30 个
+
+为 device 或 group 新增一个定时 timer 到指定的 task 下
+
+**接口说明**
+
+```objective-c
+- (void)addTimerWithTask:(NSString *)task
+                   loops:(NSString *)loops
+                   devId:(NSString *)devId
+                    time:(NSString *)time
+                     dps:(NSDictionary *)dps
+                timeZone:(NSString *)timeZone
+                 success:(TYSuccessHandler)success
+                 failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明     |
+| -------- | -------- |
+| task     | 定时任务名称 |
+| loops    | 循环次数，格式 "0000000"<br />每一位 0:关闭, 1:开启, 从左至右依次表示: 周日 周一 周二 周三 周四 周五 周六<br />如每个周一: 0100000 |
+| devId    | 设备 id，如果是群组传群组 id |
+| time     | 定时的时间，如 18:00 |
+| dps      | dps 命令 |
+| timeZone | 要设置的设备或群组的时区，格式如 +08:00，如果没有传手机时区 |
+| success  | 成功回调  |
+| failure | 失败回调 |
+
+**示例代码**
 
 Objc:
 
@@ -20,12 +54,17 @@ Objc:
 - (void)addTimer {
 	// self.timer = [[TuyaSmartTimer alloc] init];
 	NSDictionary *dps = @{@"1": @(YES)};
-	
-	[self.timer addTimerWithTask:@"timer_task_name" loops:@"1000000" devId:@"device_id" time:@"18:00" dps:dps timeZone:@"+08:00" success:^{
-		NSLog(@"addTimerWithTask success");
-	} failure:^(NSError *error) {
-		NSLog(@"addTimerWithTask failure: %@", error);
-	}];
+	[self.timer addTimerWithTask:@"timer_task_name"
+                         loops:@"1000000" 
+                         devId:@"device_id"
+                          time:@"18:00" 
+                           dps:dps
+                      timeZone:@"+08:00"
+                       success:^{
+		      NSLog(@"addTimerWithTask success");
+	    } failure:^(NSError *error) {
+		      NSLog(@"addTimerWithTask failure: %@", error);
+	    }];
 }
 ```
 
@@ -48,7 +87,32 @@ func addTimer() {
 
 ### 获取定时任务状态
 
-获取指定device下所有task模型
+获取 device 或群组下所有 task 定时任务
+
+**接口说明**
+
+```objective-c
+- (void)getTimerTaskStatusWithDeviceId:(NSString *)devId
+                               success:(void(^)(NSArray<TYTimerTaskModel *> *list))success
+                               failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                         |
+| ------- | ---------------------------- |
+| devId   | 设备 id，如果是群组传群组 id |
+| success | 成功回调，获取的定时任务数组 |
+| failure | 失败回调                     |
+
+**`TYTimerTaskModel` 模型说明**
+
+| 字段名   | 类型      | 说明                    |
+| -------- | --------- | ----------------------- |
+| taskName | NSString  | 定时任务名              |
+| status   | NSInteger | 任务状态，0:关闭,1:开启 |
+
+**示例代码**
 
 Objc:
 
@@ -82,7 +146,29 @@ func getTimer() {
 
 ### 更新定时任务状态
 
-更新指定device下的指定task的状态 0:关闭,1:开启
+更新 device 或群组下对应 task 定时任务状态
+
+**接口说明**
+
+```objective-c
+- (void)updateTimerTaskStatusWithTask:(NSString *)task
+                                devId:(NSString *)devId
+                               status:(NSInteger)status
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                         |
+| ------- | ---------------------------- |
+| task    | 任务名称                     |
+| devId   | 设备 id，如果是群组传群组 id |
+| status  | 任务状态，0:关闭,1:开启      |
+| success | 成功回调                     |
+| failure | 失败回调                     |
+
+**示例代码**
 
 Objc:
 
@@ -117,7 +203,31 @@ func updateTimer() {
 
 ### 更新定时钟状态
 
-更新指定device下的指定task下的指定timer的状态 0:关闭,1:开启
+更新 device 或群组下指定 task 下的指定 timer 的状态
+
+**接口说明**
+
+```objective-c
+- (void)updateTimerStatusWithTask:(NSString *)task
+                            devId:(NSString *)devId
+                          timerId:(NSString *)timerId
+                           status:(NSInteger)status
+                          success:(TYSuccessHandler)success
+                          failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                         |
+| ------- | ---------------------------- |
+| task    | 任务名称                     |
+| devId   | 设备 id，如果是群组传群组 id |
+| timerId | 更新的 timer id              |
+| status  | 定时状态，0:关闭,1:开启      |
+| success | 成功回调                     |
+| failure | 失败回调                     |
+
+**示例代码**
 
 Objc:
 
@@ -152,7 +262,29 @@ func updateTimer() {
 
 ### 删除定时钟
 
-删除指定device下的指定task下的指定timer
+删除 device 或群组下指定 task 下的指定 timer
+
+**接口说明**
+
+```objective-c
+- (void)removeTimerWithTask:(NSString *)task
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                         |
+| ------- | ---------------------------- |
+| task    | 任务名称                     |
+| devId   | 设备 id，如果是群组传群组 id |
+| timerId | 删除的 timer id              |
+| success | 成功回调                     |
+| failure | 失败回调                     |
+
+**示例代码**
 
 Objc:
 
@@ -187,7 +319,37 @@ func removeTimer() {
 
 ### 更新定时钟
 
-更新指定device下的指定task下的指定timer
+更新 device 或群组下指定 task 下的指定 timer 信息
+
+**接口说明**
+
+```objective-c
+- (void)updateTimerWithTask:(NSString *)task
+                      loops:(NSString *)loops
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                       time:(NSString *)time
+                        dps:(NSDictionary *)dps
+                   timeZone:(NSString *)timeZone
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明                                                         |
+| -------- | ------------------------------------------------------------ |
+| task     | 定时任务名称                                                 |
+| loops    | 循环次数，格式 "0000000"<br />每一位 0:关闭, 1:开启, 从左至右依次表示: 周日 周一 周二 周三 周四 周五 周六<br />如每个周一: 0100000 |
+| devId    | 设备 id，如果是群组传群组 id                                 |
+| timerId | 更新的 timer id              |
+| time     | 定时的时间，如 18:00                                         |
+| dps      | dps 命令                                                |
+| timeZone | 要设置的设备或群组的时区，格式如 +08:00，如果没有传手机时区  |
+| success  | 成功回调                                                     |
+| failure  | 失败回调                                                     |
+
+**示例代码**
 
 Objc:
 
@@ -223,7 +385,27 @@ func updateTimer() {
 
 ### 获取定时任务下所有定时钟
 
-获取指定device下的指定task下所有timer模型
+获取 device 或群组下指定的 task 下的定时 timer
+
+**接口说明**
+
+```objective-c
+- (void)getTimerWithTask:(NSString *)task
+                   devId:(NSString *)devId
+                 success:(void(^)(NSArray<TYTimerModel *> *list))success
+                 failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                         |
+| ------- | ---------------------------- |
+| task     | 定时任务名称                 |
+| devId   | 设备 id，如果是群组传群组 id |
+| success | 成功回调，timer 数组         |
+| failure | 失败回调                     |
+
+**示例代码**
 
 Objc:
 
@@ -258,7 +440,17 @@ func getTimer() {
 
 ### 获取设备所有定时任务下所有定时钟
 
-获取指定device下所有task下所有timer模型
+获取 device 或群组下所有的 task 下的定时 timer
+
+**接口说明**
+
+```objective-c
+- (void)getAllTimerWithDeviceId:(NSString *)devId
+                        success:(TYSuccessDict)success
+                        failure:(TYFailureError)failure
+```
+
+**示例代码**
 
 Objc:
 
