@@ -1,23 +1,20 @@
-## Integrate push
+# Integrate Push
 
-For Apps developed by using the Tuya SDK, the Tuya platform supports push function, sending operation push to users and alarm push of products. 
+For Apps developed based on Tuya SDK, the Tuya platform supports push function, including operation push to users and alarm push of products. 
 
-### Configure Xcode
+## Configure Xcode
 
-Clock project -> `TARGETS` -> `Capabilities`, and switch on the `Push Notification` switch. The effect is as follows.
+Clock project -> `TARGETS` -> `Capabilities`, and switch on the `Push Notification` . The effect is as follows.
 
 ![ios-push](./images/ios-push.png)
 
-
-### Configure the Tuya Developer Platform
+## Configure the Tuya Developer Platform
 
 Log in to the Tuya Developer Platform -> enter relevant App ->Configure the Push function->Upload the push certificate.
 
 ![ios-push-setting](./images/ios-push-setting.png)
 
-
-
-### Initialization
+## Initialization
 
 Initiate push in the `didFinishLaunchingWithOptions` method. 
 
@@ -48,7 +45,7 @@ Initiate push in the `didFinishLaunchingWithOptions` method.
 
 ```
 
-### Register PushId
+## Register PushId
 
 Register pushId in Tuya SDK in the `didRegisterForRemoteNotificationsWithDeviceToken`. 
 
@@ -60,8 +57,7 @@ Register pushId in Tuya SDK in the `didRegisterForRemoteNotificationsWithDeviceT
 
 ```
 
-
-### Receive Notification
+## Receive Notification
 
 Execute in the delegate method `didReceiveRemoteNotification` when the remote notification is received. 
 
@@ -73,14 +69,14 @@ Execute in the delegate method `didReceiveRemoteNotification` when the remote no
 }
 ```
 
-### Send Push
+## Send Push
 
-#### Add Operation Push
+### Add Operation Push
 
 Tuya Developer Platform -> User operation -> Message center ->Add message
 ![ios-push-setting](./images/ios-push-setting-operation.png)
 
-#### Add Alarm Push
+### Add Alarm Push
 
 Tuya Developer Platform -> Product -> Extended function ->Set alarm -> Add rules for alarms (apply the push mode)
 ![ios-push-setting](./images/ios-push-setting-warning.png)
