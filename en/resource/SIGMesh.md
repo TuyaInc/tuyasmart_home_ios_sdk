@@ -13,10 +13,13 @@ The standard Bluetooth Mesh, also called SIG Mesh, is a communication standard f
 
 ## Basic Notion
 
-
-- pcc
-
-  Each mesh device corresponds to a product, and each product has its own size class label. The SDK uses `pcc` and` type` as the size class label.
+| Basic Notion           | Description                 |
+| -------------- | ----------------     |
+| pcc         | Each mesh device corresponds to a product, and each product has its own size class label. The SDK uses `pcc` and` type` as the size class label.          |
+| mesh node Id         | 2 bytes. The node id is used to distinguish the "unique identifier" of each mesh device in the mesh network. For example, if you want to control a device, you can send the nodeId command corresponding to this device to the mesh network|
+| mesh group local Id| 2 bytes. The local Id is used to distinguish the `` unique identifier '' of each mesh group in the mesh network.For example, if you want to control the devices in a group, you can send the localId command corresponding to this group to the mesh network.|
+| Local connection| The networked device is connected via Bluetooth to control mesh and command operations|
+| Gateway connection| The networked devices are connected through the gateway (the gateway needs to be with the device, and the distance cannot be too far) to control the mesh and command operations |
 
   The product currently follows the rules
 
@@ -34,24 +37,9 @@ The standard Bluetooth Mesh, also called SIG Mesh, is a communication standard f
      ......
   ```
 
-- mesh node Id， 2 bytes
-
-  The node id is used to distinguish the "unique identifier" of each mesh device in the mesh network. For example, if you want to control a device, you can send the nodeId command corresponding to this device to the mesh network
-
-- mesh group local Id，2 bytes
-
-  The local Id is used to distinguish the `` unique identifier '' of each mesh group in the mesh network.For example, if you want to control the devices in a group, you can send the localId command corresponding to this group to the mesh network.
-
 - Equipment operation requires multiple steps
 
   Because device operations, such as adding and deleting operations, and group operations, require the local Bluetooth command to be executed once and recorded in the cloud once. The operation information needs to be synchronized to the local mesh network as well.
-
-- Local connection and gateway connection
-
-  Local connection: The networked device is connected via Bluetooth to control mesh and command operations
-
-  Gateway connection: The networked devices are connected through the gateway (the gateway needs to be with the device, and the distance cannot be too far) to control the mesh and command operations
-
 
 
 ## Management
@@ -77,7 +65,7 @@ A family can have multiple sig meshes (it is recommended to create only one fami
                         failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 TuyaSmartHome *home = #< home instance >;
@@ -102,7 +90,7 @@ Delete the mesh. If there are devices in the mesh group, the child devices are a
 - (void)removeMeshWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 self.mesh = #<TuyaSmartBleMesh instance>;
@@ -127,7 +115,7 @@ After initializing the home instance, you can get the mesh list of the correspon
                           failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 TuyaSmartHome *home = #<home instance>
@@ -149,7 +137,7 @@ TuyaSmartHome *home = #<home instance>
 + (instancetype)bleMeshWithMeshId:(NSString *)meshId homeId:(long long)homeId;
 ```
 
-「Example」
+**Example**
 
 The home instance (TuyaSmartHome instance) can get the sigMeshModel under the class
 
@@ -186,7 +174,7 @@ Scan for nearby SIG-compliant Bluetooth devices
           meshModel:(TuyaSmartBleMeshModel *)meshModel;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 [TuyaSmartSIGMeshManager sharedInstance].delegate = self;
