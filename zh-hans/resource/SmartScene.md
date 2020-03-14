@@ -981,25 +981,78 @@ SDK在3.14.0及以上版本加入了TuyaSmartSceneDataFactory这个工具类集�
 3. 触发场景。entityId是场景sceneId，actionExecutor是ruleTrigger，executorProperty不需要。
 4. 启动自动化。entityId是自动化sceneId，actionExecutor是ruleEnable，executorProperty不需要。
 5. 禁用自动化。entityId是自动化sceneId，actionExecutor是ruleDisable，executorProperty不需要。
-6. 延时动作。entityId是delay，actionExecutor是delay，executorProperty是延时的时间，用一个字典表示，形式和key为{@"minutes":@"1",@"seconds":@"30"},表示1分30秒。目前最大支持59分59秒。
+6. 延时动作。entityId是delay，actionExecutor是delay，executorProperty是延时的时间，用一个字典表示，形式和key为{@"minutes":@"1",@"seconds":@"30"},表示1分30秒。目前最大支持5小时，即300分钟。
 
 ### TuyaSmartSceneDataFactory工具类集合
 
 TuyaSmartSceneDataFactory中包涵以下创建工具类：
 
-- TuyaSmartScenePreConditionFactory.h 用于创建自动化场景的前置条件，如生效时间段。
-- TuyaSmartSceneConditionFactory.h 用于创建自动化场景的条件，如天气条件、设备条件。
-- TuyaSmartSceneActionFactory.h 用于创建场景动作，如设备动作。
+|类名|说明|
+|---|---|
+|TuyaSmartScenePreConditionFactory|用于创建自动化场景的前置条件，如生效时间段。|
+TuyaSmartSceneConditionFactory|用于创建自动化场景的条件，如天气条件、设备条件。|
+|TuyaSmartSceneActionFactory|用于创建场景动作，如设备动作。|
 
 以及两个辅助类：
 
-- TuyaSmartSceneExprModel.h 用于储存场景条件中的expr表达式。
-- TuyaSmartSceneConditionExprBuilder.h 自动化场景中条件表达式的生成工具类。
+|类名|说明|
+|---|---|
+| TuyaSmartSceneExprModel |用于储存场景条件中的expr表达式。|
+| TuyaSmartSceneConditionExprBuilder |自动化场景中条件表达式的生成工具类。|
+
 
 生效时间段、条件、动作的创建，所有支持的类型可以参照SDK头文件中的注释使用。注意：因为要适配多语言，条件和动作中，未生成用来显示条件和动作的详情的`exprDisplay`和`actionDisplayNew`，需要开发者根据条件中的表达式`expr`和动作中的执行参数`executorProperty`手动拼接生成。
 
-以创建一个设备条件为例，使用顺序如下：
+####使用示例
+
+以创建一个开关类型的设备条件为例，使用顺序如下：
 1. 使用`TuyaSmartSceneConditionExprBuilder`创建一个`TuyaSmartSceneExprModel`对象，生成创建条件所需的表达式`expr`。
 2. 使用`TuyaSmartSceneConditionFactory`中的API，传入第一步中生成的`TuyaSmartSceneExprModel`对象以及其他必需参数，生成条件对象。
+
+**接口说明**
+
+```objc
+//创建exprModel
++ (TuyaSmartSceneExprModel *)createBoolExprWithType:(NSString *)type
+                                             isTrue:(BOOL)isTrue
+                                           exprType:(ExprType)exprType;
+```
+
+**参数说明**
+
+|参数|说明|
+| ------ | ----- |
+| type | 天气类型或者设备dpId |
+| isTrue |布尔值参数|
+| exprType |区分创建的是天气类型还是设备类型的枚举值|
+
+**接口说明**
+
+```objc
+//创建一个设备条件。
++ (TuyaSmartSceneConditionModel *)createDeviceConditionWithDevice:(TuyaSmartDeviceModel *)device
+                                                          dpModel:(TuyaSmartSceneDPModel *)dpModel
+                                                        exprModel:(TuyaSmartSceneExprModel *)exprModel;
+```
+
+**参数说明**
+
+|参数|说明|
+| ------ | ----- |
+| device | 设备model |
+| dpModel |要创建的设备条件的dpModel，如设备下开关这个dp的dpModel|
+| exprModel | 使用TuyaSmartSceneConditionExprBuilder创建的model对象 |
+
+**示例代码**
+
+```objc
+TuyaSmartSceneExprModel *exprModel = [TuyaSmartSceneConditionExprBuilder createBoolExprWithType:dpModel.entitySubId
+                                                                            isTrue:YES
+                                                                          exprType:exprType];
+TuyaSmartSceneConditionModel *conditionModel = [TuyaSmartSceneConditionFactory createDeviceConditionWithDevice:deviceModel
+                                                                                     dpModel:self.model
+                                                                                   exprModel:exprModel];
+```
+
 
 生成前置条件和动作直接使用`TuyaSmartScenePreConditionFactory`和`TuyaSmartSceneActionFactory`中提供的API即可。
