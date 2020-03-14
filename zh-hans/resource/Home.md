@@ -31,7 +31,7 @@
 
 Objc:
 
-```objc
+```objective-c
 - (void)getHomeList {
 
 	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
@@ -90,7 +90,7 @@ func getHomeList() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)addHome {
     [self.homeManager addHomeWithName:@"you_home_name"
                           geoName:@"city_name"
@@ -176,7 +176,7 @@ Swift:
 
 Objc:
 
-```objc
+```objective-c
 #pragma mark - TuyaSmartHomeManagerDelegate
 
 
@@ -287,7 +287,7 @@ func getHomeDetailInfo() {
 
 **接口说明**
 
-```
+```objective-c
 - (void)updateHomeInfoWithName:(NSString *)homeName
                        geoName:(NSString *)geoName
                       latitude:(double)latitude
@@ -311,7 +311,7 @@ func getHomeDetailInfo() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)updateHomeInfo {
     self.home = [TuyaSmartHome homeWithHomeId:homeId];
     [self.home updateHomeInfoWithName:@"new_home_name" geoName:@"city_name" latitude:lat longitude:lon success:^{
@@ -342,7 +342,7 @@ func updateHomeInfo() {
 
 **接口说明**
 
-```
+```objective-c
 - (void)dismissHomeWithSuccess:(TYSuccessHandler)success
                        failure:(TYFailureError)failure;
 ```
@@ -358,7 +358,7 @@ func updateHomeInfo() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)dismissHome {
 
 	[self.home dismissHomeWithSuccess:^() {
@@ -407,7 +407,7 @@ func dismissHome() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)addHomeRoom {
     [self.home addHomeRoomWithName:@"room_name" success:^{
         NSLog(@"add room success");
@@ -455,7 +455,7 @@ func addHomeRoom() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)removeHomeRoom {
     [self.home removeHomeRoomWithRoomId:roomId success:^{
         NSLog(@"remove room success");
@@ -503,7 +503,7 @@ func removeHomeRoom() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)sortHomeRoom {
     [self.home sortRoomList:(NSArray<TuyaSmartRoomModel *> *) success:^{
         NSLog(@"sort room success");
@@ -607,7 +607,7 @@ func addShare() {
 
 若成员传入自身memberId，家庭管理员，普通成员，自定义角色，调用此接口为离开家庭，此时该家庭未解散，设备也不会被重置；拥有者为解散家庭，同时该家庭下所有设备会被重置，效果与上文解散家庭一致。
 
-```
+```objective-c
 - (void)removeHomeMemberWithMemberId:(long long)memberId
                              success:(TYSuccessHandler)success
                              failure:(TYFailureError)failure;
@@ -671,7 +671,7 @@ func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
 
 Objc:
 
-```objc
+```objective-c
 - (void)initMemberList {
   //	_home = [TuyaSmartHome homeWithHomeId:homeId];
     [_home getHomeMemberListWithSuccess:^(NSArray<TuyaSmartHomeMemberModel *> *memberList) {
@@ -720,7 +720,7 @@ func initMemberList() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
 	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
   TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
@@ -772,7 +772,7 @@ func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
 
 Objc:
 
-```objc
+```objective-c
 - (void)initMemberList {
   //	_home = [TuyaSmartHome homeWithHomeId:homeId];
   	[_home joinFamilyWithAccept:YES success:^(BOOL result) {
@@ -818,7 +818,7 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 Objc:
 
-```objc
+```objective-c
 // orderList: [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] 其中bizId为设备的devId或群组的groupId, device的bizType = @"6" group的bizType = @"5"
 - (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
 	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
@@ -853,7 +853,7 @@ func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
 
 Objc:
 
-```objc
+```objective-c
 - (void)initHome {
     self.home = [TuyaSmartHome homeWithHomeId:homeId];
     self.home.delegate = self;
@@ -1067,7 +1067,7 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 Objc:
 
-```objc
+```objective-c
 - (void)updateRoomName {
     [self.room updateRoomName:@"new_room_name" success:^{
         NSLog(@"update room name success");
@@ -1113,7 +1113,7 @@ func updateRoomName() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)addDevice {
     [self.room addDeviceWithDeviceId:@"devId" success:^{
         NSLog(@"add device to room success");
@@ -1143,7 +1143,7 @@ func addDevice() {
 
 **接口说明**
 
-```
+```objective-c
 - (void)removeDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
@@ -1159,7 +1159,7 @@ func addDevice() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)removeDevice {
     [self.room removeDeviceWithDeviceId:@"devId" success:^{
         NSLog(@"remove device from room success");
@@ -1205,7 +1205,7 @@ func removeDevice() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)addGroup {
     [self.room addGroupWithGroupId:@"groupId" success:^{
         NSLog(@"add group to room success");
@@ -1235,7 +1235,7 @@ func addGroup() {
 
 **接口说明**
 
-```
+```objective-c
 - (void)removeGroupWithGroupId:(NSString *)groupId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
@@ -1251,7 +1251,7 @@ func addGroup() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)removeGroup {
     [self.room removeGroupWithGroupId:@"groupId" success:^{
         NSLog(@"remove group from room success");

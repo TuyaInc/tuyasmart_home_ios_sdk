@@ -31,7 +31,7 @@ Fetch home list, return data is just simple information of home. If you want to 
 
 Objc:
 
-```objc
+```objective-c
 - (void)getHomeList {
 
 	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
@@ -64,7 +64,7 @@ func getHomeList() {
 
 **Declaration**
 
-```
+```objective-c
 - (void)addHomeWithName:(NSString *)homeName
                 geoName:(NSString *)geoName
                   rooms:(NSArray <NSString *>*)rooms
@@ -90,7 +90,7 @@ func getHomeList() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)addHome {
 
     [self.homeManager addHomeWithName:@"you_home_name"
@@ -131,7 +131,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 
 **Declaration**
 
-```
+```objective-c
 - (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home;
 ```
 
@@ -161,7 +161,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 
 **Declaration**
 
-```
+```objective-c
 - (void)serviceConnectedSuccess;
 ```
 
@@ -169,7 +169,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 
 Objc:
 
-```objc
+```objective-c
 #pragma mark - TuyaSmartHomeManagerDelegate
 
 
@@ -302,7 +302,7 @@ func getHomeDetailInfo() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)updateHomeInfo {
   	self.home = [TuyaSmartHome homeWithHomeId:homeId];
     [self.home updateHomeInfoWithName:@"new_home_name" geoName:@"city_name" latitude:lat longitude:lon success:^{
@@ -350,7 +350,7 @@ func updateHomeInfo() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)dismissHome {
 
 	[self.home dismissHomeWithSuccess:^() {
@@ -381,7 +381,7 @@ func dismissHome() {
 
 **Declaration**
 
-```
+```objective-c
 - (void)addHomeRoomWithName:(NSString *)name
                     success:(TYSuccessHandler)success
                     failure:(TYFailureError)failure;
@@ -399,7 +399,7 @@ func dismissHome() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)addHomeRoom {
     [self.home addHomeRoomWithName:@"room_name" success:^{
         NSLog(@"add room success");
@@ -447,7 +447,7 @@ func addHomeRoom() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)removeHomeRoom {
     [self.home removeHomeRoomWithRoomId:roomId success:^{
         NSLog(@"remove room success");
@@ -495,7 +495,7 @@ func removeHomeRoom() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)sortHomeRoom {
     [self.home sortRoomList:(NSArray<TuyaSmartRoomModel *> *) success:^{
         NSLog(@"sort room success");
@@ -567,7 +567,7 @@ TuyaSmartHomeAddMemberRequestModel
 
 Objc:
 
-```objc
+```objective-c
 - (void)addShare {
     [self.smartHome addHomeMemberWithAddMemeberRequestModel:requestModel success:^(NSDictionary *dict) {
         NSLog(@"addNewMember success");
@@ -652,7 +652,7 @@ func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
 
 **Declaration**
 
-```
+```objective-c
 - (void)getHomeMemberListWithSuccess:(void(^)(NSArray <TuyaSmartHomeMemberModel *> *memberList))success failure:(TYFailureError)failure;
 ```
 
@@ -718,7 +718,7 @@ func initMemberList() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
 	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
 	TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
@@ -770,7 +770,7 @@ Whether the member accepts the home‘s invitation corresponds to the dealStatus
 
 Objc:
 
-```objc
+```objective-c
 - (void)initMemberList {
   //	_home = [TuyaSmartHome homeWithHomeId:homeId];
   	[_home joinFamilyWithAccept:YES success:^(BOOL result) {
@@ -819,7 +819,7 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 Objc:
 
-```objc
+```objective-c
 // orderList: [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] bizId is devId or groupId, device's bizType = @"6" group's bizType = @"5"
 - (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
 	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
@@ -853,7 +853,8 @@ After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can procee
 **Example**
 
 Objc:
-```objc
+
+```objective-c
 - (void)initHome {
     self.home = [TuyaSmartHome homeWithHomeId:homeId];
     self.home.delegate = self;
@@ -1052,7 +1053,7 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 
 **Declaration**
 
-```
+```objective-c
 - (void)updateRoomName:(NSString *)roomName success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
@@ -1068,7 +1069,7 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 
 Objc:
 
-```objc
+```objective-c
 - (void)updateRoomName {
     [self.room updateRoomName:@"new_room_name" success:^{
         NSLog(@"update room name success");
@@ -1114,7 +1115,7 @@ func updateRoomName() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)addDevice {
     [self.room addDeviceWithDeviceId:@"devId" success:^{
         NSLog(@"add device to room success");
@@ -1160,7 +1161,7 @@ func addDevice() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)removeDevice {
     [self.room removeDeviceWithDeviceId:@"devId" success:^{
         NSLog(@"remove device from room success");
@@ -1203,7 +1204,7 @@ func removeDevice() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)addGroup {
     [self.room addGroupWithGroupId:@"groupId" success:^{
         NSLog(@"add group to room success");
@@ -1246,7 +1247,7 @@ func addGroup() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)removeGroup {
     [self.room removeGroupWithGroupId:@"groupId" success:^{
         NSLog(@"remove group from room success");
@@ -1291,7 +1292,7 @@ func removeGroup() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)saveBatchRoomRelation {
     [self.room saveBatchRoomRelationWithDeviceGroupList:(NSArray <NSString *> *)deviceGroupList success:^{
         NSLog(@"save batch room relation success");
