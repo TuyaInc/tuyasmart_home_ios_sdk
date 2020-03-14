@@ -293,7 +293,7 @@ For more concepts of function points, please refer to the [QuickStart-Related Co
 
 Device control supports three kinds of channel control, LAN control, cloud control, and automatic mode (if LAN is online, first go LAN control, LAN is not online, go cloud control)
 
-##### LAN Control
+LAN Control
 
 ```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
@@ -303,7 +303,7 @@ Device control supports three kinds of channel control, LAN control, cloud contr
 	}];
 ```
 
-##### Cloud Control
+Cloud Control
 
 ```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
@@ -313,7 +313,7 @@ Device control supports three kinds of channel control, LAN control, cloud contr
 	}];
 ```
 
-##### Auto Mode
+Auto Mode
 
 ```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
@@ -379,8 +379,6 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 ```
 
 ## Modify the Device Name
-
-
 
 **Declaration**
 
@@ -473,7 +471,7 @@ func removeDevice() {
 }
 ```
 
-## Obtain Wifi Signal Strength of Device
+## Obtain Wi-Fi Signal Strength of Device
 
 **Declaration**
 
@@ -644,7 +642,9 @@ func getFirmwareUpgradeInfo() {
 }
 ```
 
-#### Send Upgrade Instruction
+Send Upgrade Instruction
+
+**Example**
 
 Objc:
 
@@ -679,7 +679,10 @@ func upgradeFirmware() {
 }
 ```
 
-#### Callback Interface
+Callback Interface
+
+**Example**
+
 Objc:
 
 ```objc
