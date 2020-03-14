@@ -6,7 +6,7 @@
 
 
 
-### 获取反馈会话列表
+## 获取反馈会话列表
 
 获取用户已提交反馈会话列表。
 
@@ -29,7 +29,7 @@
 
 
 
-**代码示例**
+**示例代码**
 
 Objc:
 
@@ -60,7 +60,9 @@ func getFeedbackTalkList() {
 
 
 
-### 获取反馈列表
+
+
+## 获取反馈列表
 
 获取反馈会话中对应的反馈内容列表，`hdId` 和 `hdType` 字段可以从 `TuyaSmartFeedbackTalkListModel` 中获取。
 
@@ -88,7 +90,7 @@ func getFeedbackTalkList() {
 
 
 
-**代码示例**
+**示例代码**
 
 Objc:
 
@@ -119,7 +121,9 @@ func getFeedbackList() {
 
 
 
-### 获取反馈类型列表
+## 获取反馈类型列表
+
+
 
 添加反馈时，可先选择反馈类型。
 
@@ -142,7 +146,7 @@ func getFeedbackList() {
 
 
 
-**代码示例**
+**示例代码**
 
 Objc:
 
@@ -173,15 +177,19 @@ func getFeedbackTalkList() {
 
 
 
-### 添加反馈
 
-添加反馈，提交用户输入的反馈的内容，`hdId`和`hdType`字段可以从`TuyaSmartFeedbackTalkListModel`中获取。
+
+## 添加反馈
+
+
+
+添加反馈，提交用户输入的反馈的内容，`hdId `和 `hdType` 字段可以从 `TuyaSmartFeedbackTalkListModel` 中获取。
 
 
 
 **接口说明**
 
-```
+```objc
 - (void)addFeedback:(NSString *)content
                hdId:(NSString *)hdId
              hdType:(NSUInteger)hdType
@@ -203,7 +211,7 @@ func getFeedbackTalkList() {
 | success | 成功回调 |
 | failure | 失败回调 |
 
-
+**示例代码**
 
 Objc:
 
