@@ -134,6 +134,8 @@ Swift:
 
 实现`TuyaSmartHomeManagerDelegate`代理协议后，可以在家庭列表更变的回调中进行处理。
 
+
+
 #### 新增一个家庭回调
 
 **接口说明**
@@ -149,6 +151,8 @@ Swift:
 | manager | 家庭管理类实例 |
 | home    | 添加的家庭模型 |
 
+
+
 #### 删除一个家庭回调
 
 **接口说明**
@@ -163,6 +167,8 @@ Swift:
 | ------- | -------------- |
 | manager | 家庭管理类实例 |
 | homeId  | 被删除的家庭ID |
+
+
 
 #### MQTT 服务连接成功回调
 
@@ -222,7 +228,7 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 
 
-## 家庭操作
+## 家庭信息管理
 
 ***主要功能***：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
 
@@ -234,6 +240,8 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 | :-------------------: | :------------------------------------: |
 |     TuyaSmartHome     | 获取和修改家庭信息，管理房间和家庭成员 |
 | TuyaSmartHomeDelegate |           家庭下信息变更回调           |
+
+
 
 ### 获取家庭的详细信息
 
@@ -537,6 +545,8 @@ func sortHomeRoom() {
 | :-----------------: | :----------: |
 | TuyaSmartHomeMember | 家庭成员管理 |
 
+
+
 #### 添加家庭成员
 
 > 拥有者(TYHomeRoleType_Owner) 可以添加管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以添加普通成员及以下角色
@@ -698,7 +708,7 @@ func initMemberList() {
 
 
 
-#### 修改家庭成员的信息
+#### 更新家庭成员的信息
 
 > 拥有者(TYHomeRoleType_Owner) 可以修改管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以修改普通成员及以下角色
 
@@ -795,6 +805,8 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
     })
 }
 ```
+
+
 
 ###对家庭下设备和群组进行排序
 
@@ -1041,7 +1053,7 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 
 
-### 房间管理
+### 房间信息管理
 
 单个房间信息管理相关的所有功能对应`TuyaSmartRoom`类，需要使用正确的roomId进行初始化。错误的roomId可能会导致初始化失败，返回`nil`。
 

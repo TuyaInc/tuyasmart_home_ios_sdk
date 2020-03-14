@@ -127,6 +127,8 @@ Swift:
 
 After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can proceed operations in the home list change.
 
+
+
 #### Add a home callback
 
 **Declaration**
@@ -142,7 +144,9 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 | manager    | Home manager instance |
 | home       | Home model            |
 
-#### remove a home callback
+
+
+#### Remove a home callback
 
 **Declaration**
 
@@ -156,6 +160,8 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 | ---------- | --------------------- |
 | manager    | Home manager instance |
 | homeId     | Removed home ID       |
+
+
 
 #### MQTT service connection success callback
 
@@ -273,6 +279,8 @@ func getHomeDetailInfo() {
     })
 }
 ```
+
+
 
 ### Modify home information
 
@@ -520,6 +528,7 @@ func sortHomeRoom() {
 ```
 
 
+
 ### Home member management
 
 All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember`classes, member role type is `TYHomeRoleType`
@@ -694,7 +703,7 @@ func initMemberList() {
 
 
 
-#### Modify the home member's information
+#### Update the home member's information
 
 > ```
 > The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
@@ -1039,7 +1048,7 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 
 
-## Room information management
+### Room information management
 
 The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to all functions for room information management. Wrong roomId may cause initiation failure, and the `nil` will be returned.
 
@@ -1049,7 +1058,7 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 
 
 
-### Update room name
+#### Update room name
 
 **Declaration**
 
@@ -1095,7 +1104,7 @@ func updateRoomName() {
 
 
 
-### Add device to a room
+#### Add device to a room
 
 **Declaration**
 
@@ -1141,7 +1150,7 @@ func addDevice() {
 
 
 
-### Remove device from a room
+#### Remove device from a room
 
 **Declaration**
 
@@ -1185,7 +1194,10 @@ func removeDevice() {
 }
 ```
 
-### Add group in a room
+
+
+#### Add group in a room
+
 **Declaration**
 
 ```objective-c
@@ -1228,7 +1240,10 @@ func addGroup() {
 }
 ```
 
-### Remove group in a room
+
+
+#### Remove group in a room
+
 **Declaration**
 
 ```objective-c
@@ -1271,7 +1286,10 @@ func removeGroup() {
 }
 ```
 
-### Change relation between room and group and devices in batches
+
+
+#### Change relation between room and group and devices in batches
+
 **Declaration**
 
 ```objective-c
