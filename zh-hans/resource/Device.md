@@ -1,4 +1,4 @@
-## 设备管理
+# 设备管理
 
 涂鸦支持多种设备类型，设备管理相关的所有功能都对应在
 
@@ -6,11 +6,11 @@
 | --------------- | ---------------- |
 | TuyaSmartDevice | 涂鸦设备相关的类 |
 
-`TuyaSmartDevice`类需要使用设备 id 进行初始化。错误的设备 id 可能会导致初始化失败，此时的实例返回 `nil`
+`TuyaSmartDevice `类需要使用设备 id 进行初始化。错误的设备 id 可能会导致初始化失败，此时的实例返回 `nil`
 
-### 更新设备信息
+## 更新设备信息
 
-#### 更新单个设备信息
+### 更新单个设备信息 
 
 **接口说明**
 
@@ -59,17 +59,13 @@ func updateDeviceInfo() {
 }
 ```
 
-
-
-###设备控制
+## 设备控制
 
 设备控制目前分为**标准设备控制**和**自定义设备控制**
 
+### 标准设备控制 (Beta)
 
-
-#### 标准设备控制 (Beta)
-
-##### 标准设备功能集
+#### 标准设备功能集
 
 什么是标准设备功能集？
 
@@ -82,9 +78,7 @@ func updateDeviceInfo() {
 > 因为需要兼容繁多的多样化产品功能，所以目前标准设备控制功能处于阶段性开放产品适配功能
 > 若您要使用该功能，可以联系涂鸦或咨询相关的对接负责人
 
-
-
-##### 设备否支持标准化
+#### 设备否支持标准化
 
 `TuyaSmartDeviceModel` 类的 `standard` 属性（ `BOOL` 类型）定义了当前设备是否支持标准化控制
 
@@ -94,9 +88,7 @@ func updateDeviceInfo() {
 
 具体品类的设备标准 dpCode 功能集可以参照对应的[文档](./StandardDpCode.md)
 
-
-
-#####设备操作控制
+#### 设备操作控制
 
 **接口说明**
 
@@ -162,7 +154,7 @@ self.device.publishDp(withCommands: command, success: {
 {"colour_data" : "009003e803e8"}
 ```
 
-##### 设备状态更新
+#### 设备状态更新
 
 实现 `TuyaSmartDeviceDelegate` 代理协议后，可以在设备状态更变的回调中进行处理，刷新 App 设备控制面板的 UI
 
@@ -216,9 +208,9 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 }
 ```
 
-#### 自定义设备控制
+### 自定义设备控制
 
-##### 设备功能点
+#### 设备功能点
 
 `TuyaSmartDeviceModel` 类的 `dps` 属性（`NSDictionary` 类型）定义了当前设备的状态，称作数据点（DP 点）或功能点
 
@@ -292,7 +284,7 @@ func publishDps() {
 }
 ```
 
-##### 注意事项：
+#### 注意事项
 
 - 控制命令的发送需要特别注意数据类型<br />
   比如功能点的数据类型是数值型（value），那控制命令发送的应该是 `@{@"2": @(25)}`  而不是  `@{@"2": @"25"}`<br />
@@ -301,13 +293,13 @@ func publishDps() {
 
 功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/product/function.html)
 
-##### 设备控制
+#### 设备控制
 
 设备控制支持三种通道控制，局域网控制，云端控制和自动方式（如果局域网在线，先走局域网控制，局域网不在线，走云端控制）
 
 局域网控制：
 
-```
+```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
 		NSLog(@"publishDps success");
 	} failure:^(NSError *error) {
@@ -317,7 +309,7 @@ func publishDps() {
 
 云端控制：
 
-```
+```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
 		NSLog(@"publishDps success");
 	} failure:^(NSError *error) {
@@ -327,7 +319,7 @@ func publishDps() {
 
 自动控制：
 
-```
+```objc
 	[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
 		NSLog(@"publishDps success");
 	} failure:^(NSError *error) {
@@ -335,8 +327,7 @@ func publishDps() {
 	}];
 ```
 
-
-##### 设备状态更新
+#### 设备状态更新
 
 实现 `TuyaSmartDeviceDelegate` 代理协议后，可以在设备状态更变的回调中进行处理，刷新 App 设备控制面板的 UI
 
@@ -391,9 +382,7 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 }
 ```
 
-
-
-### 修改设备名称
+## 修改设备名称
 
 **接口说明**
 
@@ -439,9 +428,7 @@ func modifyDeviceName(_ name: String) {
 }
 ```
 
-
-
-### 移除设备
+## 移除设备
 
 设备被移除后，会重新进入待配网状态（快连模式）
 
@@ -488,9 +475,7 @@ func removeDevice() {
 }
 ```
 
-
-
-### 获取设备的 wifi 信号强度
+## 获取设备的 Wi-Fi 信号强度
 
 **接口说明**
 
@@ -549,9 +534,9 @@ func device(_ device: TuyaSmartDevice!, signal: String!) {
 }
 ```
 
+## 获取网关下的子设备列表
 
 
-### 获取网关下的子设备列表
 
 **接口说明**
 
@@ -596,9 +581,7 @@ func getSubDeviceList() {
 }
 ```
 
-
-
-### 固件升级
+## 固件升级
 
 **固件升级流程**
 
@@ -606,7 +589,7 @@ func getSubDeviceList() {
 
 使用获取设备升级信息接口获取到的 `TuyaSmartFirmwareUpgradeModel` 固件升级模型中，type 属性能获取到固件的类型，typeDesc 属性能获取到固件类型的描述
 
-#### 获取设备升级信息
+### 获取设备升级信息
 
 **接口说明**
 

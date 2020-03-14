@@ -3,38 +3,38 @@
 ## 3.14.0(2019-12-21)
 
 - New Feature
-  - `MQTTClient` use `0.15.2`
-  - HTTP request and response data encryption
-  - Manager more family member role
-  - Add scene cache
-  - Add scene conditions and actions class
-  - Support for Login With Apple
-  - Bug fixed
+  - `MQTTClient` Use `0.15.2`
+  - HTTP Request and Response Data Encryption
+  - Manager More Family Member Role
+  - Add Scene Cache
+  - Add Scene Conditions and Actions Class
+  - Support for Login with Apple
+  - Bug Fixed
 
 ## 3.13.0(2019-12-06)
 
 - New Feature
   - Support DP Code Control
-  - Support more family member role
+  - Support More Family Member Role
 
 ## 3.12.0(2019-09-21)
 
-- Functional change
+- Functional Change
 
   - Device Support Update Head Image
   - Support Wifi and Bluetooth Dual-mode Devices
 
-  - Support sub device OTA
+  - Support Sub Device OTA
 
-  - firmware upgrade to add  callbacks in upgrading
+  - Firmware Upgrade to Add  Callbacks in Upgrading
   - AP Distribution Network Optimization
-  - Timing support annotation and push function
+  - Timing Support Annotation and Push Function
   - Support SigMesh Devices
-  - bug fixed
+  - Bug Fixed
 
 ## 2.12.46(2019-07-22)
 
-- bug fixed, Push Notification was classified. 
+- Bug Fixed, Push Notification Was Classified. 
 
 ## 2.10.97(2019-06-20)
 
@@ -42,42 +42,42 @@
 
 ## 2.10.96(2019-05-11)
 
-- bug fixed, add device network configuration without password, add push notification to open or close, add development environment push support
+- Bug Fixed, Add Device Network Configuration Without Password, Add Push Notification to Open or Close, Add Development Environment Push Support
 
 ## 2.8.44(2019-03-28)
 
-- Fixed an online problem with Wi-Fi subdevices
+- Fixed an Online Problem with Wi-Fi Subdevices
 
 ## 2.8.43(2019-03-15)
 
-- New encryption:  Appkey, AppSecret, iOS security images, bundleId for application on Tuya Developer Platform
+- New Encryption:  Appkey, AppSecret, iOS Security Images, BundleId for Application on Tuya Developer Platform
 
 ## 0.2.2(2019-01-19)
 
-bug fixed
+- Bug Fixed
 
 ## 0.2.1(2019-01-08)
 
-TuyaSmartHomeKit iOS SDK functions split:
+TuyaSmartHomeKit iOS SDK Functions Split:
 
 - TuyaSmartUtil 
 
-  - Utility classes, including category etc
+  - Utility Classes, Including Category etc
 
 
 - TuyaSmartBaseKit 
 
-  - Account system (phone number, email registration, login, password reset)
+  - Account System (Phone Number, Email Registration, Login, Password Reset)
 
-  - HTTP API interface
+  - HTTP API Interface
 
 
 - TuyaSmartDeviceKit
 
-  - Home, room, group, device manager
-  - network configuration
-  - Device control
-  - Shared devices
+  - Home, Room, Group, Device Manager
+  - Network Configuration
+  - Device Control
+  - Shared Devices
 
 - TuyaSmartTimerKit
 
@@ -85,7 +85,7 @@ TuyaSmartHomeKit iOS SDK functions split:
 
 - TuyaSmartSceneKit
 
-  - Smart scene
+  - Smart Scene
 
 - TuyaSmartFeedbackKit
 
@@ -93,31 +93,31 @@ TuyaSmartHomeKit iOS SDK functions split:
 
 - TuyaSmartMessageKit
 
-  - Message center
+  - Message Center
 
 - TYBluetooth
 
-  - Bluetooth base 
+  - Bluetooth Base 
 
 - TuyaSmartBLEKit
 
-  - single bluetooth
+  - Single Bluetooth
 
 - TuyaSmartBLEMeshKit
 
-  - Ble mesh
+  - Ble Mesh
 
 ## 0.1.6 (2018-12-26)
 
-- bug fixed : Time zoneId update 
+- Bug Bixed : Time ZoneId Update 
 
 ## 0.1.5 (2018-12-26)
 
-- add : Low power consumption wake up method
+- Add : Low Power Consumption Wake Up Method
 
 ## 0.1.4 (2018-12-26)
 
-- bug fixed : TuyaSmartUser Avatars url updated, no update local cache
+- Bug Bixed: TuyaSmartUser Avatars Url Updated, No Update Local Cache
 
 ## 0.1.3 (2018-11-20)
 
@@ -134,7 +134,7 @@ TuyaSmartHomeKit iOS SDK functions split:
 
 ## 0.0.19 (2018-09-27)
 
-- add api merger service
+- Add Api Merger Service
 
 ## 0.0.18 (2018-09-21)
 

@@ -1,8 +1,10 @@
-## Timer Task
+# Timer Task
+
+
 
 `TuyaSmartTimerKit` provides timer feature for device and group.
 
-### Design
+## Design
 
 Like device, the timer design idea is given in the following figure:
 
@@ -14,7 +16,9 @@ Like device, the timer design idea is given in the following figure:
 | -------------- | ----------------------------- |
 | TuyaSmartTimer | Device and group time feature |
 
-### Add Timer Task
+##  Add Timer Task
+
+
 
 > Up to 30 timers per device or group
 
@@ -78,7 +82,9 @@ func addTimer() {
 }
 ```
 
-### Obtain Status of Timer Task
+## Obtain Status of Timer Task
+
+
 
 Obtain all task modules of a specified device.
 
@@ -135,7 +141,9 @@ func getTimer() {
 }
 ```
 
-### Update Status of Timer Task
+## Update Status of Timer Task
+
+
 
 Update the status of a designated task specified by a device. 0 denotes off, and 1 denotes on. 
 
@@ -190,7 +198,7 @@ func updateTimer() {
 }
 ```
 
-### Update the Status of Timer
+## Update the Status of Timer
 
 Update the status of a designated timer specified by a device. 0 denotes off, and 1 denotes on.
 
@@ -247,7 +255,9 @@ func updateTimer() {
 }
 ```
 
-### Remove Timer
+## Remove Timer
+
+
 
 Remove the timer of a task specified by a device. 
 
@@ -302,7 +312,9 @@ func removeTimer() {
 }
 ```
 
-### Update Timer
+## Update Timer
+
+
 
 Update the timer of a task specified by a device.
 
@@ -366,7 +378,9 @@ func updateTimer() {
 }
 ```
 
-### Obtain All Timers of Timer Task
+## Obtain All Timers of Timer Task
+
+
 
 Obtain all timer modules of task required by a device.
 
@@ -419,7 +433,7 @@ func getTimer() {
 }
 ```
 
-### Obtain All Timers of All Timer Tasks
+## Obtain All Timers of All Timer Tasks
 
 Obtain all timer modules of task required by a device.
 
