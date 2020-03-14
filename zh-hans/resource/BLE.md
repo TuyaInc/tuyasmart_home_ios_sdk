@@ -53,12 +53,15 @@
   
   ```
 
-
 #### 系统蓝牙状态监测
+
+**接口说明**
 
 SDK 提供了对系统蓝牙的状态监测的方法，在蓝牙状态变化（如开启或关闭）时，可以通过设置代理收到具体的消息
 
+**参数说明**
 
+无
 
 **示例代码**
 
@@ -100,6 +103,8 @@ func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
 
 #### 设备扫描
 
+**接口说明**
+
 处于待连接的蓝牙设备都会不停的向四周发蓝牙广播包，客户端作为终端可以发现这些广播包，根据广播包中包含涂鸦设备信息规则作为目标设备的过滤条件
 
 ```objective-c
@@ -122,6 +127,11 @@ func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
 - (void)stopListening:(BOOL)clearCache;
 ```
 
+**参数说明**
+
+| 参数       | 说明                   |
+| ---------- | ---------------------- |
+| clearCache | 是否清理已扫描到的设备 |
 
 
 **示例代码**
@@ -169,6 +179,8 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 #### 设备激活
 
+**接口说明**
+
 扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下
 
 ```objective-c
@@ -182,8 +194,6 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
           failure:(TYFailureHandler)failure;
 ```
 
-
-
 **参数说明**
 
 | 参数       | 说明                                         |
@@ -192,8 +202,6 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 | homeId     | 当前家庭 Id                                  |
 | success    | 成功回调                                     |
 | failure    | 失败回调                                     |
-
-
 
 **示例代码**
 
@@ -222,6 +230,8 @@ TuyaSmartBLEManager.sharedInstance().activeBLE(<deviceInfo: deviceInfo, homeId: 
 
 #### 设备 OTA 升级
 
+**接口说明**
+
 对于有固件升级的设备，可以通过发送升级固件数据包对设备进行升级。其中升级固件包需要先请求云端接口进行获取固件信息
 
 ```objective-c
@@ -235,8 +245,6 @@ TuyaSmartBLEManager.sharedInstance().activeBLE(<deviceInfo: deviceInfo, homeId: 
             failure:(TYFailureHandler)failure;
 ```
 
-
-
 **参数说明**
 
 | 参数    | 说明           |
@@ -246,8 +254,6 @@ TuyaSmartBLEManager.sharedInstance().activeBLE(<deviceInfo: deviceInfo, homeId: 
 | otaData | 升级固件的数据 |
 | success | 成功回调       |
 | failure | 失败回调       |
-
-
 
 **示例代码**
 
@@ -304,6 +310,8 @@ TuyaSmartBLEManager.sharedInstance().sendOTAPack(deviceModel.uuid, pid: deviceMo
 
 #### 查询设备名称
 
+**接口说明**
+
 当扫描到设备广播包并拿到设备广播包对象后，可以通过该方法查询设备名称
 
 ```objective-c
@@ -316,8 +324,6 @@ TuyaSmartBLEManager.sharedInstance().sendOTAPack(deviceModel.uuid, pid: deviceMo
                   failure:(TYFailureError)failure;
 ```
 
-
-
 **参数说明**
 
 | 参数       | 说明      |
@@ -326,8 +332,6 @@ TuyaSmartBLEManager.sharedInstance().sendOTAPack(deviceModel.uuid, pid: deviceMo
 | productKey | 产品 Id   |
 | success    | 成功回调  |
 | failure    | 失败回调  |
-
-
 
 **示例代码**
 
@@ -363,7 +367,13 @@ TuyaSmartBLEManager.sharedInstance().queryName(withUUID: bleAdvInfo.uuid, produc
 
 #### 双模配网发现设备
 
+**接口说明**
 
+SDK 提供了扫描未激活双模设备的方法，在扫描到未激活的双模设备时，可以通过设置代理收到具体的设备信息
+
+**参数说明**
+
+无
 
 **示例代码**
 
@@ -407,9 +417,9 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 #### 双模配网设备激活
 
-扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下
+**接口说明**
 
-使用方法：
+扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下
 
 ```objective-c
 /**
@@ -426,8 +436,6 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
                                  failure:(TYFailureHandler)failure;
 ```
 
-
-
 **参数说明**
 
 | 参数      | 说明           |
@@ -440,8 +448,6 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 | timeout   | 轮询时间       |
 | success   | 成功回调       |
 | failure   | 失败回调       |
-
-
 
 **示例代码**
 
@@ -469,7 +475,13 @@ Swift:
 
 #### 双模配网设备激活回调
 
+**接口说明**
 
+配网的结果通过 delegate 方法回调
+
+**参数说明**
+
+无
 
 **示例代码**
 
@@ -505,7 +517,13 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 #### 双模配网停止发现设备
 
+**接口说明**
 
+停止发现双模设备
+
+**参数说明**
+
+无
 
 **示例代码**
 

@@ -16,10 +16,14 @@
 标准蓝牙 Mesh 也叫做 SIG Mesh，是蓝牙技术联盟提出的 Mesh 网络的通讯标准。使用蓝牙 Mesh 进行组网及功能点的更新，均需要满足标准蓝牙 Mesh 的标准
 
 ### 标准蓝牙(SIG) Mesh 的基本概念
+|  专有名词           | 说明            |
+| --------------- | ----------------|
+| 大小类         | 每个 mesh 设备都对应一款产品，每个产品都有自己的大小类标示，sdk 中以 `pcc`、`type` 作为大小类标示    |
+| mesh 群组 local Id         | 2 字节，node id 用于区分每个 mesh 设备在 mesh 网中的「唯一标识」，比如想控制某个设备就向 mesh 网发此设备对应的 nodeId 命令即可     |
+| mesh 节点 node Id         | 2 字节，local Id 用于区分每个 mesh 群组在 mesh 网中的「唯一标识」，比如想控制某个群组中的设备就向 mesh 网发此群组对应的 localId 命令即可     |
+| 本地连接         | 已配网设备通过蓝牙连接，来控制 mesh 和指令操作 |
+| 网关连接         | 已配网设备通过网关连接（网关需和设备在一起，距离不能太远）,来控制 mesh 和指令操作 |
 
-- 大小类
-
-  每个 mesh 设备都对应一款产品，每个产品都有自己的大小类标示，sdk 中以 `pcc`、`type` 作为大小类标示
 
   SIG Mesh 产品目前按以下规则
   
@@ -37,24 +41,10 @@
      透传型 Tuya 设备 四路灯 1420
      ......
   ```
-
-- mesh 节点 node Id， 2 字节
-
-  node id 用于区分每个 mesh 设备在 mesh 网中的「唯一标识」，比如想控制某个设备就向 mesh 网发此设备对应的 nodeId 命令即可
-
-- mesh 群组 local Id，2 字节
-
-  local Id 用于区分每个 mesh 群组在 mesh 网中的「唯一标识」，比如想控制某个群组中的设备就向 mesh 网发此群组对应的 localId 命令即可
-
+  
 - 设备操作需要多步操作
 
   因为设备的操作，例如增删操作、群组操作，都需要本地蓝牙命令执行一次、云端记录一次 向本地 mesh 网同步操作信息的同时也需要向云端同步操作信息
-
-- 本地连接和网关连接 
-
-  本地连接：已配网设备通过蓝牙连接，来控制 mesh 和指令操作
-
-  网关连接：已配网设备通过网关连接（网关需和设备在一起，距离不能太远）,来控制 mesh 和指令操作
 
 
 
@@ -84,7 +74,7 @@
                         failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 TuyaSmartHome *home = #<上文初始化的 home 实例>;
@@ -109,7 +99,7 @@ long long homeId = home.homeModel.homeId;
 - (void)removeMeshWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 self.mesh = #<TuyaSmartBleMesh 实例>;
@@ -134,7 +124,7 @@ self.mesh = #<TuyaSmartBleMesh 实例>;
                           failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 TuyaSmartHome *home = #<home 实例>
@@ -156,7 +146,7 @@ TuyaSmartHome *home = #<home 实例>
 + (instancetype)bleMeshWithMeshId:(NSString *)meshId homeId:(long long)homeId;
 ```
 
-「代码示例」
+**示例代码**
 
 通过家庭（`TuyaSmartHome` 实例）`home` 实例可以拿到类下的 `sigMeshModel`
 
@@ -196,7 +186,7 @@ TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
           meshModel:(TuyaSmartBleMeshModel *)meshModel;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 [TuyaSmartSIGMeshManager sharedInstance].delegate = self;

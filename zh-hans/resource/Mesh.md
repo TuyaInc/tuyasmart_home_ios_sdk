@@ -6,7 +6,7 @@
 
 蓝牙 mesh 通俗点讲，就是把多个蓝牙单点设备组成一个 mesh 网络，每个节点可以和别的节点自由通讯，通过手机**直连 mesh 网中任意一个设备，即能访问控制 mesh 网中所有的设备**
 
-| 类名           | 说明             |
+| 类名                                  | 说明                                   |
 | -------------- | ---------------- |
 | TYBLEMeshManager | 蓝牙 Mesh 封装 |
 
@@ -29,9 +29,18 @@
 
 ## Mesh 专有名词解释
 
-- 大小类
+| 专有名词                                  | 说明                                   |
+| -------------- | ---------------- |
+| 大小类 |每个 mesh 设备都对应一款产品，每个产品都有自己的大小类标示，sdk 中以 `pcc`、`type` 作为大小类标示 |
+|  mesh 节点 node Id |node id 用于区分每个 mesh 设备在 mesh 网中的「唯一标识」，比如想控制某个设备就向 mesh 网发此设备对应的 nodeId 命令即可|
+|  mesh 群组 local Id |local Id 用于区分每个 mesh 群组在 mesh 网中的「唯一标识」，比如想控制某个群组中的设备就向 mesh 网发此群组对应的 localId 命令即可|
+|  本地连接 |已配网设备通过蓝牙连接，来控制 mesh 和指令操作|
+|    网关连接 |已配网设备通过网关连接（网关需和设备在一起，距离不能太远）,来控制 mesh 和指令操作|
 
-  每个 mesh 设备都对应一款产品，每个产品都有自己的大小类标示，sdk 中以 `pcc`、`type` 作为大小类标示
+
+
+
+- 大小类
 
   Mesh 产品目前分为五大类
 
@@ -60,24 +69,12 @@
      网关      0108
      ......
   ```
-
-- mesh 节点 node Id
-
-  node id 用于区分每个 mesh 设备在 mesh 网中的「唯一标识」，比如想控制某个设备就向 mesh 网发此设备对应的 nodeId 命令即可
-
-- mesh 群组 local Id
-
-  local Id 用于区分每个 mesh 群组在 mesh 网中的「唯一标识」，比如想控制某个群组中的设备就向 mesh 网发此群组对应的 localId 命令即可
+  
 
 - 设备操作需要多步操作
 
   因为设备的操作，例如增删操作、群组操作，都需要本地蓝牙命令执行一次、云端记录一次
   向本地 mesh 网同步操作信息的同时也需要向云端同步操作信息
-
-- 本地连接和网关连接
-  本地连接：已配网设备通过蓝牙连接，来控制 mesh 和指令操作
-
-  网关连接:  已配网设备通过网关连接（网关需和设备在一起，距离不能太远）,来控制 mesh 和指令操作
 
 
 ## Mesh 管理类
@@ -105,7 +102,7 @@
                           failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 TuyaSmartHome *home = #<上文初始化的 home 实例>;
@@ -133,7 +130,7 @@ long long homeId = home.homeModel.homeId;
 - (void)removeMeshWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 self.mesh = #<TuyaSmartBleMesh 实例>;
@@ -158,7 +155,7 @@ self.mesh = #<TuyaSmartBleMesh 实例>;
                        failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 TuyaSmartHome *home = #<home 实例>
@@ -180,7 +177,7 @@ TuyaSmartHome *home = #<home 实例>
 + (instancetype)bleMeshWithMeshId:(NSString *)meshId homeId:(long long)homeId;
 ```
 
-「代码示例」
+**示例代码**
 
 通过家庭（`TuyaSmartHome` 实例）`home` 可以拿到类下的 `meshModel`，可以通过此进行创建，并且在创建完成之后，赋值给当前的 `TuyaSmartUser` 中，SDK 中以及上层以 `TuyaSmartUser` 是否有值为判断基准:
 
@@ -277,7 +274,7 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 
 
-「代码示例」
+**示例代码**
 
 待配网的扫描
 
@@ -416,7 +413,7 @@ mesh 网关入网
                                timeout:(NSTimeInterval)timeout;
 ```
 
-「代码示例」
+**示例代码**
 
 - mesh 子设备（不带网关的设备）入网
 
@@ -516,7 +513,7 @@ mesh 网关入网
 
 
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 // 注意，此时的 active、wifiAddress、otaAddress 参数赋值情况
@@ -574,7 +571,7 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
 - (void)renameMeshSubDeviceWithDeviceId:(NSString *)deviceId name:(NSString *)name success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 [[TuyaSmartUser sharedInstance].mesh renameMeshSubDeviceWithDeviceId:self.device.devId name:name success:^{
@@ -611,7 +608,7 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
                      failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 [[TuyaSmartUser sharedInstance].mesh addSubDeviceWithUuid:_uuid homeId:[TuyaSmartUser sharedInstance].meshModel.homeId authKey:_authKey nodeId:nodeHex productKey:_selectedPeripheral.productId ver:_selectedPeripheral.version success:^(NSString *devId, NSString *name) {
@@ -752,7 +749,7 @@ mesh 设备的在线情况分为两种
                              failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 
@@ -846,7 +843,7 @@ NSInteger localId = 0x8001;
 - (void)removeMeshGroupWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 
@@ -941,7 +938,7 @@ NSInteger localId = 0x8001;
 - (void)addDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 - (void)addDeviceToGroup:(TuyaSmartDeviceModel *)model {
@@ -1084,7 +1081,7 @@ NSInteger localId = 0x8001;
 ```
 
 
-「代码示例」
+**示例代码**
 
 
 ```objective-c
@@ -1166,7 +1163,7 @@ NSInteger localId = 0x8001;
 
 
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 [self.meshGroup getDeviveListInfoWithSuccess:^(NSArray<TuyaSmartDeviceModel *> *deviceList) {
@@ -1206,7 +1203,7 @@ NSInteger localId = 0x8001;
               failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 int address = [[self.smartDevice deviceModel].nodeId intValue] << 8;
@@ -1236,7 +1233,7 @@ int address = [[self.smartDevice deviceModel].nodeId intValue] << 8;
                         failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 int address = [[self.meshGroup meshGroupModel].localId intValue];
@@ -1435,7 +1432,7 @@ mesh 升级时已成功登入 mesh 网
 - (void)updateDeviceVersion:(NSString *)version type:(NSInteger)type success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「代码示例」
+**示例代码**
 
 ```objective-c
 1. 准备升级

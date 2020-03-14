@@ -24,9 +24,15 @@ Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluet
 
 ## Basic Notion
 
-- pcc
 
-  Each mesh device corresponds to a product, and each product has its own size class label. The SDK uses pcc andtype as the size class label.
+| Basic Notion                 | Description                  |
+| --------------                | ----------------              |
+| pcc | Each mesh device corresponds to a product, and each product has its own size class label. The SDK uses pcc andtype as the size class label.  |
+|mesh node Id|   The node id is used to distinguish the "unique identifier" of each mesh device in the mesh network. For example, if you want to control a device, you can send the nodeId command corresponding to this device to the mesh network|
+| mesh group local Id|The local Id is used to distinguish the `` unique identifier '' of each mesh group in the mesh network.For example, if you want to control the devices in a group, you can send the localId command corresponding to this group to the mesh network.|
+|Local Connection| The networked device is connected via Bluetooth to control mesh and command operations|
+|Gateway Connection|The networked devices are connected through the gateway (the gateway needs to be with the device, and the distance cannot be too far) to control the mesh and command operations. |
+  
 
   Mesh product type
 
@@ -56,21 +62,13 @@ Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluet
      ......
   ```
 
-- mesh node Id
-
-  The node id is used to distinguish the "unique identifier" of each mesh device in the mesh network. For example, if you want to control a device, you can send the nodeId command corresponding to this device to the mesh network
-
-- mesh group local Id
-
-  The local Id is used to distinguish the `` unique identifier '' of each mesh group in the mesh network.For example, if you want to control the devices in a group, you can send the localId command corresponding to this group to the mesh network.
-
 - Equipment operation requires multiple steps
 
   Because device operations, such as adding and deleting operations, and group operations, require the local Bluetooth command to be executed once and recorded in the cloud once. The operation information needs to be synchronized to the local mesh network as well.
 
 - Local Connection and Gateway Connection
-  Local Connection: The networked device is connected via Bluetooth to control mesh and command operations
-  GatewayConnection: The networked devices are connected through the gateway (the gateway needs to be with the device, and the distance cannot be too far) to control the mesh and command operations.
+  Local Connection: 
+  GatewayConnection: 
 
 
 
@@ -98,7 +96,7 @@ A family can have multiple sig meshes (it is recommended to create only one fami
                           failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 TuyaSmartHome *home = #< home instance>;
@@ -127,7 +125,7 @@ Delete the mesh. If there are devices in the mesh group, the child devices are a
 - (void)removeMeshWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 self.mesh = #<TuyaSmartBleMesh instance>;
@@ -158,7 +156,7 @@ Get the list of meshes under the family
                        failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 TuyaSmartHome *home = #<home instance>
@@ -182,7 +180,7 @@ TuyaSmartHome *home = #<home instance>
 + (instancetype)bleMeshWithMeshId:(NSString *)meshId homeId:(long long)homeId;
 ```
 
-「Example」
+**Example**
 
 Through the family (TuyaSmartHome instance), home can get the meshModel under the class, which can be created through this, and after the creation is completed, it is assigned to the current TuyaSmartUser, and the SDK and upper layers take the value of TuyaSmartUser as the judgment criterion:
 
@@ -289,7 +287,7 @@ If it is a network access operation, subsequent operations will be performed aut
 
 
 
-「Example」
+**Example**
 
 ```objective-c
 // start scan
@@ -410,7 +408,7 @@ After activating the gateway, you can call this method after receiving the `acti
 ```
 
 
-「Example」
+**Example**
 
 * Mesh sub-devices (devices without gateways) are connected to the network
 
@@ -509,7 +507,7 @@ Successful network access will automatically obtain the online status of the dev
 
 
 
-「Example」
+**Example**
 
 ```objective-c
 
@@ -563,7 +561,7 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
 ```
 
 
-「Example」
+**Example**
 
 ```objective-c
 [[TuyaSmartUser sharedInstance].mesh renameMeshSubDeviceWithDeviceId:self.device.devId name:name success:^{
@@ -681,7 +679,7 @@ Currently, each mesh supports a maximum of 255 groups, and a device can only joi
                              failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 
@@ -750,7 +748,7 @@ Remote delete:
 - (void)removeMeshGroupWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 
@@ -824,7 +822,7 @@ After the above verification is completed, you can use this method to record the
 
 
 
-「Example」
+**Example**
 
 ```objective-c
 - (void)addDeviceToGroup:(TuyaSmartDeviceModel *)model {
@@ -939,7 +937,7 @@ After the above verification is completed, you can use this method to record the
 
 
 
-「Example」
+**Example**
 
 
 
@@ -1028,7 +1026,7 @@ After the above verification is completed, you can use this method to record the
 
 
 
-「Example」
+**Example**
 
 ```objective-c
 [self.meshGroup getDeviveListInfoWithSuccess:^(NSArray<TuyaSmartDeviceModel *> *deviceList) {
@@ -1064,7 +1062,7 @@ After the above verification is completed, you can use this method to record the
               failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 int address = [[self.smartDevice deviceModel].nodeId intValue] << 8;
@@ -1088,7 +1086,7 @@ int address = [[self.smartDevice deviceModel].nodeId intValue] << 8;
                         failure:(TYFailureError)failure;
 ```
 
-「Example」
+**Example**
 
 ```objective-c
 int address = [[self.meshGroup meshGroupModel].localId intValue];
@@ -1208,7 +1206,7 @@ Ensure device online
 
 
 
-「Example」
+**Example**
 
 ```objective-c
 1. prepare
