@@ -57,9 +57,11 @@ Tuya iOS Single BLE SDK （ Hereinafter referred to as BLE SDK or Single BLE SDK
 
 #### Bluetooth status monitor
 
+**Declaration**
+
 BLE SDK provides the method of Bluetooth status monitor，while bluetooth state changing （turn on or turn off ），you can receive the notification by setting delegate
 
-**Code Example**
+**Example**
 
 Objc:
 
@@ -99,6 +101,8 @@ func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
 
 #### BLE device scan
 
+**Declaration**
+
 The BLE device to be active will continuously send Bluetooth broadcast packets to the surrounding area, and the client can discover these broadcast packet, BLE SDK will filter the target device by the rule of Tuya BLE device information in the broadcast packet
 
 ```objective-c
@@ -117,9 +121,13 @@ The BLE device to be active will continuously send Bluetooth broadcast packets t
 - (void)stopListening:(BOOL)clearCache;
 ```
 
+**Parameters**
 
+| Parameter  | Description                                    |
+| ---------- | ---------------------------------------------- |
+| clearCache | Wheather clean up the caches of scaned devices |
 
-**Code Example**
+**Example**
 
 Objc:
 
@@ -164,6 +172,8 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 #### Active device
 
+**Declaration**
+
 After scanning an inactive device, the device can be activated and registered to the Tuya cloud
 
 ```objective-c
@@ -177,9 +187,7 @@ After scanning an inactive device, the device can be activated and registered to
           failure:(TYFailureHandler)failure;
 ```
 
-
-
-**Parameter  description**
+**Parameters**
 
 | Parameter  | Description                                       |
 | ---------- | ------------------------------------------------- |
@@ -188,9 +196,7 @@ After scanning an inactive device, the device can be activated and registered to
 | success    | Success callback                                  |
 | failure    | Failure callback                                  |
 
-
-
-**Code Example**
+**Example**
 
 Objc:
 
@@ -217,6 +223,8 @@ TuyaSmartBLEManager.sharedInstance().activeBLE(<deviceInfo: deviceInfo, homeId: 
 
 #### BLE device OTA upgrade
 
+**Declaration**
+
 For device with firmware upgrade, the device can be upgraded by sending firmware upgrade packets. The firmware upgrade packets information needs to be requested form cloud
 
 ```objective-c
@@ -230,9 +238,7 @@ For device with firmware upgrade, the device can be upgraded by sending firmware
             failure:(TYFailureHandler)failure;
 ```
 
-
-
-**Parameter  description**
+**Parameters**
 
 | Parameter | Description      |
 | --------- | ---------------- |
@@ -242,9 +248,7 @@ For device with firmware upgrade, the device can be upgraded by sending firmware
 | success   | Success callback |
 | failure   | Failure callback |
 
-
-
-**Code Example**
+**Example**
 
 Objc:
 
@@ -291,6 +295,8 @@ TuyaSmartBLEManager.sharedInstance().sendOTAPack(deviceModel.uuid, pid: deviceMo
 
 #### Query device name
 
+**Declaration**
+
 After receiving the device broadcast package, the device name can be queried by this method
 
 ```objective-c
@@ -303,9 +309,7 @@ After receiving the device broadcast package, the device name can be queried by 
                   failure:(TYFailureError)failure;
 ```
 
-
-
-**Parameter  description**
+**Parameters**
 
 | Parameter  | Description      |
 | ---------- | ---------------- |
@@ -314,9 +318,7 @@ After receiving the device broadcast package, the device name can be queried by 
 | success    | Success callback |
 | failure    | Failure callback |
 
-
-
-**Code Example**
+**Example**
 
 Objc:
 
@@ -348,6 +350,12 @@ Dp publish refer to [Functions of device](https://tuyainc.github.io/tuyasmart_ho
 
 
 #### BLE device scan ( Dual-mode )
+
+**Declaration**
+
+BLE SDK provides the method of scan Dual-mode BLE device，while discover device，you can receive the device information by setting delegate
+
+**Example**
 
 Objc:
 
@@ -392,6 +400,8 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 #### Active device ( Dual-mode )
 
+**Declaration**
+
 After scanning an inactive device, the device can be activated and registered to the Tuya cloud
 
 ```objective-c
@@ -408,9 +418,7 @@ After scanning an inactive device, the device can be activated and registered to
                                  failure:(TYFailureHandler)failure;
 ```
 
-
-
-**Parameter  description**
+**Parameters**
 
 | Parameter | Description             |
 | --------- | ----------------------- |
@@ -423,9 +431,7 @@ After scanning an inactive device, the device can be activated and registered to
 | success   | Success callback        |
 | failure   | Failure callback        |
 
-
-
-**Code Example**
+**Example**
 
 Objc:
 
@@ -451,9 +457,11 @@ Swift:
 
 #### Callback of device activator ( Dual-mode )
 
+**Declaration**
 
+You can get the result of device activator by setting delegate
 
-**Code Example**
+**Example**
 
 Objc:
 
@@ -487,9 +495,11 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 #### Stop discover device ( Dual-mode )
 
+**Declaration**
 
+Stop discover device
 
-**Code Example**
+**Example**
 
 Objc:
 
