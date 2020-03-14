@@ -2,9 +2,170 @@
 
 After login, user shall use the `TuyaSmartHomeManager to obtain` information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home.
 
+| Class Name(Protocol Name)       | Description                                                 |
+| ------------------------------- | ----------------------------------------------------------- |
+| TuyaSmartHomeManager(Singleton) | Fetch home list, sort home, add home                        |
+| TuyaSmartHomeManagerDelegate    | Home increase or decrease，MQTT connection success callback |
+
+
+
+### Obtain the home list
+
+Fetch home list, return data is just simple information of home. If you want to get the details of a specific home, you need to go to `TuyaSmartHome` to initialize a home and call the interface getHomeDetailWithSuccess: failure:
+
+**Declaration**
+
+```objective-c
+- (void)getHomeListWithSuccess:(void(^)(NSArray <TuyaSmartHomeModel *> *homes))success
+                       failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)getHomeList {
+
+	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
+        // home list
+    } failure:^(NSError *error) {
+        NSLog(@"get home list failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+let homeManager: TuyaSmartHomeManager = TuyaSmartHomeManager()
+
+func getHomeList() {
+    homeManager.getHomeList(success: { (homes) in
+        // home list
+    }) { (error) in
+        if let e = error {
+            print("get home list failure: \(e)")
+        }
+    }
+}
+```
+
+
+
+### Add home
+
+**Declaration**
+
+```
+- (void)addHomeWithName:(NSString *)homeName
+                geoName:(NSString *)geoName
+                  rooms:(NSArray <NSString *>*)rooms
+               latitude:(double)latitude
+              longitude:(double)longitude
+                success:(TYSuccessLongLong)success
+                failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| homeName   | Home name        |
+| geoName    | Address name     |
+| rooms      | room name list   |
+| latitude   | latitude         |
+| longitude  | longitude        |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)addHome {
+
+    [self.homeManager addHomeWithName:@"you_home_name"
+                          geoName:@"city_name"
+                            rooms:@[@"room_name"]
+                         latitude:lat
+                        longitude:lon
+                          success:^(double homeId) {
+
+        NSLog(@"add home success");
+    } failure:^(NSError *error) {
+        NSLog(@"add home failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+ func addHome() {
+    homeManager.addHome(withName: "you_home_name", geoName: "city_name", rooms: ["room_name"], latitude: lat, longitude: lon, success: { (homeId) in
+        print("add home success")
+    }) { (error) in
+        if let e = error {
+            print("add home failure: \(e)")
+        }
+    }
+}
+```
+
+
+
 ### Callback of information in the home list
 
 After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can proceed operations in the home list change.
+
+#### Add a home callback
+
+**Declaration**
+
+```
+- (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home;
+```
+
+**Parameters**
+
+| Parameters | Description           |
+| ---------- | --------------------- |
+| manager    | Home manager instance |
+| home       | Home model            |
+
+#### remove a home callback
+
+**Declaration**
+
+```objective-c
+- (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId;
+```
+
+**Parameters**
+
+| Parameters | Description           |
+| ---------- | --------------------- |
+| manager    | Home manager instance |
+| homeId     | Removed home ID       |
+
+#### MQTT service connection success callback
+
+**Declaration**
+
+```
+- (void)serviceConnectedSuccess;
+```
+
+**Example**
 
 Objc:
 
@@ -52,81 +213,644 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 ```
 
 
-### Obtain the home list.
-
-Objc:
-
-```objc
-- (void)getHomeList {
-
-	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
-        // home list
-    } failure:^(NSError *error) {
-        NSLog(@"get home list failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-let homeManager: TuyaSmartHomeManager = TuyaSmartHomeManager()
-
-func getHomeList() {
-    homeManager.getHomeList(success: { (homes) in
-        // home list
-    }) { (error) in
-        if let e = error {
-            print("get home list failure: \(e)")
-        }
-    }
-}
-```
-
-### Add home
-
-Objc:
-
-```objc
-- (void)addHome {
-
-    [self.homeManager addHomeWithName:@"you_home_name"
-                          geoName:@"city_name"
-                            rooms:@[@"room_name"]
-                         latitude:lat
-                        longitude:lon
-                          success:^(double homeId) {
-
-        NSLog(@"add home success");
-    } failure:^(NSError *error) {
-        NSLog(@"add home failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
- func addHome() {
-    homeManager.addHome(withName: "you_home_name", geoName: "city_name", rooms: ["room_name"], latitude: lat, longitude: lon, success: { (homeId) in
-        print("add home success")
-    }) { (error) in
-        if let e = error {
-            print("add home failure: \(e)")
-        }
-    }
-}
-```
-
 
 ## Home information management
 
-Main function: it is used to obtain, change and dismiss a home. Obtain, add and delete member of a home. Add, dismiss and remove room.
-The home ID needs to be used to initiate all TuyaSmartHome classes related to all functions for home information management. Wrong home ID may cause initiation failure, and the nil will be returned.
+***Main function:*** it is used to obtain, change and dismiss a home. Obtain, add and delete member of a home. Add, dismiss and remove room.
+The home ID needs to be used to initiate all `TuyaSmartHome` classes related to all functions for home information management. Wrong home ID may cause initiation failure, and the nil will be returned.
+
+After initializing the home object, you need to get the details interface of the home (getHomeDetailWithSuccess: failure :).  the properties homeModel, roomList, deviceList, groupList in the home instance object have data.
+
+| Class Name(protocol Name) | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| TuyaSmartHome             | Get and modify home information, manage rooms and home members |
+| TuyaSmartHomeDelegate     | Home information change callback                             |
+
+
+
+### Obtain detail information of home
+
+**Declaration**
+
+```objective-c
+- (void)getHomeDetailWithSuccess:(void (^)(TuyaSmartHomeModel *homeModel))success
+                         failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)getHomeDetailInfo {
+	self.home = [TuyaSmartHome homeWithHomeId:homeId];
+	[self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
+        // homeModel home information
+        NSLog(@"get home detail success");
+    } failure:^(NSError *error) {
+        NSLog(@"get home detail failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getHomeDetailInfo() {
+    home?.getDetailWithSuccess({ (homeModel) in
+        print("get home detail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("get home detail failure: \(e)")
+        }
+    })
+}
+```
+
+### Modify home information
+
+**Declaration**
+
+```objective-c
+- (void)updateHomeInfoWithName:(NSString *)homeName
+                       geoName:(NSString *)geoName
+                      latitude:(double)latitude
+                     longitude:(double)longitude
+                       success:(TYSuccessHandler)success
+                       failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| homeName   | Home name        |
+| geoName    | Address name     |
+| latitude   | latitude         |
+| longitude  | longitude        |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)updateHomeInfo {
+  	self.home = [TuyaSmartHome homeWithHomeId:homeId];
+    [self.home updateHomeInfoWithName:@"new_home_name" geoName:@"city_name" latitude:lat longitude:lon success:^{
+        NSLog(@"update home info success");
+    } failure:^(NSError *error) {
+        NSLog(@"update home info failure: %@", error);
+    }];
+}
+
+```
+
+Swift:
+
+```swift
+func updateHomeInfo() {
+    home?.updateInfo(withName: "new_home_name", geoName: "city_name", latitude: lat, longitude: lon, success: {
+        print("update home info success")
+    }, failure: { (error) in
+        if let e = error {
+            print("update home info failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### Dismiss home
+
+**Declaration**
+
+```objective-c
+- (void)dismissHomeWithSuccess:(TYSuccessHandler)success
+                       failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)dismissHome {
+
+	[self.home dismissHomeWithSuccess:^() {
+        NSLog(@"dismiss home success");
+    } failure:^(NSError *error) {
+        NSLog(@"dismiss home failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func dismissHome() {
+    home?.dismiss(success: {
+        print("dismiss home success")
+    }, failure: { (error) in
+        if let e = error {
+            print("dismiss home failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### Add room
+
+**Declaration**
+
+```
+- (void)addHomeRoomWithName:(NSString *)name
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| name       | Room name        |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)addHomeRoom {
+    [self.home addHomeRoomWithName:@"room_name" success:^{
+        NSLog(@"add room success");
+    } failure:^(NSError *error) {
+        NSLog(@"add room failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func addHomeRoom() {
+    home?.addRoom(withName: "room_name", success: {
+        print("add room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("add room failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### Remove room
+
+**Declaration**
+
+```objective-c
+- (void)removeHomeRoomWithRoomId:(long long)roomId
+                         success:(TYSuccessHandler)success
+                         failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| roomId     | Room ID          |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)removeHomeRoom {
+    [self.home removeHomeRoomWithRoomId:roomId success:^{
+        NSLog(@"remove room success");
+    } failure:^(NSError *error) {
+        NSLog(@"remove room failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func removeHomeRoom() {
+    home?.removeRoom(withRoomId: roomId, success: {
+        print("remove room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("remove room failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### Sort room
+
+**Declaration**
+
+```objective-c
+- (void)sortRoomList:(NSArray <TuyaSmartRoomModel *> *)roomList
+             success:(TYSuccessHandler)success
+             failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| roomList   | Room model List  |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)sortHomeRoom {
+    [self.home sortRoomList:(NSArray<TuyaSmartRoomModel *> *) success:^{
+        NSLog(@"sort room success");
+    } failure:^(NSError *error) {
+        NSLog(@"sort room failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func sortHomeRoom() {
+    home?.sortRoomList([TuyaSmartRoomModel]!, success: {
+        print("sort room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sort room failure: \(e)")
+        }
+    })
+}
+```
+
+
+### Home member management
+
+All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember`classes, member role type is `TYHomeRoleType`
+
+| Class Name(Protocol Name) | Description            |
+| ------------------------- | ---------------------- |
+| TuyaSmartHomeMember       | Home member management |
+
+
+
+#### Add home member
+
+> ```
+> The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
+> ```
+
+**Declaration**
+
+The autoAccept in `TuyaSmartHomeAddMemberRequestModel` is used to control whether the invitee's consent is required. If it is set to NO, the invitee needs to call` TuyaSmartHome`-joinFamilyWithAccept: success: failure: to accept before joining.
+
+```objective-c
+- (void)addHomeMemberWithAddMemeberRequestModel:(TuyaSmartHomeAddMemberRequestModel *)requestModel success:(TYSuccessDict)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters   | Description              |
+| ------------ | ------------------------ |
+| requestModel | Add member request model |
+| success      | Success callback         |
+| failure      | Failure callback         |
+
+TuyaSmartHomeAddMemberRequestModel
+
+| Parameters  | Description                                                  |
+| ----------- | ------------------------------------------------------------ |
+| name        | Invitee's nickname                                           |
+| account     | Invitee‘s account                                            |
+| countryCode | Invitee‘s account country code                               |
+| role        | home member role                                             |
+| headPic     | Invitee‘s avatar, Use the invitee's profile picture when nil |
+| autoAccept  | Does the invitee need to agree to accept the invitation      |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)addShare {
+    [self.smartHome addHomeMemberWithAddMemeberRequestModel:requestModel success:^(NSDictionary *dict) {
+        NSLog(@"addNewMember success");
+    } failure:^(NSError *error) {
+        NSLog(@"addNewMember failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func addShare() {
+    home?.addHomeMember(requestModel: requestModel, success: {
+        print("addNewMember success")
+    }, failure: { (error) in
+        if let e = error {
+            print("addNewMember failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### Delete home member
+
+> ```
+> The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
+> ```
+
+**Declaration**
+
+If members input their own memberId, home administrator, ordinary members, and custom roles, this interface is called to leave the family. At this time, the home is not disbanded, and the device will not be reset. The owner is the disbanded home, and the home All devices will be reset, with the same effect as the dismiss family above.
+
+```objective-c
+- (void)removeHomeMemberWithMemberId:(long long)memberId
+                             success:(TYSuccessHandler)success
+                             failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description       |
+| ---------- | ----------------- |
+| memberId   | Home member ID    |
+| success    | Success  callback |
+| failure    | Failure callback  |
+
+**Example**
+
+Objc: 
+
+```objective-c
+- (void)removeMember:(TuyaSmartHomeMemberModel *)memberModel {
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
+	[self.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
+        NSLog(@"removeMember success");
+    } failure:^(NSError *error) {
+        NSLog(@"removeMember failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
+    homeMember?.removeHomeMember(withMemberId: memberModel.memberId, success: {
+        print("removeMember success")
+    }, failure: { (error) in
+        if let e = error {
+            print("removeMember failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### Get a list of Home members
+
+**Declaration**
+
+```
+- (void)getHomeMemberListWithSuccess:(void(^)(NSArray <TuyaSmartHomeMemberModel *> *memberList))success failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)initMemberList {
+  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
+    [_home getHomeMemberListWithSuccess:^(NSArray<TuyaSmartHomeMemberModel *> *memberList) {
+        NSLog(@"getMemberList success: %@", memberList);
+    } failure:^(NSError *error) {
+        NSLog(@"getMemberList failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func initMemberList() {
+    home.getHomeMemberList(withSuccess: { memberList in
+        print("getMemberList success: \(memberList)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getMemberList failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### Modify the home member's information
+
+> ```
+> The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
+> ```
+
+**Declaration**
+
+```objective-c
+- (void)updateHomeMemberInfoWithMemberRequestModel:(TuyaSmartHomeMemberRequestModel *)memberRequestModel success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters         | Description                     |
+| ------------------ | ------------------------------- |
+| memberRequestModel | TuyaSmartHomeMemberRequestModel |
+| success            | Success  callback               |
+| failure            | Failure callback                |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
+	TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
+	[self.homeMember updateHomeMemberInfoWithMemberRequestModel:requestModel  success:^{
+        NSLog(@"modifyMemberName success");
+    } failure:^(NSError *error) {
+        NSLog(@"modifyMemberName failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
+    homeMember?.updateHomeMemberName(withMemberRequestModel:requestModel, success: {
+        print("modifyMemberName success")
+    }, failure: { (error) in
+        if let e = error {
+            print("modifyMemberName failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+####  Accept or reject home invitations
+
+**Declaration**
+
+Whether the member accepts the home‘s invitation corresponds to the dealStatus in TuyaSmartHomeModel, The invited state will correspond to TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject.
+
+```objective-c
+- (void)joinFamilyWithAccept:(BOOL)accept
+                     success:(TYSuccessBOOL)success
+                     failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description       |
+| ---------- | ----------------- |
+| accept     | Whether to accept |
+| success    | Success callback  |
+| failure    | Failure callback  |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)initMemberList {
+  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
+  	[_home joinFamilyWithAccept:YES success:^(BOOL result) {
+        NSLog(@"join success");
+    } failure:^(NSError *error) {
+        NSLog(@"join failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
+    home?.joinFamilyWithAccept(true, success: { (result: Bool) in
+        print("join success")
+    }, failure: { (error) in
+        if let e = error {
+            print("join failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+###Sort device and groups 
+
+**Declaration**
+
+```objective-c
+- (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList
+                               success:(TYSuccessHandler)success
+                               failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description                               |
+| ---------- | ----------------------------------------- |
+| orderList  | [@{@"bizId": @"XXX", @"bizType": @"XXX"}] |
+| success    | Success callback                          |
+| failure    | Failure callback                          |
+
+**Example**
+
+Objc:
+
+```objc
+// orderList: [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] bizId is devId or groupId, device's bizType = @"6" group's bizType = @"5"
+- (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
+	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
+        NSLog(@"sort device or group success");
+    } failure:^(NSError *error) {
+        NSLog(@"sort device or group failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
+    home.sortDeviceOrGroup(withOrderList: orderList, success: {
+        print("sort device or group success")
+    }, failure: { error in
+        if let error = error {
+            print("sort device or group failure: \(error)")
+        }
+    })
+}
+```
+
+
 
 ### Callback of information change of home
 
 After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can proceed operations in the home information change.
+
+**Example**
 
 Objc:
 ```objc
@@ -312,377 +1036,35 @@ extension ViewController: TuyaSmartHomeDelegate {
 }
 ```
 
-### Obtain information of home.
-
-Objc:
-
-```objc
-- (void)getHomeDetailInfo {
-
-	[self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
-        // homeModel home information
-        NSLog(@"get home detail success");
-    } failure:^(NSError *error) {
-        NSLog(@"get home detail failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func getHomeDetailInfo() {
-    home?.getDetailWithSuccess({ (homeModel) in
-        print("get home detail success")
-    }, failure: { (error) in
-        if let e = error {
-            print("get home detail failure: \(e)")
-        }
-    })
-}
-```
-
-### Update home information
-
-Objc:
-
-```objc
-- (void)updateHomeInfo {
-    [self.home updateHomeInfoWithName:@"new_home_name" geoName:@"city_name" latitude:lat longitude:lon success:^{
-        NSLog(@"update home info success");
-    } failure:^(NSError *error) {
-        NSLog(@"update home info failure: %@", error);
-    }];
-}
-
-```
-
-Swift:
-
-```swift
-func updateHomeInfo() {
-    home?.updateInfo(withName: "new_home_name", geoName: "city_name", latitude: lat, longitude: lon, success: {
-        print("update home info success")
-    }, failure: { (error) in
-        if let e = error {
-            print("update home info failure: \(e)")
-        }
-    })
-}
-```
-
-###Sort device and groups 
-
-Objc:
-
-```objc
-// orderList: [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] bizId is devId or groupId, device's bizType = @"6" group's bizType = @"5"
-- (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
-	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
-        NSLog(@"sort device or group success");
-    } failure:^(NSError *error) {
-        NSLog(@"sort device or group failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
-    home.sortDeviceOrGroup(withOrderList: orderList, success: {
-        print("sort device or group success")
-    }, failure: { error in
-        if let error = error {
-            print("sort device or group failure: \(error)")
-        }
-    })
-}
-```
-
-### Dismiss home
-
-Objc:
-
-```objc
-- (void)dismissHome {
-
-	[self.home dismissHomeWithSuccess:^() {
-        NSLog(@"dismiss home success");
-    } failure:^(NSError *error) {
-        NSLog(@"dismiss home failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func dismissHome() {
-    home?.dismiss(success: {
-        print("dismiss home success")
-    }, failure: { (error) in
-        if let e = error {
-            print("dismiss home failure: \(e)")
-        }
-    })
-}
-```
-
-### Add room
-
-Objc:
-
-```objc
-- (void)addHomeRoom {
-    [self.home addHomeRoomWithName:@"room_name" success:^{
-        NSLog(@"add room success");
-    } failure:^(NSError *error) {
-        NSLog(@"add room failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func addHomeRoom() {
-    home?.addRoom(withName: "room_name", success: {
-        print("add room success")
-    }, failure: { (error) in
-        if let e = error {
-            print("add room failure: \(e)")
-        }
-    })
-}
-```
-
-### Remove room
-
-Objc:
-
-```objc
-- (void)removeHomeRoom {
-    [self.home removeHomeRoomWithRoomId:roomId success:^{
-        NSLog(@"remove room success");
-    } failure:^(NSError *error) {
-        NSLog(@"remove room failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func removeHomeRoom() {
-    home?.removeRoom(withRoomId: roomId, success: {
-        print("remove room success")
-    }, failure: { (error) in
-        if let e = error {
-            print("remove room failure: \(e)")
-        }
-    })
-}
-```
-
-### Sort room
-
-Objc:
-
-```objc
-- (void)sortHomeRoom {
-    [self.home sortRoomList:(NSArray<TuyaSmartRoomModel *> *) success:^{
-        NSLog(@"sort room success");
-    } failure:^(NSError *error) {
-        NSLog(@"sort room failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func sortHomeRoom() {
-    home?.sortRoomList([TuyaSmartRoomModel]!, success: {
-        print("sort room success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sort room failure: \(e)")
-        }
-    })
-}
-```
-### Home member management
-
-All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember`classes, member role type is `TYHomeRoleType`
-
-#### Add Home Member
-
-Objc:
-
-```objc
-- (void)addShare {
-  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
-    [_home addHomeMemberWithName:@"name" headPic:image countryCode:@"your_country_code" userAccount:@"account" role:TYHomeRoleType_Admin success:^(NSDictionary *dict) {
-        NSLog(@"addNewMember success");
-    } failure:^(NSError *error) {
-        NSLog(@"addNewMember failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func addShare() {
-    home?.addHomeMember(withName:@"name", headPic:image, countryCode: "your_country_code", account: "account", role: TYHomeRoleType_Admin, success: {
-        print("addNewMember success")
-    }, failure: { (error) in
-        if let e = error {
-            print("addNewMember failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### Get a list of Home members
-
-Objc:
-
-```objc
-- (void)initMemberList {
-  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
-    [_home getHomeMemberListWithSuccess:^(NSArray<TuyaSmartHomeMemberModel *> *memberList) {
-        NSLog(@"getMemberList success: %@", memberList);
-    } failure:^(NSError *error) {
-        NSLog(@"getMemberList failure");
-    }];
-}
-```
-
-Swift:
-
-```swift
-func initMemberList() {
-    home.getHomeMemberList(withSuccess: { memberList in
-        print("getMemberList success: \(memberList)")
-    }, failure: { (error) in
-        if let e = error {
-            print("getMemberList failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### Modify the home member's comment name and whether it's an administrator
-
-Objc:
-
-```objc
-- (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
-	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
-
-	TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
-	[self.homeMember updateHomeMemberInfoWithMemberRequestModel:requestModel  success:^{
-        NSLog(@"modifyMemberName success");
-    } failure:^(NSError *error) {
-        NSLog(@"modifyMemberName failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
-    homeMember?.updateHomeMemberName(withMemberRequestModel:requestModel, success: {
-        print("modifyMemberName success")
-    }, failure: { (error) in
-        if let e = error {
-            print("modifyMemberName failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### Delete home members
-
-Objc: 
-
-```objc
-- (void)removeMember:(TuyaSmartHomeMemberModel *)memberModel {
-	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
-
-	[self.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
-        NSLog(@"removeMember success");
-    } failure:^(NSError *error) {
-        NSLog(@"removeMember failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
-    homeMember?.removeHomeMember(withMemberId: memberModel.memberId, success: {
-        print("removeMember success")
-    }, failure: { (error) in
-        if let e = error {
-            print("removeMember failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-####  Accept or reject home invitations
-
-Whether the member accepts the home‘s invitation corresponds to the dealStatus in TuyaSmartHomeModel, The invited state will correspond to TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject.
-
-Objc:
-
-```objc
-- (void)initMemberList {
-  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
-  	[_home joinFamilyWithAccept:YES success:^(BOOL result) {
-        NSLog(@"join success");
-    } failure:^(NSError *error) {
-        NSLog(@"join failure");
-    }];
-}
-```
-
-
-
-Swift:
-
-```swift
-func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
-    home?.joinFamilyWithAccept(true, success: { (result: Bool) in
-        print("join success")
-    }, failure: { (error) in
-        if let e = error {
-            print("join failure: \(e)")
-        }
-    })
-}
-```
-
 
 
 ## Room information management
 
 The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to all functions for room information management. Wrong roomId may cause initiation failure, and the `nil` will be returned.
 
+| Class Name(Protocol Name) | Description                                                 |
+| ------------------------- | ----------------------------------------------------------- |
+| TuyaSmartRoom             | Room information and device or group management in the room |
+
+
+
 ### Update room name
+
+**Declaration**
+
+```
+- (void)updateRoomName:(NSString *)roomName success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| roomName   | room name        |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
 
 Objc:
 
@@ -710,7 +1092,25 @@ func updateRoomName() {
 }
 ```
 
+
+
 ### Add device to a room
+
+**Declaration**
+
+```objective-c
+- (void)addDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description       |
+| ---------- | ----------------- |
+| deviceId   | Device ID         |
+| success    | Success call back |
+| failure    | Failure callback  |
+
+**Example**
 
 Objc:
 
@@ -738,7 +1138,25 @@ func addDevice() {
 }
 ```
 
+
+
 ### Remove device from a room
+
+**Declaration**
+
+```objective-c
+- (void)removeDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| deviceId   | Device ID        |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
 
 Objc:
 
@@ -767,6 +1185,21 @@ func removeDevice() {
 ```
 
 ### Add group in a room
+**Declaration**
+
+```objective-c
+- (void)addGroupWithGroupId:(NSString *)groupId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| groupId    | Group ID         |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
 
 Objc:
 
@@ -795,6 +1228,21 @@ func addGroup() {
 ```
 
 ### Remove group in a room
+**Declaration**
+
+```objective-c
+- (void)removeGroupWithGroupId:(NSString *)groupId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| groupId    | Group ID         |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
 
 Objc:
 
@@ -822,7 +1270,24 @@ func removeGroup() {
 }
 ```
 
-### Change relation between room and group and devices in batches.
+### Change relation between room and group and devices in batches
+**Declaration**
+
+```objective-c
+- (void)saveBatchRoomRelationWithDeviceGroupList:(NSArray <NSString *> *)deviceGroupList
+                                         success:(TYSuccessHandler)success
+                                         failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters      | Description                |
+| --------------- | -------------------------- |
+| deviceGroupList | Device ID or Group ID list |
+| success         | Success callback           |
+| failure         | Failure callback           |
+
+**Example**
 
 Objc:
 

@@ -81,8 +81,8 @@ func getHomeList() {
 | homeName  | 家庭名称     |
 | geoName   | 地址名称     |
 | rooms     | 房间名称列表 |
-| latitude  | 地址经度     |
-| longitude | 地址纬度     |
+| latitude  | 地址纬度     |
+| longitude | 地址经度     |
 | success   | 成功回调     |
 | failure   | 失败回调     |
 
@@ -230,14 +230,12 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 初始化 home 对象之后需要获取家庭的详情接口（getHomeDetailWithSuccess:failure:），home 实例对象中的属性 homeModel,roomList,deviceList,groupList 才有数据。
 
-|     类名(协议名)      |                 说明                 |
-| :-------------------: | :----------------------------------: |
-|     TuyaSmartHome     | 获取家庭列表、家庭列表排序、添加家庭 |
-| TuyaSmartHomeDelegate |      增删家庭、MQTT连接成功回调      |
+|     类名(协议名)      |                  说明                  |
+| :-------------------: | :------------------------------------: |
+|     TuyaSmartHome     | 获取和修改家庭信息，管理房间和家庭成员 |
+| TuyaSmartHomeDelegate |           家庭下信息变更回调           |
 
 ### 获取家庭的详细信息
-
-初始化 home 对象之后需要获取家庭的详情， home 对象的属性 homeModel,roomList,deviceList,groupList 才有数据
 
 **接口说明**
 
@@ -304,8 +302,8 @@ func getHomeDetailInfo() {
 | --------- | -------- |
 | homeName  | 家庭名称 |
 | geoName   | 地址名称 |
-| latitude  | 地址经度 |
-| longitude | 地址纬度 |
+| latitude  | 地址纬度 |
+| longitude | 地址经度 |
 | success   | 成功回调 |
 | failure   | 失败回调 |
 
@@ -315,7 +313,7 @@ Objc:
 
 ```objc
 - (void)updateHomeInfo {
-     self.home = [TuyaSmartHome homeWithHomeId:homeId];
+    self.home = [TuyaSmartHome homeWithHomeId:homeId];
     [self.home updateHomeInfoWithName:@"new_home_name" geoName:@"city_name" latitude:lat longitude:lon success:^{
         NSLog(@"update home info success");
     } failure:^(NSError *error) {
@@ -348,6 +346,13 @@ func updateHomeInfo() {
 - (void)dismissHomeWithSuccess:(TYSuccessHandler)success
                        failure:(TYFailureError)failure;
 ```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| success | 成功回调 |
+| failure | 失败回调 |
 
 **示例代码**
 
@@ -620,10 +625,9 @@ func addShare() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)removeMember:(TuyaSmartHomeMemberModel *)memberModel {
 	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
-
 	[self.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
         NSLog(@"removeMember success");
     } failure:^(NSError *error) {
@@ -655,6 +659,13 @@ func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
 ```objective-c
 - (void)getHomeMemberListWithSuccess:(void(^)(NSArray <TuyaSmartHomeMemberModel *> *memberList))success failure:(TYFailureError)failure;
 ```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| success | 成功回调 |
+| failure | 失败回调 |
 
 **示例代码**
 
@@ -712,7 +723,6 @@ Objc:
 ```objc
 - (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
 	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
-	
   TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
 	[self.homeMember updateHomeMemberInfoWithMemberRequestModel:requestModel  success:^{
         NSLog(@"modifyMemberName success");
@@ -744,7 +754,7 @@ func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
 
 成员是否接受该家庭的邀请对应`TuyaSmartHomeModel`下的dealStatus，受邀状态会分别对应TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject，未接受加入的家庭成员将无法使用该家庭下的设备等功能，拒绝加入家庭后将无法在获取家庭列表接口中获取到该家庭信息。
 
-```
+```objective-c
 - (void)joinFamilyWithAccept:(BOOL)accept
                      success:(TYSuccessBOOL)success
                      failure:(TYFailureError)failure;
@@ -790,7 +800,7 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 **接口说明**
 
-```
+```objective-c
 - (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList
                                success:(TYSuccessHandler)success
                                failure:(TYFailureError)failure;
@@ -838,6 +848,8 @@ func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
 ### 单个家庭信息变化的回调
 
 实现`TuyaSmartHomeDelegate`代理协议后，可以在单个家庭信息更变的回调中进行处理。
+
+**示例代码**
 
 Objc:
 
