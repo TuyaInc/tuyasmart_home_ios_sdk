@@ -1,7 +1,32 @@
-消息中心相关的所有功能对应 `TuyaSmartMessage` 类，支持获取消息列表，批量删除消息，以及是否有消息更新。
+ # 消息中心
+
+## 功能概述
+
+**消息 SDK 提供了消息相关的功能，具体如下：**
+* 获取消息列表
+* 批量删除消息
+* 检查新消息
+* 消息推送设置
+
+**相关的类**
+* TuyaSmartMessage
+* TuyaSmartSDK
 
 ## 获取消息列表
 
+**接口名**
+1. 获取消息列表
+```objc
+- (void)getMessageList:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success
+               failure:(TYFailureError)failure
+```
+**参数说明**
+| 参数    | 说明                      |
+| :------ | :------------------------ |
+| success | 成功回调，返回消息数组  |
+| failure | 失败回调，返回失败原因    |
+
+**示例代码**
 Objc:
 
 ```objc
@@ -28,11 +53,82 @@ func getMessageList() {
 }
 ```
 
+2. 获取分页的消息列表
 
+**接口名**
+```objc
+- (void)getMessageList:(NSInteger)limit
+                offset:(NSInteger)offset
+               success:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success
+               failure:(TYFailureError)failure
+```
+
+**参数说明**
+| 参数    | 说明                      | 
+| :------ | :------------------------ |
+| limit  | 每页请求数据数 |
+| offset  | 当前页数，从 0 开始 |
+| success | 成功回调，返回消息数组  |
+| failure | 失败回调，返回失败原因    |
+
+**示例代码**
+```objc
+- (void)getMessageList {
+//    self.smartMessage = [[TuyaSmartMessage alloc] init];
+	[self.smartMessage getMessageList:@15 offset:@0 success:^(NSArray<TuyaSmartMessageListModel *> *list) {
+		NSLog(@"get message list success:%@", list);
+	} failure:^(NSError *error) {
+		NSLog(@"get message list failure:%@", error);
+	}];
+}
+```
+
+3. 根据消息类型分页获取消息列表
+
+**接口名**
+```objc
+- (void)getMessageListWithType:(NSInteger)msgType limit:(NSInteger)limit offset:(NSInteger)offset success:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success failure:(TYFailureError)failure
+```
+
+**参数说明**
+| 参数    | 说明                      | 
+| :------ | :------------------------ |
+| msgType  | 消息类型（1 - 告警，2 - 家庭，3 - 通知）|
+| limit  | 每页请求数据数 |
+| offset  | 当前页数，从 0 开始 |
+| success | 成功回调，返回消息数组 |
+| failure | 失败回调，返回失败原因    |
+
+**示例代码**
+```objc
+- (void)getMessageList {
+//    self.smartMessage = [[TuyaSmartMessage alloc] init];
+	[self.smartMessage getMessageList:@15 offset:@0 success:^(NSArray<TuyaSmartMessageListModel *> *list) {
+		NSLog(@"get message list success:%@", list);
+	} failure:^(NSError *error) {
+		NSLog(@"get message list failure:%@", error);
+	}];
+}
+```
 
 ## 删除消息
 
-批量删除消息，`messgeIdList` 是要删除消息的 id 数组，消息 id 可以从消息列表中获取。
+**接口名**
+1. 批量删除消息
+```objc
+- (void)deleteMessage:(NSArray <NSString *> *)messgeIdList
+              success:(TYSuccessHandler)success
+              failure:(TYFailureError)failure
+```
+**参数说明**
+| 参数    | 说明                      |
+| :------ | :------------------------ |
+| messgeIdList | 要删除的消息 id 组  |
+| success | 成功回调 |
+| failure | 失败回调，返回失败原因    |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -59,19 +155,53 @@ func deleteMessage() {
 }
 ```
 
+2. 批量删除特定类型的消息
+```objc
+- (void)deleteMessageWithType:(NSInteger)msgType ids:(NSArray *)ids msgSrcIds:(NSArray *)msgSrcIds success:(TYSuccessHandler)success failure:(TYFailureError)failure
+```
+**参数说明**
+| 参数    | 说明                      |
+| :------ | :------------------------ |
+| msgType | 消息类型（1 - 告警，2 - 家庭，3 - 通知）  |
+| msgSrcIds | 告警消息 id 组  |
+| messgeIdList | 要删除的消息 id 组，可传递 nil  |
+| success | 成功回调  |
+| failure | 失败回调，返回失败原因    |
 
+**示例代码**
 
-## 获取最新一条消息的时间戳
+Objc:
 
-获取最新一条消息的时间戳，可以用于与本地最新一条消息的时间戳比较，大于本地最新消息时间，则展示红点，表示有新消息。
+```objc
+- (void)deleteMessage {
+//    self.smartMessage = [[TuyaSmartMessage alloc] init];
+    [self.smartMessage deleteMessageWithType:type ids:selectedRows msgSrcIds:nil success success:^{
+		NSLog(@"delete message success");
+    } failure:^(NSError *error) {
+    	NSLog(@"delete message failure:%@", error);
+    }];
+}
+```
+
+## 检查新消息
+
+**接口名**
+```objc
+- (void)getLatestMessageWithSuccess:(TYSuccessDict)success failure:(TYFailureError)failure
+```
+**参数说明**
+| 参数    | 说明                      |
+| :------ | :------------------------ |
+| success | 成功回调，返回字典类型（包含的 key 有 “alarm" - 告警，”family“ - 家庭，“notification” - 通知） |
+| failure | 失败回调，返回失败原因    |
 
 Objc:
 
 ```objc
 - (void)getMessageMaxTime {
 //    self.smartMessage = [[TuyaSmartMessage alloc] init];
-	[self.smartMessage getMessageMaxTime:^(int result) {
-		NSLog(@"get message max time success:%d", result);
+	[self.smartMessage getLatestMessageWithSuccess:^(NSDictionary *result) {
+		NSLog(@"get latesMessage success:%@", result);
 	} failure:^(NSError *error) {
 		NSLog(@"get message max time failure:%@", error);
 	}];
@@ -82,7 +212,7 @@ Swift:
 
 ```swift
 func getMessageMaxTime() {
-    smartMessage?.getMaxTime({ (result) in
+    smartMessage?.getLatestMessageWithSuccess({ (result) in
         print("get message max time success :\(result)")
     }, failure: { (error) in
         if let e = error {
