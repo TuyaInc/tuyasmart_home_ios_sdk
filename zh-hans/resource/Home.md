@@ -2,10 +2,177 @@
 
 用户登录成功后需要通过`TuyaSmartHomeManager`去获取整个家庭列表的信息,然后初始化其中的一个家庭`TuyaSmartHome`，获取家庭详情信息，对家庭中的设备进行管理，控制。
 
+|         类名(协议名)         |                 说明                 |
+| :--------------------------: | :----------------------------------: |
+|     TuyaSmartHomeManager     | 获取家庭列表、家庭列表排序、添加家庭 |
+| TuyaSmartHomeManagerDelegate |      增删家庭、MQTT连接成功回调      |
 
-### 家庭列表信息变化的回调
+
+
+### 获取家庭列表
+
+获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去`TuyaSmartHome`初始化一个home，调用接口 getHomeDetailWithSuccess:failure:
+
+**接口说明**
+
+```objective-c
+- (void)getHomeListWithSuccess:(void(^)(NSArray <TuyaSmartHomeModel *> *homes))success
+                       failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| :------ | :------- |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)getHomeList {
+
+	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
+        // homes 家庭列表
+    } failure:^(NSError *error) {
+        NSLog(@"get home list failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+let homeManager: TuyaSmartHomeManager = TuyaSmartHomeManager()
+
+func getHomeList() {
+    homeManager.getHomeList(success: { (homes) in
+        // homes 家庭列表
+    }) { (error) in
+        if let e = error {
+            print("get home list failure: \(e)")
+        }
+    }
+}
+```
+
+
+
+### 添加家庭
+
+**接口说明**
+
+```objective-c
+- (void)addHomeWithName:(NSString *)homeName
+                geoName:(NSString *)geoName
+                  rooms:(NSArray <NSString *>*)rooms
+               latitude:(double)latitude
+              longitude:(double)longitude
+                success:(TYSuccessLongLong)success
+                failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数      | 说明         |
+| --------- | ------------ |
+| homeName  | 家庭名称     |
+| geoName   | 地址名称     |
+| rooms     | 房间名称列表 |
+| latitude  | 地址经度     |
+| longitude | 地址纬度     |
+| success   | 成功回调     |
+| failure   | 失败回调     |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)addHome {
+    [self.homeManager addHomeWithName:@"you_home_name"
+                          geoName:@"city_name"
+                            rooms:@[@"room_name"]
+                         latitude:lat
+                        longitude:lon
+                          success:^(double homeId) {
+
+        // homeId 创建的家庭的homeId
+        NSLog(@"add home success");
+    } failure:^(NSError *error) {
+        NSLog(@"add home failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+ func addHome() {
+    homeManager.addHome(withName: "you_home_name", 
+                         geoName: "city_name", 
+                           rooms: ["room_name"], 
+                        latitude: lat, 
+                       longitude: lon, 
+                         success: { (homeId) in
+        // homeId 创建的家庭的homeId
+        print("add home success")
+    }) { (error) in
+        if let e = error {
+            print("add home failure: \(e)")
+        }
+    }
+}
+```
+
+
+
+
+### 家庭列表信息变化回调
 
 实现`TuyaSmartHomeManagerDelegate`代理协议后，可以在家庭列表更变的回调中进行处理。
+
+#### 新增一个家庭回调
+
+**接口说明**
+
+```objective-c
+- (void)homeManager:(TuyaSmartHomeManager *)manager didAddHome:(TuyaSmartHomeModel *)home;
+```
+
+**参数说明**
+
+| 参数    | 说明           |
+| ------- | -------------- |
+| manager | 家庭管理类实例 |
+| home    | 添加的家庭模型 |
+
+#### 删除一个家庭回调
+
+**接口说明**
+
+```objective-c
+- (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId;
+```
+
+**参数说明**
+
+| 参数    | 说明           |
+| ------- | -------------- |
+| manager | 家庭管理类实例 |
+| homeId  | 被删除的家庭ID |
+
+#### MQTT 服务连接成功回调
+
+**接口说明**
+
+```objective-c
+- (void)serviceConnectedSuccess;
+```
+
+**示例代码**
 
 Objc:
 
@@ -54,89 +221,618 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 
 
-### 获取家庭列表
-
-获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去初始化一个home，调用接口 getHomeDetailWithSuccess:failure:
-
-Objc:
-
-```objc
-- (void)getHomeList {
-
-	[self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
-        // homes 家庭列表
-    } failure:^(NSError *error) {
-        NSLog(@"get home list failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-let homeManager: TuyaSmartHomeManager = TuyaSmartHomeManager()
-
-func getHomeList() {
-    homeManager.getHomeList(success: { (homes) in
-        // homes 家庭列表
-    }) { (error) in
-        if let e = error {
-            print("get home list failure: \(e)")
-        }
-    }
-}
-```
-
-
-
-### 添加家庭
-
-Objc:
-
-```objc
-- (void)addHome {
-
-    [self.homeManager addHomeWithName:@"you_home_name"
-                          geoName:@"city_name"
-                            rooms:@[@"room_name"]
-                         latitude:lat
-                        longitude:lon
-                          success:^(double homeId) {
-
-        // homeId 创建的家庭的homeId
-        NSLog(@"add home success");
-    } failure:^(NSError *error) {
-        NSLog(@"add home failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
- func addHome() {
-    homeManager.addHome(withName: "you_home_name", geoName: "city_name", rooms: ["room_name"], latitude: lat, longitude: lon, success: { (homeId) in
-        // homeId 创建的家庭的homeId
-        print("add home success")
-    }) { (error) in
-        if let e = error {
-            print("add home failure: \(e)")
-        }
-    }
-}
-```
-
-
-
-
 
 ## 家庭操作
 
-主要功能：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
+***主要功能***：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
 
-单个家庭信息管理相关的所有功能对应`TuyaSmartHome`类，需要使用家庭Id进行初始化。错误的家庭Id可能会导致初始化失败，返回`nil`。
+单个家庭信息管理相关的所有功能对应`TuyaSmartHome`类，需要使用正确的家庭Id进行初始化。错误的家庭Id可能会导致初始化失败，返回`nil`。
 
 初始化 home 对象之后需要获取家庭的详情接口（getHomeDetailWithSuccess:failure:），home 实例对象中的属性 homeModel,roomList,deviceList,groupList 才有数据。
+
+|     类名(协议名)      |                 说明                 |
+| :-------------------: | :----------------------------------: |
+|     TuyaSmartHome     | 获取家庭列表、家庭列表排序、添加家庭 |
+| TuyaSmartHomeDelegate |      增删家庭、MQTT连接成功回调      |
+
+### 获取家庭的详细信息
+
+初始化 home 对象之后需要获取家庭的详情， home 对象的属性 homeModel,roomList,deviceList,groupList 才有数据
+
+**接口说明**
+
+```objective-c
+- (void)getHomeDetailWithSuccess:(void (^)(TuyaSmartHomeModel *homeModel))success
+                         failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+- (void)getHomeDetailInfo {
+	self.home = [TuyaSmartHome homeWithHomeId:homeId];
+	[self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
+        // homeModel 家庭信息
+        NSLog(@"get home detail success");
+    } failure:^(NSError *error) {
+        NSLog(@"get home detail failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getHomeDetailInfo() {
+    home?.getDetailWithSuccess({ (homeModel) in
+        print("get home detail success")
+    }, failure: { (error) in
+        if let e = error {
+            print("get home detail failure: \(e)")
+        }
+    })
+}
+```
+
+ 
+
+### 修改家庭信息
+
+**接口说明**
+
+```
+- (void)updateHomeInfoWithName:(NSString *)homeName
+                       geoName:(NSString *)geoName
+                      latitude:(double)latitude
+                     longitude:(double)longitude
+                       success:(TYSuccessHandler)success
+                       failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数      | 说明     |
+| --------- | -------- |
+| homeName  | 家庭名称 |
+| geoName   | 地址名称 |
+| latitude  | 地址经度 |
+| longitude | 地址纬度 |
+| success   | 成功回调 |
+| failure   | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)updateHomeInfo {
+     self.home = [TuyaSmartHome homeWithHomeId:homeId];
+    [self.home updateHomeInfoWithName:@"new_home_name" geoName:@"city_name" latitude:lat longitude:lon success:^{
+        NSLog(@"update home info success");
+    } failure:^(NSError *error) {
+        NSLog(@"update home info failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func updateHomeInfo() {
+    home?.updateInfo(withName: "new_home_name", geoName: "city_name", latitude: lat, longitude: lon, success: {
+        print("update home info success")
+    }, failure: { (error) in
+        if let e = error {
+            print("update home info failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### 解散家庭
+
+**接口说明**
+
+```
+- (void)dismissHomeWithSuccess:(TYSuccessHandler)success
+                       failure:(TYFailureError)failure;
+```
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)dismissHome {
+
+	[self.home dismissHomeWithSuccess:^() {
+        NSLog(@"dismiss home success");
+    } failure:^(NSError *error) {
+        NSLog(@"dismiss home failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func dismissHome() {
+    home?.dismiss(success: {
+        print("dismiss home success")
+    }, failure: { (error) in
+        if let e = error {
+            print("dismiss home failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### 新增房间
+
+**接口说明**
+
+```objective-c
+- (void)addHomeRoomWithName:(NSString *)name
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| name    | 房间名称 |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)addHomeRoom {
+    [self.home addHomeRoomWithName:@"room_name" success:^{
+        NSLog(@"add room success");
+    } failure:^(NSError *error) {
+        NSLog(@"add room failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func addHomeRoom() {
+    home?.addRoom(withName: "room_name", success: {
+        print("add room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("add room failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### 删除房间
+
+**接口说明**
+
+```objective-c
+- (void)removeHomeRoomWithRoomId:(long long)roomId
+                         success:(TYSuccessHandler)success
+                         failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| roomId  | 房间ID   |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)removeHomeRoom {
+    [self.home removeHomeRoomWithRoomId:roomId success:^{
+        NSLog(@"remove room success");
+    } failure:^(NSError *error) {
+        NSLog(@"remove room failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func removeHomeRoom() {
+    home?.removeRoom(withRoomId: roomId, success: {
+        print("remove room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("remove room failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### 房间排序
+
+**接口说明**
+
+```objective-c
+- (void)sortRoomList:(NSArray <TuyaSmartRoomModel *> *)roomList
+             success:(TYSuccessHandler)success
+             failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明         |
+| -------- | ------------ |
+| roomList | 房间模型列表 |
+| success  | 成功回调     |
+| failure  | 失败回调     |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)sortHomeRoom {
+    [self.home sortRoomList:(NSArray<TuyaSmartRoomModel *> *) success:^{
+        NSLog(@"sort room success");
+    } failure:^(NSError *error) {
+        NSLog(@"sort room failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func sortHomeRoom() {
+    home?.sortRoomList([TuyaSmartRoomModel]!, success: {
+        print("sort room success")
+    }, failure: { (error) in
+        if let e = error {
+            print("sort room failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+### 家庭成员管理
+
+家庭成员管理相关的所有功能对应`TuyaSmartHome`和 `TuyaSmartHomeMember`类，成员角色类型TYHomeRoleType
+
+|    类名(协议名)     |     说明     |
+| :-----------------: | :----------: |
+| TuyaSmartHomeMember | 家庭成员管理 |
+
+#### 添加家庭成员
+
+> 拥有者(TYHomeRoleType_Owner) 可以添加管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以添加普通成员及以下角色
+
+**接口说明**
+
+`TuyaSmartHomeAddMemberRequestModel`中autoAccept用于控制受是否需要受邀请者同意，若设置为NO则受邀请者需要调用`TuyaSmartHome`-joinFamilyWithAccept:success:failure:接口同意后才能加入该家庭
+
+```objective-c
+- (void)addHomeMemberWithAddMemeberRequestModel:(TuyaSmartHomeAddMemberRequestModel *)requestModel success:(TYSuccessDict)success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数         | 说明             |
+| ------------ | ---------------- |
+| requestModel | 添加成员请求模型 |
+| success      | 成功回调         |
+| failure      | 失败回调         |
+
+TuyaSmartHomeAddMemberRequestModel
+
+| 请求参数    | 说明                                                         |
+| ----------- | ------------------------------------------------------------ |
+| name        | 为受邀请者设置的昵称                                         |
+| account     | 受邀请账号                                                   |
+| countryCode | 受邀请者账号对应国家码                                       |
+| role        | 成员角色                                                     |
+| headPic     | 为受邀请者设置的头像 nil时使用受邀请者个人头像               |
+| autoAccept  | 是否需要受邀请者同意接受邀请 YES-受邀请账号自动接受该家庭邀请，无需受邀请者确认 NO-需要受邀请者同意后才可加入该家庭 |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+- (void)addShare {
+    [self.smartHome addHomeMemberWithAddMemeberRequestModel:requestModel success:^(NSDictionary *dict) {
+        NSLog(@"addNewMember success");
+    } failure:^(NSError *error) {
+        NSLog(@"addNewMember failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func addShare() {
+    home?.addHomeMember(requestModel: requestModel, success: {
+        print("addNewMember success")
+    }, failure: { (error) in
+        if let e = error {
+            print("addNewMember failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### 删除家庭成员
+
+> 拥有者(TYHomeRoleType_Owner) 可以删除管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以删除普通成员及以下角色
+>
+
+**接口说明**
+
+若成员传入自身memberId，家庭管理员，普通成员，自定义角色，调用此接口为离开家庭，此时该家庭未解散，设备也不会被重置；拥有者为解散家庭，同时该家庭下所有设备会被重置，效果与上文解散家庭一致。
+
+```
+- (void)removeHomeMemberWithMemberId:(long long)memberId
+                             success:(TYSuccessHandler)success
+                             failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明       |
+| -------- | ---------- |
+| memberId | 家庭成员ID |
+| success  | 成功回调   |
+| failure  | 失败回调   |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)removeMember:(TuyaSmartHomeMemberModel *)memberModel {
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
+
+	[self.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
+        NSLog(@"removeMember success");
+    } failure:^(NSError *error) {
+        NSLog(@"removeMember failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
+    homeMember?.removeHomeMember(withMemberId: memberModel.memberId, success: {
+        print("removeMember success")
+    }, failure: { (error) in
+        if let e = error {
+            print("removeMember failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### 获取家庭成员列表
+
+**接口说明**
+
+```objective-c
+- (void)getHomeMemberListWithSuccess:(void(^)(NSArray <TuyaSmartHomeMemberModel *> *memberList))success failure:(TYFailureError)failure;
+```
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)initMemberList {
+  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
+    [_home getHomeMemberListWithSuccess:^(NSArray<TuyaSmartHomeMemberModel *> *memberList) {
+        NSLog(@"getMemberList success: %@", memberList);
+    } failure:^(NSError *error) {
+        NSLog(@"getMemberList failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func initMemberList() {
+    home.getHomeMemberList(withSuccess: { memberList in
+        print("getMemberList success: \(memberList)")
+    }, failure: { (error) in
+        if let e = error {
+            print("getMemberList failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+#### 修改家庭成员的信息
+
+> 拥有者(TYHomeRoleType_Owner) 可以修改管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以修改普通成员及以下角色
+
+**接口说明**
+
+```objective-c
+- (void)updateHomeMemberInfoWithMemberRequestModel:(TuyaSmartHomeMemberRequestModel *)memberRequestModel success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数               | 说明                            |
+| ------------------ | ------------------------------- |
+| memberRequestModel | TuyaSmartHomeMemberRequestModel |
+| success            | 成功回调                        |
+| failure            | 失败回调                        |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
+	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
+	
+  TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
+	[self.homeMember updateHomeMemberInfoWithMemberRequestModel:requestModel  success:^{
+        NSLog(@"modifyMemberName success");
+    } failure:^(NSError *error) {
+        NSLog(@"modifyMemberName failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
+    homeMember?.updateHomeMemberName(withMemberRequestModel:requestModel, success: {
+        print("modifyMemberName success")
+    }, failure: { (error) in
+        if let e = error {
+            print("modifyMemberName failure: \(e)")
+        }
+    })
+}
+```
+
+
+
+####  接受或拒绝家庭邀请
+
+**接口说明**
+
+成员是否接受该家庭的邀请对应`TuyaSmartHomeModel`下的dealStatus，受邀状态会分别对应TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject，未接受加入的家庭成员将无法使用该家庭下的设备等功能，拒绝加入家庭后将无法在获取家庭列表接口中获取到该家庭信息。
+
+```
+- (void)joinFamilyWithAccept:(BOOL)accept
+                     success:(TYSuccessBOOL)success
+                     failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| accept  | 是否接受 |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)initMemberList {
+  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
+  	[_home joinFamilyWithAccept:YES success:^(BOOL result) {
+        NSLog(@"join success");
+    } failure:^(NSError *error) {
+        NSLog(@"join failure");
+    }];
+}
+```
+Swift:
+
+```swift
+func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
+    home?.joinFamilyWithAccept(true, success: { (result: Bool) in
+        print("join success")
+    }, failure: { (error) in
+        if let e = error {
+            print("join failure: \(e)")
+        }
+    })
+}
+```
+
+###对家庭下设备和群组进行排序
+
+**接口说明**
+
+```
+- (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList
+                               success:(TYSuccessHandler)success
+                               failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数      | 说明                                      |
+| --------- | ----------------------------------------- |
+| orderList | [@{@"bizId": @"XXX", @"bizType": @"XXX"}] |
+| success   | 成功回调                                  |
+| failure   | 失败回调                                  |
+
+**示例代码**
+
+Objc:
+
+```objc
+// orderList: [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] 其中bizId为设备的devId或群组的groupId, device的bizType = @"6" group的bizType = @"5"
+- (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
+	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
+        NSLog(@"sort device or group success");
+    } failure:^(NSError *error) {
+        NSLog(@"sort device or group failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
+    home.sortDeviceOrGroup(withOrderList: orderList, success: {
+        print("sort device or group success")
+    }, failure: { error in
+        if let error = error {
+            print("sort device or group failure: \(error)")
+        }
+    })
+}
+```
+
 
 
 ### 单个家庭信息变化的回调
@@ -333,396 +1029,29 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 
 
-### 获取家庭的信息
-
-初始化 home 对象之后需要获取家庭的详情， home 对象的属性 homeModel,roomList,deviceList,groupList 才有数据
-
-Objc:
-
-```objc
-- (void)getHomeDetailInfo {
-
-	[self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
-        // homeModel 家庭信息
-        NSLog(@"get home detail success");
-    } failure:^(NSError *error) {
-        NSLog(@"get home detail failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func getHomeDetailInfo() {
-    home?.getDetailWithSuccess({ (homeModel) in
-        print("get home detail success")
-    }, failure: { (error) in
-        if let e = error {
-            print("get home detail failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-### 修改家庭信息
-
-Objc:
-
-```objc
-- (void)updateHomeInfo {
-    [self.home updateHomeInfoWithName:@"new_home_name" geoName:@"city_name" latitude:lat longitude:lon success:^{
-        NSLog(@"update home info success");
-    } failure:^(NSError *error) {
-        NSLog(@"update home info failure: %@", error);
-    }];
-}
-
-```
-
-Swift:
-
-```swift
-func updateHomeInfo() {
-    home?.updateInfo(withName: "new_home_name", geoName: "city_name", latitude: lat, longitude: lon, success: {
-        print("update home info success")
-    }, failure: { (error) in
-        if let e = error {
-            print("update home info failure: \(e)")
-        }
-    })
-}
-```
-
-###对家庭下设备和群组进行排序
-
-Objc:
-
-```objc
-// orderList: [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] 其中bizId为设备的devId或群组的groupId, device的bizType = @"6" group的bizType = @"5"
-- (void)sortDeviceOrGroupWithOrderList:(NSArray<NSDictionary *> *)orderList {
-	[self.home sortDeviceOrGroupWithOrderList:orderList success:^ {
-        NSLog(@"sort device or group success");
-    } failure:^(NSError *error) {
-        NSLog(@"sort device or group failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
-    home.sortDeviceOrGroup(withOrderList: orderList, success: {
-        print("sort device or group success")
-    }, failure: { error in
-        if let error = error {
-            print("sort device or group failure: \(error)")
-        }
-    })
-}
-```
-
-### 解散家庭
-
-Objc:
-
-```objc
-- (void)dismissHome {
-
-	[self.home dismissHomeWithSuccess:^() {
-        NSLog(@"dismiss home success");
-    } failure:^(NSError *error) {
-        NSLog(@"dismiss home failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func dismissHome() {
-    home?.dismiss(success: {
-        print("dismiss home success")
-    }, failure: { (error) in
-        if let e = error {
-            print("dismiss home failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-### 新增房间
-
-Objc:
-
-```objc
-- (void)addHomeRoom {
-    [self.home addHomeRoomWithName:@"room_name" success:^{
-        NSLog(@"add room success");
-    } failure:^(NSError *error) {
-        NSLog(@"add room failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func addHomeRoom() {
-    home?.addRoom(withName: "room_name", success: {
-        print("add room success")
-    }, failure: { (error) in
-        if let e = error {
-            print("add room failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-### 删除房间
-
-Objc:
-
-```objc
-- (void)removeHomeRoom {
-    [self.home removeHomeRoomWithRoomId:roomId success:^{
-        NSLog(@"remove room success");
-    } failure:^(NSError *error) {
-        NSLog(@"remove room failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func removeHomeRoom() {
-    home?.removeRoom(withRoomId: roomId, success: {
-        print("remove room success")
-    }, failure: { (error) in
-        if let e = error {
-            print("remove room failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-### 房间排序
-
-Objc:
-
-```objc
-- (void)sortHomeRoom {
-    [self.home sortRoomList:(NSArray<TuyaSmartRoomModel *> *) success:^{
-        NSLog(@"sort room success");
-    } failure:^(NSError *error) {
-        NSLog(@"sort room failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func sortHomeRoom() {
-    home?.sortRoomList([TuyaSmartRoomModel]!, success: {
-        print("sort room success")
-    }, failure: { (error) in
-        if let e = error {
-            print("sort room failure: \(e)")
-        }
-    })
-}
-```
-
-### 家庭成员管理
-
-家庭成员管理相关的所有功能对应`TuyaSmartHome`和 `TuyaSmartHomeMember`类，成员角色类型TYHomeRoleType
-
-#### 添加家庭成员
-
-拥有者(TYHomeRoleType_Owner) 可以添加管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以添加普通成员及以下角色
-
-Objc:
-
-```objc
-- (void)addShare {
-  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
-    [_home addHomeMemberWithName:@"name" headPic:image countryCode:@"your_country_code" userAccount:@"account" role:TYHomeRoleType_Admin success:^(NSDictionary *dict) {
-        NSLog(@"addNewMember success");
-    } failure:^(NSError *error) {
-        NSLog(@"addNewMember failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func addShare() {
-    home?.addHomeMember(withName:@"name", headPic:image, countryCode: "your_country_code", account: "account", role: TYHomeRoleType_Admin, success: {
-        print("addNewMember success")
-    }, failure: { (error) in
-        if let e = error {
-            print("addNewMember failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### 获取家庭成员列表
-
-Objc:
-
-```objc
-- (void)initMemberList {
-  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
-    [_home getHomeMemberListWithSuccess:^(NSArray<TuyaSmartHomeMemberModel *> *memberList) {
-        NSLog(@"getMemberList success: %@", memberList);
-    } failure:^(NSError *error) {
-        NSLog(@"getMemberList failure");
-    }];
-}
-```
-
-Swift:
-
-```swift
-func initMemberList() {
-    home.getHomeMemberList(withSuccess: { memberList in
-        print("getMemberList success: \(memberList)")
-    }, failure: { (error) in
-        if let e = error {
-            print("getMemberList failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### 修改家庭成员的备注名称和成员角色
-
-拥有者(TYHomeRoleType_Owner) 可以修改管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以修改普通成员及以下角色
-
-Objc:
-
-```objc
-- (void)modifyMemberName:(TuyaSmartHomeMemberModel *)memberModel name:(NSString *)name {
-	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
-	
-  TuyaSmartHomeMemberRequestModel *requestModel = [[TuyaSmartHomeMemberRequestModel alloc] init];
-	[self.homeMember updateHomeMemberInfoWithMemberRequestModel:requestModel  success:^{
-        NSLog(@"modifyMemberName success");
-    } failure:^(NSError *error) {
-        NSLog(@"modifyMemberName failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
-    homeMember?.updateHomeMemberName(withMemberRequestModel:requestModel, success: {
-        print("modifyMemberName success")
-    }, failure: { (error) in
-        if let e = error {
-            print("modifyMemberName failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-#### 删除家庭成员
-
-拥有者(TYHomeRoleType_Owner) 可以删除管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以删除普通成员及以下角色
-
-若成员传入自身memberId，家庭管理员，普通成员，自定义角色，调用此接口为离开家庭，此时该家庭未解散，设备也不会被重置；拥有者为解散家庭，同时该家庭下所有设备会被重置，效果与上文解散家庭一致。
-
-Objc:
-
-```objc
-- (void)removeMember:(TuyaSmartHomeMemberModel *)memberModel {
-	// self.homeMember = [[TuyaSmartHomeMember alloc] init];
-
-	[self.homeMember removeHomeMemberWithMemberId:memberModel.memberId success:^{
-        NSLog(@"removeMember success");
-    } failure:^(NSError *error) {
-        NSLog(@"removeMember failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
-    homeMember?.removeHomeMember(withMemberId: memberModel.memberId, success: {
-        print("removeMember success")
-    }, failure: { (error) in
-        if let e = error {
-            print("removeMember failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-####  接受或者拒绝家庭邀请
-
-成员是否接受该家庭的邀请对应TuyaSmartHomeModel下的dealStatus，受邀状态会分别对应TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject，未接受加入的家庭成员将无法使用该家庭下的设备等功能，拒绝加入家庭后将无法在获取家庭列表接口中获取到该家庭信息。
-
-Objc:
-
-```objc
-- (void)initMemberList {
-  //	_home = [TuyaSmartHome homeWithHomeId:homeId];
-  	[_home joinFamilyWithAccept:YES success:^(BOOL result) {
-        NSLog(@"join success");
-    } failure:^(NSError *error) {
-        NSLog(@"join failure");
-    }];
-}
-```
-
-
-
-Swift:
-
-```swift
-func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
-    home?.joinFamilyWithAccept(true, success: { (result: Bool) in
-        print("join success")
-    }, failure: { (error) in
-        if let e = error {
-            print("join failure: \(e)")
-        }
-    })
-}
-```
-
-
-
 ### 房间管理
 
-单个房间信息管理相关的所有功能对应`TuyaSmartRoom`类，需要使用roomId进行初始化。错误的roomId可能会导致初始化失败，返回`nil`。
+单个房间信息管理相关的所有功能对应`TuyaSmartRoom`类，需要使用正确的roomId进行初始化。错误的roomId可能会导致初始化失败，返回`nil`。
 
-#### 更新房间名字
+| 类名(协议名)  |           说明           |
+| :-----------: | :----------------------: |
+| TuyaSmartRoom | 房间信息及房间内设备管理 |
+
+#### 更新房间名称
+
+**接口说明**
+
+```objective-c
+- (void)updateRoomName:(NSString *)roomName success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明     |
+| -------- | -------- |
+| roomName | 房间名称 |
+| success  | 成功回调 |
+| failure  | 失败回调 |
 
 Objc:
 
@@ -754,6 +1083,22 @@ func updateRoomName() {
 
 #### 添加设备到房间
 
+**接口说明**
+
+```objective-c
+- (void)addDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明     |
+| -------- | -------- |
+| deviceId | 设备ID   |
+| success  | 成功回调 |
+| failure  | 失败回调 |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -783,6 +1128,22 @@ func addDevice() {
 
 
 #### 从房间中移除设备
+
+**接口说明**
+
+```
+- (void)removeDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明     |
+| -------- | -------- |
+| deviceId | 设备ID   |
+| success  | 成功回调 |
+| failure  | 失败回调 |
+
+**示例代码**
 
 Objc:
 
@@ -814,6 +1175,22 @@ func removeDevice() {
 
 #### 添加群组到房间
 
+**接口说明**
+
+```objective-c
+- (void)addGroupWithGroupId:(NSString *)groupId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| groupId | 群组ID   |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -843,6 +1220,22 @@ func addGroup() {
 
 
 #### 从房间中移除群组
+
+**接口说明**
+
+```
+- (void)removeGroupWithGroupId:(NSString *)groupId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| groupId | 群组ID   |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
 
 Objc:
 
@@ -874,9 +1267,27 @@ func removeGroup() {
 
 #### 批量修改房间与群组、设备的关系
 
+**接口说明**
+
+```objective-c
+- (void)saveBatchRoomRelationWithDeviceGroupList:(NSArray <NSString *> *)deviceGroupList
+                                         success:(TYSuccessHandler)success
+                                         failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数            | 说明               |
+| --------------- | ------------------ |
+| deviceGroupList | 设备ID或群组ID列表 |
+| success         | 成功回调           |
+| failure         | 失败回调           |
+
+**示例代码**
+
 Objc:
 
-```objc
+```objective-c
 - (void)saveBatchRoomRelation {
     [self.room saveBatchRoomRelationWithDeviceGroupList:(NSArray <NSString *> *)deviceGroupList success:^{
         NSLog(@"save batch room relation success");
