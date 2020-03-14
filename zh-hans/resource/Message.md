@@ -2,19 +2,20 @@
 
 ## 功能概述
 
-**消息 SDK 提供了消息相关的功能，具体如下：**
-* 获取消息列表
-* 批量删除消息
-* 检查新消息
-* 消息推送设置
+**消息中心模块包含了消息和推送相关的功能，具体如下：**
+1. 消息相关功能
+    * 获取消息列表
+    * 批量删除消息
+    * 检查新消息
+2. 消息推送设置
 
 **相关的类**
 * TuyaSmartMessage
 * TuyaSmartSDK
 
-## 获取消息列表
-
-### 1. 获取消息列表
+## 1. 消息相关功能
+### 1.1 获取消息列表
+#### 1.1.1 获取消息列表
 **接口名**
 ```objc
 - (void)getMessageList:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success
@@ -49,7 +50,7 @@ Swift:
     })
 ```
 
-### 2. 获取分页的消息列表
+### 1.1.2 获取分页的消息列表
 
 **接口名**
 ```objc
@@ -79,7 +80,7 @@ Swift:
     }];
 ```
 
-### 3. 根据消息类型分页获取消息列表
+### 1.1.3 根据消息类型分页获取消息列表
 
 **接口名**
 ```objc
@@ -107,9 +108,9 @@ Swift:
     }];
 ```
 
-## 删除消息
+### 1.2. 删除消息
 
-### 1. 批量删除消息
+#### 1.2.1 批量删除消息
 **接口名**
 ```objc
 - (void)deleteMessage:(NSArray <NSString *> *)messgeIdList
@@ -147,7 +148,7 @@ Swift:
     })
 ```
 
-### 2. 批量删除特定类型的消息
+#### 1.2.2. 批量删除特定类型的消息
 **接口名**
 ```objc
 - (void)deleteMessageWithType:(NSInteger)msgType ids:(NSArray *)ids msgSrcIds:(NSArray *)msgSrcIds success:(TYSuccessHandler)success failure:(TYFailureError)failure
@@ -174,7 +175,7 @@ Objc:
     }];
 ```
 
-## 检查新消息
+### 1.3 检查新消息
 
 **接口名**
 ```objc
@@ -212,9 +213,9 @@ Swift:
 
 
 
-## 消息推送设置
+## 2. 消息推送设置
 
-### 获取 APP 消息推送的开启状态
+### 2.1 获取 APP 消息推送的开启状态
 
 **接口名**
 ```objc
@@ -235,7 +236,7 @@ Swift:
 }];
 ```
 
-### 开启或者关闭 APP 消息推送
+### 2.2 开启或者关闭 APP 消息推送
 **接口名**
 ```objc
 - (void)setPushStatusWithStatus:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
@@ -257,7 +258,7 @@ BOOL enable = YES;
 }];
  ````
 
-### 获取 APP 设备告警通知的开启状态
+### 2.3 获取 APP 设备告警类推送的开启状态
 **接口名**
 ```objc
 - (void)getDevicePushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
@@ -277,7 +278,7 @@ BOOL enable = YES;
 }];
 ```
 
-### 开启或者关闭 APP 设备告警推送消息
+### 2.4 开启或者关闭 APP 设备告警推送消息
 **接口名**
 ```objc
 - (void)setDevicePushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
@@ -299,7 +300,7 @@ BOOL enable = YES;
 }];
 ````
 
-### 获取 APP 家庭通知的开启状态
+### 2.5 获取 APP 家庭通知类推送的开启状态
 **接口名**
 ```objc
 - (void)getFamilyPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
@@ -319,7 +320,7 @@ BOOL enable = YES;
 }];
 ```
 
-### 开启或者关闭 APP 家庭推送消息
+### 2.6 开启或者关闭 APP 家庭推送消息
 **接口名**
 ```objc
 - (void)setFamilyPushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
@@ -341,7 +342,7 @@ BOOL enable = YES;
 }];
 ```
 
-### 获取 APP 消息通知的开启状态
+### 2.7 获取 APP 消息通知类推送的开启状态
 **接口名**
 ```objc
 - (void)getNoticePushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
@@ -361,7 +362,7 @@ BOOL enable = YES;
 }];
 ```
 
-### 开启或者关闭 APP 消息通知推送
+### 2.8 开启或者关闭 APP 消息通知推送
 **接口名**
 ```objc
 - (void)setNoticePushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
@@ -383,7 +384,7 @@ BOOL enable = YES;
 }];
 ```
 
-### 获取 APP 营销类消息的开启状态
+### 2.9 获取 APP 营销消息类推送的开启状态
 **接口名**
 ```objc
 - (void)getMarketingPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
@@ -403,7 +404,7 @@ BOOL enable = YES;
 }];
 ```
 
-### 开启或者关闭 APP 营销类消息推送
+### 2.10 开启或者关闭 APP 营销类消息推送
 **接口名**
 ```objc
 - (void)setMarketingPushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure

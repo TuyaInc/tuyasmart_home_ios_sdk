@@ -1,4 +1,4 @@
-## Device Management
+# Device Management
 
 Tuya supports multiple device types, and all functions related to device management.
 
@@ -8,9 +8,9 @@ Tuya supports multiple device types, and all functions related to device managem
 
 The device ID needs to be used to initiate all `TuyaSmartDevice` classes related to all functions for device control. Wrong device Id may cause initiation failure, and the `nil` will be returned.
 
-### Update Device Information
+## Update Device Information
 
-#### Update Single Device Information
+### Update Single Device Information
 
 **Declaration**
 
@@ -59,15 +59,13 @@ func updateDeviceInfo() {
 }
 ```
 
-
-
-### Device Control
+## Device Control
 
 Device control is currently divided into **standard device control** and **custom device control**.
 
-#### Standard Device Control (Beta)
+### Standard Device Control (Beta)
 
-##### Standard Device Feature Set
+#### Standard Device Feature Set
 
 What is the standard device feature set?
 
@@ -81,9 +79,7 @@ Unify the definition of the function set of similar products and formulate a set
 >
 > If you want to use this function, you can contact Tuya.
 
-
-
-##### Does the Device Support Standardization
+#### Does the Device Support Standardization
 
 The `standard` property (type `BOOL`) of the `TuyaSmartDeviceModel` class defines whether the current device supports standardized control
 
@@ -91,9 +87,7 @@ The `dpCodes` property defines the status of the current device and is called a 
 
 Each key in the dpCodes dictionary corresponds to a dpCode of a function point, value corresponds to a dpValue of a function point, and dpValue is the value of the function point
 
-
-
-##### Standard Device Control
+#### Standard Device Control
 
 **Declaration**
 
@@ -157,7 +151,7 @@ self.device.publishDp(withCommands: command, success: {
 {"colour_data" : "009003e803e8"}
 ```
 
-##### Update Device Status
+#### Update Device Status
 
 After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
 
@@ -211,10 +205,9 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 }
 ```
 
+### Custom Device Control
 
-#### Custom Device Control
-
-##### Functions of Device
+#### Functions of Device
 
 The `dps` (`NSDictionary` type) attribute of the `TuyaSmartDeviceModel` class defines the state of the device, and the state is called data point (DP) or function point.
 Each `key` in the `dps` dictionary refers to a `dpId` of a function point, and `Value` refers to the `dpValue` of a function point. The `dpValue` is the value of the function point.
@@ -288,7 +281,7 @@ func publishDps() {
 }
 ```
 
-##### Precautions
+#### Precautions
 
 - Special attention shall be paid to the type of data in sending the control commands. For example, the data type of function points shall be value, and the `@{@"2": @(25)}` instead of `@{@"2": @"25"}` shall be sent for the control command.
 - In the transparent transmission, the byte string shall be the string format, and all letters shall be in the lower case, and the string must have even bits. The correct format shall be: `@{@"1": @"011f"}` instead of `@{@"1": @"11f"}`
@@ -296,8 +289,7 @@ func publishDps() {
 
 For more concepts of function points, please refer to the [QuickStart-Related Concepts of Function Points](https://docs.tuya.com/en/product/function.html)
 
-
-##### Device Control
+#### Device Control
 
 Device control supports three kinds of channel control, LAN control, cloud control, and automatic mode (if LAN is online, first go LAN control, LAN is not online, go cloud control)
 
@@ -331,8 +323,7 @@ Device control supports three kinds of channel control, LAN control, cloud contr
 	}];
 ```
 
-
-##### Update Device Status
+#### Update Device Status
 
 After the `TuyaSmartDeviceDelegate` delegate protocol is realized, user can update the UI of the App device control in the callback of device status change.
 
@@ -387,7 +378,9 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 }
 ```
 
-### Modify the Device Name
+## Modify the Device Name
+
+
 
 **Declaration**
 
@@ -433,7 +426,7 @@ func modifyDeviceName(_ name: String) {
 }
 ```
 
-### Remove Device
+## Remove Device
 
 After a device is removed, it will be in the to-be-network-configured status (quick connection mode).
 
@@ -480,7 +473,7 @@ func removeDevice() {
 }
 ```
 
-### Obtain Wifi Signal Strength of Device
+## Obtain Wifi Signal Strength of Device
 
 **Declaration**
 
@@ -539,7 +532,7 @@ func device(_ device: TuyaSmartDevice!, signal: String!) {
 }
 ```
 
-### Obtain the Sub-Device List of a Gateway
+## Obtain the Sub-Device List of a Gateway
 
 **Declaration**
 
@@ -584,8 +577,7 @@ func getSubDeviceList() {
 }
 ```
 
-
-### Firmware Upgrade
+## Firmware Upgrade
 
 **Firmware upgrade process:**
 
@@ -593,7 +585,7 @@ Obtain device upgrade information -> send module upgrade instructions -> module 
 
 User obtain device upgrade information interface to get TuyaSmartFirmwareUpgradeModel, you can get firmware type from type property, get type description from typeDesc property.
 
-#### Obtain Device Upgrade Information
+### Obtain Device Upgrade Information
 
 **Declaration**
 
