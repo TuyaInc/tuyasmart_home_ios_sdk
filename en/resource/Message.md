@@ -21,9 +21,9 @@ Message Module contains message and push notifications function. as follows:
     * [Get Market Message Push Status](#2.9)
     * [Set Market Message Push Status](#2.10)
 
-<h2 id="1">1. Message</h2>
+<h2 id="1">Message</h2>
 
-<h3 id="1.1">1.1 Get Message List</h3>
+<h3 id="1.1">Get Message List</h3>
 
 
 
@@ -31,7 +31,7 @@ Message Module contains message and push notifications function. as follows:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -40,17 +40,17 @@ Message Module contains message and push notifications function. as follows:
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，reture message list  |
 | failure | Failure canllback，return reason for failure    |
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -82,7 +82,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -94,11 +94,11 @@ Swift:
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
-| Parameter    | Description                     | 
+| Parameters    | Description                     | 
 | :------ | :------------------------ |
 | limit  | Number of requests per page |
 | offset  | Total number of messages requested |
@@ -107,7 +107,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -128,7 +128,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -138,11 +138,11 @@ Swift:
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
-| Parameter    | Description                     | 
+| Parameters    | Description                     | 
 | :------ | :------------------------ |
 | msgType  | Message type（1 - alarm，2 - family，3 - notifiction）|
 | limit  | Number of requests per page |
@@ -152,7 +152,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -178,7 +178,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -189,11 +189,11 @@ Swift:
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | messgeIdList | Delete messageId list  |
 | success | Success callback |
@@ -201,7 +201,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -232,7 +232,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -242,11 +242,11 @@ Swift:
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | msgType | Message type（1 - alarm，2 - family，3 - notifiction）  |
 | ids | Delete messageId list  |
@@ -256,7 +256,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -277,7 +277,7 @@ Objc:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -286,18 +286,18 @@ Objc:
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return dict type（ keys contain “alarm" - alarm，”family“ - family，“notification” - notification） |
 | failure | Failure canllback，return reason for failure    |
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -334,7 +334,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -344,18 +344,18 @@ Swift:
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool type；false - no message of any type is received |
 | failure | Failure canllback，return reason for failure    |
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -372,7 +372,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -380,11 +380,11 @@ Swift:
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
@@ -392,7 +392,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -410,7 +410,7 @@ BOOL enable = YES;
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -420,18 +420,18 @@ BOOL enable = YES;
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
 
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -446,7 +446,7 @@ BOOL enable = YES;
 <h3 id="2.4">Set Device Alarm Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -454,10 +454,10 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
@@ -465,7 +465,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ````objective-c
@@ -482,7 +482,7 @@ BOOL enable = YES;
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -490,17 +490,17 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
 
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -516,7 +516,7 @@ BOOL enable = YES;
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -524,10 +524,10 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
@@ -535,7 +535,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -551,7 +551,7 @@ BOOL enable = YES;
 <h3 id="2.7">Get Notice Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -559,16 +559,16 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -582,21 +582,21 @@ BOOL enable = YES;
 <h3 id="2.8">Set Notice Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)setNoticePushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
 | failure | Failure canllback，return reason for failure    |
 
-**Sample Code**
+**Example**
 
 ```objective-c
 BOOL enable = YES;
@@ -609,20 +609,20 @@ BOOL enable = YES;
 
 <h3 id="2.9">Get Market Message Push Status</h3>
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)getMarketingPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
 
-**Sample Code**
+**Example**
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getMarketingPushStatusWithSuccess:^(BOOL result) {
@@ -635,22 +635,22 @@ BOOL enable = YES;
 <h3 id="2.10">Set Market Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)setMarketingPushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
-| Parameter    | Description                     |
+| Parameters    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+**Example**
 
 ```objective-c
 BOOL enable = YES;
