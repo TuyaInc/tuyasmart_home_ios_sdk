@@ -32,7 +32,7 @@ Tuya iOS Single BLE SDK （ Hereinafter referred to as BLE SDK or Single BLE SDK
 
   The main class of the BLE SDK is  `TuyaSmartBLEManager`，This class contains all the features of the BLE SDK，Includes Bluetooth status monitor, ble device scan, query ble device name, ble device activator, device OTA upgrade, etc.
 
-  Among them，`TuyaSmartBLEWifiActivator`  is the class that support dual-mode device activator
+  Among them，`TuyaSmartBLEWifiActivator`  is the class that support dual mode device activator
 
   
 
@@ -349,11 +349,11 @@ Dp publish refer to [Functions of device](https://tuyainc.github.io/tuyasmart_ho
 
 
 
-#### BLE device scan ( Dual-mode )
+#### Dual mode device scan
 
 **Declaration**
 
-BLE SDK provides the method of scan Dual-mode BLE device，while discover device，you can receive the device information by setting delegate
+BLE SDK provides the method of scan dual mode BLE device，while discover device，you can receive the device information by setting delegate
 
 **Example**
 
@@ -398,7 +398,7 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 
 
-#### Active device ( Dual-mode )
+#### Dual mode device active
 
 **Declaration**
 
@@ -455,7 +455,7 @@ Swift:
 
 
 
-#### Callback of device activator ( Dual-mode )
+#### Callback of dual mode device activator
 
 **Declaration**
 
@@ -493,7 +493,7 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 
 
-#### Stop discover device ( Dual-mode )
+#### Stop discover dual mode device
 
 **Declaration**
 
