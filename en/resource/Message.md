@@ -21,13 +21,17 @@ Message Module contains message and push notifications function. as follows:
     * [Get Market Message Push Status](#2.9)
     * [Set Market Message Push Status](#2.10)
 
-<h2 id="1">1. Message</h2>
-<h3 id="1.1">1.1 Get Message List</h3>
+<h2 id="1">Message</h2>
+
+<h3 id="1.1">Get Message List</h3>
+
+
 
 #### Get Message List
 
 
-**Interface Name**
+
+**Declaration**
 
 
 ```objc
@@ -35,7 +39,8 @@ Message Module contains message and push notifications function. as follows:
                failure:(TYFailureError)failure
 ```
 
-**Parameter Description**
+
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -44,7 +49,9 @@ Message Module contains message and push notifications function. as follows:
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
+
 
 
 Objc:
@@ -70,10 +77,12 @@ Swift:
 ```
 
 
+
 ### Get A List Of Paged Messages
 
 
-**Interface Name**
+
+**Declaration**
 
 
 ```objc
@@ -84,7 +93,9 @@ Swift:
 ```
 
 
-**Parameter Description**
+
+**Parameters**
+
 
 
 | Parameter    | Description                     | 
@@ -95,7 +106,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
+
 
 
 ```objc
@@ -110,10 +123,13 @@ Swift:
 ```
 
 
+
 ### Gets A List Of Messages By Paging By Message Type
 
 
-**Interface Name**
+
+**Declaration**
+
 
 
 ```objc
@@ -121,7 +137,9 @@ Swift:
 ```
 
 
-**Parameter Description**
+
+**Parameters**
+
 
 
 | Parameter    | Description                     | 
@@ -133,7 +151,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
+
 
 
 
@@ -149,13 +169,17 @@ Swift:
 ```
 
 
+
 <h3 id="1.2">Delete Message</h3>
+
 
 
 #### Batch Delete Message
 
 
-**Interface Name**
+
+**Declaration**
+
 
 
 ```objc
@@ -164,7 +188,9 @@ Swift:
               failure:(TYFailureError)failure
 ```
 
-**Parameter Description**
+
+**Parameters**
+
 
 
 | Parameter    | Description                     |
@@ -174,7 +200,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
+
 
 
 Objc:
@@ -199,10 +227,13 @@ Swift:
     })
 ```
 
+
 #### Batch Deletion Of Specific Types Of Message
 
 
-**Interface Name**
+
+**Declaration**
+
 
 
 ```objc
@@ -210,7 +241,9 @@ Swift:
 ```
 
 
-**Parameter Description**
+
+**Parameters**
+
 
 
 | Parameter    | Description                     |
@@ -222,7 +255,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
+
 
 
 Objc:
@@ -237,10 +272,13 @@ Objc:
 ```
 
 
+
 <h3 id="1.3">Check New Message</h3>
 
 
-**Interface Name**
+
+**Declaration**
+
 
 
 ```objc
@@ -248,7 +286,8 @@ Objc:
 ```
 
 
-**Parameter Description**
+**Parameters**
+
 
 
 | Parameter    | Description                     |
@@ -257,7 +296,9 @@ Objc:
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
+
 
 
 Objc:
@@ -288,10 +329,13 @@ Swift:
 <h2 id="2">Push Notification</h2>
 
 
+
 <h3 id="2.1">Get Push Notification Status</h3>
 
 
-**Interface Name**
+
+**Declaration**
+
 
 
 ```objc
@@ -299,7 +343,9 @@ Swift:
 ```
 
 
-**Parameter Description**
+
+**Parameters**
+
 
 
 | Parameter    | Description                     |
@@ -308,7 +354,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
+
 
 
 ```objective-c
@@ -318,10 +366,13 @@ Swift:
 
 }];
 ```
+
+
 <h3 id="2.2">Set Push Notification Status</h3>
 
 
-**Interface Name**
+
+**Declaration**
 
 
 ```objc
@@ -329,7 +380,8 @@ Swift:
 ```
 
 
-**Parameter Description**
+**Parameters**
+
 
 
 | Parameter    | Description                     |
@@ -339,7 +391,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
+
 
 
  ````objective-c
@@ -351,10 +405,13 @@ BOOL enable = YES;
 }];
  ````
 
+
 <h3 id="2.3">Get Device Alarm Push Status</h3>
 
 
-**Interface Name**
+
+**Declaration**
+
 
 
 ```objc
@@ -362,7 +419,9 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+
+**Parameters**
+
 
 
 | Parameter    | Description                     |
@@ -371,7 +430,8 @@ BOOL enable = YES;
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+
+**Example**
 
 
 ```objective-c
@@ -386,7 +446,7 @@ BOOL enable = YES;
 <h3 id="2.4">Set Device Alarm Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -394,7 +454,7 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -405,7 +465,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ````objective-c
@@ -422,7 +482,7 @@ BOOL enable = YES;
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -430,7 +490,7 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -440,7 +500,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -456,7 +516,7 @@ BOOL enable = YES;
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -464,7 +524,7 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -475,7 +535,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -491,7 +551,7 @@ BOOL enable = YES;
 <h3 id="2.7">Get Notice Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -499,7 +559,7 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -508,7 +568,7 @@ BOOL enable = YES;
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -522,13 +582,13 @@ BOOL enable = YES;
 <h3 id="2.8">Set Notice Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)setNoticePushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
@@ -536,7 +596,7 @@ BOOL enable = YES;
 | success | Success callback |
 | failure | Failure canllback，return reason for failure    |
 
-**Sample Code**
+**Example**
 
 ```objective-c
 BOOL enable = YES;
@@ -549,20 +609,20 @@ BOOL enable = YES;
 
 <h3 id="2.9">Get Market Message Push Status</h3>
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)getMarketingPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
 
-**Sample Code**
+**Example**
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getMarketingPushStatusWithSuccess:^(BOOL result) {
@@ -575,13 +635,13 @@ BOOL enable = YES;
 <h3 id="2.10">Set Market Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)setMarketingPushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
@@ -590,7 +650,7 @@ BOOL enable = YES;
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+**Example**
 
 ```objective-c
 BOOL enable = YES;
