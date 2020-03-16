@@ -59,10 +59,6 @@
 
 SDK 提供了对系统蓝牙的状态监测的方法，在蓝牙状态变化（如开启或关闭）时，可以通过设置代理收到具体的消息
 
-**参数说明**
-
-无
-
 **示例代码**
 
 Objc:
@@ -371,10 +367,6 @@ TuyaSmartBLEManager.sharedInstance().queryName(withUUID: bleAdvInfo.uuid, produc
 
 SDK 提供了扫描未激活双模设备的方法，在扫描到未激活的双模设备时，可以通过设置代理收到具体的设备信息
 
-**参数说明**
-
-无
-
 **示例代码**
 
 Objc:
@@ -479,10 +471,6 @@ Swift:
 
 配网的结果通过 delegate 方法回调
 
-**参数说明**
-
-无
-
 **示例代码**
 
 Objc:
@@ -520,10 +508,6 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 **接口说明**
 
 停止发现双模设备
-
-**参数说明**
-
-无
 
 **示例代码**
 
