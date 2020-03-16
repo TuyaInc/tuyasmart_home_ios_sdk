@@ -43,7 +43,7 @@ Message Module contains message and push notifications function. as follows:
 **Parameters**
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，reture message list  |
 | failure | Failure canllback，return reason for failure    |
@@ -98,7 +98,7 @@ Swift:
 
 
 
-| Parameters    | Description                     | 
+| Parameter    | Description                     | 
 | :------ | :------------------------ |
 | limit  | Number of requests per page |
 | offset  | Total number of messages requested |
@@ -142,7 +142,7 @@ Swift:
 
 
 
-| Parameters    | Description                     | 
+| Parameter    | Description                     | 
 | :------ | :------------------------ |
 | msgType  | Message type（1 - alarm，2 - family，3 - notifiction）|
 | limit  | Number of requests per page |
@@ -193,7 +193,7 @@ Swift:
 
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | messgeIdList | Delete messageId list  |
 | success | Success callback |
@@ -246,7 +246,7 @@ Swift:
 
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | msgType | Message type（1 - alarm，2 - family，3 - notifiction）  |
 | ids | Delete messageId list  |
@@ -290,7 +290,7 @@ Objc:
 
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return dict type（ keys contain “alarm" - alarm，”family“ - family，“notification” - notification） |
 | failure | Failure canllback，return reason for failure    |
@@ -348,7 +348,7 @@ Swift:
 
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool type；false - no message of any type is received |
 | failure | Failure canllback，return reason for failure    |
@@ -384,7 +384,7 @@ Swift:
 
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
@@ -424,7 +424,7 @@ BOOL enable = YES;
 
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
@@ -457,7 +457,7 @@ BOOL enable = YES;
 **Parameters**
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
@@ -493,7 +493,7 @@ BOOL enable = YES;
 **Parameters**
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
@@ -527,7 +527,7 @@ BOOL enable = YES;
 **Parameters**
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
@@ -562,7 +562,7 @@ BOOL enable = YES;
 **Parameters**
 
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
@@ -590,7 +590,7 @@ BOOL enable = YES;
 
 **Parameters**
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
@@ -617,7 +617,7 @@ BOOL enable = YES;
 
 **Parameters**
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
@@ -643,7 +643,7 @@ BOOL enable = YES;
 
 **Parameters**
 
-| Parameters    | Description                     |
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
 | success | Success callback |
