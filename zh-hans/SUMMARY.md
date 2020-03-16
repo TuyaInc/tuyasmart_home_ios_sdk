@@ -18,9 +18,9 @@
   - [Session 过期的处理](./resource/User.md#session过期的处理)
 * 家庭管理
   * [家庭管理](./resource/Home.md#家庭管理)
-  * [家庭操作](./resource/Home.md#家庭操作)
+  * [家庭信息管理](./resource/Home.md#家庭信息管理)
   * [家庭成员管理](./resource/Home.md#家庭成员管理)
-  * [房间管理](./resource/Home.md#房间管理)
+  * [房间信息管理](./resource/Home.md#房间信息管理)
 * [设备配网](./resource/Activator.md#设备配网)
   - [快连模式](./resource/Activator.md#快连模式)
   - [热点模式](./resource/Activator.md#热点模式)
