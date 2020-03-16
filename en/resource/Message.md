@@ -22,9 +22,13 @@ Message Module contains message and push notifications function. as follows:
     * [Set Market Message Push Status](#2.10)
 
 <h2 id="1">1. Message</h2>
+
 <h3 id="1.1">1.1 Get Message List</h3>
 
+
+
 #### Get Message List
+
 
 
 **Interface Name**
@@ -35,6 +39,7 @@ Message Module contains message and push notifications function. as follows:
                failure:(TYFailureError)failure
 ```
 
+
 **Parameter Description**
 
 
@@ -44,7 +49,9 @@ Message Module contains message and push notifications function. as follows:
 | failure | Failure canllback，return reason for failure    |
 
 
+
 **Sample Code**
+
 
 
 Objc:
@@ -70,7 +77,9 @@ Swift:
 ```
 
 
+
 ### Get A List Of Paged Messages
+
 
 
 **Interface Name**
@@ -84,7 +93,9 @@ Swift:
 ```
 
 
+
 **Parameter Description**
+
 
 
 | Parameter    | Description                     | 
@@ -95,7 +106,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
+
 **Sample Code**
+
 
 
 ```objc
@@ -110,10 +123,13 @@ Swift:
 ```
 
 
+
 ### Gets A List Of Messages By Paging By Message Type
 
 
+
 **Interface Name**
+
 
 
 ```objc
@@ -121,7 +137,9 @@ Swift:
 ```
 
 
+
 **Parameter Description**
+
 
 
 | Parameter    | Description                     | 
@@ -133,7 +151,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
+
 **Sample Code**
+
 
 
 
@@ -149,13 +169,17 @@ Swift:
 ```
 
 
+
 <h3 id="1.2">Delete Message</h3>
+
 
 
 #### Batch Delete Message
 
 
+
 **Interface Name**
+
 
 
 ```objc
@@ -164,7 +188,9 @@ Swift:
               failure:(TYFailureError)failure
 ```
 
+
 **Parameter Description**
+
 
 
 | Parameter    | Description                     |
@@ -174,7 +200,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
+
 **Sample Code**
+
 
 
 Objc:
@@ -199,10 +227,13 @@ Swift:
     })
 ```
 
+
 #### Batch Deletion Of Specific Types Of Message
 
 
+
 **Interface Name**
+
 
 
 ```objc
@@ -210,7 +241,9 @@ Swift:
 ```
 
 
+
 **Parameter Description**
+
 
 
 | Parameter    | Description                     |
@@ -222,7 +255,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
+
 **Sample Code**
+
 
 
 Objc:
@@ -237,10 +272,13 @@ Objc:
 ```
 
 
+
 <h3 id="1.3">Check New Message</h3>
 
 
+
 **Interface Name**
+
 
 
 ```objc
@@ -251,13 +289,16 @@ Objc:
 **Parameter Description**
 
 
+
 | Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return dict type（ keys contain “alarm" - alarm，”family“ - family，“notification” - notification） |
 | failure | Failure canllback，return reason for failure    |
 
 
+
 **Sample Code**
+
 
 
 Objc:
@@ -288,10 +329,13 @@ Swift:
 <h2 id="2">Push Notification</h2>
 
 
+
 <h3 id="2.1">Get Push Notification Status</h3>
 
 
+
 **Interface Name**
+
 
 
 ```objc
@@ -299,7 +343,9 @@ Swift:
 ```
 
 
+
 **Parameter Description**
+
 
 
 | Parameter    | Description                     |
@@ -308,7 +354,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
+
 **Sample Code**
+
 
 
 ```objective-c
@@ -318,7 +366,10 @@ Swift:
 
 }];
 ```
+
+
 <h3 id="2.2">Set Push Notification Status</h3>
+
 
 
 **Interface Name**
@@ -332,6 +383,7 @@ Swift:
 **Parameter Description**
 
 
+
 | Parameter    | Description                     |
 | :------ | :------------------------ |
 | enable | open or close |
@@ -339,7 +391,9 @@ Swift:
 | failure | Failure canllback，return reason for failure    |
 
 
+
 **Sample Code**
+
 
 
  ````objective-c
@@ -351,10 +405,13 @@ BOOL enable = YES;
 }];
  ````
 
+
 <h3 id="2.3">Get Device Alarm Push Status</h3>
 
 
+
 **Interface Name**
+
 
 
 ```objc
@@ -362,13 +419,16 @@ BOOL enable = YES;
 ```
 
 
+
 **Parameter Description**
+
 
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
+
 
 
 **Sample Code**
