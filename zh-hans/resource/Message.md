@@ -32,10 +32,10 @@
 <h3 id="1.1">获取消息列表</h3>
 
 
-#### 1.1.1 获取消息列表
+#### 获取消息列表
 
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)getMessageList:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success
@@ -80,7 +80,7 @@ Swift:
 ### 获取分页的消息列表
 
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)getMessageList:(NSInteger)limit
@@ -116,7 +116,7 @@ Swift:
 
 ### 根据消息类型分页获取消息列表
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)getMessageListWithType:(NSInteger)msgType limit:(NSInteger)limit offset:(NSInteger)offset success:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success failure:(TYFailureError)failure
@@ -150,7 +150,7 @@ Swift:
 
 #### 批量删除消息
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)deleteMessage:(NSArray <NSString *> *)messgeIdList
@@ -195,7 +195,7 @@ Swift:
 #### 批量删除特定类型的消息
 
 
-**接口名**
+**接口说明**
 
 
 ```objc
@@ -231,7 +231,7 @@ Objc:
 <h3 id="1.3">检查新消息</h3>
 
 
-**接口名**
+**接口说明**
 
 
 ```objc
@@ -279,7 +279,7 @@ Swift:
 <h3 id="2.1">获取 APP 消息推送的开启状态</h3>
 
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)getPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
@@ -307,7 +307,7 @@ Swift:
 ```
 <h3 id="2.2">开启或者关闭 APP 消息推送</h3>
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)setPushStatusWithStatus:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
@@ -336,7 +336,7 @@ BOOL enable = YES;
 <h3 id="2.3">获取 APP 设备告警类推送的开启状态</h3>
 
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)getDevicePushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
@@ -363,7 +363,7 @@ BOOL enable = YES;
 <h3 id="2.4">开启或者关闭 APP 设备告警推送</h3>
 
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)setDevicePushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
@@ -393,7 +393,7 @@ BOOL enable = YES;
 <h3 id="2.5">获取 APP 家庭通知类推送的开启状态</h3>
 
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)getFamilyPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
@@ -420,7 +420,7 @@ BOOL enable = YES;
 <h3 id="2.6">开启或者关闭 APP 家庭推送</h3>
 
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)setFamilyPushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
@@ -450,7 +450,7 @@ BOOL enable = YES;
 <h3 id="2.7">获取 APP 消息通知类推送的开启状态</h3>
 
 
-**接口名**
+**接口说明**
 
 ```objc
 - (void)getNoticePushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
@@ -480,7 +480,7 @@ BOOL enable = YES;
 <h3 id="2.8">开启或者关闭 APP 消息通知推送</h3>
 
 
-**接口名**
+**接口说明**
 
 
 ```objc
@@ -514,7 +514,7 @@ BOOL enable = YES;
 <h3 id="2.9">获取 APP 营销消息类推送的开启状态</h3>
 
 
-**接口名**
+**接口说明**
 
 
 ```objc
@@ -545,7 +545,7 @@ BOOL enable = YES;
 <h3 id="2.10">开启或者关闭 APP 营销类消息推送</h3>
 
 
-**接口名**
+**接口说明**
 ```objc
 - (void)setMarketingPushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
 ```

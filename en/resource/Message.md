@@ -21,9 +21,9 @@ Message Module contains message and push notifications function. as follows:
     * [Get Market Message Push Status](#2.9)
     * [Set Market Message Push Status](#2.10)
 
-<h2 id="1">1. Message</h2>
+<h2 id="1">Message</h2>
 
-<h3 id="1.1">1.1 Get Message List</h3>
+<h3 id="1.1">Get Message List</h3>
 
 
 
@@ -31,7 +31,7 @@ Message Module contains message and push notifications function. as follows:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -40,7 +40,7 @@ Message Module contains message and push notifications function. as follows:
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -50,7 +50,7 @@ Message Module contains message and push notifications function. as follows:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -82,7 +82,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -94,7 +94,7 @@ Swift:
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
@@ -107,7 +107,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -128,7 +128,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -138,7 +138,7 @@ Swift:
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
@@ -152,7 +152,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -178,7 +178,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -189,7 +189,7 @@ Swift:
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 
@@ -201,7 +201,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -232,7 +232,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -242,7 +242,7 @@ Swift:
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
@@ -256,7 +256,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -277,7 +277,7 @@ Objc:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -286,7 +286,7 @@ Objc:
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 
@@ -297,7 +297,7 @@ Objc:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -334,7 +334,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -344,7 +344,7 @@ Swift:
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
@@ -355,7 +355,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -372,7 +372,7 @@ Swift:
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -380,7 +380,7 @@ Swift:
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 
@@ -392,7 +392,7 @@ Swift:
 
 
 
-**Sample Code**
+**Example**
 
 
 
@@ -410,7 +410,7 @@ BOOL enable = YES;
 
 
 
-**Interface Name**
+**Declaration**
 
 
 
@@ -420,7 +420,7 @@ BOOL enable = YES;
 
 
 
-**Parameter Description**
+**Parameters**
 
 
 
@@ -431,7 +431,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -446,7 +446,7 @@ BOOL enable = YES;
 <h3 id="2.4">Set Device Alarm Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -454,7 +454,7 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -465,7 +465,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ````objective-c
@@ -482,7 +482,7 @@ BOOL enable = YES;
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -490,7 +490,7 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -500,7 +500,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -516,7 +516,7 @@ BOOL enable = YES;
 
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -524,7 +524,7 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -535,7 +535,7 @@ BOOL enable = YES;
 
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -551,7 +551,7 @@ BOOL enable = YES;
 <h3 id="2.7">Get Notice Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 
 ```objc
@@ -559,7 +559,7 @@ BOOL enable = YES;
 ```
 
 
-**Parameter Description**
+**Parameters**
 
 
 | Parameter    | Description                     |
@@ -568,7 +568,7 @@ BOOL enable = YES;
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+**Example**
 
 
 ```objective-c
@@ -582,13 +582,13 @@ BOOL enable = YES;
 <h3 id="2.8">Set Notice Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)setNoticePushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
@@ -596,7 +596,7 @@ BOOL enable = YES;
 | success | Success callback |
 | failure | Failure canllback，return reason for failure    |
 
-**Sample Code**
+**Example**
 
 ```objective-c
 BOOL enable = YES;
@@ -609,20 +609,20 @@ BOOL enable = YES;
 
 <h3 id="2.9">Get Market Message Push Status</h3>
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)getMarketingPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
 
-**Sample Code**
+**Example**
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getMarketingPushStatusWithSuccess:^(BOOL result) {
@@ -635,13 +635,13 @@ BOOL enable = YES;
 <h3 id="2.10">Set Market Message Push Status</h3>
 
 
-**Interface Name**
+**Declaration**
 
 ```objc
 - (void)setMarketingPushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
 ```
 
-**Parameter Description**
+**Parameters**
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
@@ -650,7 +650,7 @@ BOOL enable = YES;
 | failure | Failure canllback，return reason for failure    |
 
 
-**Sample Code**
+**Example**
 
 ```objective-c
 BOOL enable = YES;
