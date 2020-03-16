@@ -1,6 +1,6 @@
 ## Home management
 
-After login, user shall use the `TuyaSmartHomeManager to obtain` information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home.
+After login, user shall use the `TuyaSmartHomeManager` to obtain information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home.
 
 | Class Name(Protocol Name)       | Description                                                 |
 | ------------------------------- | ----------------------------------------------------------- |
@@ -80,7 +80,7 @@ func getHomeList() {
 | ---------- | ---------------- |
 | homeName   | Home name        |
 | geoName    | Address name     |
-| rooms      | room name list   |
+| rooms      | Room name list   |
 | latitude   | latitude         |
 | longitude  | longitude        |
 | success    | Success callback |
@@ -159,7 +159,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 | Parameters | Description           |
 | ---------- | --------------------- |
 | manager    | Home manager instance |
-| homeId     | Removed home ID       |
+| homeId     | Removed home Id       |
 
 
 
@@ -301,8 +301,8 @@ func getHomeDetailInfo() {
 | ---------- | ---------------- |
 | homeName   | Home name        |
 | geoName    | Address name     |
-| latitude   | latitude         |
-| longitude  | longitude        |
+| latitude   | Latitude         |
+| longitude  | Longitude        |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -447,7 +447,7 @@ func addHomeRoom() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| roomId     | Room ID          |
+| roomId     | Room Id          |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -622,7 +622,7 @@ If members input their own memberId, home administrator, ordinary members, and c
 
 | Parameters | Description       |
 | ---------- | ----------------- |
-| memberId   | Home member ID    |
+| memberId   | Home member Id    |
 | success    | Success  callback |
 | failure    | Failure callback  |
 
@@ -1070,7 +1070,7 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| roomName   | room name        |
+| roomName   | Room name        |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -1116,7 +1116,7 @@ func updateRoomName() {
 
 | Parameters | Description       |
 | ---------- | ----------------- |
-| deviceId   | Device ID         |
+| deviceId   | Device Id         |
 | success    | Success call back |
 | failure    | Failure callback  |
 
@@ -1162,7 +1162,7 @@ func addDevice() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| deviceId   | Device ID        |
+| deviceId   | Device Id        |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -1208,7 +1208,7 @@ func removeDevice() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| groupId    | Group ID         |
+| groupId    | Group Id         |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -1254,7 +1254,7 @@ func addGroup() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| groupId    | Group ID         |
+| groupId    | Group Id         |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -1302,7 +1302,7 @@ func removeGroup() {
 
 | Parameters      | Description                |
 | --------------- | -------------------------- |
-| deviceGroupList | Device ID or Group ID list |
+| deviceGroupList | Device Id or group Id list |
 | success         | Success callback           |
 | failure         | Failure callback           |
 

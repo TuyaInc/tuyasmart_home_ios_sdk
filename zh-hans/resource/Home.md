@@ -163,10 +163,10 @@ Swift:
 
 **参数说明**
 
-| 参数    | 说明           |
-| ------- | -------------- |
-| manager | 家庭管理类实例 |
-| homeId  | 被删除的家庭ID |
+| 参数    | 说明            |
+| ------- | --------------- |
+| manager | 家庭管理类实例  |
+| homeId  | 被删除的家庭 Id |
 
 
 
@@ -627,7 +627,7 @@ func addShare() {
 
 | 参数     | 说明       |
 | -------- | ---------- |
-| memberId | 家庭成员ID |
+| memberId | 家庭成员Id |
 | success  | 成功回调   |
 | failure  | 失败回调   |
 
@@ -720,11 +720,11 @@ func initMemberList() {
 
 **参数说明**
 
-| 参数               | 说明                            |
-| ------------------ | ------------------------------- |
-| memberRequestModel | TuyaSmartHomeMemberRequestModel |
-| success            | 成功回调                        |
-| failure            | 失败回调                        |
+| 参数               | 说明             |
+| ------------------ | ---------------- |
+| memberRequestModel | 家庭成员请求模型 |
+| success            | 成功回调         |
+| failure            | 失败回调         |
 
 **示例代码**
 
@@ -1117,7 +1117,7 @@ func updateRoomName() {
 
 | 参数     | 说明     |
 | -------- | -------- |
-| deviceId | 设备ID   |
+| deviceId | 设备 Id  |
 | success  | 成功回调 |
 | failure  | 失败回调 |
 
@@ -1163,7 +1163,7 @@ func addDevice() {
 
 | 参数     | 说明     |
 | -------- | -------- |
-| deviceId | 设备ID   |
+| deviceId | 设备 Id  |
 | success  | 成功回调 |
 | failure  | 失败回调 |
 
@@ -1209,7 +1209,7 @@ func removeDevice() {
 
 | 参数    | 说明     |
 | ------- | -------- |
-| groupId | 群组ID   |
+| groupId | 群组 Id  |
 | success | 成功回调 |
 | failure | 失败回调 |
 
@@ -1255,7 +1255,7 @@ func addGroup() {
 
 | 参数    | 说明     |
 | ------- | -------- |
-| groupId | 群组ID   |
+| groupId | 群组 Id  |
 | success | 成功回调 |
 | failure | 失败回调 |
 
@@ -1301,11 +1301,11 @@ func removeGroup() {
 
 **参数说明**
 
-| 参数            | 说明               |
-| --------------- | ------------------ |
-| deviceGroupList | 设备ID或群组ID列表 |
-| success         | 成功回调           |
-| failure         | 失败回调           |
+| 参数            | 说明                   |
+| --------------- | ---------------------- |
+| deviceGroupList | 设备 Id 或群组 Id 列表 |
+| success         | 成功回调               |
+| failure         | 失败回调               |
 
 **示例代码**
 
