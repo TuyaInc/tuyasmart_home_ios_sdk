@@ -230,7 +230,7 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 ## 家庭信息管理
 
-***主要功能***：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
+主要功能：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
 
 单个家庭信息管理相关的所有功能对应`TuyaSmartHome`类，需要使用正确的家庭Id进行初始化。错误的家庭Id可能会导致初始化失败，返回`nil`。
 
@@ -820,11 +820,11 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 **参数说明**
 
-| 参数      | 说明                                      |
-| --------- | ----------------------------------------- |
-| orderList | [@{@"bizId": @"XXX", @"bizType": @"XXX"}] |
-| success   | 成功回调                                  |
-| failure   | 失败回调                                  |
+| 参数      | 说明               |
+| --------- | ------------------ |
+| orderList | 设备或群组排序列表 |
+| success   | 成功回调           |
+| failure   | 失败回调           |
 
 **示例代码**
 
