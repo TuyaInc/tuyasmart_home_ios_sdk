@@ -563,14 +563,14 @@ The autoAccept in `TuyaSmartHomeAddMemberRequestModel` is used to control whethe
 
 TuyaSmartHomeAddMemberRequestModel
 
-| Parameters  | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| name        | Invitee's nickname                                           |
-| account     | Invitee‘s account                                            |
-| countryCode | Invitee‘s account country code                               |
-| role        | Home member role                                             |
-| headPic     | Invitee‘s avatar, Use the invitee's profile picture when nil |
-| autoAccept  | Does the invitee need to agree to accept the invitation      |
+| Parameters  | Type           | Description                                                  |
+| ----------- | -------------- | ------------------------------------------------------------ |
+| name        | NSString       | Invitee's nickname                                           |
+| account     | NSString       | Invitee‘s account                                            |
+| countryCode | NSString       | Invitee‘s account country code                               |
+| role        | TYHomeRoleType | Home member role                                             |
+| headPic     | UIImage        | Invitee‘s avatar, Use the invitee's profile picture when nil |
+| autoAccept  | BOOL           | Does the invitee need to agree to accept the invitation      |
 
 **Example**
 
