@@ -6,6 +6,15 @@
 
 单点蓝牙设备指的是具有和手机终端**通过蓝牙一对一连接**的设备，例如蓝牙手环、蓝牙耳机、蓝牙音箱等。每个设备最多同时和一个手机进行蓝牙连接，每个手机终端目前**同时蓝牙连接数量控制在 6～7 个**内
 
+|           类名            |        说明        |
+| :-----------------------: | :----------------: |
+|    TuyaSmartBLEManager    |   单点蓝牙相关类   |
+| TuyaSmartBLEWifiActivator | 双模设备配网相关类 |
+
+`TuyaSmartBLEManager`包含单点蓝牙 SDK 的所有相关功能，包含蓝牙状态监测、设备扫描、设备名称查询、设备激活、设备 OTA 升级等功能
+
+ `TuyaSmartBLEWifiActivator`包含设备双模配网所需方法
+
 
 
 ### 准备工作
@@ -14,44 +23,8 @@
 
 
 
-### 功能说明
+### 单点蓝牙管理类
 
-- 导入头文件
-
-  ```objective-c
-  // Objective
-  #import <TuyaSmartBLEKit/TuyaSmartBLEKit.h>
-      
-  // Swift
-  import TuyaSmartBLEKit
-  ```
-
-- 主要功能
-
-  单点蓝牙 SDK 功能主要类为 `TuyaSmartBLEManager`，此类包含单点蓝牙 SDK 的所有相关功能，包含蓝牙状态监测、设备扫描、设备名称查询、设备激活、设备 OTA 升级等功能
-
-  其中，支持双模配网功能的类为 `TuyaSmartBLEWifiActivator`，此类包含设备双模配网所需方法
-
-  
-  
-  `TuyaSmartBLEManager` 的 `delegate` 功能如下，可以按需设置
-  
-  ```objective-c
-  /**
-   * 蓝牙状态变化通知
-   *  
-   * @param isPoweredOn 蓝牙状态，开启或关闭
-   */
-  - (void)bluetoothDidUpdateState:(BOOL)isPoweredOn;
-  
-  /**
-   * 扫描到未激活的设备
-   *
-   * @param deviceInfo 未激活设备信息 Model
-   */
-  - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo;
-  
-  ```
 
 #### 系统蓝牙状态监测
 
@@ -128,7 +101,6 @@ func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
 | 参数       | 说明                   |
 | ---------- | ---------------------- |
 | clearCache | 是否清理已扫描到的设备 |
-
 
 **示例代码**
 
@@ -361,6 +333,7 @@ TuyaSmartBLEManager.sharedInstance().queryName(withUUID: bleAdvInfo.uuid, produc
 
 
 
+## 双模设备配网类
 #### 双模配网发现设备
 
 **接口说明**
