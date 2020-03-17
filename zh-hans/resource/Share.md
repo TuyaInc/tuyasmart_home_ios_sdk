@@ -1,14 +1,43 @@
 ## 共享设备
 
+### 简介
+
 有时候需要把家庭中的某些设备共享给另一个用户，被分享着不会拥有其它设备的控制权限，并且被共享的设备不能进行改名、移除设备、固件升级、恢复出厂设置等操作（只能发送设备控制指令、获取状态更新）。
 
 设备共享相关的所有功能对应`TuyaSmartHomeDeviceShare`类
+
+|           类名           |          说明          |
+| :----------------------: | :--------------------: |
+| TuyaSmartHomeDeviceShare | 提供设备分享相关的功能 |
 
 ### 添加共享
 
 #### 添加多个设备共享（覆盖）
 
+**接口说明**
+
 分享多个设备给指定用户，会将指定用户的以前所有分享覆盖掉
+
+```objective-c
+-(void)addShareWithHomeId:homeId 
+              countryCode:countryCode
+              userAccount:userAccount 
+                   devIds:(NSArray<NSString *> *) success
+                  failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 说明               |
+| ----------- | ------------------ |
+| homeId      | 设备所属的家庭 id  |
+| countryCode | 分享对象的国家码   |
+| userAccount | 分享对象的账号     |
+| devIds      | 分享的设备 id 列表 |
+| success     | 成功回调           |
+| failure     | 失败回调           |
+
+**示例代码**
 
 Objc:
 
@@ -44,7 +73,26 @@ func addMemberShare() {
 
 #### 添加共享 （新增，不覆盖旧的分享）
 
+**接口说明**
+
 分享多个设备给指定用户，会将要分享的设备追加到指定用户的所有分享中
+
+```objective-c
+- (void)addShareWithMemberId:(NSInteger)memberId
+                      devIds:(NSArray <NSString *> *)devIds
+                     success:(TYSuccessHandler)success
+                     failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明          |
+| -------- | ------------- |
+| memberId | 分享对象的 id |
+| success  | 成功回调      |
+| failure  | 失败回调      |
+
+**示例代码**
 
 Objc:
 
@@ -76,6 +124,32 @@ func addMemberShare() {
 }
 ```
 #### 单设备添加共享
+
+**接口说明**
+
+分享多个设备给指定用户，会将要分享的设备追加到指定用户的所有分享中
+
+```objective-c
+- (void)addDeviceShareWithHomeId:(long long)homeId
+                     countryCode:(NSString *)countryCode
+                     userAccount:(NSString *)userAccount
+                           devId:(NSString *)devId
+                         success:(void(^)(TuyaSmartShareMemberModel *model))success
+                         failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 说明             |
+| ----------- | ---------------- |
+| homeId      | 设备的家庭 id    |
+| countryCode | 分享对象的国家码 |
+| userAccount | 分享对象的账号   |
+| devId       | 分享设备的 id    |
+| success     | 成功回调         |
+| failure     | 失败回调         |
+
+**示例代码**
 
 Objc:
 
@@ -116,9 +190,26 @@ func addDeviceShare() {
 
 ### 分享关系获取
 
-
-
 #### 获取家庭下所有主动共享的用户列表
+
+**接口说明**
+
+```objective-c
+- (void)getShareMemberListWithHomeId:(long long)homeId
+                             success:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
+                             failure:(TYFailureError)failure;
+
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| homeId  |          |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
 
 Objc:
 
@@ -159,6 +250,22 @@ func getShareMemberList() {
 
 #### 获取所有收到共享的用户列表
 
+**接口说明**
+
+```objective-c
+- (void)getReceiveMemberListWithSuccess:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
+                                failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -197,6 +304,24 @@ func getReceiveMemberList() {
 
 #### 获取单个主动共享的用户共享数据
 
+**接口说明**
+
+```objective-c
+- (void)getShareMemberDetailWithMemberId:(NSInteger)memberId
+                                 success:(void(^)(TuyaSmartShareMemberDetailModel *model))success
+                                 failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明          |
+| -------- | ------------- |
+| memberId | 分享用户的 id |
+| success  | 成功回调      |
+| failure  | 失败回调      |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -233,6 +358,24 @@ func getShareMemberDetail() {
 
 #### 获取单个收到共享的用户共享数据
 
+**接口说明**
+
+```objective-c
+- (void)getReceiveMemberDetailWithMemberId:(NSInteger)memberId
+                                   success:(void(^)(TuyaSmartReceiveMemberDetailModel *model))success
+                                   failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明                    |
+| -------- | ----------------------- |
+| memberId | 收到设备分享者的用户 id |
+| success  | 成功回调                |
+| failure  | 失败回调                |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -268,6 +411,24 @@ func getReceiveMemberDetail() {
 ```
 
 #### 获取单设备共享用户列表
+
+**接口说明**
+
+```objective-c
+- (void)getDeviceShareMemberListWithDevId:(NSString *)devId
+                                  success:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
+                                  failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明          |
+| ------- | ------------- |
+| devId   | 分享的设备 id |
+| success | 成功回调      |
+| failure | 失败回调      |
+
+**示例代码**
 
 Objc:
 
@@ -306,7 +467,27 @@ func getDeviceShareMemberList() {
 
 
 
+
+
 #### 获取设备分享来自哪里
+
+**接口说明**
+
+```objective-c
+- (void)getShareInfoWithDevId:(NSString *)devId
+                      success:(void(^)(TuyaSmartReceivedShareUserModel *model))success
+                      failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明          |
+| ------- | ------------- |
+| devId   | 分享的设备 id |
+| success | 成功回调      |
+| failure | 失败回调      |
+
+**示例代码**
 
 Objc:
 
@@ -347,6 +528,24 @@ func getShareInfo() {
 
 #### 删除主动共享者
 
+**接口说明**
+
+```objective-c
+- (void)removeShareMemberWithMemberId:(NSInteger)memberId
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明        |
+| -------- | ----------- |
+| memberId | 分享用户 id |
+| success  | 成功回调    |
+| failure  | 失败回调    |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -386,6 +585,24 @@ func removeShareMember() {
 
 #### 删除收到共享者
 
+**接口说明**
+
+```objective-c
+- (void)removeReceiveShareMemberWithMemberId:(NSInteger)memberId
+                                     success:(TYSuccessHandler)success
+                                     failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明              |
+| -------- | ----------------- |
+| memberId | 收到分享的用户 id |
+| success  | 成功回调          |
+| failure  | 失败回调          |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -420,8 +637,27 @@ func removeReceiveMember() {
 }
 ```
 
-
 #### 单设备删除共享
+
+**接口说明**
+
+```objective-c
+- (void)removeDeviceShareWithMemberId:(NSInteger)memberId
+                                devId:(NSString *)devId
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明          |
+| -------- | ------------- |
+| memberId | 分享用户的 id |
+| devId    | 分享设备的 id |
+| success  | 成功回调      |
+| failure  | 失败回调      |
+
+**示例代码**
 
 Objc:
 
@@ -458,6 +694,24 @@ func removeDeviceShare() {
 ```
 
 #### 删除收到的共享设备
+
+**接口说明**
+
+```objective-c
+- (void)removeReceiveDeviceShareWithDevId:(NSString *)devId
+                                  success:(TYSuccessHandler)success
+                                  failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明          |
+| ------- | ------------- |
+| devId   | 分享的设备 id |
+| success | 成功回调      |
+| failure | 失败回调      |
+
+**示例代码**
 
 Objc:
 
@@ -499,6 +753,26 @@ func removeDeviceShare() {
 
 #### 修改主动共享者的昵称
 
+**接口说明**
+
+```objective-c
+- (void)renameShareMemberNameWithMemberId:(NSInteger)memberId
+                                     name:(NSString *)name
+                                  success:(TYSuccessHandler)success
+                                  failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明             |
+| -------- | ---------------- |
+| memberId | 分享用户的 id    |
+| name     | 分享用户的新昵称 |
+| success  | 成功回调         |
+| failure  | 失败回调         |
+
+**示例代码**
+
 Objc:
 
 ```objc
@@ -535,6 +809,26 @@ func updateShareMemberName() {
 
 
 #### 修改收到共享者的昵称
+
+**接口说明**
+
+```objective-c
+- (void)renameReceiveShareMemberNameWithMemberId:(NSInteger)memberId
+                                            name:(NSString *)name
+                                         success:(TYSuccessHandler)success
+                                         failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数     | 说明                    |
+| -------- | ----------------------- |
+| memberId | 将设备分享给你的用户 id |
+| name     | 新的昵称                |
+| success  | 成功回调                |
+| failure  | 失败回调                |
+
+**示例代码**
 
 Objc:
 
