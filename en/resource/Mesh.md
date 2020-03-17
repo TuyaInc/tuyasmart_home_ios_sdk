@@ -1,8 +1,5 @@
 # Bluetooth Mesh(TUYA) SDK Guide
 
-
-## Introduction
-
 Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluetooth single-point devices. Each node can communicate with other nodes freely. By directly connecting to any device in the mesh network via mobile phone **, you can access and control the mesh network All equipment **
 
 | Class name                 | Description                  |
@@ -14,11 +11,9 @@ Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluet
   ```objective-c
   // import header file
   #import <TuyaSmartBLEMeshKit/TuyaSmartBLEMeshKit.h>
-  ```
 
-  ```objective-c
   // set sdk open mesh, need to be set during initialization
-  [[TuyaSmartSDK sharedInstance] setValue:@(YES) forKey:@"bleMeshEnable"];
+  [[TuyaSmartSDK sharedInstance] setValue:@(YES) forKey:@"bleMeshEnable"]; 
   ```
 
 
@@ -32,7 +27,7 @@ Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluet
 | mesh group local Id|The local Id is used to distinguish the `` unique identifier '' of each mesh group in the mesh network.For example, if you want to control the devices in a group, you can send the localId command corresponding to this group to the mesh network.|
 |Local Connection| The networked device is connected via Bluetooth to control mesh and command operations|
 |Gateway Connection|The networked devices are connected through the gateway (the gateway needs to be with the device, and the distance cannot be too far) to control the mesh and command operations. |
-  
+
 
   Mesh product type
 
@@ -62,32 +57,21 @@ Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluet
      ......
   ```
 
-- Equipment operation requires multiple steps
+**Equipment operation requires multiple steps**
 
-  Because device operations, such as adding and deleting operations, and group operations, require the local Bluetooth command to be executed once and recorded in the cloud once. The operation information needs to be synchronized to the local mesh network as well.
-
-- Local Connection and Gateway Connection
-  Local Connection: 
-  GatewayConnection: 
-
-
+Because device operations, such as adding and deleting operations, and group operations, require the local Bluetooth command to be executed once and recorded in the cloud once. The operation information needs to be synchronized to the local mesh network as well.
 
 ## Management
 
 > `TuyaSmartBleMesh.h`
 
-### Create mesh
+### Create Mesh
 
 A family can have multiple sig meshes (it is recommended to create only one family). All operations in the sig mesh are based on the family data being initialized.
 
 > Init home [See](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Home.html#home-management)
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| meshName       | mesh name|
-| homeId         | homeId          |
-| success        | success block         |
-| failure        | failure block         |
+**Declaration**
 
 ```objective-c
 + (void)createBleMeshWithMeshName:(NSString *)meshName
@@ -95,6 +79,15 @@ A family can have multiple sig meshes (it is recommended to create only one fami
                           success:(void(^)(TuyaSmartBleMeshModel *meshModel))success
                           failure:(TYFailureError)failure;
 ```
+
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| meshName       | mesh name|
+| homeId         | homeId          |
+| success        | success block         |
+| failure        | failure block         |
 
 **Example**
 
@@ -112,18 +105,22 @@ long long homeId = home.homeModel.homeId;
 
 
 
-### Delete mesh
+### Delete Mesh
 
-Delete the mesh. If there are devices in the mesh group, the child devices are also removed. The wifi connector was also removed.
+**Declaration**
+
+Delete the mesh. If there are devices in the mesh group, the child devices are also removed. The Wi-Fi connector was also removed.
+
+```objective-c
+- (void)removeMeshWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | success        | success block         |
 | failure        | failure block         |
-
-```
-- (void)removeMeshWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
-```
 
 **Example**
 
@@ -136,25 +133,25 @@ self.mesh = #<TuyaSmartBleMesh instance>;
 }];
 ```
 
-
-
-
-
-#### Get the list of meshes under the family
+Get the list of meshes under the family
 
 After initializing the home instance, you can get the mesh list of the corresponding family
 
 Get the list of meshes under the family
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| success        | success block         |
-| failure        | failure block         |
+**Declaration**
 
 ```objective-c
 - (void)getMeshListWithSuccess:(void(^)(NSArray <TuyaSmartBleMeshModel *> *list))success
                        failure:(TYFailureError)failure;
 ```
+
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| success        | success block         |
+| failure        | failure block         |
 
 **Example**
 
@@ -171,14 +168,18 @@ TuyaSmartHome *home = #<home instance>
 
 ### Get Mesh Instance
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| meshId        | mesh id         |
-| homeId        | home id         |
+**Declaration**
 
 ```objective-c
 + (instancetype)bleMeshWithMeshId:(NSString *)meshId homeId:(long long)homeId;
 ```
+
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| meshId        | mesh id         |
+| homeId        | home id         |
 
 **Example**
 
@@ -229,8 +230,6 @@ The distribution network refers to adding devices that are in the reset state an
 
 The following is a list of common device reset methods
 
-
-
 ###  Device Reset
 
 | Product | reset                      | show            |
@@ -252,13 +251,7 @@ If the operation is distribution network, fill in the default mesh name and pass
 
 If the operation is to enter the network, fill in the created mesh name and password. This information is returned from the cloud interface. It can automatically connect, enter the network, and automatically obtain the online status of each device in the mesh network.
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| name        | mesh name         |
-| pwd        | mesh password         |
-| wifiAddress        | Wi-Fi address, required for gateway network configuration, the rest is 0         |
-| otaAddress        | ota device address, required for ota upgrade, the rest is 0         |
-
+**Declaration**
 
 ```objective-c
 - (void)startScanWithName:(NSString *)name
@@ -268,13 +261,20 @@ If the operation is to enter the network, fill in the created mesh name and pass
                otaAddress:(uint32_t)otaAddress;
 ```
 
-If the name passed in is the default value out_of_mesh, and it is an activation operation, it will scan the surrounding devices to be configured, and the result of the scan will be called back by the method in TYBLEMeshManagerDelegate
-
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
-| manager        | mesh manager         |
-| device        | un active devices         |
+| name        | mesh name         |
+| pwd        | mesh password         |
+| wifiAddress        | Wi-Fi address, required for gateway network configuration, the rest is 0         |
+| otaAddress        | ota device address, required for ota upgrade, the rest is 0         |
+
+
+
+If the name passed in is the default value out_of_mesh, and it is an activation operation, it will scan the surrounding devices to be configured, and the result of the scan will be called back by the method in TYBLEMeshManagerDelegate
+
+**Declaration**
 
 ```objective-c
 /**
@@ -283,9 +283,15 @@ If the name passed in is the default value out_of_mesh, and it is an activation 
 - (void)bleMeshManager:(TYBLEMeshManager *)manager didScanedDevice:(TYBleMeshDeviceModel *)device;
 ```
 
+**Parameters**
+
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| manager        | mesh manager         |
+| device        | un active devices         |
+
 If it is a network access operation, subsequent operations will be performed automatically without callback.
-
-
 
 **Example**
 
@@ -323,35 +329,36 @@ If it is a network access operation, subsequent operations will be performed aut
 
 Mesh distribution networks are mainly divided into two types. One is for ordinary Bluetooth mesh devices (also called mesh sub-devices), such as lights, sockets, and low power consumption. It can be understood that as long as there is no gateway, it is an ordinary Bluetooth device. Networking for mesh gateways
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| includeGateway        | Whether to activate the gateway. If it is `yes', the gateway device that has been recorded in the device will be activated, and the remaining sub-devices will not be activated   Conversely activate all scanned ordinary mesh sub-devices, do not activate the gateway      |
+**Declaration**
 
 ```objective-c
 - (void)activeMeshDeviceIncludeGateway:(BOOL)includeGateway;
 ```
 
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
-| deviceModel        | model |
-```
+| includeGateway        | Whether to activate the gateway. If it is `yes', the gateway device that has been recorded in the device will be activated, and the remaining sub-devices will not be activated   Conversely activate all scanned ordinary mesh sub-devices, do not activate the gateway      |
+
+**Declaration**
+
+```objective-c
 /**
  Activate specific devices
  */
 - (void)activeMeshDevice:(TYBleMeshDeviceModel *)deviceModel;
-
 ```
 
+**Parameters**
 
-
- The distribution result will be called back through `TYBLEMeshManagerDelegate`
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
-| name        | device name |
-| deviceId        | dev Id |
-| error        | error |
+| deviceModel        | model |
+ The distribution result will be called back through `TYBLEMeshManagerDelegate`
+
+**Declaration**
 
 ```objective-c
 /**
@@ -360,26 +367,42 @@ Mesh distribution networks are mainly divided into two types. One is for ordinar
 - (void)activeDeviceSuccessWithName:(NSString *)name deviceId:(NSString *)deviceId error:(NSError *)error;
 ```
 
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| name        | device name |
+| deviceId        | dev Id |
+| error        | error |
+
 Activate gateway device callback
+
+**Declaration**
+
+```objective-c
+- (void)activeWifiDeviceWithName:(NSString *)name address:(NSInteger)address mac:(NSInteger)mac error:(NSError *)error;
+```
+
+**Parameters**
+
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | name        | device name |
 | address        | device address |
 | error        | error |
 
-```
-- (void)activeWifiDeviceWithName:(NSString *)name address:(NSInteger)address mac:(NSInteger)mac error:(NSError *)error;
-```
-
 
 If the gateway device is activated, you need to configure the network with the Wi-Fi module after receiving the callback `activeWifiDeviceWithName` method. At this time, you need to call the method in `TuyaSmartActivator` to perform the operation.
-1. get token
 
-mesh wifi gateway join mesh
+#### Get Token
+
+**Declaration**
+
+mesh Wi-Fi gateway join mesh
 get Token（10 minutes)
 
 ```objective-c
-- (void)getTokenWithMeshId:(NSString *)meshId
+- (void)getTokenWithMeshId:(NSString *)meshI- (void)getTokenWithMeshId:(NSString *)meshI我- (void)getTokenWithMeshId:(NSString *)meshI- (void)getTokenWithMeshId:(NSString *)meshI我d
                     nodeId:(NSString *)nodeId
                  productId:(NSString *)productId
                       uuid:(NSString *)uuid
@@ -387,89 +410,93 @@ get Token（10 minutes)
                    version:(NSString *)version
                    success:(TYSuccessString)success
                    failure:(TYFailureError)failure;
-
 ```
-2. Gateway, router account, and password for gateway access
+
+#### Active Gateway
+
+**Declaration**
+
+Gateway, router account, and password for gateway access
 
 After activating the gateway, you can call this method after receiving the `activeWifiDeviceWithName` of `TYBLEMeshManagerDelegate`
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| ssid        | wifi ssid |
-| password        | wifi password |
-| token        | Token |
-| timeout        | default 100s |
-
-```
+```objective-c
 - (void)startBleMeshConfigWiFiWithSsid:(NSString *)ssid
                               password:(NSString *)password
                                  token:(NSString *)token
                                timeout:(NSTimeInterval)timeout;
 ```
 
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| ssid        | Wi-Fi ssid |
+| password        | Wi-Fi password |
+| token        | Token |
+| timeout        | default 100s |
+
 
 **Example**
 
-* Mesh sub-devices (devices without gateways) are connected to the network
+Mesh sub-devices (devices without gateways) are connected to the network
 
-  ```objective-c
-  // 1. Activate sub device
-  [[TYBLEMeshManager sharedInstance] activeMeshDeviceIncludeGateway:NO];
+```objective-c
+// 1. Activate sub device/ 1. Activate sub w
+[[TYBLEMeshManager sharedInstance] activeMeshDeviceIncludeGateway:NO];
 
-  // 2. TYBLEMeshManagerDelegate 
-  - (void)activeDeviceSuccessWithName:(NSString *)name deviceId:(NSString *)deviceId error:(NSError *)error {
-      
-      if (error) {
-          NSLog(@"error : %@", error);
-          return;
-      }
-      
-      // 3. Activation was successful. At this point, the activation of a sub device is complete.
-  }
-
-  ```
-
-- Active gateway
-
-  ```objective-c
-  // 1. Activate sub device
-  [[TYBLEMeshManager sharedInstance] activeMeshDeviceIncludeGateway:NO];
-
-  // 2. TYBLEMeshManagerDelegate 
-  - (void)activeWifiDeviceWithName:(NSString *)name address:(NSInteger)address mac:(NSInteger)mac error:(NSError *)error {
-      if (error) {
-         NSLog(@"error : %@", error);
-         return;
-      }
-      
-      // The gateway was successfully activated. Currently, only the Bluetooth module is successful. You need to continue to configure the Wi-Fi module to activate.
-      // 3. The user enters the password and then reconnects, and then resends the ssid, pwd, token,
-      // ！！！！Note that this operation must be done, otherwise it will affect the writing of Wi-Fi information and cause the distribution network to fail.
-      [TYBLEMeshManager sharedInstance].wifiMac = (int)mac;
-      
-      // 4. get token
-      NSString *nodeId = [NSString stringWithFormat:@"%02x", (int)address];
-      [[TuyaSmartActivator sharedInstance] getTokenWithMeshId:[TuyaSmartUser sharedInstance].meshModel.meshId
-                                                   nodeId:nodeId
-                                                productId:[TYBLEMeshManager sharedInstance].productId
-                                                     uuid:[TYBLEMeshManager sharedInstance].uuid
-                                                  authKey:[TYBLEMeshManager sharedInstance].authKey
-                                                  version:[TYBLEMeshManager sharedInstance].version
-                                                  success:^(NSString *token) {
-                                                      // 5. Set up a network distribution agent and receive activation results through the agent
-                                                      [TuyaSmartActivator sharedInstance].delegate = self;
-                                                      // 6. start Wi-Fi config
-                                                      [[TuyaSmartActivator sharedInstance] startBleMeshConfigWiFiWithSsid:@"Wi-Fi ssid" password:@"Wi-Fi password" token:token timeout:100];
-                                                  } failure:^(NSError *error) {
-                                                      NSLog(@"error: %@", error);
-                                                  }];
-  }
-
-  - (void)meshActivator:(TuyaSmartActivator *)activator didReceiveDeviceId:(NSString *)deviceId meshId:(NSString *)meshId error:(NSError *)error {
-        // 7. Receive activation result
-        
+// 2. TYBLEMeshManagerDelegate 
+- (void)activeDeviceSuccessWithName:(NSString *)name deviceId:(NSString *)deviceId error:(NSError *)error {
+    
+    if (error) {
+        NSLog(@"error : %@", error);
+        return;
     }
-  ```
+    
+    // 3. Activation was successful. At this point, the activation of a sub device is complete.
+}
+
+```
+
+```objective-c
+// 1. Activate sub device
+[[TYBLEMeshManager sharedInstance] activeMeshDeviceIncludeGateway:NO];
+
+// 2. TYBLEMeshManagerDelegate 
+- (void)activeWifiDeviceWithName:(NSString *)name address:(NSInteger)address mac:(NSInteger)mac error:(NSError *)error {
+    if (error) {
+       NSLog(@"error : %@", error);
+       return;
+    }
+    
+    // The gateway was successfully activated. Currently, only the Bluetooth module is successful. You need to continue to configure the Wi-Fi module to activate.
+    // 3. The user enters the password and then reconnects, and then resends the ssid, pwd, token,
+    // ！！！！Note that this operation must be done, otherwise it will affect the writing of Wi-Fi information and cause the distribution network to fail.
+    [TYBLEMeshManager sharedInstance].wifiMac = (int)mac;
+    
+    // 4. get token
+    NSString *nodeId = [NSString stringWithFormat:@"%02x", (int)address];
+    [[TuyaSmartActivator sharedInstance] getTokenWithMeshId:[TuyaSmartUser sharedInstance].meshModel.meshId
+                                                 nodeId:nodeId
+                                              productId:[TYBLEMeshManager sharedInstance].productId
+                                                   uuid:[TYBLEMeshManager sharedInstance].uuid
+                                                authKey:[TYBLEMeshManager sharedInstance].authKey
+                                                version:[TYBLEMeshManager sharedInstance].version
+                                                success:^(NSString *token) {
+                                                    // 5. Set up a network distribution agent and receive activation results through the agent
+                                                    [TuyaSmartActivator sharedInstance].delegate = self;
+                                                    // 6. start Wi-Fi config
+                                                    [[TuyaSmartActivator sharedInstance] startBleMeshConfigWiFiWithSsid:@"Wi-Fi ssid" password:@"Wi-Fi password" token:token timeout:100];
+                                                } failure:^(NSError *error) {
+                                                    NSLog(@"error: %@", error);
+                                                }];
+}
+
+- (void)meshActivator:(TuyaSmartActivator *)activator didReceiveDeviceId:(NSString *)deviceId meshId:(NSString *)meshId error:(NSError *)error {
+      // 7. Receive activation result
+      
+  }
+```
 
 
 ### Login
@@ -481,15 +508,9 @@ If the operation is distribution network, fill in the default mesh name and pass
 
 If the operation is to enter the network, fill in the created mesh name and password. This information is returned from the cloud interface. It can automatically connect, enter the network, and automatically obtain the online status of each device in the mesh network.
 
-mesh start
+**Declaration**
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| name        | mesh name |
-| pwd        | mesh password |
-| active        | is active |
-| wifiAddress        |Wi-Fi address, required for gateway network configuration, the rest is 0 |
-| otaAddress        |ota device address, required for ota upgrade, the rest is 0 |
+mesh start
 
 ```objective-c
 - (void)startScanWithName:(NSString *)name
@@ -499,13 +520,23 @@ mesh start
                otaAddress:(uint32_t)otaAddress;
 ```
 
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| name        | mesh name |
+| pwd        | mesh password |
+| active        | is active |
+| wifiAddress        |Wi-Fi address, required for gateway network configuration, the rest is 0 |
+| otaAddress        |ota device address, required for ota upgrade, the rest is 0 |
+
+**Declaration**
+
 Successful network access will automatically obtain the online status of the devices in the mesh network and trigger the `TuyaSmartHomeDelegate` delegate method to call back information
 
-```
+```objective-c
 - (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device;
 ```
-
-
 
 **Example**
 
@@ -521,7 +552,7 @@ Successful network access will automatically obtain the online status of the dev
 
 
 
-### mesh connection flag
+### Mesh Connection Flag
 
 In the process of operation, it is often judged whether the existing equipment of the mesh is connected to the network through Bluetooth to determine the method of issuing control commands and operation commands.
 
@@ -539,15 +570,21 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
 
 
 
-### Get device instance
+### Get Device Instance
 
 ```objective-c
 + (instancetype)deviceWithDeviceId:(NSString *)devId;
 ```
 
-
-
 ### Rename Device
+
+**Declaration**
+
+```objective-c
+- (void)renameMeshSubDeviceWithDeviceId:(NSString *)deviceId name:(NSString *)name success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
 
 | parameter           | Description     |
 | -------------- | ----------------     |
@@ -555,10 +592,6 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
 | name        | new name |
 | success        | success block |
 | failure        | failure block |
-
-```objective-c
-- (void)renameMeshSubDeviceWithDeviceId:(NSString *)deviceId name:(NSString *)name success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-```
 
 
 **Example**
@@ -571,35 +604,34 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
         }];
 ```
 
-### Local connection and gateway connection
+### Local Connection and Gateway Connection
 
-- Local connection
+**Local connection**
 
-  The Bluetooth of the mobile phone is turned on and the mesh device is controlled by Bluetooth.
+The Bluetooth of the mobile phone is turned on and the mesh device is controlled by Bluetooth.
 
-   `deviceModel.isOnline && deviceModel.isMeshBleOnline`
+ `deviceModel.isOnline && deviceModel.isMeshBleOnline`
 
-- Gateway connection
+**Gateway connection**
 
-  The mobile phone's Bluetooth is not turned on or is far away from the device. The mesh device controls the connection through the gateway and issues commands by Wi-Fi.
+The mobile phone's Bluetooth is not turned on or is far away from the device. The mesh device controls the connection through the gateway and issues commands by Wi-Fi.
 
-   `deviceModel.isOnline && !deviceModel.isMeshBleOnline`
+ `deviceModel.isOnline && !deviceModel.isMeshBleOnline`
 
 
 ### Remove Device
 
 Remove device requires cloud delete, local delete
 
-#### Local remove
+#### Local Remove
 
-   use ble
-   ```objective-c
-- (void)kickoutLightWithAddress:(uint32_t)address type:(NSString *)type;
-   ```
-
-   use gateway
+**Declaration**
 
 ```objective-c
+// use ble
+- (void)kickoutLightWithAddress:(uint32_t)address type:(NSString *)type;
+
+// use gateway
 - (NSString *)rawDataKickoutLightWithAddress:(uint32_t)address type:(NSString *)type;
 
 - (void)publishRawDataWithRaw:(NSString *)raw
@@ -608,48 +640,49 @@ Remove device requires cloud delete, local delete
                       failure:(TYFailureError)failure;
 ```
 
-2. remote remove
+  
 
-   ```objective-c
-   - (void)removeMeshSubDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-   ```
-   
-   [Example]
-   ```objective-c
-    int address = [smartDevice.deviceModel.nodeId intValue] << 8;
-           
-           // 1.  remote remove
-           [[TuyaSmartUser sharedInstance].mesh removeMeshSubDeviceWithDeviceId:[smartDevice.deviceModel.devId success:^{
-               
-           } failure:^(NSError *error) {
-              
-           }];
-           
-           // 2. local remove
-           // Judge the connection, use gateway or Bluetooth
+#### Remote Remove
 
-           if ([TYBLEMeshManager sharedInstance].isLogin) {
-               
-               [[TYBLEMeshManager sharedInstance] kickoutLightWithAddress:address type:[smartDevice.deviceModel.pcc];
+**Declaration**
+
+```objective-c
+- (void)removeMeshSubDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Example**
+
+```objective-c
+ int address = [smartDevice.deviceModel.nodeId intValue] << 8;
+        
+        // 1.  remote remove
+        [[TuyaSmartUser sharedInstance].mesh removeMeshSubDeviceWithDeviceId:[smartDevice.deviceModel.devId success:^{
+            
+        } failure:^(NSError *error) {
+           
+        }];
+        
+        // 2. local remove
+        // Judge the connection, use gateway or Bluetooth
+
+        if ([TYBLEMeshManager sharedInstance].isLogin) {
+            
+            [[TYBLEMeshManager sharedInstance] kickoutLightWithAddress:address type:[smartDevice.deviceModel.pcc];
+             
+        } else {
+            
+            [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:[[TYBLEMeshManager sharedInstance] rawDataKickoutLightWithAddress:address type:[smartDevice.deviceModel.pcc] pcc:[smartDevice.deviceModel.pcc success:^{
                 
-           } else {
-               
-               [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:[[TYBLEMeshManager sharedInstance] rawDataKickoutLightWithAddress:address type:[smartDevice.deviceModel.pcc] pcc:[smartDevice.deviceModel.pcc success:^{
-                   
-               } failure:^(NSError *error) {
-                   
-               }];
-           }
-   ```
+            } failure:^(NSError *error) {
+                
+            }];
+        }
+```
 
 
 ## Mesh Group
 
 A group is one of the features of a mesh. After adding devices to the group, you can control all the devices in the group with one command.
-
- `TuyaSmartBleMeshGroup`
-
-
 
 ### Create Group
 
@@ -661,14 +694,7 @@ A group is one of the features of a mesh. After adding devices to the group, you
 
 Currently, each mesh supports a maximum of 255 groups, and a device can only join a maximum of 8 groups.
 
-| parameter           | Description     |
-| -------------- | ----------------     |
-| groupName        | mesh name |
-| meshId        | meshId |
-| localId        | group address |
-| pcc        | pcc |
-| success        | success block |
-| failure        | failure block |
+**Declaration**
 
 ```objective-c
 + (void)createMeshGroupWithGroupName:(NSString *)groupName
@@ -678,6 +704,17 @@ Currently, each mesh supports a maximum of 255 groups, and a device can only joi
                              success:(TYSuccessInt)success
                              failure:(TYFailureError)failure;
 ```
+
+**Parameters**
+
+| parameter           | Description     |
+| -------------- | ----------------     |
+| groupName        | group name |
+| meshId        | meshId |
+| localId        | group address |
+| pcc        | pcc |
+| success        | success block |
+| failure        | failure block |
 
 **Example**
 
@@ -703,8 +740,15 @@ NSInteger localId = 0x8001;
 >
 > All addresses issued by group operations are only related to `localId`
 
+### Update Group Name
 
-### Update Group name
+**Declaration**
+
+```objective-c
+- (void)updateMeshGroupName:(NSString *)meshGroupName success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
 
 | parameter           | Description     |
 | -------------- | ----------------     |
@@ -712,41 +756,37 @@ NSInteger localId = 0x8001;
 | success        | success block |
 | failure        | failure block |
 
+### Remove Device From Group 
+
+**Declaration**
+
 ```objective-c
-- (void)updateMeshGroupName:(NSString *)meshGroupName success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+// Bluetooth
+- (void)deleteGroupAddress:(uint32_t)groupAddress type:(NSString *)type;
+
+// Gateway
+- (NSString *)rawDataDeleteGroupAddress:(uint32_t)groupAddress type:(NSString *)type
+ 
+- (void)publishRawDataWithRaw:(NSString *)raw
+       pcc:(NSString *)pcc
+                      success:(TYSuccessHandler)success
+                      failure:(TYFailureError)failure;
 ```
 
-### Remove device from group
+Remote delete
 
-- Local Bluetooth
+**Declaration**
 
-  ```objective-c
-  - (void)deleteGroupAddress:(uint32_t)groupAddress type:(NSString *)type;
-  ```
+```objective-c
+- (void)removeMeshGroupWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
 
-
-- Gateway
-
-  ```objective-c
-  - (NSString *)rawDataDeleteGroupAddress:(uint32_t)groupAddress type:(NSString *)type
- 
-  - (void)publishRawDataWithRaw:(NSString *)raw
-         pcc:(NSString *)pcc
-                        success:(TYSuccessHandler)success
-                        failure:(TYFailureError)failure;
-  ```
-
-
-Remote delete:
+**Parameters**
 
 | parameter           | Description     |
 | -------------- | ----------------     |
 | success        | success block |
 | failure        | failure block |
-
-```objective-c
-- (void)removeMeshGroupWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
-```
 
 **Example**
 
@@ -764,7 +804,7 @@ Remote delete:
     	// use ble 
         [[TYBLEMeshManager sharedInstance] deleteGroupAddress:[self.meshGroup.meshGroupModel.localId intValue] type:self.meshGroup.meshGroupModel.pcc];
     } else {
-        // wifi
+        // Wi-Fi
         // use gateway
         [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:[[TYBLEMeshManager sharedInstance] rawDataDeleteGroupAddress:[self.meshGroup.meshGroupModel.localId intValue] type:self.meshGroup.meshGroupModel.pcc] pcc:self.meshGroup.meshGroupModel.pcc success:^{
         } failure:^(NSError *error) {
@@ -774,7 +814,7 @@ Remote delete:
 
 
 
-### Add device to group
+### Add Device to Group
 
 > Adding a device to a group requires local and cloud double verification before it can be counted as a device successfully joining the group. Results
 >
@@ -782,45 +822,44 @@ Remote delete:
 
 Local add
 
-* Local connection
+```objective-c
+// Local connection
+- (void)addDeviceAddress:(uint32_t)deviceAddress type:(NSString *)type groupAddress:(uint32_t)groupAddress;
 
-  ```objective-c
-  - (void)addDeviceAddress:(uint32_t)deviceAddress type:(NSString *)type groupAddress:(uint32_t)groupAddress;
+// TYBLEMeshManagerDelegate
+- (void)deviceAddGroupAddress:(uint32_t)address error:(NSError *)error;
 
-  // TYBLEMeshManagerDelegate
-  - (void)deviceAddGroupAddress:(uint32_t)address error:(NSError *)error;
-  ```
 
-* Gateway connection
 
-  ```objective-c
+// Gateway connection
 
-  - (NSString *)rawDataAddDeviceAddress:(uint32_t)deviceAddress groupAddress:(uint32_t)groupAddress type:(NSString *)type;
+- (NSString *)rawDataAddDeviceAddress:(uint32_t)deviceAddress groupAddress:(uint32_t)groupAddress type:(NSString *)type;
 
-  - (void)publishRawDataWithRaw:(NSString *)raw
-                            pcc:(NSString *)pcc
-                        success:(TYSuccessHandler)success
-                        failure:(TYFailureError)failure;
+- (void)publishRawDataWithRaw:(NSString *)raw
+                          pcc:(NSString *)pcc
+                      success:(TYSuccessHandler)success
+                      failure:(TYFailureError)failure;
 
-  // TuyaSmartBleMeshDelegate 
-  - (void)bleMeshReceiveRawData:(NSString *)raw;
-  ```
-
+// TuyaSmartBleMeshDelegate 
+- (void)bleMeshReceiveRawData:(NSString *)raw;
+```
 
 Remote add
 
-After the above verification is completed, you can use this method to record the operation to the cloud and then proceed to the next device operation
+**Declaration**
 
-| parameter           | Description     |
-| -------------- | ----------------     |
-| success        | success block |
-| failure        | failure block |
+After the above verification is completed, you can use this method to record the operation to the cloud and then proceed to the next device operation
 
 ```objective-c
 - (void)addDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
+**Parameters**
 
+| parameter           | Description     |
+| -------------- | ----------------     |
+| success        | success block |
+| failure        | failure block |
 
 **Example**
 
@@ -834,7 +873,7 @@ After the above verification is completed, you can use this method to record the
             // ble
             [[TYBLEMeshManager sharedInstance] addDeviceAddress:nodeId type:self.meshGroup.meshGroupModel.pcc groupAddress:[self.meshGroup.meshGroupModel.localId intValue]];
         } else {
-            // wifi
+            // Wi-Fi
             [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:[[TYBLEMeshManager sharedInstance] rawDataAddDeviceAddress:nodeId groupAddress:[self.meshGroup.meshGroupModel.localId intValue] type:self.meshGroup.meshGroupModel.pcc] pcc:self.meshGroup.meshGroupModel.pcc success:^{
             } failure:^(NSError *error) {
             }];
@@ -897,49 +936,47 @@ After the above verification is completed, you can use this method to record the
 
 
 
-### Remove device from group
+### Remove Device From Group
 
-- Local Bluetooth
+**Declaration**
 
-  ```objective-c
+Bluetooth
 
-  - (void)deleteDeviceAddress:(uint32_t)deviceAddress type:(NSString *)type groupAddress:(uint32_t)groupAddress;
+```objective-c
+- (void)deleteDeviceAddress:(uint32_t)deviceAddress type:(NSString *)type groupAddress:(uint32_t)groupAddress;
 
-  // TYBLEMeshManagerDelegate callback
-  - (void)deviceAddGroupAddress:(uint32_t)address error:(NSError *)error;
-  ```
+// TYBLEMeshManagerDelegate callback
+- (void)deviceAddGroupAddress:(uint32_t)address error:(NSError *)error;
+```
 
-- Gateway
+**Declaration**
 
-  ```objective-c
+Gateway
 
-  - (NSString *)rawDataDeleteDeviceAddress:(uint32_t)deviceAddress groupAddress:(uint32_t)groupAddress type:(NSString *)type
+```objective-c
+- (NSString *)rawDataDeleteDeviceAddress:(uint32_t)deviceAddress groupAddress:(uint32_t)groupAddress type:(NSString *)type
 
-  - (void)publishRawDataWithRaw:(NSString *)raw
-                            pcc:(NSString *)pcc
-                        success:(TYSuccessHandler)success
-                        failure:(TYFailureError)failure;
+- (void)publishRawDataWithRaw:(NSString *)raw
+                          pcc:(NSString *)pcc
+                      success:(TYSuccessHandler)success
+                      failure:(TYFailureError)failure;
 
-  // `TuyaSmartBleMeshDelegate` - (void)bleMeshReceiveRawData:(NSString *)raw callback
-  // TuyaSmartBleMeshDelegate 
-  - (void)bleMeshReceiveRawData:(NSString *)raw;
-  ```
+// `TuyaSmartBleMeshDelegate` - (void)bleMeshReceiveRawData:(NSString *)raw callback
+// TuyaSmartBleMeshDelegate 
+- (void)bleMeshReceiveRawData:(NSString *)raw;
+```
 
+**Declaration**
 
 Remote delete
 
 After the above verification is completed, you can use this method to record the operation to the cloud and then proceed to the next device operation
 
 ```objective-c
-
 - (void)removeDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-
-
 **Example**
-
-
 
 ```objective-c
 - (void)deleteDeviceFromGroup:(TuyaSmartDeviceModel *)model {
@@ -1012,19 +1049,21 @@ After the above verification is completed, you can use this method to record the
 }
 ```
 
-### Get devices in a group
+### Get Devices From Group
+
+**Declaration**
+
+```objective-c
+- (void)getDeviveListInfoWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *deviceList))success failure:(TYFailureError)failure;
+```
+
+**Parameters**
 
 
 | parameter           | Description     |
 | -------------- | ----------------     |
 | success        | success block |
 | failure        | failure block |
-
-```objective-c
-- (void)getDeviveListInfoWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *deviceList))success failure:(TYFailureError)failure;
-```
-
-
 
 **Example**
 
@@ -1036,23 +1075,15 @@ After the above verification is completed, you can use this method to record the
         }];
 ```
 
-
-
 ## Mesh Control
 
-### command
+### Command
 
 `{"(dpId)" : "(dpValue)"} `，  `@{@"101" : @"44"}`
 
-### Control device 
+### Device Control
 
-| parameter           | Description     |
-| -------------- | ----------------     |
-| nodeId        | device node |
-| pcc        | pcc |
-| dps        | dps dictionary |
-| success        | success block |
-| failure        | failure block |
+**Declaration**
 
 ```objective-c
 - (void)publishNodeId:(NSString *)nodeId
@@ -1061,6 +1092,16 @@ After the above verification is completed, you can use this method to record the
               success:(TYSuccessHandler)success
               failure:(TYFailureError)failure;
 ```
+
+**Parameters**
+
+| parameter           | Description     |
+| -------------- | ----------------     |
+| nodeId        | device node |
+| pcc        | pcc |
+| dps        | dps dictionary |
+| success        | success block |
+| failure        | failure block |
 
 **Example**
 
@@ -1076,7 +1117,9 @@ int address = [[self.smartDevice deviceModel].nodeId intValue] << 8;
 
 
 
-### Control group
+### Group Control
+
+**Declaration**
 
 ```objective-c
 - (void)multiPublishWithLocalId:(NSString *)localId
@@ -1100,41 +1143,37 @@ int address = [[self.meshGroup meshGroupModel].localId intValue];
 
 
 
-### Gateway raw command
+### Gateway Raw Command
 
 > TYBLEMeshManager support raw command
 
-```objective-c
+**Declaration**
 
+```objective-c
 - (void)publishRawDataWithRaw:(NSString *)raw
                           pcc:(NSString *)pcc
                       success:(TYSuccessHandler)success
                       failure:(TYFailureError)failure;
 ```
 
-
-
-### Device info update
+### Device Info Update
 
 After sending the command, if there is a returned command, the device's data reply is called back through the proxy in `TuyaSmartHomeDelegate`
 
-```
+**Declaration**
+
+```objective-c
 // dps update
 - (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device dpsUpdate:(NSDictionary *)dps;
 ```
 
-
-
 ## Firmware Upgrade
 
-### Query firmware info
+### Query Firmware Info
+
+**Declaration**
 
 get device upgrade info
-
-| parameter           | Description     |
-| -------------- | ----------------     |
-| success        | success block |
-| failure        | failure block |
 
 ```objective-c
 /**
@@ -1144,11 +1183,7 @@ get device upgrade info
  *  @param failure 
  */
 - (void)getFirmwareUpgradeInfo:(void (^)(NSArray <TuyaSmartFirmwareUpgradeModel *> *upgradeModelList))success failure:(TYFailureError)failure;
-```
 
-
-
-```
 /*
 type 
      0  updrading
@@ -1158,40 +1193,62 @@ type
 */
 ```
 
+**Parameters**
+
+| parameter           | Description     |
+| -------------- | ----------------     |
+| success        | success block |
+| failure        | failure block |
+
 
 
 ### Sub-Device Upgrade
 
 Ensure device online
-1. connect target device
+
+**connect target device**
+
+**Declaration**
 
 ```objective-c
-
 - (void)startScanWithName:(NSString *)name
                       pwd:(NSString *)pwd
                    active:(BOOL)active
               wifiAddress:(uint32_t)wifiAddress
                otaAddress:(uint32_t)otaAddress;
-               
 ```
 
-2. After setting, it will be connected. You can receive the connection through the `TYBLEMeshManagerDelegate` proxy method.
+  
+
+**After setting, it will be connected. You can receive the connection through the `TYBLEMeshManagerDelegate` proxy method**
+
+**Declaration**
+
+```objective-c
+- (void)notifyLoginSuccessWithAddress:(uint32_t)address;
+```
+
+**Parameters**
 
 | parameter           | Description     |
 | -------------- | ----------------     |
 | address        | node address |
 
-```
-- (void)notifyLoginSuccessWithAddress:(uint32_t)address;
-```
-
-3. Send upgrade package after receiving callback
+**Send upgrade package after receiving callback**
 
 
 ```
 - (void)sendOTAPackWithAddress:(NSInteger)address version:(NSString *)version otaData:(NSData *)otaData success:(TYSuccessHandler)success failure:(TYFailureHandler)failure;
 ```
-4. Update version number to the remote
+**Update version number to the remote**
+
+**Declaration**
+
+```objective-c
+- (void)updateDeviceVersion:(NSString *)version type:(NSInteger)type success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
 
 | parameter           | Description     |
 | -------------- | ----------------     |
@@ -1199,12 +1256,6 @@ Ensure device online
 | type        | upgradeModel.type |
 | success        | success block |
 | failure        | failure block |
-
-```
-- (void)updateDeviceVersion:(NSString *)version type:(NSInteger)type success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-```
-
-
 
 **Example**
 
