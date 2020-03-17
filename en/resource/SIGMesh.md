@@ -1,10 +1,5 @@
 # Bluetooth Mesh SDK Guide
 
-```objective-c
-// import header file
-#import <TuyaSmartBLEMeshKit/TuyaSmartBLEMeshKit.h>
-```
-
 ## Introduction
 
 Bluetooth Special Interest Group use bluetooth technology began to fully support Mesh networks. Bluetooth Mesh, that is, a Bluetooth device is formed into a network. Each Bluetooth device can communicate through Bluetooth devices in the network, and transmit Bluetooth information at one end to the other end through the mesh network.
@@ -21,15 +16,13 @@ The standard Bluetooth Mesh, also called SIG Mesh, is a communication standard f
 | Local connection| The networked device is connected via Bluetooth to control mesh and command operations|
 | Gateway connection| The networked devices are connected through the gateway (the gateway needs to be with the device, and the distance cannot be too far) to control the mesh and command operations |
 
-  The product currently follows the rules
-
-
+ The product currently follows the rules
 
 | Type |                         Device Type                          |                         Product Type                         |                       Sub Product Type                       |
 | :--: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |      | 1=Tuya's standard device<br />2=Tuya's penetrate device<br /> | 0x01=light <br />0x02=switch <br />0x05=remote control re<br /> | Like：<br /> 1= light <br /> 2= wc light<br /> 3= rgb light <br /> 4=<br /> |
 
-  ex. pcc（2 bytes，4 charac）
+ex. pcc（2 bytes，4 charac）
 
   ```objective-c
      Tuya's standard device rgb light   1310 // 1 01 4 read， 1 means device type，01 means product type, 4 means sub product type
@@ -37,9 +30,9 @@ The standard Bluetooth Mesh, also called SIG Mesh, is a communication standard f
      ......
   ```
 
-- Equipment operation requires multiple steps
+Equipment operation requires multiple steps
 
-  Because device operations, such as adding and deleting operations, and group operations, require the local Bluetooth command to be executed once and recorded in the cloud once. The operation information needs to be synchronized to the local mesh network as well.
+Because device operations, such as adding and deleting operations, and group operations, require the local Bluetooth command to be executed once and recorded in the cloud once. The operation information needs to be synchronized to the local mesh network as well.
 
 
 ## Management
@@ -53,17 +46,23 @@ A family can have multiple sig meshes (it is recommended to create only one fami
 > Init home [See](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Home.html#home-management)
 
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| homeId         | homeId          |
-| success       | success block|
-| failure       | failure block|
+
+**Declaration**
 
 ```objective-c
 + (void)createSIGMeshWithHomeId:(long long)homeId
                         success:(void(^)(TuyaSmartBleMeshModel *meshModel))success
                         failure:(TYFailureError)failure;
 ```
+
+**Parameters**
+
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| homeId         | homeId          |
+| success       | success block|
+| failure       | failure block|
 
 **Example**
 
@@ -79,16 +78,20 @@ long long homeId = home.homeModel.homeId;
 
 ###  Delete Mesh
 
+**Declaration**
+
 Delete the mesh. If there are devices in the mesh group, the child devices are also removed.
+
+```objective-c
+- (void)removeMeshWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | success       | success block|
 | failure       | failure block|
-
-```
-- (void)removeMeshWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
-```
 
 **Example**
 
@@ -101,19 +104,23 @@ self.mesh = #<TuyaSmartBleMesh instance>;
 }];
 ```
 
-#### Get the list of SIG Mesh in the family
+#### Get the List of SIG Mesh in the Family
+
+**Declaration**
 
 After initializing the home instance, you can get the mesh list of the corresponding family
-
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| success       | success block|
-| failure       | failure block|
 
 ```objective-c
 - (void)getSIGMeshListWithSuccess:(void(^)(NSArray <TuyaSmartBleMeshModel *> *list))success
                           failure:(TYFailureError)failure;
 ```
+
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| success       | success block|
+| failure       | failure block|
 
 **Example**
 
@@ -126,22 +133,25 @@ TuyaSmartHome *home = #<home instance>
 }];
 ```
 
-### Get Mesh instance
+### Get Mesh Instance
+
+**Declaration**
+
+```objective-c
++ (instancetype)bleMeshWithMeshId:(NSString *)meshId homeId:(long long)homeId;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | meshId       | mesh id|
 | homeId       | home id|
 
-```objective-c
-+ (instancetype)bleMeshWithMeshId:(NSString *)meshId homeId:(long long)homeId;
-```
-
 **Example**
 
-The home instance (TuyaSmartHome instance) can get the sigMeshModel under the class
-
 ```objective-c
+// The home instance (TuyaSmartHome instance) can get the sigMeshModel under the class
 TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
 ```
 
@@ -160,19 +170,23 @@ The following is a list of common device reset methods
 
 ####Bluetooth Scan
 
+**Declaration**
+
 Scan for nearby SIG-compliant Bluetooth devices
 
-> ⚠️ Note: The meshModel here needs to be passed in the sigMeshModel parameter in TuyaSmartHome, not the meshModel
+> The meshModel here needs to be passed in the sigMeshModel parameter in TuyaSmartHome, not the meshModel
+
+```objective-c
+- (void)startScanWithScanType:(TuyaSmartSIGScanType)scanType 
+          meshModel:(TuyaSmartBleMeshModel *)meshModel;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | scanType       | Scanning type, currently divided into unconfigured network and configured network, the scanned network will automatically enter the network|
 | meshModel       | mesh model|
-
-```
-- (void)startScanWithScanType:(TuyaSmartSIGScanType)scanType 
-          meshModel:(TuyaSmartBleMeshModel *)meshModel;
-```
 
 **Example**
 
@@ -184,15 +198,9 @@ Scan for nearby SIG-compliant Bluetooth devices
                             meshModel:home.sigMeshModel];
 ```
 
-
+**Declaration**
 
 After scanning the device, you can implement the following methods in the TuyaSmartSIGMeshManagerDelegate callback to get the scanned device.
-
-
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| manager       | mesh manager|
-| device       | Network equipment information to be allocated|
 
 ```objective-c
 /**
@@ -202,29 +210,50 @@ After scanning the device, you can implement the following methods in the TuyaSm
      didScanedDevice:(TuyaSmartSIGMeshDiscoverDeviceInfo *)device;
 ```
 
-### Sub Device Bluetooth distribution network
+**Parameters**
+
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| manager       | mesh manager|
+| device       | Network equipment information to be allocated|
+
+**Sub Device Bluetooth distribution network**
 
 After scanning the surrounding network devices that meet the protocol specifications, you can configure the network (s).
 
 Networking is to add Bluetooth devices that have not joined the mesh network to the mesh network through a certain communication process.
 
-- Active
+#### Active
+
+**Declaration**
+
+```objective-c
+- (void)startActive:(NSArray<TuyaSmartSIGMeshDiscoverDeviceInfo *> *)devList
+          meshModel:(TuyaSmartBleMeshModel *)meshModel;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | devList       | List of devices to be activated|
 | meshModel       | mesh model|
 
-  ```
-  - (void)startActive:(NSArray<TuyaSmartSIGMeshDiscoverDeviceInfo *> *)devList
-        meshModel:(TuyaSmartBleMeshModel *)meshModel;
-  ```
+**delegate**
 
-- delegate
+**Declaration**
 
-  When a device is activated successfully or fails, the following methods will be called back through TuyaSmartSIGMeshManagerDelegate:
+When a device is activated successfully or fails, the following methods will be called back through TuyaSmartSIGMeshManagerDelegate: Activate child device successfully callback
 
-Activate child device successfully callback
+```objective-c
+- (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager 
+    didActiveSubDevice:(TuyaSmartSIGMeshDiscoverDeviceInfo *)device 
+                 devId:(NSString *)devId
+                 error:(NSError *)error;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
@@ -234,47 +263,50 @@ Activate child device successfully callback
 | error       | active error，`name` or `deviceId` is empty|
 
 
-  ```objc
-  - (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager 
-      didActiveSubDevice:(TuyaSmartSIGMeshDiscoverDeviceInfo *)device 
-                   devId:(NSString *)devId
-                   error:(NSError *)error;
-```
+
+**Declaration**
+
  Activate child device failure callback
- | parameter           | Description                 |
- | -------------- | ----------------     |
- | manager       | mesh manager|
- | device       | Device|
- | error       | errors|
 
+```objective-c
+- (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager 
+ didFailToActiveDevice:(TuyaSmartSIGMeshDiscoverDeviceInfo *)device 
+                 error:(NSError *)error;
 ```
-  - (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager 
-      didFailToActiveDevice:(TuyaSmartSIGMeshDiscoverDeviceInfo *)device 
-           error:(NSError *)error;
-  ```
-  
-- Deactivate device
 
-  At any stage in the scanning device and network configuration, calling the following methods will stop the network configuration process for Bluetooth devices.
+**Parameters**
 
-  ```objective-c
-  - (void)stopActiveDevice;
-  ```
-### Sub-device network connection
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| manager       | mesh manager|
+| device       | Device|
+| error       | errors|
+
+#### Deactivate Device
+
+**Declaration**
+
+At any stage in the scanning device and network configuration, calling the following methods will stop the network configuration process for Bluetooth devices.
+
+```objective-c
+- (void)stopActiveDevice;
+```
+
+### Sub-Device Network Connection
 
 After entering the network, it is scanned first, but the scan type is changed to ScanForProxyed, and then the network can be automatically connected
 
-- mesh connection flag
+#### Mesh Connection Flag
 
-  In the process of operation, it is often judged whether the existing equipment of the mesh is connected to the network through Bluetooth to determine the method of issuing control commands and operation commands.
+In the process of operation, it is often judged whether the existing equipment of the mesh is connected to the network through Bluetooth to determine the method of issuing control commands and operation commands.
 
-  ```objective-c
-  // mesh local connection identifier, there is a device connected via Bluetooth, this attribute is yes
-  BOOL isLogin = [TuyaSmartSIGMeshManager sharedInstance].isLogin;
-  ```
+```objective-c
+// mesh local connection identifier, there is a device connected via Bluetooth, this attribute is yes
+BOOL isLogin = [TuyaSmartSIGMeshManager sharedInstance].isLogin;
+```
 
 
-### SIG Mesh gateway active
+### SIG Mesh Gateway Active
 
 SIG Mesh gateway active EZ , see [ EZ mode](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Activator.html#activate-the-zigbee-sub-device)
 
@@ -286,35 +318,39 @@ SIG Mesh gateway atcive sub device, see [sub-device](https://tuyainc.github.io/t
 >
 > Here the mesh device corresponds to the deviceType type TuyaSmartDeviceModelTypeSIGMeshSubDev
 
-#### Get device instance
+#### Get Device Instance
 
 ```objective-c
 + (instancetype)deviceWithDeviceId:(NSString *)devId;
 ```
 
-### Local connection and gateway connection
+### Local Connection and Gateway Connection
 
-- Local connection
+#### Local Connection
 
-  The Bluetooth of the mobile phone is turned on and the mesh device is controlled by Bluetooth.
+The Bluetooth of the mobile phone is turned on and the mesh device is controlled by Bluetooth.
 
-   `deviceModel.isOnline && deviceModel.isMeshBleOnline`
+ `deviceModel.isOnline && deviceModel.isMeshBleOnline`
 
-- gateway connection
+#### Gateway Connection
 
-  The mobile phone's Bluetooth is not turned on or is far away from the device. The mesh device controls the connection through the gateway and issues commands by Wi-Fi.
+The mobile phone's Bluetooth is not turned on or is far away from the device. The mesh device controls the connection through the gateway and issues commands by Wi-Fi.
 
-   `deviceModel.isOnline && !deviceModel.isMeshBleOnline`
+ `deviceModel.isOnline && !deviceModel.isMeshBleOnline`
 
-### Get device status
+### Get Device Status
+
+**Declaration**
+
+```objective-c
+- (void)getDeviceStatusWithDeviceModel:(TuyaSmartDeviceModel *)deviceModel;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | deviceModel       | device model|
-
-  ```
-- (void)getDeviceStatusWithDeviceModel:(TuyaSmartDeviceModel *)deviceModel;
-  ```
 
 ### Remove Device
 
@@ -324,19 +360,15 @@ SIG Mesh gateway atcive sub device, see [sub-device](https://tuyainc.github.io/t
 
 In the Bluetooth Mesh network, you can group some devices into groups and use group commands to control the devices in the group. For example, you can add all light groups to a group, and control the group's switches, colors, etc. directly. All lights in the control group have the same properties
 
-### 1. Add Group
+### Add Group
 
 > For the addition of SIG Mesh groups, in order to ensure consistent functions, it is recommended to add devices of the same category to the group
 
 Before adding a group, you need to get the group address from the server: You can call the following of TuyaSmartBleMeshGroup
 
-Assign a group ID to the cloud
+**Declaration**
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| meshId       | mesh id|
-| success       | success block|
-| failure       | failure block|
+Assign a group ID to the cloud
 
 ```objective-c
 + (void)getBleMeshGroupAddressFromCluondWithMeshId:(NSString *)meshId
@@ -344,16 +376,17 @@ Assign a group ID to the cloud
                                            failure:(TYFailureError)failure;
 ```
 
-⚠️ The group address returned from the server needs to be added with 0x4000, and then called to get a group named by groupName under the current sigMeshModel
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
-| groupName       | mesh group name|
-| meshId       | meshId|
-| localId       | 2 bytes hex string|
-| pcc       | pcc|
-| success       | success block , groupId|
-| failure       | failure|
+| meshId       | mesh id|
+| success       | success block|
+| failure       | failure block|
+
+**Declaration**
+
+The group address returned from the server needs to be added with 0x4000, and then called to get a group named by groupName under the current sigMeshModel
 
 ```objective-c
 + (void)createMeshGroupWithGroupName:(NSString *)groupName
@@ -364,27 +397,51 @@ Assign a group ID to the cloud
                              failure:(TYFailureError)failure;
 ```
 
+**Parameters**
 
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| groupName       | mesh group name|
+| meshId       | meshId|
+| localId       | 2 bytes hex string|
+| pcc       | pcc|
+| success       | success block , groupId|
+| failure       | failure|
 
-### 2.Add device to group
+### Add Device to Group
 
 >   `groupAddress = [localId inValue] ` 
 
-* Local Bluetooth
+#### Bluetooth
 
-  If you need to add a device to the group, you need to call the following method of `TuyaSmartSIGMeshManager`
+If you need to add a device to the group, you need to call the following method of `TuyaSmartSIGMeshManager`
+
+**Declaration**
+
+```objective-c
+- (void)addDeviceToGroupWithDevId:(NSString *)devId
+                     groupAddress:(uint32_t)groupAddress;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | devId       | dev id|
 | groupAddress       | group address |
 
-  ```objc
-  - (void)addDeviceToGroupWithDevId:(NSString *)devId
-                       groupAddress:(uint32_t)groupAddress;
+**TuyaSmartSIGMeshManagerDelegate**
+
+**Declaration**
+
+```objective-c
+- (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager 
+  didHandleGroupWithGroupAddress:(nonnull NSString *)groupAddress 
+            deviceNodeId:(nonnull NSString *)nodeId 
+               error:(NSError *)error;
 ```
 
-TuyaSmartSIGMeshManagerDelegate
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
@@ -393,24 +450,15 @@ TuyaSmartSIGMeshManagerDelegate
 | nodeId       | device mesh address |
 | error       | error |
 
-```
-  - (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager 
-  didHandleGroupWithGroupAddress:(nonnull NSString *)groupAddress 
-            deviceNodeId:(nonnull NSString *)nodeId 
-               error:(NSError *)error;
-  ```
 
-- Gateway
 
-  Adding sub-devices to the mesh group through the gateway can be operated through TuyaSmartBleMeshGroup
+#### Gateway
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| subList       | Sub-devices under the gateway to be operated|
-| success       | success block |
-| failure       | failure block |
+Adding sub-devices to the mesh group through the gateway can be operated through 
 
-  ```objective-c
+**Declaration**
+
+```objective-c
   /**
    Adding a sig mesh sub-device group through a sig mesh gateway
     Need to ensure that the sub-device relationship belongs to the sig mesh gateway
@@ -423,43 +471,9 @@ TuyaSmartSIGMeshManagerDelegate
   /// Group Response of Zigbee Devices Joining Gateway
   /// 1: Over the Scenario Limit 2: Subdevice Timeout 3: Setting Value Out of Range 4: Write File Error 5: Other Errors
   - (void)meshGroup:(TuyaSmartBleMeshGroup *)group addResponseCode:(NSArray <NSNumber *> *)responseCode;
-
-  @end
-  ```
-
-### 3. Remove device from group
-
-- Local Bluetooth
-
-  If you need to remove a device from the group, you can use the following methods:
-
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| devId       | dev id|
-| groupAddress       | group address |
-
-  ```objective-c
-  - (void)deleteDeviceToGroupWithDevId:(NSString *)devId groupAddress:(uint32_t)groupAddress;
 ```
-TuyaSmartSIGMeshManagerDelegate
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| manager       | manager|
-| groupAddress       | group mesh address |
-| nodeId       | device mesh address |
-| error       | error |
 
-
-```
-  - (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager 
-  didHandleGroupWithGroupAddress:(nonnull NSString *)groupAddress 
-            deviceNodeId:(nonnull NSString *)nodeId 
-               error:(NSError *)error;
-  ```
-
-- Gateway
-
-  Deleting devices into the mesh group through the gateway can be operated through `TuyaSmartBleMeshGroup`
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
@@ -467,16 +481,72 @@ TuyaSmartSIGMeshManagerDelegate
 | success       | success block |
 | failure       | failure block |
 
-  ```objective-c
+
+
+### Remove Device From Group
+
+#### Bluetooth
+
+**Declaration**
+
+If you need to remove a device from the group, you can use the following methods:
+
+```objective-c
+- (void)deleteDeviceToGroupWithDevId:(NSString *)devId groupAddress:(uint32_t)groupAddress;
+```
+
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| devId       | dev id|
+| groupAddress       | group address |
+
+**TuyaSmartSIGMeshManagerDelegate**
+
+**Declaration**
+
+```objective-c
+- (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager 
+  didHandleGroupWithGroupAddress:(nonnull NSString *)groupAddress 
+            deviceNodeId:(nonnull NSString *)nodeId 
+               error:(NSError *)error;
+```
+
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| manager       | manager|
+| groupAddress       | group mesh address |
+| nodeId       | device mesh address |
+| error       | error |
+
+####Gateway
+
+Deleting devices into the mesh group through the gateway can be operated through `TuyaSmartBleMeshGroup`
+
+**Declaration**
+
+```objective-c
   /**
    Adding a sig mesh sub-device group through a sig mesh gateway
     Need to ensure that the sub-device relationship belongs to the sig mesh gateway
    */
-  - (void)removeSubDeviceWithSubList:(NSArray<TuyaSmartDeviceModel *> * _Nonnull )subList success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+- (void)removeSubDeviceWithSubList:(NSArray<TuyaSmartDeviceModel *> * _Nonnull )subList success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
 ```
-TuyaSmartBleMeshGroupDelegate callback
 
-```
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| subList       | Sub-devices under the gateway to be operated|
+| success       | success block |
+| failure       | failure block |
+
+**TuyaSmartBleMeshGroupDelegate**
+
+```objective-c
   //  TuyaSmartBleMeshGroupDelegate callback
   @protocol TuyaSmartBleMeshGroupDelegate <NSObject>
 
@@ -485,63 +555,93 @@ TuyaSmartBleMeshGroupDelegate callback
   - (void)meshGroup:(TuyaSmartBleMeshGroup *)group removeResponseCode:(NSArray <NSNumber *> *)responseCode;
     
   @end
-  ```
+```
 
-### 4. Sync group info
+
+
+### Sync Group Info
 
 If the add \ deletion succeeds or fails, you can receive the result through the proxy method, and use the group instance to change the cloud device synchronization within the group.
 
-- Add device
+#### Add Device
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| success       | success block |
-| failure       | failure block |
+**Declaration**
 
 ```objective-c
 // TuyaSmartBleMeshGroup 
 - (void)addDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
-- Remove device
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | success       | success block |
 | failure       | failure block |
 
-```
+
+
+#### Remove Device
+
+**Declaration**
+
+```objective-c
 - (void)removeDeviceWithDeviceId:(NSString *)deviceId success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 ```
 
-### 5. Query Group Device
+**Parameters**
 
-`TuyaSmartSIGMeshManager`
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| success       | success block |
+| failure       | failure block |
+
+
+
+### Query Group Device
+
+**Declaration**
 
 Query devices in a group by group address
+
+```objective-c
+- (void)queryGroupMemberWithGroupAddress:(uint32_t)groupAddress;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
 | groupAddress       | group address |
 
-  ```objc
-- (void)queryGroupMemberWithGroupAddress:(uint32_t)groupAddress;
-  ```
+**Callback**
 
-Callback：
+**Declaration**
 
-  ```objc
+```objective-c
 - (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager
       queryDeviceModel:(TuyaSmartDeviceModel *)deviceModel
           groupAddress:(uint32_t)groupAddress;
-  ```
+```
 
 ##  Mesh Control
 
-### DP publish
+### DP Publish
 
 `{"(dpId)" : "(dpValue)"}`,  `@{@"101" : @"44"}`
 
-- Control Device
+#### Device Control
+
+**Declaration**
+
+```objective-c
+// TuyaSmartDevice 
+- (void)publishDps:(NSDictionary *)dps
+           success:(nullable TYSuccessHandler)success
+           failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
 
 | parameter           | Description                 |
 | -------------- | ----------------     |
@@ -549,31 +649,21 @@ Callback：
 | success       | success block |
 | failure       | failure block |
 
-  ```objc
-  // TuyaSmartDevice 
-  - (void)publishDps:(NSDictionary *)dps
-             success:(nullable TYSuccessHandler)success
-             failure:(nullable TYFailureError)failure;
-  ```
+#### Group Control
 
-* Control Group
+**Declaration**
 
-  ```objective-c
-  // TuyaSmartBleMeshGroup
+```objective-c
+// TuyaSmartBleMeshGroup
 
-  - (void)publishDps:(NSDictionary *)dps success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
-  ```
-
-
+- (void)publishDps:(NSDictionary *)dps success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
 
 ## Firmware Upgrade
 
-### Query firmware info
+### Query Firmware Info
 
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| success       | success block |
-| failure       | failure block |
+**Declaration**
 
 ```objective-c
 //  TuyaSmartDevice 
@@ -588,9 +678,18 @@ type
 */
 ```
 
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| success       | success block |
+| failure       | failure block |
+
+
+
 ### Sub-Device Upgrade
 
-#### 1. Ensure device online
+#### Ensure Device Online
 
 The sub-devices are upgraded through Bluetooth, so you need to determine whether the device is locally connected, and confirm the local online before performing subsequent operations.
 
@@ -598,14 +697,14 @@ The sub-devices are upgraded through Bluetooth, so you need to determine whether
 // BOOL isBLEOnline = device.deviceModel.isMeshBleOnline;
 ```
 
-#### 2. Tell sdk upgrade device node id
+#### Tell SDK Upgrade Device Node Id
 
 ```objc
 [TuyaSmartSIGMeshManager sharedInstance].delegate = self;
 [[TuyaSmartSIGMeshManager sharedInstance] prepareForOTAWithTargetNodeId:self.device.deviceModel.nodeId];
 ```
 
-#### 3. Wait device upgrade success callback
+#### Wait Device Upgrade Success Callback
 
 ```objective-c
 // TuyaSmartSIGMeshManagerDelegate 
@@ -623,7 +722,7 @@ The sub-devices are upgraded through Bluetooth, so you need to determine whether
 }
 ```
 
-#### 4. Update Device Version
+#### Update Device Version
 
 ```objective-c
 - (void)updateVersion {
