@@ -47,16 +47,16 @@ participant Device
 participant Service
 
 Note over APP: 连上路由器
-Note over Device: Wifi灯快闪
+Note over Device: Wifi 灯快闪
 
-APP->SDK: 获取token
-SDK->Service: 获取token
-Service-->SDK: 返回token
-SDK-->APP: 返回token
+APP->SDK: 获取 token
+SDK->Service: 获取 token
+Service-->SDK: 返回 token
+SDK-->APP: 返回 token
 
 APP->SDK: 开始配网 ssid/pwd/token
-Note over SDK: 通过广播、组播循环发送ssid/pwd/token
-Device->Device: 捕捉到ssid/password/token
+Note over SDK: 通过广播、组播循环发送 ssid/pwd/token
+Device->Device: 捕捉到 ssid/password/token
 
 Device->Service: 去激活设备
 Service-->Device: 激活成功
@@ -68,7 +68,7 @@ SDK-->APP: 激活成功
 
 
 
-#### 获取token
+#### 获取 Token
 
 开始配网之前，SDK 需要在联网状态下从涂鸦云获取配网 Token，然后才可以开始快连模式配网。Token 的有效期为 10 分钟，且配置成功后就会失效（再次配网需要重新获取）
 
@@ -275,11 +275,11 @@ participant SDK
 participant Device
 participant Service
 
-Note over Device: Wifi灯慢闪
-APP->SDK: 获取token
-SDK->Service: 获取token
-Service-->SDK: 返回token
-SDK-->APP: 返回token
+Note over Device: Wifi 灯慢闪
+APP->SDK: 获取 token
+SDK->Service: 获取 token
+Service-->SDK: 返回 token
+SDK-->APP: 返回 token
 
 Note over APP: 连上设备的热点
 
@@ -287,7 +287,7 @@ APP->SDK: 开始配网 ssid/pwd/token
 SDK->Device: 发送配置信息 ssid/pwd/token
 Note over Device: 自动关闭热点
 
-Note over Device: 连上路由器WiFi
+Note over Device: 连上路由器 WiFi
 
 Device->Service: 去激活设备
 Service-->Device: 激活成功
@@ -511,13 +511,13 @@ participant SDK
 participant Zigbee网关
 participant Service
 
-Note over Zigbee网关: 将Zigbee网关重置
-APP->SDK: 获取token
-SDK->Service: 获取token
-Service-->SDK: 返回token
-SDK-->APP: 返回token
+Note over Zigbee网关: 将 Zigbee 网关重置
+APP->SDK: 获取 token
+SDK->Service: 获取 token
+Service-->SDK: 返回 token
+SDK-->APP: 返回 token
 
-APP->APP: APP连上和网关相同的路由器热点
+APP->APP: APP 连上和网关相同的路由器热点
 
 APP->SDK: 发送激活命令
 SDK->Zigbee网关: 发送激活命令
@@ -713,7 +713,7 @@ participant SDK
 participant Zigbee网关
 participant Service
 
-Note over Zigbee网关: 将Zigbee子设备重置
+Note over Zigbee网关: 将 Zigbee 子设备重置
 APP->SDK: 发送子设备激活指令
 SDK->Zigbee网关: 发送子设备激活指令
 
@@ -1092,3 +1092,4 @@ Swift :
 ```swift
 TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
 ```
+
