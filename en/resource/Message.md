@@ -21,7 +21,17 @@ Message Module contains message and push notifications function. as follows:
     * [Get Market Message Push Status](#2.9)
     * [Set Market Message Push Status](#2.10)
 
+
+
+|         Class Name         |                 Description                 |
+| :--------------------------: | :----------------------------------: |
+|     TuyaSmartMessage     | Get Message List, Batch Delete Message, Check New Message |
+| TuyaSmartSDK |      Get Or Set Push Notification Status     |
+
+
+
 <h2 id="1">Message</h2>
+
 
 <h3 id="1.1">Get Message List</h3>
 

@@ -1,12 +1,51 @@
 # 设备管理
 
-涂鸦支持多种设备类型，设备管理相关的所有功能都对应在
+`TuyaSmartDevice` 类需要使用设备 id 进行初始化。错误的设备 id 可能会导致初始化失败，此时的实例返回 `nil`
 
-| 类名            | 说明             |
-| --------------- | ---------------- |
-| TuyaSmartDevice | 涂鸦设备相关的类 |
+| 类名                 | 说明               |
+| -------------------- | ------------------ |
+| TuyaSmartDevice      | 涂鸦设备类         |
+| TuyaSmartDeviceModel | 涂鸦设备数据模型类 |
 
-`TuyaSmartDevice`类需要使用设备 id 进行初始化。错误的设备 id 可能会导致初始化失败，此时的实例返回 `nil`
+**`TuyaSmartDeviceModel` 数据模型**
+
+| 字段             | 类型                      | 描述                                                         |
+| ---------------- | ------------------------- | ------------------------------------------------------------ |
+| devId            | NSString                  | 设备唯一 id                                                  |
+| name             | NSString                  | 设备名称                                                     |
+| iconUrl          | NSString                  | 设备图标 URL                                                 |
+| isOnline         | BOOL                      | 设备在线状态。此状态包含 Wi-Fi、局域网、蓝牙在线状态，只要其中任意一个在线，即为 YES |
+| isCloudOnline    | BOOL                      | 设备 Wi-Fi 在线状态                                          |
+| isLocalOnline    | BOOL                      | 设备局域网在线状态                                           |
+| isShare          | BOOL                      | 是否为分享设备                                               |
+| dps              | NSDictionary              | 设备功能点数据                                               |
+| dpCodes          | NSDictionary              | 设备功能点数据，code-value 形式                              |
+| schemaArray      | NSArray                   | 设备 dp 点规则信息                                           |
+| productId        | NSString                  | 设备所对应的产品 id                                          |
+| capability       | NSUInteger                | 设备产品能力值                                               |
+| deviceType       | TuyaSmartDeviceModelType  | 设备类型                                                     |
+| supportGroup     | BOOL                      | 是否支持创建群组                                             |
+| gwType           | NSString                  | "v" 代表虚拟体验设备，为空为真实配网设备                     |
+| pv               | NSString                  | 设备协议版本，Wi-Fi 协议版本或蓝牙协议版本                   |
+| lpv              | NSString                  | 设备局域网协议版本。默认为空，该值在设备局域网连接成功后，才会有值 |
+| latitude         | NSString                  | 维度                                                         |
+| longitude        | NSString                  | 经度                                                         |
+| localKey         | NSString                  | 设备通信使用的 key                                           |
+| uuid             | NSString                  | 设备 uuid                                                    |
+| homeId           | long long                 | 设备所在家庭 id                                              |
+| roomId           | long long                 | 设备所在房间 id                                              |
+| upgrading        | BOOL                      | 是否在升级中                                                 |
+| timezoneId       | NSString                  | 设备时区                                                     |
+| nodeId           | NSString                  | 设备短地址，非子设备类型值为空。用于区分网关下子设备的唯一地址 |
+| parentId         | NSString                  | 父设备（上一级）id，非子设备类型值为空。子设备用于寻找对应的网关设备 id。蓝牙 mesh 子设备或为 mesh id 或对应的网关设备 id |
+| isMeshBleOnline  | BOOL                      | 设备蓝牙 mesh 本地在线状态                                   |
+| devKey           | NSString                  | 标准 SIG Mesh 设备蓝牙通信 key                               |
+| standard         | BOOL                      | 是否为标准化产品设备。如果为标准设备，可以使用标准设备控制功能 |
+| standSchemaModel | TuyaSmartStandSchemaModel | 设备标准 dp 点规则信息                                       |
+| activeTime       | NSTimeInterval            | 激活时间                                                     |
+| sharedTime       | long long                 | 分享时间                                                     |
+
+
 
 ## 更新设备信息
 
@@ -65,8 +104,6 @@ func updateDeviceInfo() {
 
 设备控制目前分为**标准设备控制**和**自定义设备控制**
 
-
-
 ###  标准设备控制 (Beta)
 
 ####  标准设备功能集
@@ -92,7 +129,7 @@ func updateDeviceInfo() {
 
 `dpCodes` 字典里的每个 `key` 对应一个功能点的 `dpCode`，`value` 对应一个功能点的 `dpValue `，`dpValue` 为该功能点的值
 
-具体品类的设备标准 dpCode 功能集可以参照对应的[文档](./StandardDpCode.md)
+具体品类的设备标准 dpCode 功能集可以参照对应的 [文档](./StandardDpCode.md)
 
 
 
@@ -162,6 +199,8 @@ self.device.publishDp(withCommands: command, success: {
 {"colour_data" : "009003e803e8"}
 ```
 
+
+
 #### 设备状态更新
 
 实现 `TuyaSmartDeviceDelegate` 代理协议后，可以在设备状态更变的回调中进行处理，刷新 App 设备控制面板的 UI
@@ -216,6 +255,8 @@ func deviceRemoved(_ device: TuyaSmartDevice!) {
 }
 ```
 
+
+
 ### 自定义设备控制
 
 #### 设备功能点
@@ -241,7 +282,7 @@ Objc:
 
 ```objc
 - (void)publishDps {
-    // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+  // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
 
     NSDictionary *dps;
 	//设置dpId为1的布尔型功能点示例 作用:开关打开
