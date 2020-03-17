@@ -16,7 +16,7 @@
 
 
 
-### SDK账户升级
+### SDK 账户升级
 
 如果是 tuyasmart_ios_sdk 开发过的用户，现在需要升级到 tuyasmart_home_ios_sdk，否则忽略账户升级
 
