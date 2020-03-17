@@ -1,6 +1,6 @@
 ## Home management
 
-After login, user shall use the `TuyaSmartHomeManager to obtain` information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home.
+After login, user shall use the `TuyaSmartHomeManager` to obtain information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home.
 
 | Class Name(Protocol Name)       | Description                                                 |
 | ------------------------------- | ----------------------------------------------------------- |
@@ -80,9 +80,9 @@ func getHomeList() {
 | ---------- | ---------------- |
 | homeName   | Home name        |
 | geoName    | Address name     |
-| rooms      | room name list   |
-| latitude   | latitude         |
-| longitude  | longitude        |
+| rooms      | Room name list   |
+| latitude   | Latitude         |
+| longitude  | Longitude        |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -159,7 +159,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 | Parameters | Description           |
 | ---------- | --------------------- |
 | manager    | Home manager instance |
-| homeId     | Removed home ID       |
+| homeId     | Removed home Id       |
 
 
 
@@ -222,7 +222,7 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 ## Home information management
 
-***Main function:*** it is used to obtain, change and dismiss a home. Obtain, add and delete member of a home. Add, dismiss and remove room.
+Main function: it is used to obtain, change and dismiss a home. Obtain, add and delete member of a home. Add, dismiss and remove room.
 The home ID needs to be used to initiate all `TuyaSmartHome` classes related to all functions for home information management. Wrong home ID may cause initiation failure, and the nil will be returned.
 
 After initializing the home object, you need to get the details interface of the home (getHomeDetailWithSuccess: failure :).  the properties homeModel, roomList, deviceList, groupList in the home instance object have data.
@@ -301,8 +301,8 @@ func getHomeDetailInfo() {
 | ---------- | ---------------- |
 | homeName   | Home name        |
 | geoName    | Address name     |
-| latitude   | latitude         |
-| longitude  | longitude        |
+| latitude   | Latitude         |
+| longitude  | Longitude        |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -447,7 +447,7 @@ func addHomeRoom() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| roomId     | Room ID          |
+| roomId     | Room Id          |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -495,7 +495,7 @@ func removeHomeRoom() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| roomList   | Room model List  |
+| roomList   | Room model list  |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -531,7 +531,7 @@ func sortHomeRoom() {
 
 ### Home member management
 
-All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember`classes, member role type is `TYHomeRoleType`
+All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember` classes, member role type is `TYHomeRoleType`
 
 | Class Name(Protocol Name) | Description            |
 | ------------------------- | ---------------------- |
@@ -547,7 +547,7 @@ All functions related to home member management correspond to`TuyaSmartHome` and
 
 **Declaration**
 
-The autoAccept in `TuyaSmartHomeAddMemberRequestModel` is used to control whether the invitee's consent is required. If it is set to NO, the invitee needs to call` TuyaSmartHome`-joinFamilyWithAccept: success: failure: to accept before joining.
+The autoAccept in `TuyaSmartHomeAddMemberRequestModel` is used to control whether the invitee's consent is required. If it is set to NO, the invitee needs to call ` TuyaSmartHome `-joinFamilyWithAccept: success: failure: to accept before joining.
 
 ```objective-c
 - (void)addHomeMemberWithAddMemeberRequestModel:(TuyaSmartHomeAddMemberRequestModel *)requestModel success:(TYSuccessDict)success failure:(TYFailureError)failure;
@@ -563,14 +563,14 @@ The autoAccept in `TuyaSmartHomeAddMemberRequestModel` is used to control whethe
 
 TuyaSmartHomeAddMemberRequestModel
 
-| Parameters  | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| name        | Invitee's nickname                                           |
-| account     | Invitee‘s account                                            |
-| countryCode | Invitee‘s account country code                               |
-| role        | home member role                                             |
-| headPic     | Invitee‘s avatar, Use the invitee's profile picture when nil |
-| autoAccept  | Does the invitee need to agree to accept the invitation      |
+| Parameters  | Type           | Description                                                  |
+| ----------- | -------------- | ------------------------------------------------------------ |
+| name        | NSString       | Invitee's nickname                                           |
+| account     | NSString       | Invitee‘s account                                            |
+| countryCode | NSString       | Invitee‘s account country code                               |
+| role        | TYHomeRoleType | Home member role                                             |
+| headPic     | UIImage        | Invitee‘s avatar, Use the invitee's profile picture when nil |
+| autoAccept  | BOOL           | Does the invitee need to agree to accept the invitation      |
 
 **Example**
 
@@ -622,7 +622,7 @@ If members input their own memberId, home administrator, ordinary members, and c
 
 | Parameters | Description       |
 | ---------- | ----------------- |
-| memberId   | Home member ID    |
+| memberId   | Home member Id    |
 | success    | Success  callback |
 | failure    | Failure callback  |
 
@@ -806,7 +806,7 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 
 
-###Sort device and groups 
+###Sort devices and groups 
 
 **Declaration**
 
@@ -820,7 +820,7 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 | Parameters | Description                               |
 | ---------- | ----------------------------------------- |
-| orderList  | [@{@"bizId": @"XXX", @"bizType": @"XXX"}] |
+| orderList  | Sort list of devices (or groups)          |
 | success    | Success callback                          |
 | failure    | Failure callback                          |
 
@@ -1070,7 +1070,7 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| roomName   | room name        |
+| roomName   | Room name        |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -1116,7 +1116,7 @@ func updateRoomName() {
 
 | Parameters | Description       |
 | ---------- | ----------------- |
-| deviceId   | Device ID         |
+| deviceId   | Device Id         |
 | success    | Success call back |
 | failure    | Failure callback  |
 
@@ -1162,7 +1162,7 @@ func addDevice() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| deviceId   | Device ID        |
+| deviceId   | Device Id        |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -1208,7 +1208,7 @@ func removeDevice() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| groupId    | Group ID         |
+| groupId    | Group Id         |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -1254,7 +1254,7 @@ func addGroup() {
 
 | Parameters | Description      |
 | ---------- | ---------------- |
-| groupId    | Group ID         |
+| groupId    | Group Id         |
 | success    | Success callback |
 | failure    | Failure callback |
 
@@ -1300,11 +1300,11 @@ func removeGroup() {
 
 **Parameters**
 
-| Parameters      | Description                |
-| --------------- | -------------------------- |
-| deviceGroupList | Device ID or Group ID list |
-| success         | Success callback           |
-| failure         | Failure callback           |
+| Parameters      | Description                         |
+| --------------- | ----------------------------------- |
+| deviceGroupList | The list of device Id (or group Id) |
+| success         | Success callback                    |
+| failure         | Failure callback                    |
 
 **Example**
 

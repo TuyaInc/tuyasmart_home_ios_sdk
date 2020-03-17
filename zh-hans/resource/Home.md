@@ -11,7 +11,7 @@
 
 ### 获取家庭列表
 
-获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去`TuyaSmartHome`初始化一个home，调用接口 getHomeDetailWithSuccess:failure:
+获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去`TuyaSmartHome`初始化一个 home，调用接口 `getHomeDetailWithSuccess:failure:`
 
 **接口说明**
 
@@ -99,7 +99,7 @@ Objc:
                         longitude:lon
                           success:^(double homeId) {
 
-        // homeId 创建的家庭的homeId
+        // homeId 创建的家庭的 homeId
         NSLog(@"add home success");
     } failure:^(NSError *error) {
         NSLog(@"add home failure: %@", error);
@@ -117,7 +117,7 @@ Swift:
                         latitude: lat, 
                        longitude: lon, 
                          success: { (homeId) in
-        // homeId 创建的家庭的homeId
+        // homeId 创建的家庭的 homeId
         print("add home success")
     }) { (error) in
         if let e = error {
@@ -132,7 +132,7 @@ Swift:
 
 ### 家庭列表信息变化回调
 
-实现`TuyaSmartHomeManagerDelegate`代理协议后，可以在家庭列表更变的回调中进行处理。
+实现 `TuyaSmartHomeManagerDelegate` 代理协议后，可以在家庭列表更变的回调中进行处理。
 
 
 
@@ -163,10 +163,10 @@ Swift:
 
 **参数说明**
 
-| 参数    | 说明           |
-| ------- | -------------- |
-| manager | 家庭管理类实例 |
-| homeId  | 被删除的家庭ID |
+| 参数    | 说明            |
+| ------- | --------------- |
+| manager | 家庭管理类实例  |
+| homeId  | 被删除的家庭 Id |
 
 
 
@@ -230,11 +230,11 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 ## 家庭信息管理
 
-***主要功能***：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
+主要功能：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
 
-单个家庭信息管理相关的所有功能对应`TuyaSmartHome`类，需要使用正确的家庭Id进行初始化。错误的家庭Id可能会导致初始化失败，返回`nil`。
+单个家庭信息管理相关的所有功能对应 `TuyaSmartHome` 类，需要使用正确的家庭 ID 进行初始化。错误的家庭 ID 可能会导致初始化失败，返回 `nil`。
 
-初始化 home 对象之后需要获取家庭的详情接口（getHomeDetailWithSuccess:failure:），home 实例对象中的属性 homeModel,roomList,deviceList,groupList 才有数据。
+初始化 home 对象之后需要获取家庭的详情接口 `getHomeDetailWithSuccess:failure:`，home 实例对象中的属性 homeModel、roomList、deviceList、groupList 才有数据。
 
 |     类名(协议名)      |                  说明                  |
 | :-------------------: | :------------------------------------: |
@@ -539,7 +539,7 @@ func sortHomeRoom() {
 
 ### 家庭成员管理
 
-家庭成员管理相关的所有功能对应`TuyaSmartHome`和 `TuyaSmartHomeMember`类，成员角色类型TYHomeRoleType
+家庭成员管理相关的所有功能对应 `TuyaSmartHome` 和  `TuyaSmartHomeMember` 类，成员角色类型 TYHomeRoleType
 
 |    类名(协议名)     |     说明     |
 | :-----------------: | :----------: |
@@ -549,11 +549,11 @@ func sortHomeRoom() {
 
 #### 添加家庭成员
 
-> 拥有者(TYHomeRoleType_Owner) 可以添加管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以添加普通成员及以下角色
+> 拥有者 (TYHomeRoleType_Owner) 可以添加管理员及以下角色，管理员 (TYHomeRoleType_Admin) 仅仅可以添加普通成员及以下角色
 
 **接口说明**
 
-`TuyaSmartHomeAddMemberRequestModel`中autoAccept用于控制受是否需要受邀请者同意，若设置为NO则受邀请者需要调用`TuyaSmartHome`-joinFamilyWithAccept:success:failure:接口同意后才能加入该家庭
+`TuyaSmartHomeAddMemberRequestModel` 中 autoAccept 用于控制受是否需要受邀请者同意，若设置为 NO 则受邀请者需要调用 `TuyaSmartHome - joinFamilyWithAccept:success:failure:` 接口同意后才能加入该家庭
 
 ```objective-c
 - (void)addHomeMemberWithAddMemeberRequestModel:(TuyaSmartHomeAddMemberRequestModel *)requestModel success:(TYSuccessDict)success failure:(TYFailureError)failure;
@@ -567,16 +567,16 @@ func sortHomeRoom() {
 | success      | 成功回调         |
 | failure      | 失败回调         |
 
-TuyaSmartHomeAddMemberRequestModel
+**TuyaSmartHomeAddMemberRequestModel 数据模型**
 
-| 请求参数    | 说明                                                         |
-| ----------- | ------------------------------------------------------------ |
-| name        | 为受邀请者设置的昵称                                         |
-| account     | 受邀请账号                                                   |
-| countryCode | 受邀请者账号对应国家码                                       |
-| role        | 成员角色                                                     |
-| headPic     | 为受邀请者设置的头像 nil时使用受邀请者个人头像               |
-| autoAccept  | 是否需要受邀请者同意接受邀请 YES-受邀请账号自动接受该家庭邀请，无需受邀请者确认 NO-需要受邀请者同意后才可加入该家庭 |
+| 字段        | 类型           | 描述                                                         |
+| ----------- | -------------- | ------------------------------------------------------------ |
+| name        | NSString       | 为受邀请者设置的昵称                                         |
+| account     | NSString       | 受邀请账号                                                   |
+| countryCode | NSString       | 受邀请者账号对应国家码                                       |
+| role        | TYHomeRoleType | 成员角色                                                     |
+| headPic     | UIImage        | 为受邀请者设置的头像 nil 时使用受邀请者个人头像              |
+| autoAccept  | BOOL           | 是否需要受邀请者同意接受邀请 YES-受邀请账号自动接受该家庭邀请，无需受邀请者确认 NO-需要受邀请者同意后才可加入该家庭 |
 
 **示例代码**
 
@@ -610,12 +610,12 @@ func addShare() {
 
 #### 删除家庭成员
 
-> 拥有者(TYHomeRoleType_Owner) 可以删除管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以删除普通成员及以下角色
+> 拥有者 (TYHomeRoleType_Owner) 可以删除管理员及以下角色，管理员 (TYHomeRoleType_Admin) 仅仅可以删除普通成员及以下角色
 >
 
 **接口说明**
 
-若成员传入自身memberId，家庭管理员，普通成员，自定义角色，调用此接口为离开家庭，此时该家庭未解散，设备也不会被重置；拥有者为解散家庭，同时该家庭下所有设备会被重置，效果与上文解散家庭一致。
+若成员传入自身 memberId，家庭管理员，普通成员，自定义角色，调用此接口为离开家庭，此时该家庭未解散，设备也不会被重置；拥有者为解散家庭，同时该家庭下所有设备会被重置，效果与上文解散家庭一致。
 
 ```objective-c
 - (void)removeHomeMemberWithMemberId:(long long)memberId
@@ -627,7 +627,7 @@ func addShare() {
 
 | 参数     | 说明       |
 | -------- | ---------- |
-| memberId | 家庭成员ID |
+| memberId | 家庭成员Id |
 | success  | 成功回调   |
 | failure  | 失败回调   |
 
@@ -710,7 +710,7 @@ func initMemberList() {
 
 #### 更新家庭成员的信息
 
-> 拥有者(TYHomeRoleType_Owner) 可以修改管理员及以下角色，管理员(TYHomeRoleType_Admin)仅仅可以修改普通成员及以下角色
+> 拥有者 (TYHomeRoleType_Owner) 可以修改管理员及以下角色，管理员 (TYHomeRoleType_Admin) 仅仅可以修改普通成员及以下角色
 
 **接口说明**
 
@@ -720,11 +720,11 @@ func initMemberList() {
 
 **参数说明**
 
-| 参数               | 说明                            |
-| ------------------ | ------------------------------- |
-| memberRequestModel | TuyaSmartHomeMemberRequestModel |
-| success            | 成功回调                        |
-| failure            | 失败回调                        |
+| 参数               | 说明             |
+| ------------------ | ---------------- |
+| memberRequestModel | 家庭成员请求模型 |
+| success            | 成功回调         |
+| failure            | 失败回调         |
 
 **示例代码**
 
@@ -762,7 +762,7 @@ func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
 
 **接口说明**
 
-成员是否接受该家庭的邀请对应`TuyaSmartHomeModel`下的dealStatus，受邀状态会分别对应TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject，未接受加入的家庭成员将无法使用该家庭下的设备等功能，拒绝加入家庭后将无法在获取家庭列表接口中获取到该家庭信息。
+成员是否接受该家庭的邀请对应 `TuyaSmartHomeModel` 下的 dealStatus，受邀状态会分别对应TYHomeStatusPending、TYHomeStatusAccept、TYHomeStatusReject，未接受加入的家庭成员将无法使用该家庭下的设备等功能，拒绝加入家庭后将无法在获取家庭列表接口中获取到该家庭信息。
 
 ```objective-c
 - (void)joinFamilyWithAccept:(BOOL)accept
@@ -820,11 +820,11 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 **参数说明**
 
-| 参数      | 说明                                      |
-| --------- | ----------------------------------------- |
-| orderList | [@{@"bizId": @"XXX", @"bizType": @"XXX"}] |
-| success   | 成功回调                                  |
-| failure   | 失败回调                                  |
+| 参数      | 说明               |
+| --------- | ------------------ |
+| orderList | 设备或群组排序列表 |
+| success   | 成功回调           |
+| failure   | 失败回调           |
 
 **示例代码**
 
@@ -859,7 +859,7 @@ func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
 
 ### 单个家庭信息变化的回调
 
-实现`TuyaSmartHomeDelegate`代理协议后，可以在单个家庭信息更变的回调中进行处理。
+实现 `TuyaSmartHomeDelegate` 代理协议后，可以在单个家庭信息更变的回调中进行处理。
 
 **示例代码**
 
@@ -1055,7 +1055,7 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 ### 房间信息管理
 
-单个房间信息管理相关的所有功能对应`TuyaSmartRoom`类，需要使用正确的roomId进行初始化。错误的roomId可能会导致初始化失败，返回`nil`。
+单个房间信息管理相关的所有功能对应 `TuyaSmartRoom` 类，需要使用正确的 roomId 进行初始化。错误的 roomId 可能会导致初始化失败，返回 `nil`。
 
 | 类名(协议名)  |           说明           |
 | :-----------: | :----------------------: |
@@ -1117,7 +1117,7 @@ func updateRoomName() {
 
 | 参数     | 说明     |
 | -------- | -------- |
-| deviceId | 设备ID   |
+| deviceId | 设备 Id  |
 | success  | 成功回调 |
 | failure  | 失败回调 |
 
@@ -1163,7 +1163,7 @@ func addDevice() {
 
 | 参数     | 说明     |
 | -------- | -------- |
-| deviceId | 设备ID   |
+| deviceId | 设备 Id  |
 | success  | 成功回调 |
 | failure  | 失败回调 |
 
@@ -1209,7 +1209,7 @@ func removeDevice() {
 
 | 参数    | 说明     |
 | ------- | -------- |
-| groupId | 群组ID   |
+| groupId | 群组 Id  |
 | success | 成功回调 |
 | failure | 失败回调 |
 
@@ -1255,7 +1255,7 @@ func addGroup() {
 
 | 参数    | 说明     |
 | ------- | -------- |
-| groupId | 群组ID   |
+| groupId | 群组 Id  |
 | success | 成功回调 |
 | failure | 失败回调 |
 
@@ -1301,11 +1301,11 @@ func removeGroup() {
 
 **参数说明**
 
-| 参数            | 说明               |
-| --------------- | ------------------ |
-| deviceGroupList | 设备ID或群组ID列表 |
-| success         | 成功回调           |
-| failure         | 失败回调           |
+| 参数            | 说明                   |
+| --------------- | ---------------------- |
+| deviceGroupList | 设备 Id 或群组 Id 列表 |
+| success         | 成功回调               |
+| failure         | 失败回调               |
 
 **示例代码**
 

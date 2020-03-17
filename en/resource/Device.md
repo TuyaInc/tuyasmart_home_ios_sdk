@@ -1,12 +1,50 @@
 # Device Management
 
-Tuya supports multiple device types, and all functions related to device management.
+The device ID needs to be used to initiate all `TuyaSmartDevice` classes related to all functions for device control. Wrong device Id may cause initiation failure, and the `nil` will be returned.
 
 | Class           | Description                  |
 | --------------- | ---------------------------- |
 | TuyaSmartDevice | Tuya device management class |
 
-The device ID needs to be used to initiate all `TuyaSmartDevice` classes related to all functions for device control. Wrong device Id may cause initiation failure, and the `nil` will be returned.
+**`TuyaSmartDeviceModel` 数据模型**
+
+| Field            | Type                      | Description                                                  |
+| ---------------- | ------------------------- | ------------------------------------------------------------ |
+| devId            | NSString                  | Device Id                                                    |
+| name             | NSString                  | Device Name                                                  |
+| iconUrl          | NSString                  | Device Icon URL                                              |
+| isOnline         | BOOL                      | Device Online Status. Include Wi-Fi、WLAN、Bluetooth. <br />As long as any of them is YES, the value is YES. |
+| isCloudOnline    | BOOL                      | Device Wi-Fi Online Status                                   |
+| isLocalOnline    | BOOL                      | Device WLAN Online Status                                    |
+| isShare          | BOOL                      | Is Shared Device                                             |
+| dps              | NSDictionary              | Dps                                                          |
+| dpCodes          | NSDictionary              | Dp Code                                                      |
+| schemaArray      | NSArray                   | Data Point Detail                                            |
+| productId        | NSString                  | Product Id                                                   |
+| capability       | NSUInteger                | Capability                                                   |
+| deviceType       | TuyaSmartDeviceModelType  | Device Type                                                  |
+| supportGroup     | BOOL                      | Is Support Group                                             |
+| gwType           | NSString                  | "v" Means Virtual Device                                     |
+| pv               | NSString                  | Protocol Version                                             |
+| lpv              | NSString                  | WLAN Protocol Version                                        |
+| latitude         | NSString                  | latitude                                                     |
+| longitude        | NSString                  | longitude                                                    |
+| localKey         | NSString                  | A Key Used For Device Communication                          |
+| uuid             | NSString                  | Device uuid                                                  |
+| homeId           | long long                 | Home Id For Device                                           |
+| roomId           | long long                 | Room Id For Device                                           |
+| upgrading        | BOOL                      | Is Upgrading                                                 |
+| timezoneId       | NSString                  | Device Timezone Id                                           |
+| nodeId           | NSString                  | Device Short Address                                         |
+| parentId         | NSString                  | Parent Device Id                                             |
+| isMeshBleOnline  | BOOL                      | Device Bluetooth Mesh Online Status                          |
+| devKey           | NSString                  | A Key Used For Standard SIG Mesh Device Communication        |
+| standard         | BOOL                      | Is a Standardized Device                                     |
+| standSchemaModel | TuyaSmartStandSchemaModel | Standardized Data Point Detail                               |
+| activeTime       | NSTimeInterval            | Active Time                                                  |
+| sharedTime       | long long                 | Shared Time                                                  |
+
+
 
 ## Update Device Information
 

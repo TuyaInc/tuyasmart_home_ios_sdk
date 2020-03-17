@@ -8,7 +8,7 @@
 
 | 类名 | 说明 | 
 | -------------- | ---------- |
-| TuyaSmartScene   |   提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是`TuyaSmartSceneModel`的`sceneId`字段，可以从场景列表中获取。 |
+| TuyaSmartScene   |   提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是 `TuyaSmartSceneModel` 的 `sceneId` 字段，可以从场景列表中获取。 |
 | TuyaSmartSceneManager | 主要提供了场景里条件、任务、设备、城市相关的所有数据，和场景列表数据获取。|
 |TuyaSmartScenePreConditionFactory|提供快捷创建自动化生效条件方法的工具类|
 |TuyaSmartSceneConditionFactory | 提供快捷创建场景条件方法的工具类 | 
@@ -20,7 +20,7 @@
 
 ## 场景条件
 
-场景条件对应`TuyaSmartSceneConditionModel`类，涂鸦云支持以下条件类型：
+场景条件对应 `TuyaSmartSceneConditionModel` 类，涂鸦云支持以下条件类型：
 
 - 气象条件：包括温度、湿度、天气、PM2.5、空气质量、日落日出，用户选择气象条件时，可以选择当前城市。
 - 设备条件：指用户可预先选择一个设备的功能状态，当该设备达到该状态时，会触发当前场景里的任务，但同一设备不能同时作为条件和任务，避免操作冲突。
@@ -28,7 +28,7 @@
 
 ## 场景任务
 
-场景任务是指当该场景满足已经设定的气象或设备条件时，让一个或多个设备执行某种操作，对应`TuyaSmartSceneActionModel`类。或者关闭、开启一个自动化。
+场景任务是指当该场景满足已经设定的气象或设备条件时，让一个或多个设备执行某种操作，对应 `TuyaSmartSceneActionModel` 类。或者关闭、开启一个自动化。
 
 **新增场景时，场景条件和场景任务对象的创建，参考本文档末尾的示例。**
 
@@ -37,7 +37,7 @@
 ### 获取场景列表
 **接口说明**
 
-获取场景列表数据。场景和自动化一起返回，通过条件conditions字段是否为空数组来区分场景和自动化。
+获取场景列表数据。场景和自动化一起返回，通过条件 conditions 字段是否为空数组来区分场景和自动化。
 
 ```objc
 - (void)getSceneListWithHomeId:(long long)homeId
@@ -49,7 +49,7 @@
 
 |参数|说明|
 | ------ | ----- |
-| homeId |家庭Id|
+| homeId |家庭 Id|
 | success |接口发送成功回调|
 | failure |接口发送失败回调，error 标示失败原因|
 
@@ -148,7 +148,7 @@ func getConditionList() {
 
 |参数|说明|
 | ------ | ----- |
-| homeId |家庭Id|
+| homeId |家庭 Id|
 | success |接口发送成功回调|
 | failure |接口发送失败回调，error 标示失败原因|
 **示例代码**
@@ -197,7 +197,7 @@ func getActionDeviceList() {
 
 |参数|说明|
 | ------ | ----- |
-| homeId |家庭Id|
+| homeId |家庭 Id|
 | success |接口发送成功回调|
 | failure |接口发送失败回调，error 标示失败原因|
 **示例代码**
@@ -228,11 +228,11 @@ func getConditionDeviceList() {
 }
 ```
 
-### 获取任务设备的dp列表
+### 获取任务设备的 dp 列表
 
 **接口说明**
 
-添加或编辑场景任务时，选择设备后，需要根据选择设备的deviceId获取设备dp列表，进而选择某一个dp功能点，即指定该设备执行该项任务。
+添加或编辑场景任务时，选择设备后，需要根据选择设备的 deviceId 获取设备 dp 列表，进而选择某一个 dp 功能点，即指定该设备执行该项任务。
 
 ```objc
 - (void)getActionDeviceDPListWithDevId:(NSString *)devId
@@ -244,7 +244,7 @@ func getConditionDeviceList() {
 
 |参数|说明|
 | ------ | ----- |
-| devId |设备Id|
+| devId |设备 Id|
 | success |接口发送成功回调|
 | failure |接口发送失败回调，error 标示失败原因|
 
@@ -278,11 +278,11 @@ func getActionDeviceDPList() {
 
 
 
-### 获取条件设备的dp列表
+### 获取条件设备的 dp 列表
 
 **接口说明**
 
-选择场景条件时，选择了设备，需要根据选择设备的deviceId获取设备dp列表，进而选择某一个dp功能点，即指定该设备执行该dp功能作为该场景的执行条件。
+选择场景条件时，选择了设备，需要根据选择设备的 deviceId 获取设备 dp 列表，进而选择某一个 dp 功能点，即指定该设备执行该 dp 功能作为该场景的执行条件。
 
 ```objc
 
@@ -295,7 +295,7 @@ func getActionDeviceDPList() {
 
 |参数|说明|
 | ------ | ----- |
-| devId |设备Id|
+| devId |设备 Id|
 | success |接口发送成功回调|
 | failure |接口发送失败回调，error 标示失败原因|
 **示例代码**
@@ -332,7 +332,7 @@ func getCondicationDeviceDPList() {
 
 **接口说明**
 
-选择场景气象条件时，根据国家码获取城市列表，用户可以选择当前城市。（注：国外部分国家的城市列表可能暂时不全，如果是国外用户，建议根据经纬度获取城市信息。）countryCode使用isoCountryCode，例如中国="CN"。
+选择场景气象条件时，根据国家码获取城市列表，用户可以选择当前城市。（注：国外部分国家的城市列表可能暂时不全，如果是国外用户，建议根据经纬度获取城市信息。） countryCode 使用 isoCountryCode，例如中国 = "CN"。
 
 ```objc
 - (void)getCityListWithCountryCode:(NSString *)countryCode
@@ -344,7 +344,7 @@ func getCondicationDeviceDPList() {
 
 |参数|说明|
 | ------ | ----- |
-| countryCode |国家码，使用isoCountryCode，例如中国="CN"|
+| countryCode |国家码，使用 isoCountryCode ，例如中国 = "CN"|
 | success |接口发送成功回调|
 | failure |接口发送失败回调，error 标示失败原因|
 **示例代码**
@@ -426,11 +426,11 @@ func getCityInfo() {
 
 
 
-### 根据城市id获取城市信息
+### 根据城市 Id 获取城市信息
 
 **接口说明**
 
-根据城市id获取城市信息，城市id可以从城市列表获取。
+根据城市id获取城市信息，城市 Id 可以从城市列表获取。
 
 ```objc
 - (void)getCityInfoWithCityId:(NSString *)cityId
@@ -442,7 +442,7 @@ func getCityInfo() {
 
 |参数|说明|
 | ------ | ----- |
-| cityId |城市Id|
+| cityId |城市 Id|
 | success |接口发送成功回调|
 | failure |接口发送失败回调，error 标示失败原因|
 **示例代码**
@@ -492,8 +492,8 @@ func getCityInfo() {
 
 |参数|说明|
 | ------ | ----- |
-| homeId |家庭Id|
-| sceneIdList |排序后的场景Id数组|
+| homeId |家庭 Id|
+| sceneIdList |排序后的场景 Id 数组|
 | success |接口发送成功回调|
 | failure |接口发送失败回调，error 标示失败原因|
 **示例代码**
@@ -528,7 +528,7 @@ func sortScene() {
 
 **接口说明**
 
-获取场景支持的背景图片url列表。
+获取场景支持的背景图片 url 列表。
 
 ```objc
 - (void)getSmartSceneBackgroundCoverWithsuccess:(TYSuccessList)success
@@ -569,16 +569,16 @@ func getDefaultSceneCover() {
 
 
 
-## 单个场景操作-TuyaSmartScene
+## 单个场景操作 - TuyaSmartScene
 
-`TuyaSmartScene`提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是`TuyaSmartSceneModel`的`sceneId`字段，可以从场景列表中获取。
+`TuyaSmartScene` 提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景 id 进行初始化，场景 id 指的是 `TuyaSmartSceneModel` 的 `sceneId` 字段，可以从场景列表中获取。
 
 
 ### 添加场景
 
 **接口说明**
 
-添加场景需要传入场景名称，家庭的Id，背景图片的url，是否显示在首页，前置条件列表（生效时间段），条件列表，任务列表（至少一个任务），满足任一条件还是满足所有条件时执行。也可以只设置名称和任务，背景图片，不设置条件，但是需要手动执行。
+添加场景需要传入场景名称，家庭的 Id，背景图片的 url，是否显示在首页，前置条件列表（生效时间段），条件列表，任务列表（至少一个任务），满足任一条件还是满足所有条件时执行。也可以只设置名称和任务，背景图片，不设置条件，但是需要手动执行。
 
 ```objc
 + (void)addNewSceneWithName:(NSString *)name
@@ -598,8 +598,8 @@ func getDefaultSceneCover() {
 |参数|说明|
 | ------ | ----- |
 | name| 场景名 |
-| homeId | 家庭Id |
-| background | 背景图url，只能使用「获取场景背景图片列表」接口中提供的背景图 |
+| homeId | 家庭 Id |
+| background | 背景图 url，只能使用「获取场景背景图片列表」接口中提供的背景图 |
 | showFirstPage | 是否显示在首页标识 |
 | preConditionList | 生效时间段，已前置条件数组的形式传入 |
 | conditionList | 条件数组 |
@@ -662,7 +662,7 @@ func addSmartScene() {
 |参数|说明|
 | ------ | ----- |
 | name| 场景名 |
-| background | 背景图url，只能使用「获取场景背景图片列表」接口中提供的背景图 |
+| background | 背景图 url，只能使用「获取场景背景图片列表」接口中提供的背景图 |
 | showFirstPage | 是否显示在首页标识 |
 | preConditionList | 生效时间段，已前置条件数组的形式传入 |
 | conditionList | 条件数组 |
@@ -897,19 +897,19 @@ func disableSmartScene() {
 
 ## 场景条件和场景动作对象创建示例
 
-SDK在3.14.0及以上版本加入了TuyaSmartSceneDataFactory这个工具类集合，用于便捷的创建场景的条件、动作、生效时间段条件。
+SDK在 3.14.0 及以上版本加入了 `TuyaSmartSceneDataFactory` 这个工具类集合，用于便捷的创建场景的条件、动作、生效时间段条件。
 
-如果使用的是3.14.0以前的版本，请参照以下示例创建条件和动作。
-如果使用的是3.14.0及以上版本，推荐使用TuyaSmartSceneDataFactory提供的工具类创建条件和动作。
+如果使用的是 3.14.0 以前的版本，请参照以下示例创建条件和动作。
+如果使用的是 3.14.0 及以上版本，推荐使用 `TuyaSmartSceneDataFactory` 提供的工具类创建条件和动作。
 
 ### 场景条件
 
-#### 创建场景条件对象TuyaSmartSceneConditionModel
+#### 创建场景条件对象 TuyaSmartSceneConditionModel
 气象条件包括温度、湿度、天气、PM2.5、空气质量、日落日出，这里以设置温度条件为例创建气象条件对象。场景条件也可以设置定时条件和设备条件。
 
-从“获取条件列表”接口可以获取到所有气象条件的`TuyaSmartSceneDPModel`对象列表。可以根据`TuyaSmartSceneDPModel`对象的`entityName`和`entityId`区分不同的气象条件。从获取城市信息相关的接口，获取到`TuyaSmartCityModel`对象，使用其中的`cityId`值作为定位信息。
+从“获取条件列表”接口可以获取到所有气象条件的 `TuyaSmartSceneDPModel` 对象列表。可以根据 `TuyaSmartSceneDPModel` 对象的 `entityName` 和 `entityId` 区分不同的气象条件。从获取城市信息相关的接口，获取到 `TuyaSmartCityModel` 对象，使用其中的 `cityId` 值作为定位信息。
 
-选择完具体的条件值之后,如果将界面选择的温度、城市等信息保存在了`TuyaSmartSceneDPModel`对象中(也可以存在任何你喜欢的对象中)，可以通过一个`TuyaSmartSceneDPModel`对象初始化一个`TuyaSmartSceneConditionModel`条件对象，示例方法如下，这里使用了Category为`TuyaSmartSceneConditionModel`增加了一个分类方法：
+选择完具体的条件值之后,如果将界面选择的温度、城市等信息保存在了 `TuyaSmartSceneDPModel` 对象中(也可以存在任何你喜欢的对象中)，可以通过一个 `TuyaSmartSceneDPModel` 对象初始化一个 `TuyaSmartSceneConditionModel` 条件对象，示例方法如下，这里使用了Category为 `TuyaSmartSceneConditionModel` 增加了一个分类方法：
 
 
 	//新增初始化方法
@@ -937,7 +937,7 @@ SDK在3.14.0及以上版本加入了TuyaSmartSceneDataFactory这个工具类集�
 	            self.entityName = device.deviceModel.name;
 	            self.entitySubIds = [NSString stringWithFormat:@"%ld", (long)dpModel.dpId];
 	        }
-	        //expr数组的组装见下文
+	        //expr 数组的组装见下文
 	        self.expr = dpModel.expr;
 	    }
 	    return self;
@@ -946,9 +946,9 @@ SDK在3.14.0及以上版本加入了TuyaSmartSceneDataFactory这个工具类集�
 
 #### expr 表达式组装
 
-`TuyaSmartSceneConditionModel`的expr属性描述了条件的表达式，如“温度低于15℃”这样的一个条件，就可以用expr来描述。expr是一个数组（这里要注意，最外层一定是数组），数组中的每一个对象描述了一个条件，如@[@"$temp",@"<",@15]这个条件数组就描述了温度低于15℃这个条件。注意，每个气象条件都应该对应一个`TuyaSmartSceneConditionModel`，所以expr数组中只包含一个条件数组。
+`TuyaSmartSceneConditionModel` 的 expr 属性描述了条件的表达式，如“温度低于 15℃”这样的一个条件，就可以用 expr 来描述。expr 是一个数组（这里要注意，最外层一定是数组），数组中的每一个对象描述了一个条件，如 @[@"$temp",@"<",@15] 这个条件数组就描述了温度低于 15℃ 这个条件。注意，每个气象条件都应该对应一个 `TuyaSmartSceneConditionModel` ，所以 expr 数组中只包含一个条件数组。
 
-气象条件expr示例：
+气象条件 expr 示例：
 
 - 温度 @[@[@"$temp",@"<",@15]]
 - 湿度 @[@[@"$humidity",@"==",@"comfort"]]
@@ -957,15 +957,15 @@ SDK在3.14.0及以上版本加入了TuyaSmartSceneDataFactory这个工具类集�
 - 空气质量 @[@[@"$aqi",@"==",@"fine"]]
 - 日出日落 @[@[@"$sunsetrise",@"==",@"sunrise"]]
 
-定时条件expr示例:
+定时条件 expr 示例:
 
-定时条件使用一个字典表示，例如{timeZoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}。其中loops中的每一位分别表示周日到周六的每一天，1表示生效，0表示不生效。注意这个表示定时的字典也需要使用数组包起来，因为expr是个数组。
+定时条件使用一个字典表示，例如 {timeZoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}。其中 loops 中的每一位分别表示周日到周六的每一天，1 表示生效，0 表示不生效。注意这个表示定时的字典也需要使用数组包起来，因为 expr 是个数组。
 
-设备条件expr示例：
+设备条件 expr 示例：
 
-设备条件使用一个数组表示选定的条件值。选择的条件组装的expr可以表示为@[@[@"$dp1",@"==",@YES]],这里可以表示一个“电灯开”的条件。其中`dp1`是`TuyaSmartSceneDPModel`中提供的dp点的名称。
+设备条件使用一个数组表示选定的条件值。选择的条件组装的 expr 可以表示为 @[@[@"$dp1",@"==",@YES]] ,这里可以表示一个“电灯开”的条件。其中 `dp1` 是 `TuyaSmartSceneDPModel` 中提供的 dp 点的名称。
 ###场景动作
-场景动作类是`TuyaSmartSceneActionModel`，其中的‘actionExecutor’属性即表示场景动作类型。场景动作类型包括:
+场景动作类是 `TuyaSmartSceneActionModel` ，其中的 `actionExecutor` 属性即表示场景动作类型。场景动作类型包括:
 
 - dpIssue 设备
 - deviceGroupDpIssue 群组
@@ -974,18 +974,18 @@ SDK在3.14.0及以上版本加入了TuyaSmartSceneDataFactory这个工具类集�
 - ruleDisable 禁用自动化
 - delay 延时动作
 
-新建完`TuyaSmartSceneActionModel`的对象后，分别设置对应的属性，重点关注三个属性entityId、actionExecutor、executorProperty，这三个属性描述了哪个对象要做动作，做什么类型的动作，具体做什么动作。
+新建完 `TuyaSmartSceneActionModel` 的对象后，分别设置对应的属性，重点关注三个属性 entityId 、 actionExecutor 、 executorProperty，这三个属性描述了哪个对象要做动作，做什么类型的动作，具体做什么动作。
 
-1. 设备。entityId属性对应设备的devId，actionExecutor是dpIssue，executorProperty是一个字典，比如{"1":YES},表示dp点“1”，执行的动作是YES，这个可以表示灯打开等布尔类型的dp点。dp点的Id和dp可取的值可以通过“获取任务设备的dp列表”接口获取到。
-2. 群组。entityId属性对应群组的groupId, actionExecutor是deviceGroupDpIssue，其他的属性和设备动作相同。
-3. 触发场景。entityId是场景sceneId，actionExecutor是ruleTrigger，executorProperty不需要。
-4. 启动自动化。entityId是自动化sceneId，actionExecutor是ruleEnable，executorProperty不需要。
-5. 禁用自动化。entityId是自动化sceneId，actionExecutor是ruleDisable，executorProperty不需要。
-6. 延时动作。entityId是delay，actionExecutor是delay，executorProperty是延时的时间，用一个字典表示，形式和key为{@"minutes":@"1",@"seconds":@"30"},表示1分30秒。目前最大支持5小时，即300分钟。
+1. 设备。 entityId 属性对应设备的 devId ， actionExecutor 是 dpIssue ，executorProperty是一个字典，比如 {"1":YES} ,表示 dp 点 “1” ，执行的动作是 YES ，这个可以表示灯打开等布尔类型的 dp 点。dp 点的 Id 和 dp 可取的值可以通过“获取任务设备的 dp 列表”接口获取到。
+2. 群组。entityId 属性对应群组的 groupId , actionExecutor 是 deviceGroupDpIssue ，其他的属性和设备动作相同。
+3. 触发场景。 entityId 是场景 sceneId ，actionExecutor 是 ruleTrigger ，executorProperty 不需要。
+4. 启动自动化。 entityId 是自动化 sceneId ，actionExecutor 是 ruleEnable ，executorProperty 不需要。
+5. 禁用自动化。entityId 是自动化 sceneId ，actionExecutor 是 ruleDisable ，executorProperty不需要。
+6. 延时动作。 entityId 是 delay ，actionExecutor 是 delay ，executorProperty 是延时的时间，用一个字典表示，形式和 key 为 {@"minutes":@"1",@"seconds":@"30"} ,表示 1 分 30 秒。目前最大支持 5 小时，即 300 分钟。
 
-### TuyaSmartSceneDataFactory工具类集合
+### TuyaSmartSceneDataFactory 工具类集合
 
-TuyaSmartSceneDataFactory中包涵以下创建工具类：
+TuyaSmartSceneDataFactory 中包涵以下创建工具类：
 
 |类名|说明|
 |---|---|
@@ -997,17 +997,17 @@ TuyaSmartSceneConditionFactory|用于创建自动化场景的条件，如天气�
 
 |类名|说明|
 |---|---|
-| TuyaSmartSceneExprModel |用于储存场景条件中的expr表达式。|
+| TuyaSmartSceneExprModel |用于储存场景条件中的 expr 表达式。|
 | TuyaSmartSceneConditionExprBuilder |自动化场景中条件表达式的生成工具类。|
 
 
-生效时间段、条件、动作的创建，所有支持的类型可以参照SDK头文件中的注释使用。注意：因为要适配多语言，条件和动作中，未生成用来显示条件和动作的详情的`exprDisplay`和`actionDisplayNew`，需要开发者根据条件中的表达式`expr`和动作中的执行参数`executorProperty`手动拼接生成。
+生效时间段、条件、动作的创建，所有支持的类型可以参照 SDK 头文件中的注释使用。注意：因为要适配多语言，条件和动作中，未生成用来显示条件和动作的详情的 `exprDisplay` 和 `actionDisplayNew` ，需要开发者根据条件中的表达式 `expr` 和动作中的执行参数 `executorProperty` 手动拼接生成。
 
 ####使用示例
 
 以创建一个开关类型的设备条件为例，使用顺序如下：
-1. 使用`TuyaSmartSceneConditionExprBuilder`创建一个`TuyaSmartSceneExprModel`对象，生成创建条件所需的表达式`expr`。
-2. 使用`TuyaSmartSceneConditionFactory`中的API，传入第一步中生成的`TuyaSmartSceneExprModel`对象以及其他必需参数，生成条件对象。
+1. 使用 `TuyaSmartSceneConditionExprBuilder` 创建一个 `TuyaSmartSceneExprModel` 对象，生成创建条件所需的表达式`expr` 。
+2. 使用 `TuyaSmartSceneConditionFactory` 中的 API ，传入第一步中生成的 `TuyaSmartSceneExprModel` 对象以及其他必需参数，生成条件对象。
 
 **接口说明**
 
@@ -1022,7 +1022,7 @@ TuyaSmartSceneConditionFactory|用于创建自动化场景的条件，如天气�
 
 |参数|说明|
 | ------ | ----- |
-| type | 天气类型或者设备dpId |
+| type | 天气类型或者设备 dpId |
 | isTrue |布尔值参数|
 | exprType |区分创建的是天气类型还是设备类型的枚举值|
 
@@ -1040,8 +1040,8 @@ TuyaSmartSceneConditionFactory|用于创建自动化场景的条件，如天气�
 |参数|说明|
 | ------ | ----- |
 | device | 设备model |
-| dpModel |要创建的设备条件的dpModel，如设备下开关这个dp的dpModel|
-| exprModel | 使用TuyaSmartSceneConditionExprBuilder创建的model对象 |
+| dpModel |要创建的设备条件的 dpModel ，如设备下开关这个 dp 的 dpModel |
+| exprModel | 使用 TuyaSmartSceneConditionExprBuilder 创建的 model 对象 |
 
 **示例代码**
 
@@ -1055,4 +1055,4 @@ TuyaSmartSceneConditionModel *conditionModel = [TuyaSmartSceneConditionFactory c
 ```
 
 
-生成前置条件和动作直接使用`TuyaSmartScenePreConditionFactory`和`TuyaSmartSceneActionFactory`中提供的API即可。
+生成前置条件和动作直接使用 `TuyaSmartScenePreConditionFactory` 和 `TuyaSmartSceneActionFactory` 中提供的 API 即可。
