@@ -1,4 +1,4 @@
-## Group management
+## Group Management
 
 The Tuya Cloud supports the group management system. User can create group, change group name, manage devices of group, manage multiple devices via the group and dismiss group.
 
@@ -38,9 +38,9 @@ All functions of group are realized by using the `TuyaSmartGroup` class, and all
 | schemaArray      | NSArray            | data point detail                   |
 | standard         | BOOL               | is a standardized device            |
 
-## wifi group
+## Wi-Fi Group
 
-### Create group
+### Create Group
 
 **Declaration**
 
@@ -68,9 +68,11 @@ Create group with some device.
 
 ****
 
+**Example**
+
 Objc:
 
-```objc
+```objective-c
 - (void)createNewGroup {
     
     [TuyaSmartGroup createGroupWithName:@"your_group_name" productId:@"your_group_product_id" homeId:homeId devIdList:(NSArray<NSString *> *)selectedDevIdList success:^(TuyaSmartGroup *group) {
@@ -95,7 +97,7 @@ func createNewGroup() {
 
 
 
-### Obtain device list of product id
+### Obtain Device List of Product Id
 
 **Declaration**
 
@@ -121,7 +123,7 @@ Obtain the device list of product when the group is not created.
 
 Objc:
 
-```objc
+```objective-c
 - (void)getGroupDevList {
     
     [TuyaSmartGroup getDevList:@"your_group_product_id" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
@@ -144,7 +146,7 @@ func getGroupDevList() {
 }
 ```
 
-### Obtain the device list of a group
+### Obtain the Device List of a Group
 
 **Declaration**
 
@@ -170,7 +172,7 @@ Obtain the device list of a group when the group is created.
 
 Objc:
 
-```objc
+```objective-c
 - (void)getGroupDevList {
 //    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
     [self.smartGroup getDevList:@"your_group_product_id" success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
@@ -193,7 +195,7 @@ func getGroupDevList() {
 }
 ```
 
-### Modify group device list
+### Modify Group Device List
 
 **Declaration**
 
@@ -205,17 +207,17 @@ func getGroupDevList() {
 
 **Parameters**
 
-| Parameter | Description        |
-| --------- | ------------------ |
-| devList   | 设备列表的 id 数组 |
-| success   | success callback   |
-| failure   | failure callback   |
+| Parameter | Description      |
+| --------- | ---------------- |
+| devList   | device list      |
+| success   | success callback |
+| failure   | failure callback |
 
 **Example**
 
 Objc:
 
-```objc
+```objective-c
 - (void)updateGroupRelations {
 //    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
 
@@ -248,7 +250,7 @@ Callback and data updating after the group sends DP.
 
 Objc:
 
-```objc
+```objective-c
 #pragma mark - TuyaSmartGroupDelegate
 
 - (void)group:(TuyaSmartGroup *)group dpsUpdate:(NSDictionary *)dps {
@@ -270,7 +272,7 @@ func group(_ group: TuyaSmartGroup!, dpsUpdate dps: [AnyHashable : Any]!) {
 
 ## Zigbee Group
 
-#### Create Zigbee group
+#### Create Zigbee Group
 
 **Declaration**
 
@@ -302,7 +304,7 @@ create group with some zigbee devices
 
 Objc:
 
-```objc
+```objective-c
 - (void)createNewGroup {
     
     [TuyaSmartGroup createGroupWithName:@"your_group_name" homeId:homeID gwId:@"gwId" productId:@"your_group_product_id" success:^(TuyaSmartGroup *group) {
@@ -327,7 +329,7 @@ func createNewGroup() {
 
 
 
-#### Get a list of devices supported by the ZigBee group
+#### Get a List of Devices Supported by the ZigBee Group
 
 **Declaration**
 
@@ -341,19 +343,19 @@ func createNewGroup() {
 
 **Parameters**
 
-| Parameter | Description       |
-| --------- | ----------------- |
-| productId | group product id  |
-| gwId      | 群组的网关 id     |
-| homeId    | 群组所在的家庭 id |
-| success   | success callback  |
-| failure   | failure callback  |
+| Parameter | Description      |
+| --------- | ---------------- |
+| productId | group product id |
+| gwId      | gateway id       |
+| homeId    | home id          |
+| success   | success callback |
+| failure   | failure callback |
 
 **Example**
 
 Objc:
 
-```objc
+```objective-c
 - (void)getGroupDevList {
     
     [TuyaSmartGroup getDevListWithProductId:@"your_group_product_id" gwId:@"gwId" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
@@ -376,7 +378,7 @@ func getGroupDevList() {
 }
 ```
 
-#### Add devices to the ZigBee group
+#### Add Devices to the ZigBee Group
 
 **Declaration**
 
@@ -388,17 +390,17 @@ func getGroupDevList() {
 
 **Parameters**
 
-| Parameter | Description             |
-| --------- | ----------------------- |
-| nodeList  | 需要添加的设备的 nodeId |
-| success   | success callback        |
-| failure   | failure callback        |
+| Parameter | Description      |
+| --------- | ---------------- |
+| nodeList  | device's nodeId  |
+| success   | success callback |
+| failure   | failure callback |
 
 **Example**
 
 Objc:
 
-```objc
+```objective-c
 - (void)addDevice {
 //    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
     [self.smartGroup addZigbeeDeviceWithNodeList:@[@"nodeId1", @"nodeId2"]  success:^() {
@@ -423,7 +425,7 @@ func addDevice() {
 
 
 
-#### Remove devices from ZigBee groups
+#### Remove Devices from ZigBee Groups
 
 **Declaration**
 
@@ -435,17 +437,17 @@ func addDevice() {
 
 **Parameter**
 
-| Parameter | Description           |
-| --------- | --------------------- |
-| nodeList  | 需要移除设备的 nodeId |
-| success   | success call back     |
-| failure   | failure call back     |
+| Parameter | Description       |
+| --------- | ----------------- |
+| nodeList  | device's nodeId   |
+| success   | success call back |
+| failure   | failure call back |
 
 **Example**
 
 Objc:
 
-```objc
+```objective-c
 - (void)removeDevice {
     
     [self.smartGroup removeZigbeeDeviceWithNodeList:@[@"nodeId1", @"nodeId2"]  success:^() {
@@ -468,7 +470,7 @@ func removeDevice() {
 }
 ```
 
-#### Callback interface
+#### Callback Interface
 
 Response of ZigBee devices to join or remove gateway groups
 
@@ -482,7 +484,7 @@ Response of ZigBee devices to join or remove gateway groups
 
 Objc:
 
-```objc
+```objective-c
 #pragma mark - TuyaSmartGroupDelegate
 
 - (void)group:(TuyaSmartGroup *)group addResponseCode:(NSArray <NSNumber *>*)responseCode {
@@ -510,7 +512,7 @@ func group(_ group: TuyaSmartGroup?, removeResponseCode responseCode: [NSNumber]
 ```
 
 
-## Send dp command of a group
+## Send Dp Command of a Group
 
 **Declaration**
 
@@ -531,7 +533,7 @@ func group(_ group: TuyaSmartGroup?, removeResponseCode responseCode: [NSNumber]
 
 Objc:
 
-```objc
+```objective-c
 - (void)publishDps {
 //    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
 	
@@ -559,7 +561,7 @@ func publishDps() {
 
 
 
-## Modify the group name
+## Modify the Group Name
 
 **Declaration**
 
@@ -581,7 +583,7 @@ func publishDps() {
 
 Objc:
 
-```objc
+```objective-c
 - (void)updateGroupName {
 //    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
 
@@ -607,13 +609,13 @@ func updateGroupName() {
 }
 ```
 
-## Dismiss grouP
+## Dismiss Group
 
 **Example**
 
 Objc:
 
-```objc
+```objective-c
 - (void)dismissGroup {
 //    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
 
