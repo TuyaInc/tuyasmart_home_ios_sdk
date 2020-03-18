@@ -8,6 +8,15 @@
 
 Single BLE Device is a devcie that able to **one-to-one connect to smart phone by bluetooth**。Such as Bluetooth bracelet, Bluetooth headset, Bluetooth speaker, etc. Each device can connect to one smart phone by bluetooth at most at the same time，At present, **the number of bluetooth connections for each mobile phone terminal is controlled within 6 ~ 7**
 
+|        Class Name         |      Description       |
+| :-----------------------: | :--------------------: |
+|    TuyaSmartBLEManager    |    BLE device class    |
+| TuyaSmartBLEWifiActivator | Dual mode device class |
+
+`TuyaSmartBLEManager` contains all the features of the BLE SDK，Includes Bluetooth status monitor, ble device scan, query ble device name, ble device activator, device OTA upgrade, etc.
+
+`TuyaSmartBLEWifiActivator`  supports dual mode device activator
+
 
 
 ### Preparatory Work
@@ -16,46 +25,10 @@ Tuya iOS Single BLE SDK （ Hereinafter referred to as BLE SDK or Single BLE SDK
 
 
 
-### Function Description
+## BLE Device Management
 
-- Import header file
 
-  ```objective-c
-  // Objective
-  #import <TuyaSmartBLEKit/TuyaSmartBLEKit.h>
-      
-  // Swift
-  import TuyaSmartBLEKit
-  ```
-
-- Main function
-
-  The main class of the BLE SDK is  `TuyaSmartBLEManager`，This class contains all the features of the BLE SDK，Includes Bluetooth status monitor, ble device scan, query ble device name, ble device activator, device OTA upgrade, etc.
-
-  Among them，`TuyaSmartBLEWifiActivator`  is the class that support dual mode device activator
-
-  
-
-  The following code is the function of `TuyaSmartBLEManager` 's `delegate` 
-
-  ```objective-c
-  /**
-   * Notification of bluetooth state change
-   * 
-   * @param isPoweredOn   bluetooth state，turn on or turn off
-  */
-  - (void)bluetoothDidUpdateState:(BOOL)isPoweredOn;
-  
-  /**
-   * The inactive device that discovered
-   *
-   * @param deviceInfo   inactive device Model
-   */
-  - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo;
-  
-  ```
-
-#### Bluetooth status monitor
+#### Bluetooth Status Monitor
 
 **Declaration**
 
@@ -99,7 +72,7 @@ func bluetoothDidUpdateState(_ isPoweredOn: Bool) {
 
 
 
-#### BLE device scan
+#### BLE Device Scan
 
 **Declaration**
 
@@ -170,7 +143,7 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 
 
-#### Active device
+#### Active Device
 
 **Declaration**
 
@@ -221,7 +194,7 @@ TuyaSmartBLEManager.sharedInstance().activeBLE(<deviceInfo: deviceInfo, homeId: 
 
 
 
-#### BLE device OTA upgrade
+#### BLE Device OTA Upgrade
 
 **Declaration**
 
@@ -293,7 +266,7 @@ TuyaSmartBLEManager.sharedInstance().sendOTAPack(deviceModel.uuid, pid: deviceMo
 
 
 
-#### Query device name
+#### Query Device Name
 
 **Declaration**
 
@@ -343,13 +316,16 @@ TuyaSmartBLEManager.sharedInstance().queryName(withUUID: bleAdvInfo.uuid, produc
 
 
 
-#### Device DP publish
+#### Device DP Publish
 
 Dp publish refer to [Functions of device](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Device.html#functions-of-device)
 
 
 
-#### Dual mode device scan
+##Dual Mode Device Activator
+
+
+#### Dual Mode Device Scan
 
 **Declaration**
 
@@ -398,7 +374,7 @@ func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
 
 
 
-#### Dual mode device active
+#### Dual Mode Device Active
 
 **Declaration**
 
@@ -455,7 +431,7 @@ Swift:
 
 
 
-#### Callback of dual mode device activator
+#### Callback of Dual Mode Device Activator
 
 **Declaration**
 
@@ -493,7 +469,7 @@ func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiC
 
 
 
-#### Stop discover dual mode device
+#### Stop Discover Dual Mode Device
 
 **Declaration**
 

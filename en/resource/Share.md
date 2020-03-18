@@ -2,13 +2,45 @@
 
 Sometimes, you need to share some devices with your families, and they will solely have control permission to devices you have shared and cannot change names, remove devices, perform firmware upgrade and restore factory setting, etc. but send device control instructions and obtain status updating.
 
-All functions related to device sharing correspond to the `TuyaSmart HomeDeviceShare'class
+All functions related to device sharing correspond to the `TuyaSmartHomeDeviceShare`class
+
+|        Class Name        |                    Description                    |
+| :----------------------: | :-----------------------------------------------: |
+| TuyaSmartHomeDeviceShare | Share device, get share info, manage share device |
+
+
 
 ### Add device share
 
 #### Add multiple device sharing (coverage)
 
+**Declaration**
+
 Sharing multiple devices to users will override all previous user sharing
+
+
+```objc
+-(void)addShareWithHomeId:homeId 
+              countryCode:countryCode
+              userAccount:userAccount 
+                   devIds:(NSArray<NSString *> *) success
+                  failure:(nullable TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description                           |
+| :-------- | :------------------------------------ |
+| homeId      | device home id |
+| countryCode | share member country code |
+| userAccount | share member user account |
+| devIds      | share device id list |
+| success     | success callback |
+| failure     | failure callback |
+
+**Example**
 
 Objc:
 
@@ -44,7 +76,31 @@ func addMemberShare() {
 
 #### Add Shares (new, not overwriting old Shares)
 
+**Declaration**
+
 Sharing multiple devices to users will add the devices to all user shareing
+
+
+```objc
+- (void)addShareWithMemberId:(NSInteger)memberId
+                      devIds:(NSArray <NSString *> *)devIds
+                     success:(TYSuccessHandler)success
+                     failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description          |
+| :-------- | :------------------- |
+| memberId  | share user member id |
+| success   | success callback     |
+| failure   | failure callback    |
+
+
+
+**Example**
 
 Objc:
 
@@ -76,6 +132,33 @@ func addMemberShare() {
 }
 ```
 #### Single Device Add Sharing
+
+**Declaration**
+
+
+```objc
+- (void)addDeviceShareWithHomeId:(long long)homeId
+                     countryCode:(NSString *)countryCode
+                     userAccount:(NSString *)userAccount
+                           devId:(NSString *)devId
+                         success:(void(^)(TuyaSmartShareMemberModel *model))success
+                         failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter   | Description               |
+| :---------- | :------------------------ |
+| homeId      | device home id            |
+| countryCode | share member country code |
+| userAccount | share member account      |
+| devId       | share device id           |
+| success     | success callback          |
+| failure     | failure callback         |
+
+**Example**
 
 Objc:
 
@@ -118,6 +201,29 @@ func addDeviceShare() {
 
 #### Get a list of all active shared users in the home
 
+**Declaration**
+
+
+```objc
+- (void)getShareMemberListWithHomeId:(long long)homeId
+                             success:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
+                             failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description       |
+| :-------- | :---------------- |
+| homeId    | home id           |
+| success   | success callback  |
+| failure   | failure callback |
+
+
+
+**Example**
+
 Objc:
 
 ```objc
@@ -157,6 +263,27 @@ func getShareMemberList() {
 
 #### Get a list of all shared users received
 
+**Declaration**
+
+
+```objc
+- (void)getReceiveMemberListWithSuccess:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
+                                failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description       |
+| :-------- | :---------------- |
+| success   | success callback  |
+| failure   | failure callback |
+
+
+
+**Example**
+
 Objc:
 
 ```objc
@@ -195,6 +322,29 @@ func getReceiveMemberList() {
 
 #### Obtaining user-shared data that is actively shared by a single user
 
+**Declaration**
+
+
+```objc
+- (void)getShareMemberDetailWithMemberId:(NSInteger)memberId
+                                 success:(void(^)(TuyaSmartShareMemberDetailModel *model))success
+                                 failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description       |
+| :-------- | :---------------- |
+| memberId  | share member id   |
+| success   | success callback  |
+| failure   | failure callback |
+
+
+
+**Example**
+
 Objc:
 
 ```objc
@@ -231,6 +381,29 @@ func getShareMemberDetail() {
 
 #### Getting shared data from a single recipient
 
+**Declaration**
+
+
+```objc
+- (void)getReceiveMemberDetailWithMemberId:(NSInteger)memberId
+                                   success:(void(^)(TuyaSmartReceiveMemberDetailModel *model))success
+                                   failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description         |
+| :-------- | :------------------ |
+| memberId  | recipient member id |
+| success   | success callback    |
+| failure   | failure callback   |
+
+
+
+**Example**
+
 Objc:
 
 ```objc
@@ -266,6 +439,29 @@ func getReceiveMemberDetail() {
 ```
 
 #### Get a single device shared user list
+
+**Declaration**
+
+
+```objc
+- (void)getDeviceShareMemberListWithDevId:(NSString *)devId
+                                  success:(void(^)(NSArray<TuyaSmartShareMemberModel *> *list))success
+                                  failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description       |
+| :-------- | :---------------- |
+| devId     | device id         |
+| success   | success callback  |
+| failure   | failure callback |
+
+
+
+**Example**
 
 Objc:
 
@@ -306,6 +502,29 @@ func getDeviceShareMemberList() {
 
 #### Who Shares Access Devices
 
+**Declaration**
+
+
+```objc
+- (void)getShareInfoWithDevId:(NSString *)devId
+                      success:(void(^)(TuyaSmartReceivedShareUserModel *model))success
+                      failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description             |
+| :-------- | :---------------------- |
+| devId     | receive share device id |
+| success   | success callback        |
+| failure   | failure callback       |
+
+
+
+**Example**
+
 Objc:
 
 ```objc
@@ -344,6 +563,29 @@ func getShareInfo() {
 ### Remove Sharing
 
 #### Delete active Sharers
+
+**Declaration**
+
+
+```objc
+- (void)removeShareMemberWithMemberId:(NSInteger)memberId
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description       |
+| :-------- | :---------------- |
+| memberId  | share memer id    |
+| success   | success callback  |
+| failure   | failure callback |
+
+
+
+**Example**
 
 Objc:
 
@@ -384,6 +626,29 @@ func removeShareMember() {
 
 #### Delete Receiving Sharer
 
+**Declaration**
+
+
+```objc
+-- (void)removeReceiveShareMemberWithMemberId:(NSInteger)memberId
+                                     success:(TYSuccessHandler)success
+                                     failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description            |
+| :-------- | :--------------------- |
+| memberId  | revice share member id |
+| success   | success callback       |
+| failure   | failure callback      |
+
+
+
+**Example**
+
 Objc:
 
 ```objc
@@ -418,8 +683,32 @@ func removeReceiveMember() {
 }
 ```
 
-
 #### Single Device Remove Sharing
+
+**Declaration**
+
+
+```objc
+- (void)removeDeviceShareWithMemberId:(NSInteger)memberId
+                                devId:(NSString *)devId
+                              success:(TYSuccessHandler)success
+                              failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description       |
+| :-------- | :---------------- |
+| memberId  | share member id   |
+| devId     | share device id   |
+| success   | success callback  |
+| failure   | failure callback |
+
+
+
+**Example**
 
 Objc:
 
@@ -456,6 +745,29 @@ func removeDeviceShare() {
 ```
 
 #### Remove shared devices received
+
+**Declaration**
+
+
+```objc
+- (void)removeReceiveDeviceShareWithDevId:(NSString *)devId
+                                  success:(TYSuccessHandler)success
+                                  failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description       |
+| :-------- | :---------------- |
+| devId     | reviced device id |
+| success   | success callback  |
+| failure   | failure callback |
+
+
+
+**Example**
 
 Objc:
 
@@ -497,6 +809,31 @@ func removeDeviceShare() {
 
 #### Modify the nickname of the active sharer
 
+**Declaration**
+
+
+```objc
+- (void)renameShareMemberNameWithMemberId:(NSInteger)memberId
+                                     name:(NSString *)name
+                                  success:(TYSuccessHandler)success
+                                  failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description       |
+| :-------- | :---------------- |
+| memberId  | share member id   |
+| name      | new name          |
+| success   | success callback  |
+| failure   | failure callback |
+
+
+
+**Example**
+
 Objc:
 
 ```objc
@@ -533,6 +870,31 @@ func updateShareMemberName() {
 
 
 #### Modify the nickname of the recipient sharer
+
+**Declaration**
+
+
+```objc
+- (void)renameReceiveShareMemberNameWithMemberId:(NSInteger)memberId
+                                            name:(NSString *)name
+                                         success:(TYSuccessHandler)success
+                                         failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+
+| Parameter | Description            |
+| :-------- | :--------------------- |
+| memberId  | revice share member id |
+| name      | new name               |
+| success   | success callback       |
+| failure   | failure callback      |
+
+
+
+**Example**
 
 Objc:
 

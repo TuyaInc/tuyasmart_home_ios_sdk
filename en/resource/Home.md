@@ -1,4 +1,4 @@
-## Home management
+## Home Management
 
 After login, user shall use the `TuyaSmartHomeManager` to obtain information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home.
 
@@ -9,7 +9,7 @@ After login, user shall use the `TuyaSmartHomeManager` to obtain information of 
 
 
 
-### Obtain the home list
+### Obtain the Home List
 
 Fetch home list, return data is just simple information of home. If you want to get the details of a specific home, you need to go to `TuyaSmartHome` to initialize a home and call the interface getHomeDetailWithSuccess: failure:
 
@@ -60,7 +60,7 @@ func getHomeList() {
 
 
 
-### Add home
+### Add Home
 
 **Declaration**
 
@@ -123,13 +123,13 @@ Swift:
 
 
 
-### Callback of information in the home list
+### Callback of Information in the Home List
 
 After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can proceed operations in the home list change.
 
 
 
-#### Add a home callback
+#### Callback of Add a Home
 
 **Declaration**
 
@@ -146,7 +146,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 
 
 
-#### Remove a home callback
+#### Callback of Remove a Home 
 
 **Declaration**
 
@@ -163,7 +163,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 
 
 
-#### MQTT service connection success callback
+#### Callback of MQTT Service Connection Success
 
 **Declaration**
 
@@ -220,7 +220,7 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 
 
-## Home information management
+## Home Information Management
 
 Main function: it is used to obtain, change and dismiss a home. Obtain, add and delete member of a home. Add, dismiss and remove room.
 The home ID needs to be used to initiate all `TuyaSmartHome` classes related to all functions for home information management. Wrong home ID may cause initiation failure, and the nil will be returned.
@@ -234,7 +234,7 @@ After initializing the home object, you need to get the details interface of the
 
 
 
-### Obtain detail information of home
+### Obtain Detail Information of Home
 
 **Declaration**
 
@@ -282,7 +282,7 @@ func getHomeDetailInfo() {
 
 
 
-### Modify home information
+### Modify Home Information
 
 **Declaration**
 
@@ -338,7 +338,7 @@ func updateHomeInfo() {
 
 
 
-### Dismiss home
+### Dismiss Home
 
 **Declaration**
 
@@ -385,7 +385,7 @@ func dismissHome() {
 
 
 
-### Add room
+### Add Room
 
 **Declaration**
 
@@ -433,7 +433,7 @@ func addHomeRoom() {
 
 
 
-### Remove room
+### Remove Room
 
 **Declaration**
 
@@ -481,7 +481,7 @@ func removeHomeRoom() {
 
 
 
-### Sort room
+### Sort Rooms
 
 **Declaration**
 
@@ -529,7 +529,7 @@ func sortHomeRoom() {
 
 
 
-### Home member management
+### Member Management of Home
 
 All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember` classes, member role type is `TYHomeRoleType`
 
@@ -539,7 +539,7 @@ All functions related to home member management correspond to`TuyaSmartHome` and
 
 
 
-#### Add home member
+#### Add Home Member
 
 > ```
 > The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
@@ -563,14 +563,14 @@ The autoAccept in `TuyaSmartHomeAddMemberRequestModel` is used to control whethe
 
 TuyaSmartHomeAddMemberRequestModel
 
-| Parameters  | Description                                                  |
-| ----------- | ------------------------------------------------------------ |
-| name        | Invitee's nickname                                           |
-| account     | Invitee‘s account                                            |
-| countryCode | Invitee‘s account country code                               |
-| role        | Home member role                                             |
-| headPic     | Invitee‘s avatar, Use the invitee's profile picture when nil |
-| autoAccept  | Does the invitee need to agree to accept the invitation      |
+| Parameters  | Type           | Description                                                  |
+| ----------- | -------------- | ------------------------------------------------------------ |
+| name        | NSString       | Invitee's nickname                                           |
+| account     | NSString       | Invitee‘s account                                            |
+| countryCode | NSString       | Invitee‘s account country code                               |
+| role        | TYHomeRoleType | Home member role                                             |
+| headPic     | UIImage        | Invitee‘s avatar, Use the invitee's profile picture when nil |
+| autoAccept  | BOOL           | Does the invitee need to agree to accept the invitation      |
 
 **Example**
 
@@ -602,7 +602,7 @@ func addShare() {
 
 
 
-#### Delete home member
+#### Delete Home Member
 
 > ```
 > The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
@@ -657,7 +657,7 @@ func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
 
 
 
-#### Get a list of Home members
+#### Get a List of Home Members
 
 **Declaration**
 
@@ -703,7 +703,7 @@ func initMemberList() {
 
 
 
-#### Update the home member's information
+#### Update the Home Member's Information
 
 > ```
 > The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
@@ -755,7 +755,7 @@ func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
 
 
 
-####  Accept or reject home invitations
+####  Accept or Reject Home Invitations
 
 **Declaration**
 
@@ -806,7 +806,7 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 
 
-###Sort devices and groups 
+###Sort Devices and Groups 
 
 **Declaration**
 
@@ -855,7 +855,7 @@ func sortDeviceOrGroup(withOrderList orderList: [[AnyHashable : Any]]?) {
 
 
 
-### Callback of information change of home
+### Callback of Information Change of Home
 
 After the `TuyaSmartHomeDelegate` delegate protocol is realized, user can proceed operations in the home information change.
 
@@ -1048,7 +1048,7 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 
 
-### Room information management
+### Room Information Management
 
 The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to all functions for room information management. Wrong roomId may cause initiation failure, and the `nil` will be returned.
 
@@ -1058,7 +1058,7 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 
 
 
-#### Update room name
+#### Update Room Name
 
 **Declaration**
 
@@ -1104,7 +1104,7 @@ func updateRoomName() {
 
 
 
-#### Add device to a room
+#### Add Device to a Room
 
 **Declaration**
 
@@ -1150,7 +1150,7 @@ func addDevice() {
 
 
 
-#### Remove device from a room
+#### Remove Device from a Room
 
 **Declaration**
 
@@ -1196,7 +1196,7 @@ func removeDevice() {
 
 
 
-#### Add group in a room
+#### Add Group in a Room
 
 **Declaration**
 
@@ -1242,7 +1242,7 @@ func addGroup() {
 
 
 
-#### Remove group in a room
+#### Remove Group in a Room
 
 **Declaration**
 
@@ -1288,7 +1288,7 @@ func removeGroup() {
 
 
 
-#### Change relation between room and group and devices in batches
+#### Change Relation Between Room and Groups and Devices in Batches
 
 **Declaration**
 
