@@ -5,21 +5,21 @@
 
 Message Module contains message and push notifications function. as follows:
 
-* Message
-    * Get Message List
-    * Batch Delete Message
-    * Check New Message
-* Push Notification
-    * Get Push Notification Status
-    * Set Push Notification Status
-    * Get Device Alarm Push Status
-    * Set Device Alarm Push Status
-    * Get Family Message Push Status
-    * Set Family Message Push Status
-    * Get Notice Message Push Status
-    * Set Notice Message Push Status
-    * Get Market Message Push Status
-    * Set Market Message Push Status
+* [Message](#1)
+    * [Get Message List](#1.1)
+    * [Batch Delete Message](#1.2)
+    * [Check New Message](#1.3)
+* [Push Notification](#2)
+    * [Get Push Notification Status](#2.1)
+    * [Set Push Notification Status](#2.2)
+    * [Get Device Alarm Push Status](#2.3)
+    * [Set Device Alarm Push Status](#2.4)
+    * [Get Family Message Push Status](#2.5)
+    * [Set Family Message Push Status](#2.6)
+    * [Get Notice Message Push Status](#2.7)
+    * [Set Notice Message Push Status](#2.8)
+    * [Get Market Message Push Status](#2.9)
+    * [Set Market Message Push Status](#2.10)
 
 
 
@@ -30,10 +30,10 @@ Message Module contains message and push notifications function. as follows:
 
 
 
-## Message
+<h2 id="1">Message</h2>
 
 
-### Get Message List
+<h3 id="1.1">Get Message List</h3>
  
 
 
@@ -180,7 +180,7 @@ Swift:
 
 
 
-### Delete Message
+<h3 id="1.2">Delete Message</h3>
 
 
 
@@ -283,7 +283,7 @@ Objc:
 
 
 
-### Check New Message
+<h3 id="1.3">Check New Message</h3>
 
 
 
@@ -336,11 +336,11 @@ Swift:
 
 
 
-## Push Notification
+<h2 id="2">Push Notification</h2>
 
 
 
-### Get Push Notification Status
+<h3 id="2.1">Get Push Notification Status</h3>
 
 
 
@@ -378,7 +378,7 @@ Swift:
 ```
 
 
-### Set Push Notification Status
+<h3 id="2.2">Set Push Notification Status</h3>
 
 
 
@@ -416,7 +416,7 @@ BOOL enable = YES;
  ````
 
 
-### Get Device Alarm Push Status
+<h3 id="2.3">Get Device Alarm Push Status</h3>
 
 
 
@@ -453,7 +453,7 @@ BOOL enable = YES;
 ```
 
 
-### Set Device Alarm Push Status
+<h3 id="2.4">Set Device Alarm Push Status</h3>
 
 
 **Declaration**
@@ -488,7 +488,7 @@ BOOL enable = YES;
 ````
 
 
-### Get Family Message Push Status
+<h3 id="2.5">Get Family Message Push Status</h3>
 
 
 
@@ -522,7 +522,7 @@ BOOL enable = YES;
 ```
 
 
-### Set Family Message Push Status
+<h3 id="2.6">Set Family Message Push Status</h3>
 
 
 
@@ -558,7 +558,7 @@ BOOL enable = YES;
 ```
 
 
-### Get Notice Message Push Status
+<h3 id="2.7">Get Notice Message Push Status</h3>
 
 
 **Declaration**
@@ -589,7 +589,7 @@ BOOL enable = YES;
 }];
 ```
 
-### Set Notice Message Push Status
+<h3 id="2.8">Set Notice Message Push Status</h3>
 
 
 **Declaration**
@@ -617,7 +617,7 @@ BOOL enable = YES;
 }];
 ```
 
-### Get Market Message Push Status
+<h3 id="2.9">Get Market Message Push Status</h3>
 
 **Declaration**
 
@@ -642,7 +642,7 @@ BOOL enable = YES;
 }];
 ```
 
-### Set Market Message Push Status
+<h3 id="2.10">Set Market Message Push Status</h3>
 
 
 **Declaration**
