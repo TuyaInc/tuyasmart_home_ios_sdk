@@ -1,6 +1,6 @@
 # 群组管理
 
-`TuyaSmartDevice` 类需要使用群组 id 进行初始化。错误的群组 id 可能会导致初始化失败，此时的实例返回 `nil`
+`TuyaSmartGroup` 类需要使用群组 id 进行初始化。错误的群组 id 可能会导致初始化失败，此时的实例返回 `nil`
 
 
 | 类名                 | 说明               |
@@ -18,15 +18,15 @@
 | name         | NSString                      | 群组名称 |
 | iconUrl    | NSString                      | 群组展示图标的 url                                         |
 | type    | TuyaSmartGroupType                      | 群组类型                                           |
-| isShare          | BOOL                      | 是否为分享设备                                               |
+| isShare          | BOOL                      | 是否为分享群组                                           |
 | dps              | NSDictionary              | 群组功能点数据                                               |
 | dpCodes          | NSDictionary              | 群组功能点数据，code-value 形式                              |
 | localKey      | NSString                   |  群组通信使用的 key                                          |
 | deviceNum        | NSInteger                  | 群组下的设备数量                                        |
 | productInfo       | NSDictionary                | 群组对应的产品相关信息                                               |
-| pv   | NSString | 群组协议版本，Wi-Fi 协议版本或蓝牙协议版本 |
-| homeId           | long long                 | 设备所在家庭 id                                              |
-| roomId           | long long                 | 设备所在房间 id                                              |
+| pv   | NSString | 群组协议版本，Wi-Fi 协议版本 |
+| homeId           | long long                 | 群组所在家庭 id                                          |
+| roomId           | long long                 | 群组所在房间 id                                            |
 | displayOrder       | NSInteger                  |  群组在房间维度的排序字段                                                     |
 | homeDisplayOrder           | NSInteger                  | 群组在家庭维度的排序字段 |
 | deviceList         | NSArray                  | 群组对应的设备列表 |
@@ -36,7 +36,7 @@
 | standard       | BOOL            | 是否是标准群组                                                |
 
 
-## WiFi 群组
+## Wi-Fi 群组
 
 ### 创建群组
 
@@ -269,7 +269,7 @@ func group(_ group: TuyaSmartGroup!, dpsUpdate dps: [AnyHashable : Any]!) {
 
 ## Zigbee 群组
 
-#### 创建zigbee 群组
+#### 创建 Zigbee 群组
 
 **接口说明**
 
@@ -324,7 +324,7 @@ func createNewGroup() {
 
 
 
-### 获取 zigbee 群组的设备列表
+### 获取 Zigbee 群组的设备列表
 
 **接口说明**
 
@@ -376,7 +376,7 @@ func getGroupDevList() {
 ```
 
 
-### 添加设备到zigbee群组
+### 添加设备到 Zigbee 群组
 
 **接口说明**
 
@@ -424,7 +424,7 @@ func addDevice() {
 
 
 
-### 从zigbee 群组中移除设备
+### 从 Zigbee 群组中移除设备
 
 **接口说明**
 
