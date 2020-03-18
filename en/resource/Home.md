@@ -529,7 +529,7 @@ func sortHomeRoom() {
 
 
 
-### Member Management of Home
+### Member Management
 
 All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember` classes, member role type is `TYHomeRoleType`
 
@@ -561,7 +561,7 @@ The autoAccept in `TuyaSmartHomeAddMemberRequestModel` is used to control whethe
 | success      | Success callback         |
 | failure      | Failure callback         |
 
-TuyaSmartHomeAddMemberRequestModel
+**TuyaSmartHomeAddMemberRequestModel**
 
 | Parameters  | Type           | Description                                                  |
 | ----------- | -------------- | ------------------------------------------------------------ |

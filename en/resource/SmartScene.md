@@ -6,12 +6,12 @@ Scene is a condition that users add actions and it is triggered manually; Automa
 
 The Tuya Cloud allows users to set meteorological or device conditions based on actual scenes in life, and if conditions are met, one or multiple devices will carry out corresponding tasks.
 
-| Class | Description | 
+| Class | Description |
 | -------------- | ---------- |
 | TuyaSmartScene   |   Provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the `sceneId` of the `TuyaSmartSceneModel`, and it can be obtained from the scene list|
 | TuyaSmartSceneManager | Provides all data related to conditions, tasks, devices and city for scenes, as well as the method of obtaining scene list data.|
 |TuyaSmartScenePreConditionFactory| A tool class that provides a quick way to create automation effective period condition.|
-|TuyaSmartSceneConditionFactory | A tool class that provides a quick way to create scene conditions. | 
+|TuyaSmartSceneConditionFactory | A tool class that provides a quick way to create scene conditions. |
 |TuyaSmartSceneActionFactory | A tool class that provides a quick way to create scene actions. |
 |TuyaSmartSceneConditionExprBuilder| A tool class that provides a quick way to create scene condition's expressions. |
 
@@ -544,7 +544,7 @@ func getDefaultSceneCover() {
 }
 ```
 
-## Scene Operation - TuyaSmartScene
+## Scene Operation
 
 The `TuyaSmartScene` class provides 4 operations, namely, adding, editing, removing and operating, for single scene, and the scene id is required for initiation. The scene id refers to the `sceneId` of the `TuyaSmartSceneModel`, and it can be obtained from the scene list.
 
