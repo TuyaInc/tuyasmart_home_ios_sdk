@@ -75,7 +75,11 @@
 * 消息中心
   * [消息列表](./resource/Message.md#获取消息列表)
   * [消息推送设置](./resource/Message.md#消息推送设置)
-* [意见反馈](./resource/Feedback.md)
+* [意见反馈](./resource/Feedback.md#意见反馈)
+  - [获取反馈会话列表](./resource/Feedback.md#获取反馈会话列表)
+  - [获取反馈列表](./resource/Feedback.md#获取反馈列表)
+  - [获取反馈类型列表](./resource/Feedback.md#获取反馈类型列表)
+  - [添加反馈](./resource/Feedback.md#添加反馈)
 * [通用接口](./resource/CommonInterface.md)
 * [集成 Push](./resource/Push.md)
 * [配置 Widget 工程](./resource/Widget.md)
