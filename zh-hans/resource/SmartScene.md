@@ -664,7 +664,7 @@ func addSmartScene() {
 | name| 场景名 |
 | background | 背景图 url，只能使用「获取场景背景图片列表」接口中提供的背景图 |
 | showFirstPage | 是否显示在首页标识 |
-| preConditionList | 生效时间段，已前置条件数组的形式传入 |
+| preConditionList | 生效时间段，以前置条件数组的形式传入 |
 | conditionList | 条件数组 |
 | actionList | 动作数组 |
 | matchType |条件的匹配类型，「与」或者「或」|
