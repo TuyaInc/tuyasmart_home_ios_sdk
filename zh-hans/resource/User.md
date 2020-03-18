@@ -1286,16 +1286,11 @@ Objc:
 }
 
 - (void)sessionInvalid {
-	if ([[TuyaSmartUser sharedInstance] isLogin]) {
 		NSLog(@"sessionInvalid");
-		// 注销用户
-		[[TuyaSmartUser sharedInstance] loginOut:nil failure:nil];
-
 		//跳转至登录页面
 		MyLoginViewController *vc = [[MyLoginViewController alloc] init];
 		self.window.rootViewController = vc;
-	    [self.window makeKeyAndVisible];
-	}
+	  [self.window makeKeyAndVisible];
 }
 ```
 
@@ -1307,14 +1302,11 @@ func loadNotification() {
 }
     
 @objc func sessionInvalid() {
-    guard TuyaSmartUser.sharedInstance()?.isLogin == true else {
-        return
-    }
-        
     print("sessionInvalid")
-    // 注销用户
-    TuyaSmartUser.sharedInstance()?.loginOut(nil, failure: nil)
     //跳转至登录页面
+		let vc = MyLoginViewController()
+		window.rootViewController = vc
+		window.makeKeyAndVisible()
 }
 ```
 

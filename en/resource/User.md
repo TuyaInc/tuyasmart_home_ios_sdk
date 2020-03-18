@@ -1220,16 +1220,11 @@ Objc:
 }
 
 - (void)sessionInvalid {
-	if ([[TuyaSmartUser sharedInstance] isLogin]) {
-		NSLog(@"sessionInvalid");
-		// Log out
-		[[TuyaSmartUser sharedInstance] loginOut:nil failure:nil];
-
-		// Go to login page
-		MyLoginViewController *vc = [[MyLoginViewController alloc] init];
-		self.window.rootViewController = vc;
-	    [self.window makeKeyAndVisible];
-	}
+  NSLog(@"sessionInvalid");
+  // Go to login page
+	MyLoginViewController *vc = [[MyLoginViewController alloc] init];
+	self.window.rootViewController = vc;
+	[self.window makeKeyAndVisible];
 }
 ```
 
@@ -1241,14 +1236,11 @@ func loadNotification() {
 }
     
 @objc func sessionInvalid() {
-    guard TuyaSmartUser.sharedInstance()?.isLogin == true else {
-        return
-    }
-        
     print("sessionInvalid")
-    // Log out
-    TuyaSmartUser.sharedInstance()?.loginOut(nil, failure: nil)
     // Go to login page
+		let vc = MyLoginViewController()
+		window.rootViewController = vc
+		window.makeKeyAndVisible()
 }
 ```
 
