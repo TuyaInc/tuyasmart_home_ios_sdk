@@ -6,12 +6,12 @@
 
 涂鸦云支持用户根据实际生活场景，通过设置气象或设备条件，当条件满足时，让一个或多个设备执行相应的任务。
 
-| 类名 | 说明 | 
+| 类名 | 说明 |
 | -------------- | ---------- |
 | TuyaSmartScene   |   提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景id进行初始化，场景id指的是 `TuyaSmartSceneModel` 的 `sceneId` 字段，可以从场景列表中获取。 |
 | TuyaSmartSceneManager | 主要提供了场景里条件、任务、设备、城市相关的所有数据，和场景列表数据获取。|
 |TuyaSmartScenePreConditionFactory|提供快捷创建自动化生效条件方法的工具类|
-|TuyaSmartSceneConditionFactory | 提供快捷创建场景条件方法的工具类 | 
+|TuyaSmartSceneConditionFactory | 提供快捷创建场景条件方法的工具类 |
 |TuyaSmartSceneActionFactory|提供快捷创建场景动作方法的工具类|
 |TuyaSmartSceneConditionExprBuilder|提供快捷创建场景条件表达式方法的工具类|
 
@@ -569,7 +569,7 @@ func getDefaultSceneCover() {
 
 
 
-## 单个场景操作 - TuyaSmartScene
+## 单个场景操作
 
 `TuyaSmartScene` 提供了单个场景的添加、编辑、删除、执行4种操作，需要使用场景 id 进行初始化，场景 id 指的是 `TuyaSmartSceneModel` 的 `sceneId` 字段，可以从场景列表中获取。
 
