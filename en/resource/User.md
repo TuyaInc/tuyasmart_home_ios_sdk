@@ -27,7 +27,7 @@ Tuya Smart provides the mobile phone verification code login system.
 
 The mobile phone and password registration process is divided into the following two steps: get a mobile phone verification code - Register a mobile phone and password account.
 
-**API Description**
+**Declaration**
 
 Send verification code. Used for mobile phone verification code login, register, password reset.
 
@@ -39,7 +39,7 @@ Send verification code. Used for mobile phone verification code login, register,
                failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
@@ -49,7 +49,7 @@ Send verification code. Used for mobile phone verification code login, register,
 | success     | Success Callback                                             |
 | failure     | Failure Callback                                             |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -75,7 +75,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber:
 
 
 
-**API Description**
+**Declaration**
 
 Register a mobile phone and password account.
 
@@ -88,7 +88,7 @@ Register a mobile phone and password account.
                 failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
@@ -99,7 +99,7 @@ Register a mobile phone and password account.
 | success     | Success Callback                                             |
 | failure     | Failure Callback                                             |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -129,7 +129,7 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 The mobile phone number and verification code login process is divided into the following two steps: get the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - verification code login.
 
-**API Description**
+**Declaration**
 
 verification code login
 
@@ -141,7 +141,7 @@ verification code login
                 failure:(TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
@@ -151,7 +151,7 @@ verification code login
 | success     | Success Callback                                             |
 | failure     | Failure Callback                                             |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -179,7 +179,7 @@ TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCo
 
 #### Use Mobile Phone Password for Login
 
-**API Description**
+**Declaration**
 
 SDK provides mobile phone number and password login method.
 
@@ -191,7 +191,7 @@ SDK provides mobile phone number and password login method.
              failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                   |
 | :---------- | :---------------------------- |
@@ -201,7 +201,7 @@ SDK provides mobile phone number and password login method.
 | success     | Success Callback              |
 | failure     | Failure Callback              |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -231,7 +231,7 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
 
 The process of resetting the password of the mobile phone number is divided into the following two steps: obtain the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - reset the password.
 
-**API Description**
+**Declaration**
 
 Resetting Password by Using Mobile Phone
 
@@ -244,7 +244,7 @@ Resetting Password by Using Mobile Phone
                      failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                   |
 | :---------- | :---------------------------- |
@@ -255,7 +255,7 @@ Resetting Password by Using Mobile Phone
 | success     | Success Callback              |
 | failure     | Failure Callback              |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -295,7 +295,7 @@ Tuya Smart provides the email password login system.
 
 The email registration process is divided into the following two steps: get email verification code - register email password account.
 
-**API Description**
+**Declaration**
 
 send verification code, used for email password register.
 
@@ -306,7 +306,7 @@ send verification code, used for email password register.
                               failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
@@ -315,7 +315,7 @@ send verification code, used for email password register.
 | success     | Success Callback                                             |
 | failure     | Failure Callback                                             |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -341,7 +341,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "your_country_co
 
 
 
-**API Description**
+**Declaration**
 
 Email register
 
@@ -354,7 +354,7 @@ Email register
                 failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
@@ -365,7 +365,7 @@ Email register
 | success     | Success Callback                                             |
 | failure     | Failure Callback                                             |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -393,7 +393,7 @@ TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "y
 
 #### Use Email Password for Login
 
-**API Description**
+**Declaration**
 
 SDK provides email and password login method.
 
@@ -405,7 +405,7 @@ SDK provides email and password login method.
              failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                   |
 | :---------- | :---------------------------- |
@@ -415,7 +415,7 @@ SDK provides email and password login method.
 | success     | Success Callback              |
 | failure     | Failure Callback              |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -443,7 +443,7 @@ TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your
 
 #### Reset email password
 
-**API Description**
+**Declaration**
 
 The process of resetting the password of the email is divided into the following two steps: obtain the email verification code (the API refers to the first interface of "User Email Password Registration") - reset the password.
 
@@ -456,7 +456,7 @@ The process of resetting the password of the email is divided into the following
                      failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
@@ -467,7 +467,7 @@ The process of resetting the password of the email is divided into the following
 | success     | Success Callback                                             |
 | failure     | Failure Callback                                             |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -497,11 +497,11 @@ func resetPasswordByEmail() {
 
 
 
-### Use uid for Login
+### Use Uid for Login
 
-#### User uid Registration And Login
+#### User Uid Registration and Login
 
-**API Description**
+**Declaration**
 
 If had registered, then automatically logged in. If had not registered, then automatically registered and logged in.
 
@@ -514,7 +514,7 @@ If had registered, then automatically logged in. If had not registered, then aut
                                failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                        |
 | :---------- | :--------------------------------- |
@@ -525,7 +525,7 @@ If had registered, then automatically logged in. If had not registered, then aut
 | success     | Success Callback                   |
 | failure     | Failure Callback                   |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -559,7 +559,7 @@ User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya devel
 
 #### Login on Wechat
 
-**API Description**
+**Declaration**
 
 Login on Wechat
 
@@ -570,7 +570,7 @@ Login on Wechat
               failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                        |
 | :---------- | :--------------------------------- |
@@ -579,7 +579,7 @@ Login on Wechat
 | success     | Success Callback                   |
 | failure     | Failure Callback                   |
 
-**Api Example**
+**Example**
 
 Objc:
 ```objc
@@ -610,7 +610,7 @@ func loginByWechat() {
 
 #### Login on QQ
 
-**API Description**
+**Declaration**
 
 Login on QQ
 
@@ -622,7 +622,7 @@ Login on QQ
           failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                          |
 | :---------- | :----------------------------------- |
@@ -632,7 +632,7 @@ Login on QQ
 | success     | Success Callback                     |
 | failure     | Failure Callback                     |
 
-**Api Example**
+**Example**
 
 Objc:
 ```objc
@@ -664,7 +664,7 @@ Swift:
 
 #### Login on Facebook
 
-**API Description**
+**Declaration**
 
 Login on Facebook
 
@@ -675,7 +675,7 @@ Login on Facebook
                 failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                             |
 | :---------- | :-------------------------------------- |
@@ -684,7 +684,7 @@ Login on Facebook
 | success     | Success Callback                        |
 | failure     | Failure Callback                        |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -717,7 +717,7 @@ Swift:
 
 #### Login by Twitter
 
-**API Description**
+**Declaration**
 
 Login by Twitter
 
@@ -729,7 +729,7 @@ Login by Twitter
                failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                            |
 | :---------- | :------------------------------------- |
@@ -739,7 +739,7 @@ Login by Twitter
 | success     | Success Callback                       |
 | failure     | Failure Callback                       |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -773,7 +773,7 @@ func loginByTwitter() {
 
 ### Login by Auth2
 
-**API Description**
+**Declaration**
 
 Auth2 is a general login interface. You can use some auth2 login type by passed type parameters.
 
@@ -786,7 +786,7 @@ Auth2 is a general login interface. You can use some auth2 login type by passed 
                      failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                                     |
 | :---------- | :---------------------------------------------- |
@@ -797,7 +797,7 @@ Auth2 is a general login interface. You can use some auth2 login type by passed 
 | success     | Success Callback                                |
 | failure     | Failure Callback                                |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -829,11 +829,11 @@ func loginWithAuth2() {
 
 #### Login with Apple
 
-**API Description**
+**Declaration**
 
 The SDK supports Login with Apple from 3.14.0. After Apple login authorization is successful, information such as token and extraInfo are passed to the SDK through the Auth2 interface.
 
-**Param Description**
+**Parameters**
 
 | Param       | Description                                                  |
 | :---------- | :----------------------------------------------------------- |
@@ -844,7 +844,7 @@ The SDK supports Login with Apple from 3.14.0. After Apple login authorization i
 | success     | Success Callback                                             |
 | failure     | Failure Callback                                             |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -881,11 +881,11 @@ func loginWithApple() {
 
 **Interface description**
 
-**API Description**
+**Declaration**
 
 Used to upload user-defined avatars.
 
-**Param Description**
+**Parameters**
 
 | Param    | Description                             |
 | :------- | :-------------------------------------- |
@@ -893,7 +893,7 @@ Used to upload user-defined avatars.
 | success  | Success Callback                        |
 | failure  | Failure Callback                        |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -925,7 +925,7 @@ func updateHeadIcon(_ headIcon: UIImage) {
 
 ### Set the Unit of Temperature
 
-**API Description**
+**Declaration**
 
 Set the temperature in Celsius or Fahrenheit
 
@@ -935,7 +935,7 @@ Set the temperature in Celsius or Fahrenheit
                            failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param    | Description                              |
 | :------- | :--------------------------------------- |
@@ -943,7 +943,7 @@ Set the temperature in Celsius or Fahrenheit
 | success  | Success Callback                         |
 | failure  | Failure Callback                         |
 
-**Api Example**
+**Example**
 
 ```objc
 - (void)updateTempUnitWithTempUnit:(NSInteger)tempUnit {
@@ -971,9 +971,9 @@ func updateTempUnit(withTempUnit tempUnit: Int) {
 
 
 
-### Modify nickname
+### Modify Nickname
 
-**API Description**
+**Declaration**
 
 Modify nickname
 
@@ -983,7 +983,7 @@ Modify nickname
                failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param    | Description      |
 | :------- | :--------------- |
@@ -991,7 +991,7 @@ Modify nickname
 | success  | Success Callback |
 | failure  | Failure Callback |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -1021,9 +1021,9 @@ func modifyNickname(_ nickName: String) {
 
 
 
-### Update timezone
+### Update Timezone
 
-**API Description**
+**Declaration**
 
 Update timezone
 
@@ -1033,7 +1033,7 @@ Update timezone
                              failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param      | Description                        |
 | :--------- | :--------------------------------- |
@@ -1041,7 +1041,7 @@ Update timezone
 | success    | Success Callback                   |
 | failure    | Failure Callback                   |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -1071,9 +1071,9 @@ func updateTimeZoneId(_ timeZoneId: String) {
 
 
 
-### Update location
+### Update Location
 
-**API Description**
+**Declaration**
 
 If need, location can be reported through this api:
 
@@ -1081,14 +1081,14 @@ If need, location can be reported through this api:
 - (void)updateLatitude:(double)latitude longitude:(double)longitude;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param     | Description                        |
 | :-------- | :--------------------------------- |
 | latitude  | latitude |
 | longitude | longitude                   |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -1112,7 +1112,7 @@ func updateLocation() {
 
 ### Logout
 
-**API Description**
+**Declaration**
 
 When the user account is switched, it is necessary to call the logout interface.
 
@@ -1121,14 +1121,14 @@ When the user account is switched, it is necessary to call the logout interface.
          failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param      | Description                        |
 | :--------- | :--------------------------------- |
 | success    | Success Callback                   |
 | failure    | Failure Callback                   |
 
-**Api Example**
+**Example**
 
 Objc:
 
@@ -1158,9 +1158,9 @@ func loginOut() {
 
 
 
-### Disable account (deregister user)
+### Disable Account (Deregister User)
 
-**API Description**
+**Declaration**
 
 After one week, the account will be permanently disabled, and all information in the account will be deleted. If you log in to the account again before it is permanently disabled, your deregistration will be canceled.
 
@@ -1169,14 +1169,14 @@ After one week, the account will be permanently disabled, and all information in
               failure:(nullable TYFailureError)failure;
 ```
 
-**Param Description**
+**Parameters**
 
 | Param   | Description      |
 | :------ | :--------------- |
 | success | Success Callback |
 | failure | Failure Callback |
 
-**Api Example**
+**Example**
 
 Objc:
 
