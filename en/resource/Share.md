@@ -199,7 +199,7 @@ func addDeviceShare() {
 
 ### Getting Shared Relationships
 
-#### Get A List Of All Active Shared Users In The Home
+#### Get List of All Active Shared Users in the Home
 
 **Declaration**
 
@@ -261,7 +261,7 @@ func getShareMemberList() {
 
 
 
-#### Get A List Of All Shared Uers Received
+#### Get List of All Shared Uers Received
 
 **Declaration**
 
@@ -320,7 +320,7 @@ func getReceiveMemberList() {
 
 
 
-#### Obtaining User-shared Data That Is Actively Shared By A Single User
+#### Obtaining User-shared Data that is Actively Shared by a Single User
 
 **Declaration**
 
@@ -379,7 +379,7 @@ func getShareMemberDetail() {
 }
 ```
 
-#### Getting Shared Data From A Single Recipient
+#### Getting Shared Data from a Single Recipient
 
 **Declaration**
 
@@ -438,7 +438,7 @@ func getReceiveMemberDetail() {
 }
 ```
 
-#### Get A Single Device Shared User List
+#### Get a Single Device Shared User List
 
 **Declaration**
 
@@ -869,7 +869,7 @@ func updateShareMemberName() {
 
 
 
-#### Modify the nickname of the recipient sharer
+#### Modify the Nickname of the Recipient Sharer
 
 **Declaration**
 
