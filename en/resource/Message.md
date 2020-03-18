@@ -34,7 +34,7 @@ Message Module contains message and push notifications function. as follows:
 
 
 <h3 id="1.1">Get Message List</h3>
-
+ 
 
 
 #### Get Message List
