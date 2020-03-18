@@ -6,7 +6,7 @@ The device ID needs to be used to initiate all `TuyaSmartDevice` classes related
 | --------------- | ---------------------------- |
 | TuyaSmartDevice | Tuya device management class |
 
-**`TuyaSmartDeviceModel` 数据模型**
+**`TuyaSmartDeviceModel`**
 
 | Field            | Type                      | Description                                                  |
 | ---------------- | ------------------------- | ------------------------------------------------------------ |
