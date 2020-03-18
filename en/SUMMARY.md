@@ -70,9 +70,10 @@
   - [Group](./resource/Mesh.md#mesh-group)
   - [Control](./resource/Mesh.md#mesh-control)
   - [Firmware Upgrade](./resource/Mesh.md#firmware-upgrade)
-* Message Center
-  * [Message List](./resource/Message.md#obtain-message-list)
-  * [Message Push Settings](./resource/Message.md#message-push-settings)
+* [Message Center](./resource/Message.md#message-center)
+  * [Function Overview](./resource/Message.md#function-overview)
+  * [Message](./resource/Message.md#message)
+  * [Push Notification](./resource/Message.md#push-notification)
 * [Feedback](./resource/Feedback.md)
 * [Common Interface](./resource/CommonInterface.md)
 * [Register PushId](./resource/Push.md)

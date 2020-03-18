@@ -72,8 +72,9 @@
   - [群组](./resource/Mesh.md#mesh-群组)
   - [控制](./resource/Mesh.md#mesh-控制)
   - [固件升级](./resource/Mesh.md#固件升级)
-* 消息中心
-  * [消息列表](./resource/Message.md#获取消息列表)
+* [消息中心](./resource/Message.md#消息中心)
+  * [功能概述](./resource/Message.md#功能概述)
+  * [消息相关功能](./resource/Message.md#消息相关功能)
   * [消息推送设置](./resource/Message.md#消息推送设置)
 * [意见反馈](./resource/Feedback.md#意见反馈)
   - [获取反馈会话列表](./resource/Feedback.md#获取反馈会话列表)
