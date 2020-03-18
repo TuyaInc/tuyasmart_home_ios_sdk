@@ -73,7 +73,11 @@
 * Message Center
   * [Message List](./resource/Message.md#obtain-message-list)
   * [Message Push Settings](./resource/Message.md#message-push-settings)
-* [Feedback](./resource/Feedback.md)
+* [Feedback](./resource/Feedback.md#feedback)
+  - [Obtain Feedback Talk List](./resource/Feedback.md#obtain-feedback-talk-list)
+  - [Obtain Feedback List](./resource/Feedback.md#obtain-feedback-list)
+  - [Obtain Feedback Type List](./resource/Feedback.md#obtain-feedback-type-list)
+  - [Add Feedback](./resource/Feedback.md#add-feedback)
 * [Common Interface](./resource/CommonInterface.md)
 * [Register PushId](./resource/Push.md)
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
