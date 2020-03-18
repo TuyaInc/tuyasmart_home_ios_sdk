@@ -10,9 +10,9 @@ All functions related to device sharing correspond to the `TuyaSmartHomeDeviceSh
 
 
 
-### Add device share
+### Add Device Share
 
-#### Add multiple device sharing (coverage)
+#### Add  Multiple Device Sharing (coverage)
 
 **Declaration**
 
@@ -199,7 +199,7 @@ func addDeviceShare() {
 
 ### Getting Shared Relationships
 
-#### Get a list of all active shared users in the home
+#### Get A List Of All Active Shared Users In The Home
 
 **Declaration**
 
@@ -261,7 +261,7 @@ func getShareMemberList() {
 
 
 
-#### Get a list of all shared users received
+#### Get A List Of All Shared Uers Received
 
 **Declaration**
 
@@ -320,7 +320,7 @@ func getReceiveMemberList() {
 
 
 
-#### Obtaining user-shared data that is actively shared by a single user
+#### Obtaining User-shared Data That Is Actively Shared By A Single User
 
 **Declaration**
 
@@ -379,7 +379,7 @@ func getShareMemberDetail() {
 }
 ```
 
-#### Getting shared data from a single recipient
+#### Getting Shared Data From A Single Recipient
 
 **Declaration**
 
@@ -438,7 +438,7 @@ func getReceiveMemberDetail() {
 }
 ```
 
-#### Get a single device shared user list
+#### Get A Single Device Shared User List
 
 **Declaration**
 
@@ -562,7 +562,7 @@ func getShareInfo() {
 
 ### Remove Sharing
 
-#### Delete active Sharers
+#### Delete Active Sharers
 
 **Declaration**
 
@@ -744,7 +744,7 @@ func removeDeviceShare() {
 }
 ```
 
-#### Remove shared devices received
+#### Remove Shared Devices Received
 
 **Declaration**
 
