@@ -474,6 +474,20 @@ SDK-->APP: network configuration succeeds
 
 ```
 
+
+
+#### Discovery Device
+
+Tuya SDK provides the function of discovering the wired devices. You should register the notification of the wired device to get device infomation. Before obtaining the device, the phone must be connected to the same network as the device. 
+
+**Notification**
+
+```objc
+// Notification name 
+// Receiving device infomation from wired config network 
+TuyaSmartActivatorNotificationFindGatewayDevice;
+```
+
 #### Get Token
 
 Before the Wired Network Configuration, the SDK needs to obtain the network configuration Token from the Tuya Cloud. The term of validity of Token is 10 minutes, and the Token become invalid once the network configuration succeeds. A new Token has to be obtained if you have to reconfigure network.
