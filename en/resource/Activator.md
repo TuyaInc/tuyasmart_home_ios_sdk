@@ -484,7 +484,7 @@ Tuya SDK provides the function of discovering the wired devices. You should regi
 
 ```objc
 // Notification name 
-// Receiving device infomation from wired config network 
+// message the receiver sends observer likes: @{@"productId":productId, @"gwId":gwId}
 TuyaSmartActivatorNotificationFindGatewayDevice;
 ```
 
