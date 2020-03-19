@@ -4,7 +4,7 @@
 
 ## 功能概述
 
-iOS Home SDK 是一套涂鸦智能针对全屋智能领域提供的 iOS 8.0 及以上版本的 SDK。iOS 开发者可以基于 SDK 快速的实现 APP 功能开发，实现对智能设备的配网，控制，固件升级，定时任务，智能场景等操作。
+iOS Home SDK 是一套涂鸦智能针对全屋智能领域提供的 iOS 9.0 及以上版本的 SDK。iOS 开发者可以基于 SDK 快速的实现 APP 功能开发，实现对智能设备的配网，控制，固件升级，定时任务，智能场景等操作。
 
 SDK 主要包括以下功能：
 
@@ -21,7 +21,7 @@ SDK 主要包括以下功能：
 在`Podfile`文件中添加以下内容：
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'your_target_name' do
 

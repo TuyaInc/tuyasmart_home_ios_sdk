@@ -5,7 +5,7 @@
 
 ## Features Overview
 
-Tuya Smart iOS Home SDK is the iOS 8.0 and above version provided by Tuya for the field of smart home. iOS developers can quickly develop app functions based on SDK, realize the activation of intelligent hardware, hardware control, firmware upgrades, timed tasks, intelligent scenarios and other operations.
+Tuya Smart iOS Home SDK is the iOS 9.0 and above version provided by Tuya for the field of smart home. iOS developers can quickly develop app functions based on SDK, realize the activation of intelligent hardware, hardware control, firmware upgrades, timed tasks, intelligent scenarios and other operations.
 
 The SDK includes the following features::
 
@@ -20,7 +20,13 @@ The SDK includes the following features::
 Add the following content in file `Podfile`:
 
 ```ruby
-pod "TuyaSmartHomeKit"
+platform :ios, '9.0'
+
+target 'your_target_name' do
+
+   pod "TuyaSmartHomeKit"
+
+end
 ```
 
 Execute command `pod update` in the project's root directory to begin integration.

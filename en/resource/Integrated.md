@@ -1,11 +1,11 @@
 ## Integrated SDK
 
-### Use CocoaPods for Quick Integration (SDK Basically Supports System Version 8.0)
+### Use CocoaPods for Quick Integration (SDK Basically Supports System Version 9.0)
 
 Add the following content in the `Podfile` file.
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'Your_Project_Name' do
 	pod "TuyaSmartHomeKit"
