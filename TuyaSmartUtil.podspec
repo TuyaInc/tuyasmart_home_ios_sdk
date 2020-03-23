@@ -8,21 +8,16 @@ Pod::Spec.new do |s|
   s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
 
   s.static_framework = true
-  s.ios.resource_bundles = {
-    'TuyaSmartUtil' => 'ios/*.framework/Resources/**/*'
-  }
-
+  
   s.ios.deployment_target = '8.0'
   s.ios.vendored_frameworks = 'ios/*.framework'
-  # s.ios.vendored_libraries = 'ios/*.a'
   s.ios.frameworks = 'CoreTelephony', 'Foundation', 'SystemConfiguration', 'UIKit'
+  s.ios.resource = 'ios/*.framework/**/*.bundle'
 
   s.watchos.deployment_target = '2.0'
   s.watchos.vendored_frameworks = 'watchos/*.framework'
-  s.watchos.resource_bundles = {
-    'TuyaSmartUtil' => 'watchos/*.framework/Resources/**/*'
-  }
-  # s.watchos.vendored_libraries = 'watchos/*.a'
+  s.watchos.resource = 'watchos/*.framework/**/*.bundle'
+  
   s.watchos.frameworks = 'Foundation', 'WatchKit'
 
 end
