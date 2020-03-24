@@ -6,20 +6,22 @@
 
 ## Features Overview
 
-Tuya Smart APP SDK provides the interface package for the communication with hardware and Tuya Cloud to accelerate the application development process, including the following features:
+Tuya Smart iOS Home SDK is the iOS 9.0 and above version provided by Tuya for the field of smart home. iOS developers can quickly develop app functions based on SDK, realize the activation of intelligent hardware, hardware control, firmware upgrades, timed tasks, intelligent scenarios and other operations.
 
-- Hardware functions (network configuration, control, status reporting, regular tasks, groups, firmware upgrades, sharing)
+The SDK includes the following features:
+
 - Account system (phone number, email registration, login, password reset and other general account functions)
-- Tuya Cloud HTTP API interface package
+- Home system (home management, room management, home sharing and other functions)
+- Hardware functions (network configuration, control, status reporting, timed tasks, groups, firmware upgrades, sharing)
 
-## Rapid Integration
+## Fast Integration
 
-### Using CocoaPods integration (version 8.0 or above is supported)
+### Using CocoaPods integration (version 9.0 or above is supported)
 
 Add the following content in file `Podfile`:
 
 ```ruby
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'your_target_name' do
 
@@ -34,15 +36,17 @@ For the instructions of CocoaPods, please refer to: [CocoaPods Guides](https://g
 
 ## Initializing SDK
 
-Add the following to the project file `PrefixHeader.pch`：
+1. Open project setting, `Target => General`, edit `Bundle Identifier` to the value from Tuya develop center.
+2. Import security image to the project and rename as `t_s.bmp`, then add it into `Project Setting => Target => Build Phases => Copy Bundle Resources`.
+3. Add the following to the project file `PrefixHeader.pch`：
 
-```objc
+```objective-c
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
 ```
 
 Open file `AppDelegate.m`，and use the `App ID` and `App Secret` obtained from the development platform in the `[AppDelegate application:didFinishLaunchingWithOptions:]`method to initialize SDK:
 
-```objc
+```objective-c
 [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
 ```
 
