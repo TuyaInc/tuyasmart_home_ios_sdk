@@ -16,7 +16,7 @@
 
 - 子设备配网  
 
-- 蓝牙 WiFi 双模配网
+- 蓝牙 Wi-Fi 双模配网
 
   
 
@@ -149,8 +149,8 @@ func getToken() {
 | 参数     | 说明                  |
 | :------- | :-------------------- |
 | mode     | 配网模式              |
-| ssid     | WiFi 名称             |
-| password | WiFi 密码             |
+| ssid     | Wi-Fi 名称            |
+| password | Wi-Fi 密码            |
 | token    | 配网 Token            |
 | timeout  | 超时时间，默认 100 秒 |
 
@@ -383,7 +383,7 @@ func getToken() {
 | :------- | :--------- |
 | mode     | 配网模式   |
 | ssid     | WiFi 名称  |
-| password | WiFi 密码  |
+| password | Wi-Fi 密码 |
 | token    | 配网 Token |
 | timeout  | 超时时间   |
 
@@ -531,7 +531,17 @@ SDK-->APP: 激活成功
 
 ```
 
+#### 发现设备
 
+SDK 提供发现待配网有线设备的功能，获取设备前手机需与设备接入同一网络，然后注册获取有线设备的通知，待 SDK 收到有线设备的广播即会通过通知转发设备信息。
+
+**通知**
+
+```objc
+// 收到有线配网设备的广播后，会发送此通知。objec为dictionary，@{@"productId":productId, @"gwId":gwId}
+extern NSString *const TuyaSmartActivatorNotificationFindGatewayDevice;
+
+```
 
 #### 获取 Token
 
