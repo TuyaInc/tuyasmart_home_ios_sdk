@@ -1378,7 +1378,7 @@ func getHomeWeatherSketch() {
     }) { (e) in
         print("failure with error: \(e)")
     };
-
+}
 ```
 
 #### get home weather summary parameters with more detail.
@@ -1420,12 +1420,13 @@ Swift:
 
 ```swift
 func getHomeWeatherDetail() {
-let optionModel = TuyaSmartWeatherOptionModel()
-// do some optionModel config
-home.getWeatherDetail(withOption: optionModel, success: { (weatherSketchModel) in
-    print("success get weather summary model: \(weatherSketchModel)");
-}) { (error) in
-    print("failure with error: \(error)")
+    let optionModel = TuyaSmartWeatherOptionModel()
+    // do some optionModel config
+    home.getWeatherDetail(withOption: optionModel, success: { (weatherSketchModel) in
+        print("success get weather summary model: \(weatherSketchModel)");
+    }) { (error) in
+        print("failure with error: \(error)")
+    }
 }
 ```
 
