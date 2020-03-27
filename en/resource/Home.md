@@ -1334,3 +1334,134 @@ func saveBatchRoomRelation() {
 }
 ```
 
+### Home Weather
+
+#### Get Home's Weather Simple Summary Parameters.
+
+Sush as city name, state of weather(clear, cloudy, rainy, and so on),weather icon.
+
+**Declaration**
+
+```
+- (void)getHomeWeatherSketchWithSuccess:(void(^)(TuyaSmartWeatherSketchModel *))success
+                                                             failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+| Parameters      | Description                         |
+| --------------- | ----------------------------------- |
+| success         | Success callback                    |
+| failure         | Failure callback                    |
+
+
+Parameter `TuyaSmartWeatherSketchModel` description：
+
+| Parameters            | Description                   |
+| ---------------| ----------------------|
+| condition         | weather description               |
+| iconUrl         | weather icon, highlight              |
+| inIconUrl         | weather icon               |
+| city         | city               |
+| temp         | temperature               |
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)getHomeWeatherSketch {
+    [self.home getHomeWeatherSketchWithSuccess:^(TuyaSmartWeatherSketchModel *weatherSketchModel) {
+        NSLog(@"success get weather summary model: %@",weatherSketchModel);
+    } failure:^(NSError *error) {
+        NSLog(@"failure with error: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getHomeWeatherSketch() {
+    home.getWeatherSketch(success: { (weatherSketchModel) in
+        print("success get weather summary model: \(weatherSketchModel)");
+    }) { (e) in
+        print("failure with error: \(e)")
+    };
+}
+```
+
+#### Get Home's Weather Summary Parameters with More Detail.
+
+Such as tempature, humidity, ultraviolet index, air quality.
+
+
+**Declaration**
+
+```
+- (void)getHomeWeatherDetailWithOption:(TuyaSmartWeatherOptionModel *)optionModel
+                               success:(void(^)(NSArray<TuyaSmartWeatherModel *> *))success
+                               failure:(TYFailureError)failure;
+
+```
+
+
+| Parameters      | Description                         |
+| --------------- | ----------------------------------- |
+| optionModel         | Weather details unit configuration                   |
+| success         | Success callback                    |
+| failure         | Failure callback                    |
+
+
+
+Before request, param `TuyaSmartWeatherOptionModel`  need config.
+
+| Parameters            | Description                   |
+| --------------- | ---------------------- |
+| pressureUnit         | pressure unit             |
+| windspeedUnit         | windspeed unit               |
+| temperatureUnit         | temperature unit               |
+| limit         | return weather description count,if limit = 0,return all weather description               |
+
+return parameter `TuyaSmartWeatherModel`:
+
+| Parameters            | Description                   |
+| --------------- | ---------------------- |
+| icon         | weahter icon             |
+| name         | weahter name               |
+| unit         | weahter parameter unit               |
+| value         | weahter parameter value               |
+
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)getHomeWeatherDetail {
+    [self.home getHomeWeatherDetailWithOption:optionModel 
+                                      success:^(NSArray<TuyaSmartWeatherModel *> *weatherModels) {
+          NSLog(@"success get weather model: %@",weatherModels);
+                                    } failure:^(NSError *error) {
+          NSLog(@"failure with error: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getHomeWeatherDetail() {
+    let optionModel = TuyaSmartWeatherOptionModel()
+    // do some optionModel config
+    home.getWeatherDetail(withOption: optionModel, success: { (weatherSketchModel) in
+        print("success get weather summary model: \(weatherSketchModel)");
+    }) { (error) in
+        print("failure with error: \(error)")
+    }
+}
+```
+
+
+
