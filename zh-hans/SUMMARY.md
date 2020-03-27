@@ -21,6 +21,7 @@
   * [家庭信息管理](./resource/Home.md#家庭信息管理)
   * [家庭成员管理](./resource/Home.md#家庭成员管理)
   * [房间信息管理](./resource/Home.md#房间信息管理)
+  * [家庭天气](./resource/Home.md#家庭天气)
 * [设备配网](./resource/Activator.md#设备配网)
   - [快连模式](./resource/Activator.md#快连模式)
   - [热点模式](./resource/Activator.md#热点模式)

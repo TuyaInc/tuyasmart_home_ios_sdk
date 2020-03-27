@@ -1334,7 +1334,7 @@ func saveBatchRoomRelation() {
 }
 ```
 
-### Home‘s weather
+### Home Weather
 
 #### Get home's weather simple summary parameters.
 Sush as city name, state of weather(clear, cloudy, rainy, and so on),weather icon.

@@ -20,6 +20,7 @@
   - [Operation of Home](./resource/Home.md#home-information-management)
   - [Home Member Management](./resource/Home.md#member-management)
   - [Room Management](./resource/Home.md#room-information-management)
+  - [Home's Weather](./resource/Home.md#home-weather)
 * [Network Configuration](./resource/Activator.md#network-configuration)
   - [Quick Connection Mode](./resource/Activator.md#quick-connection-mode)
   - [HotSpot Mode](./resource/Activator.md#hotspot-mode)
