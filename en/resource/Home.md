@@ -1334,3 +1334,100 @@ func saveBatchRoomRelation() {
 }
 ```
 
+### Home‘s weather
+
+#### Get home's weather simple summary parameters.
+Sush as city name, state of weather(clear, cloudy, rainy, and so on),weather icon.
+
+**Declaration**
+
+```
+- (void)getHomeWeatherSketchWithSuccess:(void(^)(TuyaSmartWeatherSketchModel *))success
+                                                             failure:(TYFailureError)failure;
+```
+
+
+**Parameters**
+
+| Parameters      | Description                         |
+| --------------- | ----------------------------------- |
+| success         | Success callback                    |
+| failure         | Failure callback                    |
+
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)getHomeWeatherSketch {
+    [self.home getHomeWeatherSketchWithSuccess:^(TuyaSmartWeatherSketchModel *weatherSketchModel) {
+        NSLog(@"success get weather summary model: %@",weatherSketchModel);
+    } failure:^(NSError *error) {
+        NSLog(@"failure with error: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getHomeWeatherSketch() {
+    home.getWeatherSketch(success: { (weatherSketchModel) in
+        print("success get weather summary model: \(weatherSketchModel)");
+    }) { (e) in
+        print("failure with error: \(e)")
+    };
+
+```
+
+#### get home weather summary parameters with more detail.
+Such as tempature, humidity, ultraviolet index, air quality.
+
+
+**Declaration**
+
+```
+- (void)getHomeWeatherDetailWithOption:(TuyaSmartWeatherOptionModel *)optionModel
+                               success:(void(^)(NSArray<TuyaSmartWeatherModel *> *))success
+                               failure:(TYFailureError)failure;
+
+```
+
+
+| Parameters      | Description                         |
+| --------------- | ----------------------------------- |
+| optionModel         | Weather details unit configuration                   |
+| success         | Success callback                    |
+| failure         | Failure callback                    |
+
+
+
+Objc:
+
+```objective-c
+- (void)getHomeWeatherDetail {
+    [self.home getHomeWeatherDetailWithOption:optionModel 
+                                      success:^(NSArray<TuyaSmartWeatherModel *> *weatherModels) {
+          NSLog(@"success get weather model: %@",weatherModels);
+                                    } failure:^(NSError *error) {
+          NSLog(@"failure with error: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getHomeWeatherDetail() {
+let optionModel = TuyaSmartWeatherOptionModel()
+// do some optionModel config
+home.getWeatherDetail(withOption: optionModel, success: { (weatherSketchModel) in
+    print("success get weather summary model: \(weatherSketchModel)");
+}) { (error) in
+    print("failure with error: \(error)")
+}
+```
+
+
+

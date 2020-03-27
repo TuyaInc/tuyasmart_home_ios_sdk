@@ -1335,3 +1335,96 @@ func saveBatchRoomRelation() {
 }
 ```
 
+### 家庭天气
+
+####  获取家庭天气简要参数
+
+**接口说明**
+该请求返回家庭所在城市的简要天气参数，如城市名称、当天的天气状况(晴、多云、雨等)、天气图片信息。
+```objective-c
+- (void)getHomeWeatherSketchWithSuccess:(void(^)(TuyaSmartWeatherSketchModel *))success
+                                failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数            | 说明                   |
+| --------------- | ---------------------- |
+| success         | 成功回调               |
+| failure         | 失败回调               |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+- (void)getHomeWeatherSketch {
+    [self.home getHomeWeatherSketchWithSuccess:^(TuyaSmartWeatherSketchModel *weatherSketchModel) {
+        NSLog(@"success get weather summary model: %@",weatherSketchModel);
+    } failure:^(NSError *error) {
+        NSLog(@"failure with error: %@", error);
+    }];
+}
+```
+Swift:
+
+```swift
+func getHomeWeatherSketch() {
+    home.getWeatherSketch(success: { (weatherSketchModel) in
+        print("success get weather summary model: \(weatherSketchModel)");
+    }) { (e) in
+        print("failure with error: \(e)")
+    };
+
+```
+
+
+####   获取家庭天气详细参数
+
+**接口说明**
+获取家庭天气详细参数,如温度、湿度、紫外线指数、空气质量等。
+
+optionModel 可以为nil。若为nil，返回的参数会上一次请求成功的参数设置，若只改变一种单位设置进行请求，另外两种也依然会保留上一次请求成功的参数设置。
+由于天气服务在不同地区的使用的服务不同，不同地区返回的参数有可能不同。
+特别的，如果当前家庭账号位置在中国，那么不会返回风速和气压信息。
+
+```
+- (void)getHomeWeatherDetailWithOption:(TuyaSmartWeatherOptionModel *)optionModel
+                               success:(void(^)(NSArray<TuyaSmartWeatherModel *> *))success
+                               failure:(TYFailureError)failure;
+```
+
+**参数说明**
+| 参数            | 说明                   |
+| --------------- | ---------------------- |
+| optionModel         | 天气详情参数单位配置              |
+| success         | 成功回调               |
+| failure         | 失败回调               |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+- (void)getHomeWeatherDetail {
+    [self.home getHomeWeatherDetailWithOption:optionModel 
+                                      success:^(NSArray<TuyaSmartWeatherModel *> *weatherModels) {
+          NSLog(@"success get weather model: %@",weatherModels);
+                                    } failure:^(NSError *error) {
+          NSLog(@"failure with error: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getHomeWeatherDetail() {
+let optionModel = TuyaSmartWeatherOptionModel()
+// do some optionModel config
+home.getWeatherDetail(withOption: optionModel, success: { (weatherSketchModel) in
+    print("success get weather summary model: \(weatherSketchModel)");
+}) { (error) in
+    print("failure with error: \(error)")
+}
+```
