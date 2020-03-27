@@ -16,6 +16,8 @@
 
 + (void)tysdk_eventWithType:(NSString *)type attribute:(NSDictionary *)attribute;
 
++ (void)tysdk_eventWithType:(NSString *)type attribute:(NSDictionary *)attribute identifier:(NSString *)identifier;
+
 /* 开始一个（时长类）事件
  
  @params type 事件名称

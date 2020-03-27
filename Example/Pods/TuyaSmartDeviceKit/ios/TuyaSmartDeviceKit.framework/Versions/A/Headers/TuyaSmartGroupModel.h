@@ -44,6 +44,9 @@ typedef enum : NSUInteger {
 // dps
 @property (nonatomic, strong) NSDictionary *dps;
 
+// dpCodes
+@property (nonatomic, strong) NSDictionary *dpCodes;
+
 // localKey
 @property (nonatomic, strong) NSString     *localKey;
 
@@ -85,6 +88,9 @@ typedef enum : NSUInteger {
 
 // schema array
 @property (nonatomic, strong) NSArray      *schemaArray;
+
+// is standard dp code
+@property (nonatomic, assign) BOOL         standard;
 
 @end
 

@@ -6,7 +6,17 @@
 //  Copyright © 2017年 Tuya. All rights reserved.
 //
 
-#import "TuyaSmartSceneDPModel.h"
+static NSString * const ACTION_EXECUTOR_APP_PUSH = @"appPushTrigger";       //推送消息动作; push message action;
+static NSString * const ACTION_EXECUTOR_APP_CALL = @"mobileVoiceSend";      //电话提醒动作; call action;
+static NSString * const ACTION_EXECUTOR_SMS_SEND = @"smsSend";              //发送短信动作; sms action
+static NSString * const ACTION_EXECUTOR_DP_ISSUE = @"dpIssue";              //设备dp动作; device dp action;
+static NSString * const ACTION_EXECUTOR_GROUP_DP_ISSUE = @"deviceGroupDpIssue"; //群组dp动作; devie group dp action;
+static NSString * const ACTION_EXECUTOR_IR_ISSUE = @"irIssue";              //红外设备dp动作(无需主动处理，使用dpIssue)； ir device dp action;
+static NSString * const ACTION_EXECUTOR_IR_ISSUE_VII = @"irIssueVii";       //带红外码的红外动作类型; ir device dp action(2rd version)
+static NSString * const ACTION_EXECUTOR_RULE_ENABLE = @"ruleEnable";        //自动化场景开启动作； enable a automation;
+static NSString * const ACTION_EXECUTOR_RULE_DISABLE = @"ruleDisable";      //自动化场景关闭动作;  diable a automation;
+static NSString * const ACTION_EXECUTOR_RULE_TRIGGER = @"ruleTrigger";      //执行一个场景;   execute a scene;
+static NSString * const ACTION_EXECUTOR_DELAY = @"delay";                   //延时动作; delay action;
 
 typedef NS_ENUM(NSInteger, TYSceneActionStatus)
 {

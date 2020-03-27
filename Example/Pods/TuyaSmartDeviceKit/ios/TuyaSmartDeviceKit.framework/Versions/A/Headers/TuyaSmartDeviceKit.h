@@ -30,6 +30,7 @@
 
 #import "TuyaSmartDevice.h"
 #import "TuyaSmartGroup.h"
+#import "TuyaSmartGroup+DpCode.h"
 #import "TuyaSmartHome.h"
 #import "TuyaSmartHomeManager.h"
 #import "TuyaSmartHomeMember.h"

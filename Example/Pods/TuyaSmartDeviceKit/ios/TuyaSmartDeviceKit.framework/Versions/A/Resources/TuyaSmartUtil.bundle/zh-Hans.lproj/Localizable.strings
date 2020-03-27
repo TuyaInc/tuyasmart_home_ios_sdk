@@ -1,8 +1,0 @@
-"system_error" = "系统异常，操作失败";
-"server_error" = "服务端请求失败，错误代码 %d";
-"network_error" = "网络连接错误，请检查网络状态";
-"timeout" = "超时";
-"api_response_error" = "接口返回数据有误";
-"dp_data_illegal" = "dp点数据类型错误";
-"group_no_device" = "该群组中无设备";
-"device_not_support" = "不支持该设备";

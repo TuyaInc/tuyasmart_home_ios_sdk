@@ -29,6 +29,9 @@
 #import "TYSDKNotification.h"
 #import "TYSDKLogUtils.h"
 #import "TYSDKFile.h"
+#if TARGET_OS_IOS
+#import "TuyaSmartReachability.h"
+#endif
 
 #define TYSDK_SINGLETON \
 + (instancetype)sharedInstance;

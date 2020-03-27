@@ -47,6 +47,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)groupRemove:(NSString *)groupId;
 
 /**
+ Group dpCodes data update
+ 群组dpCodes 数据更新
+
+ @param group   instance
+ @param dpCodes dpCodes
+ */
+- (void)group:(TuyaSmartGroup *)group dpCodesUpdate:(NSDictionary *)dpCodes;
+
+/**
  zigbee 设备加入到网关的群组响应
  1:超过场景数上限 2:子设备超时 3:设置值超出范围 4:写文件错误 5:其他错误
  Group Response of Zigbee Devices Joining Gateway

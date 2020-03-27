@@ -311,7 +311,7 @@
 "home_personal_center" = "Profile";
 "immediate_updates" = "Upgrade now";
 "input_new_user_phone_number" = "Enter new member's phone number";
-"input_password" = "Password";
+"input_password" = "Password: ";
 "input_telephone_number" = "Phone Number";
 "input_user_name" = "Name";
 "input_verification_code" = "Verification Code";
@@ -708,5 +708,21 @@
 "scene_condition_type" = "Please select the type of the condition";
 "scene_condition_type_and" = "When all conditions are met";
 "scene_condition_type_or" = "When any condition is satisfied";
-
+"Activate" = "Activate";
+"Device" = "Home";
+"Account" = "Account: ";
+"Phone number/Email" = "Phone Number/Email";
+"Country code" = "Country Code: ";
+"Verify code" = "Verify Code: ";
+"Send code" = "Send Code";
+"Login with password" = "Login with Password";
+"Add home" = "Add Home";
+"Add Test Device" = "Add Test Device";
+"All Homes" = "All Homes";
+"Add Device" = "Add Device";
+"Add device in EZ mode" = "Add device in EZ mode";
+"Add device in AP mode" = "Add device in AP mode";
+"Add ZigBee gateway" = "Add ZigBee gateway";
+"Add ZigBee subdevice" = "Add ZigBee subdevice";
+"Add SIG Mesh device" = "Add SIG Mesh device";
 

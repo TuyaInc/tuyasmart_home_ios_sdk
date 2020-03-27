@@ -93,8 +93,8 @@
     if (!_loginNavigationController) {
         TYLoginViewController *loginViewController = [TYLoginViewController new];
         
-        [loginViewController setTitle:@"Login"];
-        loginViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Login"
+        [loginViewController setTitle:NSLocalizedString(@"login", @"")];
+        loginViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"login", @"")
                                                                      image:[UIImage imageNamed:@"ty_mainbt_about"]
                                                              selectedImage:[UIImage imageNamed:@"ty_mainbt_about_active"]];
         _loginNavigationController = [[TPNavigationController alloc] initWithRootViewController:loginViewController];
@@ -105,8 +105,8 @@
 - (TYDeviceListViewController *)deviceViewController {
     if (!_deviceViewController) {
         _deviceViewController = [TYDeviceListViewController new];
-        [_deviceViewController setTitle:@"Device"];
-        _deviceViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Device"
+        [_deviceViewController setTitle:NSLocalizedString(@"Device", @"")];
+        _deviceViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Device", @"")
                                                                          image:[UIImage imageNamed:@"ty_mainbt_devicelist"]
                                                                  selectedImage:[UIImage imageNamed:@"ty_mainbt_devicelist_active"]];
     }
@@ -116,8 +116,8 @@
 - (UIViewController *)addDeviceViewController {
     if (!_addDeviceViewController) {
         _addDeviceViewController = [TYAddDeviceMenuViewController new];
-        [_addDeviceViewController setTitle:@"Activate"];
-        _addDeviceViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Activate"
+        [_addDeviceViewController setTitle:NSLocalizedString(@"Activate", @"")];
+        _addDeviceViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Activate", @"")
                                                                             image:[UIImage imageNamed:@"ty_mainbt_add"]
                                                                     selectedImage:[UIImage imageNamed:@"ty_mainbt_add_active"]];
     }
@@ -127,7 +127,7 @@
 - (TYSmartSceneViewController *)sceneViewController {
     if (!_sceneViewController) {
         _sceneViewController = [[TYSmartSceneViewController alloc] init];
-        _sceneViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Scene"
+        _sceneViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"ty_smart_scene", @"")
                                                                         image:[UIImage imageNamed:@"ty_scene_gray"]
                                                                 selectedImage:[UIImage imageNamed:@"ty_scene_active"]];
     }

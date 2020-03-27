@@ -312,7 +312,7 @@
 "home_personal_center" = "个人中心";
 "immediate_updates" = "立即更新";
 "input_new_user_phone_number" = "输入新成员手机号码";
-"input_password" = "密码";
+"input_password" = "密码: ";
 "input_telephone_number" = "手机号码";
 "input_user_name" = "输入新成员名称";
 "input_verification_code" = "验证码";
@@ -342,7 +342,6 @@
 "my_shares_can_load_more" = "没有更多了";
 "my_smart_home" = "我的设备";
 "nerver" = "永不";
-"network_error" = "网络错误，请重试";
 "network_error_tip" = "网络连接异常，请重试";
 "network_is_error" = "网络连接不可用";
 "network_seting_failure" = "网络配置失败";
@@ -710,3 +709,20 @@
 "scene_condition_type" = "请选择条件的类型";
 "scene_condition_type_and" = "当满足所有条件时";
 "scene_condition_type_or" = "当满足任一条件时";
+"Activate" = "配网";
+"Device" = "我的家";
+"Account" = "账号: ";
+"Phone number/Email" = "手机号或邮箱";
+"Country code" = "国家码: ";
+"Verify code" = "验证码: ";
+"Send code" = "发送验证码";
+"Login with password" = "通过密码登录";
+"Add home" = "新增家庭";
+"Add Test Device" = "添加测试设备";
+"All Homes" = "所有家庭";
+"Add Device" = "设备激活";
+"Add device in EZ mode" = "EZ 模式";
+"Add device in AP mode" = "AP 模式";
+"Add ZigBee gateway" = "有线网关激活";
+"Add ZigBee subdevice" = "子设备激活";
+"Add SIG Mesh device" = "SIG Mesh 设备激活";

@@ -40,7 +40,6 @@
     [self initView];
     [self initData];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadDataFromCloud) name:kNotificationLogin object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchHome) name:kNotificationSwitchHome object:nil];
 }
 
@@ -51,7 +50,7 @@
     self.topBarView.leftItem = [TPBarButtonItem titleItem:NSLocalizedString(@"ty_smart_switch_home", @"") target:self action:@selector(leftButtonTap)];
     self.topBarView.centerItem = self.centerTitleItem;
     [self.view addSubview:self.topBarView];
-    self.rightTitleItem.title = @"Add home";
+    self.rightTitleItem.title = NSLocalizedString(@"Add home", @"");
     self.topBarView.rightItem = self.rightTitleItem;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_SCREEN_WIDTH, APP_CONTENT_HEIGHT) style:UITableViewStylePlain];
@@ -71,7 +70,7 @@
     _emptyButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
     _emptyButton.backgroundColor = [UIColor orangeColor];
     _emptyButton.layer.cornerRadius = 5;
-    [_emptyButton setTitle:@"Add Test Device" forState:UIControlStateNormal];
+    [_emptyButton setTitle:NSLocalizedString(@"Add Test Device", @"") forState:UIControlStateNormal];
     [_emptyButton addTarget:self action:@selector(getTestDevice) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_emptyButton];
 }
@@ -106,7 +105,7 @@
 
 - (void)showHomeList:(NSArray <TuyaSmartHomeModel *> *)homes {
     
-    UIAlertController *homeListAC = [UIAlertController alertControllerWithTitle:@"all homes" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *homeListAC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"All Homes", @"") message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     for (TuyaSmartHomeModel *homeModel in homes) {
         NSString *homeName = homeModel.name;
         if (homeModel.homeId == [TYSmartHomeManager sharedInstance].currentHomeModel.homeId) {
@@ -120,7 +119,7 @@
         [homeListAC addAction:action];
     }
     
-    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:@"cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", @"") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
     [homeListAC addAction:actionCancel];
     
     [self presentViewController:homeListAC animated:YES completion:nil];

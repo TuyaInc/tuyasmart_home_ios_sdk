@@ -1,8 +1,0 @@
-"system_error" = "System error, operation failed";
-"server_error" = "Server error，code %d";
-"network_error" = "Network connection error, please check the network";
-"timeout" = "Timeout";
-"api_response_error" = "Api response error";
-"dp_data_illegal" = "dps data type error";
-"group_no_device" = "No devices in the group";
-"device_not_support" = "Device not support";

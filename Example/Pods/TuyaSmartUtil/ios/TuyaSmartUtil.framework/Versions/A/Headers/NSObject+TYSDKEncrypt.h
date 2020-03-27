@@ -26,6 +26,9 @@
 - (NSString *)tysdk_hexRSAEncryptWithPublicKey:(NSString *)publicKey;
 
 - (NSString *)tysdk_hexRSANoPaddingEncryptWithPublicKey:(NSString *)publicKey;
+
+- (NSString *)tysdk_hmacSHA256StringWithKey:(NSString *)key;
+
 @end
 
 
@@ -42,4 +45,7 @@
 - (NSData *)tysdk_aes256EncryptWithKeyData:(NSData *)keyData;
 
 - (NSData *)tysdk_aes256DecryptWithKeyData:(NSData *)keyData;
+
+- (NSData *)tysdk_hmacSHA256DataWithKey:(NSString *)key;
+
 @end

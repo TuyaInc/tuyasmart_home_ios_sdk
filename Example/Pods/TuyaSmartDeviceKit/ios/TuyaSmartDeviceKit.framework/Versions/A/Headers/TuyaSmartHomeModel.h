@@ -33,10 +33,10 @@
 @property (nonatomic, assign) NSInteger displayOrder;
 
 // admin or not
-@property (nonatomic, assign) BOOL admin;
+@property (nonatomic, assign) BOOL admin __deprecated_msg("This property is deprecated, Use role property");
 
-// admin or not
-//@property (nonatomic, assign) TYHomeRoleType role;
+// role type
+@property (nonatomic, assign) TYHomeRoleType role;
 
 // state of deal
 @property (nonatomic, assign) TYHomeStatus dealStatus;

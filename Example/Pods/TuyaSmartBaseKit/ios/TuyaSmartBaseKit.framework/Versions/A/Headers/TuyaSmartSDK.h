@@ -107,6 +107,14 @@ typedef NS_ENUM(NSInteger, TYEnv) {
 @property (nonatomic, strong) NSData *deviceToken;
 
 /**
+ *  Set push device token and error info
+ *  设置推送token以及错误信息
+ *  @param token    deviceToken
+ *  @param error    error info
+ */
+- (void)setDeviceToken:(nullable NSData *)token withError:(nullable NSError *)error;
+
+/**
  *  Get notification push status
  *  获取 APP 消息推送的开启状态
  *
@@ -183,6 +191,25 @@ typedef NS_ENUM(NSInteger, TYEnv) {
  *  @param failure     Failure block
  */
 - (void)setNoticePushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure;
+
+/**
+ *  Get market message push status
+ *  获取 APP 营销类消息的开启状态
+ *
+ *  @param success     Success block
+ *  @param failure     Failure block
+ */
+- (void)getMarketingPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure;
+
+/**
+ *  Set market message push status
+ *  开启或者关闭 APP 营销类消息推送
+ *
+ *  @param enable      open or close
+ *  @param success     Success block
+ *  @param failure     Failure block
+ */
+- (void)setMarketingPushStatusWithStauts:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure;
 
 @end
 

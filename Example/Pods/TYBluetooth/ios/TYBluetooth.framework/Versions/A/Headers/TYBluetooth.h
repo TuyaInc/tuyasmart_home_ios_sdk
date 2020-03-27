@@ -21,5 +21,6 @@
 #import "NSNumber+Characteristic.h"
 #import "TYBLEConfig.h"
 #import "TYBLEAgentHub.h"
+#import "TYSmartBLEAPMService.h"
 
 #endif /* TYBluetooth_h */

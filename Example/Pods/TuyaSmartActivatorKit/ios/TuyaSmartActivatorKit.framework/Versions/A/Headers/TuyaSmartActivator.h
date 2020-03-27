@@ -63,6 +63,8 @@ typedef enum : NSUInteger {
  */
 + (instancetype)sharedInstance;
 
+#pragma mark - ssid
+
 /**
  Get the SSID of the current Wi-Fi
  获取当前 Wi-Fi 的 SSID
@@ -95,6 +97,31 @@ typedef enum : NSUInteger {
  */
 + (NSString *)currentWifiBSSID;
 
+/**
+ Get the SSID of the current Wi-Fi asynchronous
+ 异步获取当前 Wi-Fi 的 SSID
+ 
+ @discussion See +[TuyaSmartActivator currentWifiSSID];
+ 
+ @param success Success block
+ @param failure Failure block
+ */
++ (void)getSSID:(TYSuccessString)success
+        failure:(TYFailureError)failure;
+
+/**
+ Get the BSSID of the current Wi-Fi asynchronous
+ 异步获取当前 Wi-Fi 的 BSSID
+
+ @discussion See +[TuyaSmartActivator currentWifiBSSID];
+
+ @param success Success block
+ @param failure Failure block
+*/
++ (void)getBSSID:(TYSuccessString)success
+         failure:(TYFailureError)failure;
+
+#pragma mark -
 
 @property (nonatomic, weak) id<TuyaSmartActivatorDelegate> delegate;
 

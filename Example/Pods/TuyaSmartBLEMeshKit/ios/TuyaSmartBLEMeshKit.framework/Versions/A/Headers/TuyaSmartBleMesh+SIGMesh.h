@@ -38,6 +38,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+蓝牙设备入网 后绑定 productKey + mac = pid，可兼容配网第三方设备
+
+@param uuid        蓝牙子设备短地址标识
+@param devKey      设备 key
+@param nodeId      mesh节点id（短地址）
+@param productKey  产品 Key
+@param ver         版本号
+@param mac         设备 mac
+@param companyId         SIG Mesh设备对应的公司ID
+@param venderId           第三方设备需要传入，目前支持灯组与开关，如果存在lightless操作，默认传入 “01” ，没有则传入 “02”
+@param success     操作成功回调
+@param failure     操作失败回调
+*/
+- (void)addSIGMeshSubDeviceWithUuid:(NSString *)uuid
+                             devKey:(NSString *)devKey
+                             nodeId:(NSString *)nodeId
+                         productKey:(NSString *)productKey
+                                ver:(NSString *)ver
+                                mac:(NSString *)mac
+                          companyId:(nonnull NSString *)companyId
+                           venderId:(nonnull NSString *)venderId
+                            success:(void (^)(NSString *devId, NSString *name))success
+                            failure:(TYFailureError)failure;
+
+
+/**
  蓝牙设备入网 前绑定 pid
  
  @param uuid        蓝牙子设备短地址标识
@@ -55,6 +81,31 @@ NS_ASSUME_NONNULL_BEGIN
                           productId:(NSString *)productId
                                 ver:(NSString *)ver
                                 mac:(NSString *)mac
+                            success:(void (^)(NSString *devId, NSString *name))success
+                            failure:(TYFailureError)failure;
+
+/**
+蓝牙设备入网 前绑定 pid,可兼容配网第三方设备
+
+@param uuid        蓝牙子设备短地址标识
+@param devKey      设备 key
+@param nodeId      mesh节点id（短地址）
+@param productId   产品 ID
+@param ver         版本号
+@param mac         设备 mac
+@param companyId         SIG Mesh设备对应的公司ID
+@param venderId           第三方设备需要传入，目前支持灯组与开关，如果存在lightless操作，默认传入 “01” ，没有则传入 “02”
+@param success     操作成功回调
+@param failure     操作失败回调
+*/
+- (void)addSIGMeshSubDeviceWithUuid:(NSString *)uuid
+                             devKey:(NSString *)devKey
+                             nodeId:(NSString *)nodeId
+                          productId:(NSString *)productId
+                                ver:(NSString *)ver
+                                mac:(NSString *)mac
+                          companyId:(nonnull NSString *)companyId
+                           venderId:(nonnull NSString *)venderId
                             success:(void (^)(NSString *devId, NSString *name))success
                             failure:(TYFailureError)failure;
 

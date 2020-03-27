@@ -1,0 +1,61 @@
+[{
+    "certs": [{
+        "eTime": 1610891119,
+        "sha256": "df4150b4e640b58fd1355a82dd8eafacbce7a5498639aedf69125be9329be806"
+    }, {
+        "eTime": 1935558000,
+        "sha256": "973a41276ffd01e027a2aad49e34c37846d3e976ff6a620b6712e33832041aa6"
+    }, {
+        "eTime": 1937890800,
+        "sha256": "3a2fbe92891e57fe05d57087f48e730f17e5a5f53ef403d618e5b74d7a7e6ecb"
+    }, {
+        "eTime": 2035213580,
+        "sha256": "c3846bf24b9e93ca64274c0ec67c1ecc5e024ffcacd2d74019350e81fe546ae4"
+    }],
+    "domain": "a1.tuyain.com"
+}, {
+    "certs": [{
+        "eTime": 1603596384,
+        "sha256": "c475cbbae592107e2013572420a4b2471a73171b9525c4cd49795cfb562b35bc"
+    }, {
+        "eTime": 1935558000,
+        "sha256": "973a41276ffd01e027a2aad49e34c37846d3e976ff6a620b6712e33832041aa6"
+    }, {
+        "eTime": 1937890800,
+        "sha256": "3a2fbe92891e57fe05d57087f48e730f17e5a5f53ef403d618e5b74d7a7e6ecb"
+    }, {
+        "eTime": 2035213580,
+        "sha256": "c3846bf24b9e93ca64274c0ec67c1ecc5e024ffcacd2d74019350e81fe546ae4"
+    }],
+    "domain": "a1.tuyaeu.com"
+}, {
+    "certs": [{
+        "eTime": 1602142278,
+        "sha256": "fd2910b0f61f3932b572a16ba15927cb768f4728d7c4d54d70838a11e51c87ae"
+    }, {
+        "eTime": 1935558000,
+        "sha256": "973a41276ffd01e027a2aad49e34c37846d3e976ff6a620b6712e33832041aa6"
+    }, {
+        "eTime": 1937890800,
+        "sha256": "3a2fbe92891e57fe05d57087f48e730f17e5a5f53ef403d618e5b74d7a7e6ecb"
+    }, {
+        "eTime": 2035213580,
+        "sha256": "c3846bf24b9e93ca64274c0ec67c1ecc5e024ffcacd2d74019350e81fe546ae4"
+    }],
+    "domain": "a1.tuyacn.com"
+}, {
+    "certs": [{
+        "eTime": 1603596381,
+        "sha256": "630d04df55f9f18ff621453036657ba5aaf2f425ffb790cd866cf0d7ee9c9307"
+    }, {
+        "eTime": 1935558000,
+        "sha256": "973a41276ffd01e027a2aad49e34c37846d3e976ff6a620b6712e33832041aa6"
+    }, {
+        "eTime": 1937890800,
+        "sha256": "3a2fbe92891e57fe05d57087f48e730f17e5a5f53ef403d618e5b74d7a7e6ecb"
+    }, {
+        "eTime": 2035213580,
+        "sha256": "c3846bf24b9e93ca64274c0ec67c1ecc5e024ffcacd2d74019350e81fe546ae4"
+    }],
+    "domain": "a1.tuyaus.com"
+}]

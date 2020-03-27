@@ -45,6 +45,27 @@
  *  @param time         定时任务下的定时钟
  *  @param dps          命令字典
  *  @param timeZone     设备的时区 +08:00，如果没有取手机时区
+ *  @param success     Success block
+ *  @param failure     Failure block
+ */
+- (void)addTimerWithTask:(NSString *)task
+                   loops:(NSString *)loops
+                   devId:(NSString *)devId
+                    time:(NSString *)time
+                     dps:(NSDictionary *)dps
+                timeZone:(NSString *)timeZone
+                 success:(TYSuccessHandler)success
+                 failure:(TYFailureError)failure;
+
+/**
+ *  增加定时任务
+ *
+ *  @param task         定时任务名称
+ *  @param loops        循环次数
+ *  @param devId        设备Id
+ *  @param time         定时任务下的定时钟
+ *  @param dps          命令字典
+ *  @param timeZone     设备的时区 +08:00，如果没有取手机时区
  *  @param isAppPush    是否开启推送
  *  @param aliasName    备注
  *  @param success     Success block
@@ -119,6 +140,28 @@
                     success:(TYSuccessHandler)success
                     failure:(TYFailureError)failure;
 
+/**
+ *  更新定时钟
+ *
+ *  @param task         定时任务名称
+ *  @param loops        循环次数
+ *  @param devId   ·     设备Id
+ *  @param timerId      定时钟Id
+ *  @param time         定时任务下的定时钟
+ *  @param dps          命令字典
+ *  @param timeZone     时区 +08:00
+ *  @param success     Success block
+ *  @param failure     Failure block
+ */
+- (void)updateTimerWithTask:(NSString *)task
+                      loops:(NSString *)loops
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                       time:(NSString *)time
+                        dps:(NSDictionary *)dps
+                   timeZone:(NSString *)timeZone
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
 /**
  *  更新定时钟
  *

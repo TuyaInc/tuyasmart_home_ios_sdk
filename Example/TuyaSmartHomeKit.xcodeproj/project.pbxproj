@@ -7,20 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		182C1368237D4F2800AECD7E /* TYTimerDPSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C134B237D4F2800AECD7E /* TYTimerDPSelectionViewController.m */; };
-		182C1369237D4F2800AECD7E /* TYTimerDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C134D237D4F2800AECD7E /* TYTimerDetailViewController.m */; };
-		182C136A237D4F2800AECD7E /* TYTimerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C134E237D4F2800AECD7E /* TYTimerListViewController.m */; };
-		182C136B237D4F2800AECD7E /* TPDeviceTimerPeriodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1351237D4F2800AECD7E /* TPDeviceTimerPeriodViewController.m */; };
-		182C136C237D4F2800AECD7E /* NSTimeZone+TYTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1353237D4F2800AECD7E /* NSTimeZone+TYTimer.m */; };
-		182C136D237D4F2800AECD7E /* TYDeviceProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1357237D4F2800AECD7E /* TYDeviceProperty.m */; };
-		182C136E237D4F2800AECD7E /* TYTimerViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1358237D4F2800AECD7E /* TYTimerViewModel.m */; };
-		182C136F237D4F2800AECD7E /* TYTimerCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C135E237D4F2800AECD7E /* TYTimerCommonTableViewCell.m */; };
-		182C1370237D4F2800AECD7E /* TPDeviceTimerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C135F237D4F2800AECD7E /* TPDeviceTimerListCell.m */; };
-		182C1371237D4F2800AECD7E /* TPRepeatWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1361237D4F2800AECD7E /* TPRepeatWeekView.m */; };
-		182C1372237D4F2800AECD7E /* TYTimerDatePickerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1362237D4F2800AECD7E /* TYTimerDatePickerTableViewCell.m */; };
-		182C1373237D4F2800AECD7E /* TYTimerSwitchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1363237D4F2800AECD7E /* TYTimerSwitchTableViewCell.m */; };
-		182C1374237D4F2800AECD7E /* TPDeviceTimerPeriodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1364237D4F2800AECD7E /* TPDeviceTimerPeriodView.m */; };
-		182C1375237D4F2800AECD7E /* RepeatWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1366237D4F2800AECD7E /* RepeatWeekView.m */; };
 		182C137A237D4F9400AECD7E /* UIColor+TYHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1376237D4F9300AECD7E /* UIColor+TYHex.m */; };
 		182C137B237D4F9400AECD7E /* UILabel+TYFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C1379237D4F9400AECD7E /* UILabel+TYFactory.m */; };
 		182C137E237D4FCA00AECD7E /* NSString+TYBounding.m in Sources */ = {isa = PBXBuildFile; fileRef = 182C137C237D4FCA00AECD7E /* NSString+TYBounding.m */; };
@@ -185,34 +171,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		182C134A237D4F2800AECD7E /* TYTimerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimerListViewController.h; sourceTree = "<group>"; };
-		182C134B237D4F2800AECD7E /* TYTimerDPSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimerDPSelectionViewController.m; sourceTree = "<group>"; };
-		182C134C237D4F2800AECD7E /* TPDeviceTimerPeriodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDeviceTimerPeriodViewController.h; sourceTree = "<group>"; };
-		182C134D237D4F2800AECD7E /* TYTimerDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimerDetailViewController.m; sourceTree = "<group>"; };
-		182C134E237D4F2800AECD7E /* TYTimerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimerListViewController.m; sourceTree = "<group>"; };
-		182C134F237D4F2800AECD7E /* TYTimerDPSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimerDPSelectionViewController.h; sourceTree = "<group>"; };
-		182C1350237D4F2800AECD7E /* TYTimerDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimerDetailViewController.h; sourceTree = "<group>"; };
-		182C1351237D4F2800AECD7E /* TPDeviceTimerPeriodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDeviceTimerPeriodViewController.m; sourceTree = "<group>"; };
-		182C1353237D4F2800AECD7E /* NSTimeZone+TYTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimeZone+TYTimer.m"; sourceTree = "<group>"; };
-		182C1354237D4F2800AECD7E /* TYTimerViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimerViewModel.h; sourceTree = "<group>"; };
-		182C1355237D4F2800AECD7E /* TYDeviceProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYDeviceProperty.h; sourceTree = "<group>"; };
-		182C1356237D4F2800AECD7E /* NSTimeZone+TYTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimeZone+TYTimer.h"; sourceTree = "<group>"; };
-		182C1357237D4F2800AECD7E /* TYDeviceProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYDeviceProperty.m; sourceTree = "<group>"; };
-		182C1358237D4F2800AECD7E /* TYTimerViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimerViewModel.m; sourceTree = "<group>"; };
-		182C135A237D4F2800AECD7E /* TYTimerSwitchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimerSwitchTableViewCell.h; sourceTree = "<group>"; };
-		182C135B237D4F2800AECD7E /* TYTimerDatePickerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimerDatePickerTableViewCell.h; sourceTree = "<group>"; };
-		182C135C237D4F2800AECD7E /* TPRepeatWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPRepeatWeekView.h; sourceTree = "<group>"; };
-		182C135D237D4F2800AECD7E /* TPDeviceTimerPeriodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDeviceTimerPeriodView.h; sourceTree = "<group>"; };
-		182C135E237D4F2800AECD7E /* TYTimerCommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimerCommonTableViewCell.m; sourceTree = "<group>"; };
-		182C135F237D4F2800AECD7E /* TPDeviceTimerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDeviceTimerListCell.m; sourceTree = "<group>"; };
-		182C1360237D4F2800AECD7E /* RepeatWeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepeatWeekView.h; sourceTree = "<group>"; };
-		182C1361237D4F2800AECD7E /* TPRepeatWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPRepeatWeekView.m; sourceTree = "<group>"; };
-		182C1362237D4F2800AECD7E /* TYTimerDatePickerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimerDatePickerTableViewCell.m; sourceTree = "<group>"; };
-		182C1363237D4F2800AECD7E /* TYTimerSwitchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TYTimerSwitchTableViewCell.m; sourceTree = "<group>"; };
-		182C1364237D4F2800AECD7E /* TPDeviceTimerPeriodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDeviceTimerPeriodView.m; sourceTree = "<group>"; };
-		182C1365237D4F2800AECD7E /* TYTimerCommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYTimerCommonTableViewCell.h; sourceTree = "<group>"; };
-		182C1366237D4F2800AECD7E /* RepeatWeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepeatWeekView.m; sourceTree = "<group>"; };
-		182C1367237D4F2800AECD7E /* TPDeviceTimerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDeviceTimerListCell.h; sourceTree = "<group>"; };
 		182C1376237D4F9300AECD7E /* UIColor+TYHex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TYHex.m"; sourceTree = "<group>"; };
 		182C1377237D4F9400AECD7E /* UILabel+TYFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TYFactory.h"; sourceTree = "<group>"; };
 		182C1378237D4F9400AECD7E /* UIColor+TYHex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TYHex.h"; sourceTree = "<group>"; };
@@ -451,65 +409,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		182C1348237D4F2800AECD7E /* Timer */ = {
-			isa = PBXGroup;
-			children = (
-				182C1349237D4F2800AECD7E /* Controller */,
-				182C1352237D4F2800AECD7E /* Model */,
-				182C1359237D4F2800AECD7E /* View */,
-			);
-			path = Timer;
-			sourceTree = "<group>";
-		};
-		182C1349237D4F2800AECD7E /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				182C134A237D4F2800AECD7E /* TYTimerListViewController.h */,
-				182C134B237D4F2800AECD7E /* TYTimerDPSelectionViewController.m */,
-				182C134C237D4F2800AECD7E /* TPDeviceTimerPeriodViewController.h */,
-				182C134D237D4F2800AECD7E /* TYTimerDetailViewController.m */,
-				182C134E237D4F2800AECD7E /* TYTimerListViewController.m */,
-				182C134F237D4F2800AECD7E /* TYTimerDPSelectionViewController.h */,
-				182C1350237D4F2800AECD7E /* TYTimerDetailViewController.h */,
-				182C1351237D4F2800AECD7E /* TPDeviceTimerPeriodViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		182C1352237D4F2800AECD7E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				182C1353237D4F2800AECD7E /* NSTimeZone+TYTimer.m */,
-				182C1354237D4F2800AECD7E /* TYTimerViewModel.h */,
-				182C1355237D4F2800AECD7E /* TYDeviceProperty.h */,
-				182C1356237D4F2800AECD7E /* NSTimeZone+TYTimer.h */,
-				182C1357237D4F2800AECD7E /* TYDeviceProperty.m */,
-				182C1358237D4F2800AECD7E /* TYTimerViewModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		182C1359237D4F2800AECD7E /* View */ = {
-			isa = PBXGroup;
-			children = (
-				182C135A237D4F2800AECD7E /* TYTimerSwitchTableViewCell.h */,
-				182C135B237D4F2800AECD7E /* TYTimerDatePickerTableViewCell.h */,
-				182C135C237D4F2800AECD7E /* TPRepeatWeekView.h */,
-				182C135D237D4F2800AECD7E /* TPDeviceTimerPeriodView.h */,
-				182C135E237D4F2800AECD7E /* TYTimerCommonTableViewCell.m */,
-				182C135F237D4F2800AECD7E /* TPDeviceTimerListCell.m */,
-				182C1360237D4F2800AECD7E /* RepeatWeekView.h */,
-				182C1361237D4F2800AECD7E /* TPRepeatWeekView.m */,
-				182C1362237D4F2800AECD7E /* TYTimerDatePickerTableViewCell.m */,
-				182C1363237D4F2800AECD7E /* TYTimerSwitchTableViewCell.m */,
-				182C1364237D4F2800AECD7E /* TPDeviceTimerPeriodView.m */,
-				182C1365237D4F2800AECD7E /* TYTimerCommonTableViewCell.h */,
-				182C1366237D4F2800AECD7E /* RepeatWeekView.m */,
-				182C1367237D4F2800AECD7E /* TPDeviceTimerListCell.h */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		3407522CBD210F97D5DC35DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,12 +467,11 @@
 				6003F59C195388D20070C39A /* TYAppDelegate.h */,
 				6003F59D195388D20070C39A /* TYAppDelegate.m */,
 				3F416F6E22B0FE070086F3E2 /* t_s.bmp */,
-				6BA0E4C52211A08F00307E67 /* Scene */,
 				65FC209320C8D2FE00918C6D /* Base */,
 				6BA51893219049D70036DCC2 /* User */,
 				6BFE78D12193134F00D39C19 /* DeviceList */,
 				6BFE78D02192EC5300D39C19 /* AddDevice */,
-				182C1348237D4F2800AECD7E /* Timer */,
+				6BA0E4C52211A08F00307E67 /* Scene */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -923,6 +821,7 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				3FDE1FC222A8C09E0085086B /* Embed App Extensions */,
+				E032644C38594CBA563178B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1111,6 +1010,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E032644C38594CBA563178B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example-resources.sh",
+				"${PODS_ROOT}/TuyaSmartUtil/ios/TuyaSmartUtil.framework/Versions/A/Resources/TuyaSmartUtil.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TuyaSmartUtil.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E1E83E6618A5FC67663274C2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1141,37 +1058,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BA0E4F32211A08F00307E67 /* TYActionTableViewCell.m in Sources */,
-				182C136F237D4F2800AECD7E /* TYTimerCommonTableViewCell.m in Sources */,
 				6B8DEE2021B10EDB004C9C78 /* TYLoginAndRegisterView.m in Sources */,
-				182C1369237D4F2800AECD7E /* TYTimerDetailViewController.m in Sources */,
 				65FC224A20C8D31900918C6D /* TYTheme.m in Sources */,
 				65B6ED8321A9257500EEE134 /* TPCellViewItem.m in Sources */,
 				65B6ED9521A9257500EEE134 /* TPCellView.m in Sources */,
 				65FC211C20C8D2FE00918C6D /* TYPanelBoolViewCell.m in Sources */,
 				6BFFC71F219567D400FC35ED /* TYEZAddDeviceViewController.m in Sources */,
-				182C136D237D4F2800AECD7E /* TYDeviceProperty.m in Sources */,
 				6003F59E195388D20070C39A /* TYAppDelegate.m in Sources */,
 				6BA0E4F82211A08F00307E67 /* TYSceneHeaderView.m in Sources */,
 				65FC211B20C8D2FE00918C6D /* TYPanelBaseViewCell.m in Sources */,
-				182C1368237D4F2800AECD7E /* TYTimerDPSelectionViewController.m in Sources */,
 				65FC211420C8D2FE00918C6D /* TYPanelStringViewCell.m in Sources */,
 				6BA51899219171A90036DCC2 /* TYRegisterViewController.m in Sources */,
-				182C1372237D4F2800AECD7E /* TYTimerDatePickerTableViewCell.m in Sources */,
 				65FC211320C8D2FE00918C6D /* TYCommonPanelViewController.m in Sources */,
 				65FC211920C8D2FE00918C6D /* TYPanelEnumViewCell.m in Sources */,
 				65FC211820C8D2FE00918C6D /* TYPanelValueViewCell.m in Sources */,
 				65FC211220C8D2FE00918C6D /* TYPanelBaseViewController.m in Sources */,
 				6B04E1BE21A2DDCD00B605F9 /* TYAddZigBeeViewController.m in Sources */,
-				182C1371237D4F2800AECD7E /* TPRepeatWeekView.m in Sources */,
 				65B6ED7E21A9257500EEE134 /* TPEmptyView.m in Sources */,
 				65FC20F820C8D2FE00918C6D /* TYDeviceListViewCell.m in Sources */,
 				65B6ED7C21A9257500EEE134 /* TPViewUtil.m in Sources */,
-				182C136A237D4F2800AECD7E /* TYTimerListViewController.m in Sources */,
 				6BA0E4F62211A08F00307E67 /* TYSmartSceneTableViewCell.m in Sources */,
 				65FC21A220C8D2FE00918C6D /* TYTabBarViewController.m in Sources */,
-				182C136C237D4F2800AECD7E /* NSTimeZone+TYTimer.m in Sources */,
 				182C137B237D4F9400AECD7E /* UILabel+TYFactory.m in Sources */,
-				182C1373237D4F2800AECD7E /* TYTimerSwitchTableViewCell.m in Sources */,
 				6BA0E4F72211A08F00307E67 /* TYEditSceneTableViewCell.m in Sources */,
 				65B6ED7621A9257500EEE134 /* TPBarButtonItem.m in Sources */,
 				6B8DEE2621B4D49C004C9C78 /* TYAddDeviceUtils.m in Sources */,
@@ -1187,23 +1095,18 @@
 				65B6ED8B21A9257500EEE134 /* TPBaseView.m in Sources */,
 				65B6ED7521A9257500EEE134 /* TPLoadingView.m in Sources */,
 				65B6ED9621A9257500EEE134 /* TPNavigationController.m in Sources */,
-				182C136E237D4F2800AECD7E /* TYTimerViewModel.m in Sources */,
 				182C137A237D4F9400AECD7E /* UIColor+TYHex.m in Sources */,
 				65B6ED8821A9257500EEE134 /* UIView+TPAdditions.m in Sources */,
 				6BA0E4EF2211A08F00307E67 /* TYSmartSceneViewController.m in Sources */,
 				6BA0E4F42211A08F00307E67 /* TYEditActionNoDataTableViewCell.m in Sources */,
-				182C1374237D4F2800AECD7E /* TPDeviceTimerPeriodView.m in Sources */,
 				65B6ED8121A9257500EEE134 /* TPItemView.m in Sources */,
 				6BA0E4F02211A08F00307E67 /* TYAddSceneViewController.m in Sources */,
-				182C1375237D4F2800AECD7E /* RepeatWeekView.m in Sources */,
 				65B6ED8221A9257500EEE134 /* TPTopBarView.m in Sources */,
 				6B24DE20219D4B63000B17F2 /* TYAddDeviceMenuViewController.m in Sources */,
 				6B7AAB9621996A80005F7CA5 /* TYAPAddDeviceViewController.m in Sources */,
 				65CA52FF2155371D00D9F17E /* TPUtils.m in Sources */,
 				657D5A29234C2512005CADCE /* TYAddSIGMeshDeviceViewController.m in Sources */,
 				182C137E237D4FCA00AECD7E /* NSString+TYBounding.m in Sources */,
-				182C1370237D4F2800AECD7E /* TPDeviceTimerListCell.m in Sources */,
-				182C136B237D4F2800AECD7E /* TPDeviceTimerPeriodViewController.m in Sources */,
 				6B04FEA42193DBA700198EF3 /* TYSmartHomeManager.m in Sources */,
 				65B6ED7D21A9257500EEE134 /* TPProgressUtils.m in Sources */,
 				65FC211520C8D2FE00918C6D /* TYPanelDpTitleView.m in Sources */,

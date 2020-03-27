@@ -141,7 +141,7 @@
 }
 
 - (NSString *)titleForCenterItem {
-    return @"Register";
+    return NSLocalizedString(@"login_register", @"");
 }
 
 @end

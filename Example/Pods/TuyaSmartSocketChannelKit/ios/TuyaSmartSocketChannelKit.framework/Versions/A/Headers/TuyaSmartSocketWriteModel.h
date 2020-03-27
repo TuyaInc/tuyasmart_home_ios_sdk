@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TuyaSmartSocketWriteModel : NSObject
+@interface TuyaSmartSocketWriteModel : NSObject <NSCopying>
 
 @property (nonatomic, strong) NSString          *gwId;
 @property (nonatomic, assign) BOOL              encrypt;
@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // data encryption
 - (NSData *)buildRequestData;
+
+- (NSDictionary *)attributes;
 
 @end
 

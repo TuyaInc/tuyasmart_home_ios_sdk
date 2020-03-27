@@ -23,20 +23,14 @@ typedef enum : NSUInteger {
 @interface TuyaSmartSceneDPModel : NSObject
 
 /**
- * 废弃属性
- * deprecated property.
- */
-@property (nonatomic, assign) NSInteger sceneDPId __deprecated;
-
-/**
- * 条件id或设备id
+ * 条件id或设备id。
  * Id of device or condition.
  */
 @property (nonatomic, assign) NSInteger dpId;
 
 /**
- * 条件DP Id或设备DP Id
- * Datapoint Id of device or confition.
+ * 产品ID.代表这个dataPoint所属于的产品的id。设备类型的dp才有这个值。
+ * Produce ID.This property represent the product's id this datapoints belongs to. Only device's datapoints has this value.
  */
 @property (nonatomic, strong) NSString *entityId;
 
@@ -54,16 +48,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) NSInteger entityType;
 
 /**
- * 非设备dp的图标,比如条件的图标。
+ * 非设备dp的图标,比如天气条件的图标。
  * icon url of condition.
  */
 @property (nonatomic, strong) NSString *iconUrl;
 
-/**
- * 设备Id
- * device Id.
- */
-@property (nonatomic, strong) NSString *devId;
 
 /**
  * 条件DP或设备DP取值范围 如：(("dry", "干燥"), ("comfort", "舒适"), ("wet", "潮湿"))
@@ -87,43 +76,19 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) TuyaSmartSchemaModel *dpModel;
 
 /**
- * 城市id
- * city Id
- */
-@property (nonatomic, strong) NSString *cityId;
-
-/**
- * 城市名称
- * city name
- */
-@property (nonatomic, strong) NSString *cityName;
-
-/**
- * 城市经度
- * city's latitude
- */
-@property (nonatomic, assign) CLLocationDegrees cityLatitude;
-
-/**
- * 城市纬度
- * city's longitude
- */
-@property (nonatomic, assign) CLLocationDegrees cityLongitude;
-
-/**
  * 取值关系 如：“["=="]”
  * operators like "["=="]"
  */
 @property (nonatomic, strong) NSString *operators;
 
 /**
- * 条件名称、code、属性等信息
- * condition name, code , propertys.
+ * 条件名称、code、属性等信息，具体内容查看dpModel属性。
+ * condition name, code , propertys.For details check the dpModel property.
  */
 @property (nonatomic, strong) NSDictionary *property;
 
 /**
- * 条件或设备的DP点子id 如：“humidity” 或 “1”
+ * 条件或设备的DP点子id 如：“humidity” 或 “1”。设备使用dpId属性即可。
  * subId of condition or datapoint of device, condition's subId like @"humidity", device data point's subId like "1".
  */
 @property (nonatomic, strong) NSString *entitySubId;
@@ -142,27 +107,74 @@ typedef enum : NSUInteger {
 
 
 
-/**************业务属性，用户可忽略以下字段**************/
+
+#pragma mark - 业务字段，可忽略。Logic properties blow can be ignored.
+/**************辅助业务属性，用户可忽略以下字段**************/
 /*******Properties below are used to store user selected value, you can ignore.********/
 
 /**
- * 选择行,-1表示没选择
- * selected row, -1 means haven't selected.
+ * 选择的step,-1表示没选择，需要手动赋值。value类型的，表示从min向上加了x个step。bool类型的，0表示YES，1表示NO。enum类型表示在enum列表中的位置。
+ * selected row, -1 means haven't selected, setted by you.
  */
 @property (nonatomic, assign) NSInteger selectedRow;
 
 /**
- * 操作选择行,-1表示没选择 如：">"
- * selected operator, -1 means haven't selected.
+ * 操作选择行,-1表示没选择 如：">"，需要手动赋值。选中的操作符在operators中的index。
+ * selected operator, -1 means haven't selected, setted by you.
  */
 @property (nonatomic, assign) NSInteger selectedOperationRow;
 
 /**
- * 条件具体内容 (二维数组)
+ * 条件具体内容 (二维数组)，需要手动赋值。
  * 如：(("$humidity","==","comfort"), (“$dp1”，“==”，“1”), ...)
  *
- * expression, eg:(("$humidity","==","comfort"), (“$dp1”，“==”，“1”), ...)
+ * expression, eg:(("$humidity","==","comfort"), (“$dp1”，“==”，“1”), ...), setted by you.
  */
-@property (nonatomic, strong) NSArray *expr;
+@property (nonatomic, strong) NSArray *expr __deprecated;
+
+/**
+ * 城市id，需要手动赋值。
+ * city Id, setted by you.
+ */
+@property (nonatomic, strong) NSString *cityId __deprecated;
+
+/**
+ * 城市名称，需要手动赋值。
+ * city name, setted by you.
+ */
+@property (nonatomic, strong) NSString *cityName __deprecated;
+
+/**
+ * 城市经度，需要手动赋值。
+ * city's latitude, setted by you.
+ */
+@property (nonatomic, assign) CLLocationDegrees cityLatitude __deprecated;
+
+/**
+ * 城市纬度，需要手动赋值。
+ * city's longitude, setted by you.
+ */
+@property (nonatomic, assign) CLLocationDegrees cityLongitude __deprecated;
+
+/**
+ * 设备Id, 需要手动赋值。
+ * device Id，setted by you.
+ */
+@property (nonatomic, strong) NSString *devId;
+
+/**
+ * 废弃属性，表示表中的id。
+ * deprecated property.
+ */
+@property (nonatomic, assign) NSInteger sceneDPId __deprecated;
+
+/**
+* DP值的展示类型，见枚举列表
+* displayType of this datapoint‘s value.
+*/
+@property (nonatomic, assign) SceneDisplayType displayType;
+
+@property (nonatomic, strong) NSDictionary *percentDp __deprecated;
+
 
 @end

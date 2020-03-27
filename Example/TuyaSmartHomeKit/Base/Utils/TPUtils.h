@@ -24,7 +24,6 @@ return __singleton__; \
 }
 
 
-#define kNotificationLogin              @"kNotificationLogin"
 #define kNotificationSwitchHome         @"kNotificationSwitchHome"
 
 #define WEAKSELF_AT __weak __typeof(&*self)weakSelf_AT = self;

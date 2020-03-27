@@ -53,38 +53,6 @@
     return (self.status == MQTTSessionStatusConnected);
 }
 
-/**
- * @deprecated
- */
- - (BOOL)connectAndWaitToHost:(NSString*)host port:(UInt32)port usingSSL:(BOOL)usingSSL {
-    return [self connectAndWaitToHost:host port:port usingSSL:usingSSL timeout:0];
-}
-
-/**
- * @deprecated
- */
-- (BOOL)connectAndWaitToHost:(NSString*)host port:(UInt32)port usingSSL:(BOOL)usingSSL timeout:(NSTimeInterval)timeout {
-    NSDate *started = [NSDate date];
-    self.synchronConnect = TRUE;
-    
-    [self connectToHost:host port:port usingSSL:usingSSL];
-    
-    [[NSRunLoop currentRunLoop] addPort:[NSMachPort port] forMode:NSRunLoopCommonModes];
-    
-    while (self.synchronConnect && (timeout == 0 || started.timeIntervalSince1970 + timeout > [NSDate date].timeIntervalSince1970)) {
-        DDLogVerbose(@"[MQTTSessionSynchron] waiting for connect");
-        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:.1]];
-    }
-    
-    DDLogVerbose(@"[MQTTSessionSynchron] end connect");
-    
-    return (self.status == MQTTSessionStatusConnected);
-}
-
-- (BOOL)subscribeAndWaitToTopic:(NSString *)topic atLevel:(MQTTQosLevel)qosLevel {
-    return [self subscribeAndWaitToTopic:topic atLevel:qosLevel timeout:0];
-}
-
 - (BOOL)subscribeAndWaitToTopic:(NSString *)topic atLevel:(MQTTQosLevel)qosLevel timeout:(NSTimeInterval)timeout {
     NSDate *started = [NSDate date];
     self.synchronSub = TRUE;
@@ -107,10 +75,6 @@
     }
 }
 
-- (BOOL)subscribeAndWaitToTopics:(NSDictionary<NSString *, NSNumber *> *)topics {
-    return [self subscribeAndWaitToTopics:topics timeout:0];
-}
-
 - (BOOL)subscribeAndWaitToTopics:(NSDictionary<NSString *, NSNumber *> *)topics timeout:(NSTimeInterval)timeout {
     NSDate *started = [NSDate date];
     self.synchronSub = TRUE;
@@ -131,10 +95,6 @@
     } else {
         return TRUE;
     }
-}
-
-- (BOOL)unsubscribeAndWaitTopic:(NSString *)theTopic {
-    return [self unsubscribeAndWaitTopic:theTopic timeout:0];
 }
 
 - (BOOL)unsubscribeAndWaitTopic:(NSString *)theTopic timeout:(NSTimeInterval)timeout {
@@ -160,10 +120,6 @@
     }
 }
 
-- (BOOL)unsubscribeAndWaitTopics:(NSArray<NSString *> *)topics {
-    return [self unsubscribeAndWaitTopics:topics timeout:0];
-}
-
 - (BOOL)unsubscribeAndWaitTopics:(NSArray<NSString *> *)topics timeout:(NSTimeInterval)timeout {
     NSDate *started = [NSDate date];
     self.synchronUnsub = TRUE;
@@ -184,13 +140,6 @@
     } else {
         return TRUE;
     }
-}
-
-- (BOOL)publishAndWaitData:(NSData*)data
-                   onTopic:(NSString*)topic
-                    retain:(BOOL)retainFlag
-                       qos:(MQTTQosLevel)qos {
-    return [self publishAndWaitData:data onTopic:topic retain:retainFlag qos:qos timeout:0];
 }
 
 - (BOOL)publishAndWaitData:(NSData*)data
@@ -226,14 +175,10 @@
     }
 }
 
-- (void)closeAndWait {
-    [self closeAndWait:0];
-}
-
 - (void)closeAndWait:(NSTimeInterval)timeout {
     NSDate *started = [NSDate date];
     self.synchronDisconnect = TRUE;
-    [self close];
+    [self closeWithDisconnectHandler:nil];
     
     [[NSRunLoop currentRunLoop] addPort:[NSMachPort port] forMode:NSRunLoopCommonModes];
     

@@ -9,7 +9,7 @@
 #define TuyaSmartBaseKit_h
 
 #define TUYA_HOMEKIT_SDK
-#define TUYA_SDK_VERSION @"3.12.6"
+#define TUYA_SDK_VERSION @"3.14.5"
 
 #import <TuyaSmartUtil/TuyaSmartUtil.h>
 
@@ -22,5 +22,7 @@
 
 #import "TYApiMergeService.h"
 #import "TuyaSmartSpeechService.h"
+
+#import "TuyaSmartHTTPDNS.h"
 
 #endif /* TuyaSmartBaseKit_h */

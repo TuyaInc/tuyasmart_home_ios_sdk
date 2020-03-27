@@ -12,5 +12,6 @@
 
 #import "TuyaSmartScene.h"
 #import "TuyaSmartSceneManager.h"
+#import "TuyaSmartSceneDataFactory.h"
 
 #endif /* TuyaSmartSceneKit_h */

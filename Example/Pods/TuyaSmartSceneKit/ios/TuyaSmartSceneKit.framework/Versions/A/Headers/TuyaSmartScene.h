@@ -88,6 +88,19 @@
                   matchType:(TuyaSmartConditionMatchType)matchType
                     success:(void (^)(TuyaSmartSceneModel *sceneModel))success
                     failure:(TYFailureError)failure;
+/**
+* 添加场景，使用一个带有完整数据的sceneModel进行添加。
+* Add a new scene.Use a sceneModel with complete infomation of a scene.
+*
+* @param sceneModel             sceneModel
+* @param homeId                 homeId
+* @param success                success block
+* @param failure                failure block
+*/
++ (void)addNewSceneWithSceneModel:(TuyaSmartSceneModel *)sceneModel
+                           homeId:(long long)homeId
+                          success:(void (^)(TuyaSmartSceneModel *sceneModel))success
+                          failure:(TYFailureError)failure;
 
 /**
  * 修改场景(已废弃)
@@ -136,6 +149,18 @@
                     failure:(TYFailureError)failure;
 
 /**
+* 修改一个已经存在的场景，使用一个带有完成信息的sceneModel修改场景。
+* Edit a existed scene. Use a sceneModel with complete infomation of a scene.
+*
+* @param sceneModel         sceneModel
+* @param success            success block
+* @param failure            failure block
+*/
+- (void)modifySceneWithSceneModel:(TuyaSmartSceneModel *)sceneModel
+                          success:(TYSuccessHandler)success
+                          failure:(TYFailureError)failure;
+
+/**
  * 删除场景。
  * Delete a scene.
  *
@@ -177,7 +202,6 @@
  */
 - (void)enableSceneWithSuccess:(TYSuccessHandler)success
                        failure:(TYFailureError)failure;
-
 
 /**
  * 取消正在进行的操作。

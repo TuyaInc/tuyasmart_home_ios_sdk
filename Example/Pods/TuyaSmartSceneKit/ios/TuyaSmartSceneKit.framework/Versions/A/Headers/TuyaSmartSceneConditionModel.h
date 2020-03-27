@@ -21,13 +21,15 @@ typedef NS_ENUM(NSInteger, TYSceneConditionStatus)
 
 typedef NS_ENUM(NSInteger, TYConditionAutoType)
 {
-    AutoTypeDevice = 1,
-    AutoTypeWhether = 3,
-    AutoTypeTimer = 6,
-    AutoTypePir = 7,
-    AutoTypeFaceRecognition = 9,
-    AutoTypeGeofence = 10,
-    AutoTypeLockMemberGoHome = 11,
+    AutoTypeDevice = 1, //设备条件
+    AutoTypeWhether = 3,    //天气条件
+    AutoTypeTimer = 6,  //定时条件
+    AutoTypePir = 7,    //人体传感器
+    AutoTypeFaceRecognition = 9,    //人脸识别条件
+    AutoTypeGeofence = 10,  //地理围栏条件
+    AutoTypeLockMemberGoHome = 11,  //家人回家条件
+    AutoTypeConditionCalculate = 13,    //设备合成功能条件计算,如某dp持续x小时
+    AutoTypeManual = 99,    //“手动执行”条件，本地生成的条件。不保存到云端接口，云端接口也不会返回。 This type of condition should not be saved to server, and server will not return this type of conditon neither.
 };
 
 
@@ -83,13 +85,13 @@ typedef NS_ENUM(NSInteger, TYConditionAutoType)
 
 /**
  * 条件表达式
- * 如：("$humidity","==","comfort") 或（“$dp1”，“==”，“1”）
+ * 如：("$humidity","==","comfort") 或（“$dp1”，“==”，1）
  * 定时：{timeZoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}
  * loops = "0000000"  表示 ： 周日周一周二周三周四周五周六
  * 详情参见文档:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/SmartScene.html#%E5%8D%95%E4%B8%AA%E5%9C%BA%E6%99%AF%E6%93%8D%E4%BD%9C
  *
  * Condition's expression, like
- * ("$humidity","==","comfort") or（“$dp1”，“==”，“1”）
+ * ("$humidity","==","comfort") or（“$dp1”，“==”，1）
  * timer：{timeZoneId = "Asia/Shanghai",loops = "0000000",time = "08:00",date = "20180308"}
  * loops = "0000000" ,each bit representing from sunday to saturday.
  * Details in Doc: https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/SmartScene.html#smart-scene

@@ -86,6 +86,19 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSArray *devList;
 
 /**
+ * 场景icon的url。
+ * Scene's icon url.
+ */
+@property (nonatomic, copy) NSString *coverIcon;
+
+/**
+ * 场景的背景色。FFFFFF
+ * Scene's background color. FFFFFF
+ */
+@property (nonatomic, copy) NSString *displayColor;
+
+
+/**
  * 场景子标题
  * scene subTitle
  */
@@ -125,6 +138,12 @@ typedef enum : NSUInteger {
 @property (nonatomic, assign) BOOL boundForPanel;
 
 /**
+ * 是否有新固件场景面板绑定，此类支持zigbee设备和wifi设备
+ * scene is or isn't bound by a panel with new firware, this type of smart support zigbee and wifi devices.
+ */
+@property (nonatomic, assign) BOOL boundForWiFiPanel;
+
+/**
  * 是否支持本地联动,即自动化场景是否可以在zigbee网关不联网的情况下执行。
  * Support to execute in local network, YES meas this automation can be executed when zigbee gateway is offline.
  */
@@ -142,5 +161,23 @@ typedef enum : NSUInteger {
  * Recommend type.
  */
 @property (nonatomic, assign) TuyaSmartSceneRecommendType recommendType;
+
+/**
+* 推荐场景描述
+* Recommend description.
+*/
+@property (nonatomic, copy) NSString *recomDescription;
+
+/**
+* 推荐场景的推荐系数0-100
+* Recommend coefficient,0-100.
+*/
+@property (nonatomic, assign) CGFloat recomCoefficient;
+
+/**
+ * 自动化场景将会被自动关闭的时间点的时间戳。0表示未被设置过。
+ * The timeStamp when automation will be disabled automatically.0 means net setted.
+ */
+@property (nonatomic, assign) long long  disableTime;
 
 @end

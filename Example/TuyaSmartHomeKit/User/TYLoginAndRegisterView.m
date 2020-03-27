@@ -27,7 +27,7 @@
 
     self.userInteractionEnabled = YES;
     UILabel *countryKeyLabel = [self keyLabel];
-    countryKeyLabel.text = @"Country code：";
+    countryKeyLabel.text = NSLocalizedString(@"Country code", @"");
     countryKeyLabel.frame = CGRectMake(20, 0, 120, 20);
     [self addSubview:countryKeyLabel];
     self.countryCodeField = [self valueTextField];
@@ -36,35 +36,34 @@
     self.countryCodeField.text = @"86";
     
     UILabel *accountKeyLabel = [self keyLabel];
-    accountKeyLabel.text = @"Account：";
+    accountKeyLabel.text = NSLocalizedString(@"Account", @"");
     accountKeyLabel.frame = CGRectMake(20, CGRectGetMaxY(self.countryCodeField.frame) + 20 + 15, 120, 20);
     [self addSubview:accountKeyLabel];
     self.accountField = [self valueTextField];
     self.accountField.centerY = accountKeyLabel.centerY;
     [self addSubview:self.accountField];
-    self.accountField.placeholder = @"Phone number/Email";
+    self.accountField.placeholder = NSLocalizedString(@"Phone number/Email", @"");
     
     UILabel *pwdKeyLabel = [self keyLabel];
-    pwdKeyLabel.text = @"Password：";
+    pwdKeyLabel.text = NSLocalizedString(@"input_password", @"");
     pwdKeyLabel.frame = CGRectMake(20, CGRectGetMaxY(self.accountField.frame) + 20 + 15, 120, 20);
     [self addSubview:pwdKeyLabel];
     self.passwordField = [self valueTextField];
     self.passwordField.centerY = pwdKeyLabel.centerY;
     [self addSubview:self.passwordField];
-    self.passwordField.placeholder = @"pasword";
+    self.passwordField.placeholder = NSLocalizedString(@"input_password", @"");
     self.passwordField.secureTextEntry = YES;
     
     switch (currentType) {
         case TYLoginAndRegisterViewTypeLogin:
         {
             UIButton *pwdLoginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            [pwdLoginButton setTitle:@"Login with password" forState:UIControlStateNormal];
+            [pwdLoginButton setTitle:NSLocalizedString(@"Login with password", @"") forState:UIControlStateNormal];
             pwdLoginButton.frame = CGRectMake(20, CGRectGetMaxY(self.passwordField.frame) + 20, APP_SCREEN_WIDTH - 40, 44);
             pwdLoginButton.layer.cornerRadius = 5;
             pwdLoginButton.backgroundColor = UIColor.orangeColor;
             [pwdLoginButton addTarget:self action:@selector(passwordLogin) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:pwdLoginButton];
-            
             
             self.tipsLabel = [UILabel new];
             self.tipsLabel.frame = CGRectMake(20, CGRectGetMaxY(pwdLoginButton.frame) + 20, APP_SCREEN_WIDTH - 40, 100);
@@ -85,19 +84,19 @@
         case TYLoginAndRegisterViewTypeRegister:
         {
             UILabel *verifyCodeKeyLabel = [self keyLabel];
-            verifyCodeKeyLabel.text = @"Verify code：";
+            verifyCodeKeyLabel.text = NSLocalizedString(@"Verify code", @"");
             verifyCodeKeyLabel.frame = CGRectMake(20, CGRectGetMaxY(self.passwordField.frame) + 20 + 15, 120, 20);
             [self addSubview:verifyCodeKeyLabel];
             self.verifyCodeField = [self valueTextField];
             self.verifyCodeField.centerY = verifyCodeKeyLabel.centerY;
             [self addSubview:self.verifyCodeField];
-            self.verifyCodeField.placeholder = @"verify code";
+            self.verifyCodeField.placeholder = NSLocalizedString(@"Verify code", @"");
             
             CGFloat buttonWidth = (APP_SCREEN_WIDTH - 60)/2;
             
             UIButton *sendVerifyCodeButton = [UIButton buttonWithType:UIButtonTypeCustom];
             sendVerifyCodeButton.backgroundColor = UIColor.orangeColor;
-            [sendVerifyCodeButton setTitle:@"Send code" forState:UIControlStateNormal];
+            [sendVerifyCodeButton setTitle:NSLocalizedString(@"Send code", @"") forState:UIControlStateNormal];
             sendVerifyCodeButton.frame = CGRectMake(20, CGRectGetMaxY(self.verifyCodeField.frame) + 20, buttonWidth, 44);
             sendVerifyCodeButton.layer.cornerRadius = 5;
             [sendVerifyCodeButton addTarget:self action:@selector(sendVerifyCode) forControlEvents:UIControlEventTouchUpInside];
@@ -105,7 +104,7 @@
             
             UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeCustom];
             registerButton.backgroundColor = UIColor.orangeColor;
-            [registerButton setTitle:@"Register" forState:UIControlStateNormal];
+            [registerButton setTitle:NSLocalizedString(@"login_register", @"") forState:UIControlStateNormal];
             registerButton.frame = CGRectMake(buttonWidth + 40/*button space 20 and left space 20*/, CGRectGetMaxY(self.verifyCodeField.frame) + 20, buttonWidth, 44);
             registerButton.layer.cornerRadius = 5;
             [registerButton addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];

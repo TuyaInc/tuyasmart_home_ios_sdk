@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TuyaSmartSocketReadModel : NSObject
+@interface TuyaSmartSocketReadModel : NSObject <NSCopying>
 
 @property (nonatomic, assign) int               index; // sequence number
 @property (nonatomic, assign) int               type; // protocol
@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 // UDP data decrypt
 + (NSArray <TuyaSmartSocketReadModel *> *)udpResponseWithData:(NSData *)data;
+
+- (NSDictionary *)attribute;
 
 @end
 

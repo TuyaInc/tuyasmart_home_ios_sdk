@@ -39,7 +39,7 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.centerTitleItem.title = @"Add device";
+    self.centerTitleItem.title = NSLocalizedString(@"Add Device", @"");
     self.topBarView.centerItem = self.centerTitleItem;
     [self.view addSubview:self.topBarView];
     
@@ -70,19 +70,19 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
     NSString *title = @"placeholder";
     switch (indexPath.row) {
         case AddDeviceModeEZ:
-            title = @"Add device in EZ mode";
+            title = NSLocalizedString(@"Add device in EZ mode", @"");
             break;
         case AddDeviceModeAP:
-            title = @"Add device in AP mode";
+            title = NSLocalizedString(@"Add device in AP mode", @"");
             break;
         case AddZigBeeGateway:
-            title = @"Add ZigBee gateway";
+            title = NSLocalizedString(@"Add ZigBee gateway", @"");
             break;
         case AddZigBeeSubdevice:
-            title = @"Add ZigBee subdevice";
+            title = NSLocalizedString(@"Add ZigBee subdevice", @"");
             break;
         case AddDeviceSIGMesh: {
-            title = @"Add SIG Mesh device";
+            title = NSLocalizedString(@"Add SIG Mesh device", @"");
         }
             break;
         default:

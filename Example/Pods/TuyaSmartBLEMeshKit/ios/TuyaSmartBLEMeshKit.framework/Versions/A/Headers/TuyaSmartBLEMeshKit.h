@@ -17,7 +17,6 @@
 #import <TuyaSmartDeviceKit/TuyaSmartBleMeshModel.h>
 #import "TuyaSmartBleMesh.h"
 #import "TuyaSmartBleMeshGroup.h"
-#import "TuyaSmartDeviceModel+CloudOnline.h"
 
 #import "TYBleMeshDeviceModel.h"
 #import "TYBLEMeshManager.h"

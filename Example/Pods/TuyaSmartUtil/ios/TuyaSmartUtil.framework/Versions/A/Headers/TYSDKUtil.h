@@ -27,6 +27,8 @@ void tysdk_dispatch_sync_on_main_thread(dispatch_block_t block);
 
 + (BOOL)tysdk_compareVesionWithDeviceVersion:(NSString *)deviceVersion appVersion:(NSString *)appVersion;
 
++ (NSData *)tysdk_xorEncodeData:(NSData *)sourceData keyData:(NSData *)keyData;
+
 @end
 
 

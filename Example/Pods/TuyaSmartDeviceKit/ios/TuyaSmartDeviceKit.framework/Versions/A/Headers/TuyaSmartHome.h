@@ -269,7 +269,7 @@
  *  order all device or group
  *  对整个家庭下设备和群组进行排序
  *
- *  @param orderList order list [@"devId", @"groupId"]
+ *  @param orderList order list [@{@"bizId": @"XXX", @"bizType": @"XXX"},@{@"bizId": @"XXX",@"bizType": @"XXX"}] 其中bizId为设备的devId或群组的groupId, device的bizType = @"6" group的bizType = @"5"
  *  @param success Success block
  *  @param failure Failure block
  */
@@ -331,7 +331,7 @@
 
 /**
  *  Add a home member
- *  添加家庭成员
+ *  添加家庭成员 将会废弃
  *
  *  @param name         Member name
  *  @param headPic      Member portrait
@@ -347,6 +347,25 @@
                   userAccount:(NSString *)account
                       isAdmin:(BOOL)isAdmin
                       success:(TYSuccessDict)success
+                      failure:(TYFailureError)failure __deprecated_msg("This method is deprecated, Use [TuyaSmartHomeMember   addHomeMemberWithName:headPic:countryCode:userAccount:role:success:failure:]");
+/**
+ *  Add a home member
+ *  添加家庭成员
+ *
+ *  @param name         Member name
+ *  @param headPic      Member portrait
+ *  @param countryCode  Country code
+ *  @param account      User account
+ *  @param role         home role type
+ *  @param success      Success block
+ *  @param failure      Failure block
+ */
+- (void)addHomeMemberWithName:(NSString *)name
+                      headPic:(UIImage *)headPic
+                  countryCode:(NSString *)countryCode
+                  userAccount:(NSString *)account
+                         role:(TYHomeRoleType)role
+                      success:(TYSuccessDict)success
                       failure:(TYFailureError)failure;
 
 /**
@@ -360,6 +379,4 @@
 - (void)joinFamilyWithAccept:(BOOL)accept
                      success:(TYSuccessBOOL)success
                      failure:(TYFailureError)failure;
-
-
 @end

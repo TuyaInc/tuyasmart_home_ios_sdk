@@ -37,7 +37,7 @@
     [self.view addSubview:self.rootView];
     self.view.backgroundColor = [UIColor whiteColor];
     // session invalid
-    [self loadNotification];
+    [self sessionInvalidNotification];
     [self loadHomeData];
     [self autoFillCountryCode];
 }
@@ -45,11 +45,11 @@
 - (void)initTopBarView {
     
     self.topBarView.leftItem = self.leftCancelItem;
-    self.centerTitleItem.title = @"Login";
+    self.centerTitleItem.title = NSLocalizedString(@"login", @"");
     self.topBarView.centerItem = self.centerTitleItem;
-    self.rightTitleItem.title = @"Register";
+    self.rightTitleItem.title = NSLocalizedString(@"login_register", @"");
     self.topBarView.rightItem = self.rightTitleItem;
-    self.leftCancelItem.title = @"Logout";
+    self.leftCancelItem.title = NSLocalizedString(@"logout", @"");
     [self.view addSubview:self.topBarView];
 }
 
@@ -84,14 +84,12 @@
             // If homes are already exist, choose the first one as current home.
             TuyaSmartHomeModel *model = [homes firstObject];
             [TYSmartHomeManager sharedInstance].currentHomeModel = model;
-            [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLogin object:nil];
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSwitchHome object:nil];
         } else {
             // Or else, add a default home named "hangzhou's home" and choose it as current home.
             [weakSelf_AT.homeManager addHomeWithName:@"hangzhou's home" geoName:@"hangzhou" rooms:@[@"bedroom"] latitude:0 longitude:0 success:^(long long homeId) {
                 TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeId];
                 [TYSmartHomeManager sharedInstance].currentHomeModel = home.homeModel;
-                [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationLogin object:nil];
                 [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSwitchHome object:nil];
             } failure:^(NSError *error) {
                 
@@ -100,6 +98,15 @@
     } failure:^(NSError *error) {
         
     }];
+}
+
+#pragma mark - Getters
+
+- (TuyaSmartHomeManager *)homeManager {
+    if (!_homeManager) {
+        _homeManager = [TuyaSmartHomeManager new];
+    }
+    return _homeManager;
 }
 
 #pragma mark - TYLoginAndRegisterViewDelegate
@@ -192,26 +199,14 @@
 
 #pragma mark - Session invalid
 
-- (void)loadNotification {
+- (void)sessionInvalidNotification {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionInvalid) name:TuyaSmartUserNotificationUserSessionInvalid object:nil];
 }
 
 - (void)sessionInvalid {
-    if ([[TuyaSmartUser sharedInstance] isLogin]) {
-        // Log out.
-        [[TuyaSmartUser sharedInstance] loginOut:nil failure:nil];
-        [TYSmartHomeManager sharedInstance].currentHomeModel = nil;
-        
-        self.rootView.tipsLabel.text = @"Session expired，you need to login again.";
-    }
+    // Switch to login page
+    [TYSmartHomeManager sharedInstance].currentHomeModel = nil;
+    self.rootView.tipsLabel.text = @"Session expired，you need to login again.";
 }
 
-#pragma mark - Getters
-
-- (TuyaSmartHomeManager *)homeManager {
-    if (!_homeManager) {
-        _homeManager = [TuyaSmartHomeManager new];
-    }
-    return _homeManager;
-}
 @end

@@ -9,6 +9,11 @@
 #import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 #import "TYBLEAdvModel.h"
 
+typedef enum : NSUInteger {
+    TuyaSmartBLEOTATypeFirmware = 0, //蓝牙固件 OTA
+    TuyaSmartBLEOTATypeMCU, //MCU OTA
+} TuyaSmartBLEOTAType;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol TuyaSmartBLEManagerDelegate <NSObject>
@@ -57,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  开始扫描
  
- 如果扫描到未激活设备，结果会通过 `TuyaSmartBLEManagerDelegate` 中的 `- (void)didDiscoveryDeviceWithUUID:(NSString *)uuid productKey:(NSString *)productKey` 返回;
+ 如果扫描到未激活设备，结果会通过 `TuyaSmartBLEManagerDelegate` 中的 `- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo` 返回;
  
  如果扫描到激活设备，会自动进行连接入网，不会返回扫描结果
  
@@ -144,7 +149,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendOTAPack:(NSString *)uuid
             otaData:(NSData *)otaData
             success:(TYSuccessHandler)success
-            failure:(TYFailureHandler)failure;
+            failure:(TYFailureHandler)failure __deprecated_msg("This method is deprecated, Use -[TuyaSmartBLEManager -  sendOTAPack:pid:otaData:otaType:success:failure] instead");
 
 
 /**
@@ -159,6 +164,26 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendOTAPack:(NSString *)uuid
                 pid:(NSString *)pid
             otaData:(NSData *)otaData
+            success:(TYSuccessHandler)success
+            failure:(TYFailureHandler)failure __deprecated_msg("This method is deprecated, Use -[TuyaSmartBLEManager -  sendOTAPack:pid:otaData:otaType:otaVersion:success:failure] instead");
+
+
+/**
+ 发送OTA包，升级固件。升级前请务必保证设备已通过蓝牙连接
+ 
+ @param uuid        设备 uuid
+ @param pid         设备 pid
+ @param otaData     升级固件的数据
+ @param otaType     升级类型
+ @param otaVersion  升级版本
+ @param success     成功回调
+ @param failure     失败回调
+ */
+- (void)sendOTAPack:(NSString *)uuid
+                pid:(NSString *)pid
+            otaData:(NSData *)otaData
+            otaType:(TuyaSmartBLEOTAType)otaType
+         otaVersion:(NSString *)otaVersion
             success:(TYSuccessHandler)success
             failure:(TYFailureHandler)failure;
 

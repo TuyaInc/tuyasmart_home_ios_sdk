@@ -10,7 +10,8 @@
 
 
 typedef NS_ENUM(NSInteger, TYHomeRoleType) {
-    TYHomeRoleType_Unknown = -1,  /**< 家庭角色 无效 invalid role */
+    TYHomeRoleType_Unknown = -999,  /**< 家庭角色 无效 invalid role */
+    TYHomeRoleType_Custom  = -1,  /**< 自定义角色 home custom role */
     TYHomeRoleType_Member  = 0,   /**< 家庭普通成员 home ordinary member*/
     TYHomeRoleType_Admin,         /**< 家庭管理员 无增删除其他管理员权限 home admin, can't add or remove other admin */
     TYHomeRoleType_Owner,         /**< 家庭超级管理员 拥有者 home owner, have all authority */

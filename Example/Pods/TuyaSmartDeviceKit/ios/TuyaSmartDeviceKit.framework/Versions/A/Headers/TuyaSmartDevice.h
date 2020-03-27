@@ -64,31 +64,13 @@ typedef enum : NSUInteger {
 - (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps;
 
 /**
- *  Device firmware upgrade success
- *  固件升级成功代理回调
+ *  dp data update
+ *  设备 dpCodes 变化代理回调
  *
- *  @param device instance
- *  @param type   device type
+ *  @param device  instance
+ *  @param dpCodes dpCodes
  */
-- (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type;
-
-/**
- *  Device firmware upgrade failure
- *  固件升级失败代理回调
- *
- *  @param device instance
- *  @param type   device type
- */
-- (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device type:(NSInteger)type;
-
-/**
- *  Device firmware upgrading
- *  固件升级中代理回调
- *
- *  @param device instance
- *  @param type   device type
- */
-- (void)deviceFirmwareUpgrading:(TuyaSmartDevice *)device type:(NSInteger)type;
+- (void)device:(TuyaSmartDevice *)device dpCommandsUpdate:(NSDictionary *)dpCodes;
 
 /**
  *  Firmware upgrade progress.
@@ -99,6 +81,15 @@ typedef enum : NSUInteger {
  *  @param progress upgrade progress
  */
 - (void)device:(TuyaSmartDevice *)device firmwareUpgradeProgress:(NSInteger)type progress:(double)progress;
+
+/**
+ *  the delegate of device firmware upgrade status update
+ *  设备升级状态的回调
+ *
+ *  @param device         deviceModel
+ *  @param upgradeStatus  upgrade status
+ */
+- (void)device:(TuyaSmartDevice *)device type:(NSInteger)type upgradeStatus:(TuyaSmartDeviceUpgradeStatus)upgradeStatus;
 
 /**
  *  Wifi signal strength callback.
@@ -126,6 +117,35 @@ typedef enum : NSUInteger {
  *  @param warningInfo  warning info
  */
 - (void)device:(TuyaSmartDevice *)device warningInfoUpdate:(NSDictionary *)warningInfo;
+
+#pragma - deprecated
+
+/**
+ *  Device firmware upgrade success
+ *  固件升级成功代理回调
+ *
+ *  @param device instance
+ *  @param type   device type
+ */
+- (void)deviceFirmwareUpgradeSuccess:(TuyaSmartDevice *)device type:(NSInteger)type __deprecated_msg("This method is deprecated, Use device:upgradeStatus: instead");
+
+/**
+ *  Device firmware upgrade failure
+ *  固件升级失败代理回调
+ *
+ *  @param device instance
+ *  @param type   device type
+ */
+- (void)deviceFirmwareUpgradeFailure:(TuyaSmartDevice *)device type:(NSInteger)type __deprecated_msg("This method is deprecated, Use device:upgradeStatus: instead");
+
+/**
+ *  Device firmware upgrading
+ *  固件升级中代理回调
+ *
+ *  @param device instance
+ *  @param type   device type
+ */
+- (void)deviceFirmwareUpgrading:(TuyaSmartDevice *)device type:(NSInteger)type __deprecated_msg("This method is deprecated, Use device:upgradeStatus: instead");
 
 @end
 
@@ -338,7 +358,7 @@ typedef enum : NSUInteger {
  *  @param success  Success block
  *  @param failure  Failure block
  */
-- (void)publishMessageInLanWithBody:(NSDictionary *)body type:(NSInteger)type success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+- (void)publishMessageInLanWithBody:(NSDictionary *)body type:(NSInteger)type success:(nullable TYSuccessDict)success failure:(nullable TYFailureError)failure;
 
 /**
  *  Query dp initiative. Some dp won't report initiative when changed.
@@ -395,6 +415,18 @@ typedef enum : NSUInteger {
                              failure:(nullable TYFailureError)failure;
 
 #endif
+
+/**
+ *  dp command publish.
+ *  标准 dp 命令下发
+ *
+ *  @param commands dpCode - value dictionary
+ *  @param success Success block
+ *  @param failure Failure block
+ */
+- (void)publishDpWithCommands:(NSDictionary *)commands
+                      success:(nullable TYSuccessHandler)success
+                      failure:(nullable TYFailureError)failure;
 
 @end
 

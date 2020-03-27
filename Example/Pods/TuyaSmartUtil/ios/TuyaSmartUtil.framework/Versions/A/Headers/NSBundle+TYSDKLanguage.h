@@ -13,6 +13,8 @@
 
 @interface NSBundle (TYSDKLanguage)
 
++ (NSBundle *)tysdk_bundle;
+
 + (NSString *)tysdk_getAppleLanguages;
 
 + (NSString *)tysdk_localizedStringForKey:(NSString *)key value:(NSString *)value table:(NSString *)tableName;

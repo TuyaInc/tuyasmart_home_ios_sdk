@@ -77,7 +77,7 @@
  */
 - (void)getConditionListWithFahrenheit:(BOOL)fahrenheit
                                success:(void(^)(NSArray<TuyaSmartSceneDPModel *> *list))success
-                               failure:(TYFailureError)failure;
+                               failure:(TYFailureError)failure __deprecated_msg("use -getAllConditionListWithFahrenheit:windSpeedUnit:homeId:success:failure instead");
 
 
 /**
@@ -90,6 +90,22 @@
  * @param failure          failure callback
  */
 - (void)getAllConditionListWithFahrenheit:(BOOL)fahrenheit
+                                   homeId:(long long)homeId
+                                  success:(void(^)(NSDictionary *dict))success
+                                  failure:(TYFailureError)failure __deprecated_msg("use -getAllConditionListWithFahrenheit:windSpeedUnit:homeId:success:failure instead");
+
+/**
+ * 获取自动化支持的所有条件列表，包括气象条件和可能的其他条件
+ * Get weather conditon list and other condition list which automation support.
+ *
+ * @param fahrenheit      Unit of temperature，if use fahrenheit, set fahrenheit param to YES.
+ * @param speedUnit      Unit of wind speed,@"mph"、@"m/s"、@"kph"、@"km/h".
+ * @param homeId            homeId
+ * @param success         success callback. key @"envConditions" is whether conditions,  @"devConditions" is other condtions.
+ * @param failure          failure callback
+ */
+- (void)getAllConditionListWithFahrenheit:(BOOL)fahrenheit
+                            windSpeedUnit:(NSString *)speedUnit
                                    homeId:(long long)homeId
                                   success:(void(^)(NSDictionary *dict))success
                                   failure:(TYFailureError)failure;
@@ -276,6 +292,15 @@
  * @param failure     failure callback
  */
 - (void)getSmartSceneBackgroundCoverWithsuccess:(TYSuccessList)success failure:(TYFailureError)failure;
+
+/**
+* 获取自定义样式数据列表，包括颜色，图标，背景图，key分别对应coverColors，coverIconList，coverPics。
+* Get scene custom style resource list. <color,icon,background>, key is <coverColors，coverIconList，coverPics>
+*
+* @param success     success callback
+* @param failure     failure callback
+*/
+- (void)getSmartSceneCustomStyleListWithSuccess:(TYSuccessDict)success failure:(TYFailureError)failure;
 
 /**
  * 取消正在进行的操作。

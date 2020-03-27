@@ -37,9 +37,7 @@
 // 设备类型
 @property (nonatomic, assign) NSInteger type;
 
-//如果是蓝牙设备的升级，需要使用以下两个字段
-
-//固件的下载URL
+// 蓝牙设备的升级固件的下载URL
 @property (nonatomic, strong) NSString *url;
 
 //固件的md5
@@ -56,6 +54,12 @@
 
 // 升级设备是否可控,0可控 1不可控
 @property (nonatomic, assign) BOOL controlType;
+
+// 固件升级中的提示文案
+@property (nonatomic, strong) NSString *upgradingDesc;
+
+// 设备下载固件中的提示文案，目前只有nb设备有
+@property (nonatomic, strong) NSString *downloadingDesc;
 
 @end
 

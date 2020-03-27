@@ -28,7 +28,8 @@ typedef NS_ENUM(NSInteger, TYRegType) {
     TYRegWeiboType,         // Register from Weibo
     TYRegFacebookType,      // Register from Facebook
     TYRegTwitterType,       // Register from Twitter
-    TYRegWechatType         // Register from Wechat
+    TYRegWechatType,        // Register from Wechat
+    TYRegAppleIdType        // Register from Apple
 };
 
 /// User-related functions.
@@ -129,20 +130,6 @@ typedef NS_ENUM(NSInteger, TYRegType) {
                failure:(nullable TYFailureError)failure;
 
 /**
- *  Send verification code. Used for mobile phone bind, mobile phone change.
- *  发送验证码，用于手机验证码绑定手机号，更换手机号。
- *
- *  @param countryCode Country code
- *  @param phoneNumber Mobile phone number
- *  @param success     Success block
- *  @param failure     Failure block
- */
-- (void)sendBindVerifyCode:(NSString *)countryCode
-               phoneNumber:(NSString *)phoneNumber
-                   success:(nullable TYSuccessHandler)success
-                   failure:(nullable TYFailureError)failure;
-
-/**
  *  Mobile phone verification code login and register.
  *  手机验证码登录和注册
  *
@@ -157,6 +144,20 @@ typedef NS_ENUM(NSInteger, TYRegType) {
          code:(NSString *)code
       success:(nullable TYSuccessHandler)success
       failure:(nullable TYFailureError)failure;
+
+/**
+ *  Send verification code. Used for mobile phone bind, mobile phone change.
+ *  发送验证码，用于手机验证码绑定手机号，更换手机号。
+ *
+ *  @param countryCode Country code
+ *  @param phoneNumber Mobile phone number
+ *  @param success     Success block
+ *  @param failure     Failure block
+ */
+- (void)sendBindVerifyCode:(NSString *)countryCode
+               phoneNumber:(NSString *)phoneNumber
+                   success:(nullable TYSuccessHandler)success
+                   failure:(nullable TYFailureError)failure;
 
 /**
  *  Mobile phone bind.
@@ -329,7 +330,7 @@ typedef NS_ENUM(NSInteger, TYRegType) {
                 success:(nullable TYSuccessHandler)success
                 failure:(nullable TYFailureError)failure;
 
-#pragma mark - verification code login
+#pragma mark - Email verification code login
 
 /**
  *  Email verification code login.
@@ -525,6 +526,23 @@ DEPRECATED_MSG_ATTRIBUTE("use loginOrRegisterWithCountryCode:uid:password:create
                success:(nullable TYSuccessHandler)success
                failure:(nullable TYFailureError)failure;
 
+
+/**
+*  third login.
+*
+*  @param type 三方类型
+*  @param countryCode
+*  @param accessToken token from third authorization login
+*  @param extraInfo extra params
+*  @param success Success block
+*  @param failure Failure block
+*/
+- (void)loginByAuth2WithType:(NSString *)type
+                 countryCode:(NSString *)countryCode
+                 accessToken:(NSString *)accessToken
+                   extraInfo:(NSDictionary *)extraInfo
+                     success:(nullable TYSuccessHandler)success
+                     failure:(nullable TYFailureError)failure;
 
 #pragma mark -
 

@@ -60,6 +60,9 @@ typedef enum : NSUInteger {
 // online of device
 @property (nonatomic, assign) BOOL         isOnline;
 
+// cloud online of device
+@property (nonatomic, assign) BOOL         isCloudOnline;
+
 // whether the device is shared
 @property (nonatomic, assign) BOOL         isShare;
 
@@ -121,6 +124,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, assign) long long    homeId;
 @property (nonatomic, assign) long long    roomId;
+@property (nonatomic, assign) long long    sharedTime;
 
 // order
 @property (nonatomic, assign) NSInteger    displayOrder;
@@ -146,6 +150,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) NSDictionary *uiConfig;
 @property (nonatomic, strong) NSDictionary *panelConfig;
 @property (nonatomic, strong) NSString     *category;
+@property (nonatomic, strong) NSString     *categoryCode;
 @property (nonatomic, strong) NSArray      *quickOpDps;
 @property (nonatomic, strong) NSArray      *displayDps;
 @property (nonatomic, strong) NSArray      *faultDps;
@@ -187,6 +192,10 @@ typedef enum : NSUInteger {
 /// 是否标准化
 @property (nonatomic, assign) BOOL standard;
 @property (nonatomic, strong) TuyaSmartStandSchemaModel *standSchemaModel;
+
+// dpCodes
+@property (nonatomic, strong, readonly) NSDictionary *dpCodes;
+
 @end
 
 #endif

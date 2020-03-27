@@ -54,7 +54,7 @@
 - (void)initView
 {
     [self.view addSubview:self.tableView];
-    self.topBarView.leftItem = [[TPBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(CancelButtonTap)];
+    self.topBarView.leftItem = [[TPBarButtonItem alloc] initWithTitle:NSLocalizedString(@"cancel", @"") style:UIBarButtonItemStylePlain target:self action:@selector(CancelButtonTap)];
     WEAKSELF_AT
     [self.tableView bk_whenTapped:^{
         if ([weakSelf_AT.activeTextField isFirstResponder]) {
