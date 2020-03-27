@@ -586,7 +586,7 @@ func resetPasswordByEmail() {
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
 | countryCode | 区号，例如：86                       |
-| uid     | 邮箱                             |
+| uid     | 用户id                       |
 | password | 密码                               |
 | createHome | 是否创建默认家庭                  |
 | success     | 接口发送成功回调                     |

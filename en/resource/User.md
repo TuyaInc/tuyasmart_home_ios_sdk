@@ -519,7 +519,7 @@ If had registered, then automatically logged in. If had not registered, then aut
 | Param       | Description                        |
 | :---------- | :--------------------------------- |
 | countryCode | Country code, for example: 86      |
-| uid         | Email                              |
+| uid         | user id                            |
 | password    | Password                           |
 | createHome  | Whether to create a default family |
 | success     | Success Callback                   |
