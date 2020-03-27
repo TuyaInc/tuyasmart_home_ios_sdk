@@ -1357,6 +1357,16 @@ func saveBatchRoomRelation() {
 | failure         | 失败回调               |
 
 
+其中，返回的参数`TuyaSmartWeatherSketchModel` 做如下说明：
+
+| 参数            | 说明                   |
+| ---------------| ----------------------|
+| condition         | 天气情况，比如晴，阴，雨等               |
+| iconUrl         | 天气图标 ，高亮              |
+| inIconUrl         | 天气图标               |
+| city         | 城市               |
+| temp         | 温度               |
+
 **示例代码**
 
 Objc:
@@ -1391,6 +1401,7 @@ func getHomeWeatherSketch() {
 
 optionModel 可以为nil。若为nil，返回的参数会上一次请求成功的参数设置，若只改变一种单位设置进行请求，另外两种也依然会保留上一次请求成功的参数设置。
 由于天气服务在不同地区的使用的服务不同，不同地区返回的参数有可能不同。
+
 特别的，如果当前家庭账号位置在中国，那么不会返回风速和气压信息。
 
 ```
@@ -1406,6 +1417,25 @@ optionModel 可以为nil。若为nil，返回的参数会上一次请求成功�
 | optionModel         | 天气详情参数单位配置              |
 | success         | 成功回调               |
 | failure         | 失败回调               |
+
+
+`TuyaSmartWeatherOptionModel` 参数在请求前需要手动配置，配置选项如下：
+
+| 参数            | 说明                   |
+| --------------- | ---------------------- |
+| pressureUnit         | 气压单位             |
+| windspeedUnit         | 风速单位               |
+| temperatureUnit         | 温度单位               |
+| limit         | 请求多少个天气详情，若不配置，则默认全部返回 |
+
+请求返回的参数 `TuyaSmartWeatherModel` 内容说明如下:
+
+| 参数            | 说明                   |
+| --------------- | ---------------------- |
+| icon         | 天气参数图标             |
+| name         | 天气参数名称               |
+| unit         | 参数单位               |
+| value         | 参数值               |
 
 **示例代码**
 

@@ -1336,7 +1336,8 @@ func saveBatchRoomRelation() {
 
 ### Home Weather
 
-#### Get home's weather simple summary parameters.
+#### Get Home's Weather Simple Summary Parameters.
+
 Sush as city name, state of weather(clear, cloudy, rainy, and so on),weather icon.
 
 **Declaration**
@@ -1354,6 +1355,16 @@ Sush as city name, state of weather(clear, cloudy, rainy, and so on),weather ico
 | success         | Success callback                    |
 | failure         | Failure callback                    |
 
+
+Parameter `TuyaSmartWeatherSketchModel` description：
+
+| Parameters            | Description                   |
+| ---------------| ----------------------|
+| condition         | weather description               |
+| iconUrl         | weather icon, highlight              |
+| inIconUrl         | weather icon               |
+| city         | city               |
+| temp         | temperature               |
 
 **Example**
 
@@ -1381,7 +1392,8 @@ func getHomeWeatherSketch() {
 }
 ```
 
-#### get home weather summary parameters with more detail.
+#### Get Home's Weather Summary Parameters with More Detail.
+
 Such as tempature, humidity, ultraviolet index, air quality.
 
 
@@ -1402,6 +1414,27 @@ Such as tempature, humidity, ultraviolet index, air quality.
 | failure         | Failure callback                    |
 
 
+
+Before request, param `TuyaSmartWeatherOptionModel`  need config.
+
+| Parameters            | Description                   |
+| --------------- | ---------------------- |
+| pressureUnit         | pressure unit             |
+| windspeedUnit         | windspeed unit               |
+| temperatureUnit         | temperature unit               |
+| limit         | return weather description count,if limit = 0,return all weather description               |
+
+return parameter `TuyaSmartWeatherModel`:
+
+| Parameters            | Description                   |
+| --------------- | ---------------------- |
+| icon         | weahter icon             |
+| name         | weahter name               |
+| unit         | weahter parameter unit               |
+| value         | weahter parameter value               |
+
+
+**Example**
 
 Objc:
 
