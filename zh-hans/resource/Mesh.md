@@ -654,13 +654,13 @@ mesh 设备的在线情况分为两种
 
 手机蓝牙开启且 mesh 设备通过蓝牙进行连接控制，下发命令走蓝牙
 
-判断条件为: `deviceModel.isOnline && deviceModel.isLocalOnline`
+判断条件为: `deviceModel.isOnline && deviceModel.isMeshBleOnline`
 
 **网关连接**
 
 手机蓝牙未开启或距离设备远， mesh 设备通过网关进行连接控制，下发命令走 Wi-Fi
 
-判断条件为: `deviceModel.isOnline && !deviceModel.isLocalOnline`
+判断条件为: `deviceModel.isOnline && !deviceModel.isMeshBleOnline`
 
 ### 移除设备
 
