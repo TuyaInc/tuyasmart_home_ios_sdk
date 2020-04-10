@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://tuya.com'
   s.license          = "none"
   s.author           = { 'huangdaxia' => 'huangkai@tuya.com' }
-  s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
+  s.source = { :http => "https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
 
   s.ios.deployment_target     = '8.0'
 
