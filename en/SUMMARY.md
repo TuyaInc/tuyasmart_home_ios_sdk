@@ -26,6 +26,7 @@
   - [HotSpot Mode](./resource/Activator.md#hotspot-mode)
   - [Wired Network Configuration](./resource/Activator.md#wired-network-configuration)
   - [Activate the Sub-Device](./resource/Activator.md#activate-the-sub-device)
+  - [QR code mode](./resource/Activator.md#qr-code-mode)
 * [Device Management](./resource/Device.md#device-management)
   - [Update Device Information](./resource/Device.md#update-device-information)
   - [Device Control](./resource/Device.md#device-control)

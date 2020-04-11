@@ -18,6 +18,8 @@
 
 - 蓝牙 Wi-Fi 双模配网
 
+- 摄像头二维码配网
+
   
 
 ## 使用说明
@@ -1102,4 +1104,10 @@ Swift :
 ```swift
 TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
 ```
+
+
+
+### 摄像头二维码配网
+
+智能摄像机特有的二维码配网模式可以参考文档[二维码配网](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/zh-hans/resource/activitor.html#二维码配网).
 

@@ -28,6 +28,7 @@
   - [有线设备配网](./resource/Activator.md#有线设备配网)
   - [子设备激活](./resource/Activator.md#子设备配网)
   - [蓝牙 Wi-Fi 双模配网](./resource/Activator.md#蓝牙-wi-fi-双模配网)
+  - [摄像头二维码配网](./resource/Activator.md#摄像头二维码配网)
 * [设备管理](./resource/Device.md#设备管理)
   - [更新设备信息](./resource/Device.md#更新设备信息)
   - [设备控制](./resource/Device.md#设备控制)
