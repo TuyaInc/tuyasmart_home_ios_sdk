@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.15.0(2020-04-11)
+
+- New Feature
+  - Group support set custom icon
+  - Bug fixed
+
 ## 3.14.0(2019-12-21)
 
 - New Feature
