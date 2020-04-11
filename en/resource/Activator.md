@@ -9,6 +9,7 @@ The network configuration modes supported by Tuya SDK including:
 -  Wired Network Configuration
 - Sub-device Configuration 
 - Bluetooth Wi-Fi Configuration
+- QR code mode
 
 
 
@@ -973,4 +974,10 @@ Swift :
 ```swift
 TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
 ```
+
+
+
+### QR code mode
+
+ The smart camera's unique QR code mode refer to [QR code mode](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/en/resource/activitor.html#qr-code-mode)
 
