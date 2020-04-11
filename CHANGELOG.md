@@ -1,5 +1,14 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 3.15.0(2020-04-11)
+
+- 新增功能
+  - 群组自定义 icon 功能
+  - Bug fixed
+- New Feature
+  - Group support set custom icon
+  - Bug fixed
+
 ## 3.14.0(2019-12-21)
 
 - 新增功能
