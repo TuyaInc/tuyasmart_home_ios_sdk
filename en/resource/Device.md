@@ -464,7 +464,7 @@ func modifyDeviceName(_ name: String) {
 
 ## Remove Device
 
-After a device is removed, it will be in the to-be-network-configured status (quick connection mode).
+After a device is removed, it will be in the to-be-network-configured status (smart config mode).
 
 **Declaration**
 
@@ -508,6 +508,55 @@ func removeDevice() {
     })
 }
 ```
+
+## Restore Factory Settings
+
+
+After the device is restored to the factory settings, it will re-enter the network to be distributed state (smart config mode), and the relevant data of the device will be cleared.
+
+**Declaration**
+
+```objective-c
+- (void)resetFactory:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description   |
+| --------- | ------------- |
+| success   | Success block |
+| failure   | Failure block |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)removeDevice {
+	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+
+	[self.device resetFactory:^{
+		NSLog(@"reset success");
+	} failure:^(NSError *error) {
+		NSLog(@"reset failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func removeDevice() {
+    device?.resetFactory({
+        print("reset success")
+    }, failure: { (error) in
+        if let e = error {
+            print("reset failure: \(e)")
+        }
+    })
+}
+```
+
 
 ## Obtain Wi-Fi Signal Strength of Device
 

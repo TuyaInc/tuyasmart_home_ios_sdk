@@ -36,6 +36,7 @@
     - [自定义设备控制](./resource/Device.md#自定义设备控制)
   - [修改设备名称](./resource/Device.md#修改设备名称)
   - [移除设备](./resource/Device.md#移除设备)
+  - [恢复出厂设置](./resource/Device.md#恢复出厂设置)
   - [获取设备的 Wi-Fi 信号强度](./resource/Device.md#获取设备的-wi-fi-信号强度)
   - [获取网关下的子设备列表](./resource/Device.md#获取网关下的子设备列表)
   - [固件升级](./resource/Device.md#固件升级)

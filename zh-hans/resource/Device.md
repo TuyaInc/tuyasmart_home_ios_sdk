@@ -529,6 +529,54 @@ func removeDevice() {
 }
 ```
 
+## 恢复出厂设置
+
+设备恢复出厂设置后，会重新进入待配网状态（快连模式），设备的相关数据会被清除掉
+
+**接口说明**
+
+```objective-c
+- (void)resetFactory:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)removeDevice {
+	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+
+	[self.device resetFactory:^{
+		NSLog(@"reset success");
+	} failure:^(NSError *error) {
+		NSLog(@"reset failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func removeDevice() {
+    device?.resetFactory({
+        print("reset success")
+    }, failure: { (error) in
+        if let e = error {
+            print("reset failure: \(e)")
+        }
+    })
+}
+```
+
+
 
 
 ## 获取设备的 Wi-Fi 信号强度

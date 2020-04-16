@@ -34,6 +34,7 @@
     - [Custom Device Control](./resource/Device.md#custom-device-control)
   - [Modify the Device Name](./resource/Device.md#modify-the-device-name)
   - [Remove Device](./resource/Device.md#remove-device)
+  - [Restore Factory Settings](./resource/Device.md#restore-factory-settings)
   - [Obtain Wi-Fi Signal Strength of Device](./resource/Device.md#obtain-wi-fi-signal-strength-of-device)
   - [Obtain the Sub-Device List of a Gateway](./resource/Device.md#obtain-the-sub-device-list-of-a-gateway)
   - [Firmware Upgrade](./resource/Device.md#firmware-upgrade)
