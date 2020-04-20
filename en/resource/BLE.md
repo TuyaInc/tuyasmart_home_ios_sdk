@@ -490,3 +490,36 @@ Swift:
 // use after activator finished
 TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
 ```
+
+
+
+## Error Code
+
+| Code | Description                                                 |
+| ---- | ----------------------------------------------------------- |
+| 1    | Format of the packet received by the device is incorrect    |
+| 2    | The device cannot find the router                           |
+| 3    | Wi-Fi password error                                        |
+| 4    | Device cannot connect to router                             |
+| 5    | Device DHCP failed                                          |
+| 6    | The device fails to connect to the cloud                    |
+| 100  | User cancels activation                                     |
+| 101  | Bluetooth connection error                                  |
+| 102  | Bluetooth service error found                               |
+| 103  | Failed to open Bluetooth communication channel              |
+| 104  | Bluetooth failed to get device information                  |
+| 105  | Bluetooth pairing failed                                    |
+| 106  | Activation timeout                                          |
+| 107  | Wi-Fi information transmission failed                       |
+| 108  | Token is invalid                                            |
+| 109  | Failed to get Bluetooth encryption key                      |
+| 110  | Device does not exist                                       |
+| 111  | Device cloud registration failed                            |
+| 112  | Device cloud activation failed                              |
+| 113  | Cloud device has been bound                                 |
+| 114  | Active disconnect                                           |
+| 115  | Failed to get device information in the cloud               |
+| 116  | The device is being networked by other methods at this time |
+| 117  | OTA upgrade failed                                          |
+| 118  | OTA upgrade timeout                                         |
+| 119  | Wi-Fi parameter verification failed                         |
