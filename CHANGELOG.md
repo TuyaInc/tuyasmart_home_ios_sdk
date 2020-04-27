@@ -1,5 +1,22 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 3.17.0(2020-04-27)
+
+- 新增功能
+  - 新增场景支持地理围栏条件触发
+  - 新增固件升级状态提示
+  - 新增三方扫码登录
+  - 新增 Mesh 快速配网
+  - 新增 Wi-Fi 子设备群组
+  - Bug fixed
+- New Feature
+  - Smart scene support for geofence condition trigger
+  - Firmware upgrade status prompt
+  - QR code login
+  - Mesh support fast active
+  - Support Wi-Fi sub-device group
+  - Bug fixed
+
 ## 3.15.0(2020-04-11)
 
 - 新增功能
