@@ -125,6 +125,66 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 
 
+**Declaration**
+
+You can also use the following verification verification code interface to separately verify whether the verification code is correct. The interface supports verification of mobile phone SMS verification codes and mail verification codes.
+
+```objective-c
+- (void)checkCodeWithUserName:(NSString *)userName
+                       region:(NSString *_Nullable)region
+                  countryCode:(NSString *)countryCode
+                         code:(NSString *)code
+                         type:(NSInteger)type
+                      success:(TYSuccessBOOL)success
+                      failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| userName    | Phone number or email                                        |
+| region      | Region, default value is nil                                 |
+| countryCode | Country code, for example: 86                                |
+| code        | After the verification code sending, the verification code received |
+| type        | Type, 1: mobile phone verification code register, 2: mobile phone verification code login, 3: mobile phone password reset |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Example**
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:type success:^(BOOL result) {
+		if (result) {
+				NSLog(@"valid code!");
+    } else {
+				NSLog(@"invalid code!");
+    }
+} failure:^(NSError *error) {
+		NSLog(@"check code failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
+		if result {
+				print("valid code!")
+		} else {
+				print("invalid code!")
+		}
+}, failure: { (error) in
+		if let error = error {
+				print("check code failure: \(error)")
+		}
+})
+```
+
+
+
 #### Use Mobile Phone Verification Code for Login
 
 The mobile phone number and verification code login process is divided into the following two steps: get the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - verification code login.

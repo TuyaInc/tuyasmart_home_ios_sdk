@@ -191,6 +191,66 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 
 
+**接口说明**
+
+也可以使用下面的校验验证码接口，单独校验验证码是否正确，接口支持校验手机短信验证码和邮箱验证码。
+
+```objective-c
+- (void)checkCodeWithUserName:(NSString *)userName
+                       region:(NSString *_Nullable)region
+                  countryCode:(NSString *)countryCode
+                         code:(NSString *)code
+                         type:(NSInteger)type
+                      success:(TYSuccessBOOL)success
+                      failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| userName    | 手机号或邮箱                                                 |
+| region      | 区域，默认填nil                                              |
+| countryCode | 国际码                                                       |
+| code        | 经过验证码发送接口，收到的验证码                             |
+| type        | 类型, 1: 注册时验证码验证⽤, 2: 验证码登录时⽤, 3: 重置密码时⽤ |
+| success     | 接口发送成功回调                                             |
+| failure     | 接口发送失败回调，error 表示失败原因                         |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:type success:^(BOOL result) {
+		if (result) {
+				NSLog(@"valid code!");
+    } else {
+				NSLog(@"invalid code!");
+    }
+} failure:^(NSError *error) {
+		NSLog(@"check code failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
+		if result {
+				print("valid code!")
+		} else {
+				print("invalid code!")
+		}
+}, failure: { (error) in
+		if let error = error {
+				print("check code failure: \(error)")
+		}
+})
+```
+
+
+
 #### 手机验证码登录
 
 手机号验证码登录流程分为以下两步：获取手机验证码(API 参考“手机密码注册”的第一个接口) - 验证码登录
