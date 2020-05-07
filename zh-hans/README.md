@@ -46,7 +46,7 @@ CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
 ```
 
-Swift 项目可以添加在 `xxx_Bridging-Header.h` 桥接文件中添加以下内容
+Swift 项目可以在 `xxx_Bridging-Header.h` 桥接文件中添加以下内容
 
 ```
 #import <TuyaSmartHomeKit/TuyaSmartKit.h>
