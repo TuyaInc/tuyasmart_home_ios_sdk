@@ -15,8 +15,8 @@
   - [Modify User Info](./resource/User.md#modify-user-avatar)
   - [Logout, Disable Account](./resource/User.md#logout)
   - [Handling of Expired Session](./resource/User.md#handling-of-expired-session)
-* Home Management
-  - [Home Management](./resource/Home.md#home-management)
+* [Home Management](./resource/HomeAbout.md)
+  - [Home Relationship Management](./resource/Home.md#home-relationship-management)
   - [Operation of Home](./resource/Home.md#home-information-management)
   - [Home Member Management](./resource/Home.md#member-management)
   - [Room Management](./resource/Home.md#room-information-management)
@@ -45,8 +45,8 @@
   - [Modify Note Name](./resource/Share.md#modify-note-name)
 * [Timer Task](./resource/Timer.md)
 * [Group Management](./resource/Group.md)
-* Smart Scene
-  - [Smart Scene](./resource/SmartScene.md#smart-scene)
+* [Smart Scene](./resource/SmartSceneAbout.md)
+  - [Smart Scene Management](./resource/SmartScene.md#smart-scene-management)
   - [Scene Operation](./resource/SmartScene.md#scene-operation)
 * [Single BLE](./resource/BLE.md#single-ble)
   - [Bluetooth Status Monitor](./resource/BLE.md#bluetooth-status-monitor)

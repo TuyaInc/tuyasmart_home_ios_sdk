@@ -1,4 +1,4 @@
-## Home Management
+## Home Relationship Management
 
 After login, user shall use the `TuyaSmartHomeManager` to obtain information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home.
 

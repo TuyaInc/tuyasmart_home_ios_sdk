@@ -16,8 +16,8 @@
   - [修改用户信息](./resource/User.md#修改用户头像)
   - [登出，注销账号](./resource/User.md#登出)
   - [Session 过期的处理](./resource/User.md#session-过期的处理)
-* 家庭管理
-  * [家庭管理](./resource/Home.md#家庭管理)
+* [家庭管理](./resource/HomeAbout.md)
+  * [家庭关系管理](./resource/Home.md#家庭关系管理)
   * [家庭信息管理](./resource/Home.md#家庭信息管理)
   * [家庭成员管理](./resource/Home.md#家庭成员管理)
   * [房间信息管理](./resource/Home.md#房间信息管理)
@@ -47,8 +47,8 @@
   - [修改备注名](./resource/Share.md#修改备注名)
 * [定时任务](./resource/Timer.md)
 * [群组管理](./resource/Group.md)
-* 智能场景
-  - [智能场景](./resource/SmartScene.md#智能场景)
+* [智能场景](./resource/SmartSceneAbout.md)
+  - [智能场景管理](./resource/SmartScene.md#智能场景管理)
   - [单个场景操作](./resource/SmartScene.md#单个场景操作)
 * [单点蓝牙](./resource/BLE.md#单点蓝牙-ble)
   - [系统蓝牙状态监测](./resource/BLE.md#系统蓝牙状态监测)
