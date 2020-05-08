@@ -30,8 +30,6 @@
       "url": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk"
     },
     "anchor-navigation-ex": {
-      "showLevel": false,
-      "associatedWithSummary": false,
       "showGoTop": false
     },
     "ga": {
