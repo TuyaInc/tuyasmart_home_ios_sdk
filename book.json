@@ -3,7 +3,14 @@
     "js-sequence-diagram-full@>=0.3.1",
     "prism",
     "-highlight",
-    "anchors"
+    "anchors",
+    "splitter",
+    "github",
+    "anchor-navigation-ex",
+    "ga",
+    "expandable-chapters-small",
+    "pageview-count",
+    "language-picker"
   ],
   "pluginsConfig": {
     "prism": {
@@ -18,6 +25,17 @@
       "ignore": [
         "sequence"
       ]
+    },
+    "github": {
+      "url": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": false,
+      "associatedWithSummary": false,
+      "showGoTop": true
+    },
+    "ga": {
+      "token": "UA-165828612-1"
     }
   }
 }
