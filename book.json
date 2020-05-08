@@ -32,7 +32,7 @@
     "anchor-navigation-ex": {
       "showLevel": false,
       "associatedWithSummary": false,
-      "showGoTop": true
+      "showGoTop": false
     },
     "ga": {
       "token": "UA-165828612-1"
