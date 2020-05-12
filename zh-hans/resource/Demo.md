@@ -2,7 +2,7 @@
 
 ### 简介：
 
-Demo APP 主要介绍了 SDK 开发流程，以及一些简单的业务逻辑。在开发 APP 之前，建议先按照本文档完成 Demo App 的操作。
+Demo App 主要介绍了 SDK 开发流程，以及一些简单的业务逻辑。在开发 App 之前，建议先按照本文档完成 Demo App 的操作。
 
 在[准备工作](/resource/Preparation.html)章节里面获取 `iOS` 的 `AppKey`、 `AppSecret`、安全图片。集成 SDK 时请确认 `BundleId`、`AppKey`、`AppSecret`、安全图片是否与平台上的信息一致，任意一个不匹配会导致 SDK 无法使用。
 
@@ -46,4 +46,4 @@ Demo App 主要包括了
 
 
 
-* 确认 bundleId、appKey、appSecret、安全图片是否与 IoT 平台上的信息一致，任意一个不匹配都将校验失败。具体请按照[准备工作](./Preparation.md)章节来进行检查。
+* 确认 BundleId、AppKey、AppSecret、安全图片是否与 IoT 平台上的信息一致，任意一个不匹配都将校验失败。具体请按照[准备工作](./Preparation.md)章节来进行检查。

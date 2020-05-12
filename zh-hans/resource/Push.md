@@ -10,7 +10,7 @@
 
 
 ## 涂鸦开发者平台配置
-登录涂鸦开发者平台 - 进入对应 APP - 推送配置 - 上传 push 证书
+登录涂鸦开发者平台 - 进入对应 App - 推送配置 - 上传 push 证书
 
 ![ios-push-setting](./images/ios-push-setting.png)
 
