@@ -21,6 +21,12 @@ BSSID: "00:00:00:00:00:00"
 如果您有使用 SDK 开发集成涂鸦蓝牙设备，那么一定要关注 iOS 13 新增的「应用蓝牙权限」
 在 iOS 13 系统中，除了系统蓝牙权限外，每个 App 都会有自己的蓝牙权限。若 App 中使用到蓝牙，每个应用首次启动前都会询问**是否允许应用使用蓝牙权限**
 
+在 iOS 13 中，苹果将原来蓝牙申请权限用的 `NSBluetoothPeripheralUsageDescription` 字段，替换为  `NSBluetoothAlwaysUsageDescription` 字段。在 info.plist 中添加新字段
+
+<img src="./images/ios-sdk-demo-ios13-ble.png" alt="img" style="zoom:80%;" />
+
+
+
 **如果您正在 Xcode 11 编译使用 SDK 开发 mesh 功能，可能会出现搜索不到设备的情况。需要将 `TuyaSmartBLEMeshKit` 升级至 2.12.47 以上版本，该版本已作适配；若使用其他 Xcode 版本，无需更新**
 
 当用户选择不允许时，会影响蓝牙功能的使用。此时建议引导用户进行开启蓝牙权限（此时蓝牙中心的状态为 `CBCentralManagerStateUnauthorized`）
