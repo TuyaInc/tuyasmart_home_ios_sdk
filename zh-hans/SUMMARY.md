@@ -7,7 +7,6 @@
 * [Demo App](./resource/Demo.md)
 * [iOS 版本适配](./resource/iOSAdaptation.md)
 * [用户管理](./resource/User.md#用户管理)
-  - [SDK 账户升级](./resource/User.md#sdk-账户升级)
   - [手机账号体系](./resource/User.md#手机账号体系)
   - [邮箱账号体系](./resource/User.md#邮箱账号体系)
   - [用户 UID 登录体系](./resource/User.md#用户-uid-登录体系)
