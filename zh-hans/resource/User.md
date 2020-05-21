@@ -1,6 +1,6 @@
 ## 用户管理
 
-涂鸦云支持多种用户体系：手机、邮箱、UID。其中手机支持验证码登录和密码登录两种方式，每种体系的注册登录会在后面单独介绍。UID 登录主要用于已经有自己的账号体系的时候使用。
+涂鸦云支持多种用户体系：手机、邮箱、UID。其中手机支持验证码登录和密码登录两种方式，每种体系的注册登录会在后面单独介绍。UID 登录主要用于已经有自己账号体系的场景。
 
 |       类名       |       说明       |
 | :--------------: | :--------------: |
@@ -13,6 +13,25 @@
 可用区相关概念请查看：[涂鸦云-可用区](https://docs.tuya.com/zh/iot/introduction-of-tuya/tuya-smart-cloud-platform-overview?id=K914joiyhhf7r#title-6-%E9%80%8F%E6%9E%90%E6%B6%82%E9%B8%A6%E4%BA%91)
 
 用户相关的所有功能对应 `TuyaSmartUser` 类（单例）。
+
+**`TuyaSmartUser` 数据模型**
+
+| **字段**    | **类型**  | **描述**                                                     |
+| ----------- | --------- | ------------------------------------------------------------ |
+| headIconUrl | NSString  | 用户头像链接                                                 |
+| nickname    | NSString  | 用户昵称                                                     |
+| userName    | NSString  | 用户名。如果主账号是手机号，userName 就是手机号。如果主账号是邮箱，userName 就是邮箱 |
+| phoneNumber | NSString  | 手机号                                                       |
+| email       | NSString  | 邮箱                                                         |
+| countryCode | NSString  | 国家码，86：中国，1：美国                                    |
+| isLogin     | BOOL      | 登录的状态                                                   |
+| regionCode  | NSString  | 当前账号所在的国家区域。AY：中国，AZ：美国，EU：欧洲         |
+| timezoneId  | NSString  | 用户时区信息，例如： `Asia/Shanghai`                         |
+| tempUnit    | NSInteger | 温度单位。1：`°C`， 2：`°F`                                  |
+| snsNickname | NSString  | 第三方账号的昵称                                             |
+| regFrom     | TYRegType | 账号注册的类型                                               |
+
+
 
 
 ### 手机账号体系
@@ -142,7 +161,7 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 | 参数        | 说明                                                         |
 | :---------- | :----------------------------------------------------------- |
 | userName    | 手机号或邮箱                                                 |
-| region      | 区域，默认填nil                                              |
+| region      | 区域，默认填 nil                                             |
 | countryCode | 国家码，例如：86                                             |
 | code        | 经过验证码发送接口，收到的验证码                             |
 | type        | 类型, 1: 注册时验证码验证⽤, 2: 验证码登录时⽤, 3: 重置密码时⽤ |
