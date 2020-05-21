@@ -39,8 +39,6 @@
     
     [self initView];
     [self initData];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchHome) name:kNotificationSwitchHome object:nil];
 }
 
 #pragma mark - Initializations.
@@ -72,19 +70,59 @@
     _emptyButton.layer.cornerRadius = 5;
     [_emptyButton setTitle:NSLocalizedString(@"Add Test Device", @"") forState:UIControlStateNormal];
     [_emptyButton addTarget:self action:@selector(getTestDevice) forControlEvents:UIControlEventTouchUpInside];
+    _emptyButton.hidden = YES;
     [self.view addSubview:_emptyButton];
+}
+
+- (TuyaSmartHomeManager *)homeManager {
+    if (!_homeManager) {
+        _homeManager = [[TuyaSmartHomeManager alloc] init];
+        _homeManager.delegate = self;
+    }
+    return _homeManager;;
 }
 
 - (void)initData {
     
-    self.home = [TuyaSmartHome homeWithHomeId:[TYSmartHomeManager sharedInstance].currentHomeModel.homeId];
-    self.home.delegate = self;
+    NSString *homeId = [[NSUserDefaults standardUserDefaults] objectForKey:kDefaultCurrentHomeId];
+    if ([homeId longLongValue] > 0) {
+        self.home = [TuyaSmartHome homeWithHomeId:[homeId longLongValue]];
+        self.home.delegate = self;
+        [TYSmartHomeManager sharedInstance].currentHomeModel = self.home.homeModel;
+        
+        [self reloadDataFromCloud];
+    } else {
+        [self loadFirstHomeData];
+    }
+}
 
-    _emptyButton.hidden = YES;
-    [self showProgressView:NSLocalizedString(@"loading", @"")];
-    self.homeManager = [TuyaSmartHomeManager new];
-    self.homeManager.delegate = self;
-    [self reloadDataFromCloud];
+- (void)swithCurrentHomeIdWithHomeModel:(TuyaSmartHomeModel *)homeModel {
+    [TYSmartHomeManager sharedInstance].currentHomeModel = homeModel;
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%lld", homeModel.homeId] forKey:kDefaultCurrentHomeId];
+    [self switchHome];
+}
+
+- (void)loadFirstHomeData {
+
+    WEAKSELF_AT
+    [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
+
+        if (homes.count > 0) {
+            // If homes are already exist, choose the first one as current home.
+            TuyaSmartHomeModel *model = [homes firstObject];
+            [weakSelf_AT swithCurrentHomeIdWithHomeModel:model];
+        } else {
+            // Or else, add a default home named "hangzhou's home" and choose it as current home.
+            [weakSelf_AT.homeManager addHomeWithName:@"hangzhou's home" geoName:@"hangzhou" rooms:@[@"bedroom"] latitude:0 longitude:0 success:^(long long homeId) {
+                TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeId];
+                [weakSelf_AT swithCurrentHomeIdWithHomeModel:home.homeModel];
+            } failure:^(NSError *error) {
+
+            }];
+        }
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - Actions.
@@ -113,7 +151,7 @@
         }
         
         UIAlertAction *action = [UIAlertAction actionWithTitle:homeName style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [TYSmartHomeManager sharedInstance].currentHomeModel = homeModel;
+            [self swithCurrentHomeIdWithHomeModel:homeModel];
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSwitchHome object:nil];
         }];
         [homeListAC addAction:action];
@@ -134,8 +172,11 @@
     [self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
         
         [weakSelf_AT hideProgressView];
-        [weakSelf_AT reloadData];
+        [weakSelf_AT reloadData]    ;
     } failure:^(NSError *error) {
+        if ([error.localizedFailureReason isEqualToString:@"PERMISSION_DENIED"]) {
+            [weakSelf_AT loadFirstHomeData];
+        }
         [weakSelf_AT hideProgressView];
         [weakSelf_AT.refreshControl endRefreshing];
     }];
@@ -173,32 +214,17 @@
         [weakSelf_AT reloadDataFromCloud];
     } failure:^(NSError *error) {
         [weakSelf_AT hideProgressView];
-        
-        NSString *msg = [NSString stringWithFormat:@"Get test device failed: %@",error.localizedDescription];
-        [self alertMessage:msg];
+        [TPProgressUtils showError:error.localizedDescription];
     }];
-}
-
-- (void)alertMessage:(NSString *)message {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:message
-                                                     message:nil
-                                                    delegate:nil
-                                           cancelButtonTitle:@"OK"
-                                           otherButtonTitles:nil];
-    [alert show];
 }
 
 // add home
 - (void)rightBtnAction {
-    WEAKSELF_AT
-    NSString *homeName = [NSString stringWithFormat:@"Home_number_%@",@(self.homeManager.homes.count)];
+    NSString *homeName = [NSString stringWithFormat:@"Home_number_%@", @(self.homeManager.homes.count)];
     [self.homeManager addHomeWithName:homeName geoName:@"test location" rooms:@[@"class room"] latitude:0 longitude:0 success:^(long long result) {
-        
-        [weakSelf_AT alertMessage:@"Add a new home to your account successfully!"];
+        [TPProgressUtils showSuccess:@"Add Success" toView:nil];
     } failure:^(NSError *error) {
-        
-        NSString *msg = [NSString stringWithFormat:@"Add home fail: %@",error.localizedDescription];
-        [weakSelf_AT alertMessage:msg];
+        [TPProgressUtils showError:error.localizedDescription];
     }];
 }
 
@@ -239,7 +265,7 @@
         
     } else if (indexPath.row < self.home.deviceList.count + self.home.groupList.count) {
         TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:(indexPath.row - self.home.groupList.count)];
-        //演示设备produckId
+        // 演示设备produckId
         if ([deviceModel.productId isEqualToString:@"4eAeY1i5sUPJ8m8d"]) {
             
             TYSwitchPanelViewController *vc = [[TYSwitchPanelViewController alloc] init];
@@ -334,7 +360,10 @@
 
 // remove home
 - (void)homeManager:(TuyaSmartHomeManager *)manager didRemoveHome:(long long)homeId {
-    // remove home
+    // 如果删除的家庭是当前家庭，当前家庭切换到另外一个
+    if ([TYSmartHomeManager sharedInstance].currentHomeModel.homeId == homeId) {
+        [self loadFirstHomeData];
+    }
 }
 
 // MQTT connect success

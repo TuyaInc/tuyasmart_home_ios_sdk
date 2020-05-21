@@ -9,6 +9,7 @@
 #import "TYAppDelegate.h"
 #import "TYTabBarViewController.h"
 #import "TPNavigationController.h"
+#import "TYLoginViewController.h"
 #import <UserNotifications/UserNotifications.h>
 
 /*
@@ -29,16 +30,16 @@
 #if DEBUG
     [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
 #endif
-    
-//    [TuyaSmartSDK sharedInstance].appGroupId = APP_GROUP_NAME;
-    [[TuyaSmartSDK sharedInstance] startWithAppKey:SDK_APPKEY secretKey:SDK_APPSECRET];
+
+//    [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    TPNavigationController *navigationController = [[TPNavigationController alloc] initWithRootViewController:[TYTabBarViewController new]];
-    self.window.rootViewController = navigationController;
-    [self.window makeKeyAndVisible];
-    navigationController.navigationBarHidden = YES;
+    if ([TuyaSmartUser sharedInstance].isLogin) {
+        [self resetRootViewController:[TYTabBarViewController class]];
+    } else {
+        [self resetRootViewController:[TYLoginViewController class]];
+    }
     
     // notification
     [application registerForRemoteNotifications];
@@ -65,5 +66,50 @@
     
     [TuyaSmartSDK sharedInstance].deviceToken = deviceToken;
 }
+
+- (void)resetRootViewController:(Class)rootController {
+    if ([TuyaSmartUser sharedInstance].isLogin) {
+        [self loginDoAction];
+    }
+    [tp_topMostViewController().navigationController popToRootViewControllerAnimated:NO];
+    
+    TPNavigationController *navigationController = [[TPNavigationController alloc] initWithRootViewController:[rootController new]];
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
+    navigationController.navigationBarHidden = YES;
+}
+
+- (void)signOut {
+    [[TuyaSmartUser sharedInstance] loginOut:nil failure:nil];
+    [self resetRootViewController:[TYLoginViewController class]];
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:TuyaSmartUserNotificationUserSessionInvalid
+                                                  object:nil];
+    
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kDefaultCurrentHomeId];
+}
+
+- (void)loginDoAction {
+
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:TuyaSmartUserNotificationUserSessionInvalid
+                                                  object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(sessionInvalid)
+                                                 name:TuyaSmartUserNotificationUserSessionInvalid
+                                               object:nil];
+}
+
+- (void)sessionInvalid {
+    if ([[TuyaSmartUser sharedInstance] isLogin]) {
+        [self signOut];
+        
+        [TPProgressUtils showError:NSLocalizedString(@"login_session_expired", nil)];
+    }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:TuyaSmartUserNotificationUserSessionInvalid object:nil];
+}
+
 
 @end

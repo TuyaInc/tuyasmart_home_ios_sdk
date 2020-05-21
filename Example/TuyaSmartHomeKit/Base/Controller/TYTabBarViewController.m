@@ -8,22 +8,22 @@
 
 #import "TYTabBarViewController.h"
 #import "TPNavigationController.h"
-#import "TYLoginViewController.h"
 #import "TYDeviceListViewController.h"
 #import "TYSmartSceneViewController.h"
 #import "TYAddDeviceMenuViewController.h"
-#import "TYSmartHomeManager.h"
+#import "TYUserInfoViewController.h"
 
-@interface TYTabBarViewController() <UITabBarControllerDelegate>
+@interface TYTabBarViewController()
 
 @property (nonatomic, strong) TPNavigationController *deviceListNavigationController;
 @property (nonatomic, strong) TPNavigationController *addDeviceNavigationController;
-@property (nonatomic, strong) TPNavigationController *loginNavigationController;
 @property (nonatomic, strong) TPNavigationController *sceneNavigationController;
+@property (nonatomic, strong) TPNavigationController *userNavigationController;
 
 @property (nonatomic, strong) UIViewController       *addDeviceViewController;
 @property (nonatomic, strong) TYDeviceListViewController *deviceViewController;
 @property (nonatomic, strong) TYSmartSceneViewController *sceneViewController;
+@property (nonatomic, strong) TYUserInfoViewController *userViewController;
 
 @end
 
@@ -42,8 +42,6 @@
     
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     
-    self.delegate = self;
-    
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     [self setupControllers];
@@ -52,16 +50,16 @@
 - (void)setupControllers {
     [self customView];
     self.viewControllers = @[
-                             self.loginNavigationController,
                              self.deviceListNavigationController,
                              self.addDeviceNavigationController,
-                             self.sceneNavigationController
+                             self.sceneNavigationController,
+                             self.userNavigationController
                              ];
 }
 
 - (void)customView {
     [self.tabBar setTintColor:TAB_BAR_TEXT_COLOR];
-    self.tabBar.translucent  = NO;
+    self.tabBar.translucent = NO;
     UIView *view = [[UIView alloc] initWithFrame:self.tabBar.bounds];
     view.height = IPhoneX ? 83 : self.tabBar.height;
     view.backgroundColor = TAB_BAR_BACKGROUND_COLOR;
@@ -89,17 +87,11 @@
     return _sceneNavigationController;
 }
 
-- (TPNavigationController *)loginNavigationController {
-    if (!_loginNavigationController) {
-        TYLoginViewController *loginViewController = [TYLoginViewController new];
-        
-        [loginViewController setTitle:NSLocalizedString(@"login", @"")];
-        loginViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"login", @"")
-                                                                     image:[UIImage imageNamed:@"ty_mainbt_about"]
-                                                             selectedImage:[UIImage imageNamed:@"ty_mainbt_about_active"]];
-        _loginNavigationController = [[TPNavigationController alloc] initWithRootViewController:loginViewController];
+- (TPNavigationController *)userNavigationController {
+    if (!_userNavigationController) {
+        _userNavigationController = [[TPNavigationController alloc] initWithRootViewController:self.userViewController];
     }
-    return _loginNavigationController;
+    return _userNavigationController;
 }
 
 - (TYDeviceListViewController *)deviceViewController {
@@ -134,21 +126,14 @@
     return _sceneViewController;
 }
 
-#pragma mark - UITabBarControllerDelegate
-
-- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-    
-    if (![TuyaSmartUser sharedInstance].isLogin &&
-        viewController != self.loginNavigationController &&
-        ![TYSmartHomeManager sharedInstance].currentHomeModel) {
-        
-        UIAlertView *alert = [UIAlertView bk_alertViewWithTitle:@"Attention" message:@"Login to visity this page." ];
-        [alert bk_setCancelButtonWithTitle:@"OK" handler:NULL];
-        [alert show];
-        
-        return NO;
+- (TYUserInfoViewController *)userViewController {
+    if (!_userViewController) {
+        _userViewController = [[TYUserInfoViewController alloc] init];
+        _userViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"personal_center", @"")
+                                                                        image:[UIImage imageNamed:@"ty_mainbt_about"]
+                                                                selectedImage:[UIImage imageNamed:@"ty_mainbt_about_active"]];
     }
-    
-    return YES;
+    return _userViewController;
 }
+
 @end

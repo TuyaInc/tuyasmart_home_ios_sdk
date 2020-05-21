@@ -38,8 +38,6 @@ typedef NS_ENUM(NSInteger, TYLoginAndRegisterViewActionType) {
 @property (nonatomic, strong) UITextField *passwordField;
 @property (nonatomic, strong) UITextField *verifyCodeField;//verify code from your short messages.
 
-@property (nonatomic, strong) UILabel *tipsLabel;
-
 @end
 
 NS_ASSUME_NONNULL_END

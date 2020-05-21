@@ -11,6 +11,8 @@
 #import <CoreTelephony/CTCarrier.h>
 #import "TYLoginAndRegisterView.h"
 #import "TYLoginAndRegisterUtils.h"
+#import "TYAppDelegate.h"
+#import "TYTabBarViewController.h"
 
 @interface TYRegisterViewController () <TYLoginAndRegisterViewDelegate>
 
@@ -54,7 +56,7 @@
     
     [self.view endEditing:YES];
     if (!self.rootView.accountField.text.length) {
-        self.rootView.tipsLabel.text = @"Account can't be nil";
+        [TPProgressUtils showError:@"Account can't be nil"];
         return;
     }
     if ([TYLoginAndRegisterUtils isValidateEmail:self.rootView.accountField.text]) {
@@ -66,24 +68,19 @@
 
 - (void)sendVerifyCodeToPhone {
     
-    WEAKSELF_AT
     [[TuyaSmartUser sharedInstance] sendVerifyCode:self.rootView.countryCodeField.text phoneNumber:self.rootView.accountField.text type:1 success:^{
-        weakSelf_AT.rootView.tipsLabel.text = @"Verify code has been sent to your phone.";
+        [TPProgressUtils showSuccess:@"Verification code sent successfully" toView:nil];
     } failure:^(NSError *error) {
-        weakSelf_AT.rootView.tipsLabel.text = error.localizedDescription;
+        [TPProgressUtils showError:error.localizedDescription];
     }];
 }
 
 - (void)sendVerifyCodeToEmail {
     
-    WEAKSELF_AT
     [[TuyaSmartUser sharedInstance] sendVerifyCodeByRegisterEmail:self.rootView.countryCodeField.text email:self.rootView.accountField.text success:^{
-        
-        weakSelf_AT.rootView.tipsLabel.text = @"Verify code has been sent to your email.";
+        [TPProgressUtils showSuccess:@"Verification code sent successfully" toView:nil];
     } failure:^(NSError *error) {
-        
-        weakSelf_AT.rootView.tipsLabel.text = error.localizedDescription;
-        
+        [TPProgressUtils showError:error.localizedDescription];
     }];
 }
 
@@ -93,7 +90,7 @@
     if (!self.rootView.accountField.text.length ||
         !self.rootView.passwordField.text.length ||
         !self.rootView.countryCodeField.text.length) {
-        self.rootView.tipsLabel.text = @"Account or password or verify code can't be nil.";
+        [TPProgressUtils showError:@"Account or password or verify code can't be nil."];
         return;
     }
     if ([TYLoginAndRegisterUtils isValidateEmail:self.rootView.accountField.text]) {
@@ -105,30 +102,25 @@
 
 - (void)registerByPhone {
     
-    WEAKSELF_AT
     [[TuyaSmartUser sharedInstance] registerByPhone:self.rootView.countryCodeField.text phoneNumber:self.rootView.accountField.text password:self.rootView.passwordField.text code:self.rootView.verifyCodeField.text success:^{
-
-        if (weakSelf_AT.registerResultBlock) {
-            weakSelf_AT.registerResultBlock(@"Register and login with phone number success.");
-        }
-        [weakSelf_AT.navigationController popViewControllerAnimated:YES];
-    } failure:^(NSError *error) {
         
-        weakSelf_AT.rootView.tipsLabel.text = error.localizedDescription;
+        TYAppDelegate *appDelegate = (TYAppDelegate*) [[UIApplication sharedApplication] delegate];
+        [appDelegate resetRootViewController:[TYTabBarViewController class]];
+        
+    } failure:^(NSError *error) {
+        [TPProgressUtils showError:error.localizedDescription];
     }];
 }
 
 - (void)registerByEmail {
     
-    WEAKSELF_AT
     [[TuyaSmartUser sharedInstance] registerByEmail:self.rootView.countryCodeField.text email:self.rootView.accountField.text password:self.rootView.passwordField.text code:self.rootView.verifyCodeField.text success:^{
         
-        if (weakSelf_AT.registerResultBlock) {
-            weakSelf_AT.registerResultBlock(@"Register and login with email success.");
-        }
-        [weakSelf_AT.navigationController popViewControllerAnimated:YES];
+        TYAppDelegate *appDelegate = (TYAppDelegate*) [[UIApplication sharedApplication] delegate];
+        [appDelegate resetRootViewController:[TYTabBarViewController class]];
+        
     } failure:^(NSError *error) {
-        weakSelf_AT.rootView.tipsLabel.text = error.localizedDescription;
+        [TPProgressUtils showError:error.localizedDescription];
     }];
 }
 

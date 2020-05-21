@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TYRegisterViewController : TPBaseViewController
 
-@property (nonatomic, copy, nullable) void(^registerResultBlock)(NSString *resultInfoStr);
+@property (nonatomic, copy, nullable) void(^registerResultBlock)();
 
 @end
 

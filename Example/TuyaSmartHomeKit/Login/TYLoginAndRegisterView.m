@@ -64,21 +64,6 @@
             pwdLoginButton.backgroundColor = UIColor.orangeColor;
             [pwdLoginButton addTarget:self action:@selector(passwordLogin) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:pwdLoginButton];
-            
-            self.tipsLabel = [UILabel new];
-            self.tipsLabel.frame = CGRectMake(20, CGRectGetMaxY(pwdLoginButton.frame) + 20, APP_SCREEN_WIDTH - 40, 100);
-            self.tipsLabel.numberOfLines = 5;
-            self.tipsLabel.layer.borderColor = UIColor.blackColor.CGColor;
-            self.tipsLabel.layer.borderWidth = 1;
-            
-            if ([[TuyaSmartUser sharedInstance] isLogin]) {
-                
-                self.tipsLabel.text = @"You've already logged in.";
-            } else {
-                
-                self.tipsLabel.text = @"Login first to visit other pages.";
-            }
-            [self addSubview:self.tipsLabel];
         }
             break;
         case TYLoginAndRegisterViewTypeRegister:
@@ -109,14 +94,6 @@
             registerButton.layer.cornerRadius = 5;
             [registerButton addTarget:self action:@selector(registerAction) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:registerButton];
-            
-            self.tipsLabel = [UILabel new];
-            self.tipsLabel.frame = CGRectMake(20, CGRectGetMaxY(registerButton.frame) + 20, APP_SCREEN_WIDTH - 40, 100);
-            self.tipsLabel.numberOfLines = 5;
-            self.tipsLabel.layer.borderColor = UIColor.blackColor.CGColor;
-            self.tipsLabel.layer.borderWidth = 1;
-            self.tipsLabel.text = @"Tips: All the fields are essential.";
-            [self addSubview:self.tipsLabel];
         }
             break;
         default:

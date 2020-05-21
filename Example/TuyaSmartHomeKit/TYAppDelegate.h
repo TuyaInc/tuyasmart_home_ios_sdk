@@ -19,4 +19,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+- (void)resetRootViewController:(Class)rootController;
+- (void)signOut;
+
 @end
