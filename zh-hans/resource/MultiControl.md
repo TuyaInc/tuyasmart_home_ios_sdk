@@ -194,7 +194,6 @@ multiControl.queryDeviceLinkInfo(withDevId: "your_devId", dpId: "your_dpId", suc
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
     
 TuyaSmartMultiControlDetailModel *detailModel = [[TuyaSmartMultiControlDetailModel alloc] init];
-detailModel.detailId = @"";
 detailModel.dpId = @"";
 detailModel.devId = @"";
 detailModel.enable = true;
@@ -230,7 +229,9 @@ multiControl.add(withDevId: "your_devId", groupName: "groupName", groupDetail: [
 
 **接口说明**
 
-实现为主设备添加其他设备进入多控组，可以更新多控组名称，更新多控组内的设备列表
+实现为主设备添加其他设备进入多控组，可以更新多控组名称，更新多控组内的设备列表。
+
+**注：**更新方式为全量更新
 
 ```objective-c
 - (void)updateMultiControlWithDevId:(NSString *)devId multiControlModel:(TuyaSmartMultiControlModel *)model success:(void (^)(TuyaSmartMultiControlModel *))success failure:(TYFailureError)failure;
