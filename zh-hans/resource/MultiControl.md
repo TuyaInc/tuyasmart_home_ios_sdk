@@ -16,27 +16,7 @@
 
 ### 业务流程图
 
-```flow
-
-api1=>operation: 获取设备的 dp 列表信息
-api2=>operation: 查询设备下某个 dp 关联的多控和自动化信息
-cond1=>condition: 是否已经关联自动化
-api2_end=>operation: 不可再关联多控
-api3=>operation: 查询支持多控的设备列表
-api4=>operation: 选择某个设备后，获取该附属设备的 dp 点信息、已关联的多控、自动化信息
-cond2=>condition: dp 点是否已关联其他多控组或自动化
-api4_end=>operation: 不可再加入多控组
-api5=>operation: 保存或更新多控组
-
-api1->api2->cond1
-
-cond1(no)->api3->api4->cond2
-cond1(yes)->api2_end
-
-cond2(no)->api5
-cond2(yes)->api4_end
-
-```
+![](./images/ios-sdk-multi-control.png)
 
 
 
@@ -74,22 +54,22 @@ cond2(yes)->api4_end
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-    [multiControl getDeviceDpi18InfoWithDevId:@"your_devId" success:^(NSArray<TuyaSmartMultiControlDatapointModel *> * list) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+[multiControl getDeviceDpi18InfoWithDevId:@"your_devId" success:^(NSArray<TuyaSmartMultiControlDatapointModel *> * list) {
+
+} failure:^(NSError *error) {
+
+}];
 ```
 
 **Swift:**
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-        multiControl.getDeviceDpi18Info(withDevId: "your_devId", success: { (list) in
-            
-        }) { (error) in
-            
-        }
+multiControl.getDeviceDpi18Info(withDevId: "your_devId", success: { (list) in
+
+}) { (error) in
+
+}
 ```
 
 
@@ -159,22 +139,22 @@ let multiControl = TuyaSmartMultiControl.init()
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-    [multiControl queryDeviceLinkInfoWithDevId:@"your_devId" dpId:@"your_dpId" success:^(TuyaSmartMultiControlLinkModel * model) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+[multiControl queryDeviceLinkInfoWithDevId:@"your_devId" dpId:@"your_dpId" success:^(TuyaSmartMultiControlLinkModel * model) {
+
+} failure:^(NSError *error) {
+
+}];
 ```
 
 **Swift:**
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-        multiControl.queryDeviceLinkInfo(withDevId: "your_devId", dpId: "your_dpId", success: { (linkModel) in
-            
-        }) { (error) in
-            
-        }
+multiControl.queryDeviceLinkInfo(withDevId: "your_devId", dpId: "your_dpId", success: { (linkModel) in
+
+}) { (error) in
+
+}
 ```
 
 
@@ -236,86 +216,86 @@ let multiControl = TuyaSmartMultiControl.init()
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-    NSDictionary *requestJSON = @{
-        @"groupName" : @"",
-        @"groupType" : @(1),
-        @"id" : @"",
-        @"groupDetail" : @[
-                @{
-                    @"id" : @"",
-                    @"dpId" : @"",
-                    @"devId" : @"",
-                    @"enable" : @(true),
-                }
-        ],
-    };
-    [multiControl updateMultiControlWithDevId:@"your_devId" requestJSON:requestJSON success:^(TuyaSmartMultiControlModel * model) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+NSDictionary *requestJSON = @{
+    @"groupName" : @"",
+    @"groupType" : @(1),
+    @"id" : @"",
+    @"groupDetail" : @[
+            @{
+                @"id" : @"",
+                @"dpId" : @"",
+                @"devId" : @"",
+                @"enable" : @(true),
+            }
+    ],
+};
+[multiControl updateMultiControlWithDevId:@"your_devId" requestJSON:requestJSON success:^(TuyaSmartMultiControlModel * model) {
+
+} failure:^(NSError *error) {
+
+}];
 
 
-    TuyaSmartMultiControlDetailModel *detailModel = [[TuyaSmartMultiControlDetailModel alloc] init];
-    detailModel.detailId = @"";
-    detailModel.dpId = @"";
-    detailModel.devId = @"";
-    detailModel.enable = true;
-    
-    TuyaSmartMultiControlModel *model = [[TuyaSmartMultiControlModel alloc] init];
-    model.multiControlId = @"";
-    model.groupName = @"";
-    model.groupType = 1;
-    model.groupDetail = @[detailModel];
-    [multiControl updateMultiControlWithDevId:@"your_devId" requestModel:model success:^(TuyaSmartMultiControlModel * model) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+TuyaSmartMultiControlDetailModel *detailModel = [[TuyaSmartMultiControlDetailModel alloc] init];
+detailModel.detailId = @"";
+detailModel.dpId = @"";
+detailModel.devId = @"";
+detailModel.enable = true;
+
+TuyaSmartMultiControlModel *model = [[TuyaSmartMultiControlModel alloc] init];
+model.multiControlId = @"";
+model.groupName = @"";
+model.groupType = 1;
+model.groupDetail = @[detailModel];
+[multiControl updateMultiControlWithDevId:@"your_devId" requestModel:model success:^(TuyaSmartMultiControlModel * model) {
+
+} failure:^(NSError *error) {
+
+}];
 ```
 
 **Swift:**
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-        var json : Dictionary<String, Any>
-        json = [
-            "groupName" : "",
-            "groupType" : 1,
-            "id" : "",
-            "groupDetail" : [
-                    [
-                        "id" : "",
-                        "dpId" : "",
-                        "devId" : "",
-                        "enable" : true,
-                    ]
-            ],
-        ]
-        multiControl.update(withDevId: "your_devId", requestJSON: json, success: { (model) in
-            
-        }) { (error) in
-            
-        }
-        
-        var detailModel : TuyaSmartMultiControlDetailModel
-        detailModel = TuyaSmartMultiControlDetailModel.init()
-        detailModel.detailId = ""
-        detailModel.dpId = ""
-        detailModel.devId = ""
-        detailModel.enable = true
-        
-        var model : TuyaSmartMultiControlModel
-        model = TuyaSmartMultiControlModel.init()
-        model.multiControlId = ""
-        model.groupName = ""
-        model.groupType = 1
-        model.groupDetail = [detailModel]
-        multiControl.update(withDevId: "your_devId", request: model, success: { (model) in
-            
-        }) { (error) in
-            
-        }
+var json : Dictionary<String, Any>
+json = [
+    "groupName" : "",
+    "groupType" : 1,
+    "id" : "",
+    "groupDetail" : [
+            [
+                "id" : "",
+                "dpId" : "",
+                "devId" : "",
+                "enable" : true,
+            ]
+    ],
+]
+multiControl.update(withDevId: "your_devId", requestJSON: json, success: { (model) in
+
+}) { (error) in
+
+}
+
+var detailModel : TuyaSmartMultiControlDetailModel
+detailModel = TuyaSmartMultiControlDetailModel.init()
+detailModel.detailId = ""
+detailModel.dpId = ""
+detailModel.devId = ""
+detailModel.enable = true
+
+var model : TuyaSmartMultiControlModel
+model = TuyaSmartMultiControlModel.init()
+model.multiControlId = ""
+model.groupName = ""
+model.groupType = 1
+model.groupDetail = [detailModel]
+multiControl.update(withDevId: "your_devId", request: model, success: { (model) in
+
+}) { (error) in
+
+}
 ```
 
 
@@ -343,22 +323,22 @@ let multiControl = TuyaSmartMultiControl.init()
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-    [multiControl setMultiControlEnable:true/false multiControlId:@"multiControlId" success:^(BOOL result) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+[multiControl setMultiControlEnable:true/false multiControlId:@"multiControlId" success:^(BOOL result) {
+
+} failure:^(NSError *error) {
+
+}];
 ```
 
 **Swift:**
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-        multiControl.setMultiControlEnable(true/false, multiControlId: "multiControlId", success: { (result) in
-            
-        }) { (error) in
-            
-        }
+multiControl.setMultiControlEnable(true/false, multiControlId: "multiControlId", success: { (result) in
+
+}) { (error) in
+
+}
 ```
 
 
@@ -400,22 +380,22 @@ let multiControl = TuyaSmartMultiControl.init()
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-    [multiControl getMultiControlDeviceListWithHomeId:123 success:^(NSArray<TuyaSmartMultiControlDeviceModel *> * list) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+[multiControl getMultiControlDeviceListWithHomeId:123 success:^(NSArray<TuyaSmartMultiControlDeviceModel *> * list) {
+
+} failure:^(NSError *error) {
+
+}];
 ```
 
 **Swift:**
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-        multiControl.getDeviceList(withHomeId: 123, success: { (list) in
-            
-        }) { (error) in
-            
-        }
+multiControl.getDeviceList(withHomeId: 123, success: { (list) in
+
+}) { (error) in
+
+}
 ```
 
 
@@ -477,20 +457,20 @@ let multiControl = TuyaSmartMultiControl.init()
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-    [multiControl queryDeviceDpRelationWithDevId:@"your_devId" success:^(TuyaSmartMultiControlDpRelationModel * model) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+[multiControl queryDeviceDpRelationWithDevId:@"your_devId" success:^(TuyaSmartMultiControlDpRelationModel * model) {
+
+} failure:^(NSError *error) {
+
+}];
 ```
 
 **Swift:**
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-        multiControl.queryDeviceDpRelation(withDevId: "your_devId", success: { (model) in
-            
-        }) { (error) in
-            
-        }
+multiControl.queryDeviceDpRelation(withDevId: "your_devId", success: { (model) in
+
+}) { (error) in
+
+}
 ```
