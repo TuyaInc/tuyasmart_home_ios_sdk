@@ -74,20 +74,16 @@
     [self.view addSubview:_emptyButton];
 }
 
-- (TuyaSmartHomeManager *)homeManager {
-    if (!_homeManager) {
-        _homeManager = [[TuyaSmartHomeManager alloc] init];
-        _homeManager.delegate = self;
-    }
-    return _homeManager;;
-}
-
 - (void)initData {
+    
+    _homeManager = [[TuyaSmartHomeManager alloc] init];
+    _homeManager.delegate = self;
     
     NSString *homeId = [[NSUserDefaults standardUserDefaults] objectForKey:kDefaultCurrentHomeId];
     if ([homeId longLongValue] > 0) {
         self.home = [TuyaSmartHome homeWithHomeId:[homeId longLongValue]];
         self.home.delegate = self;
+        self.topBarView.leftItem.title = [NSString stringWithFormat:@"%@ ∨", self.home.homeModel.name];
         [TYSmartHomeManager sharedInstance].currentHomeModel = self.home.homeModel;
         
         [self reloadDataFromCloud];
@@ -100,12 +96,14 @@
     [TYSmartHomeManager sharedInstance].currentHomeModel = homeModel;
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%lld", homeModel.homeId] forKey:kDefaultCurrentHomeId];
     [self switchHome];
+    self.topBarView.leftItem.title = [NSString stringWithFormat:@"%@ ∨", homeModel.name];
+    [self.topBarView setNeedsLayout];
 }
 
 - (void)loadFirstHomeData {
 
     WEAKSELF_AT
-    [self.homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
+    [_homeManager getHomeListWithSuccess:^(NSArray<TuyaSmartHomeModel *> *homes) {
 
         if (homes.count > 0) {
             // If homes are already exist, choose the first one as current home.
@@ -147,7 +145,7 @@
     for (TuyaSmartHomeModel *homeModel in homes) {
         NSString *homeName = homeModel.name;
         if (homeModel.homeId == [TYSmartHomeManager sharedInstance].currentHomeModel.homeId) {
-            homeName = [NSString stringWithFormat:@"%@ is primary", homeModel.name];
+            homeName = [NSString stringWithFormat:@"%@", homeModel.name];
         }
         
         UIAlertAction *action = [UIAlertAction actionWithTitle:homeName style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -164,20 +162,17 @@
 }
 
 - (void)reloadDataFromCloud {
-    [self showProgressView:NSLocalizedString(@"loading", @"")];
     // sigmesh
-    [[TuyaSmartSIGMeshManager sharedInstance] startScanWithScanType:ScanForProxyed meshModel:self.home.sigMeshModel];
+//    [[TuyaSmartSIGMeshManager sharedInstance] startScanWithScanType:ScanForProxyed meshModel:self.home.sigMeshModel];
     WEAKSELF_AT
     [self.refreshControl beginRefreshing];
     [self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
         
-        [weakSelf_AT hideProgressView];
-        [weakSelf_AT reloadData]    ;
+        [weakSelf_AT reloadData];
     } failure:^(NSError *error) {
         if ([error.localizedFailureReason isEqualToString:@"PERMISSION_DENIED"]) {
             [weakSelf_AT loadFirstHomeData];
         }
-        [weakSelf_AT hideProgressView];
         [weakSelf_AT.refreshControl endRefreshing];
     }];
 }
@@ -205,6 +200,8 @@
 // add experience device
 - (void)getTestDevice {
     
+#warning 绑定演示设备到账号下面，生产环境勿使用
+    
     [self showProgressView:NSLocalizedString(@"loading", @"")];
     WEAKSELF_AT
     long long gid = self.home.homeModel.homeId;
@@ -220,13 +217,18 @@
 
 // add home
 - (void)rightBtnAction {
-    NSString *homeName = [NSString stringWithFormat:@"Home_number_%@", @(self.homeManager.homes.count)];
-    [self.homeManager addHomeWithName:homeName geoName:@"test location" rooms:@[@"class room"] latitude:0 longitude:0 success:^(long long result) {
+    NSString *homeName = [NSString stringWithFormat:@"Home_%@", @(self.homeManager.homes.count)];
+    WEAKSELF_AT
+    [self.homeManager addHomeWithName:homeName geoName:@"hangzhou" rooms:@[@"room1"] latitude:0 longitude:0 success:^(long long homeId) {
         [TPProgressUtils showSuccess:@"Add Success" toView:nil];
+        // 切换到新增家庭
+        TuyaSmartHome *home = [TuyaSmartHome homeWithHomeId:homeId];
+        [weakSelf_AT swithCurrentHomeIdWithHomeModel:home.homeModel];
     } failure:^(NSError *error) {
         [TPProgressUtils showError:error.localizedDescription];
     }];
 }
+
 
 #pragma mark - UITableViewDataSource
 
@@ -265,7 +267,7 @@
         
     } else if (indexPath.row < self.home.deviceList.count + self.home.groupList.count) {
         TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:(indexPath.row - self.home.groupList.count)];
-        // 演示设备produckId
+        // 演示设备 productId
         if ([deviceModel.productId isEqualToString:@"4eAeY1i5sUPJ8m8d"]) {
             
             TYSwitchPanelViewController *vc = [[TYSwitchPanelViewController alloc] init];

@@ -8,13 +8,12 @@
 
 #import "TPBaseViewController.h"
 #import "TPProgressUtils.h"
-
+#import "UIViewController+TPCategory.h"
 
 @interface TPBaseViewController()
 
 @property (nonatomic,assign) BOOL            loadAtFirstTime;
 @property (nonatomic,strong) NSDictionary    *query;
-
 
 @end
 
@@ -51,18 +50,15 @@
     }
     
     [self viewDidAppearNotAtFirstTime:animated];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
 }
 
-
 - (void)viewDidAppearNotAtFirstTime:(BOOL)animated {}
 
 - (void)viewDidAppearAtFirstTime:(BOOL)animated {}
-
 
 - (void)viewDidLoad {
     
@@ -99,6 +95,17 @@
     UIView *centerView = [self customViewForCenterItem];
     UIView *rightView = [self customViewForRightItem];
     
+    NSInteger num = self.navigationController.viewControllers.count;
+    if ([self tp_isModal] && num <= 1) {
+        
+        self.topBarView.leftItem = self.leftCancelItem;
+        
+    } else {
+        
+        if (num > 1) {
+            self.topBarView.leftItem = self.leftBackItem;
+        }
+    }
     
     if (centerTitle.length > 0) {
         

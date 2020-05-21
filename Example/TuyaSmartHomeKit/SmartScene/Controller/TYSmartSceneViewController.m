@@ -9,14 +9,9 @@
 #import "TYSmartSceneViewController.h"
 #import "TYSmartSceneTableViewCell.h"
 #import "TYAddSceneViewController.h"
-#import "TYSceneHeaderView.h"
 #import "TYSmartHomeManager.h"
 
-#define kHasCloseEditScene @"kHasCloseEditScene"
-
-@interface TYSmartSceneViewController () <TYSceneHeaderViewDelegate>
-
-@property (nonatomic, strong) TYSceneHeaderView *headerView;
+@interface TYSmartSceneViewController ()
 
 @property (nonatomic, strong) TuyaSmartScene *smartScene;
 
@@ -32,17 +27,6 @@
     [self loadSceneList];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSceneList) name:@"kNotificationSmartSceneListUpdate" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadSceneList) name:kNotificationSwitchHome object:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    NSString *editScene = [[NSUserDefaults standardUserDefaults] objectForKey:kHasCloseEditScene];
-    if (editScene.length == 0) {
-        self.tableView.tableHeaderView = _headerView;
-    } else {
-        self.tableView.tableHeaderView = nil;
-    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -67,9 +51,6 @@
     } else {
         self.tableView.frame = CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_CONTENT_WIDTH, APP_VISIBLE_HEIGHT - APP_TAB_BAR_HEIGHT);
     }
-    
-    _headerView = [[TYSceneHeaderView alloc] initWithFrame:CGRectMake(0, 0, APP_SCREEN_WIDTH, 148)];
-    _headerView.delegate = self;
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, APP_SCREEN_WIDTH, 20)];
     self.tableView.tableFooterView = footerView;
@@ -178,13 +159,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - TYSceneHeaderViewDelegate
-
-- (void)TYSceneHeaderViewDidDismiss {
-    [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:kHasCloseEditScene];
-    [self.tableView setTableHeaderView:nil];
 }
 
 

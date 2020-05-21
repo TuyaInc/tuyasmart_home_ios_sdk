@@ -19,7 +19,9 @@
  zh-hans:https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/
  */
 
-@interface TYAppDelegate() <UNUserNotificationCenterDelegate>
+@interface TYAppDelegate() <UNUserNotificationCenterDelegate, CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
 
 @end
 
@@ -99,6 +101,8 @@
                                              selector:@selector(sessionInvalid)
                                                  name:TuyaSmartUserNotificationUserSessionInvalid
                                                object:nil];
+    
+    [self startLocation];
 }
 
 - (void)sessionInvalid {
@@ -109,6 +113,30 @@
     }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:TuyaSmartUserNotificationUserSessionInvalid object:nil];
+}
+
+- (CLLocationManager *)locationManager {
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+        _locationManager.distanceFilter = 200.f;
+        _locationManager.delegate = self;
+    }
+    return _locationManager;
+}
+
+- (void)startLocation {
+    if ([CLLocationManager locationServicesEnabled]) {
+        [self.locationManager startUpdatingLocation];
+        [self.locationManager requestWhenInUseAuthorization];
+    }
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(nonnull NSArray<CLLocation *> *)locations {
+    CLLocation *loc = [locations firstObject];
+    [[TuyaSmartSDK sharedInstance] updateLatitude:loc.coordinate.latitude longitude:loc.coordinate.longitude];
 }
 
 
