@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartFeedbackKit"
-  s.version = "3.12.2"
+  s.version = "3.15.0"
   s.summary = "A short description of #{s.name}."
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
   s.homepage = "https://tuya.com"
-  s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
+  s.source = { :http => "https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
 
   s.static_framework          = true
 
