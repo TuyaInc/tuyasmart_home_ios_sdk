@@ -27,7 +27,7 @@
 从云端获取设备所有dp的名多语言称等信息
 
 ```objective-c
-- (void)getDeviceDpi18InfoWithDevId:(NSString *)devId success:(void (^)(NSArray<TuyaSmartMultiControlDatapointModel *> *))success failure:(TYFailureError)failure;
+- (void)getDeviceDpInfoWithDevId:(NSString *)devId success:(void (^)(NSArray<TuyaSmartMultiControlDatapointModel *> *))success failure:(TYFailureError)failure;
 ```
 
 **参数说明**
@@ -54,7 +54,7 @@
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-[multiControl getDeviceDpi18InfoWithDevId:@"your_devId" success:^(NSArray<TuyaSmartMultiControlDatapointModel *> * list) {
+[multiControl getDeviceDpInfoWithDevId:@"your_devId" success:^(NSArray<TuyaSmartMultiControlDatapointModel *> * list) {
 
 } failure:^(NSError *error) {
 
@@ -65,7 +65,7 @@ TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-multiControl.getDeviceDpi18Info(withDevId: "your_devId", success: { (list) in
+multiControl.getDeviceDpInfo(withDevId: "your_devId", success: { (list) in
 
 }) { (error) in
 
@@ -159,47 +159,23 @@ multiControl.queryDeviceLinkInfo(withDevId: "your_devId", dpId: "your_dpId", suc
 
 
 
-### 添加、更新、删除多控组
+### 新增多控组
 
 **接口说明**
 
-提供两个方法，可以通过 json 格式数据更新多控组，也可以使用 `TuyaSmartMultiControlModel`。通过此接口可实现为主设备添加其他设备进入多控组，可以更新多控组名称，更新多控组的设备，删除多控组的设备
-
 ```objective-c
-- (void)updateMultiControlWithDevId:(NSString *)devId requestJSON:(NSDictionary *)json success:(void (^)(TuyaSmartMultiControlModel *))success failure:(TYFailureError)failure;
-
-- (void)updateMultiControlWithDevId:(NSString *)devId requestModel:(TuyaSmartMultiControlModel *)model success:(void (^)(TuyaSmartMultiControlModel *))success failure:(TYFailureError)failure;
+- (void)addMultiControlWithDevId:(NSString *)devId groupName:(NSString *)groupName groupDetail:(NSArray<TuyaSmartMultiControlDetailModel *> *)groupDetail success:(void (^)(TuyaSmartMultiControlModel *))success failure:(TYFailureError)failure;
 ```
 
 **参数说明**
 
-| 参数    | 说明             |
-| ------- | ---------------- |
-| devId   | 主设备 id        |
-| json    | 多控组的数据结构 |
-| model   | 多控组的数据结构 |
-| success | 成功回调         |
-| failure | 失败回调         |
-
-**json 数据结构：**
-
-```json
-{
-    "groupName":"多控组1",
-    "groupType":1,
-    "groupDetail":[{"devId":"adadwfw3e234ferf41","dpId":2, "id":22, "enable":true}],
-    "id":122
-}
-```
-
-**`TuyaSmartMultiControlModel`字段信息**
-
-| 字段           | 类型                                          | 说明                 |
-| -------------- | --------------------------------------------- | -------------------- |
-| multiControlId | NSString                                      | 多控组 id            |
-| groupName      | NSString                                      | 多控组名称           |
-| groupType      | NSInteger                                     | 多控组类型。默认为 1 |
-| groupDetail    | NSArray<`TuyaSmartMultiControlDetailModel *`> | 多控组信息           |
+| 参数        | 说明                                                         |
+| ----------- | ------------------------------------------------------------ |
+| devId       | 主设备 id                                                    |
+| groupName   | 多控组名称                                                   |
+| groupDetail | 多控组关联详情（参数 NSArray<`TuyaSmartMultiControlDetailModel *`>） |
+| success     | 成功回调                                                     |
+| failure     | 失败回调                                                     |
 
 **`TuyaSmartMultiControlDetailModel`字段信息**
 
@@ -216,25 +192,75 @@ multiControl.queryDeviceLinkInfo(withDevId: "your_devId", dpId: "your_dpId", suc
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-NSDictionary *requestJSON = @{
-    @"groupName" : @"",
-    @"groupType" : @(1),
-    @"id" : @"",
-    @"groupDetail" : @[
-            @{
-                @"id" : @"",
-                @"dpId" : @"",
-                @"devId" : @"",
-                @"enable" : @(true),
-            }
-    ],
-};
-[multiControl updateMultiControlWithDevId:@"your_devId" requestJSON:requestJSON success:^(TuyaSmartMultiControlModel * model) {
+    
+TuyaSmartMultiControlDetailModel *detailModel = [[TuyaSmartMultiControlDetailModel alloc] init];
+detailModel.detailId = @"";
+detailModel.dpId = @"";
+detailModel.devId = @"";
+detailModel.enable = true;
+
+[multiControl addMultiControlWithDevId:@"your_devId" groupName:@"groupName" groupDetail:@[detailModel] success:^(TuyaSmartMultiControlModel * model) {
 
 } failure:^(NSError *error) {
 
 }];
+```
 
+**Swift:**
+
+```swift
+let multiControl = TuyaSmartMultiControl.init()
+        
+let detail = TuyaSmartMultiControlDetailModel.init()
+detail.devId = ""
+detail.dpId = ""
+detail.enable = true
+
+multiControl.add(withDevId: "your_devId", groupName: "groupName", groupDetail: [detail], success: { (model) in
+
+}) { (error) in
+
+}
+```
+
+
+
+
+### 更新多控组
+
+**接口说明**
+
+实现为主设备添加其他设备进入多控组，可以更新多控组名称，更新多控组内的设备列表
+
+```objective-c
+- (void)updateMultiControlWithDevId:(NSString *)devId multiControlModel:(TuyaSmartMultiControlModel *)model success:(void (^)(TuyaSmartMultiControlModel *))success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明             |
+| ------- | ---------------- |
+| devId   | 主设备 id        |
+| model   | 多控组的数据结构 |
+| success | 成功回调         |
+| failure | 失败回调         |
+
+**`TuyaSmartMultiControlModel`字段信息**
+
+| 字段           | 类型                                          | 说明                 |
+| -------------- | --------------------------------------------- | -------------------- |
+| multiControlId | NSString                                      | 多控组 id            |
+| groupName      | NSString                                      | 多控组名称           |
+| groupType      | NSInteger                                     | 多控组类型。默认为 1 |
+| groupDetail    | NSArray<`TuyaSmartMultiControlDetailModel *`> | 多控组信息           |
+
+
+**示例代码**
+
+**Objc:**
+
+```objective-c
+TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
 
 TuyaSmartMultiControlDetailModel *detailModel = [[TuyaSmartMultiControlDetailModel alloc] init];
 detailModel.detailId = @"";
@@ -246,8 +272,10 @@ TuyaSmartMultiControlModel *model = [[TuyaSmartMultiControlModel alloc] init];
 model.multiControlId = @"";
 model.groupName = @"";
 model.groupType = 1;
+
 model.groupDetail = @[detailModel];
-[multiControl updateMultiControlWithDevId:@"your_devId" requestModel:model success:^(TuyaSmartMultiControlModel * model) {
+
+[multiControl updateMultiControlWithDevId:@"your_devId" multiControlModel:model success:^(TuyaSmartMultiControlModel * model) {
 
 } failure:^(NSError *error) {
 
@@ -258,40 +286,18 @@ model.groupDetail = @[detailModel];
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-var json : Dictionary<String, Any>
-json = [
-    "groupName" : "",
-    "groupType" : 1,
-    "id" : "",
-    "groupDetail" : [
-            [
-                "id" : "",
-                "dpId" : "",
-                "devId" : "",
-                "enable" : true,
-            ]
-    ],
-]
-multiControl.update(withDevId: "your_devId", requestJSON: json, success: { (model) in
 
-}) { (error) in
-
-}
-
-var detailModel : TuyaSmartMultiControlDetailModel
-detailModel = TuyaSmartMultiControlDetailModel.init()
+let detailModel = TuyaSmartMultiControlDetailModel.init()
 detailModel.detailId = ""
 detailModel.dpId = ""
 detailModel.devId = ""
 detailModel.enable = true
 
-var model : TuyaSmartMultiControlModel
-model = TuyaSmartMultiControlModel.init()
+let model = TuyaSmartMultiControlModel.init()
 model.multiControlId = ""
 model.groupName = ""
-model.groupType = 1
 model.groupDetail = [detailModel]
-multiControl.update(withDevId: "your_devId", request: model, success: { (model) in
+multiControl.update(withDevId: "your_devId", multiControlModel: model, success: { (model) in
 
 }) { (error) in
 
@@ -305,15 +311,15 @@ multiControl.update(withDevId: "your_devId", request: model, success: { (model) 
 **接口说明**
 
 ```objective-c
-- (void)setMultiControlEnable:(BOOL)enabled multiControlId:(NSString *)multiControlId success:(TYSuccessBOOL)success failure:(TYFailureError)failure;
+- (void)enableMultiControlWithMultiControlId:(NSString *)multiControlId enable:(BOOL)enable success:(TYSuccessBOOL)success failure:(TYFailureError)failure;
 ```
 
 **参数说明**
 
 | 参数           | 说明       |
 | -------------- | ---------- |
-| enabled        | 启用或停用 |
 | multiControlId | 多控组 Id  |
+| enable         | 启用或停用 |
 | success        | 成功回调   |
 | failure        | 失败回调   |
 
@@ -323,7 +329,7 @@ multiControl.update(withDevId: "your_devId", request: model, success: { (model) 
 
 ```objective-c
 TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
-[multiControl setMultiControlEnable:true/false multiControlId:@"multiControlId" success:^(BOOL result) {
+[multiControl enableMultiControlWithMultiControlId:@"multiControlId" enable:true/false success:^(BOOL result) {
 
 } failure:^(NSError *error) {
 
@@ -334,7 +340,7 @@ TuyaSmartMultiControl *multiControl = [[TuyaSmartMultiControl alloc] init];
 
 ```swift
 let multiControl = TuyaSmartMultiControl.init()
-multiControl.setMultiControlEnable(true/false, multiControlId: "multiControlId", success: { (result) in
+multiControl.enableMultiControl(withMultiControlId: "multiControlId", enable: true, success: { (result) in
 
 }) { (error) in
 
