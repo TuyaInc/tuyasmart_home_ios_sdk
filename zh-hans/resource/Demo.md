@@ -20,12 +20,11 @@ Demo App 主要包括了
 - 智能场景模块：场景的创建和场景的执行
 - 用户信息模块：用户的信息
 
-<div align=left><img src="./images/ios-sdk-demo-login.png" style="zoom:25%;" />
-<img src="./images/ios-sdk-demo-devlist.png" style="zoom:25%;" />
-  <img src="./images/ios-sdk-demo-activator.png" style="zoom:25%;" />
-  <img src="./images/ios-sdk-demo-scene.png" style="zoom:25%;" />
-  <img src="./images/ios-sdk-demo-userinfo.png" style="zoom:25%;" />
-
+<div align=left><img src="./images/ios-sdk-demo-login.png" style="zoom:22%;" />
+<img src="./images/ios-sdk-demo-devlist.png" style="zoom:22%;" />
+  <img src="./images/ios-sdk-demo-activator.png" style="zoom:22%;" />
+  <img src="./images/ios-sdk-demo-scene.png" style="zoom:22%;" />
+  <img src="./images/ios-sdk-demo-userinfo.png" style="zoom:22%;" />
 
 
 **[Demo 链接](https://github.com/TuyaInc/tuyasmart_home_ios_sdk)**
