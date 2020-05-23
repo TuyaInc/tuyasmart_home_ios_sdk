@@ -35,13 +35,5 @@
 
 [iOS Sweeper SDK 链接](https://github.com/TuyaInc/tuyasmart_sweeper_ios_sdk)
 
+[iOS Sweeper SDK 文档链接](https://github.com/TuyaInc/tuyasmart_sweeper_ios_sdk)
 
-
-## 智能门锁 SDK
-
-###  功能概述
-
-
-iOS Lock SDK 链接
-
-iOS Lock SDK 文档链接
