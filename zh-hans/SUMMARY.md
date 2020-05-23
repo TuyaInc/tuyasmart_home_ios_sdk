@@ -99,7 +99,9 @@
 * [垂直品类 SDK](./resource/ExtensionAbout.md)
   * [IPC SDK](./resource/Extension.md#ipc-sdk)
   * [扫地机 SDK](./resource/Extension.md#扫地机-sdk)
-  * [智能门锁 SDK](./resource/Extension.md#智能门锁-sdk)
+  * [智能门锁 SDK](./resource/Lock.md)
+    - [蓝牙门锁](./resource/BLELock.md)
+    - [Wi-Fi 门锁](./resource/WiFiLock.md)
 * [日志更新记录](./resource/ChangeLog.md)
 * [标准功能集](./resource/StandardDpCode.md)
 
