@@ -86,4 +86,7 @@
 * [Register PushId](./resource/Push.md)
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
 * [FAQ](./resource/Faq.md)
+* [Extension SDK](./resource/ExtensionAbout.md)
+  * [IPC SDK](./resource/Extension.md#ipc-sdk)
+  * [Sweeper SDK](./resource/Extension.md#Sweeper-sdk)
 * [ChangeLog](./resource/ChangeLog.md)
