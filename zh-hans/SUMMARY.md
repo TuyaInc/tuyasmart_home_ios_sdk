@@ -96,7 +96,11 @@
 * [配置 Widget 工程](./resource/Widget.md)
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
 * [FAQ](./resource/Faq.md)
-* [日志更新](./resource/ChangeLog.md)
+* [垂直品类 SDK](./resource/ExtensionAbout.md)
+  * [IPC SDK](./resource/Extension.md#ipc-sdk)
+  * [扫地机 SDK](./resource/Extension.md#扫地机-sdk)
+  * [智能门锁 SDK](./resource/Extension.md#智能门锁-sdk)
+* [日志更新记录](./resource/ChangeLog.md)
 * [标准功能集](./resource/StandardDpCode.md)
 
 
