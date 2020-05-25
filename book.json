@@ -10,7 +10,8 @@
     "ga",
     "expandable-chapters-small",
     "pageview-count",
-    "language-picker"
+    "language-picker",
+    "hide-element"
   ],
   "pluginsConfig": {
     "prism": {
@@ -34,6 +35,9 @@
     },
     "ga": {
       "token": "UA-165828612-1"
+    },
+    "hide-element": {
+            "elements": [".gitbook-link"]
     }
   }
 }
