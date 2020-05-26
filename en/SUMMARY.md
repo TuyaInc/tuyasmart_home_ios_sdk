@@ -1,7 +1,6 @@
 # Summary
 
 * [Introduction](/README.md)
-* [Function Overview](./resource/Overview.md)
 * [Preparation Work](./resource/Preparation.md)
 * [Initiate SDK](./resource/Integrated.md)
 * [Demo App](./resource/Demo.md)
