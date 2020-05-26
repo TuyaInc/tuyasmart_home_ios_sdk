@@ -30,13 +30,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 #if DEBUG
+    // 开启日志打印
     [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
 #endif
 
+    // 初始化 SDK
     [[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
 
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    // 已经登录过了就不需要再次登录
     if ([TuyaSmartUser sharedInstance].isLogin) {
         [self resetRootViewController:[TYTabBarViewController class]];
     } else {
@@ -71,6 +74,7 @@
 
 - (void)resetRootViewController:(Class)rootController {
     if ([TuyaSmartUser sharedInstance].isLogin) {
+        // 监听 session 失效
         [self loginDoAction];
     }
     [tp_topMostViewController().navigationController popToRootViewControllerAnimated:NO];
@@ -101,7 +105,7 @@
                                              selector:@selector(sessionInvalid)
                                                  name:TuyaSmartUserNotificationUserSessionInvalid
                                                object:nil];
-    
+    // 请求定位，创建家庭，地理位置，获取系统连接的 ssid 需要定位信息
     [self startLocation];
 }
 
