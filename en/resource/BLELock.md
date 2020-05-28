@@ -17,272 +17,64 @@
 
 ## Feature Description
 
-### Connection status
+### Lock Member
 
-The Bluetooth door lock requires the App to turn on Bluetooth before some features can be used normally. The SDK will automatically connect, usually use the following methods to determine the device connection status.
-
-```objective-c
-/// If not connect or disconnected during use, call this method to connect
-- (void)autoConnect;
-
-/// Whether the device and mobile phone have established a Bluetooth connection, if it is NO, call `autoConnect` to connect device
-- (BOOL)isBLEConnected;
-```
-
-### Dynamic Password
-
-#### Get Dynamic Password
+#### Get Lock Members List
 
 **Declaration**
 
 ```objective-c
-- (void)getLockDynamicPasswordWithSuccess:(nullable TYSuccessString)success
-                                  failure:(nullable TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description                          |
-| --------- | ------------------------------------ |
-| success   | Success block, dynamic password list |
-| failure   | Failure block                        |
-
-**Example**
-
-Objc:
-
-```objective-c
-    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
-    [lock getLockDynamicPasswordWithSuccess:^(NSString *result) {
-        NSLog(@"result %@", result);
-    } failure:^(NSError *error) {
-        NSLog(@"error %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")
-    lockDevice?.getLockDynamicPassword(success: { (pwd) in
-        print("result \(pwd)")
-    }, failure: { (error) in
-        if let e = error {
-            print("error \(e)")
-        }
-    })
-```
-
-
-
-### BLE Unlock
-
-```sequence
-Title: BLE Unlock
-
-participant user
-participant app
-participant lock
-
-note over app: bluetooth open, lock device connected
-user->app: unlock
-app->lock: use ble send unlock command data
-note over lock: receive command, execute
-lock-->app: send unlock result
-note over app: show result
-```
-
-**Declaration**
-
-```objective-c
-- (void)unlockWithStatus:(BOOL)status
-                 success:(nullable TYSuccessHandler)success
-                 failure:(nullable TYFailureError)failure;
+- (void)getMemberListWithSuccess:(nullable void(^)(NSArray<TuyaSmartBLELockMemberModel *> *members))success
+                         failure:(TYFailureError)failure;
 ```
 
 **Parameters**
 
 | Parameter | Description   |
 | --------- | ------------- |
-| status    | Unlock status |
 | success   | Success block |
 | failure   | Failure block |
 
-**Example**
+**`TuyaSmartBLELockMemberModel` **
 
-Objc:
-
-```objective-c
-    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
-		BOOL status = YES;
-    [lock unlockWithStatus:status success:^{
-      	NSLog(@"unlock success");
-    } failure:^(NSError *error) {
-        NSLog(@"error %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")		
-		self.lock?.unlock(withStatus: status, success: {
-        print("unlock success")
-    }, failure: { (error) in
-        if let e = error {
-        		print("error: \(e)")
-        }    
-    })
-```
-
-**Declaration**
-
-```objective-c
-- (void)manualLockWithStatus:(BOOL)status
-                     success:(TYSuccessHandler)success
-                     failure:(TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description       |
-| --------- | ----------------- |
-| status    | Unlock status     |
-| success   | Success block |
-| failure   | Failure block |
+| Field            | Type       | Declaration                                         |
+| ---------------- | ---------- | --------------------------------------------------- |
+| userId           | NSString   | user id                                             |
+| userContact      | NSString   | Contact                                             |
+| avatarUrl        | NSString   | Avatar url                                          |
+| nickName         | NSString   | Name                                                |
+| userTimeSet      | NSString   | member time data                                    |
+| phase            | NSUInteger | Freeze condition, 0: freeze, 1: unfreeze            |
+| status           | NSUInteger | user status                                         |
+| lockUserId       | int        | user id of device                                   |
+| userType         | NSUInteger | user type, 10:admin 20:normal user 30: no-name user |
+| supportOpenType  | NSArray    | support unlock type                                 |
+| shareUser        | NSString   | Share user id                                       |
+| productAttribute | NSUInteger | Product info                                        |
 
 **Example**
 
 Objc:
 
 ```objective-c
-    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
-		BOOL status = YES;
-    [lock manualLockWithStatus:status success:^{
-      	NSLog(@"unlock success");
+    [self.lock getMemberListWithSuccess:^(NSArray<TuyaSmartBLELockMemberModel *> * _Nonnull list) {
+        NSLog(@"member list %@", list);
     } failure:^(NSError *error) {
-        NSLog(@"error %@", error);
+      NSLog(@"error: %@", error);
     }];
 ```
 
 Swift:
 
 ```swift
-    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")		
-		self.lock?.manualLock(withStatus: status, success: {
-        print("unlock success")
-    }, failure: { (error) in
-        if let e = error {
-        		print("error: \(e)")
-        }    
-    })
-```
-
-### Lock Record
-
-#### Get Lock Records
-
-**Declaration**
-
-```objective-c
-- (void)getAlarmRecordListWithOffset:(int)offset
-                               limit:(int)limit
-                             success:(nullable void(^)(NSArray<TuyaSmartLockRecordModel *> *records))success
-                             failure:(nullable TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description                     |
-| --------- | ------------------------------- |
-| offset    | Data page number                |
-| limit     | Data number                     |
-| success   | Success block, lock record list |
-| failure   | Failure block                   |
-
-**`TuyaSmartLockRecordModel`**
-
-| Field    | Type                    | Declaration                                 |
-| -------- | ----------------------- | ------------------------------------------- |
-| userId   | NSString                | User id                                     |
-| userName | NSString                | User name                                   |
-| time     | NSTimeInterval          | Timestamp, 13 digits                        |
-| devId    | NSString                | Device id                                   |
-| dpData   | NSDictionary            | Dp point data                               |
-| tags     | NSInteger               | Tags，0 means other, 1 means hijack warning |
-| dpsArray | NSArray<NSDictionary *> | Data point list                             |
-
-**Example**
-
-Objc:
-
-```objective-c
-    [self.lock getAlarmRecordListWithOffset:0 limit:50 success:^(NSArray<TuyaSmartLockRecordModel *> * _Nonnull records) {
-        NSLog(@"alarm records: %@", records);
-    } failure:^(NSError *error) {
-        NSLog(@"error: %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    self.lock?.getAlarmRecordList(withOffset: 0, limit: 50, success: { (records) in
-        print("alarm records: \(records)")
+    self.lock?.getMemberList(success: { (list) in
+        print("member list \(list)")
     }, failure: { (error) in
         if let e = error {
             print("error: \(e)")
         }
     })
 ```
-
-#### Get Door Lock Unlock Records
-
-**Declaration**
-
-```objective-c
-- (void)getUnlockRecordListWithOffset:(int)offset
-                                limit:(int)limit
-                              success:(nullable void(^)(NSArray<TuyaSmartBLELockRecordModel *> *records))success
-                              failure:(nullable TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description                        |
-| --------- | ---------------------------------- |
-| offset    | Data page number                   |
-| limit     | Data number                        |
-| success   | Success block, unlock records list |
-| failure   | Failure block                      |
-
-**Example**
-
-Objc:
-
-```objective-c
-    [self.lock getUnlockRecordListWithOffset:0 limit:50 success:^(NSArray<TuyaSmartLockRecordModel *> * _Nonnull records) {
-        NSLog(@"unlock records: %@", records);
-    } failure:^(NSError *error) {
-        NSLog(@"error: %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    self.lock?.getUnlockRecordList(withOffset: 0, limit: 50, success: { (records) in
-        print("unlock records \(records)")
-    }, failure: { (error) in
-        if let e = error {
-            print("error: \(e)")
-        }
-    })
-```
-
-
-
-### Lock Member
 
 #### Create Lock Member
 
@@ -412,69 +204,12 @@ Swift:
     self.lock?.updateMember(withUserName: "new name", memberId: "0000008byw", allowUnlock: true, timeType: .phase, effectiveDate: Date(), invalidDate: Date().addingTimeInterval(60 * 60 * 8), success: { (result) in
             print("update success")
         }, failure: { (error) in
-        		if let e = error {
-            		print("error: \(e)")
-        		} 
+            if let e = error {
+                print("error: \(e)")
+            } 
         })
 ```
 
-
-#### Get Lock Members List
-
-**Declaration**
-
-```objective-c
-- (void)getMemberListWithSuccess:(nullable void(^)(NSArray<TuyaSmartBLELockMemberModel *> *members))success
-                         failure:(TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description   |
-| --------- | ------------- |
-| success   | Success block |
-| failure   | Failure block |
-
-**`TuyaSmartBLELockMemberModel` **
-
-| Field            | Type       | Declaration                                         |
-| ---------------- | ---------- | --------------------------------------------------- |
-| userId           | NSString   | user id                                             |
-| userContact      | NSString   | Contact                                             |
-| avatarUrl        | NSString   | Avatar url                                          |
-| nickName         | NSString   | Name                                                |
-| userTimeSet      | NSString   | member time data                                    |
-| phase            | NSUInteger | Freeze condition, 0: freeze, 1: unfreeze            |
-| status           | NSUInteger | user status                                         |
-| lockUserId       | int        | user id of device                                   |
-| userType         | NSUInteger | user type, 10:admin 20:normal user 30: no-name user |
-| supportOpenType  | NSArray    | support unlock type                                 |
-| shareUser        | NSString   | Share user id                                       |
-| productAttribute | NSUInteger | Product info                                        |
-
-**Example**
-
-Objc:
-
-```objective-c
-    [self.lock getMemberListWithSuccess:^(NSArray<TuyaSmartBLELockMemberModel *> * _Nonnull list) {
-        NSLog(@"member list %@", list);
-    } failure:^(NSError *error) {
-				NSLog(@"error: %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    self.lock?.getMemberList(success: { (list) in
-        print("member list \(list)")
-    }, failure: { (error) in
-        if let e = error {
-            print("error: \(e)")
-        }
-    })
-```
 
 
 
@@ -530,13 +265,281 @@ Swift:
 
 ```swift
     self.lock?.removeMember(withMemberId: "", success: { (result) in
-    		print("delete lock member success")
+        print("delete lock member success")
     }, failure: { (error) in
         if let e = error {
             print("error: \(e)")
         }     
     })
 ```
+
+
+### Connection status
+
+The Bluetooth door lock requires the App to turn on Bluetooth before some features can be used normally. The SDK will automatically connect, usually use the following methods to determine the device connection status.
+
+```objective-c
+/// If not connect or disconnected during use, call this method to connect
+- (void)autoConnect;
+
+/// Whether the device and mobile phone have established a Bluetooth connection, if it is NO, call `autoConnect` to connect device
+- (BOOL)isBLEConnected;
+```
+
+### Dynamic Password
+
+#### Get Dynamic Password
+
+**Declaration**
+
+```objective-c
+- (void)getLockDynamicPasswordWithSuccess:(nullable TYSuccessString)success
+                                  failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                          |
+| --------- | ------------------------------------ |
+| success   | Success block, dynamic password list |
+| failure   | Failure block                        |
+
+**Example**
+
+Objc:
+
+```objective-c
+    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
+    [lock getLockDynamicPasswordWithSuccess:^(NSString *result) {
+        NSLog(@"result %@", result);
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")
+    lockDevice?.getLockDynamicPassword(success: { (pwd) in
+        print("result \(pwd)")
+    }, failure: { (error) in
+        if let e = error {
+            print("error \(e)")
+        }
+    })
+```
+
+
+
+### BLE Unlock
+
+```sequence
+Title: BLE Unlock
+
+participant user
+participant app
+participant lock
+
+note over app: bluetooth open, lock device connected
+user->app: unlock
+app->lock: use ble send unlock command data
+note over lock: receive command, execute
+lock-->app: send unlock result
+note over app: show result
+```
+
+**Declaration**
+
+```objective-c
+- (void)unlockWithStatus:(BOOL)status
+                 success:(nullable TYSuccessHandler)success
+                 failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description   |
+| --------- | ------------- |
+| status    | Unlock status |
+| success   | Success block |
+| failure   | Failure block |
+
+**Example**
+
+Objc:
+
+```objective-c
+    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
+    BOOL status = YES;
+    [lock unlockWithStatus:status success:^{
+        NSLog(@"unlock success");
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")    
+    self.lock?.unlock(withStatus: status, success: {
+        print("unlock success")
+    }, failure: { (error) in
+        if let e = error {
+            print("error: \(e)")
+        }    
+    })
+```
+
+**Declaration**
+
+```objective-c
+- (void)manualLockWithStatus:(BOOL)status
+                     success:(TYSuccessHandler)success
+                     failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description       |
+| --------- | ----------------- |
+| status    | Unlock status     |
+| success   | Success block |
+| failure   | Failure block |
+
+**Example**
+
+Objc:
+
+```objective-c
+    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
+    BOOL status = YES;
+    [lock manualLockWithStatus:status success:^{
+        NSLog(@"unlock success");
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")    
+    self.lock?.manualLock(withStatus: status, success: {
+        print("unlock success")
+    }, failure: { (error) in
+        if let e = error {
+            print("error: \(e)")
+        }    
+    })
+```
+
+### Lock Record
+
+#### Get Lock Records
+
+**Declaration**
+
+```objective-c
+- (void)getAlarmRecordListWithOffset:(int)offset
+                               limit:(int)limit
+                             success:(nullable void(^)(NSArray<TuyaSmartLockRecordModel *> *records))success
+                             failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                     |
+| --------- | ------------------------------- |
+| offset    | Data page number                |
+| limit     | Data number                     |
+| success   | Success block, lock record list |
+| failure   | Failure block                   |
+
+**`TuyaSmartLockRecordModel`**
+
+| Field    | Type                    | Declaration                                 |
+| -------- | ----------------------- | ------------------------------------------- |
+| userId   | NSString                | User id                                     |
+| userName | NSString                | User name                                   |
+| time     | NSTimeInterval          | Timestamp, 13 digits                        |
+| devId    | NSString                | Device id                                   |
+| dpData   | NSDictionary            | Dp point data                               |
+| tags     | NSInteger               | Tags，0 means other, 1 means hijack warning |
+| dpsArray | NSArray<NSDictionary *> | Data point list                             |
+
+**Example**
+
+Objc:
+
+```objective-c
+    [self.lock getAlarmRecordListWithOffset:0 limit:50 success:^(NSArray<TuyaSmartLockRecordModel *> * _Nonnull records) {
+        NSLog(@"alarm records: %@", records);
+    } failure:^(NSError *error) {
+        NSLog(@"error: %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    self.lock?.getAlarmRecordList(withOffset: 0, limit: 50, success: { (records) in
+        print("alarm records: \(records)")
+    }, failure: { (error) in
+        if let e = error {
+            print("error: \(e)")
+        }
+    })
+```
+
+#### Get Door Lock Unlock Records
+
+**Declaration**
+
+```objective-c
+- (void)getUnlockRecordListWithOffset:(int)offset
+                                limit:(int)limit
+                              success:(nullable void(^)(NSArray<TuyaSmartBLELockRecordModel *> *records))success
+                              failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description                        |
+| --------- | ---------------------------------- |
+| offset    | Data page number                   |
+| limit     | Data number                        |
+| success   | Success block, unlock records list |
+| failure   | Failure block                      |
+
+**Example**
+
+Objc:
+
+```objective-c
+    [self.lock getUnlockRecordListWithOffset:0 limit:50 success:^(NSArray<TuyaSmartLockRecordModel *> * _Nonnull records) {
+        NSLog(@"unlock records: %@", records);
+    } failure:^(NSError *error) {
+        NSLog(@"error: %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    self.lock?.getUnlockRecordList(withOffset: 0, limit: 50, success: { (records) in
+        print("unlock records \(records)")
+    }, failure: { (error) in
+        if let e = error {
+            print("error: \(e)")
+        }
+    })
+```
+
+
+
+
 
 ### Password Unlock
 
@@ -642,7 +645,8 @@ Objc:
 
 ```objective-c
     [self.lock getPasswordListWithSuccess:^(NSArray<TuyaSmartBLELockOpmodeModel *> * _Nonnull models) {
-				NSLog(@"password list %@", models);
+    
+NSLog(@"password list %@", models);
     } failure:^(NSError *error) {
         NSLog(@"error: %@", error);
     }];
@@ -652,7 +656,7 @@ Swift:
 
 ```swift
     self.lock?.getPasswordList(success: { (models) in
-    		print("password list \(models)")  
+        print("password list \(models)")  
     }, failure: { (error) in
         if let e = error {
             print("error: \(e)")
@@ -846,7 +850,7 @@ Objc:
 
 ```objective-c
     [self.lock getFingerPrintListWithSuccess:^(NSArray<TuyaSmartBLELockOpmodeModel *> * _Nonnull models) {
-				NSLog(@"fingerprint list %@", models);
+        NSLog(@"fingerprint list %@", models);
     } failure:^(NSError *error) {
         NSLog(@"error: %@", error);
     }];
@@ -856,7 +860,7 @@ Swift:
 
 ```swift
     self.lock?.getFingerPrintList(success: { (models) in
-    		print("fingerprint list \(models)")  
+        print("fingerprint list \(models)")  
     }, failure: { (error) in
         if let e = error {
             print("error: \(e)")
@@ -890,7 +894,7 @@ note over app: show result
 
 ```objective-c
 - (void)removeFingerPrintForMemberWithOpmodeModel:(TuyaSmartBLELockOpmodeModel *)opmodeModel
-                                       	  success:(TYSuccessHandler)success
+                                           success:(TYSuccessHandler)success
                                           failure:(TYFailureError)failure;
 ```
 
@@ -1012,7 +1016,7 @@ Objc:
 
 ```objective-c
     [self.lock getCardListWithSuccess:^(NSArray<TuyaSmartBLELockOpmodeModel *> * _Nonnull models) {
-				NSLog(@"card list %@", models);
+        NSLog(@"card list %@", models);
     } failure:^(NSError *error) {
         NSLog(@"error: %@", error);
     }];
@@ -1022,7 +1026,7 @@ Swift:
 
 ```swift
     self.lock?.getCardList(success: { (models) in
-    		print("card list \(models)")  
+        print("card list \(models)")  
     }, failure: { (error) in
         if let e = error {
             print("error: \(e)")
