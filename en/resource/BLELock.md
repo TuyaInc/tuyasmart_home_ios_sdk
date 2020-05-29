@@ -15,11 +15,9 @@
 | `TuyaSmartBLELockDevice`         | BLE Lock Device, extend `TuyaSmartDevice`                  |      |
 | `TuyaSmartBLELockDeviceDelegate` | BLE Lock Device Delegate, extend `TuyaSmartDeviceDelegate` |      |
 
-## Feature Description
+## Lock Member
 
-### Lock Member
-
-#### Get Lock Members List
+### Get Lock Members List
 
 **Declaration**
 
@@ -76,7 +74,7 @@ Swift:
     })
 ```
 
-#### Create Lock Member
+### Create Lock Member
 
 SDK support add member for lock device
 
@@ -140,7 +138,7 @@ Swift:
     })
 ```
 
-#### Update Lock Member Information
+### Update Lock Member Information
 
 SDK provides the function of modifying the members of the lock. The members of the lock will interact with the hardware and require the device to maintain a Bluetooth connection.
 
@@ -213,7 +211,7 @@ Swift:
 
 
 
-#### Delete Lock Member
+### Delete Lock Member
 
 SDK provides the feature of deleting the member of the lock. The member of the lock will interact with the hardware and delete all unlocking methods and passwords of the user. The operation requires the device to maintain a bluetooth connection.
 
@@ -274,7 +272,7 @@ Swift:
 ```
 
 
-### Connection status
+## Connection status
 
 The Bluetooth door lock requires the App to turn on Bluetooth before some features can be used normally. The SDK will automatically connect, usually use the following methods to determine the device connection status.
 
@@ -286,9 +284,9 @@ The Bluetooth door lock requires the App to turn on Bluetooth before some featur
 - (BOOL)isBLEConnected;
 ```
 
-### Dynamic Password
+## Dynamic Password
 
-#### Get Dynamic Password
+### Get Dynamic Password
 
 **Declaration**
 
@@ -332,7 +330,7 @@ Swift:
 
 
 
-### BLE Unlock
+## BLE Unlock
 
 ```sequence
 Title: BLE Unlock
@@ -435,9 +433,9 @@ Swift:
     })
 ```
 
-### Lock Record
+## Lock Record
 
-#### Get Lock Records
+### Get Lock Records
 
 **Declaration**
 
@@ -493,7 +491,7 @@ Swift:
     })
 ```
 
-#### Get Door Lock Unlock Records
+### Get Door Lock Unlock Records
 
 **Declaration**
 
@@ -538,8 +536,7 @@ Swift:
 ```
 
 
-
-
+## Unlock Mode Management
 
 ### Password Unlock
 
@@ -1350,7 +1347,7 @@ Swift:
 ```
 
 
-## BLE Lock Dp Code Table
+## BLE Lock Door Lock Function Points
 
 | dp name                  | dp code                     |
 | ------------------------ | --------------------------- |

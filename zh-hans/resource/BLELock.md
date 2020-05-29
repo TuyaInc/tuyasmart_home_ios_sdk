@@ -7,6 +7,7 @@
 | 劫持                  | 门锁劫持是指将录入特定的密码（指纹、密码等），设置为劫持密码，当受到劫持使用该密码进行开锁时，被迫开门，门锁将防劫持特殊开门报警信息发送至家人手机或物业管理系统。 |
 | 门锁成员              | 门锁成员分为家庭成员与非家庭成员。<br />家庭成员即为涂鸦全屋智能的家庭成员概念，门锁内可将对应的门锁密码编号与该账号关联起来；<br />非家庭成员即为门锁内的成员，跟随设备关联，可以创建并分配，门锁内可将对应的门锁密码编号与该成员关联起来。 |
 | lockUserId  和 userId | lockUserId 是创建门锁成员时，云端为设备分配的固件成员 id，代表着固件内记录的用户 id 号<br />userId 是创建门锁成员时，云端分配的数据库记录 id，代表着用户的唯一 id |
+| dpCode                | 设备功能点的标识符。设备中的每个功能点都有名称和编号，可参考[门锁功能点列表](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/BLELock.html#%E8%93%9D%E7%89%99%E9%97%A8%E9%94%81%E5%8A%9F%E8%83%BD%E7%82%B9%E5%88%97%E8%A1%A8) |
 
 ## 使用说明
 
@@ -15,9 +16,9 @@
 | `TuyaSmartBLELockDevice`         | 蓝牙门锁设备操作类，继承自 `TuyaSmartDevice`           |
 | `TuyaSmartBLELockDeviceDelegate` | 蓝牙门锁设备协议代理，拓展自 `TuyaSmartDeviceDelegate` |
 
-### 门锁成员管理
+## 门锁成员管理
 
-#### 获取门锁成员列表
+### 获取门锁成员列表
 
 **接口说明**
 
@@ -44,7 +45,7 @@
 | userTimeSet      | NSString   | 成员时效性数据                                    |
 | phase            | NSUInteger | 冻结情况，0: 冻结， 1: 解冻                       |
 | status           | NSUInteger | 用户状态                                          |
-| lockUserId       | **int**    | 门锁上的用户 id                                   |
+| lockUserId       | int    | 门锁上的用户 id                                   |
 | userType         | NSUInteger | 用户类型 10:管理员 20:普通成员 30: 没有名称的成员 |
 | supportOpenType  | NSArray    | 支持的开锁方式                                    |
 | shareUser        | NSString   | 分享的用户账号                                    |
@@ -74,7 +75,7 @@ Swift:
     })
 ```
 
-#### 创建门锁成员
+### 创建门锁成员
 
 SDK 支持往门锁里添加成员，后续可以单独为该成员进行解锁方式绑定
 
@@ -114,6 +115,8 @@ note over app: 处理、显示结果
 | success       | 成功回调                                                     |
 | failure       | 失败回调                                                     |
 
+> 注意: 这里创建的非家庭成员。家庭用户的管理需要参考文档[家庭成员管理](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Home.html#%E5%AE%B6%E5%BA%AD%E6%88%90%E5%91%98%E7%AE%A1%E7%90%86)
+
 **示例代码**
 
 Objc:
@@ -138,7 +141,7 @@ Swift:
     })
 ```
 
-#### 更新门锁成员信息
+### 更新门锁成员信息
 
 SDK 提供了修改门锁成员的功能，修改门锁成员会和硬件进行交互，需要设备保持蓝牙连接
 
@@ -218,7 +221,7 @@ Swift:
 
 
 
-#### 删除门锁成员
+### 删除门锁成员
 
 SDK 提供了删除门锁成员的功能，**删除门锁成员会和硬件进行交互，会删除该用户下所有的开锁方式、密码等，操作需要设备保持蓝牙连接**
 
@@ -290,9 +293,9 @@ Swift:
 - (BOOL)isBLEConnected;
 ```
 
-### 动态密码
+## 动态密码
 
-#### 获取动态密码
+### 获取动态密码
 
 **接口说明**
 
@@ -334,9 +337,9 @@ Swift:
     })
 ```
 
-### 蓝牙解锁 & 落锁
+## 蓝牙解锁 & 落锁
 
-#### 蓝牙解锁
+### 蓝牙解锁
 
 ```sequence
 Title: 蓝牙解锁开门流程
@@ -396,7 +399,7 @@ Swift:
     })
 ```
 
-#### 蓝牙落锁
+### 蓝牙落锁
 
 ```sequence
 Title: 蓝牙落锁流程
@@ -456,9 +459,9 @@ Swift:
     })
 ```
 
-### 门锁记录
+## 门锁记录
 
-#### 获取门锁告警记录
+### 获取门锁告警记录
 
 **接口说明**
 
@@ -514,7 +517,7 @@ Swift:
     })
 ```
 
-#### 获取开锁记录
+### 获取开锁记录
 
 **接口说明**
 
@@ -557,6 +560,8 @@ Swift:
         }
     })
 ```
+
+## 解锁方式管理
 
 ### 普通密码解锁
 
@@ -1367,7 +1372,7 @@ Swift:
 
 
 
-## 蓝牙门锁 Dp Code 表
+## 蓝牙门锁功能点列表
 
 | dp name                  | dp code                     |
 | ------------------------ | --------------------------- |
@@ -1417,7 +1422,7 @@ Swift:
 | 自动落锁倒计时上报       | auto_lock_countdown         |
 | 手动落锁                 | manual_lock                 |
 | 落锁状态                 | lock_motor_state            |
-| **锁帖电机转动方向**     | lock_motor_direction        |
+| 锁帖电机转动方向         | lock_motor_direction        |
 | 冻结用户                 | unlock_user_freeze          |
 | 解冻用户                 | unlock_user_enable          |
 | 蓝牙锁临时密码添加       | temporary password_creat    |

@@ -123,9 +123,9 @@
   * [IPC SDK](./resource/Extension.md#ipc-sdk)
   * [扫地机 SDK](./resource/Extension.md#扫地机-sdk)
   * [智能门锁 SDK](./resource/Lock.md)
-    - [蓝牙门锁](./resource/BLELock.md)
     - [Wi-Fi 门锁](./resource/WiFiLock.md)
-  
+    - [蓝牙门锁](./resource/BLELock.md)
+
 * [标准功能集](./resource/StandardDpCode.md)
 
 * [更新日志记录](./resource/ChangeLog.md)
