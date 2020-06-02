@@ -89,7 +89,7 @@
   * [IPC SDK](./resource/Extension.md#ipc-sdk)
   * [Sweeper SDK](./resource/Extension.md#Sweeper-sdk)
   * [Smart Lock SDK](./resource/Lock.md)
-    - [BLE Lock](./resource/BLELock.md)
     - [Wi-Fi Lock](./resource/WiFiLock.md)
+    - [BLE Lock](./resource/BLELock.md)
 * [ChangeLog](./resource/ChangeLog.md)
 

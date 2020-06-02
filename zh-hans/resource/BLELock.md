@@ -7,303 +7,75 @@
 | 劫持                  | 门锁劫持是指将录入特定的密码（指纹、密码等），设置为劫持密码，当受到劫持使用该密码进行开锁时，被迫开门，门锁将防劫持特殊开门报警信息发送至家人手机或物业管理系统。 |
 | 门锁成员              | 门锁成员分为家庭成员与非家庭成员。<br />家庭成员即为涂鸦全屋智能的家庭成员概念，门锁内可将对应的门锁密码编号与该账号关联起来；<br />非家庭成员即为门锁内的成员，跟随设备关联，可以创建并分配，门锁内可将对应的门锁密码编号与该成员关联起来。 |
 | lockUserId  和 userId | lockUserId 是创建门锁成员时，云端为设备分配的固件成员 id，代表着固件内记录的用户 id 号<br />userId 是创建门锁成员时，云端分配的数据库记录 id，代表着用户的唯一 id |
+| dpCode                | 设备功能点的标识符。设备中的每个功能点都有名称和编号，可参考[门锁功能点列表](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/BLELock.html#%E8%93%9D%E7%89%99%E9%97%A8%E9%94%81%E5%8A%9F%E8%83%BD%E7%82%B9%E5%88%97%E8%A1%A8) |
 
 ## 使用说明
 
-| 类名                             | 说明                                                   |      |
-| -------------------------------- | ------------------------------------------------------ | ---- |
-| `TuyaSmartBLELockDevice`         | 蓝牙门锁设备操作类，继承自 `TuyaSmartDevice`           |      |
-| `TuyaSmartBLELockDeviceDelegate` | 蓝牙门锁设备协议代理，拓展自 `TuyaSmartDeviceDelegate` |      |
+| 类名                             | 说明                                                   |
+| -------------------------------- | ------------------------------------------------------ |
+| `TuyaSmartBLELockDevice`         | 蓝牙门锁设备操作类，继承自 `TuyaSmartDevice`           |
+| `TuyaSmartBLELockDeviceDelegate` | 蓝牙门锁设备协议代理，拓展自 `TuyaSmartDeviceDelegate` |
 
+## 门锁成员管理
 
-
-### 设备连接状态
-
-蓝牙门锁需要 App 开启蓝牙后，部分功能才能正常使用。**SDK 在正常情况下会自动连接**，通常使用以下方法进行设备连接状态判断
-
-```objective-c
-/// 如果没有连接成功或使用过程中断开，可以调用此方法进行连接
-- (void)autoConnect;
-
-/// 设备和手机是否已建立蓝牙连接，如果为 NO，可以调用 autoConnect 进行连接
-- (BOOL)isBLEConnected;
-```
-
-### 动态密码
-
-#### 获取动态密码
+### 获取门锁成员列表
 
 **接口说明**
 
 ```objective-c
-- (void)getLockDynamicPasswordWithSuccess:(nullable TYSuccessString)success
-                                  failure:(nullable TYFailureError)failure;
+- (void)getMemberListWithSuccess:(nullable void(^)(NSArray<TuyaSmartBLELockMemberModel *> *members))success
+                         failure:(TYFailureError)failure;
 ```
 
 **参数说明**
 
-| 参数    | 说明                                       |
-| ------- | ------------------------------------------ |
-| success | 接口成功回调，返回结果为对应获取的动态密码 |
-| failure | 接口失败回调                               |
+| 参数    | 说明               |
+| ------- | ------------------ |
+| success | 成功回调，成员列表 |
+| failure | 失败回调           |
+
+**`TuyaSmartBLELockMemberModel` 数据模型**
+
+| 字段             | 类型       | 描述                                              |
+| ---------------- | ---------- | ------------------------------------------------- |
+| userId           | NSString   | 成员编号， id                                     |
+| userContact      | NSString   | 联系方式                                          |
+| avatarUrl        | NSString   | 头像地址                                          |
+| nickName         | NSString   | 成员名称                                          |
+| userTimeSet      | NSString   | 成员时效性数据                                    |
+| phase            | NSUInteger | 冻结情况，0: 冻结， 1: 解冻                       |
+| status           | NSUInteger | 用户状态                                          |
+| lockUserId       | int    | 门锁上的用户 id                                   |
+| userType         | NSUInteger | 用户类型 10:管理员 20:普通成员 30: 没有名称的成员 |
+| supportOpenType  | NSArray    | 支持的开锁方式                                    |
+| shareUser        | NSString   | 分享的用户账号                                    |
+| productAttribute | NSUInteger | 设备产品属性                                      |
 
 **示例代码**
 
 Objc:
 
 ```objective-c
-    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
-    [lock getLockDynamicPasswordWithSuccess:^(NSString *result) {
-        NSLog(@"动态密码获取结果 %@", result);
+    [self.lock getMemberListWithSuccess:^(NSArray<TuyaSmartBLELockMemberModel *> * _Nonnull list) {
+        NSLog(@"成员列表 %@", list);
     } failure:^(NSError *error) {
-        NSLog(@"error %@", error);
+        NSLog(@"获取成员列表失败，error: %@", error);
     }];
 ```
 
 Swift:
 
 ```swift
-    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")
-    lockDevice?.getLockDynamicPassword(success: { (pwd) in
-        print("动态密码获取结果 \(pwd)")
+    self.lock?.getMemberList(success: { (list) in
+        print("成员列表 \(list)")
     }, failure: { (error) in
         if let e = error {
-            print("error \(e)")
+            print("获取成员列表失败, error: \(e)")
         }
     })
 ```
 
-
-
-### 蓝牙解锁 & 落锁
-
-#### 蓝牙解锁
-
-```sequence
-Title: 蓝牙解锁开门流程
-
-participant 用户
-participant app
-participant 门锁
-
-note over app: 蓝牙开启，连接上门锁
-用户->app: 点击开锁
-app->门锁: 发送蓝牙开锁指令
-note over 门锁: 收到蓝牙开锁指令，开锁
-门锁-->app: 返回开锁结果
-note over app: 处理、显示结果
-```
-
-**接口说明**
-
-```objective-c
-- (void)unlockWithStatus:(BOOL)status
-                 success:(nullable TYSuccessHandler)success
-                 failure:(nullable TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明         |
-| ------- | ------------ |
-| status  | 开锁还是关锁 |
-| success | 接口成功回调 |
-| failure | 接口失败回调 |
-
-**示例代码**
-
-Objc:
-
-```objective-c
-    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
-		BOOL status = YES;
-    [lock unlockWithStatus:status success:^{
-      	NSLog(@"开锁成功");
-    } failure:^(NSError *error) {
-        NSLog(@"开锁失败，error %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")		
-		self.lock?.unlock(withStatus: status, success: {
-        print("开锁成功")
-    }, failure: { (error) in
-        if let e = error {
-        		print("开锁失败，error: \(e)")
-        }    
-    })
-```
-
-#### 蓝牙落锁
-
-```sequence
-Title: 蓝牙落锁流程
-
-participant 用户
-participant app
-participant 门锁
-
-note over app: 蓝牙开启，连接上门锁
-用户->app: 点击落锁
-app->门锁: 发送蓝牙落锁指令
-note over 门锁: 收到蓝牙落锁指令，开锁
-门锁-->app: 返回落锁结果
-note over app: 处理、显示结果
-```
-
-**接口说明**
-
-```objective-c
-- (void)manualLockWithStatus:(BOOL)status
-                     success:(TYSuccessHandler)success
-                     failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明         |
-| ------- | ------------ |
-| status  | 开锁还是关锁 |
-| success | 接口成功回调 |
-| failure | 接口失败回调 |
-
-**示例代码**
-
-Objc:
-
-```objective-c
-    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
-		BOOL status = YES;
-    [lock manualLockWithStatus:status success:^{
-      	NSLog(@"落锁成功");
-    } failure:^(NSError *error) {
-        NSLog(@"落锁失败，error %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")		
-		self.lock?.manualLock(withStatus: status, success: {
-        print("落锁成功")
-    }, failure: { (error) in
-        if let e = error {
-        		print("落锁失败，error: \(e)")
-        }    
-    })
-```
-
-### 门锁记录
-
-#### 获取门锁告警记录
-
-**接口说明**
-
-```objective-c
-- (void)getAlarmRecordListWithOffset:(int)offset
-                               limit:(int)limit
-                             success:(nullable void(^)(NSArray<TuyaSmartLockRecordModel *> *records))success
-                             failure:(nullable TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明                     |
-| ------- | ------------------------ |
-| offset  | 页数                     |
-| limit   | 条数                     |
-| success | 成功回调，结果为记录列表 |
-| failure | 失败回调                 |
-
-**`TuyaSmartLockRecordModel` 数据模型**
-
-| 字段     | 类型                    | 描述                           |
-| -------- | ----------------------- | ------------------------------ |
-| userId   | NSString                | 成员 id                        |
-| userName | NSString                | 用户昵称                       |
-| time     | NSTimeInterval          | 发生时间， 13 位时间戳         |
-| devId    | NSString                | 设备 id                        |
-| dpData   | NSDictionary            | dp 数据                        |
-| tags     | NSInteger               | 标位，0表示其他，1表示劫持报警 |
-| dpsArray | NSArray<NSDictionary *> | dps 数据组                     |
-
-**示例代码**
-
-Objc:
-
-```objective-c
-    [self.lock getAlarmRecordListWithOffset:0 limit:50 success:^(NSArray<TuyaSmartLockRecordModel *> * _Nonnull records) {
-        NSLog(@"告警记录: %@", records);
-    } failure:^(NSError *error) {
-        NSLog(@"获取告警记录失败，error: %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    self.lock?.getAlarmRecordList(withOffset: 0, limit: 50, success: { (records) in
-        print("告警记录 \(records)")
-    }, failure: { (error) in
-        if let e = error {
-            print("获取告警记录失败, error: \(e)")
-        }
-    })
-```
-
-#### 获取开门记录
-
-**接口说明**
-
-```objective-c
-- (void)getUnlockRecordListWithOffset:(int)offset
-                                limit:(int)limit
-                              success:(nullable void(^)(NSArray<TuyaSmartBLELockRecordModel *> *records))success
-                              failure:(nullable TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明                     |
-| ------- | ------------------------ |
-| offset  | 页数                     |
-| limit   | 条数                     |
-| success | 成功回调，结果为记录列表 |
-| failure | 失败回调                 |
-
-**示例代码**
-
-Objc:
-
-```objective-c
-    [self.lock getUnlockRecordListWithOffset:0 limit:50 success:^(NSArray<TuyaSmartLockRecordModel *> * _Nonnull records) {
-        NSLog(@"开门记录: %@", records);
-    } failure:^(NSError *error) {
-        NSLog(@"获取开门记录失败，error: %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    self.lock?.getUnlockRecordList(withOffset: 0, limit: 50, success: { (records) in
-        print("开门记录 \(records)")
-    }, failure: { (error) in
-        if let e = error {
-            print("获取开门记录失败, error: \(e)")
-        }
-    })
-```
-
-
-
-### 门锁成员
-
-#### 创建门锁成员
+### 创建门锁成员
 
 SDK 支持往门锁里添加成员，后续可以单独为该成员进行解锁方式绑定
 
@@ -343,6 +115,8 @@ note over app: 处理、显示结果
 | success       | 成功回调                                                     |
 | failure       | 失败回调                                                     |
 
+> 注意: 这里创建的非家庭成员。家庭用户的管理需要参考文档[家庭成员管理](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Home.html#%E5%AE%B6%E5%BA%AD%E6%88%90%E5%91%98%E7%AE%A1%E7%90%86)
+
 **示例代码**
 
 Objc:
@@ -367,7 +141,7 @@ Swift:
     })
 ```
 
-#### 更新门锁成员信息
+### 更新门锁成员信息
 
 SDK 提供了修改门锁成员的功能，修改门锁成员会和硬件进行交互，需要设备保持蓝牙连接
 
@@ -435,74 +209,19 @@ Swift:
     self.lock?.updateMember(withUserName: "new name", memberId: "0000008byw", allowUnlock: true, timeType: .phase, effectiveDate: Date(), invalidDate: Date().addingTimeInterval(60 * 60 * 8), success: { (result) in
             print("更新门锁成员信息成功")
         }, failure: { (error) in
-        		if let e = error {
-            		print("更新门锁成员信息失败, error: \(e)")
-        		} 
+            if let e = error {
+                print("更新门锁成员信息失败, error: \(e)")
+            } 
         })
 ```
 
 
 
-#### 获取门锁成员列表
-
-**接口说明**
-
-```objective-c
-- (void)getMemberListWithSuccess:(nullable void(^)(NSArray<TuyaSmartBLELockMemberModel *> *members))success
-                         failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明               |
-| ------- | ------------------ |
-| success | 成功回调，成员列表 |
-| failure | 失败回调           |
-
-**`TuyaSmartBLELockMemberModel` 数据模型**
-
-| 字段             | 类型       | 描述                                              |
-| ---------------- | ---------- | ------------------------------------------------- |
-| userId           | NSString   | 成员编号， id                                     |
-| userContact      | NSString   | 联系方式                                          |
-| avatarUrl        | NSString   | 头像地址                                          |
-| nickName         | NSString   | 成员名称                                          |
-| userTimeSet      | NSString   | 成员时效性数据                                    |
-| phase            | NSUInteger | 冻结情况，0: 冻结， 1: 解冻                       |
-| status           | NSUInteger | 用户状态                                          |
-| lockUserId       | **int**    | 门锁上的用户 id                                   |
-| userType         | NSUInteger | 用户类型 10:管理员 20:普通成员 30: 没有名称的成员 |
-| supportOpenType  | NSArray    | 支持的开锁方式                                    |
-| shareUser        | NSString   | 分享的用户账号                                    |
-| productAttribute | NSUInteger | 设备产品属性                                      |
-
-**示例代码**
-
-Objc:
-
-```objective-c
-    [self.lock getMemberListWithSuccess:^(NSArray<TuyaSmartBLELockMemberModel *> * _Nonnull list) {
-        NSLog(@"成员列表 %@", list);
-    } failure:^(NSError *error) {
-				NSLog(@"获取成员列表失败，error: %@", error);
-    }];
-```
-
-Swift:
-
-```swift
-    self.lock?.getMemberList(success: { (list) in
-        print("成员列表 \(list)")
-    }, failure: { (error) in
-        if let e = error {
-            print("获取成员列表失败, error: \(e)")
-        }
-    })
-```
 
 
 
-#### 删除门锁成员
+
+### 删除门锁成员
 
 SDK 提供了删除门锁成员的功能，**删除门锁成员会和硬件进行交互，会删除该用户下所有的开锁方式、密码等，操作需要设备保持蓝牙连接**
 
@@ -554,13 +273,295 @@ Swift:
 
 ```swift
     self.lock?.removeMember(withMemberId: "", success: { (result) in
-    		print("删除门锁成员成功")
+        print("删除门锁成员成功")
     }, failure: { (error) in
         if let e = error {
             print("删除门锁成员失败, error: \(e)")
         }     
     })
 ```
+
+### 设备蓝牙连接状态
+
+蓝牙门锁需要 App 开启蓝牙后，部分功能才能正常使用。**SDK 在正常情况下会自动连接**，通常使用以下方法进行设备连接状态判断
+
+```objective-c
+/// 如果没有连接成功或使用过程中断开，可以调用此方法进行连接
+- (void)autoConnect;
+
+/// 设备和手机是否已建立蓝牙连接，如果为 NO，可以调用 autoConnect 进行连接
+- (BOOL)isBLEConnected;
+```
+
+## 动态密码
+
+### 获取动态密码
+
+**接口说明**
+
+```objective-c
+- (void)getLockDynamicPasswordWithSuccess:(nullable TYSuccessString)success
+                                  failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                                       |
+| ------- | ------------------------------------------ |
+| success | 接口成功回调，返回结果为对应获取的动态密码 |
+| failure | 接口失败回调                               |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
+    [lock getLockDynamicPasswordWithSuccess:^(NSString *result) {
+        NSLog(@"动态密码获取结果 %@", result);
+    } failure:^(NSError *error) {
+        NSLog(@"error %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")
+    lockDevice?.getLockDynamicPassword(success: { (pwd) in
+        print("动态密码获取结果 \(pwd)")
+    }, failure: { (error) in
+        if let e = error {
+            print("error \(e)")
+        }
+    })
+```
+
+## 蓝牙解锁 & 落锁
+
+### 蓝牙解锁
+
+```sequence
+Title: 蓝牙解锁开门流程
+
+participant 用户
+participant app
+participant 门锁
+
+note over app: 蓝牙开启，连接上门锁
+用户->app: 点击开锁
+app->门锁: 发送蓝牙开锁指令
+note over 门锁: 收到蓝牙开锁指令，开锁
+门锁-->app: 返回开锁结果
+note over app: 处理、显示结果
+```
+
+**接口说明**
+
+```objective-c
+- (void)unlockWithStatus:(BOOL)status
+                 success:(nullable TYSuccessHandler)success
+                 failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明         |
+| ------- | ------------ |
+| status  | 开锁还是关锁 |
+| success | 接口成功回调 |
+| failure | 接口失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
+    BOOL status = YES;
+    [lock unlockWithStatus:status success:^{
+        NSLog(@"开锁成功");
+    } failure:^(NSError *error) {
+        NSLog(@"开锁失败，error %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")    
+    self.lock?.unlock(withStatus: status, success: {
+        print("开锁成功")
+    }, failure: { (error) in
+        if let e = error {
+            print("开锁失败，error: \(e)")
+        }    
+    })
+```
+
+### 蓝牙落锁
+
+```sequence
+Title: 蓝牙落锁流程
+
+participant 用户
+participant app
+participant 门锁
+
+note over app: 蓝牙开启，连接上门锁
+用户->app: 点击落锁
+app->门锁: 发送蓝牙落锁指令
+note over 门锁: 收到蓝牙落锁指令，开锁
+门锁-->app: 返回落锁结果
+note over app: 处理、显示结果
+```
+
+**接口说明**
+
+```objective-c
+- (void)manualLockWithStatus:(BOOL)status
+                     success:(TYSuccessHandler)success
+                     failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明         |
+| ------- | ------------ |
+| status  | 开锁还是关锁 |
+| success | 接口成功回调 |
+| failure | 接口失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+    TuyaSmartBLELockDevice *lock = [TuyaSmartBLELockDevice deviceWithDeviceId:@"your_lock_device_id"];
+    BOOL status = YES;
+    [lock manualLockWithStatus:status success:^{
+        NSLog(@"落锁成功");
+    } failure:^(NSError *error) {
+        NSLog(@"落锁失败，error %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    let lockDevice = TuyaSmartBLELockDevice(deviceId: "your_lock_device_id")    
+    self.lock?.manualLock(withStatus: status, success: {
+        print("落锁成功")
+    }, failure: { (error) in
+        if let e = error {
+            print("落锁失败，error: \(e)")
+        }    
+    })
+```
+
+## 门锁记录
+
+### 获取门锁告警记录
+
+**接口说明**
+
+```objective-c
+- (void)getAlarmRecordListWithOffset:(int)offset
+                               limit:(int)limit
+                             success:(nullable void(^)(NSArray<TuyaSmartLockRecordModel *> *records))success
+                             failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                     |
+| ------- | ------------------------ |
+| offset  | 页数                     |
+| limit   | 条数                     |
+| success | 成功回调，结果为记录列表 |
+| failure | 失败回调                 |
+
+**`TuyaSmartLockRecordModel` 数据模型**
+
+| 字段     | 类型                    | 描述                           |
+| -------- | ----------------------- | ------------------------------ |
+| userId   | NSString                | 成员 id                        |
+| userName | NSString                | 用户昵称                       |
+| time     | NSTimeInterval          | 发生时间， 13 位时间戳         |
+| devId    | NSString                | 设备 id                        |
+| dpData   | NSDictionary            | dp 数据                        |
+| tags     | NSInteger               | 标位，0表示其他，1表示劫持报警 |
+| dpsArray | NSArray<NSDictionary *> | dps 数据组                     |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+    [self.lock getAlarmRecordListWithOffset:0 limit:50 success:^(NSArray<TuyaSmartLockRecordModel *> * _Nonnull records) {
+        NSLog(@"告警记录: %@", records);
+    } failure:^(NSError *error) {
+        NSLog(@"获取告警记录失败，error: %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    self.lock?.getAlarmRecordList(withOffset: 0, limit: 50, success: { (records) in
+        print("告警记录 \(records)")
+    }, failure: { (error) in
+        if let e = error {
+            print("获取告警记录失败, error: \(e)")
+        }
+    })
+```
+
+### 获取开锁记录
+
+**接口说明**
+
+```objective-c
+- (void)getUnlockRecordListWithOffset:(int)offset
+                                limit:(int)limit
+                              success:(nullable void(^)(NSArray<TuyaSmartBLELockRecordModel *> *records))success
+                              failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                     |
+| ------- | ------------------------ |
+| offset  | 页数                     |
+| limit   | 条数                     |
+| success | 成功回调，结果为记录列表 |
+| failure | 失败回调                 |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+    [self.lock getUnlockRecordListWithOffset:0 limit:50 success:^(NSArray<TuyaSmartLockRecordModel *> * _Nonnull records) {
+        NSLog(@"开锁记录: %@", records);
+    } failure:^(NSError *error) {
+        NSLog(@"获取开锁记录失败，error: %@", error);
+    }];
+```
+
+Swift:
+
+```swift
+    self.lock?.getUnlockRecordList(withOffset: 0, limit: 50, success: { (records) in
+        print("开锁记录 \(records)")
+    }, failure: { (error) in
+        if let e = error {
+            print("获取开锁记录失败, error: \(e)")
+        }
+    })
+```
+
+## 解锁方式管理
 
 ### 普通密码解锁
 
@@ -666,7 +667,7 @@ Objc:
 
 ```objective-c
     [self.lock getPasswordListWithSuccess:^(NSArray<TuyaSmartBLELockOpmodeModel *> * _Nonnull models) {
-				NSLog(@"获取密码列表 %@", models);
+        NSLog(@"获取密码列表 %@", models);
     } failure:^(NSError *error) {
         NSLog(@"获取密码列表失败 %@", error);
     }];
@@ -676,7 +677,7 @@ Swift:
 
 ```swift
     self.lock?.getPasswordList(success: { (models) in
-    		print("获取密码列表 \(models)")  
+        print("获取密码列表 \(models)")  
     }, failure: { (error) in
         if let e = error {
             print("获取密码列表失败, error: \(e)")
@@ -811,26 +812,26 @@ note over app: 处理、显示结果
 Objc:
 
 ```objective-c
-		// 设置代理，以接受和展示过程数据
-		self.lock.delegate = self;
-		[self.lock addFingerPrintForMemberWithMemberId:@"00000074zg" unlockName:@"添加的指纹" needHijacking:YES success:^(NSString *result) {
+    // 设置代理，以接受和展示过程数据
+    self.lock.delegate = self;
+    [self.lock addFingerPrintForMemberWithMemberId:@"00000074zg" unlockName:@"添加的指纹" needHijacking:YES success:^(NSString *result) {
         NSLog(@"添加指纹成功");
     } failure:^(NSError *error) {
         NSLog(@"添加指纹失败，error: %@", error);
     }];
 
 // TuyaSmartBLELockDeviceDelegate
-		- (void)device:(TuyaSmartBLELockDevice *)device didReceiveAddOpMessage:(TuyaSmartBLELockOpMessageModel *)opMessage {
-    		NSLog(@"收到新增开锁方式回调消息");
-		}
+    - (void)device:(TuyaSmartBLELockDevice *)device didReceiveAddOpMessage:(TuyaSmartBLELockOpMessageModel *)opMessage {
+        NSLog(@"收到新增开锁方式回调消息");
+    }
 ```
 
 Swift:
 
 ```swift
     self.lock?.delegate = self
-		self.lock?.addFingerPrintForMember(withMemberId: "", unlockName: "", needHijacking: true, success: { (result) in
-				print("添加指纹成功")      
+    self.lock?.addFingerPrintForMember(withMemberId: "", unlockName: "", needHijacking: true, success: { (result) in
+        print("添加指纹成功")      
     }, failure: { (error) in
         if let e = error {
             print("添加指纹失败, error: \(e)")
@@ -838,12 +839,12 @@ Swift:
     })
 
 // TuyaSmartBLELockDeviceDelegate
-		extension ViewController :TuyaSmartBLELockDeviceDelegate {
+    extension ViewController :TuyaSmartBLELockDeviceDelegate {
     
-    		func device(_ device: TuyaSmartBLELockDevice, didReceiveAddOpMessage opMessage: TuyaSmartBLELockOpMessageModel) {
-        		print("收到新增开锁方式回调消息")
-    		}
-		}
+        func device(_ device: TuyaSmartBLELockDevice, didReceiveAddOpMessage opMessage: TuyaSmartBLELockOpMessageModel) {
+            print("收到新增开锁方式回调消息")
+        }
+    }
 ```
 
 
@@ -870,7 +871,7 @@ Objc:
 
 ```objective-c
     [self.lock getFingerPrintListWithSuccess:^(NSArray<TuyaSmartBLELockOpmodeModel *> * _Nonnull models) {
-				NSLog(@"获取指纹列表 %@", models);
+        NSLog(@"获取指纹列表 %@", models);
     } failure:^(NSError *error) {
         NSLog(@"获取指纹列表失败 %@", error);
     }];
@@ -880,7 +881,7 @@ Swift:
 
 ```swift
     self.lock?.getFingerPrintList(success: { (models) in
-    		print("获取指纹列表 \(models)")  
+        print("获取指纹列表 \(models)")  
     }, failure: { (error) in
         if let e = error {
             print("获取指纹列表失败, error: \(e)")
@@ -914,7 +915,7 @@ note over app: 处理、显示结果
 
 ```objective-c
 - (void)removeFingerPrintForMemberWithOpmodeModel:(TuyaSmartBLELockOpmodeModel *)opmodeModel
-                                       	  success:(TYSuccessHandler)success
+                                           success:(TYSuccessHandler)success
                                           failure:(TYFailureError)failure;
 ```
 
@@ -1036,7 +1037,7 @@ Objc:
 
 ```objective-c
     [self.lock getCardListWithSuccess:^(NSArray<TuyaSmartBLELockOpmodeModel *> * _Nonnull models) {
-				NSLog(@"获取卡片密码列表 %@", models);
+        NSLog(@"获取卡片密码列表 %@", models);
     } failure:^(NSError *error) {
         NSLog(@"获取卡片密码列表失败 %@", error);
     }];
@@ -1046,7 +1047,7 @@ Swift:
 
 ```swift
     self.lock?.getCardList(success: { (models) in
-    		print("获取卡片密码列表 \(models)")  
+        print("获取卡片密码列表 \(models)")  
     }, failure: { (error) in
         if let e = error {
             print("获取卡片密码列表失败, error: \(e)")
@@ -1371,7 +1372,7 @@ Swift:
 
 
 
-## 蓝牙门锁 Dp Code 表
+## 蓝牙门锁功能点列表
 
 | dp name                  | dp code                     |
 | ------------------------ | --------------------------- |
@@ -1421,7 +1422,7 @@ Swift:
 | 自动落锁倒计时上报       | auto_lock_countdown         |
 | 手动落锁                 | manual_lock                 |
 | 落锁状态                 | lock_motor_state            |
-| **锁帖电机转动方向**     | lock_motor_direction        |
+| 锁帖电机转动方向         | lock_motor_direction        |
 | 冻结用户                 | unlock_user_freeze          |
 | 解冻用户                 | unlock_user_enable          |
 | 蓝牙锁临时密码添加       | temporary password_creat    |
