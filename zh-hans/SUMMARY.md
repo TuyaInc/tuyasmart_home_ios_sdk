@@ -1,6 +1,6 @@
 # Summary
 
-* [前言](/README.md)
+* [功能概述](/README.md)
 
 * [准备工作](./resource/Preparation.md)
 
@@ -11,6 +11,7 @@
 * [iOS 版本适配](./resource/iOSAdaptation.md)
 
 * [用户管理](./resource/User.md#用户管理)
+  
   - [手机账号体系](./resource/User.md#手机账号体系)
   - [邮箱账号体系](./resource/User.md#邮箱账号体系)
   - [用户 UID 登录体系](./resource/User.md#用户-uid-登录体系)
@@ -36,14 +37,14 @@
   - [摄像头二维码配网](./resource/Activator.md#摄像头二维码配网)
   
 * [设备管理](./resource/Device.md#设备管理)
-  - [更新设备信息](./resource/Device.md#更新设备信息)
+  - [设备初始化](./resource/Device.md#设备初始化)
+  - [设备代理监听](./resource/Device.md#设备代理监听)
   - [设备控制](./resource/Device.md#设备控制)
-    - [标准设备控制](./resource/Device.md#标准设备控制-beta)
-    - [自定义设备控制](./resource/Device.md#自定义设备控制)
+  - [设备功能点说明](./resource/Device.md#设备功能点说明)
   - [修改设备名称](./resource/Device.md#修改设备名称)
   - [移除设备](./resource/Device.md#移除设备)
   - [恢复出厂设置](./resource/Device.md#恢复出厂设置)
-  - [获取设备的 Wi-Fi 信号强度](./resource/Device.md#获取设备的-wi-fi-信号强度)
+  - [查询 Wi-Fi 信号强度](./resource/Device.md#查询-wi-fi-信号强度)
   - [获取网关下的子设备列表](./resource/Device.md#获取网关下的子设备列表)
   - [固件升级](./resource/Device.md#固件升级)
   
@@ -125,8 +126,6 @@
   * [智能门锁 SDK](./resource/Lock.md)
     - [蓝牙门锁](./resource/BLELock.md)
     - [Wi-Fi 门锁](./resource/WiFiLock.md)
-  
-* [标准功能集](./resource/StandardDpCode.md)
 
 * [更新日志记录](./resource/ChangeLog.md)
 

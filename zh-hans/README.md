@@ -1,8 +1,6 @@
-# 涂鸦全屋智能 iOS SDK
+# 功能概述
 
----
-
-## 功能概述
+## Home SDK
 
 iOS Home SDK 是一套涂鸦智能针对全屋智能领域提供的 iOS 9.0 及以上版本的 SDK。iOS 开发者可以基于 SDK 快速的实现 APP 功能开发，实现对智能设备的配网，控制，固件升级，定时任务，智能场景等操作。
 
@@ -14,100 +12,12 @@ SDK 主要包括以下功能：
 
 
 
-## 快速集成
+## 垂直品类 SDK
 
-### 使用 Cocoapods 集成
+涂鸦还提供了一些垂直品类的 SDK，包括 IPC SDK，智能门锁 SDK，扫地机 SDK 等。主要针对垂直品类特有的功能进行了封装，方便垂直品类产品功能的快速开发。
 
-在`Podfile`文件中添加以下内容：
-
-```ruby
-platform :ios, '9.0'
-
-target 'your_target_name' do
-
-   pod "TuyaSmartHomeKit"
-
-end
-```
-
-然后在项目根目录下执行 `pod update` 命令，集成第三方库。
-
-CocoaPods的使用请参考：[CocoaPods Guides](https://guides.cocoapods.org/)
-
-## 初始化 SDK
-
-1. 打开项目设置，Target => General，修改 `Bundle Identifier` 为涂鸦开发者平台对应的 iOS 包名
-
-2. 导入安全图片到工程根目录，重命名为 `t_s.bmp`，并加入「项目设置 => Target => Build Phases => Copy Bundle Resources」中。
-
-3. 在项目的`PrefixHeader.pch`文件添加以下内容：
-
-```objc
-#import <TuyaSmartHomeKit/TuyaSmartKit.h>
-```
-
-Swift 项目可以在 `xxx_Bridging-Header.h` 桥接文件中添加以下内容
-
-```
-#import <TuyaSmartHomeKit/TuyaSmartKit.h>
-```
-
-4. 打开`AppDelegate.m`文件，在`[AppDelegate application:didFinishLaunchingWithOptions:]`方法中初始化SDK：
-
-**接口说明**
-
-初始化 SDK
-
-```objc
-- (void)startWithAppKey:(NSString *)appKey secretKey:(NSString *)secretKey;
-```
-
-**参数说明**
-
-| **参数**  | **说明**    |
-| --------- | ----------- |
-| appKey    | App key     |
-| secretKey | App 密钥key |
-
-**实例代码**
-
-Objc:
-
-```objc
-[[TuyaSmartSDK sharedInstance] startWithAppKey:<#your_app_key#> secretKey:<#your_secret_key#>];
-```
-
-Swift:
-
-```swift
- TuyaSmartSDK.sharedInstance()?.start(withAppKey: <#your_app_key#>, secretKey: <#your_secret_key#>)
-```
+垂直品类 SDK 是基于 Home SDK，架构设计如下图所示：
 
 
 
-至此，准备工作已经全部完毕，可以开始App开发啦。
-
-### Debug 模式
-
-在开发的过程中可以开启 Debug 模式，打印一些日志用于分析问题。
-
-
-
-Objc:
-
-```objc
-#ifdef DEBUG
-    [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
-#else
-#endif
-```
-
-Swift:
-
-```swift
-#if DEBUG
-   TuyaSmartSDK.sharedInstance()?.debugMode = true
-#else
-#endif
-```
-
+<img src="./resource/images/Integrated.jpg" alt="架构图" style="zoom:60%;" />

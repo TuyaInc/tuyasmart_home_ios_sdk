@@ -1,4 +1,4 @@
-## TuyaSmartHomeKit iOS 版本适配
+## iOS 版本适配
 
 ### iOS 13 适配
 

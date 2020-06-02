@@ -1,11 +1,13 @@
 # 设备管理
 
-`TuyaSmartDevice` 类需要使用设备 id 进行初始化。错误的设备 id 可能会导致初始化失败，此时的实例返回 `nil`
+设备管理主要提供设备相关的操作，设备控制，设备状态状态变化监听，设备重命名，设备固件升级，设备移除，设备恢复出厂设置等操作。
 
-| 类名                 | 说明               |
-| -------------------- | ------------------ |
-| TuyaSmartDevice      | 涂鸦设备类         |
-| TuyaSmartDeviceModel | 涂鸦设备数据模型类 |
+
+
+| 类名                 | 说明           |
+| -------------------- | -------------- |
+| TuyaSmartDevice      | 设备管理类     |
+| TuyaSmartDeviceModel | 设备数据模型类 |
 
 **`TuyaSmartDeviceModel` 数据模型**
 
@@ -45,163 +47,45 @@
 | activeTime       | NSTimeInterval            | 激活时间                                                     |
 | sharedTime       | long long                 | 分享时间                                                     |
 
+## 设备初始化
 
+注意：需要通过 `TuyaSmartHome` 初始化一个 home 实例，然后调用接口 `getHomeDetailWithSuccess:failure:` 获取家庭的详情，同步过家庭的详情后，初始化设备才能成功。
 
-## 更新设备信息
-
-### 更新单个设备信息
-
-**接口说明**
-
-从云端拉取、同步更新设备信息
-
-```objective-c
-- (void)syncWithCloud:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明     |
-| ------- | -------- |
-| success | 成功回调 |
-| failure | 失败回调 |
-
-**示例代码**
-
-Objc:
-
-```objc
-- (void)updateDeviceInfo {
-	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-
-	__weak typeof(self) weakSelf = self;
-	[self.device syncWithCloud:^{
-		NSLog(@"syncWithCloud success");
-		NSLog(@"deviceModel: %@", weakSelf.device.deviceModel);
-	} failure:^(NSError *error) {
-		NSLog(@"syncWithCloud failure");
-	}];
-}
-```
-
-Swift:
-
-```swift
-func updateDeviceInfo() {
-    device?.sync(cloud: {
-        print("syncWithCloud success")
-    }, failure: { (error) in
-        if let e = error {
-            print("syncWithCloud failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-## 设备控制
-
-设备控制目前分为**标准设备控制**和**自定义设备控制**
-
-###  标准设备控制 (Beta)
-
-####  标准设备功能集
-
-什么是标准设备功能集？
-
-不同品类的产品，功能点都不一样。例如照明品类中，以灯为例，有开关、调色等功能，但对于电工品类，以插座为例，就没有 “调色” 功能
-
-但对于某个大的品类而言，基本的通用功能都是一致的。比如，所有的照明品类，都有开关这个功能
-
-统一同类产品的功能集定义，制定一套功能指令集规则，这就是标准功能集
-
-> 因为需要兼容繁多的多样化产品功能，所以目前标准设备控制功能处于阶段性开放产品适配功能
-> 若您要使用该功能，可以联系涂鸦或咨询相关的对接负责人
-
-
-
-#### 设备否支持标准化
-
-`TuyaSmartDeviceModel` 类的 `standard` 属性（ `BOOL` 类型）定义了当前设备是否支持标准化控制
-
-`dpCodes` 属性定义了当前设备的状态，称作标准数据点(标准 dp code)
-
-`dpCodes` 字典里的每个 `key` 对应一个功能点的 `dpCode`，`value` 对应一个功能点的 `dpValue `，`dpValue` 为该功能点的值
-
-具体品类的设备标准 dpCode 功能集可以参照对应的 [文档](./StandardDpCode.md)
-
-
-
-#### 设备操作控制
+错误的设备 id 可能会导致初始化失败，此时设备的实例返回 `nil`
 
 **接口说明**
 
-标准功能指令下发
+根据设备 id 去初始化设备控制类。
 
 ```objective-c
-- (void)publishDpWithCommands:(NSDictionary *)commands
-                      success:(nullable TYSuccessHandler)success
-                      failure:(nullable TYFailureError)failure
+/**
+ *  Get TuyaSmartDevice instance. If current user don't have this device, a nil will be return.
+ *  获取设备实例。如果当前用户没有该设备，将会返回nil。
+ *
+ *  @param devId Device ID
+ *  @return instance
+ */
++ (nullable instancetype)deviceWithDeviceId:(NSString *)devId;
 ```
+
+
 
 **参数说明**
 
-| 参数     | 说明       |
-| -------- | ---------- |
-| commands | 标准指令集 |
-| success  | 成功回调   |
-| failure  | 失败回调   |
+| 参数  | 说明    |
+| ----- | ------- |
+| devId | 设备 id |
 
 **示例代码**
 
-Objc:
 
 ```objective-c
-[self.device publishDpWithCommands:dpCodesCommand success:^{
-    NSLog(@"publishDpWithCommands success");
-} failure:^(NSError *error) {
-    NSLog(@"publishDpWithCommands failure: %@", error);
-}];
-```
-
-Swift:
-
-```swift
-self.device.publishDp(withCommands: command, success: {
-      print("publishDpWithCommands success")
-    }) { (error) in
-        if let e = error {
-          print("error: \(e)")
-        }
-     }
-```
-
-【指令格式】
-
-```json
-// 以灯为例
-// 每种产品都有标准的一套规则
-// 作用: 开关打开 
-{"switch_led" : true}
-
-// 字符串型功能点示例 作用: 设置彩光颜色
-{"colour_data" : "009003e803e8"}
-
-// 枚举型功能点示例 作用: 设置模式为 "white" 白光模式
-{"work_mode" : "white"}
-
-// 设置数值型功能点示例 作用: 设置亮度为100
-{"bright_value" : 100}
-
-// 多个功能合并发送
-{"work_mode" : "colour"}
-{"colour_data" : "009003e803e8"}
+TuyaSmartDevice *device = [TuyaSmartDevice deviceWithDeviceId:devId];
+device.delegate = self;
 ```
 
 
-
-#### 设备状态更新
+## 设备代理监听
 
 实现 `TuyaSmartDeviceDelegate` 代理协议后，可以在设备状态更变的回调中进行处理，刷新 App 设备控制面板的 UI
 
@@ -217,23 +101,34 @@ Objc:
 
 #pragma mark - TuyaSmartDeviceDelegate
 
-- (void)device:(TuyaSmartDevice *)device dpCommandsUpdate:(NSDictionary *)dpCodes {
-    NSLog(@"dpCommandsUpdate: %@", dpCodes);
-    // TODO: 刷新界面UI
+- (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps {
+    // 设备的 dps 状态发生变化，刷新界面 UI
 }
 
 - (void)deviceInfoUpdate:(TuyaSmartDevice *)device {
-    //当前设备信息更新 比如 设备名、设备在线状态等
+    //当前设备信息更新 比如 设备名称修改、设备在线离线状态等
 }
 
 - (void)deviceRemoved:(TuyaSmartDevice *)device {
     //当前设备被移除
 }
+
+- (void)device:(TuyaSmartDevice *)device signal:(NSString *)signal {
+    // Wifi信号强度
+}
+
+- (void)device:(TuyaSmartDevice *)device firmwareUpgradeProgress:(NSInteger)type progress:(double)progress {
+    // 固件升级进度
+}
+
+- (void)device:(TuyaSmartDevice *)device firmwareUpgradeStatusModel:(TuyaSmartFirmwareUpgradeStatusModel *)upgradeStatusModel {
+    // 设备升级状态的回调
+}
 ```
 
 Swift:
 
-```objective-c
+```swift
 func initDevice() {
     device = TuyaSmartDevice(deviceId: "your_device_id")
     device?.delegate = self
@@ -241,25 +136,74 @@ func initDevice() {
 
 // MARK: - TuyaSmartDeviceDelegate
 
-func device(_ device: TuyaSmartDevice!, dpCommandsUpdate dpCodes: [AnyHashable : Any]!) {
-    print("dpCommandsUpdate: \(dpCodes)")
-    // TODO: 刷新界面UI
+func device(_ device: TuyaSmartDevice?, dpsUpdate dps: [AnyHashable : Any]?) {
+    // 设备的 dps 状态发生变化，刷新界面 UI
 }
 
-func deviceInfoUpdate(_ device: TuyaSmartDevice!) {
-    //当前设备信息更新 比如 设备名、设备在线状态等
+func deviceInfoUpdate(_ device: TuyaSmartDevice?) {
+    //当前设备信息更新 比如 设备名称修改、设备在线离线状态等
 }
 
-func deviceRemoved(_ device: TuyaSmartDevice!) {
+func deviceRemoved(_ device: TuyaSmartDevice?) {
     //当前设备被移除
 }
+
+func device(_ device: TuyaSmartDevice?, signal: String?) {
+    // Wifi信号强度
+}
+
+func device(_ device: TuyaSmartDevice?, firmwareUpgradeProgress type: Int, progress: Double) {
+    // 固件升级进度
+}
+
+func device(_ device: TuyaSmartDevice?, firmwareUpgradeStatusModel upgradeStatusModel: TuyaSmartFirmwareUpgradeStatusModel?) {
+    // 设备升级状态的回调
+}
+
 ```
 
 
 
-### 自定义设备控制
+## 设备控制
 
-#### 设备功能点
+设备控制接口功能为向设备发送功能点，来改变设备状态或功能。
+
+**接口说明**
+
+设备控制支持三种通道控制，局域网控制，云端控制和自动方式（如果局域网在线，先走局域网控制，局域网不在线，走云端控制）
+
+局域网控制：
+
+```objective-c
+	[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
+```
+
+云端控制：
+
+```objective-c
+	[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
+```
+
+自动控制：
+
+```objective-c
+	[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
+```
+
+
+## 设备功能点说明
 
 `TuyaSmartDeviceModel` 类的 `dps` 属性（`NSDictionary` 类型）定义了当前设备的状态，称作数据点（DP 点）或功能点
 
@@ -341,96 +285,6 @@ func publishDps() {
   比如正确的格式是: `@{@"1": @"011f"}` 而不是 `@{@"1": @"11f"}`
 
 功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/product/function.html)
-
-#### 设备控制
-
-设备控制支持三种通道控制，局域网控制，云端控制和自动方式（如果局域网在线，先走局域网控制，局域网不在线，走云端控制）
-
-局域网控制：
-
-```
-	[self.device publishDps:dps mode:TYDevicePublishModeLocal success:^{
-		NSLog(@"publishDps success");
-	} failure:^(NSError *error) {
-		NSLog(@"publishDps failure: %@", error);
-	}];
-```
-
-云端控制：
-
-```
-	[self.device publishDps:dps mode:TYDevicePublishModeInternet success:^{
-		NSLog(@"publishDps success");
-	} failure:^(NSError *error) {
-		NSLog(@"publishDps failure: %@", error);
-	}];
-```
-
-自动控制：
-
-```
-	[self.device publishDps:dps mode:TYDevicePublishModeAuto success:^{
-		NSLog(@"publishDps success");
-	} failure:^(NSError *error) {
-		NSLog(@"publishDps failure: %@", error);
-	}];
-```
-
-
-#### 设备状态更新
-
-实现 `TuyaSmartDeviceDelegate` 代理协议后，可以在设备状态更变的回调中进行处理，刷新 App 设备控制面板的 UI
-
-**示例代码**
-
-Objc:
-
-```objc
-- (void)initDevice {
-	self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
-	self.device.delegate = self;
-}
-
-#pragma mark - TuyaSmartDeviceDelegate
-
-- (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps {
-	NSLog(@"deviceDpsUpdate: %@", dps);
-	// TODO: 刷新界面UI
-}
-
-- (void)deviceInfoUpdate:(TuyaSmartDevice *)device {
-	//当前设备信息更新 比如 设备名、设备在线状态等
-}
-
-- (void)deviceRemoved:(TuyaSmartDevice *)device {
-	//当前设备被移除
-}
-
-```
-
-Swift:
-
-```swift
-func initDevice() {
-    device = TuyaSmartDevice(deviceId: "your_device_id")
-    device?.delegate = self
-}
-
-// MARK: - TuyaSmartDeviceDelegate
-
-func device(_ device: TuyaSmartDevice!, dpsUpdate dps: [AnyHashable : Any]!) {
-    print("deviceDpsUpdate: \(dps)")
-    // TODO: 刷新界面UI
-}
-
-func deviceInfoUpdate(_ device: TuyaSmartDevice!) {
-    //当前设备信息更新 比如 设备名、设备在线状态等
-}
-
-func deviceRemoved(_ device: TuyaSmartDevice!) {
-    //当前设备被移除
-}
-```
 
 
 
@@ -579,7 +433,7 @@ func removeDevice() {
 
 
 
-## 获取设备的 Wi-Fi 信号强度
+## 查询 Wi-Fi 信号强度
 
 **接口说明**
 
@@ -641,6 +495,8 @@ func device(_ device: TuyaSmartDevice!, signal: String!) {
 
 
 ## 获取网关下的子设备列表
+
+如果是网关设备，可以获取网关下子设备的列表
 
 **接口说明**
 
@@ -754,7 +610,21 @@ func getFirmwareUpgradeInfo() {
 }
 ```
 
-下发升级指令
+### 开始升级
+
+**接口说明**
+
+```objective-c
+- (void)upgradeFirmware:(NSInteger)type success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明                                                         |
+| ------- | ------------------------------------------------------------ |
+| type    | type: 需要升级的类型，从设备升级信息接口 `getFirmwareUpgradeInfo` 获取 |
+| success | 成功回调                                                     |
+| failure | 失败回调                                                     |
 
 **示例代码**
 
@@ -790,7 +660,7 @@ func upgradeFirmware() {
 }
 ```
 
-回调接口：
+### 回调监听
 
 **示例代码**
 
