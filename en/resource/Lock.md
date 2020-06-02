@@ -1,6 +1,6 @@
 # Tuya Smart Lock iOS SDK
 
-Tuya smart lock Android The SDK provides function packaging with smart door lock devices to speed up and simplify the development process of door lock application functions, including the following functions:
+Tuya Smart Lock iOS SDK provides function packaging with smart door lock devices to speed up and simplify the development process of door lock application functions, including the following functions:
 
 * Door lock user system (including lock user management, associated password, fingerprint, card, etc.)
 * Door lock password unlocking (including dynamic password, temporary password management, etc.)
