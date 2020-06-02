@@ -116,16 +116,16 @@
 
 * [配置 Widget 工程](./resource/Widget.md)
 
-* [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
-
-* [FAQ](./resource/Faq.md)
-
 * [垂直品类 SDK](./resource/ExtensionAbout.md)
   * [IPC SDK](./resource/Extension.md#ipc-sdk)
   * [扫地机 SDK](./resource/Extension.md#扫地机-sdk)
   * [智能门锁 SDK](./resource/Lock.md)
     - [Wi-Fi 门锁](./resource/WiFiLock.md)
     - [蓝牙门锁](./resource/BLELock.md)
+
+* [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
+
+* [FAQ](./resource/Faq.md)
 
 * [更新日志记录](./resource/ChangeLog.md)
 
