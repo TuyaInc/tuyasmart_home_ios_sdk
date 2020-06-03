@@ -287,6 +287,54 @@ For more concepts of function points, please refer to the [QuickStart-Related Co
 
 
 
+##  Querying Device Information
+
+**Declaration**
+
+Query single dp data.
+
+Query the latest data of the dp from the device;  those data will be called back via the `- (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps` delegate.
+
+**Example**
+
+Objc:
+
+```objc
+- (void)queryDP {
+    // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+    // query dp = "1"
+  [self.device publishDps:@{@"1":null} mode:TYDevicePublishModeAuto success:^{
+        NSLog(@"query dp success");
+    } failure:^(NSError *error) {
+        NSLog(@"query dp failure: %@", error);
+    }];
+}
+```
+
+Swift:
+
+```swift
+func queryDP() {
+    // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+    // query dp = "1"
+    device.publishDps([
+        "1": null
+    ], mode: TYDevicePublishModeAuto, success: {
+        print("query dp success")
+    }, failure: { error in
+        if let error = error {
+            print("query dp failure: \(error)")
+        }
+    })
+}
+```
+
+**Notes**
+
+- This interface is mainly for the dp points where the data will not be reported automatically. The dp data values for regular query can be obtained through TuyaSmartDeviceModel.dps.
+
+  
+
 ## Modify the Device Name
 
 **Declaration**

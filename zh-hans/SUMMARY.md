@@ -41,6 +41,7 @@
   - [设备代理监听](./resource/Device.md#设备代理监听)
   - [设备控制](./resource/Device.md#设备控制)
   - [设备功能点说明](./resource/Device.md#设备功能点说明)
+  - [设备信息查询](./resource/Device.md#设备信息查询)
   - [修改设备名称](./resource/Device.md#修改设备名称)
   - [移除设备](./resource/Device.md#移除设备)
   - [恢复出厂设置](./resource/Device.md#恢复出厂设置)

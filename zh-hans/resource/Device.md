@@ -286,6 +286,52 @@ func publishDps() {
 
 功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/product/function.html)
 
+##  设备信息查询
+
+**接口说明**
+
+查询单个 dp 数据。
+
+该接口并非同步接口，查询后的数据会通过代理 `- (void)device:(TuyaSmartDevice *)device dpsUpdate:(NSDictionary *)dps` 回调。
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)queryDP {
+	// self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+	// 查询 dp = "1" 的数据
+  [self.device publishDps:@{@"1":null} mode:TYDevicePublishModeAuto success:^{
+		NSLog(@"query dp success");
+	} failure:^(NSError *error) {
+		NSLog(@"query dp failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func queryDP() {
+    // self.device = [TuyaSmartDevice deviceWithDeviceId:@"your_device_id"];
+    // 查询 dp = "1" 的数据
+    device.publishDps([
+        "1": null
+    ], mode: TYDevicePublishModeAuto, success: {
+        print("query dp success")
+    }, failure: { error in
+        if let error = error {
+            print("query dp failure: \(error)")
+        }
+    })
+}
+```
+
+> **[warning] 注意事项**
+>
+> 该接口主要是针对那些数据不主动去上报的 dp 点，例如倒计时信息查询。 常规查询 dp 数据值可以通过 TuyaSmartDeviceModel.dps 里面获取。
+
 
 
 ## 修改设备名称

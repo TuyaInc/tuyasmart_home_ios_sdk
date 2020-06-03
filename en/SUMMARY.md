@@ -31,6 +31,7 @@
   - [Delegate of Device](./resource/Device.md#delegate-of-device)
   - [Device Control](./resource/Device.md#device-control)
   - [Functions of Device](./resource/Device.md#functions-of-device)
+  - [Querying Device Information](./resource/Device.md#querying-device-information)
   - [Modify the Device Name](./resource/Device.md#modify-the-device-name)
   - [Remove Device](./resource/Device.md#remove-device)
   - [Restore Factory Settings](./resource/Device.md#restore-factory-settings)
