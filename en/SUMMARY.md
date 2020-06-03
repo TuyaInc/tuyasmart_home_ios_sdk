@@ -1,8 +1,8 @@
 # Summary
 
 * [Features Overview](/README.md)
-* [Preparation Work](./resource/Preparation.md)
-* [Initiate SDK](./resource/Integrated.md)
+* [Preparation for Integration](./resource/Preparation.md)
+* [Integrate SDK](./resource/Integrated.md)
 * [Demo App](./resource/Demo.md)
 * [iOS Adaptation](./resource/iOSAdaptation.md)
 * [User Management](./resource/User.md#user-management)

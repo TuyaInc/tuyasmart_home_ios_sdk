@@ -1,4 +1,4 @@
-## Initialize SDK
+## Integrate SDK
 
 ### Use CocoaPods for Quick Integration 
 
@@ -19,7 +19,7 @@ For use of CocoaPods, please refer to the [CocoaPods Guides](https://guides.coco
 
 
 
-### Initialize SDK
+### Integrate SDK
 
 1. Open project setting, `Target => General`, edit `Bundle Identifier` to the value from Tuya develop center.
 

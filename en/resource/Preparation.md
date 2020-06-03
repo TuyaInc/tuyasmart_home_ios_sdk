@@ -1,4 +1,4 @@
-## Preparation Work
+## Preparation for Integration
 
 ### Register Tuya Developer Account
 
