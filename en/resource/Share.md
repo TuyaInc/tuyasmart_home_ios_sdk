@@ -1,8 +1,6 @@
 ## Shared devices
 
-Sometimes, you need to share some devices with your families, and they will solely have control permission to devices you have shared and cannot change names, remove devices, perform firmware upgrade and restore factory setting, etc. but send device control instructions and obtain status updating.
-
-All functions related to device sharing correspond to the `TuyaSmartHomeDeviceShare`class
+When a device  needs to be provided  for other users to operate, the device can be shared with other users, and the user who receives the shared device can simply operate the device.
 
 |        Class Name        |                    Description                    |
 | :----------------------: | :-----------------------------------------------: |
@@ -13,10 +11,9 @@ All functions related to device sharing correspond to the `TuyaSmartHomeDeviceSh
 ### Add Device Share
 
 #### Add  Multiple Device Sharing (coverage)
+Sharing multiple devices to users will override all previous user sharing
 
 **Declaration**
-
-Sharing multiple devices to users will override all previous user sharing
 
 
 ```objc
@@ -75,11 +72,9 @@ func addMemberShare() {
 
 
 #### Add Shares (new, not overwriting old Shares)
-
-**Declaration**
-
 Sharing multiple devices to users will add the devices to all user shareing
 
+**Declaration**
 
 ```objc
 - (void)addShareWithMemberId:(NSInteger)memberId
@@ -97,8 +92,6 @@ Sharing multiple devices to users will add the devices to all user shareing
 | memberId  | share user member id |
 | success   | success callback     |
 | failure   | failure callback    |
-
-
 
 **Example**
 
@@ -131,6 +124,8 @@ func addMemberShare() {
     })
 }
 ```
+
+
 #### Single Device Add Sharing
 
 **Declaration**
@@ -280,8 +275,6 @@ func getShareMemberList() {
 | success   | success callback  |
 | failure   | failure callback |
 
-
-
 **Example**
 
 Objc:
@@ -341,8 +334,6 @@ func getReceiveMemberList() {
 | success   | success callback  |
 | failure   | failure callback |
 
-
-
 **Example**
 
 Objc:
@@ -379,6 +370,8 @@ func getShareMemberDetail() {
 }
 ```
 
+
+
 #### Getting Shared Data from a Single Recipient
 
 **Declaration**
@@ -399,8 +392,6 @@ func getShareMemberDetail() {
 | memberId  | recipient member id |
 | success   | success callback    |
 | failure   | failure callback   |
-
-
 
 **Example**
 
@@ -438,6 +429,8 @@ func getReceiveMemberDetail() {
 }
 ```
 
+
+
 #### Get a Single Device Shared User List
 
 **Declaration**
@@ -458,8 +451,6 @@ func getReceiveMemberDetail() {
 | devId     | device id         |
 | success   | success callback  |
 | failure   | failure callback |
-
-
 
 **Example**
 
@@ -521,8 +512,6 @@ func getDeviceShareMemberList() {
 | success   | success callback        |
 | failure   | failure callback       |
 
-
-
 **Example**
 
 Objc:
@@ -560,9 +549,13 @@ func getShareInfo() {
 }
 ```
 
+
+
 ### Remove Sharing
 
 #### Delete Active Sharers
+
+The sharer deletes all shared relationships with this user through memberId (user dimension delete)
 
 **Declaration**
 
@@ -582,8 +575,6 @@ func getShareInfo() {
 | memberId  | share memer id    |
 | success   | success callback  |
 | failure   | failure callback |
-
-
 
 **Example**
 
@@ -626,11 +617,13 @@ func removeShareMember() {
 
 #### Delete Receiving Sharer
 
+The shared party obtains the information of all shared devices of this user through memberId
+
 **Declaration**
 
 
 ```objc
--- (void)removeReceiveShareMemberWithMemberId:(NSInteger)memberId
+- (void)removeReceiveShareMemberWithMemberId:(NSInteger)memberId
                                      success:(TYSuccessHandler)success
                                      failure:(TYFailureError)failure;
 ```
@@ -644,8 +637,6 @@ func removeShareMember() {
 | memberId  | revice share member id |
 | success   | success callback       |
 | failure   | failure callback      |
-
-
 
 **Example**
 
@@ -683,6 +674,8 @@ func removeReceiveMember() {
 }
 ```
 
+
+
 #### Single Device Remove Sharing
 
 **Declaration**
@@ -705,8 +698,6 @@ func removeReceiveMember() {
 | devId     | share device id   |
 | success   | success callback  |
 | failure   | failure callback |
-
-
 
 **Example**
 
@@ -744,6 +735,8 @@ func removeDeviceShare() {
 }
 ```
 
+
+
 #### Remove Shared Devices Received
 
 **Declaration**
@@ -764,8 +757,6 @@ func removeDeviceShare() {
 | devId     | reviced device id |
 | success   | success callback  |
 | failure   | failure callback |
-
-
 
 **Example**
 
@@ -805,6 +796,7 @@ func removeDeviceShare() {
 ```
 
 
+
 ### Modify Note Name
 
 #### Modify the nickname of the active sharer
@@ -829,8 +821,6 @@ func removeDeviceShare() {
 | name      | new name          |
 | success   | success callback  |
 | failure   | failure callback |
-
-
 
 **Example**
 
@@ -891,8 +881,6 @@ func updateShareMemberName() {
 | name      | new name               |
 | success   | success callback       |
 | failure   | failure callback      |
-
-
 
 **Example**
 
