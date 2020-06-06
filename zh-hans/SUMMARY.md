@@ -17,8 +17,9 @@
   - [用户 UID 登录体系](./resource/User.md#用户-uid-登录体系)
   - [第三方登录](./resource/User.md#第三方登录)
   - [Auth2 登录(苹果登录)](./resource/User.md#苹果登录)
-  - [修改用户信息](./resource/User.md#修改用户头像)
-  - [登出，注销账号](./resource/User.md#登出)
+  - [修改用户信息](./resource/User.md#修改用户信息)
+  - [退出登录，注销账号](./resource/User.md#退出登录，注销账号)
+  - [用户数据模型](./resource/User.md#用户数据模型)
   - [Session 过期的处理](./resource/User.md#session-过期的处理)
   
 * [家庭管理](./resource/HomeAbout.md)

@@ -36,7 +36,7 @@
 
 ### 手机账号体系
 
-涂鸦智能提供手机验证码登陆体系。
+涂鸦智能提供手机验证码登录体系。
 
 
 
@@ -136,119 +136,6 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 }, failure: { (error) in
     if let e = error {
         print("register failure: \(e)")
-    }
-})
-```
-
-
-
-**接口说明**
-
-也可以使用下面的校验验证码接口，单独校验验证码是否正确，接口支持校验手机短信验证码和邮箱验证码。
-
-```objective-c
-- (void)checkCodeWithUserName:(NSString *)userName
-                       region:(NSString *_Nullable)region
-                  countryCode:(NSString *)countryCode
-                         code:(NSString *)code
-                         type:(NSInteger)type
-                      success:(TYSuccessBOOL)success
-                      failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数        | 说明                                                         |
-| :---------- | :----------------------------------------------------------- |
-| userName    | 手机号或邮箱                                                 |
-| region      | 区域，默认填 nil                                             |
-| countryCode | 国家码，例如：86                                             |
-| code        | 经过验证码发送接口，收到的验证码                             |
-| type        | 类型, 1: 注册时验证码验证⽤, 2: 验证码登录时⽤, 3: 重置密码时⽤ |
-| success     | 接口发送成功回调                                             |
-| failure     | 接口发送失败回调，error 表示失败原因                         |
-
-**示例代码**
-
-Objc:
-
-```objective-c
-[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:1 success:^(BOOL result) {
-		if (result) {
-				NSLog(@"valid code!");
-    } else {
-				NSLog(@"invalid code!");
-    }
-} failure:^(NSError *error) {
-		NSLog(@"check code failure: %@", error);
-}];
-```
-
-Swift:
-
-```swift
-TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
-		if result {
-				print("valid code!")
-		} else {
-				print("invalid code!")
-		}
-}, failure: { (error) in
-		if let error = error {
-				print("check code failure: \(error)")
-		}
-})
-```
-
-
-
-#### 手机验证码登录
-
-手机号验证码登录流程分为以下两步：获取手机验证码（ API 参考“手机密码注册”的第一个接口） - 验证码登录
-
-**接口说明**
-
-验证码登录
-
-```objective-c
-- (void)loginWithMobile:(NSString *)mobile
-            countryCode:(NSString *)countryCode
-                   code:(NSString *)code
-                success:(TYSuccessHandler)success
-                failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数        | 说明                                 |
-| :---------- | :----------------------------------- |
-| mobile      | 手机号码                             |
-| countryCode | 国家码，例如：86                     |
-| code        | 经过验证码发送接口，收到的验证码     |
-| success     | 接口发送成功回调                     |
-| failure     | 接口发送失败回调，error 表示失败原因 |
-
-**示例代码**
-
-Objc:
-
-
-```objective-c
-[[TuyaSmartUser sharedInstance] loginWithMobile:@"your_phone_number" countryCode:@"your_country_code" code:@"verify_code" success:^{
-		NSLog(@"login success");
-} failure:^(NSError *error) {
-    NSLog(@"login failure: %@", error);
-}];
-```
-
-Swift:
-
-```swift
-TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCode: "your_country_code", code: "verify_code", success: {
-    print("login success")
-}, failure: { (error) in
-    if let e = error {
-        print("login failure: \(e)")
     }
 })
 ```
@@ -363,9 +250,124 @@ func resetPasswordByPhone() {
 
 
 
+#### 手机验证码登录
+
+手机号验证码登录流程分为以下两步：获取手机验证码（ API 参考“手机密码注册”的第一个接口） - 验证码登录
+
+**接口说明**
+
+验证码登录
+
+```objective-c
+- (void)loginWithMobile:(NSString *)mobile
+            countryCode:(NSString *)countryCode
+                   code:(NSString *)code
+                success:(TYSuccessHandler)success
+                failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 说明                                 |
+| :---------- | :----------------------------------- |
+| mobile      | 手机号码                             |
+| countryCode | 国家码，例如：86                     |
+| code        | 经过验证码发送接口，收到的验证码     |
+| success     | 接口发送成功回调                     |
+| failure     | 接口发送失败回调，error 表示失败原因 |
+
+**示例代码**
+
+Objc:
+
+
+```objective-c
+[[TuyaSmartUser sharedInstance] loginWithMobile:@"your_phone_number" countryCode:@"your_country_code" code:@"verify_code" success:^{
+		NSLog(@"login success");
+} failure:^(NSError *error) {
+    NSLog(@"login failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCode: "your_country_code", code: "verify_code", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
+```
+
+
+
+####  验证码验证接口
+
+**接口说明**
+
+验证验证码，用于注册、登录、重设密码 时验证的校验
+
+```objective-c
+- (void)checkCodeWithUserName:(NSString *)userName
+                       region:(NSString *_Nullable)region
+                  countryCode:(NSString *)countryCode
+                         code:(NSString *)code
+                         type:(NSInteger)type
+                      success:(TYSuccessBOOL)success
+                      failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| userName    | 手机号或邮箱                                                 |
+| region      | 区域，默认填 nil                                             |
+| countryCode | 国家码，例如：86                                             |
+| code        | 经过验证码发送接口，收到的验证码                             |
+| type        | 类型, 1: 注册时验证码验证⽤, 2: 验证码登录时⽤, 3: 重置密码时⽤ |
+| success     | 接口发送成功回调                                             |
+| failure     | 接口发送失败回调，error 表示失败原因                         |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:1 success:^(BOOL result) {
+		if (result) {
+				NSLog(@"valid code!");
+    } else {
+				NSLog(@"invalid code!");
+    }
+} failure:^(NSError *error) {
+		NSLog(@"check code failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
+		if result {
+				print("valid code!")
+		} else {
+				print("invalid code!")
+		}
+}, failure: { (error) in
+		if let error = error {
+				print("check code failure: \(error)")
+		}
+})
+```
+
+
+
 ### 邮箱账号体系
 
-涂鸦智能提供手机验证码登陆体系。
+涂鸦智能提供手机验证码登录体系。
 
 
 
@@ -573,6 +575,68 @@ func resetPasswordByEmail() {
         }
     })
 }
+```
+
+
+
+####  验证码验证接口
+
+**接口说明**
+
+验证验证码，用于注册、登录、重设密码 时验证的校验
+
+```objective-c
+- (void)checkCodeWithUserName:(NSString *)userName
+                       region:(NSString *_Nullable)region
+                  countryCode:(NSString *)countryCode
+                         code:(NSString *)code
+                         type:(NSInteger)type
+                      success:(TYSuccessBOOL)success
+                      failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| userName    | 手机号或邮箱                                                 |
+| region      | 区域，默认填 nil                                             |
+| countryCode | 国家码，例如：86                                             |
+| code        | 经过验证码发送接口，收到的验证码                             |
+| type        | 类型, 1: 注册时验证码验证⽤, 2: 验证码登录时⽤, 3: 重置密码时⽤ |
+| success     | 接口发送成功回调                                             |
+| failure     | 接口发送失败回调，error 表示失败原因                         |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:1 success:^(BOOL result) {
+		if (result) {
+				NSLog(@"valid code!");
+    } else {
+				NSLog(@"invalid code!");
+    }
+} failure:^(NSError *error) {
+		NSLog(@"check code failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
+		if result {
+				print("valid code!")
+		} else {
+				print("invalid code!")
+		}
+}, failure: { (error) in
+		if let error = error {
+				print("check code failure: \(error)")
+		}
+})
 ```
 
 
@@ -799,61 +863,6 @@ Swift:
 
 
 
-#### Twitter 登录
-
-**接口说明**
-
-Twitter登录
-
-```objective-c
-- (void)loginByTwitter:(NSString *)countryCode
-                   key:(NSString *)key
-                secret:(NSString *)secret
-               success:(nullable TYSuccessHandler)success
-               failure:(nullable TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数        | 说明                                 |
-| :---------- | :----------------------------------- |
-| countryCode | 国家码，例如：86                     |
-| key         | Twitter 授权后返回的的 key           |
-| secret      | Twitter 授权后返回的的 secret        |
-| success     | 接口发送成功回调                     |
-| failure     | 接口发送失败回调，error 表示失败原因 |
-
-**示例代码**
-
-Objc:
-
-```objc
-- (void)loginByTwitter {
-    [[TuyaSmartUser sharedInstance] loginByTwitter:@"your_country_code" key:@"twitter_key" secret:@"twitter_secret" success:^{
-        NSLog(@"login success");
-    } failure:^(NSError *error) {
-        NSLog(@"login failure: %@", error);
-    }];
-
-}
-```
-
-Swift:
-
-```swift
-func loginByTwitter() {
-    TuyaSmartUser.sharedInstance()?.login(byTwitter: "your_country_code", key: "twitter_key", secret: "twitter_secret", success: {
-       	print("login success")
-    }, failure: { (error) in
-        if let e = error {
-            print("login failure: \(e)")
-        }
-    })
-}
-```
-
-
-
 ### Auth2登录
 
 **接口说明**
@@ -960,7 +969,9 @@ func loginWithApple() {
 
 
 
-### 修改用户头像
+### 修改用户信息
+
+#### 修改用户头像
 
 **接口描述**
 
@@ -1004,7 +1015,7 @@ func updateHeadIcon(_ headIcon: UIImage) {
 
 
 
-### 设置用户温度单位
+#### 设置用户温度单位
 
 **接口描述**
 
@@ -1052,7 +1063,7 @@ func updateTempUnit(withTempUnit tempUnit: Int) {
 
 
 
-### 修改昵称
+#### 修改昵称
 
 **接口描述**
 
@@ -1102,7 +1113,7 @@ func modifyNickname(_ nickName: String) {
 
 
 
-### 更新用户时区
+#### 更新用户时区
 
 **接口描述**
 
@@ -1152,7 +1163,7 @@ func updateTimeZoneId(_ timeZoneId: String) {
 
 
 
-### 更新用户定位
+#### 更新用户定位
 
 **接口描述**
 
@@ -1191,7 +1202,9 @@ func updateLocation() {
 
 
 
-### 登出
+### 退出登录，注销账号
+
+#### 退出登录
 
 **接口描述**
 
@@ -1239,7 +1252,7 @@ func loginOut() {
 
 
 
-### 停用账号（注销用户）
+#### 停用账号（注销用户）
 
 **接口描述**
 
@@ -1284,6 +1297,23 @@ func cancelAccount() {
     })
 }
 ```
+
+
+
+### 用户数据模型
+
+TuyaSmartUser:
+
+| 字段        | 描述                    |
+| ----------- | ----------------------- |
+| nickName    | 昵称                    |
+| countryCode | 国家区号                |
+| phoneNumber | 手机号码                |
+| userName    | 用户名称                |
+| email       | 邮箱地址                |
+| uid         | 用户唯一标识符          |
+| sid         | 用户登录产生唯一标识 id |
+| headIconUrl | 用户头像路径            |
 
 
 
