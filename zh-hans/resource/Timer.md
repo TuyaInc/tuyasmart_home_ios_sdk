@@ -39,7 +39,7 @@
                isAppPush:(BOOL)isAppPush
                aliasName:(NSString *)aliasName
                  success:(TYSuccessHandler)success
-                 failure:(TYFailureError)failure
+                 failure:(TYFailureError)failure;
 ```
 
 **参数说明**
@@ -300,7 +300,7 @@ func removeTimer() {
                   isAppPush:(BOOL)isAppPush
                   aliasName:(NSString *)aliasName
                     success:(TYSuccessHandler)success
-                    failure:(TYFailureError)failure
+                    failure:(TYFailureError)failure;
 ```
 
 **参数说明**

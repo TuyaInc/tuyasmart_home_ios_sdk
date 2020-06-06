@@ -27,6 +27,17 @@ Add a timer to the required task specified by a device or group.
                 timeZone:(NSString *)timeZone
                  success:(TYSuccessHandler)success
                  failure:(TYFailureError)failure;
+
+- (void)addTimerWithTask:(NSString *)task
+                   loops:(NSString *)loops
+                   devId:(NSString *)devId
+                    time:(NSString *)time
+                     dps:(NSDictionary *)dps
+                timeZone:(NSString *)timeZone
+               isAppPush:(BOOL)isAppPush
+               aliasName:(NSString *)aliasName
+                 success:(TYSuccessHandler)success
+                 failure:(TYFailureError)failure;
 ```
 
 **Parameters**
@@ -39,6 +50,8 @@ Add a timer to the required task specified by a device or group.
 | time      | Time 18:00                                                   |
 | dps       | Dps command                                                  |
 | timeZone  | The time zone of the device or group, like +08:00            |
+| isAppPush	| Is support push message after the timer executed |
+| aliasName	| The timer remark name |
 | success   | Success block                                                |
 | failure   | Failure block                                                |
 
@@ -261,6 +274,18 @@ Update the timer of a task specified by a device.
                    timeZone:(NSString *)timeZone
                     success:(TYSuccessHandler)success
                     failure:(TYFailureError)failure;
+
+- (void)updateTimerWithTask:(NSString *)task
+                      loops:(NSString *)loops
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                       time:(NSString *)time
+                        dps:(NSDictionary *)dps
+                   timeZone:(NSString *)timeZone
+                  isAppPush:(BOOL)isAppPush
+                  aliasName:(NSString *)aliasName
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
 ```
 
 **Parameters**
@@ -274,6 +299,8 @@ Update the timer of a task specified by a device.
 | time      | Time，如 18:00                                               |
 | dps       | Dps command                                                  |
 | timeZone  | The time zone of the device or group, like +08:00            |
+| isAppPush | Is support push message after the timer executed             |
+| aliasName | The timer remark name                                        |
 | success   | Success block                                                |
 | failure   | Failure block                                                |
 
