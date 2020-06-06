@@ -1,4 +1,4 @@
-## Shared devices
+# Shared devices
 
 When a device  needs to be provided  for other users to operate, the device can be shared with other users, and the user who receives the shared device can simply operate the device.
 
@@ -8,9 +8,9 @@ When a device  needs to be provided  for other users to operate, the device can 
 
 
 
-### Add Device Share
+## Add Device Share
 
-#### Add  Multiple Device Sharing (coverage)
+### Add  Multiple Device Sharing (coverage)
 Sharing multiple devices to users will override all previous user sharing
 
 **Declaration**
@@ -71,7 +71,7 @@ func addMemberShare() {
 
 
 
-#### Add Shares (new, not overwriting old Shares)
+### Add Shares (new, not overwriting old Shares)
 Sharing multiple devices to users will add the devices to all user shareing
 
 **Declaration**
@@ -126,7 +126,8 @@ func addMemberShare() {
 ```
 
 
-#### Single Device Add Sharing
+
+### Single Device Add Sharing
 
 **Declaration**
 
@@ -192,9 +193,9 @@ func addDeviceShare() {
 
 
 
-### Getting Shared Relationships
+## Getting Shared Relationships
 
-#### Get List of All Active Shared Users in the Home
+### Get List of All Active Shared Users in the Home
 
 **Declaration**
 
@@ -256,7 +257,7 @@ func getShareMemberList() {
 
 
 
-#### Get List of All Shared Uers Received
+### Get List of All Shared Uers Received
 
 **Declaration**
 
@@ -313,7 +314,7 @@ func getReceiveMemberList() {
 
 
 
-#### Obtaining User-shared Data that is Actively Shared by a Single User
+### Obtaining User-shared Data that is Actively Shared by a Single User
 
 **Declaration**
 
@@ -372,7 +373,7 @@ func getShareMemberDetail() {
 
 
 
-#### Getting Shared Data from a Single Recipient
+### Getting Shared Data from a Single Recipient
 
 **Declaration**
 
@@ -431,7 +432,7 @@ func getReceiveMemberDetail() {
 
 
 
-#### Get a Single Device Shared User List
+### Get a Single Device Shared User List
 
 **Declaration**
 
@@ -491,7 +492,7 @@ func getDeviceShareMemberList() {
 
 
 
-#### Who Shares Access Devices
+### Who Shares Access Devices
 
 **Declaration**
 
@@ -551,9 +552,9 @@ func getShareInfo() {
 
 
 
-### Remove Sharing
+## Remove Sharing
 
-#### Delete Active Sharers
+### Delete Active Sharers
 
 The sharer deletes all shared relationships with this user through memberId (user dimension delete)
 
@@ -615,7 +616,7 @@ func removeShareMember() {
 
 
 
-#### Delete Receiving Sharer
+### Delete Receiving Sharer
 
 The shared party obtains the information of all shared devices of this user through memberId
 
@@ -676,7 +677,7 @@ func removeReceiveMember() {
 
 
 
-#### Single Device Remove Sharing
+### Single Device Remove Sharing
 
 **Declaration**
 
@@ -737,7 +738,7 @@ func removeDeviceShare() {
 
 
 
-#### Remove Shared Devices Received
+### Remove Shared Devices Received
 
 **Declaration**
 
@@ -797,9 +798,9 @@ func removeDeviceShare() {
 
 
 
-### Modify Note Name
+## Modify Note Name
 
-#### Modify the nickname of the active sharer
+### Modify the nickname of the active sharer
 
 **Declaration**
 
@@ -859,7 +860,7 @@ func updateShareMemberName() {
 
 
 
-#### Modify the Nickname of the Recipient Sharer
+### Modify the Nickname of the Recipient Sharer
 
 **Declaration**
 
