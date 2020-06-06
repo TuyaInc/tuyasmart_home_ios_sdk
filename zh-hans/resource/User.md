@@ -1,4 +1,4 @@
-## 用户管理
+# 用户管理
 
 涂鸦云支持多种用户体系：手机、邮箱、UID。其中手机支持验证码登录和密码登录两种方式，每种体系的注册登录会在后面单独介绍。UID 登录主要用于已经有自己账号体系的场景。
 
@@ -34,13 +34,13 @@
 
 
 
-### 手机账号体系
+## 手机账号体系
 
 涂鸦智能提供手机验证码登录体系。
 
 
 
-#### 手机密码注册
+### 手机密码注册
 
 手机号密码注册流程分为以下两步：`获取手机验证码` - `注册账号`
 
@@ -142,7 +142,7 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 
 
-#### 手机密码登录
+### 手机密码登录
 
 **接口说明**
 
@@ -192,7 +192,7 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
 
 
 
-#### 手机号重置密码
+### 手机号重置密码
 
 手机号重置密码流程分为以下两步：获取手机验证码（ API 参考“手机密码注册”的第一个接口） - 重置密码
 
@@ -250,7 +250,7 @@ func resetPasswordByPhone() {
 
 
 
-#### 手机验证码登录
+### 手机验证码登录
 
 手机号验证码登录流程分为以下两步：获取手机验证码（ API 参考“手机密码注册”的第一个接口） - 验证码登录
 
@@ -303,7 +303,7 @@ TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCo
 
 
 
-####  验证码验证接口
+###  验证码验证接口
 
 **接口说明**
 
@@ -365,13 +365,13 @@ TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number",
 
 
 
-### 邮箱账号体系
+## 邮箱账号体系
 
 涂鸦智能提供手机验证码登录体系。
 
 
 
-#### 邮箱密码注册
+### 邮箱密码注册
 
 邮箱注册流程分为以下两步：获取邮箱验证码 - 注册邮箱密码账户
 
@@ -473,7 +473,7 @@ TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "y
 
 
 
-#### 邮箱密码登录
+### 邮箱密码登录
 
 **接口说明**
 
@@ -523,7 +523,7 @@ TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your
 
 
 
-#### 邮箱重置密码
+### 邮箱重置密码
 
 **接口说明**
 
@@ -579,7 +579,7 @@ func resetPasswordByEmail() {
 
 
 
-####  验证码验证接口
+###  验证码验证接口
 
 **接口说明**
 
@@ -641,9 +641,9 @@ TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number",
 
 
 
-### 用户 uid 登录体系
+## 用户 uid 登录体系
 
-#### 用户 uid 注册和登录（已经拥有账号体系）
+### 用户 uid 注册和登录（已经拥有账号体系）
 
 **接口说明**
 
@@ -695,14 +695,14 @@ TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_cod
 
 
 
-### 第三方登录
+## 第三方登录
 
 需要在 `涂鸦开发者平台` - `应用开发` - `第三方登录` 配置对应的 `AppID` 和 `AppSecret`;
 客户端按照各平台要求进行开发，获取到对应的 code 之后，调用 tuyaSDK 对应的登录接口。
 
 
 
-#### 微信登录
+### 微信登录
 
 **接口说明**
 
@@ -755,7 +755,7 @@ func loginByWechat() {
 
 
 
-#### QQ 登录
+### QQ 登录
 
 **接口说明**
 
@@ -810,7 +810,7 @@ Swift:
 
 
 
-#### Facebook登录
+### Facebook登录
 
 **接口说明**
 
@@ -863,7 +863,7 @@ Swift:
 
 
 
-### Auth2登录
+## Auth2登录
 
 **接口说明**
 
@@ -919,7 +919,7 @@ func loginWithAuth2() {
 
 
 
-#### 苹果登录
+### 苹果登录
 
 **接口说明**
 
@@ -969,9 +969,9 @@ func loginWithApple() {
 
 
 
-### 修改用户信息
+## 修改用户信息
 
-#### 修改用户头像
+### 修改用户头像
 
 **接口描述**
 
@@ -1015,7 +1015,7 @@ func updateHeadIcon(_ headIcon: UIImage) {
 
 
 
-#### 设置用户温度单位
+### 设置用户温度单位
 
 **接口描述**
 
@@ -1063,7 +1063,7 @@ func updateTempUnit(withTempUnit tempUnit: Int) {
 
 
 
-#### 修改昵称
+### 修改昵称
 
 **接口描述**
 
@@ -1113,7 +1113,7 @@ func modifyNickname(_ nickName: String) {
 
 
 
-#### 更新用户时区
+### 更新用户时区
 
 **接口描述**
 
@@ -1163,7 +1163,7 @@ func updateTimeZoneId(_ timeZoneId: String) {
 
 
 
-#### 更新用户定位
+### 更新用户定位
 
 **接口描述**
 
@@ -1202,9 +1202,9 @@ func updateLocation() {
 
 
 
-### 退出登录，注销账号
+## 退出登录，注销账号
 
-#### 退出登录
+### 退出登录
 
 **接口描述**
 
@@ -1252,7 +1252,7 @@ func loginOut() {
 
 
 
-#### 停用账号（注销用户）
+### 停用账号（注销用户）
 
 **接口描述**
 
@@ -1300,7 +1300,7 @@ func cancelAccount() {
 
 
 
-### 用户数据模型
+## 用户数据模型
 
 TuyaSmartUser:
 
@@ -1317,7 +1317,7 @@ TuyaSmartUser:
 
 
 
-### Session 过期的处理
+## Session 过期的处理
 
 长期未登录或者密码修改后的账号，在访问服务端接口的时候会返回 Session 过期的错误，需要监听 `TuyaSmartUserNotificationUserSessionInvalid` 通知，跳转至登录页面重新登录。
 

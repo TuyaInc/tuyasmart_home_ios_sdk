@@ -1,4 +1,4 @@
-## User management
+# User management
 
 Tuya Cloud supports various kinds of user systems such as mobile phone, email and UID. Mobile phone supports verification code login and password login. The registration and login of each user system will be separately described later.
 
@@ -17,13 +17,13 @@ All functions of user are realized by using the `TuyaSmartUser` Class (singleton
 
 
 
-### Use Mobile Phone for Login
+## Use Mobile Phone for Login
 
 Tuya Smart provides the mobile phone verification code login system.
 
 
 
-#### Use Mobile Phone Password for Registration
+### Use Mobile Phone Password for Registration
 
 The mobile phone and password registration process is divided into the following two steps: get a mobile phone verification code - Register a mobile phone and password account.
 
@@ -125,7 +125,7 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 
 
-#### Use Mobile Phone Password for Login
+### Use Mobile Phone Password for Login
 
 **Declaration**
 
@@ -175,7 +175,7 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
 
 
 
-#### Resetting Password by Using Mobile Phone
+### Resetting Password by Using Mobile Phone
 
 The process of resetting the password of the mobile phone number is divided into the following two steps: obtain the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - reset the password.
 
@@ -233,7 +233,7 @@ func resetPasswordByPhone() {
 
 
 
-#### Use Mobile Phone Verification Code for Login
+### Use Mobile Phone Verification Code for Login
 
 The mobile phone number and verification code login process is divided into the following two steps: get the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - verification code login.
 
@@ -285,7 +285,7 @@ TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCo
 
 
 
-#### Verification code verification
+### Verification code verification
 
 **Declaration**
 
@@ -347,13 +347,13 @@ TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number",
 
 
 
-### Use Email for Login
+## Use Email for Login
 
 Tuya Smart provides the email password login system.
 
 
 
-#### User Email Password Registration
+### User Email Password Registration
 
 The email registration process is divided into the following two steps: get email verification code - register email password account.
 
@@ -453,7 +453,7 @@ TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "y
 
 
 
-#### Use Email Password for Login
+### Use Email Password for Login
 
 **Declaration**
 
@@ -503,7 +503,7 @@ TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your
 
 
 
-#### Reset email password
+### Reset email password
 
 **Declaration**
 
@@ -559,7 +559,7 @@ func resetPasswordByEmail() {
 
 
 
-#### Verification code verification
+### Verification code verification
 
 **Declaration**
 
@@ -621,9 +621,9 @@ TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number",
 
 
 
-### Use Uid for Login
+## Use Uid for Login
 
-#### User Uid Registration and Login
+### User Uid Registration and Login
 
 **Declaration**
 
@@ -675,13 +675,13 @@ TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_cod
 
 
 
-### Third Party Login
+## Third Party Login
 
 User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya developer platform` – `App development` – `Third-party login`. The client shall be developed according to requirements of all platforms. After corresponding code is obtained, relevant login interface of tuyaSDK shall be invoked.
 
 
 
-#### Login on Wechat
+### Login on Wechat
 
 **Declaration**
 
@@ -732,7 +732,7 @@ func loginByWechat() {
 
 
 
-#### Login on QQ
+### Login on QQ
 
 **Declaration**
 
@@ -786,7 +786,7 @@ Swift:
 
 
 
-#### Login on Facebook
+### Login on Facebook
 
 **Declaration**
 
@@ -839,7 +839,7 @@ Swift:
 
 
 
-#### Login by Twitter
+### Login by Twitter
 
 **Declaration**
 
@@ -895,7 +895,7 @@ func loginByTwitter() {
 
 
 
-### Login by Auth2
+## Login by Auth2
 
 **Declaration**
 
@@ -951,7 +951,7 @@ func loginWithAuth2() {
 
 
 
-#### Login with Apple
+### Login with Apple
 
 **Declaration**
 
@@ -1001,9 +1001,9 @@ func loginWithApple() {
 
 
 
-### Modify User Info
+## Modify User Info
 
-#### Modify User Avatar
+### Modify User Avatar
 
 **Interface description**
 
@@ -1049,7 +1049,7 @@ func updateHeadIcon(_ headIcon: UIImage) {
 
 
 
-#### Set the Unit of Temperature
+### Set the Unit of Temperature
 
 **Declaration**
 
@@ -1097,7 +1097,7 @@ func updateTempUnit(withTempUnit tempUnit: Int) {
 
 
 
-#### Modify Nickname
+### Modify Nickname
 
 **Declaration**
 
@@ -1147,7 +1147,7 @@ func modifyNickname(_ nickName: String) {
 
 
 
-#### Update Timezone
+### Update Timezone
 
 **Declaration**
 
@@ -1197,7 +1197,7 @@ func updateTimeZoneId(_ timeZoneId: String) {
 
 
 
-#### Update Location
+### Update Location
 
 **Declaration**
 
@@ -1236,9 +1236,9 @@ func updateLocation() {
 
 
 
-### Logout, Disable Account
+## Logout, Disable Account
 
-#### Logout
+### Logout
 
 **Declaration**
 
@@ -1286,7 +1286,7 @@ func loginOut() {
 
 
 
-#### Disable Account (Deregister User)
+### Disable Account (Deregister User)
 
 **Declaration**
 
@@ -1334,7 +1334,7 @@ func cancelAccount() {
 
 
 
-### User Data Model
+## User Data Model
 
 TuyaSmartUser:
 
@@ -1353,7 +1353,7 @@ TuyaSmartUser:
 
 
 
-### Handling of Expired Session
+## Handling of Expired Session
 
 If you have not logged in to your account for a long time, the session expiration error will be returned when you access the server interface. You have to monitor the notification of the 	`TuyaSmartUserNotificationUserSessionInvalid` and log in to the account again after the login page is displayed.
 
