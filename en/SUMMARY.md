@@ -60,7 +60,7 @@
 * [Integrate Push](./resource/Push.md)
 
 
-* [TUYA BLE](./resource/BLEs.md)
+* [TUYA BLE](./resource/BLE.md)
   * [Single BLE](./resource/BLE.md#single-ble)
     - [Bluetooth Status Monitor](./resource/BLE.md#bluetooth-status-monitor)
     - [Bluetooth Scan](./resource/BLE.md#ble-device-scan)
