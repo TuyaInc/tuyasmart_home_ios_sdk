@@ -128,7 +128,7 @@
 
 * [FAQ](./resource/Faq.md)
 
-* [更新日志记录](./resource/ChangeLog.md)
+* [更新日志](./resource/ChangeLog.md)
 
   
 
