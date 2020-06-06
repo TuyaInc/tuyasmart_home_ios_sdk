@@ -1,10 +1,6 @@
 #定时任务
 
-`TuyaSmartTimerKit` 提供设置**设备**与**群组**定时执行动作的功能
-
-## 设计思路
-
-以设备为例，定时的设计思路如下图所示:
+涂鸦智能提供了基本的定时能力，支持设备定时（包括 WiFi 设备，蓝牙 Mesh 子设备，Zigbee 子设备）和群组定时。并封装了针对设备 dp 点的定时器信息的增删改查接口。APP 通过定时接口设置好定时器信息后，硬件模块会自动根据定时要求进行预订的操作。每个定时任务下可以包含多个定时器。如下图所示：
 
 ![Timer](./images/ios-sdk-timer.jpg)
 
@@ -13,6 +9,8 @@
 | 类名           | 说明             |
 | -------------- | ---------------- |
 | TuyaSmartTimer | 定时任务接口封装 |
+
+以下多个接口用到了 taskName 这个参数，具体可描述为一个分组，一个分组可以有多个定时器。每个定时属于或不属于一个分组，分组目前仅用于展示。例如一个开关可能有多个 dp 点，可以根据每个 dp 点设置一个定时分组，每个分组可以添加多个定时器，用于控制这个 dp 点各个时段的开启或关闭。
 
 ## 增加定时任务
 
@@ -144,64 +142,8 @@ func getTimer() {
 
 
 
-## 更新定时任务状态
 
-更新 device 或群组下对应 task 定时任务状态
-
-**接口说明**
-
-```objective-c
-- (void)updateTimerTaskStatusWithTask:(NSString *)task
-                                devId:(NSString *)devId
-                               status:(NSInteger)status
-                              success:(TYSuccessHandler)success
-                              failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明                         |
-| ------- | ---------------------------- |
-| task    | 任务名称                     |
-| devId   | 设备 id，如果是群组传群组 id |
-| status  | 任务状态，0:关闭,1:开启      |
-| success | 成功回调                     |
-| failure | 失败回调                     |
-
-**示例代码**
-
-Objc:
-
-```objc
-- (void)updateTimer {
-	// self.timer = [[TuyaSmartTimer alloc] init];
-	
-	[self.timer updateTimerTaskStatusWithTask:@"timer_task_name" devId:@"device_id" status:1 success:^{
-		NSLog(@"updateTimer success");
-	} failure:^(NSError *error) {
-		NSLog(@"updateTimer failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func updateTimer() {
-
-    timer?.updateTaskStatus(withTask: "timer_task_name", devId: "device_id", status: 1, success: {
-        print("updateTimer success")
-    }, failure: { (error) in
-        if let e = error {
-            print("updateTimer failure: \(e)")
-        }
-    })
-}
-```
-
-
-
-## 更新定时钟状态
+## 更新定时的开关状态
 
 更新 device 或群组下指定 task 下的指定 timer 的状态
 
@@ -260,7 +202,7 @@ func updateTimer() {
 
 
 
-## 删除定时钟
+## 删除定时
 
 删除 device 或群组下指定 task 下的指定 timer
 
@@ -317,7 +259,7 @@ func removeTimer() {
 
 
 
-## 更新定时钟
+## 更新定时
 
 更新 device 或群组下指定 task 下的指定 timer 信息
 
@@ -383,7 +325,7 @@ func updateTimer() {
 
 
 
-## 获取定时任务下所有定时钟
+## 获取定时任务下所有定时
 
 获取 device 或群组下指定的 task 下的定时 timer
 
@@ -438,7 +380,7 @@ func getTimer() {
 
 
 
-## 获取设备所有定时任务下所有定时钟
+## 获取设备所有定时
 
 获取 device 或群组下所有的 task 下的定时 timer
 
