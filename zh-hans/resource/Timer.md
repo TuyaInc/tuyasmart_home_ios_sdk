@@ -29,6 +29,17 @@
                 timeZone:(NSString *)timeZone
                  success:(TYSuccessHandler)success
                  failure:(TYFailureError)failure;
+
+- (void)addTimerWithTask:(NSString *)task
+                   loops:(NSString *)loops
+                   devId:(NSString *)devId
+                    time:(NSString *)time
+                     dps:(NSDictionary *)dps
+                timeZone:(NSString *)timeZone
+               isAppPush:(BOOL)isAppPush
+               aliasName:(NSString *)aliasName
+                 success:(TYSuccessHandler)success
+                 failure:(TYFailureError)failure
 ```
 
 **参数说明**
@@ -41,6 +52,8 @@
 | time     | 定时的时间，如 18:00 |
 | dps      | dps 命令 |
 | timeZone | 要设置的设备或群组的时区，格式如 +08:00，如果没有传手机时区 |
+| isAppPush      | 是否需要推送 |
+| aliasName     | 备注信息 |
 | success  | 成功回调  |
 | failure | 失败回调 |
 
@@ -64,6 +77,7 @@ Objc:
 		      NSLog(@"addTimerWithTask failure: %@", error);
 	    }];
 }
+
 ```
 
 Swift:
@@ -275,6 +289,18 @@ func removeTimer() {
                    timeZone:(NSString *)timeZone
                     success:(TYSuccessHandler)success
                     failure:(TYFailureError)failure;
+
+- (void)updateTimerWithTask:(NSString *)task
+                      loops:(NSString *)loops
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                       time:(NSString *)time
+                        dps:(NSDictionary *)dps
+                   timeZone:(NSString *)timeZone
+                  isAppPush:(BOOL)isAppPush
+                  aliasName:(NSString *)aliasName
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure
 ```
 
 **参数说明**
@@ -288,6 +314,8 @@ func removeTimer() {
 | time     | 定时的时间，如 18:00                                         |
 | dps      | dps 命令                                                |
 | timeZone | 要设置的设备或群组的时区，格式如 +08:00，如果没有传手机时区  |
+| isAppPush      | 是否需要推送 |
+| aliasName     | 备注信息 |
 | success  | 成功回调                                                     |
 | failure  | 失败回调                                                     |
 
