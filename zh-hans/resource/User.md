@@ -1,6 +1,6 @@
 ## 用户管理
 
-涂鸦云支持多种用户体系：手机、邮箱、UID。其中手机支持验证码登录和密码登录两种方式，每种体系的注册登录会在后面单独介绍。UID 登录主要用于已经有自己的账号体系的时候使用。
+涂鸦云支持多种用户体系：手机、邮箱、UID。其中手机支持验证码登录和密码登录两种方式，每种体系的注册登录会在后面单独介绍。UID 登录主要用于已经有自己账号体系的场景。
 
 |       类名       |       说明       |
 | :--------------: | :--------------: |
@@ -8,78 +8,29 @@
 
 
 
-在注册登录方法中，需要提供`countryCode`参数（国家区号），用于就近选择涂鸦云的可用区。各个可用区的数据是相互独立的，因此在`中国大陆（86）`注册的账号，在`美国(1)`无法使用（用户不存在）。
+在注册登录方法中，需要提供 `countryCode` 参数（国家区号），用于就近选择涂鸦云的可用区。各个可用区的数据是相互独立的，因此在`中国大陆（86）`注册的账号，在`美国(1)`无法使用（用户不存在）。
 
-可用区相关概念请查看：[涂鸦云-可用区](https://docs.tuya.com/cn/cloudapi)
+可用区相关概念请查看：[涂鸦云-可用区](https://docs.tuya.com/zh/iot/introduction-of-tuya/tuya-smart-cloud-platform-overview?id=K914joiyhhf7r#title-6-%E9%80%8F%E6%9E%90%E6%B6%82%E9%B8%A6%E4%BA%91)
 
-用户相关的所有功能对应`TuyaSmartUser`类（单例）。
+用户相关的所有功能对应 `TuyaSmartUser` 类（单例）。
 
+**`TuyaSmartUser` 数据模型**
 
+| **字段**    | **类型**  | **描述**                                                     |
+| ----------- | --------- | ------------------------------------------------------------ |
+| headIconUrl | NSString  | 用户头像链接                                                 |
+| nickname    | NSString  | 用户昵称                                                     |
+| userName    | NSString  | 用户名。如果主账号是手机号，userName 就是手机号。如果主账号是邮箱，userName 就是邮箱 |
+| phoneNumber | NSString  | 手机号                                                       |
+| email       | NSString  | 邮箱                                                         |
+| countryCode | NSString  | 国家码，86：中国，1：美国                                    |
+| isLogin     | BOOL      | 登录的状态                                                   |
+| regionCode  | NSString  | 当前账号所在的国家区域。AY：中国，AZ：美国，EU：欧洲         |
+| timezoneId  | NSString  | 用户时区信息，例如： `Asia/Shanghai`                         |
+| tempUnit    | NSInteger | 温度单位。1：`°C`， 2：`°F`                                  |
+| snsNickname | NSString  | 第三方账号的昵称                                             |
+| regFrom     | TYRegType | 账号注册的类型                                               |
 
-### SDK 账户升级
-
-如果是 tuyasmart_ios_sdk 开发过的用户，现在需要升级到 tuyasmart_home_ios_sdk，否则忽略账户升级
-
-
-
-#### 检查是否需要升级
-
-**接口说明**
-
-检查是否需要从 tuyasmart_ios_sdk 升级到 tuyasmart_home_ios_sdk
-
-```objective-c
-- (BOOL)checkVersionUpgrade;
-```
-
-**参数说明**
-
-无
-
-
-
-#### 开始升级
-
-**接口说明**
-
-SDK数据升级，升级成功后，服务端会创建一个默认的家庭
-
-```objective-c
-- (void)upgradeVersion:(nullable TYSuccessHandler)success
-               failure:(nullable TYFailureError)failure;
-```
-
-**参数说明**
-
-无
-
-**示例代码**
-
-Objc:
-
-```objective-c
-/**
- * SDK数据升级
- */
-[[TuyaSmartSDK sharedInstance] upgradeVersion:^{
-    
-} failure:^(NSError *error) {
-    
-}];
-```
-
-Swift:
-
-```swift
-/**
- * SDK数据升级
- */
-TuyaSmartSDK.sharedInstance()?.upgradeVersion({
-            
-}, failure: { (e) in
-            
-})
-```
 
 
 
@@ -91,7 +42,7 @@ TuyaSmartSDK.sharedInstance()?.upgradeVersion({
 
 #### 手机密码注册
 
-手机号密码注册流程分为以下两步：获取手机验证码 - 注册手机密码账户
+手机号密码注册流程分为以下两步：`获取手机验证码` - `注册账号`
 
 **接口说明**
 
@@ -109,7 +60,7 @@ TuyaSmartSDK.sharedInstance()?.upgradeVersion({
 
 | 参数        | 说明                                                         |
 | :---------- | :----------------------------------------------------------- |
-| countryCode | 区号，例如：86                                               |
+| countryCode | 国家码，例如：86                                             |
 | phoneNumber | 手机号码                                                     |
 | type        | 发送验证码的类型，0:登录验证码，1:注册验证码，2:重置密码验证码 |
 | success     | 接口发送成功回调                                             |
@@ -143,7 +94,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber:
 
 **接口说明**
 
-注册手机密码账户
+注册手机账号
 
 ```objective-c
 - (void)registerByPhone:(NSString *)countryCode
@@ -158,7 +109,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode("your_country_code", phoneNumber:
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                     |
 | phoneNumber | 手机号码                             |
 | password    | 密码                                 |
 | code        | 经过验证码发送接口，收到的验证码     |
@@ -191,9 +142,69 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 
 
+**接口说明**
+
+也可以使用下面的校验验证码接口，单独校验验证码是否正确，接口支持校验手机短信验证码和邮箱验证码。
+
+```objective-c
+- (void)checkCodeWithUserName:(NSString *)userName
+                       region:(NSString *_Nullable)region
+                  countryCode:(NSString *)countryCode
+                         code:(NSString *)code
+                         type:(NSInteger)type
+                      success:(TYSuccessBOOL)success
+                      failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| userName    | 手机号或邮箱                                                 |
+| region      | 区域，默认填 nil                                             |
+| countryCode | 国家码，例如：86                                             |
+| code        | 经过验证码发送接口，收到的验证码                             |
+| type        | 类型, 1: 注册时验证码验证⽤, 2: 验证码登录时⽤, 3: 重置密码时⽤ |
+| success     | 接口发送成功回调                                             |
+| failure     | 接口发送失败回调，error 表示失败原因                         |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:1 success:^(BOOL result) {
+		if (result) {
+				NSLog(@"valid code!");
+    } else {
+				NSLog(@"invalid code!");
+    }
+} failure:^(NSError *error) {
+		NSLog(@"check code failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
+		if result {
+				print("valid code!")
+		} else {
+				print("invalid code!")
+		}
+}, failure: { (error) in
+		if let error = error {
+				print("check code failure: \(error)")
+		}
+})
+```
+
+
+
 #### 手机验证码登录
 
-手机号验证码登录流程分为以下两步：获取手机验证码(API 参考“手机密码注册”的第一个接口) - 验证码登录
+手机号验证码登录流程分为以下两步：获取手机验证码（ API 参考“手机密码注册”的第一个接口） - 验证码登录
 
 **接口说明**
 
@@ -212,7 +223,7 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
 | mobile      | 手机号码                             |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                     |
 | code        | 经过验证码发送接口，收到的验证码     |
 | success     | 接口发送成功回调                     |
 | failure     | 接口发送失败回调，error 表示失败原因 |
@@ -248,9 +259,9 @@ TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCo
 
 **接口说明**
 
-SDK提供手机号密码的登录方式
+SDK 提供手机号密码的登录方式
 
-```
+```objective-c
 - (void)loginByPhone:(NSString *)countryCode
          phoneNumber:(NSString *)phoneNumber
             password:(NSString *)password
@@ -262,7 +273,7 @@ SDK提供手机号密码的登录方式
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                    |
 | phoneNumber | 手机号码                             |
 | password    | 密码     |
 | success     | 接口发送成功回调                     |
@@ -296,7 +307,7 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
 
 #### 手机号重置密码
 
-手机号重置密码流程分为以下两步：获取手机验证码(API 参考“手机密码注册”的第一个接口) - 重置密码
+手机号重置密码流程分为以下两步：获取手机验证码（ API 参考“手机密码注册”的第一个接口） - 重置密码
 
 **接口说明**
 
@@ -315,9 +326,10 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                     |
 | phoneNumber | 手机号码                             |
 | newPassword | 新密码                               |
+| code        | 经过验证码发送接口，收到的验证码     |
 | success     | 接口发送成功回调                     |
 | failure     | 接口发送失败回调，error 表示失败原因 |
 
@@ -378,7 +390,7 @@ func resetPasswordByPhone() {
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                     |
 | email       | 邮箱                                 |
 | success     | 接口发送成功回调                     |
 | failure     | 接口发送失败回调，error 表示失败原因 |
@@ -426,7 +438,7 @@ TuyaSmartUser.sharedInstance()?.sendVerifyCode(byRegisterEmail: "your_country_co
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                    |
 | email       | 邮箱                                 |
 | password    | 密码                                 |
 | code    | 经过验证码发送接口，收到的验证码                 |
@@ -477,7 +489,7 @@ SDK提供邮箱密码的登录方式
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                     |
 | email       | 手机号码                             |
 | password    | 密码                                 |
 | success     | 接口发送成功回调                     |
@@ -528,9 +540,10 @@ TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                    |
 | email       | 邮箱                             |
 | newPassword | 新密码                               |
+| code        | 经过验证码发送接口，收到的验证码     |
 | success     | 接口发送成功回调                     |
 | failure     | 接口发送失败回调，error 表示失败原因 |
 
@@ -585,8 +598,8 @@ func resetPasswordByEmail() {
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
-| uid     | 用户id                       |
+| countryCode | 国家码，例如：86                    |
+| uid     | 匿名 ID，没有格式要求 |
 | password | 密码                               |
 | createHome | 是否创建默认家庭                  |
 | success     | 接口发送成功回调                     |
@@ -620,7 +633,7 @@ TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_cod
 
 ### 第三方登录
 
-需要在 `涂鸦开发者平台` - `应用开发` - `第三方登录` 配置对应的`AppID`和`AppSecret`;
+需要在 `涂鸦开发者平台` - `应用开发` - `第三方登录` 配置对应的 `AppID` 和 `AppSecret`;
 客户端按照各平台要求进行开发，获取到对应的 code 之后，调用 tuyaSDK 对应的登录接口。
 
 
@@ -642,7 +655,7 @@ TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_cod
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                    |
 | code         | 微信授权登录获取的 code                |
 | success     | 接口发送成功回调                     |
 | failure     | 接口发送失败回调，error 表示失败原因 |
@@ -696,7 +709,7 @@ QQ 登录
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                    |
 | userId        | 用户 ID            |
 | accessToken        | QQ 授权后返回的 accessToken             |
 | success     | 接口发送成功回调                     |
@@ -750,7 +763,7 @@ Facebook 登录
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号,例如：86                        |
+| countryCode | 国家码,例如：86                      |
 | token       | Facebook 授权登录获取的  token       |
 | success     | 接口发送成功回调                     |
 | failure     | 接口发送失败回调，error 表示失败原因 |
@@ -804,7 +817,7 @@ Twitter登录
 
 | 参数        | 说明                                 |
 | :---------- | :----------------------------------- |
-| countryCode | 区号，例如：86                       |
+| countryCode | 国家码，例如：86                     |
 | key         | Twitter 授权后返回的的 key           |
 | secret      | Twitter 授权后返回的的 secret        |
 | success     | 接口发送成功回调                     |
@@ -860,9 +873,9 @@ auth2 的接口是一个通用的登录接口，可以根据传参来确认正�
 
 | 参数        | 说明                                     |
 | :---------- | :--------------------------------------- |
-| type        | Auth2接口调用的类型，例如：苹果登录用"ap" |
-| countryCode | 区号,例如：86                            |
-| accessToken | 授权登录的token                       |
+| type        | Auth2 接口调用的类型，例如：苹果登录用 "ap" |
+| countryCode | 国家码,例如：86                         |
+| accessToken | 授权登录的 token                      |
 | extraInfo   | 额外的参数                         |
 | success     | 接口发送成功回调                         |
 | failure     | 接口发送失败回调，error 表示失败原因     |
@@ -908,7 +921,7 @@ SDK 从 3.14.0 开始支持苹果登录了，授权成功后通过 Auth2 的接�
 | 参数        | 说明                                                         |
 | :---------- | :----------------------------------------------------------- |
 | type        | @"ap"                                                        |
-| countryCode | 区号,例如：86                                                |
+| countryCode | 国家码,例如：86                                              |
 | accessToken | credential.identityToken                                     |
 | extraInfo   | @{@"userIdentifier": credential.user, @"email": credential.email, @"nickname":credential.fullName.nickname, @"snsNickname": credential.fullName.nickname} |
 | success     | 接口发送成功回调                                             |
