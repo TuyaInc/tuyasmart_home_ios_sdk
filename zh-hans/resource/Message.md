@@ -1,27 +1,6 @@
- # 消息中心
+# 消息中心
 
-## 功能概述
-
-
-**消息中心模块包含了消息和推送相关的功能，具体如下：**
-
-* 消息相关功能
-    * 获取消息列表
-    * 批量删除消息
-    * 检查新消息
-* 消息推送设置
-    * 获取 APP 消息推送的开启状态
-    * 开启或者关闭 APP 消息推送
-    * 获取 APP 设备告警类推送的开启状态
-    * 开启或者关闭 APP 设备告警推送
-    * 获取 APP 家庭通知类推送的开启状态
-    * 开启或者关闭 APP 家庭推送
-    * 获取 APP 消息通知类推送的开启状态
-    * 开启或者关闭 APP 消息通知推送
-    * 获取 APP 营销消息类推送的开启状态
-    * 开启或者关闭 APP 营销类消息推送
-
-
+消息管理模块包含消息中心和推送相关功能，其消息主要分为告警、家庭、通知三个大类，每个大类分别支持开启或关闭。
 
 |         类名         |                 说明                 |
 | :--------------------------: | :----------------------------------: |
@@ -34,17 +13,12 @@
 
 ### 获取消息列表
 
-
-#### 获取消息列表
-
-
 **接口说明**
 
 ```objc
 - (void)getMessageList:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success
                failure:(TYFailureError)failure
 ```
-
 
 **参数说明**
 
@@ -80,6 +54,8 @@ Swift:
     })
 ```
 
+
+
 ### 获取分页的消息列表
 
 
@@ -96,7 +72,7 @@ Swift:
 **参数说明**
 
 
-| 参数    | 说明                      | 
+| 参数    | 说明                      |
 | :------ | :------------------------ |
 | limit  | 每页请求数据数 |
 | offset  | 已请求到的消息总数 |
@@ -117,6 +93,8 @@ Swift:
     }];
 ```
 
+
+
 ### 根据消息类型分页获取消息列表
 
 **接口说明**
@@ -127,7 +105,7 @@ Swift:
 
 **参数说明**
 
-| 参数    | 说明                      | 
+| 参数    | 说明                      |
 | :------ | :------------------------ |
 | msgType  | 消息类型（1 - 告警，2 - 家庭，3 - 通知）|
 | limit  | 每页请求数据数 |
@@ -147,6 +125,42 @@ Swift:
         NSLog(@"get message list failure:%@", error);
     }];
 ```
+
+
+
+### 根据消息 msgSrcId 获取消息详情列表
+
+**接口说明**
+
+```objective-c
+- (void)getMessageDetailListWithType:(NSInteger)msgType msgSrcId:(NSString *)msgSrcId limit:(NSInteger)limit offset:(NSInteger)offset success:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success failure:(TYFailureError)failure
+```
+
+**参数说明**
+
+| 参数     | 说明                       |
+| :------- | :------------------------- |
+| msgType  | 消息类型（1 - 告警）       |
+| msgSrcId | 消息组ID                   |
+| limit    | 每页请求数据数             |
+| offset   | 已请求到的消息总数         |
+| success  | 成功回调，返回消息详情数组 |
+| failure  | 失败回调，返回失败原因     |
+
+**示例代码**
+
+```objective-c
+		//   self.smartMessage = [[TuyaSmartMessage alloc] init];
+    NSNumber *limit = @15;
+    NSNumber *offset = @0;
+    [self.smartMessage getMessageDetailListWithType:1 msgSrcId:@"xxx" limit offset:offset success:^(NSArray<TuyaSmartMessageListModel *> *list) {
+        NSLog(@"get message list success:%@", list);
+    } failure:^(NSError *error) {
+        NSLog(@"get message list failure:%@", error);
+    }];
+```
+
+
 
 ### 删除消息
 
@@ -231,6 +245,8 @@ Objc:
     }];
 ```
 
+
+
 ### 检查新消息
 
 
@@ -281,6 +297,7 @@ Swift:
 
 ### 获取 APP 消息推送的开启状态
 
+消息推送开关为总开关，关闭状态下无法接收到 设备告警、家庭消息、通知消息 等任何消息。
 
 **接口说明**
 
@@ -297,7 +314,6 @@ Swift:
 | success | 成功回调，返回布尔值；false - 无法接收到设备告警、家庭消息、通知消息等任何消息 |
 | failure | 失败回调，返回失败原因    |
 
-
 **示例代码**
 
 
@@ -308,7 +324,11 @@ Swift:
 
 }];
 ```
+
+
 ### 开启或者关闭 APP 消息推送
+
+消息推送开关为总开关，关闭状态下无法接收到 设备告警、家庭消息、通知消息 等任何消息。
 
 **接口说明**
 
@@ -336,6 +356,8 @@ BOOL enable = YES;
 }];
  ````
 
+
+
 ### 获取 APP 设备告警类推送的开启状态
 
 
@@ -362,6 +384,8 @@ BOOL enable = YES;
 
 }];
 ```
+
+
 
 ### 开启或者关闭 APP 设备告警推送
 
@@ -393,6 +417,7 @@ BOOL enable = YES;
 ````
 
 
+
 ### 获取 APP 家庭通知类推送的开启状态
 
 
@@ -419,6 +444,8 @@ BOOL enable = YES;
 
 }];
 ```
+
+
 
 ### 开启或者关闭 APP 家庭推送
 
@@ -450,6 +477,7 @@ BOOL enable = YES;
 ```
 
 
+
 ### 获取 APP 消息通知类推送的开启状态
 
 
@@ -478,6 +506,7 @@ BOOL enable = YES;
 
 }];
 ```
+
 
 
 ### 开启或者关闭 APP 消息通知推送
@@ -514,6 +543,8 @@ BOOL enable = YES;
 }];
 ```
 
+
+
 ### 获取 APP 营销消息类推送的开启状态
 
 
@@ -544,6 +575,8 @@ BOOL enable = YES;
 
 }];
 ```
+
+
 
 ### 开启或者关闭 APP 营销类消息推送
 

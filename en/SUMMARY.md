@@ -74,7 +74,6 @@
   - [Control](./resource/Mesh.md#mesh-control)
   - [Firmware Upgrade](./resource/Mesh.md#firmware-upgrade)
 * [Message Center](./resource/Message.md#message-center)
-  * [Function Overview](./resource/Message.md#function-overview)
   * [Message](./resource/Message.md#message)
   * [Push Notification](./resource/Message.md#push-notification)
 * [Feedback](./resource/Feedback.md#feedback)

@@ -102,7 +102,6 @@
   - [固件升级](./resource/Mesh.md#固件升级)
   
 * [消息中心](./resource/Message.md#消息中心)
-  * [功能概述](./resource/Message.md#功能概述)
   * [消息相关功能](./resource/Message.md#消息相关功能)
   * [消息推送设置](./resource/Message.md#消息推送设置)
   
