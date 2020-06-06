@@ -22,6 +22,7 @@
   - [Session 过期的处理](./resource/User.md#session-过期的处理)
   
 * [家庭管理](./resource/HomeAbout.md)
+  
   * [家庭关系管理](./resource/Home.md#家庭关系管理)
   * [家庭信息管理](./resource/Home.md#家庭信息管理)
   * [家庭成员管理](./resource/Home.md#家庭成员管理)
@@ -111,8 +112,8 @@
   - [获取反馈类型列表](./resource/Feedback.md#获取反馈类型列表)
   - [添加反馈](./resource/Feedback.md#添加反馈)
   
-* [通用接口](./resource/CommonInterface.md)
-
+  
+  
 * [集成 Push](./resource/Push.md)
 
 * [配置 Widget 工程](./resource/Widget.md)
@@ -124,9 +125,15 @@
     - [Wi-Fi 门锁](./resource/WiFiLock.md)
     - [蓝牙门锁](./resource/BLELock.md)
 
+
+
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
 
-* [FAQ](./resource/Faq.md)
+* [通用接口](./resource/CommonInterface.md)
+
+* [错误码](./resource/ErrorCode.md)
+
+* [常见问题](./resource/Faq.md)
 
 * [更新日志](./resource/ChangeLog.md)
 

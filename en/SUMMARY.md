@@ -82,7 +82,7 @@
   - [Obtain Feedback List](./resource/Feedback.md#obtain-feedback-list)
   - [Obtain Feedback Type List](./resource/Feedback.md#obtain-feedback-type-list)
   - [Add Feedback](./resource/Feedback.md#add-feedback)
-* [Common Interface](./resource/CommonInterface.md)
+
 * [Register PushId](./resource/Push.md)
 * [Extension SDK](./resource/ExtensionAbout.md)
   * [IPC SDK](./resource/Extension.md#ipc-sdk)
@@ -90,7 +90,11 @@
   * [Smart Lock SDK](./resource/Lock.md)
     - [Wi-Fi Lock](./resource/WiFiLock.md)
     - [BLE Lock](./resource/BLELock.md)
+
+
+
 * [API Reference](https://tuyainc.github.io/tuyasmart_home_ios_sdk_api_reference/index.html)
+* [Common Interface](./resource/CommonInterface.md)
+* [Error Code](./resource/ErrorCode.md)
 * [FAQ](./resource/Faq.md)
 * [ChangeLog](./resource/ChangeLog.md)
-
