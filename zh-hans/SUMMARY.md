@@ -74,7 +74,6 @@
   - [单个场景操作](./resource/SmartScene.md#单个场景操作)
 
 * [消息中心](./resource/Message.md#消息中心)
-  * [功能概述](./resource/Message.md#功能概述)
   * [消息相关功能](./resource/Message.md#消息相关功能)
   * [消息推送设置](./resource/Message.md#消息推送设置)
   
@@ -123,7 +122,6 @@
   * [智能门锁 SDK](./resource/Lock.md)
     - [Wi-Fi 门锁](./resource/WiFiLock.md)
     - [蓝牙门锁](./resource/BLELock.md)
-
 
 
 

@@ -49,7 +49,6 @@
   - [Smart Scene Management](./resource/SmartScene.md#smart-scene-management)
   - [Scene Operation](./resource/SmartScene.md#scene-operation)
 * [Message Center](./resource/Message.md#message-center)
-  * [Function Overview](./resource/Message.md#function-overview)
   * [Message](./resource/Message.md#message)
   * [Push Notification](./resource/Message.md#push-notification)
 * [Feedback](./resource/Feedback.md#feedback)
@@ -86,8 +85,6 @@
     - [Group](./resource/Mesh.md#mesh-group)
     - [Control](./resource/Mesh.md#mesh-control)
     - [Firmware Upgrade](./resource/Mesh.md#firmware-upgrade)
-
-
 
 
 
