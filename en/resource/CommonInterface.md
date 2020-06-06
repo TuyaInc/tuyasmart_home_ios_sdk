@@ -1,4 +1,4 @@
-## Common interface
+# Common interface
 
 Server api invoke can be found in `TuyaSmartRequest` class.
 

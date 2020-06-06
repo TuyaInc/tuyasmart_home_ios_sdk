@@ -6,7 +6,7 @@
 | hijack           | Door lock hijacking refers to setting a specific password (fingerprint, password, etc.) as the hijacking password. <br/> When the user enters this password to open the door, the door lock considers the user to open the door involuntarily, and sends the alarm information to the family's mobile phone or property management system. |
 | door lock member | Door lock members are divided into family members and non-family members. <br/> Family members are members who are added to the user's family. The door lock can be used to manage family members and set the unlock mode. <br/> Non-family members are members created in door locks and can be managed through door lock related interfaces. |
 
-### Description
+## Description
 
 | Class Name                    | **Description**                                              |
 | ----------------------------- | ------------------------------------------------------------ |
@@ -15,15 +15,13 @@
 
 
 
-## Feature Description
-
-### Lock Member Management
+## Lock Member Management
 
 The door lock can be divided into family members and non-family members. Family members are Tuya home family members. For details, please refer to [Family Management](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/en/resource/HomeManager.html).
 
 The following describes non-family member management operations in door locks
 
-#### Get Lock Members
+### Get Lock Members
 
 **Declaration**
 
@@ -80,7 +78,7 @@ Swift:
 
 
 
-#### Create Lock Member
+### Create Lock Member
 
 Create non-family members. 
 
@@ -168,7 +166,7 @@ Swift:
     })
 ```
 
-#### Update Lock Member Information
+### Update Lock Member Information
 
 Use SDK to update lock member information, including username, avatar, unlock password correspondence, etc.
 
@@ -236,7 +234,7 @@ Swift:
      })
 ```
 
-#### Delete Lock Member
+### Delete Lock Member
 
 Use the SDK to delete door lock member information. Deleting members does not delete existing passwords
 
@@ -282,7 +280,7 @@ Swift:
     })
 ```
 
-### Temporary Password
+## Temporary Password
 
 Use the SDK to create a temporary password and enter it on the door lock to unlock it.
 
@@ -303,7 +301,7 @@ user->lock: enter password
 note over lock: execute
 ```
 
-#### Create Temporary Password
+### Create Temporary Password
 
 The temporary password can customize the validity period of the password. When the password is created, it needs to be synchronized on the door lock device.
 
@@ -367,7 +365,7 @@ Swift:
     })
 ```
 
-#### Get Temporary Password List
+### Get Temporary Password List
 
 Use the SDK to get a list of temporary passwords, you can view the status of the use of temporary passwords
 
@@ -445,7 +443,7 @@ Swift:
     })
 ```
 
-#### Delete Temporary Password
+### Delete Temporary Password
 
 Use the SDK to delete the temporary password. After the deletion, the door lock device needs to be updated.
 
@@ -493,7 +491,7 @@ Swift:
     })
 ```
 
-### Dynamic Password
+## Dynamic Password
 
 Use the SDK to get a dynamic password and enter it on the door lock to unlock. The dynamic password is valid for 5 minutes.
 
@@ -514,7 +512,7 @@ note over lock: Execute
 
 ```
 
-#### Get Dynamic Password
+### Get Dynamic Password
 
 **Declaration**
 
@@ -559,7 +557,7 @@ Swift:
 
 
 
-### Open the Lock Remotely
+## Open the Lock Remotely
 
 After triggering a remote door open request on the door lock, you can use the SDK to remotely open the door
 
@@ -653,11 +651,11 @@ Swift:
 ```
 
 
-### Lock Record
+## Lock Record
 
 Use SDK to obtain door lock records, including unlock records, doorbell records, alarm records, etc.
 
-#### Get Lock Records
+### Get Lock Records
 
 **Declaration**
 
@@ -691,7 +689,7 @@ Use SDK to obtain door lock records, including unlock records, doorbell records,
 | tags     | NSInteger               | Tags，0 means other, 1 means hijack warning |
 | dpsArray | NSArray<NSDictionary *> | Data point list                             |
 
-#### Get Door Lock Unlock Records
+### Get Door Lock Unlock Records
 
 Use SDK to obtain door lock records, including unlock records, doorbell records, alarm records, etc.
 
@@ -713,7 +711,7 @@ Use SDK to obtain door lock records, including unlock records, doorbell records,
 | success   | Success block, result is the corresponding record data list |
 | failure   | Failure block                                               |
 
-#### Get Lock Hijacking Record
+### Get Lock Hijacking Record
 
 Use the SDK to obtain the door lock hijacking record. You can query it based on the unlocking function definition point.
 
