@@ -1,4 +1,4 @@
-## User management
+# User management
 
 Tuya Cloud supports various kinds of user systems such as mobile phone, email and UID. Mobile phone supports verification code login and password login. The registration and login of each user system will be separately described later.
 
@@ -17,13 +17,13 @@ All functions of user are realized by using the `TuyaSmartUser` Class (singleton
 
 
 
-### Use Mobile Phone for Login
+## Use Mobile Phone for Login
 
 Tuya Smart provides the mobile phone verification code login system.
 
 
 
-#### Use Mobile Phone Password for Registration
+### Use Mobile Phone Password for Registration
 
 The mobile phone and password registration process is divided into the following two steps: get a mobile phone verification code - Register a mobile phone and password account.
 
@@ -125,119 +125,7 @@ TuyaSmartUser.sharedInstance()?.register(byPhone: "your_country_code", phoneNumb
 
 
 
-**Declaration**
-
-You can also use the following verification verification code interface to separately verify whether the verification code is correct. The interface supports verification of mobile phone SMS verification codes and mail verification codes.
-
-```objective-c
-- (void)checkCodeWithUserName:(NSString *)userName
-                       region:(NSString *_Nullable)region
-                  countryCode:(NSString *)countryCode
-                         code:(NSString *)code
-                         type:(NSInteger)type
-                      success:(TYSuccessBOOL)success
-                      failure:(TYFailureError)failure;
-```
-
-**Parameters**
-
-| 参数        | 说明                                                         |
-| :---------- | :----------------------------------------------------------- |
-| userName    | Phone number or email                                        |
-| region      | Region, default value is nil                                 |
-| countryCode | Country code, for example: 86                                |
-| code        | After the verification code sending, the verification code received |
-| type        | Type, 1: mobile phone verification code register, 2: mobile phone verification code login, 3: mobile phone password reset |
-| success     | Success Callback                                             |
-| failure     | Failure Callback                                             |
-
-**Example**
-
-Objc:
-
-```objective-c
-[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:type success:^(BOOL result) {
-		if (result) {
-				NSLog(@"valid code!");
-    } else {
-				NSLog(@"invalid code!");
-    }
-} failure:^(NSError *error) {
-		NSLog(@"check code failure: %@", error);
-}];
-```
-
-Swift:
-
-```swift
-TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
-		if result {
-				print("valid code!")
-		} else {
-				print("invalid code!")
-		}
-}, failure: { (error) in
-		if let error = error {
-				print("check code failure: \(error)")
-		}
-})
-```
-
-
-
-#### Use Mobile Phone Verification Code for Login
-
-The mobile phone number and verification code login process is divided into the following two steps: get the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - verification code login.
-
-**Declaration**
-
-verification code login
-
-```objective-c
-- (void)loginWithMobile:(NSString *)mobile
-            countryCode:(NSString *)countryCode
-                   code:(NSString *)code
-                success:(TYSuccessHandler)success
-                failure:(TYFailureError)failure;
-```
-
-**Parameters**
-
-| Param       | Description                                                  |
-| :---------- | :----------------------------------------------------------- |
-| mobile      | Mobile phone number                                          |
-| countryCode | country code, for example: 86                                |
-| code        | After the verification code sending, the verification code received |
-| success     | Success Callback                                             |
-| failure     | Failure Callback                                             |
-
-**Example**
-
-Objc:
-
-```objective-c
-[[TuyaSmartUser sharedInstance] loginWithMobile:@"your_phone_number" countryCode:@"your_country_code" code:@"verify_code" success:^{
-		NSLog(@"login success");
-} failure:^(NSError *error) {
-    NSLog(@"login failure: %@", error);
-}];
-```
-
-Swift:
-
-```swift
-TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCode: "your_country_code", code: "verify_code", success: {
-    print("login success")
-}, failure: { (error) in
-    if let e = error {
-        print("login failure: \(e)")
-    }
-})
-```
-
-
-
-#### Use Mobile Phone Password for Login
+### Use Mobile Phone Password for Login
 
 **Declaration**
 
@@ -287,7 +175,7 @@ TuyaSmartUser.sharedInstance()?.login(byPhone: "your_country_code", phoneNumber:
 
 
 
-#### Resetting Password by Using Mobile Phone
+### Resetting Password by Using Mobile Phone
 
 The process of resetting the password of the mobile phone number is divided into the following two steps: obtain the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - reset the password.
 
@@ -345,13 +233,127 @@ func resetPasswordByPhone() {
 
 
 
-### Use Email for Login
+### Use Mobile Phone Verification Code for Login
+
+The mobile phone number and verification code login process is divided into the following two steps: get the mobile phone verification code (the API refers to the first interface of "Use Mobile Phone Password for Registration") - verification code login.
+
+**Declaration**
+
+verification code login
+
+```objective-c
+- (void)loginWithMobile:(NSString *)mobile
+            countryCode:(NSString *)countryCode
+                   code:(NSString *)code
+                success:(TYSuccessHandler)success
+                failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Param       | Description                                                  |
+| :---------- | :----------------------------------------------------------- |
+| mobile      | Mobile phone number                                          |
+| countryCode | country code, for example: 86                                |
+| code        | After the verification code sending, the verification code received |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Example**
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] loginWithMobile:@"your_phone_number" countryCode:@"your_country_code" code:@"verify_code" success:^{
+		NSLog(@"login success");
+} failure:^(NSError *error) {
+    NSLog(@"login failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.login(withMobile: "your_phone_number", countryCode: "your_country_code", code: "verify_code", success: {
+    print("login success")
+}, failure: { (error) in
+    if let e = error {
+        print("login failure: \(e)")
+    }
+})
+```
+
+
+
+### Verification code verification
+
+**Declaration**
+
+Verification verification code, used for verification verification during registration, login, and password reset
+
+```objective-c
+- (void)checkCodeWithUserName:(NSString *)userName
+                       region:(NSString *_Nullable)region
+                  countryCode:(NSString *)countryCode
+                         code:(NSString *)code
+                         type:(NSInteger)type
+                      success:(TYSuccessBOOL)success
+                      failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| userName    | Phone number or email                                        |
+| region      | Region, default value is nil                                 |
+| countryCode | Country code, for example: 86                                |
+| code        | After the verification code sending, the verification code received |
+| type        | Type, 1: mobile phone verification code register, 2: mobile phone verification code login, 3: mobile phone password reset |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Example**
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:type success:^(BOOL result) {
+		if (result) {
+				NSLog(@"valid code!");
+    } else {
+				NSLog(@"invalid code!");
+    }
+} failure:^(NSError *error) {
+		NSLog(@"check code failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
+		if result {
+				print("valid code!")
+		} else {
+				print("invalid code!")
+		}
+}, failure: { (error) in
+		if let error = error {
+				print("check code failure: \(error)")
+		}
+})
+```
+
+
+
+## Use Email for Login
 
 Tuya Smart provides the email password login system.
 
 
 
-#### User Email Password Registration
+### User Email Password Registration
 
 The email registration process is divided into the following two steps: get email verification code - register email password account.
 
@@ -451,7 +453,7 @@ TuyaSmartUser.sharedInstance()?.register(byEmail: "your_country_code", email: "y
 
 
 
-#### Use Email Password for Login
+### Use Email Password for Login
 
 **Declaration**
 
@@ -501,7 +503,7 @@ TuyaSmartUser.sharedInstance()?.login(byEmail: "your_country_code", email: "your
 
 
 
-#### Reset email password
+### Reset email password
 
 **Declaration**
 
@@ -557,9 +559,71 @@ func resetPasswordByEmail() {
 
 
 
-### Use Uid for Login
+### Verification code verification
 
-#### User Uid Registration and Login
+**Declaration**
+
+Verification verification code, used for verification verification during registration, login, and password reset
+
+```objective-c
+- (void)checkCodeWithUserName:(NSString *)userName
+                       region:(NSString *_Nullable)region
+                  countryCode:(NSString *)countryCode
+                         code:(NSString *)code
+                         type:(NSInteger)type
+                      success:(TYSuccessBOOL)success
+                      failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| userName    | Phone number or email                                        |
+| region      | Region, default value is nil                                 |
+| countryCode | Country code, for example: 86                                |
+| code        | After the verification code sending, the verification code received |
+| type        | Type, 1: mobile phone verification code register, 2: mobile phone verification code login, 3: mobile phone password reset |
+| success     | Success Callback                                             |
+| failure     | Failure Callback                                             |
+
+**Example**
+
+Objc:
+
+```objective-c
+[[TuyaSmartUser sharedInstance] checkCodeWithUserName:@"email_or_phone_number" region:@"region" countryCode:@"your_country_code" code:@"verify_code" type:type success:^(BOOL result) {
+		if (result) {
+				NSLog(@"valid code!");
+    } else {
+				NSLog(@"invalid code!");
+    }
+} failure:^(NSError *error) {
+		NSLog(@"check code failure: %@", error);
+}];
+```
+
+Swift:
+
+```swift
+TuyaSmartUser.sharedInstance()?.checkCode(withUserName: "email_or_phone_number", region: "region", countryCode: "your_country_code", code: "verify_code", type: type, success: { (result) in
+		if result {
+				print("valid code!")
+		} else {
+				print("invalid code!")
+		}
+}, failure: { (error) in
+		if let error = error {
+				print("check code failure: \(error)")
+		}
+})
+```
+
+
+
+## Use Uid for Login
+
+### User Uid Registration and Login
 
 **Declaration**
 
@@ -611,13 +675,13 @@ TuyaSmartUser.sharedInstance()?.loginOrRegisterWithCountryCode("your_country_cod
 
 
 
-### Third Party Login
+## Third Party Login
 
 User needs to configure corresponding `AppID` and `AppSecret` in the `Tuya developer platform` – `App development` – `Third-party login`. The client shall be developed according to requirements of all platforms. After corresponding code is obtained, relevant login interface of tuyaSDK shall be invoked.
 
 
 
-#### Login on Wechat
+### Login on Wechat
 
 **Declaration**
 
@@ -668,7 +732,7 @@ func loginByWechat() {
 
 
 
-#### Login on QQ
+### Login on QQ
 
 **Declaration**
 
@@ -722,7 +786,7 @@ Swift:
 
 
 
-#### Login on Facebook
+### Login on Facebook
 
 **Declaration**
 
@@ -775,7 +839,7 @@ Swift:
 
 
 
-#### Login by Twitter
+### Login by Twitter
 
 **Declaration**
 
@@ -831,7 +895,7 @@ func loginByTwitter() {
 
 
 
-### Login by Auth2
+## Login by Auth2
 
 **Declaration**
 
@@ -887,7 +951,7 @@ func loginWithAuth2() {
 
 
 
-#### Login with Apple
+### Login with Apple
 
 **Declaration**
 
@@ -936,6 +1000,8 @@ func loginWithApple() {
 ```
 
 
+
+## Modify User Info
 
 ### Modify User Avatar
 
@@ -1170,6 +1236,8 @@ func updateLocation() {
 
 
 
+## Logout, Disable Account
+
 ### Logout
 
 **Declaration**
@@ -1266,7 +1334,26 @@ func cancelAccount() {
 
 
 
-### Handling of Expired Session
+## User Data Model
+
+TuyaSmartUser:
+
+**User**
+
+| Parameters  | Description                                  |
+| ----------- | -------------------------------------------- |
+| nickName    | Nickname                                     |
+| countryCode | Country code                                 |
+| phoneNumber | Mobile phone number                          |
+| userName    | User name                                    |
+| email       | Email                                        |
+| uid         | Unique user identifier                       |
+| sid         | Login generates the unique identification id |
+| headIconUrl | Url of the User Account Picture              |
+
+
+
+## Handling of Expired Session
 
 If you have not logged in to your account for a long time, the session expiration error will be returned when you access the server interface. You have to monitor the notification of the 	`TuyaSmartUserNotificationUserSessionInvalid` and log in to the account again after the login page is displayed.
 
