@@ -10,9 +10,9 @@ Clock project -> `TARGETS` -> `Capabilities`, and switch on the `Push Notificati
 
 ## Configure the Tuya Developer Platform
 
-Log in to the Tuya Developer Platform -> enter relevant App ->Configure the Push function->Upload the push certificate.
+Log in to the Tuya Developer Platform -> Enter App Service -> Configure the Push function -> Upload the push certificate.
 
-![ios-push-setting](./images/ios-push-setting.png)
+<img src="./images/ios-push-setting.png" alt="ios-push-setting" style="zoom:50%;" />
 
 ## Initialization
 
@@ -73,10 +73,10 @@ Execute in the delegate method `didReceiveRemoteNotification` when the remote no
 
 ### Add Operation Push
 
-Tuya Developer Platform -> User operation -> Message center ->Add message
+Tuya Developer Platform -> User operation -> Message center -> Add message
 ![ios-push-setting](./images/ios-push-setting-operation.png)
 
 ### Add Alarm Push
 
-Tuya Developer Platform -> Product -> Extended function ->Set alarm -> Add rules for alarms (apply the push mode)
+Tuya Developer Platform -> Product -> Extended function -> Set alarm -> Add rules for alarms (apply the push mode)
 ![ios-push-setting](./images/ios-push-setting-warning.png)

@@ -10,27 +10,29 @@ In the [preparation section](/resource/Preparation.html), get the `Appkey`, `App
 
 
 
-### Function Overview:
+### Function Overview
 
 Demo App includes:
 
-- User module: Account (mobile phone or email) registration and login
+- Login module: Account (mobile phone or email) registration and login
 - Home management and device management module: including home creation and current home switching. Display of device list and control of device function point in home. Device rename and device removal.
 - Device activator module: including smartConfig mode, AP mode, wired gateway distribution network and gateway sub device activator
 - Smart scene module: smart scene creation and execution
+- User module: user information
 
+<div align=left><img src="./images/ios-sdk-demo-login.png" style="zoom:22%;" />
+	<img src="./images/ios-sdk-demo-devlist.png" style="zoom:22%;" />
+  <img src="./images/ios-sdk-demo-act.png" style="zoom:22%;" />
+  <img src="./images/ios-sdk-demo-scene.png" style="zoom:22%;" />
+    <img src="./images/ios-sdk-demo-user.png" style="zoom:22%;" />
 
-<div align=left><img src="./images/ios-sdk-demo-user.jpg" style="zoom:25%;" />
-	<img src="./images/ios-sdk-demo-devlist.jpg" style="zoom:25%;" />
-  <img src="./images/ios-sdk-demo-activator.jpg" style="zoom:25%;" />
-  <img src="./images/ios-sdk-demo-scene.jpg" style="zoom:25%;" />
 
 
 **[Demo link](https://github.com/TuyaInc/tuyasmart_home_ios_sdk)**
 
 
 
-###QA：
+###QA
 
 **API interface request prompt signature error**
 

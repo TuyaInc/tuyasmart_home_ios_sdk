@@ -1,4 +1,4 @@
-## Common interface
+# Common interface
 
 Server api invoke can be found in `TuyaSmartRequest` class.
 
@@ -43,7 +43,7 @@ Invoke cloud API
 
 
 
-### Merge interface
+# Merge interface
 
 **API Description**
 

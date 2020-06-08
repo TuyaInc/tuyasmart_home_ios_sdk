@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.17.0(2020-04-27)
+
+- New Feature
+  - Smart scene support for geofence condition trigger
+  - Firmware upgrade status prompt
+  - QR code login
+  - Mesh support fast active
+  - Support Wi-Fi sub-device group
+  - Bug fixed
+
+## 3.15.0(2020-04-11)
+
+- New Feature
+  - Group support set custom icon
+  - Bug fixed
+
 ## 3.14.0(2019-12-21)
 
 - New Feature

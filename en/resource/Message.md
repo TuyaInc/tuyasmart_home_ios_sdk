@@ -1,27 +1,6 @@
 # Message Center
 
-
-## Function Overview
-
-Message Module contains message and push notifications function. as follows:
-
-* Message
-    * Get Message List
-    * Batch Delete Message
-    * Check New Message
-* Push Notification
-    * Get Push Notification Status
-    * Set Push Notification Status
-    * Get Device Alarm Push Status
-    * Set Device Alarm Push Status
-    * Get Family Message Push Status
-    * Set Family Message Push Status
-    * Get Notice Message Push Status
-    * Set Notice Message Push Status
-    * Get Market Message Push Status
-    * Set Market Message Push Status
-
-
+The message management module contains message center and push  functions. Its messages have three categories: alarm, home, and notification, and each category supports turn on or turn off respectively.
 
 |         Class Name         |                 Description                 |
 | :--------------------------: | :----------------------------------: |
@@ -34,12 +13,6 @@ Message Module contains message and push notifications function. as follows:
 
 
 ### Get Message List
- 
-
-
-#### Get Message List
-
-
 
 **Declaration**
 
@@ -58,11 +31,7 @@ Message Module contains message and push notifications function. as follows:
 | success | Success callback，reture message list  |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
-
-
 
 Objc:
 
@@ -90,8 +59,6 @@ Swift:
 
 ### Get A List Of Paged Messages
 
-
-
 **Declaration**
 
 
@@ -102,24 +69,16 @@ Swift:
                failure:(TYFailureError)failure
 ```
 
-
-
 **Parameters**
 
-
-
-| Parameter    | Description                     | 
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | limit  | Number of requests per page |
 | offset  | Total number of messages requested |
 | success | Success callback，reture message list  |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
-
-
 
 ```objc
 //  self.smartMessage = [[TuyaSmartMessage alloc] init];
@@ -136,23 +95,15 @@ Swift:
 
 ### Gets A List Of Messages By Paging By Message Type
 
-
-
 **Declaration**
-
-
 
 ```objc
 - (void)getMessageListWithType:(NSInteger)msgType limit:(NSInteger)limit offset:(NSInteger)offset success:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success failure:(TYFailureError)failure
 ```
 
-
-
 **Parameters**
 
-
-
-| Parameter    | Description                     | 
+| Parameter    | Description                     |
 | :------ | :------------------------ |
 | msgType  | Message type（1 - alarm，2 - family，3 - notifiction）|
 | limit  | Number of requests per page |
@@ -160,11 +111,7 @@ Swift:
 | success | Success callback，reture message list |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
-
-
 
 
 ```objc
@@ -180,17 +127,46 @@ Swift:
 
 
 
-### Delete Message
-
-
-
-#### Batch Delete Message
-
-
+### Gets A List Of Detail Messages By Paging By MsgSrcId
 
 **Declaration**
 
+```objective-c
+- (void)getMessageDetailListWithType:(NSInteger)msgType msgSrcId:(NSString *)msgSrcId limit:(NSInteger)limit offset:(NSInteger)offset success:(void (^)(NSArray<TuyaSmartMessageListModel *> *list))success failure:(TYFailureError)failure
+```
 
+**Parameters**
+
+| Parameter | Description                                            |
+| :-------- | :----------------------------------------------------- |
+| msgType   | Message type（1 - alarm） |
+| msgSrcId | Message ID         |
+| limit     | Number of requests per page                            |
+| offset    | Total number of messages requested                     |
+| success   | Success callback，reture message list                  |
+| failure   | Failure canllback，return reason for failure           |
+
+**Example**
+
+
+```objc
+		//   self.smartMessage = [[TuyaSmartMessage alloc] init];
+    NSNumber *limit = @15;
+    NSNumber *offset = @0;
+    [self.smartMessage getMessageDetailListWithType:1 msgSrcId:@"xxx" limit offset:offset success:^(NSArray<TuyaSmartMessageListModel *> *list) {
+        NSLog(@"get message list success:%@", list);
+    } failure:^(NSError *error) {
+        NSLog(@"get message list failure:%@", error);
+    }];
+```
+
+
+
+### Delete Message
+
+#### Batch Delete Message
+
+**Declaration**
 
 ```objc
 - (void)deleteMessage:(NSArray <NSString *> *)messgeIdList
@@ -198,10 +174,7 @@ Swift:
               failure:(TYFailureError)failure
 ```
 
-
 **Parameters**
-
-
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
@@ -209,11 +182,7 @@ Swift:
 | success | Success callback |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
-
-
 
 Objc:
 
@@ -238,23 +207,16 @@ Swift:
 ```
 
 
+
 #### Batch Deletion Of Specific Types Of Message
 
-
-
 **Declaration**
-
-
 
 ```objc
 - (void)deleteMessageWithType:(NSInteger)msgType ids:(NSArray *)ids msgSrcIds:(NSArray *)msgSrcIds success:(TYSuccessHandler)success failure:(TYFailureError)failure
 ```
 
-
-
 **Parameters**
-
-
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
@@ -264,11 +226,7 @@ Swift:
 | success | Success callback  |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
-
-
 
 Objc:
 
@@ -285,31 +243,20 @@ Objc:
 
 ### Check New Message
 
-
-
 **Declaration**
-
-
 
 ```objc
 - (void)getLatestMessageWithSuccess:(TYSuccessDict)success failure:(TYFailureError)failure
 ```
 
-
 **Parameters**
-
-
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return dict type（ keys contain “alarm" - alarm，”family“ - family，“notification” - notification） |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
-
-
 
 Objc:
 
@@ -338,36 +285,26 @@ Swift:
 
 ## Push Notification
 
+### Get the switch status of the message according to the message type
 
+#### Get Push Notification Status
 
-### Get Push Notification Status
-
-
+The message push switch is the master switch. In the off state, no messages such as device alarms, home messages, and notification messages can be received.
 
 **Declaration**
-
-
 
 ```objc
 - (void)getPushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
 ```
 
-
-
 **Parameters**
-
-
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool type；false - no message of any type is received |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
-
-
 
 ```objective-c
 [[TuyaSmartSDK sharedInstance] getPushStatusWithSuccess:^(BOOL result) {
@@ -378,9 +315,10 @@ Swift:
 ```
 
 
-### Set Push Notification Status
 
+#### Set Push Notification Status
 
+The message push switch is the master switch. In the off state, no messages such as device alarms, home messages, and notification messages can be received.
 
 **Declaration**
 
@@ -389,10 +327,7 @@ Swift:
 - (void)setPushStatusWithStatus:(BOOL)enable success:(__nullable TYSuccessHandler)success failure:(__nullable TYFailureError)failure
 ```
 
-
 **Parameters**
-
-
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
@@ -400,11 +335,7 @@ Swift:
 | success | Success callback |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
-
-
 
  ````objective-c
 BOOL enable = YES;
@@ -416,30 +347,21 @@ BOOL enable = YES;
  ````
 
 
-### Get Device Alarm Push Status
 
-
+#### Get Device Alarm Push Status
 
 **Declaration**
-
-
 
 ```objc
 - (void)getDevicePushStatusWithSuccess:(__nullable TYSuccessBOOL)success failure:(__nullable TYFailureError)failure
 ```
 
-
-
 **Parameters**
-
-
 
 | Parameter    | Description                     |
 | :------ | :------------------------ |
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
-
-
 
 **Example**
 
@@ -453,7 +375,8 @@ BOOL enable = YES;
 ```
 
 
-### Set Device Alarm Push Status
+
+#### Set Device Alarm Push Status
 
 
 **Declaration**
@@ -473,8 +396,6 @@ BOOL enable = YES;
 | success | Success callback |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
 
 
@@ -488,9 +409,8 @@ BOOL enable = YES;
 ````
 
 
-### Get Family Message Push Status
 
-
+#### Get Family Message Push Status
 
 **Declaration**
 
@@ -508,8 +428,6 @@ BOOL enable = YES;
 | success | Success callback，return bool value |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
 
 
@@ -522,9 +440,8 @@ BOOL enable = YES;
 ```
 
 
-### Set Family Message Push Status
 
-
+#### Set Family Message Push Status
 
 **Declaration**
 
@@ -543,8 +460,6 @@ BOOL enable = YES;
 | success | Success callback |
 | failure | Failure canllback，return reason for failure    |
 
-
-
 **Example**
 
 
@@ -558,7 +473,8 @@ BOOL enable = YES;
 ```
 
 
-### Get Notice Message Push Status
+
+#### Get Notice Message Push Status
 
 
 **Declaration**
@@ -589,7 +505,9 @@ BOOL enable = YES;
 }];
 ```
 
-### Set Notice Message Push Status
+
+
+#### Set Notice Message Push Status
 
 
 **Declaration**
@@ -617,7 +535,9 @@ BOOL enable = YES;
 }];
 ```
 
-### Get Market Message Push Status
+
+
+#### Get Market Message Push Status
 
 **Declaration**
 
@@ -642,7 +562,9 @@ BOOL enable = YES;
 }];
 ```
 
-### Set Market Message Push Status
+
+
+#### Set Market Message Push Status
 
 
 **Declaration**

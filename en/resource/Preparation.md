@@ -1,25 +1,21 @@
-## Preparation Work
+## Preparation for Integration
 
 ### Register Tuya Developer Account
 
 Go to the [Tuya Smart Development Platform](https://iot.tuya.com) to register a developer account, create products and create function points, etc. Please refer to the [Contact workflow](https://docs.tuya.com/cn/overview/dev-process.html) for details. 
 
-### Obtain the iOS App Key, App Secret and Security Image.
-Go to the development platform -> App Service -> App SDK get iOS `App Key`,  `App Secret` and Security image.
+###  Create an SDK APP
 
-![](./images/ios-sdk-prepare.jpg) 
+1. Got to [Tuya IoT platform](https://iot.tuya.com/)
+2. Click "App Service" - "App SDK" - "Obtain SDK" in order on the iot platform.
+3. Select the feature according to your needs and click "Next".
 
+![](./images/get_sdk.png) 
 
+Enter the created app information as prompted and click "Next".
 
-Download the security image, rename as `t_s.bmp`, import it into the project as a resource file. Confirm that `Project Setting => Target => Build Phases => Copy Bundle Resources` contains `t_s.bmp` file.
+![](./images/input_app_info.png)
 
-![](./images/ios-sdk-sec-pic.jpg)
+`AppKey`, `AppSecret` can be obtained in the iOS section. Click "Download" and rename security images to `t_s.bmp`.
 
-Please confirm the `bundleId`、`appKey`、`appSceret`、security image in your project is the same as the tuya develop center, any mismatch will cause the SDK unusable.
-
-
-
-### Joint Debugging Mode
-
-- Use the hardware control panel to perform debugging on real devices.
-- Use the development platform to simulate device debugging. 
+<img src="./images/ios-get-appkey.png" style="zoom:50%;" />
