@@ -1,25 +1,44 @@
-# Network Configuration
+# Device Configuration
 
 ## Functional Overview
 
 The network configuration modes supported by Tuya SDK including:
 
-- Quick Connection Mode 
--  Hotspot Mode
+- Quick Connection (EZ) Mode 
+-  Hotspot (AP) Mode
+-  Camera Scan Code Network Configuration
 -  Wired Network Configuration
 - Sub-device Configuration 
-- Bluetooth Wi-Fi Configuration
-- QR code mode
+- Bluetooth Configuration
 
 
+
+
+| Attributes                             | Description                                                  |
+| -------------------------------------- | ------------------------------------------------------------ |
+| Wi-Fi Device                           | The device that use Wi-Fi module to connect the router, and interact with APP and cloud. |
+| EZ mode                                | Also known as the quick connection mode, the APP packs the network data packets into the designated area of the 802.11 data packets and sends them to the surrounding environment. The Wi-Fi module of the smart device is in the promiscuous model and monitors and captures all the packets in the network. According to the agreed protocol data format, it can parse out the network information packet sent by the APP. |
+| AP mode                                | Also known as hotspot mode. The mobile phone connects the smart device's hotspot, and the two parties establish a Socket connection to exchange data through the agreed port. |
+| Camera scan code configuration network | The camera device obtains the configuration data information by scanning the QR code on the APP. |
+| Wired Devices                          | Devices connected to the router via a wired network, such as ZigBee wired gateway, wired camera, etc. |
+| Sub-device                             | Devices that interact with APP and cloud data through gateways, such as ZigBee sub-devices |
+| ZigBee                                 | ZigBee technology is a short-range, low-complexity, low-power, low-speed, low-cost two-way wireless communication technology. It is mainly used for data transmission between various electronic devices with short distances, low power consumption and low transmission rates, as well as typical applications with periodic data, intermittent data and low response time data transmission. |
+| ZigBee Gateway                         | The device that integrates the coordinator and WiFi functions in the ZigBee network is responsible for the establishment of the ZigBee network and the storage of data information. |
+| ZigBee sub-device                      | Routing or terminal equipment in ZigBee network, responsible for data forwarding or terminal control response. |
+
+## 
 
 ## Instructions 
 
-| Class Name                              | Description                                                  | Note                      |
-| :-------------------------------------- | :----------------------------------------------------------- | :------------------------ |
-| TuyaSmartActivator（Singleton）         | Provides Quick Connection Mode, Hotspot Mode, Wired  Network Configuration and Sub-device Configuration. | Called in the main thread |
-| TuyaSmartBLEManager （Singleton）       | Provides the ability to scan Bluetooth                       | Called in the main thread |
-| TuyaSmartBLEWifiActivator （Singleton） | Provides Bluetooth Wi-Fi dual-mode network configuration     | Called in the main thread |
+Before configuring the device, you need to understand the basic logic of the iOS Home SDK, and use the iOS Home SDK to complete basic operations such as login and family creation
+
+| Class Name                      | Description                                                  | Note                      |
+| :------------------------------ | :----------------------------------------------------------- | :------------------------ |
+| TuyaSmartActivator（Singleton） | Provides Quick Connection Mode, Hotspot Mode, Wired  Network Configuration and Sub-device Configuration. | Called in the main thread |
+
+
+
+## Implementation
 
 
 
@@ -442,6 +461,14 @@ func stopConfigWifi() {
 }
 ```
 
+
+
+### Camera Scan Code Network Configuration
+
+The smart camera's unique QR code mode refer to [QR code mode](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/en/resource/activitor.html#qr-code-mode)
+
+
+
 ### Wired Network Configuration 
 
 The wired device is connected to the network, not need the name and password of router during the network configuration.  The figure below uses ZigBee wired gateway as an example to describe the wired gateway network configuration process.
@@ -639,7 +666,7 @@ func stopConfigWifi() {
 ```
 
 
-### Activate the Sub-Device
+### Sub-Device Configuration
 
 ```sequence
 
@@ -765,219 +792,11 @@ func stopActiveSubDevice() {
 
 
 
-### Bluetooth Wi-Fi Configuration
+### Bluetooth Configuration
 
-If Tuya wifi hardwares support Bluetooth protocol,  Bluetooth-Wifi configuration method can be used to connect  devices. Use bluetooth to transfer information about wifi,  success rate is higher.
+For Bluetooth device configuration, you can refer to the document [BLE](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/BLE.html).
 
 
 
-```sequence
-Title: Bluetooth-WiFi configuration
 
-participant APP
-participant SDK
-participant device
-participant Service
-
-Note over device: reset device
-APP->SDK: sends the discovery instruction 
-SDK->device: discovery device through bluetooth
-device->SDK: return device infomation
-SDK->APP: return device infomation
-
-APP->SDK: sends the activation instruction
-SDK->device: sends the activation instruction
-Note over device: Successfully connected to the router
-device->Service: active the device
-Service-->device: network configuration succeeds
-
-device->SDK: network configuration succeeds
-SDK->APP: network configuration succeeds
-
-Note over APP: stop discovery
-			
-```
-
-#### Discovery Device
-
-**Declaration**
-
-```objc
-- (void)startListening:(BOOL)clearCache
-```
-
-**Parameters**
-
-| Parameters | **Description**                   |
-| :--------- | :-------------------------------- |
-| clearCache | Whether to clear the cache device |
-
-**Example**
-
-Objc:
-
-```objective-c
-// set delegate
-[TuyaSmartBLEManager sharedInstance].delegate = self;
-
-// start scanning device
-[[TuyaSmartBLEManager sharedInstance] startListening:YES];
-
-
-/**
-  get unactive device
- @param deviceInfo unactive device Model
- */
-- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo {
-   // get device -- deviceInfo
-}
-```
-
-Swift:
-
-```swift
-TuyaSmartBLEManager.sharedInstance().delegate = self
-TuyaSmartBLEManager.sharedInstance().startListening(true)
-
-/**
-  get unactive device
- @param deviceInfo unactive device Model
- */
-func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
-   // get device -- deviceInfo
-}
-```
-
-
-
-#### Device Active
-
-Can use the following API to active the Discovered  devices and register them to Tuya Cloud.
-
-**Declaration**
-
-```objc
-- (void)startConfigBLEWifiDeviceWithUUID:(NSString *)UUID
-                                  homeId:(long long)homeId
-                               productId:(NSString *)productId
-                                    ssid:(NSString *)ssid
-                                password:(NSString *)password
-                                timeout:(NSTimeInterval)timeout
-                                 success:(TYSuccessHandler)success
-                                 failure:(TYFailureHandler)failure;
-```
-
-
-
-**Parameters**
-
-| **Parameters** | **Description**                           |
-| :------------- | :---------------------------------------- |
-| UUID           | Unique identifier of the Bluetooth device |
-| homeId         | Current homeId                            |
-| productId      | Product Id                                |
-| ssid           | Name of router                            |
-| password       | Password of router                        |
-| timeout        | Timeout                                   |
-| success        | Success callback                          |
-| failure        | Failure callback                          |
-
-**Example**
-Objc :
-
-```objective-c
-  [[TuyaSmartBLEWifiActivator sharedInstance] startConfigBLEWifiDeviceWithUUID:TYBLEAdvModel.uuid homeId:homeId productId:TYBLEAdvModel.productId ssid:ssid password:password  timeout:100 success:^{
-     // active success
-        } failure:^{
-     // active failure
-        }];
-```
-
-Swift :
-
-```swift
-  TuyaSmartBLEWifiActivator.sharedInstance() .startConfigBLEWifiDevice(withUUID: TYBLEAdvModel.uuid, homeId: homeId, productId:TYBLEAdvModel.productId, ssid: ssid, password: password, timeout: 100, success: {
-            // active success
-        }) {
-            // active failure
-        }
-```
-
-
-
-#### Callback of Device Active
-
-**Declaration**
-
-```objc
-- (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error
-```
-
-**Parameters**
-
-| **Parameters** | **Description**                                  |
-| :------------- | :----------------------------------------------- |
-| activator      | Instance object of  TuyaSmartBLEWifiActivator    |
-| deviceModel    | Return deviceModel when network config successed |
-| error          | Retrun error message when network config failed  |
-
-**Example**
-
-Objc :
-
-```objective-c
- - (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
-    if (!error && deviceModel) {
-		// active success
-    }
-  
-    if (error) {
-    // active failure
-    }
-}
-```
-
-Swift :
-
-```swift
-func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiConfigDevice deviceModel: TuyaSmartDeviceModel, error: Error) {
-    if (!error && deviceModel) {
-		// active success
-    }
-
-    if (error) {
-       // active failure
-    }
-}
-```
-
-
-
-#### Stop Discovery
-
-**Declaration**
-
-```objc
-- (void)stopDiscover;
-```
-
-**Example**
-
-Objc :
-
-```objective-c
-[[TuyaSmartBLEWifiActivator sharedInstance] stopDiscover];
-```
-
-Swift :
-
-```swift
-TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
-```
-
-
-
-### QR code mode
-
- The smart camera's unique QR code mode refer to [QR code mode](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/en/resource/activitor.html#qr-code-mode)
 
