@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TuyaSmartActivatorKit/TuyaSmartActivatorKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface TuyaSmartBLEWifiActivator : TuyaSmartActivator
+@interface TuyaSmartBLEWifiActivator : NSObject
 
 @property (nonatomic, weak) id<TuyaSmartBLEWifiActivatorDelegate> bleWifiDelegate;
 

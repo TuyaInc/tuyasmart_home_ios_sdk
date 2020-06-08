@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 void TYSDKLog(NSInteger level, NSString *module, const char *file, const char *function, NSUInteger line, NSString *format, ...);
 
+#undef TYLog
+#undef TYSDKLogDebug
+#undef TYSDKLogInfo
+#undef TYSDKLogWarn
+#undef TYSDKLogError
+
 #define TYLog(...) \
     TYSDKLog(1, @"TuyaSmartHomeKit", __FILE__, __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #define TYSDKLogDebug(...) \

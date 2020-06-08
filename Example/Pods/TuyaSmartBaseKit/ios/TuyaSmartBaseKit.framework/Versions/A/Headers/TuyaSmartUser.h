@@ -130,20 +130,23 @@ typedef NS_ENUM(NSInteger, TYRegType) {
                failure:(nullable TYFailureError)failure;
 
 /**
- *  Mobile phone verification code login and register.
- *  手机验证码登录和注册
+ *  Modile phone verification code login.
+ *  手机验证码登录
  *
+ *  @param mobile      Mobile phone number
  *  @param countryCode Country code
- *  @param phoneNumber Mobile phone number
  *  @param code        Verification code
  *  @param success     Success block
  *  @param failure     Failure block
  */
-- (void)login:(NSString *)countryCode
-  phoneNumber:(NSString *)phoneNumber
-         code:(NSString *)code
-      success:(nullable TYSuccessHandler)success
-      failure:(nullable TYFailureError)failure;
+- (void)loginWithMobile:(NSString *)mobile
+            countryCode:(NSString *)countryCode
+                   code:(NSString *)code
+                success:(TYSuccessHandler)success
+                failure:(TYFailureError)failure;
+
+
+#pragma mark - Mobile phone binding
 
 /**
  *  Send verification code. Used for mobile phone bind, mobile phone change.
@@ -229,23 +232,7 @@ typedef NS_ENUM(NSInteger, TYRegType) {
                      success:(nullable TYSuccessHandler)success
                      failure:(nullable TYFailureError)failure;
 
-#pragma mark - Email login 1.0
-
-/**
- *  Email register 1.0.
- *  邮箱注册  1.0
- *
- *  @param countryCode Country code
- *  @param email       Email
- *  @param password    Password
- *  @param success     Success block
- *  @param failure     Failure block
- */
-- (void)registerByEmail:(NSString *)countryCode
-                  email:(NSString *)email
-               password:(NSString *)password
-                success:(nullable TYSuccessHandler)success
-                failure:(nullable TYFailureError)failure;
+#pragma mark - Email login
 
 /**
  *  Email login.
@@ -344,67 +331,7 @@ typedef NS_ENUM(NSInteger, TYRegType) {
  */
 - (void)loginWithEmail:(NSString *)email countryCode:(NSString *)countryCode code:(NSString *)code success:(TYSuccessHandler)success failure:(TYFailureError)failure;
 
-/**
- *  Modile phone verification code login.
- *  手机验证码登录
- *
- *  @param mobile      Mobile phone number
- *  @param countryCode Country code
- *  @param code        Verification code
- *  @param success     Success block
- *  @param failure     Failure block
- */
-- (void)loginWithMobile:(NSString *)mobile countryCode:(NSString *)countryCode code:(NSString *)code success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-
 #pragma mark - uid login
-
-/**
- *  uid register.
- *  uid注册
- *
- *  @param uid         User ID
- *  @param password    Password
- *  @param countryCode Country code
- *  @param success     Success block
- *  @param failure     Failure block
- */
-- (void)registerByUid:(NSString *)uid
-             password:(NSString *)password
-          countryCode:(NSString *)countryCode
-              success:(nullable TYSuccessHandler)success
-              failure:(nullable TYFailureError)failure;
-
-/**
- *  uid login.
- *  uid登录
- *
- *  @param uid         User ID
- *  @param password    Password
- *  @param countryCode Country code
- *  @param success     Success block
- *  @param failure     Failure block
- */
-- (void)loginByUid:(NSString *)uid
-          password:(NSString *)password
-       countryCode:(NSString *)countryCode
-           success:(nullable TYSuccessHandler)success
-           failure:(nullable TYFailureError)failure;
-
-/**
- *  uid login/register. The account will be registered at first login.
- *  uid 登录注册接口（如果没有注册就注册，如果注册就登录）
- *
- *  @param countryCode  Country code
- *  @param uid          User ID
- *  @param password     Password
- *  @param success      Success block
- *  @param failure      Failure block
- */
-- (void)loginOrRegisterWithCountryCode:(NSString *)countryCode
-                                   uid:(NSString *)uid
-                              password:(NSString *)password
-                               success:(nullable TYSuccessHandler)success
-                               failure:(nullable TYFailureError)failure;
 
 /**
  *  uid login/register. The account will be registered at first login.
@@ -423,43 +350,6 @@ typedef NS_ENUM(NSInteger, TYRegType) {
                             createHome:(BOOL)createHome
                                success:(nullable TYSuccessID)success
                                failure:(nullable TYFailureError)failure;
-
-/**
- *  uid login/register. The account will be registered at first login.
- *  uid 登录注册接口（如果没有注册就注册，如果注册就登录）
- *
- *  @param countryCode  Country code
- *  @param uid          User ID
- *  @param password     Password
- *  @param success      Success block
- *  @param failure      Failure block
- */
-- (void)loginOrRegisterByPhone:(NSString *)countryCode
-                           uid:(NSString *)uid
-                      password:(NSString *)password
-                       success:(nullable TYSuccessHandler)success
-                       failure:(nullable TYFailureError)failure
-DEPRECATED_MSG_ATTRIBUTE("use loginOrRegisterWithCountryCode:uid:password:success:failure: instead");
-
-/**
- *  uid login/register. The account will be registered at first login.
- *  uid 登录注册接口（如果没有注册就注册，如果注册就登录）
- *
- *  @param countryCode  Country code
- *  @param uid          User ID
- *  @param password     Password
- *  @param createHome   Create default home
- *  @param success      Success block
- *  @param failure      Failure block
- */
-- (void)loginOrRegisterByPhone:(NSString *)countryCode
-                           uid:(NSString *)uid
-                      password:(NSString *)password
-                    createHome:(BOOL)createHome
-                       success:(nullable TYSuccessID)success
-                       failure:(nullable TYFailureError)failure
-DEPRECATED_MSG_ATTRIBUTE("use loginOrRegisterWithCountryCode:uid:password:createHome:success:failure: instead");
-
 
 #pragma mark - Social login
 
@@ -530,8 +420,8 @@ DEPRECATED_MSG_ATTRIBUTE("use loginOrRegisterWithCountryCode:uid:password:create
 /**
 *  third login.
 *
-*  @param type 三方类型
-*  @param countryCode
+*  @param type login type(ap for "login with apple")
+*  @param countryCode countryCode
 *  @param accessToken token from third authorization login
 *  @param extraInfo extra params
 *  @param success Success block

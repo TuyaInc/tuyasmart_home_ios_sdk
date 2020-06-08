@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol TuyaSmartBLEManagerDelegate <NSObject>
 
+@optional
+
 /**
  蓝牙状态变化通知
  
@@ -120,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
                    homeId:(long long)homeId
                productKey:(NSString *)productKey
                   success:(void(^)(TuyaSmartDeviceModel *deviceModel))success
-                  failure:(TYFailureHandler)failure __deprecated_msg("This method is deprecated, Use -[TuyaSmartBLEManager -  startActiveBLE:homeId:success:failure] instead");
+                  failure:(TYFailureHandler)failure __deprecated_msg("This method is deprecated, Use -[TuyaSmartBLEManager -  activeBLE:homeId:success:failure] instead");
 
 
 /**

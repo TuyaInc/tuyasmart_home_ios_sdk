@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TuyaSmartDeviceModelUtils.h"
+#import "TuyaSmartHomeModelUtils.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

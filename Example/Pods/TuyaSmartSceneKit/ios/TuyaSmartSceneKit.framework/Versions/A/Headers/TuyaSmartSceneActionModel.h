@@ -125,4 +125,18 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  */
 @property (nonatomic, copy) NSString *uiid;
 
+#pragma mark - Recommend info
+
+/**
+* 推荐商品id。
+* Recommend product id.
+*/
+@property (nonatomic, copy) NSString *productId;
+
+/**
+* 推荐商品图标。
+* Recommend product icon.
+*/
+@property (nonatomic, copy) NSString *productPic;
+
 @end

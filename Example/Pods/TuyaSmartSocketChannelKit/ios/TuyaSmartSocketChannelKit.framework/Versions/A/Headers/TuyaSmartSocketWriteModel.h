@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString          *lpv; // version
 @property (nonatomic, strong) NSDictionary      *body; // body
 @property (nonatomic, strong) NSString          *localKey; // local key
+@property (nonatomic, strong) NSData            *data; // data
+@property (nonatomic, strong) NSData            *localKeyData; // local key
+
 
 @property (nonatomic, copy) TYSuccessDict       successBlock;
 @property (nonatomic, copy) TYFailureHandler    failureBlock;

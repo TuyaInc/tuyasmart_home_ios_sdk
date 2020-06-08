@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @class TuyaSmartBleMeshGroup;
 @protocol TuyaSmartBleMeshGroupDelegate <NSObject>
 
@@ -162,3 +164,5 @@
 - (void)publishDps:(NSDictionary *)dps success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
 
 @end
+NS_ASSUME_NONNULL_END
+

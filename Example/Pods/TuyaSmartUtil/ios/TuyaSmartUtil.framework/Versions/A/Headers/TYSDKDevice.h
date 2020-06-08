@@ -9,7 +9,7 @@
 
 @interface TYSDKDevice : NSObject
 
-+ (NSString *)tysdk_UUID __deprecated_msg("Use +[TuyaSmartSDK SharedInstance].uuid instead.");
++ (NSString *)tysdk_UUID __deprecated_msg("Use +[TuyaSmartSDK sharedInstance].uuid instead.");
 
 + (NSString *)tysdk_generateUUID;
 

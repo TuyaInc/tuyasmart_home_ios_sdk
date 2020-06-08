@@ -20,9 +20,15 @@ typedef enum : NSUInteger {
 
 typedef enum : NSUInteger {
     TuyaSmartSceneRecommendTypeNone,        //不是推荐场景/This not a recommend scene.
-    TuyaSmartSceneRecommendTypeScene,       //推荐的场景类型/This is a normal recommended scene.
+    TuyaSmartSceneRecommendTypeScene,       //推荐的一键执行场景类型/This is a normal recommended scene.
     TuyaSmartSceneRecommendTypeAutomation   //推荐的自动化场景类型//This is a recommended automatic scene.
 } TuyaSmartSceneRecommendType;
+
+typedef enum : NSUInteger {
+    TuyaSmartSceneCollectionTypeNone,        //不是收藏场景/This not a collection scene.
+    TuyaSmartSceneCollectionTypeScene,       //收藏的一件执行场景类型/This is a normal collection scene.
+    TuyaSmartSceneCollectionTypeAutomation   //收藏的自动化场景类型//This is a collection automatic scene.
+} TuyaSmartSceneCollectionType;
 
 /**
  * 场景Model, 有conditons的场景称为自动化。
@@ -161,6 +167,12 @@ typedef enum : NSUInteger {
  * Recommend type.
  */
 @property (nonatomic, assign) TuyaSmartSceneRecommendType recommendType;
+
+/**
+* 收藏场景类型
+* Collection scene type.
+*/
+@property (nonatomic, assign) TuyaSmartSceneCollectionType collectionType;
 
 /**
 * 推荐场景描述

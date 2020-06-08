@@ -4,14 +4,15 @@
 //
 //  Created by 冯晓 on 16/8/24.
 //  Copyright © 2016年 Tuya. All rights reserved.
-//
+//  单点蓝牙广播包model
 
 typedef enum : NSUInteger {
     TYSmartBLETypeUnknow = 1,
     TYSmartBLETypeBLE,//单点设备
+    TYSmartBLETypeBLEPlus,//单点设备
     TYSmartBLETypeBLEWifi,//ble-wifi 设备
     TYSmartBLETypeBLESecurity,//安全协议的设备
-    TYSmartBLETypeBLEWifiSecurity,//安全协议的双模配网 BLE WI-FI 设备
+    TYSmartBLETypeBLEWifiSecurity,//安全协议的双模多协议配网 BLE WI-FI 设备
 } TYSmartBLEType;
 
 @interface TYBLEAdvModel : NSObject

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TuyaSmartDeviceModelUtils.h"
+#import "TuyaSmartHomeModelUtils.h"
 
 @interface TuyaSmartHomeModel : NSObject
 
@@ -32,9 +32,6 @@
 // order
 @property (nonatomic, assign) NSInteger displayOrder;
 
-// admin or not
-@property (nonatomic, assign) BOOL admin __deprecated_msg("This property is deprecated, Use role property");
-
 // role type
 @property (nonatomic, assign) TYHomeRoleType role;
 
@@ -43,6 +40,10 @@
 
 // inviter's name
 @property (nonatomic, strong) NSString *nickName;
+
+#pragma mark - deprecated
+// admin or not
+@property (nonatomic, assign) BOOL admin __deprecated_msg("This property is deprecated, Use role property");
 
 @end
 

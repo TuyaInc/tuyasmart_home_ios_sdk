@@ -17,7 +17,11 @@
 
 - (NSString *)tysdk_aes128EncryptWithKey:(NSString *)key;
 
+- (NSString *)tysdk_aes128NoPaddingEncryptWithKey:(NSString *)key;
+
 - (NSString *)tysdk_aes128DecryptWithKey:(NSString *)key;
+
+- (NSString *)tysdk_aes128NoPaddingDecryptWithKey:(NSString *)key;
 
 - (NSString *)tysdk_aes256EncryptWithKey:(NSString *)key;
 
@@ -40,7 +44,11 @@
 
 - (NSData *)tysdk_aes128EncryptWithKeyData:(NSData *)keyData;
 
+- (NSData *)tysdk_aes128NoPaddingEncryptWithKeyData:(NSData *)keyData;
+
 - (NSData *)tysdk_aes128DecryptWithKeyData:(NSData *)keyData;
+
+- (NSData *)tysdk_aes128NoPaddingDecryptWithKeyData:(NSData *)keyData;
 
 - (NSData *)tysdk_aes256EncryptWithKeyData:(NSData *)keyData;
 
