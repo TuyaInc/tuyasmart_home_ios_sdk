@@ -21,7 +21,8 @@ All functions of user are realized by using the `TuyaSmartUser` Class (singleton
 
 Tuya Smart provides the mobile phone verification code login system.
 
-
+> [!DANGER]
+> For the privacy and security of user information, we have optimized the mobile phone number registration mechanism. If you want to use the mobile phone number registration service, you can contact the relevant docking business
 
 ### Use Mobile Phone Password for Registration
 
