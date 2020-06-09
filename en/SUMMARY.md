@@ -48,7 +48,7 @@
   * [Functional Overview](./resource/Group.md#functional-overview)
   * [Create Group](./resource/Group.md#create-group)
     * [Create Wi-Fi Group](./resource/Group.md#create-wi-fi-group)
-    * [Create ZigBee Group](./resource/Group.md#create-zigBee-group)
+    * [Create ZigBee Group](./resource/Group.md#create-zigbee-group)
   * [Group Operation](./resource/Group.md#group-operation)
     * [Instantiation](./resource/Group.md#instantiation)
     * [Modifying group name](./resource/Group.md#modifying-group-name)
