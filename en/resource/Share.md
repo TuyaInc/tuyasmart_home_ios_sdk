@@ -127,7 +127,9 @@ func addMemberShare() {
 
 
 
-### Single Device Add Sharing
+### Device Add Sharing
+
+Sharing device to users will add the devices to all user shareing
 
 **Declaration**
 
