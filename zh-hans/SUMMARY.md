@@ -72,7 +72,18 @@
   
 * [定时任务](./resource/Timer.md)
 
-* [群组管理](./resource/Group.md)
+* [群组管理](./resource/Group.md#群组管理)
+  * [功能概述](./resource/Group.md#功能概述)
+  * [群组创建](./resource/Group.md#群组创建)
+    * [创建 Wi-Fi 群组](./resource/Group.md#创建-Wi-Fi-群组)
+    * [创建 ZigBee 群组](./resource/Group.md#创建-ZigBee-群组)
+  * [群组控制](./resource/Group.md#群组控制)
+    * [群组初始化](./resource/Group.md#群组初始化)
+    * [修改名称](./resource/Group.md#修改名称)
+    * [解散群组](./resource/Group.md#解散群组)
+    * [控制发送](./resource/Group.md#控制发送)
+    * [控制回调](./resource/Group.md#控制回调)
+    * [查询群组](./resource/Group.md#查询群组)
 
 * [智能场景](./resource/SmartSceneAbout.md)
   - [智能场景管理](./resource/SmartScene.md#智能场景管理)
