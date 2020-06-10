@@ -6,6 +6,22 @@ Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluet
 | --------------                | ----------------              |
 | TYBLEMeshManager | Bluetooth Mesh Class  |
 
+
+## Prepare
+
+### Mobile System Requirements
+
+TuyaSmartHomeKit has been supported since iOS 8.0.
+
+### Permissions
+
+```
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>bluetooth description</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string></string>
+```
+
 ## Tips
 
   ```objective-c

@@ -8,7 +8,22 @@
 | -------------- | ---------------- |
 | TYBLEMeshManager | 蓝牙 Mesh 封装 |
 
-## 准备工作
+## 准备
+
+
+### 手机系统要求
+
+BLE使用需要 iOS 8.0 及以上版本。
+
+### 权限
+
+```
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>bluetooth description</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string></string>
+```
+
 
 导入头文件
 

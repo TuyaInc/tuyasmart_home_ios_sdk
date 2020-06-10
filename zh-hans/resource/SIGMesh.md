@@ -2,6 +2,21 @@
 
 > 下文将标准蓝牙 Mesh 称作 SIG Mesh
 
+## 准备
+
+### 手机系统要求
+
+BLE使用需要 iOS 8.0 及以上版本。
+
+### 权限
+
+```
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>bluetooth description</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string></string>
+```
+
 
 ## 标准蓝牙(SIG) Mesh 介绍
 
