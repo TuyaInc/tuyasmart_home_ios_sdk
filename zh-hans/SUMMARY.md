@@ -31,12 +31,16 @@
   * [家庭天气](./resource/Home.md#家庭天气)
   
 * [设备配网](./resource/Activator.md#设备配网)
-  - [快连模式](./resource/Activator.md#快连模式)
-  - [热点模式](./resource/Activator.md#热点模式)
-  - [有线设备配网](./resource/Activator.md#有线设备配网)
-  - [子设备激活](./resource/Activator.md#子设备配网)
-  - [蓝牙 Wi-Fi 双模配网](./resource/Activator.md#蓝牙-wi-fi-双模配网)
-  - [摄像头二维码配网](./resource/Activator.md#摄像头二维码配网)
+  
+  - [功能概述](./resource/Activator.md#功能概述)
+  - [使用须知](./resource/Activator.md#使用须知)
+  - [配网实现](./resource/Activator.md#配网实现)
+    - [快连（EZ）模式](./resource/Activator.md#快连模式)
+    - [热点（AP）模式](./resource/Activator.md#热点模式)
+    - [摄像头二维码配网](./resource/Activator.md#摄像头二维码配网)
+    - [有线设备配网](./resource/Activator.md#有线设备配网)
+    - [子设备配网](./resource/Activator.md#子设备配网)
+    - [蓝牙设备配网](./resource/Activator.md#蓝牙设备配网)
   
 * [设备管理](./resource/Device.md#设备管理)
   - [设备初始化](./resource/Device.md#设备初始化)
@@ -68,7 +72,18 @@
   
 * [定时任务](./resource/Timer.md)
 
-* [群组管理](./resource/Group.md)
+* [群组管理](./resource/Group.md#群组管理)
+  * [功能概述](./resource/Group.md#功能概述)
+  * [群组创建](./resource/Group.md#群组创建)
+    * [创建 Wi-Fi 群组](./resource/Group.md#创建-wi-fi-群组)
+    * [创建 ZigBee 群组](./resource/Group.md#创建-zigbee-群组)
+  * [群组控制](./resource/Group.md#群组控制)
+    * [群组初始化](./resource/Group.md#群组初始化)
+    * [修改名称](./resource/Group.md#修改名称)
+    * [解散群组](./resource/Group.md#解散群组)
+    * [控制发送](./resource/Group.md#控制发送)
+    * [控制回调](./resource/Group.md#控制回调)
+    * [查询群组](./resource/Group.md#查询群组)
 
 * [智能场景](./resource/SmartSceneAbout.md)
   - [智能场景管理](./resource/SmartScene.md#智能场景管理)
