@@ -2,7 +2,7 @@
 //  TYLoginViewController.m
 //  TuyaSmartHomeKit_Example
 //
-//  Created by 盖剑秋 on 2018/11/5.
+//  Created by Tuya.Inc on 2018/11/5.
 //  Copyright © 2018 xuchengcheng. All rights reserved.
 //
 
@@ -108,7 +108,7 @@
     WEAKSELF_AT
     [[TuyaSmartUser sharedInstance] loginByEmail:countryCode email:email password:password success:^{
         [weakSelf_AT hideProgressView];
-
+        // 跳转到设备列表页
         TYAppDelegate *appDelegate = (TYAppDelegate*) [[UIApplication sharedApplication] delegate];
         [appDelegate resetRootViewController:[TYTabBarViewController class]];
         
@@ -132,6 +132,7 @@
     
     [[TuyaSmartUser sharedInstance] loginByPhone:countryCode phoneNumber:phoneNumber password:password success:^{
         [weakSelf_AT hideProgressView];
+        // 跳转到设备列表页
         TYAppDelegate *appDelegate = (TYAppDelegate*) [[UIApplication sharedApplication] delegate];
         [appDelegate resetRootViewController:[TYTabBarViewController class]];
         

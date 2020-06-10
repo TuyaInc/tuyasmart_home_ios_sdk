@@ -105,7 +105,7 @@
                                              selector:@selector(sessionInvalid)
                                                  name:TuyaSmartUserNotificationUserSessionInvalid
                                                object:nil];
-    // 请求定位，创建家庭，地理位置，获取系统连接的 ssid 需要定位信息
+    // 请求定位，获取系统连接的 ssid 需要定位权限
     [self startLocation];
 }
 
