@@ -14,23 +14,6 @@
 
 用户相关的所有功能对应 `TuyaSmartUser` 类（单例）。
 
-**`TuyaSmartUser` 数据模型**
-
-| **字段**    | **类型**  | **描述**                                                     |
-| ----------- | --------- | ------------------------------------------------------------ |
-| headIconUrl | NSString  | 用户头像链接                                                 |
-| nickname    | NSString  | 用户昵称                                                     |
-| userName    | NSString  | 用户名。如果主账号是手机号，userName 就是手机号。如果主账号是邮箱，userName 就是邮箱 |
-| phoneNumber | NSString  | 手机号                                                       |
-| email       | NSString  | 邮箱                                                         |
-| countryCode | NSString  | 国家码，86：中国，1：美国                                    |
-| isLogin     | BOOL      | 登录的状态                                                   |
-| regionCode  | NSString  | 当前账号所在的国家区域。AY：中国，AZ：美国，EU：欧洲         |
-| timezoneId  | NSString  | 用户时区信息，例如： `Asia/Shanghai`                         |
-| tempUnit    | NSInteger | 温度单位。1：`°C`， 2：`°F`                                  |
-| snsNickname | NSString  | 第三方账号的昵称                                             |
-| regFrom     | TYRegType | 账号注册的类型                                               |
-
 
 
 
@@ -1303,18 +1286,22 @@ func cancelAccount() {
 
 ## 用户数据模型
 
-TuyaSmartUser:
+**`TuyaSmartUser` 数据模型**
 
-| 字段        | 描述                    |
-| ----------- | ----------------------- |
-| nickName    | 昵称                    |
-| countryCode | 国家区号                |
-| phoneNumber | 手机号码                |
-| userName    | 用户名称                |
-| email       | 邮箱地址                |
-| uid         | 用户唯一标识符          |
-| sid         | 用户登录产生唯一标识 id |
-| headIconUrl | 用户头像路径            |
+| **字段**    | **类型**  | **描述**                                                     |
+| ----------- | --------- | ------------------------------------------------------------ |
+| headIconUrl | NSString  | 用户头像链接                                                 |
+| nickname    | NSString  | 用户昵称                                                     |
+| userName    | NSString  | 用户名。如果主账号是手机号，userName 就是手机号。如果主账号是邮箱，userName 就是邮箱 |
+| phoneNumber | NSString  | 手机号                                                       |
+| email       | NSString  | 邮箱                                                         |
+| countryCode | NSString  | 国家码，86：中国，1：美国                                    |
+| isLogin     | BOOL      | 登录的状态                                                   |
+| regionCode  | NSString  | 当前账号所在的国家区域。AY：中国，AZ：美国，EU：欧洲         |
+| timezoneId  | NSString  | 用户时区信息，例如： `Asia/Shanghai`                         |
+| tempUnit    | NSInteger | 温度单位。1：`°C`， 2：`°F`                                  |
+| snsNickname | NSString  | 第三方账号的昵称                                             |
+| regFrom     | TYRegType | 账号注册的类型                                               |
 
 
 
