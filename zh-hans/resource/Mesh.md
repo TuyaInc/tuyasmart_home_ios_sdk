@@ -8,7 +8,22 @@
 | -------------- | ---------------- |
 | TYBLEMeshManager | 蓝牙 Mesh 封装 |
 
-## 准备工作
+## 准备
+
+
+### 手机系统要求
+
+BLE使用需要 iOS 8.0 及以上版本。
+
+### 权限
+
+```
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>bluetooth description</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string></string>
+```
+
 
 导入头文件
 
@@ -71,7 +86,7 @@ Mesh 产品目前分为五大类
 向本地 mesh 网同步操作信息的同时也需要向云端同步操作信息
 
 
-## Mesh 管理类
+## Mesh 管理
 
 > `mesh` 的主要操作类都在 `TuyaSmartBleMesh.h` 文件中
 
@@ -224,7 +239,55 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 ```
 
-## 配网与入网
+### mesh 的连接与断开
+
+入网是对通过已配网设备连入 mesh 网的操作，该过程需要开启蓝牙
+
+**接口说明**
+
+若操作为配网，填入默认 mesh name 和 password，此时只会通过 `TYBLEMeshManagerDelegate` 中的
+ `- (void)bleMeshManager:(TYBLEMeshManager *)manager didScanedDevice:(TYBleMeshDeviceModel *)device;` 返回扫描结果
+
+ 若操作为入网，填入已创建的 mesh name 和 password，此信息来自云端接口返回，可以自动进行连接、入网，并自动获取一次 mesh 网中的各个设备在线情况
+
+```objective-c
+- (void)startScanWithName:(NSString *)name
+                      pwd:(NSString *)pwd
+                   active:(BOOL)active
+              wifiAddress:(uint32_t)wifiAddress
+               otaAddress:(uint32_t)otaAddress;
+```
+
+**参数说明**
+
+|  参数           | 说明                                      |
+| --------------- | ------------------------------------------|
+| name            | mesh 名称                                 |
+| pwd             | mesh 密码                                 |
+| active          | 是否为配网激活                            |
+| wifiAddress     | Wi-Fi 地址，网关配网需要，其余情况传 0    |
+| otaAddress      | ota 设备地址，ota 升级时需要，其余情况传 0|
+
+入网成功会自动获取 mesh 网中设备的在线状态，并触发 `TuyaSmartHomeDelegate` 代理方法进行回调信息
+
+```
+// 设备信息更新，例如name
+- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device;
+```
+
+**示例代码**
+
+```objective-c
+// 注意，此时的 active、wifiAddress、otaAddress 参数赋值情况
+[[TYBLEMeshManager sharedInstance] startScanWithName:[TuyaSmartUser sharedInstance].meshModel.code pwd:[TuyaSmartUser sharedInstance].meshModel.password active:NO wifiAddress:0 otaAddress:0];
+
+// 设备信息更新，例如name
+- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device {
+    // 收到回调操作
+}
+```
+
+## Mesh 配网
 
 > mesh 的操作类集中在 `TYBLEMeshManager` 中，且此类为单例
 
@@ -244,7 +307,7 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 处于重置状态的设备，默认名字为 `out_of_mesh`，默认密码为 `123456`
 
-### 设备扫描
+### 扫描待配网子设备
 
 > 为了简化扫描以及后续的配网操作，将所有的操作统一一个接口进行操作
 
@@ -320,9 +383,9 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 ```
 
-入网调用比较简单，见「入网」
+入网调用比较简单，见「mesh 的连接与断开」
 
-### 配网
+### Mesh子设备配网
 
 mesh 配网主要分为两种，一种是针对普通蓝牙 mesh 设备（又称 mesh 子设备），例如灯、插座、低功耗等，可以理解为只要不带网关，就是普通蓝牙设备，一种是对 mesh 网关配网
 
@@ -420,7 +483,9 @@ Wi-Fi 连接器加入 mesh
 | success         | 操作成功回调，返回配网Token|
 | failure         | 操作失败回调              |
 
-#### Mesh 网关入网
+
+
+#### Mesh 网关配网
 
 将 token、路由器账号、密码进行网关入网
 
@@ -505,55 +570,6 @@ Wi-Fi 连接器加入 mesh
   }  
 ```
 
-#### 入网
-
-入网是对通过已配网设备连入 mesh 网的操作，该过程需要开启蓝牙
-
-**接口说明**
-
-若操作为配网，填入默认 mesh name 和 password，此时只会通过 `TYBLEMeshManagerDelegate` 中的
- `- (void)bleMeshManager:(TYBLEMeshManager *)manager didScanedDevice:(TYBleMeshDeviceModel *)device;` 返回扫描结果
-
- 若操作为入网，填入已创建的 mesh name 和 password，此信息来自云端接口返回，可以自动进行连接、入网，并自动获取一次 mesh 网中的各个设备在线情况
-
-```objective-c
-- (void)startScanWithName:(NSString *)name
-                      pwd:(NSString *)pwd
-                   active:(BOOL)active
-              wifiAddress:(uint32_t)wifiAddress
-               otaAddress:(uint32_t)otaAddress;
-```
-
-**参数说明**
-
-|  参数           | 说明                                      |
-| --------------- | ------------------------------------------|
-| name            | mesh 名称                                 |
-| pwd             | mesh 密码                                 |
-| active          | 是否为配网激活                            |
-| wifiAddress     | Wi-Fi 地址，网关配网需要，其余情况传 0    |
-| otaAddress      | ota 设备地址，ota 升级时需要，其余情况传 0|
-
-入网成功会自动获取 mesh 网中设备的在线状态，并触发 `TuyaSmartHomeDelegate` 代理方法进行回调信息
-
-```
-// 设备信息更新，例如name
-- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device;
-```
-
-**示例代码**
-
-```objective-c
-// 注意，此时的 active、wifiAddress、otaAddress 参数赋值情况
-[[TYBLEMeshManager sharedInstance] startScanWithName:[TuyaSmartUser sharedInstance].meshModel.code pwd:[TuyaSmartUser sharedInstance].meshModel.password active:NO wifiAddress:0 otaAddress:0];
-
-// 设备信息更新，例如name
-- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device {
-    // 收到回调操作
-}
-```
-
-
 #### Mesh 连接标识
 
 在操作的过程中，会经常判断是否是 mesh 已有设备通过蓝牙入网，来决定使用何种方式下发控制命令和操作命令
@@ -578,7 +594,7 @@ BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
 + (instancetype)deviceWithDeviceId:(NSString *)devId;
 ```
 
-###设备重命名
+### 设备重命名
 
 **接口说明**
 
