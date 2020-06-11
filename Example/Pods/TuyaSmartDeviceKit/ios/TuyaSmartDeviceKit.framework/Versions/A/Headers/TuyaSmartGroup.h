@@ -171,6 +171,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)updateGroupName:(NSString *)name success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
 
+/**
+ *  Edit group icon.
+ *  修改群组图片
+ *
+ *  @param icon     icon
+ *  @param success  Success block
+ *  @param failure  Failure block
+ */
+- (void)updateIcon:(UIImage *)icon
+           success:(nullable TYSuccessHandler)success
+           failure:(nullable TYFailureError)failure;
+
 
 /**
  *  Modify the device list of the group

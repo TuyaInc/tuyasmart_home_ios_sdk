@@ -12,6 +12,8 @@
 #import "TuyaSmartRoomModel.h"
 #import "TuyaSmartGroupModel.h"
 #import "TuyaSmartHomeMemberModel.h"
+#import "TuyaSmartHomeAddMemberRequestModel.h"
+#import "TuyaSmartFirmwareUpgradeStatusModel.h"
 
 @class TuyaSmartHome;
 
@@ -34,14 +36,6 @@
  *  @param home instance
  */
 - (void)homeDidUpdateSharedInfo:(TuyaSmartHome *)home;
-
-/**
- *  the delegate of relation update of home and room.(deprecated)
- *  家庭下房间信息信息变化代理回调（已废弃）
- *
- *  @param home instance
- */
-- (void)homeDidUpdateRoomInfo:(TuyaSmartHome *)home __deprecated_msg("Use -[TuyaSmartHomeDelegate home:didAddRoom:] or [TuyaSmartHomeDelegate home:didRemoveRoom:] instead.");
 
 /**
  *  the delegate when a new room is added.
@@ -127,14 +121,14 @@
 - (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device warningInfoUpdate:(NSDictionary *)warningInfo;
 
 /**
- *  the delegate of device firmware upgrade status update
- *  家庭下设备升级状态的回调
- *
- *  @param home           instance
- *  @param device         deviceModel
- *  @param upgradeStatus  upgrade status
- */
-- (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device upgradeStatus:(TuyaSmartDeviceUpgradeStatus)upgradeStatus;
+*  the delegate of device firmware upgrade status update
+*  家庭下设备升级状态的回调
+*
+*  @param home                家庭实例 home instance
+*  @param device              设备模型 deviceModel
+*  @param upgradeStatusModel  设备升级状态模型 upgradeStatusModel
+*/
+- (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device firmwareUpgradeStatusModel:(TuyaSmartFirmwareUpgradeStatusModel *)upgradeStatusModel;
 
 /**
  *  the delegate when a new group is added.
@@ -173,6 +167,24 @@
  */
 - (void)home:(TuyaSmartHome *)home groupInfoUpdate:(TuyaSmartGroupModel *)group;
 
+#pragma mark - deprecated
+/**
+ *  the delegate of relation update of home and room.(deprecated)
+ *  家庭下房间信息信息变化代理回调（已废弃）
+ *
+ *  @param home instance
+ */
+- (void)homeDidUpdateRoomInfo:(TuyaSmartHome *)home __deprecated_msg("Use -[TuyaSmartHomeDelegate home:didAddRoom:] or [TuyaSmartHomeDelegate home:didRemoveRoom:] instead.");
+
+/**
+ *  the delegate of device firmware upgrade status update
+ *  家庭下设备升级状态的回调(废弃)
+ *
+ *  @param home           instance
+ *  @param device         deviceModel
+ *  @param upgradeStatus  upgrade status
+ */
+- (void)home:(TuyaSmartHome *)home device:(TuyaSmartDeviceModel *)device upgradeStatus:(TuyaSmartDeviceUpgradeStatus)upgradeStatus __deprecated_msg("This method is deprecated, Use home:device:firmwareUpgradeStatusModel: instead");
 
 @end
 
@@ -329,6 +341,33 @@
 - (void)getHomeMemberListWithSuccess:(void(^)(NSArray <TuyaSmartHomeMemberModel *> *memberList))success
                              failure:(TYFailureError)failure;
 
+
+/**
+*  Add a home member
+*  添加家庭成员
+*
+*  @param requestModel member model
+*  @param success      Success block
+*  @param failure      Failure block
+*/
+- (void)addHomeMemberWithAddMemeberRequestModel:(TuyaSmartHomeAddMemberRequestModel *)requestModel
+                                        success:(TYSuccessDict)success
+                                        failure:(TYFailureError)failure;
+
+/**
+ *  Accept or reject to shared home
+ *  接受或拒绝加⼊分享过来的家庭
+ *
+ *  @param accept       Whether to accept the invitation
+ *  @param success      Success block
+ *  @param failure      Failure block
+ */
+- (void)joinFamilyWithAccept:(BOOL)accept
+                     success:(TYSuccessBOOL)success
+                     failure:(TYFailureError)failure;
+
+#pragma mark - deprecated
+
 /**
  *  Add a home member
  *  添加家庭成员 将会废弃
@@ -347,7 +386,8 @@
                   userAccount:(NSString *)account
                       isAdmin:(BOOL)isAdmin
                       success:(TYSuccessDict)success
-                      failure:(TYFailureError)failure __deprecated_msg("This method is deprecated, Use [TuyaSmartHomeMember   addHomeMemberWithName:headPic:countryCode:userAccount:role:success:failure:]");
+                      failure:(TYFailureError)failure __deprecated_msg("This method is deprecated, Use [TuyaSmartHome   addHomeMemberWithName:headPic:countryCode:userAccount:role:success:failure:]");
+
 /**
  *  Add a home member
  *  添加家庭成员
@@ -366,17 +406,6 @@
                   userAccount:(NSString *)account
                          role:(TYHomeRoleType)role
                       success:(TYSuccessDict)success
-                      failure:(TYFailureError)failure;
+                      failure:(TYFailureError)failure __deprecated_msg("This method is deprecated, Use [TuyaSmartHome addHomeMemberWithAddMemeberRequestModel:success:failure:]");
 
-/**
- *  Accept or reject to shared home
- *  接受或拒绝加⼊分享过来的家庭
- *
- *  @param accept       Whether to accept the invitation
- *  @param success      Success block
- *  @param failure      Failure block
- */
-- (void)joinFamilyWithAccept:(BOOL)accept
-                     success:(TYSuccessBOOL)success
-                     failure:(TYFailureError)failure;
 @end

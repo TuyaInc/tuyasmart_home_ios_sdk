@@ -10,6 +10,8 @@
 #import "TuyaSmartCityModel.h"
 #import "TuyaSmartSceneDPModel.h"
 #import "TuyaSmartSceneModel.h"
+#import "TuyaSmartSceneLogModel.h"
+#import "TuyaSmartSceneLogDetailModel.h"
 
 @class TuyaSmartSceneManager;
 
@@ -66,6 +68,18 @@
 - (void)getRecommendedSceneListWithHomeId:(long long)homeId
                        success:(void(^)(NSArray<TuyaSmartSceneModel *> *list))success
                        failure:(TYFailureError)failure;
+
+/**
+* 获取家庭下收藏的场景列表
+* Get a list of favorite scenes under the family.
+*
+* @param homeId      homeId
+* @param success  操作成功回调, 返回场景列表  success callback
+* @param failure     failure callback
+*/
+- (void)getCollectionSceneListWithHomeId:(long long)homeId
+                                 success:(TYSuccessList)success
+                                 failure:(TYFailureError)failure;
 
 /**
  * 获取自动化支持的气象条件列表
@@ -301,6 +315,53 @@
 * @param failure     failure callback
 */
 - (void)getSmartSceneCustomStyleListWithSuccess:(TYSuccessDict)success failure:(TYFailureError)failure;
+
+/**
+* 获取场景联动日志列表。
+* Get scene linkage log list.
+*
+* 字段                描述                是否可选(optional)        类型
+* startTime           开始时间                N                    Long
+* endTime             结束时间                N                    Long
+* size                查询条数                N                    Integer
+* lastId              偏移量(eventId)         Y                    String
+* lastRecordTime      偏移量(execTime)        Y  0 for not set     Long
+*
+* @param homeId homeId
+* @param startTime startTime
+* @param endTime endTime
+* @param size Number of queries
+* @param lastId last one's Id
+* @param lastRecordTime lastRecordTime, 0 for Not set
+* @param success success callback
+* @param failure failure callback
+*/
+- (void)getSmartSceneLogWithHomeId:(long long)homeId startTime:(long long)startTime endTime:(long long)endTime size:(NSInteger)size lastId:(NSString *)lastId lastRecordTime:(long long)lastRecordTime success:(void(^)(TuyaSmartSceneLogModel *logModel))success failure:(TYFailureError)failure;
+
+/**
+* 查询联动日志详情。
+* Query linkage log details.
+*
+* 字段                描述                是否可选        类型
+* eventId             事件ID                 N          String
+* startTime           开始时间                N           Long
+* endTime             结束时间                N           Long
+* returnType          返回类型                Y           Long        0:返回全部明细 all details， 1:返回失败状态的明细 only error items
+*
+* @param homeId homeId
+* @param eventId eventId
+* @param startTime startTime
+* @param endTime endTime
+* @param success     success callback
+* @param failure     failure callback
+*/
+- (void)getSmartSceneLogDetailWithHomeId:(long long)homeId eventId:(NSString *)eventId startTime:(long long)startTime endTime:(long long)endTime returnType:(long long)returnType success:(void(^)(NSArray <TuyaSmartSceneLogDetailModel *>*items))success failure:(TYFailureError)failure;
+
+/**
+* 移除所有场景注册在系统中的地理围栏，在当前用户退出登录时调用。
+* Removes all Geo-fencing registered in the system from the automation and is called when the current user logs out.
+*/
+- (void)removeAllGeoFence;
 
 /**
  * 取消正在进行的操作。

@@ -22,6 +22,13 @@ typedef enum : NSUInteger {
     TYActivatorModeWired, // wired mode
 } TYActivatorMode;
 
+typedef enum : NSUInteger {
+    TYActivatorStepFound = 1,// device found
+    TYActivatorStepRegisted = 2,// device registed
+    TYActivatorStepIntialized = 3,// device intialized
+    TYActivatorStepTimeOut = 4, // device config timeout
+} TYActivatorStep;
+
 @class TuyaSmartActivator;
 
 @protocol TuyaSmartActivatorDelegate<NSObject>
@@ -39,6 +46,17 @@ typedef enum : NSUInteger {
 - (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error;
 
 @optional
+
+/**
+ Callback of Config Network Status Update
+ 配网状态更新的回调，wifi单品，zigbee网关，zigbee子设备
+
+ @param activator   instance
+ @param deviceModel deviceModel
+ @param step        activator step
+ @param error       error
+ */
+- (void)activator:(TuyaSmartActivator *)activator didReceiveDevice:(TuyaSmartDeviceModel *)deviceModel step:(TYActivatorStep)step error:(NSError *)error;
 
 /**
  Callback of Config Network Status Update (mesh gateway),deprecated
@@ -175,7 +193,7 @@ typedef enum : NSUInteger {
  *  @param mode     Config mode, EZ or AP
  *  @param ssid     Name of route
  *  @param password Password of route
- *  @param token    配网 Token
+ *  @param token    Config Token
  *  @param timeout  Timeout, default 100 seconds
  */
 - (void)startConfigWiFi:(TYActivatorMode)mode

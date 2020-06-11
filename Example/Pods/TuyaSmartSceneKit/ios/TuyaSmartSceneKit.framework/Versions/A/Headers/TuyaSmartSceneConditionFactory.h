@@ -12,7 +12,8 @@
 
 typedef enum : NSInteger{
     kGeoFenceTypeReach,
-    kGeoFenceTypeExit
+    kGeoFenceTypeExit,
+    kGeoFenceTypeNotSet
 }GeoFenceType;
 
 //为了方便处理多语言，本类不处理条件的exprDisplay，也就是条件显示相关的逻辑，需要上层自行拼装处理。

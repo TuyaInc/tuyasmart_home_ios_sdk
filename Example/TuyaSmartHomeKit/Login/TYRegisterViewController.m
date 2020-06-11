@@ -2,7 +2,7 @@
 //  TYRegisterViewController.m
 //  TuyaSmartHomeKit_Example
 //
-//  Created by 盖剑秋 on 2018/11/6.
+//  Created by Tuya.Inc on 2018/11/6.
 //  Copyright © 2018 xuchengcheng. All rights reserved.
 //
 
@@ -52,6 +52,7 @@
     }
 }
 
+// Send verification code
 - (void)sendVerifyCode {
     
     [self.view endEditing:YES];
@@ -84,6 +85,7 @@
     }];
 }
 
+// Registered account
 - (void)registerAction {
     
     [self.view endEditing:YES];
@@ -116,6 +118,7 @@
     
     [[TuyaSmartUser sharedInstance] registerByEmail:self.rootView.countryCodeField.text email:self.rootView.accountField.text password:self.rootView.passwordField.text code:self.rootView.verifyCodeField.text success:^{
         
+        // 跳转到设备列表页
         TYAppDelegate *appDelegate = (TYAppDelegate*) [[UIApplication sharedApplication] delegate];
         [appDelegate resetRootViewController:[TYTabBarViewController class]];
         

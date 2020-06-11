@@ -119,6 +119,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getSIGMeshNodeAddressFromServerWithSuccess:(TYSuccessInt)success failure:(TYFailureError)failure;
 
 
+/// 向批量获取sig mesh的node id
+/// @param number 分配的数量
+/// @param success 操作成功回调
+/// @param failure 操作失败回调
+- (void)getMultiNodeAddressFromServerWithNumber:(NSInteger)number success:(TYSuccessList)success failure:(TYFailureError)failure;
+
 /**
  在网关连接下通过网关移除 sig mesh 子设备
 

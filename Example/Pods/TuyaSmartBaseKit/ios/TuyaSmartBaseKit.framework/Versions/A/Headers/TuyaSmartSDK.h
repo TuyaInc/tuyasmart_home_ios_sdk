@@ -45,6 +45,8 @@ typedef NS_ENUM(NSInteger, TYEnv) {
 /// 测试环境，不建议切换
 @property (nonatomic, assign) TYEnv env;
 
+@property (nonatomic, assign) BOOL useSSLPinning;
+
 @property (nonatomic, strong, readonly) NSString *appKey;
 
 @property (nonatomic, strong, readonly) NSString *secretKey;

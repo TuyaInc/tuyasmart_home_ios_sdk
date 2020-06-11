@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int port;
 @property (nonatomic, assign) BOOL useSSL;
 
+@property (nonatomic, strong) NSString *quicHost;
+@property (nonatomic, assign) int quicPort;
+@property (nonatomic, assign) BOOL useQUIC;
+
 @end
 
 NS_ASSUME_NONNULL_END

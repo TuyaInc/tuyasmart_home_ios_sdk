@@ -9,7 +9,7 @@
 #define TuyaSmartBaseKit_h
 
 #define TUYA_HOMEKIT_SDK
-#define TUYA_SDK_VERSION @"3.14.5"
+#define TUYA_SDK_VERSION @"3.17.1"
 
 #import <TuyaSmartUtil/TuyaSmartUtil.h>
 
@@ -18,6 +18,8 @@
 #import "TuyaSmartUser.h"
 #import "TuyaSmartUser+Region.h"
 #import "TuyaSmartUser+WCSession.h"
+#import "TuyaSmartUser+LoginByQRCode.h"
+#import "TuyaSmartUser+DeprecatedApi.h"
 #import "TuyaSmartRequest.h"
 
 #import "TYApiMergeService.h"

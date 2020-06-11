@@ -34,7 +34,7 @@
         NSLocale *locale = [NSLocale currentLocale];
         ISOcountryCode = [locale objectForKey:NSLocaleCountryCode];
     }
-    
+    // @"US" @"CN"
     ISOcountryCode = [ISOcountryCode uppercaseString];
     
     //Second step: get area code by ISOcountryCode.
