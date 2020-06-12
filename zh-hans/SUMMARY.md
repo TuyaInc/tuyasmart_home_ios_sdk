@@ -88,7 +88,7 @@
 * [智能场景](./resource/SmartSceneAbout.md)
   - [智能场景管理](./resource/SmartScene.md#智能场景管理)
   - [单个场景操作](./resource/SmartScene.md#单个场景操作)
-
+  
 * [消息中心](./resource/Message.md#消息中心)
   * [消息相关功能](./resource/Message.md#消息相关功能)
   * [消息推送设置](./resource/Message.md#消息推送设置)
@@ -104,15 +104,14 @@
   
 
 * [涂鸦蓝牙体系](./resource/BLEs.md)
-  * [单点蓝牙](./resource/BLE.md#单点蓝牙-ble)
-    - [系统蓝牙状态监测](./resource/BLE.md#系统蓝牙状态监测)
-    - [设备扫描](./resource/BLE.md#设备扫描)
-    - [设备激活](./resource/BLE.md#设备激活)
-    - [设备 OTA 升级](./resource/BLE.md#设备-ota-升级)
-    - [查询设备名称](./resource/BLE.md#查询设备名称)
-    - [设备 DP 下发](./resource/BLE.md#设备-dp-下发)
-    - [双模扫描](./resource/BLE.md#双模配网发现设备)
-    - [双模配网](./resource/BLE.md#双模配网设备激活)
+  * [蓝牙 BLE](./resource/BLE.md#蓝牙-ble)
+  	- [准备工作](./resource/BLE.md#准备工作)
+  	- [扫描设备](./resource/BLE.md#扫描设备)
+  	- [单点设备配网](./resource/BLE.md#单点设备配网)
+  	- [双模设备配网](./resource/BLE.md#双模设备配网)
+  	- [蓝牙设备操作](./resource/BLE.md#蓝牙设备操作)
+  	- [固件升级](./resource/BLE.md#固件升级)
+  	- [错误码](./resource/BLE.md#错误码)
   * [蓝牙 Mesh (SIG)](./resource/SIGMesh.md#标准蓝牙sig-mesh-sdk-使用说明)
     - [准备](./resource/SIGMesh.md#准备) 
     - [部分基础概念](./resource/SIGMesh.md#标准蓝牙sig-mesh-的基本概念)
