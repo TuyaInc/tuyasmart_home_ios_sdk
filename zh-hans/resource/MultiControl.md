@@ -26,7 +26,7 @@
 
 **接口说明**
 
-从云端获取设备所有dp的名多语言称等信息
+从云端获取设备所有dp的多语言名称等信息
 
 ```objective-c
 - (void)getDeviceDpInfoWithDevId:(NSString *)devId success:(void (^)(NSArray<TuyaSmartMultiControlDatapointModel *> *))success failure:(TYFailureError)failure;
