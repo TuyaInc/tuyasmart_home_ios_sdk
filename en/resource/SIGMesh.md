@@ -1,10 +1,6 @@
 # Bluetooth Mesh(SIG)
 
 
-## Prepare
-
-Tuya iOS Single BLE SDK （ Hereinafter referred to as BLE SDK or Single BLE SDK ），is developed on the basis of [TuyaSmart SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/)
-
 ## Basic Notion
 
 

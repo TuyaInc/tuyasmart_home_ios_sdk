@@ -113,7 +113,6 @@
   	- [固件升级](./resource/BLE.md#固件升级)
   	- [错误码](./resource/BLE.md#错误码)
  * [蓝牙 Mesh (SIG)](./resource/SIGMesh.md#蓝牙-mesh-sig)
-    - [准备](./resource/SIGMesh.md#准备) 
     - [部分基础概念](./resource/SIGMesh.md#部分基础概念)
     - [管理](./resource/SIGMesh.md#管理)
     - [配网](./resource/SIGMesh.md#配网)
