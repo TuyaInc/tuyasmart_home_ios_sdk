@@ -56,6 +56,9 @@
   - [固件升级](./resource/Device.md#固件升级)
   
 * [多控关联](./resource/MultiControl.md#多控关联)
+  
+  - [概述](./resource/MultiControl.md#概述)
+  - [业务流程图](./resource/MultiControl.md#业务流程图)
   - [获取设备的 dp 信息](./resource/MultiControl.md#获取设备的-dp-信息)
   - [查询某个 dp 的关联信息](./resource/MultiControl.md#查询某个-dp-的关联信息)
   - [新增多控组](./resource/MultiControl.md#新增多控组)
