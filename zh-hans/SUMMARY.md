@@ -85,7 +85,7 @@
     * [控制回调](./resource/Group.md#控制回调)
     * [查询群组](./resource/Group.md#查询群组)
 
-* [智能场景](./resource/SmartSceneAbout.md)
+* [智能场景](./resource/SmartScene.md#智能场景)
   - [智能场景管理](./resource/SmartScene.md#智能场景管理)
   - [单个场景操作](./resource/SmartScene.md#单个场景操作)
   
