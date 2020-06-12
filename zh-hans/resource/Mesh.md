@@ -10,9 +10,6 @@
 
 ## 准备
 
-涂鸦 iOS 单点蓝牙 SDK （下文简称 BLE SDK 或单点蓝牙 SDK），是基于[涂鸦智能全屋 SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/) 的基础上进行开发
-
-
 开启 mesh
 
 ```objective-c

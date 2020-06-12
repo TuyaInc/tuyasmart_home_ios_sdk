@@ -9,10 +9,6 @@ Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluet
 
 ## Prepare
 
-
-Tuya iOS Single BLE SDK （ Hereinafter referred to as BLE SDK or Single BLE SDK ），is developed on the basis of [TuyaSmart SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/)
-
-
   ```objective-c
 
   // set sdk open mesh, need to be set during initialization
