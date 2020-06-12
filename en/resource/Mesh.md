@@ -6,6 +6,22 @@ Generally speaking, Bluetooth mesh is to form a mesh network with multiple Bluet
 | --------------                | ----------------              |
 | TYBLEMeshManager | Bluetooth Mesh Class  |
 
+
+## Prepare
+
+### Mobile System Requirements
+
+TuyaSmartHomeKit has been supported since iOS 8.0.
+
+### Permissions
+
+```
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>bluetooth description</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string></string>
+```
+
 ## Tips
 
   ```objective-c
@@ -220,6 +236,56 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 ```
 
+
+### Login
+
+Network access is the operation of connecting to the mesh network through a networked device. This process requires Bluetooth to be turned on.
+
+If the operation is distribution network, fill in the default mesh name and password. At this time, it will only pass the `TYBLEMeshManagerDelegate`
+`- (void)bleMeshManager:(TYBLEMeshManager *)manager didScanedDevice:(TYBleMeshDeviceModel *)device;` 
+
+If the operation is to enter the network, fill in the created mesh name and password. This information is returned from the cloud interface. It can automatically connect, enter the network, and automatically obtain the online status of each device in the mesh network.
+
+**Declaration**
+
+mesh start
+
+```objective-c
+- (void)startScanWithName:(NSString *)name
+                      pwd:(NSString *)pwd
+                   active:(BOOL)active
+              wifiAddress:(uint32_t)wifiAddress
+               otaAddress:(uint32_t)otaAddress;
+```
+
+**Parameters**
+
+| parameter           | Description                 |
+| -------------- | ----------------     |
+| name        | mesh name |
+| pwd        | mesh password |
+| active        | is active |
+| wifiAddress        |Wi-Fi address, required for gateway network configuration, the rest is 0 |
+| otaAddress        |ota device address, required for ota upgrade, the rest is 0 |
+
+**Declaration**
+
+Successful network access will automatically obtain the online status of the devices in the mesh network and trigger the `TuyaSmartHomeDelegate` delegate method to call back information
+
+```objective-c
+- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device;
+```
+
+**Example**
+
+```objective-c
+
+[[TYBLEMeshManager sharedInstance] startScanWithName:[TuyaSmartUser sharedInstance].meshModel.code pwd:[TuyaSmartUser sharedInstance].meshModel.password active:NO wifiAddress:0 otaAddress:0];
+
+- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device {
+    // callback
+}
+```
 
 
 ## Configuration
@@ -497,59 +563,6 @@ Mesh sub-devices (devices without gateways) are connected to the network
       
   }
 ```
-
-
-### Login
-
-Network access is the operation of connecting to the mesh network through a networked device. This process requires Bluetooth to be turned on.
-
-If the operation is distribution network, fill in the default mesh name and password. At this time, it will only pass the `TYBLEMeshManagerDelegate`
-`- (void)bleMeshManager:(TYBLEMeshManager *)manager didScanedDevice:(TYBleMeshDeviceModel *)device;` 
-
-If the operation is to enter the network, fill in the created mesh name and password. This information is returned from the cloud interface. It can automatically connect, enter the network, and automatically obtain the online status of each device in the mesh network.
-
-**Declaration**
-
-mesh start
-
-```objective-c
-- (void)startScanWithName:(NSString *)name
-                      pwd:(NSString *)pwd
-                   active:(BOOL)active
-              wifiAddress:(uint32_t)wifiAddress
-               otaAddress:(uint32_t)otaAddress;
-```
-
-**Parameters**
-
-| parameter           | Description                 |
-| -------------- | ----------------     |
-| name        | mesh name |
-| pwd        | mesh password |
-| active        | is active |
-| wifiAddress        |Wi-Fi address, required for gateway network configuration, the rest is 0 |
-| otaAddress        |ota device address, required for ota upgrade, the rest is 0 |
-
-**Declaration**
-
-Successful network access will automatically obtain the online status of the devices in the mesh network and trigger the `TuyaSmartHomeDelegate` delegate method to call back information
-
-```objective-c
-- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device;
-```
-
-**Example**
-
-```objective-c
-
-[[TYBLEMeshManager sharedInstance] startScanWithName:[TuyaSmartUser sharedInstance].meshModel.code pwd:[TuyaSmartUser sharedInstance].meshModel.password active:NO wifiAddress:0 otaAddress:0];
-
-- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device {
-    // callback
-}
-```
-
-
 
 
 ### Mesh Connection Flag

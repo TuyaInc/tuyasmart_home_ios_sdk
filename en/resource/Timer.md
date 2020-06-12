@@ -1,14 +1,10 @@
 # Timer Task
 
-`TuyaSmartTimerKit` provides timer feature for device and group.
-
-## Design
-
-Like device, the timer design idea is given in the following figure:
+Tuya Smart provides basic timing capabilities, and supports devices (including WiFi devices, Bluetooth mesh sub-devices and zigbee sub-devices) and groups. It is also provided with the interface for addition, deletion, change and querying of timer information for dp points of the device. After the APP sets the timer information through the timing interface, the hardware module automatically performs the scheduled operation according to the timing requirements. Multiple timers can be included in each timer task, as shown in the figure below:
 
 ![Timer](./images/ios-sdk-timer.jpg)
 
-
+The taskName is used by multiple interfaces, which can be described as a group, and a group may include multiple timers. Each timer task belongs to or does not belong to a group, and the group is currently only used for presentation.
 
 | Class          | Description                   |
 | -------------- | ----------------------------- |
@@ -31,6 +27,17 @@ Add a timer to the required task specified by a device or group.
                 timeZone:(NSString *)timeZone
                  success:(TYSuccessHandler)success
                  failure:(TYFailureError)failure;
+
+- (void)addTimerWithTask:(NSString *)task
+                   loops:(NSString *)loops
+                   devId:(NSString *)devId
+                    time:(NSString *)time
+                     dps:(NSDictionary *)dps
+                timeZone:(NSString *)timeZone
+               isAppPush:(BOOL)isAppPush
+               aliasName:(NSString *)aliasName
+                 success:(TYSuccessHandler)success
+                 failure:(TYFailureError)failure;
 ```
 
 **Parameters**
@@ -43,6 +50,8 @@ Add a timer to the required task specified by a device or group.
 | time      | Time 18:00                                                   |
 | dps       | Dps command                                                  |
 | timeZone  | The time zone of the device or group, like +08:00            |
+| isAppPush	| Is support push message after the timer executed |
+| aliasName	| The timer remark name |
 | success   | Success block                                                |
 | failure   | Failure block                                                |
 
@@ -135,60 +144,7 @@ func getTimer() {
 }
 ```
 
-## Update Status of Timer Task
 
-Update the status of a designated task specified by a device. 0 denotes off, and 1 denotes on. 
-
-**Declaration**
-
-```objective-c
-- (void)updateTimerTaskStatusWithTask:(NSString *)task
-                                devId:(NSString *)devId
-                               status:(NSInteger)status
-                              success:(TYSuccessHandler)success
-                              failure:(TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description                       |
-| --------- | --------------------------------- |
-| task      | Timer task name                   |
-| devId     | Device id，if grouo, set group id |
-| status    | Task status，0:close, 1:open      |
-| success   | Success block                     |
-| failure   | Failure block                     |
-
-**Example**
-
-Objc:
-
-```objc
-- (void)updateTimer {
-	// self.timer = [[TuyaSmartTimer alloc] init];
-	
-	[self.timer updateTimerTaskStatusWithTask:@"timer_task_name" devId:@"device_id" status:1 success:^{
-		NSLog(@"updateTimer success");
-	} failure:^(NSError *error) {
-		NSLog(@"updateTimer failure: %@", error);
-	}];
-}
-```
-
-Swift:
-
-```swift
-func updateTimer() {
-
-    timer?.updateTaskStatus(withTask: "timer_task_name", devId: "device_id", status: 1, success: {
-        print("updateTimer success")
-    }, failure: { (error) in
-        if let e = error {
-            print("updateTimer failure: \(e)")
-        }
-    })
-}
-```
 
 ## Update the Status of Timer
 
@@ -318,6 +274,18 @@ Update the timer of a task specified by a device.
                    timeZone:(NSString *)timeZone
                     success:(TYSuccessHandler)success
                     failure:(TYFailureError)failure;
+
+- (void)updateTimerWithTask:(NSString *)task
+                      loops:(NSString *)loops
+                      devId:(NSString *)devId
+                    timerId:(NSString *)timerId
+                       time:(NSString *)time
+                        dps:(NSDictionary *)dps
+                   timeZone:(NSString *)timeZone
+                  isAppPush:(BOOL)isAppPush
+                  aliasName:(NSString *)aliasName
+                    success:(TYSuccessHandler)success
+                    failure:(TYFailureError)failure;
 ```
 
 **Parameters**
@@ -331,6 +299,8 @@ Update the timer of a task specified by a device.
 | time      | Time，如 18:00                                               |
 | dps       | Dps command                                                  |
 | timeZone  | The time zone of the device or group, like +08:00            |
+| isAppPush | Is support push message after the timer executed             |
+| aliasName | The timer remark name                                        |
 | success   | Success block                                                |
 | failure   | Failure block                                                |
 

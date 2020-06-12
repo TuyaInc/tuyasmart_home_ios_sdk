@@ -1,4 +1,4 @@
-## 家庭关系管理
+# 家庭关系管理
 
 用户登录成功后需要通过`TuyaSmartHomeManager`去获取整个家庭列表的信息,然后初始化其中的一个家庭`TuyaSmartHome`，获取家庭详情信息，对家庭中的设备进行管理，控制。
 
@@ -9,7 +9,7 @@
 
 
 
-### 获取家庭列表
+## 获取家庭列表
 
 获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去`TuyaSmartHome`初始化一个 home，调用接口 `getHomeDetailWithSuccess:failure:`
 
@@ -60,7 +60,7 @@ func getHomeList() {
 
 
 
-### 添加家庭
+## 添加家庭
 
 **接口说明**
 
@@ -130,13 +130,13 @@ Swift:
 
 
 
-### 家庭列表信息变化回调
+## 家庭列表信息变化回调
 
 实现 `TuyaSmartHomeManagerDelegate` 代理协议后，可以在家庭列表更变的回调中进行处理。
 
 
 
-#### 新增一个家庭回调
+### 新增一个家庭回调
 
 **接口说明**
 
@@ -153,7 +153,7 @@ Swift:
 
 
 
-#### 删除一个家庭回调
+### 删除一个家庭回调
 
 **接口说明**
 
@@ -170,7 +170,7 @@ Swift:
 
 
 
-#### MQTT 服务连接成功回调
+### MQTT 服务连接成功回调
 
 **接口说明**
 
@@ -537,7 +537,7 @@ func sortHomeRoom() {
 
 
 
-### 家庭成员管理
+## 家庭成员管理
 
 家庭成员管理相关的所有功能对应 `TuyaSmartHome` 和  `TuyaSmartHomeMember` 类，成员角色类型 TYHomeRoleType
 
@@ -547,7 +547,7 @@ func sortHomeRoom() {
 
 
 
-#### 添加家庭成员
+### 添加家庭成员
 
 > 拥有者 (TYHomeRoleType_Owner) 可以添加管理员及以下角色，管理员 (TYHomeRoleType_Admin) 仅仅可以添加普通成员及以下角色
 
@@ -608,7 +608,7 @@ func addShare() {
 
 
 
-#### 删除家庭成员
+### 删除家庭成员
 
 > 拥有者 (TYHomeRoleType_Owner) 可以删除管理员及以下角色，管理员 (TYHomeRoleType_Admin) 仅仅可以删除普通成员及以下角色
 >
@@ -662,7 +662,7 @@ func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
 
 
 
-#### 获取家庭成员列表
+### 获取家庭成员列表
 
 **接口说明**
 
@@ -708,7 +708,7 @@ func initMemberList() {
 
 
 
-#### 更新家庭成员的信息
+### 更新家庭成员的信息
 
 > 拥有者 (TYHomeRoleType_Owner) 可以修改管理员及以下角色，管理员 (TYHomeRoleType_Admin) 仅仅可以修改普通成员及以下角色
 
@@ -758,7 +758,7 @@ func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
 
 
 
-####  接受或拒绝家庭邀请
+###  接受或拒绝家庭邀请
 
 **接口说明**
 
@@ -808,7 +808,7 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 
 
-###对家庭下设备和群组进行排序
+### 对家庭下设备和群组进行排序
 
 **接口说明**
 
@@ -1053,7 +1053,7 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 
 
-### 房间信息管理
+## 房间信息管理
 
 单个房间信息管理相关的所有功能对应 `TuyaSmartRoom` 类，需要使用正确的 roomId 进行初始化。错误的 roomId 可能会导致初始化失败，返回 `nil`。
 
@@ -1061,7 +1061,9 @@ extension ViewController: TuyaSmartHomeDelegate {
 | :-----------: | :----------------------: |
 | TuyaSmartRoom | 房间信息及房间内设备管理 |
 
-#### 更新房间名称
+
+
+### 更新房间名称
 
 **接口说明**
 
@@ -1105,7 +1107,7 @@ func updateRoomName() {
 
 
 
-#### 添加设备到房间
+### 添加设备到房间
 
 **接口说明**
 
@@ -1151,7 +1153,7 @@ func addDevice() {
 
 
 
-#### 从房间中移除设备
+### 从房间中移除设备
 
 **接口说明**
 
@@ -1197,7 +1199,7 @@ func removeDevice() {
 
 
 
-#### 添加群组到房间
+### 添加群组到房间
 
 **接口说明**
 
@@ -1243,7 +1245,7 @@ func addGroup() {
 
 
 
-#### 从房间中移除群组
+### 从房间中移除群组
 
 **接口说明**
 
@@ -1289,7 +1291,7 @@ func removeGroup() {
 
 
 
-#### 批量修改房间与群组、设备的关系
+### 批量修改房间与群组、设备的关系
 
 **接口说明**
 
@@ -1335,9 +1337,11 @@ func saveBatchRoomRelation() {
 }
 ```
 
-### 家庭天气
 
-####  获取家庭天气简要参数
+
+## 家庭天气
+
+###  获取家庭天气简要参数
 
 **接口说明**
 
@@ -1393,7 +1397,8 @@ func getHomeWeatherSketch() {
 ```
 
 
-####   获取家庭天气详细参数
+
+### 获取家庭天气详细参数
 
 **接口说明**
 

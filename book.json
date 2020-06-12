@@ -11,7 +11,8 @@
     "expandable-chapters-small",
     "pageview-count",
     "language-picker",
-    "hide-element"
+    "hide-element",
+    "flexible-alerts"
   ],
   "pluginsConfig": {
     "prism": {
@@ -38,6 +39,33 @@
     },
     "hide-element": {
             "elements": [".gitbook-link"]
+    },
+    "flexible-alerts": {
+      "style": "flat",
+      "note": {
+        "label": {
+          "zh-hans": "提示",
+          "en": "Note"
+        }
+      },
+      "tip": {
+        "label": {
+          "zh-hans": "Tips",
+          "en": "Tip"
+        }
+      },
+      "warning": {
+        "label": {
+          "zh-hans": "警告",
+          "en": "Warning"
+        }
+      },
+      "danger": {
+        "label": {
+          "zh-hans": "注意",
+          "en": "Attention"
+        }
+      }
     }
   }
 }

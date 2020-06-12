@@ -1,5 +1,22 @@
 # Bluetooth Mesh SDK Guide
 
+
+## Prepare
+
+### Mobile System Requirements
+
+TuyaSmartHomeKit has been supported since iOS 8.0.
+
+### Permissions
+
+```
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>bluetooth description</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string></string>
+```
+
+
 ## Introduction
 
 Bluetooth Special Interest Group use bluetooth technology began to fully support Mesh networks. Bluetooth Mesh, that is, a Bluetooth device is formed into a network. Each Bluetooth device can communicate through Bluetooth devices in the network, and transmit Bluetooth information at one end to the other end through the mesh network.

@@ -2,9 +2,7 @@
 
 # 设备配网
 
-## 功能概述
-
-
+##  功能概述
 
 设备配网 SDK 提供了把智能设备配置上路由器的能力，具体包括：
 
@@ -12,27 +10,46 @@
 
 - 热点模式
 
-- 有线设备配网  
-
-- 子设备配网  
-
-- 蓝牙 Wi-Fi 双模配网
-
 - 摄像头二维码配网
 
-  
+- 有线设备配网 
 
-## 使用说明
+- 子设备配网 
 
-
-
-| 类名                               | 说明                                                       | 注意                   |
-| :--------------------------------- | :--------------------------------------------------------- | :--------------------- |
-| TuyaSmartActivator（单例）         | 提供快连模式、热点模式、有线设备激活、子设备激活等配网能力 | 需要在主线程中调用该类 |
-| TuyaSmartBLEManager （单例）       | 提供扫描蓝牙能力                                           | 需要在主线程中调用该类 |
-| TuyaSmartBLEWifiActivator （单例） | 提供蓝牙-WiFi 双模配网能力                                 | 需要在主线程中调用该类 |
+- 蓝牙设备配网
 
 
+
+
+
+
+| 名词       | 解释                                                     |
+| --------   | ------------------------------------------------------- |
+| Wi-Fi 设备   | 采用 Wi-Fi 模块连接路由器，和 APP 以及云端进行数据交互的智能设备。 |
+| EZ 模式      | 又称快连模式，APP 把配网数据包打包到802.11数据包的指定区域中，发送到周围环境；智能设备的 Wi-Fi 模块处于混杂模式下，监听捕获网络中的所有报文，按照约定的协议数据格式解析出 APP 发出配网信息包。 |
+| AP 模式      | 又称热点模式，手机作为 STA 连接智能设备的热点，双方建立一个 Socket 连接通过约定端口交互数据。 |
+| 摄像头扫码配网 | 摄像头设备通过扫描 APP 上的二维码获取配网数据信息 |
+| 有线设备 |通过有线网络连接路由器的设备，例如 ZigBee 有线网关、有线摄像头等|
+| 子设备 |通过网关来跟 APP 以及云端数据交互的设备，例如 ZigBee 子设备|
+| ZigBee | ZigBee 技术是一种近距离、低复杂度、低功耗、低速率、低成本的双向无线通讯技术。主要用于距离短、功耗低且传输速率不高的各种电子设备之间进行数据传输以及典型的有周期性数据、间歇性数据和低反应时间数据传输的应用。|
+| ZigBee 网关 | 融合 ZigBee 网络中协调器和 Wi-Fi 功能的设备，负责 ZigBee 网络的组建及数据信息存储。 |
+| ZigBee 子设备 | ZigBee 网络中的路由或者终端设备，负责数据转发或者终端控制响应。|
+
+
+
+
+
+## 使用须知
+
+进行设备配网之前，需要先了解 iOS Home SDK 基本逻辑，并使用 iOS Home SDK 完成登录创建家庭等基本操作
+
+| 类名                       | 说明                                                       | 注意                   |
+| :------------------------- | :--------------------------------------------------------- | :--------------------- |
+| TuyaSmartActivator（单例） | 提供快连模式、热点模式、有线设备激活、子设备激活等配网能力 | 需要在主线程中调用该类 |
+
+
+
+## 配网实现
 
 ### 快连模式
 
@@ -500,6 +517,12 @@ func stopConfigWifi() {
 
 
 
+### 摄像头二维码配网
+
+智能摄像机特有的二维码配网模式可以参考文档[二维码配网](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/zh-hans/resource/activitor.html#二维码配网).
+
+
+
 ### 有线设备配网
 
 有线设备已通过网线连接着网络，设备激活过程无需输入路由器的名称和密码。下图以 ZigBee 有线网关为例，描述有线网关配网流程
@@ -849,265 +872,9 @@ func stopActiveSubDevice() {
 }
 ```
 
+### 蓝牙设备配网
 
+蓝牙设备配网可以参考文档[涂鸦蓝牙体系](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/BLEs.html#涂鸦蓝牙体系).
 
-### 蓝牙 Wi-Fi 双模配网
 
-如果设备模块支持蓝牙协议，可以选择蓝牙 WiFi 配网方式，通过蓝牙将 WiFi 信息发送给设备，然后设备拿到 WiFi 信息后进行配网操作，该方案成功率较高
-
-```sequence
-Title: 蓝牙 WiFi 配网
-
-participant APP
-participant SDK
-participant device
-participant Service
-
-Note over device: 将设备重置
-APP->SDK: 发送搜寻设备指令
-SDK->device: 扫描蓝牙设备
-device->SDK: 返回设备信息
-SDK->APP: 返回设备信息
-
-APP->SDK: 激活设备（ssid、password等）
-SDK->device: 通过蓝牙发送激活信息
-Note over device: 连接路由器成功
-device->Service: 到云端激活注册
-Service-->device: 设备激活成功
-
-device->SDK: 返回激活成功信息
-SDK->APP: 返回成功设备信息
-
-Note over APP: 停止配网
-			
-			
-			
-			
-			
-		
-```
-
-
-
-#### 发现设备
-
-
-
-**接口说明**
-
-开始扫描接口
-
-```objc
-- (void)startListening:(BOOL)clearCache
-```
-
-
-
-**参数说明**
-
-| 参数       | 说明             |
-| ---------- | ---------------- |
-| clearCache | 是否清空缓存设备 |
-
-
-
-设备回调接口
-
-```objc
-- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo
-```
-
-
-
-**参数说明**
-
-| 参数       | 说明                   |
-| ---------- | ---------------------- |
-| deviceInfo | 扫描到的未激活设备信息 |
-
-
-
-**代码示例**
-
-Objc:
-
-```objective-c
-// 设置代理
-[TuyaSmartBLEManager sharedInstance].delegate = self;
-
-// 开始扫描
-[[TuyaSmartBLEManager sharedInstance] startListening:YES];
-
-
-/**
- 扫描到未激活的设备
- 
- @param deviceInfo 未激活设备信息 Model
- */
-- (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo {
-  
-}
-```
-
-Swift 示例:
-
-```swift
-TuyaSmartBLEManager.sharedInstance().delegate = self
-TuyaSmartBLEManager.sharedInstance().startListening(true)
-
-/**
- 扫描到未激活的设备
- 
- @param deviceInfo 未激活设备信息 Model
- */
-func didDiscoveryDevice(withDeviceInfo deviceInfo: TYBLEAdvModel) {
-  // 扫描到未激活的设备
-}
-```
-
-
-
-#### 设备激活
-
-扫描到未激活的设备后，可以进行设备激活并且注册到涂鸦云，并记录在家庭下
-
-
-
-**接口说明**
-
-```objective-c
-- (void)startConfigBLEWifiDeviceWithUUID:(NSString *)UUID
-                                  homeId:(long long)homeId
-                               productId:(NSString *)productId
-                                    ssid:(NSString *)ssid
-                                password:(NSString *)password
-                                timeout:(NSTimeInterval)timeout
-                                 success:(TYSuccessHandler)success
-                                 failure:(TYFailureHandler)failure;
-```
-
-
-
-**参数说明**
-
-| 参数      | 说明           |
-| --------- | -------------- |
-| UUID      | 设备唯一标识   |
-| homeId    | 当前家庭 Id    |
-| productId | 产品 Id        |
-| ssid      | 路由器热点名称 |
-| password  | 路由器热点密码 |
-| timeout   | 超时时间       |
-| success   | 操作成功回调   |
-| failure   | 操作失败回调   |
-
-
-
-**示例代码**
-
-Objc:
-
-```objective-c
-  [[TuyaSmartBLEWifiActivator sharedInstance] startConfigBLEWifiDeviceWithUUID:TYBLEAdvModel.uuid homeId:homeId productId:TYBLEAdvModel.productId ssid:ssid password:password  timeout:100 success:^{
-     // 激活成功
-        } failure:^{
-     // 激活失败
-        }];
-```
-
-Swift:
-
-```swift
-  TuyaSmartBLEWifiActivator.sharedInstance() .startConfigBLEWifiDevice(withUUID: TYBLEAdvModel.uuid, homeId: homeId, productId:TYBLEAdvModel.productId, ssid: ssid, password: password, timeout: 100, success: {
-            // 激活成功
-        }) {
-            // 激活失败
-        }
-```
-
-
-
-#### 设备激活回调
-
-
-
-**接口说明**
-
-```objc
-- (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error
-```
-
-
-
-**参数说明**
-
-| 参数        | 说明                                               |
-| ----------- | -------------------------------------------------- |
-| activator   | 配网使用 TuyaSmartBLEWifiActivator 对象实例        |
-| deviceModel | 配网成功时，返回此次配网的设备模型，失败时返回 nil |
-| error       | 配网失败时，标示错误信息，成功时为 nil             |
-
-
-
-**示例代码**
-
-Objc:
-
-```objective-c
-- (void)bleWifiActivator:(TuyaSmartBLEWifiActivator *)activator didReceiveBLEWifiConfigDevice:(TuyaSmartDeviceModel *)deviceModel error:(NSError *)error {
-    if (!error && deviceModel) {
-		//配网成功
-    }
-  
-    if (error) {
-        //配网失败
-    }
-}
-```
-
-Swift:
-
-```swift
-func bleWifiActivator(_ activator: TuyaSmartBLEWifiActivator, didReceiveBLEWifiConfigDevice deviceModel: TuyaSmartDeviceModel, error: Error) {
-    if (!error && deviceModel) {
-		//配网成功
-    }
-
-    if (error) {
-        //配网失败
-    }
-}
-```
-
-
-
-#### 停止发现设备
-
-**接口说明**
-
-```objc
-- (void)stopDiscover;
-```
-
-
-
-**示例代码**
-
-Objc:
-
-```objc
-[[TuyaSmartBLEWifiActivator sharedInstance] stopDiscover];
-```
-
-Swift :
-
-```swift
-TuyaSmartBLEWifiActivator.sharedInstance() .stopDiscover
-```
-
-
-
-### 摄像头二维码配网
-
-智能摄像机特有的二维码配网模式可以参考文档[二维码配网](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/zh-hans/resource/activitor.html#二维码配网).
 
