@@ -20,8 +20,6 @@ Single BLE Device is a devcie that able to **one-to-one connect to smart phone b
 
 ## Preparatory Work
 
-Tuya iOS Single BLE SDK （ Hereinafter referred to as BLE SDK or Single BLE SDK ），is developed on the basis of [TuyaSmart SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/)
-
 
 ### Bluetooth Status Monitor
 
