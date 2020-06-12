@@ -86,6 +86,8 @@
     * [查询群组](./resource/Group.md#查询群组)
 
 * [智能场景](./resource/SmartScene.md#智能场景)
+  - [场景条件](./resource/SmartScene.md#场景条件)
+  - [场景任务](./resource/SmartScene.md#场景任务)
   - [智能场景管理](./resource/SmartScene.md#智能场景管理)
   - [单个场景操作](./resource/SmartScene.md#单个场景操作)
   
