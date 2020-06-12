@@ -62,6 +62,8 @@
     * [Group callback event](./resource/Group.md#group-callback-event)
     * [Group data acquisition](./resource/Group.md#group-data-acquisition)
 * [Smart Scene](./resource/SmartScene.md#smart-scene)
+  - [Scene Condition](./resource/SmartScene.md#scene-condition)
+  - [Scene Action](./resource/SmartScene.md#scene-action)
   - [Smart Scene Management](./resource/SmartScene.md#smart-scene-management)
   - [Scene Operation](./resource/SmartScene.md#scene-operation)
 * [Message Center](./resource/Message.md#message-center)
