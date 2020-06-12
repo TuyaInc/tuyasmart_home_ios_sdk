@@ -61,7 +61,7 @@
     * [Sending group control command](./resource/Group.md#sending-group-control-command)
     * [Group callback event](./resource/Group.md#group-callback-event)
     * [Group data acquisition](./resource/Group.md#group-data-acquisition)
-* [Smart Scene](./resource/SmartSceneAbout.md)
+* [Smart Scene](./resource/SmartScene.md#smart-scene)
   - [Smart Scene Management](./resource/SmartScene.md#smart-scene-management)
   - [Scene Operation](./resource/SmartScene.md#scene-operation)
 * [Message Center](./resource/Message.md#message-center)
