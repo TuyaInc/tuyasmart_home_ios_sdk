@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/DeviceList/Controller/TYSwitchPanelViewController.h

@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/DeviceList/Controller/TYDeviceListViewController+ModuleConfig.h

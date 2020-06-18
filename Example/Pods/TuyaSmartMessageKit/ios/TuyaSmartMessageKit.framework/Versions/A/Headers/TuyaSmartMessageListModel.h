@@ -5,7 +5,10 @@
 //  Created by xuyongbo on 2017/9/11.
 //  Copyright © 2017年 Tuya. All rights reserved.
 //
+#import <Foundation/Foundation.h>
+#import "TuyaSmartMessageUtils.h"
 
+NS_ASSUME_NONNULL_BEGIN
 /// 消息附件
 @interface TuyaSmartMessageAttachModel : NSObject
 
@@ -25,7 +28,6 @@
 @property (nonatomic, strong) NSString *thumbUrl;
 
 @end
-
 
 ///消息列表
 @interface TuyaSmartMessageListModel : NSObject
@@ -80,7 +82,6 @@
  */
 @property (nonatomic, assign) NSInteger  alarmType;
 
-
 /**
  消息类型
  0: 系统消息
@@ -90,5 +91,12 @@
  */
 @property (nonatomic, assign) NSInteger msgType;
 
+/// 家庭ID home ID
+@property (nonatomic, assign) long long homeID;
+
+/// 家庭名称 home name
+@property (nonatomic, copy) NSString *homeName;
 
 @end
+
+NS_ASSUME_NONNULL_END

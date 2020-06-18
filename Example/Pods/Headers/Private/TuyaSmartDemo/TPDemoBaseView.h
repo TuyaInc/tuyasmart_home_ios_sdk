@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/Base/Views/TPDemoBaseView.h

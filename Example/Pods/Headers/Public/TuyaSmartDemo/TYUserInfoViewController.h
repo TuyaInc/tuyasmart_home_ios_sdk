@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/UserInfo/TYUserInfoViewController.h

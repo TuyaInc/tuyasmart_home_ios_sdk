@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/AddDevice/TYAPAddDeviceViewController.h
