@@ -17,7 +17,7 @@ PODS:
   - SDWebImage/Core (5.8.1)
   - TuyaSmartActivatorKit (3.17.2):
     - TuyaSmartDeviceKit
-  - TuyaSmartBaseKit (3.17.1):
+  - TuyaSmartBaseKit (3.17.6):
     - TuyaSmartUtil
     - YYModel
   - TuyaSmartBLEKit (3.17.0):
@@ -101,7 +101,7 @@ DEPENDENCIES:
   - TuyaSmartHomeKit
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - CocoaAsyncSocket
     - Masonry
     - MBProgressHUD
@@ -138,7 +138,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDWebImage: e3eae2eda88578db0685a0c88597fdadd9433f05
   TuyaSmartActivatorKit: 5f435035cb9ba3d8f00aa6d89b916b005ccac0a6
-  TuyaSmartBaseKit: 834ecf0e240a18f95574e4a0ef5bd8b43172747f
+  TuyaSmartBaseKit: 7450992991c7ccff63d28b2994d9d08202b63e3e
   TuyaSmartBLEKit: a3f5a6bc3f4f1552e7e02f8de059503e488d1c17
   TuyaSmartBLEMeshKit: 3372d597e87ceffb74e8e0b82d30536905cab47c
   TuyaSmartDemo: 6c07c97a7a82fbe4035e6428540ca7e31606c464
@@ -156,4 +156,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: ad276b6f8a04f3a4e82dd82e149e1c8e6554981a
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.5

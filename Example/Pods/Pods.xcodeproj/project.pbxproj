@@ -19,6 +19,7 @@
 				BD28E2A3CCEE0A9354AF834D55D1D261 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartBLEKit;
+			productName = TuyaSmartBLEKit;
 		};
 		0F4653499A29AFF5541C7C71DDB719BB /* TuyaSmartActivatorKit */ = {
 			isa = PBXAggregateTarget;
@@ -29,6 +30,7 @@
 				ECC45F45DEF84912C59B3C7D7EDD3CDA /* PBXTargetDependency */,
 			);
 			name = TuyaSmartActivatorKit;
+			productName = TuyaSmartActivatorKit;
 		};
 		11A0E3A74D6CC5BF4840BD76B3BCFD9D /* TuyaSmartFeedbackKit */ = {
 			isa = PBXAggregateTarget;
@@ -39,6 +41,7 @@
 				BA9A120B9D9E5E163A0797B1EA7AD25F /* PBXTargetDependency */,
 			);
 			name = TuyaSmartFeedbackKit;
+			productName = TuyaSmartFeedbackKit;
 		};
 		12F41A9D9852EC892919EF02A1637169 /* TuyaSmartDeviceKit */ = {
 			isa = PBXAggregateTarget;
@@ -51,6 +54,7 @@
 				19C4183892F78221B6CDBF479FB6A2E8 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartDeviceKit;
+			productName = TuyaSmartDeviceKit;
 		};
 		171BAD854D0EAF0017FA6D6A53D8F673 /* TuyaSmartHomeKit */ = {
 			isa = PBXAggregateTarget;
@@ -71,6 +75,7 @@
 				93974383DDA3456B2345A160AB1DFC34 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartHomeKit;
+			productName = TuyaSmartHomeKit;
 		};
 		1B4C0DD5FAAC47641D0889BB772D2352 /* TuyaSmartSocketChannelKit */ = {
 			isa = PBXAggregateTarget;
@@ -82,6 +87,7 @@
 				53BA6215F725E152DF3905FB0C410307 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartSocketChannelKit;
+			productName = TuyaSmartSocketChannelKit;
 		};
 		1BCE82A0EA51F09BE8A7AC9E6C02E1D1 /* TuyaSmartMessageKit */ = {
 			isa = PBXAggregateTarget;
@@ -92,6 +98,7 @@
 				C2576AF91C896147ED11B3891C4CD605 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartMessageKit;
+			productName = TuyaSmartMessageKit;
 		};
 		46EBE902EFCC5CFC61BC19B23D13127C /* TuyaSmartBaseKit */ = {
 			isa = PBXAggregateTarget;
@@ -103,6 +110,7 @@
 				B154C044490E7ABA21CBE5A7D5768FD8 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartBaseKit;
+			productName = TuyaSmartBaseKit;
 		};
 		49BE71013E3709FFC17FB9FC12BF7230 /* TYBluetooth */ = {
 			isa = PBXAggregateTarget;
@@ -112,6 +120,7 @@
 			dependencies = (
 			);
 			name = TYBluetooth;
+			productName = TYBluetooth;
 		};
 		61D9D7DF5BD51AC8990CD64569BE8D58 /* TuyaSmartSceneKit */ = {
 			isa = PBXAggregateTarget;
@@ -123,6 +132,7 @@
 				612782268BB94C1D37CBC150C4E3E4B2 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartSceneKit;
+			productName = TuyaSmartSceneKit;
 		};
 		691D622566C8D74D848F874C5729A71F /* TuyaSmartMQTTChannelKit */ = {
 			isa = PBXAggregateTarget;
@@ -134,6 +144,7 @@
 				9206926292F5AB47782F396AC6B3D51D /* PBXTargetDependency */,
 			);
 			name = TuyaSmartMQTTChannelKit;
+			productName = TuyaSmartMQTTChannelKit;
 		};
 		85EAF3BF92126577F2D2A2CCF6883D56 /* TuyaSmartUtil */ = {
 			isa = PBXAggregateTarget;
@@ -143,6 +154,7 @@
 			dependencies = (
 			);
 			name = TuyaSmartUtil;
+			productName = TuyaSmartUtil;
 		};
 		B9ED5194E665042005069EF06C82A050 /* OpenSSL-Universal */ = {
 			isa = PBXAggregateTarget;
@@ -152,6 +164,7 @@
 			dependencies = (
 			);
 			name = "OpenSSL-Universal";
+			productName = "OpenSSL-Universal";
 		};
 		E00F48D815B45234FDB34423D101A0F8 /* TuyaSmartTimerKit */ = {
 			isa = PBXAggregateTarget;
@@ -163,6 +176,7 @@
 				60C43734E95D72609F45AD18B54AE064 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartTimerKit;
+			productName = TuyaSmartTimerKit;
 		};
 		F3227B7A9C2E408E0596C8F98A049AC5 /* TuyaSmartBLEMeshKit */ = {
 			isa = PBXAggregateTarget;
@@ -178,6 +192,7 @@
 				A7C9D48B4BADC52752CBDF45E8034522 /* PBXTargetDependency */,
 			);
 			name = TuyaSmartBLEMeshKit;
+			productName = TuyaSmartBLEMeshKit;
 		};
 /* End PBXAggregateTarget section */
 
@@ -1065,7 +1080,7 @@
 		0EDDB1BD83C9458D664C92794798C226 /* YYModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-prefix.pch"; sourceTree = "<group>"; };
 		1071F4F6358E046BC13B4DCB0F367C13 /* UIView+TPDemoAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIView+TPDemoAdditions.m"; sourceTree = "<group>"; };
 		107A88561E46153D33B8CB42C8CB8920 /* ty_add@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_add@2x.png"; path = "TuyaSmartDemo/Classes/SmartScene/Assets/ty_add@2x.png"; sourceTree = "<group>"; };
-		10DB16AA7830F7602975522CCA8CB754 /* libPods-TuyaSmartHomeKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TuyaSmartHomeKit_Tests.a"; path = "libPods-TuyaSmartHomeKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		10DB16AA7830F7602975522CCA8CB754 /* libPods-TuyaSmartHomeKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TuyaSmartHomeKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		12615D09C57235EC70D8E909AA8B93E9 /* TuyaSmartKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TuyaSmartKit.h; path = Headers/TuyaSmartKit.h; sourceTree = "<group>"; };
 		134A67D7320DDA6540C8E029C174F507 /* SDImageIOCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageIOCoder.m; path = SDWebImage/Core/SDImageIOCoder.m; sourceTree = "<group>"; };
 		13515060E8E059E44766510D02472F20 /* SDImageCachesManagerOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCachesManagerOperation.h; path = SDWebImage/Private/SDImageCachesManagerOperation.h; sourceTree = "<group>"; };
@@ -1092,7 +1107,7 @@
 		1DEA6EF0DEB11EF2B716CFED969F7BA6 /* symhacks.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = symhacks.h; path = "include-ios/openssl/symhacks.h"; sourceTree = "<group>"; };
 		1DF540027D22EC42E579D8CF91A776E4 /* MQTTSSLSecurityPolicyTransport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSSLSecurityPolicyTransport.h; path = MQTTClient/MQTTClient/MQTTSSLSecurityPolicyTransport.h; sourceTree = "<group>"; };
 		1ED8931B2A50971E3E356D87D4085622 /* MQTTInMemoryPersistence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTInMemoryPersistence.m; path = MQTTClient/MQTTClient/MQTTInMemoryPersistence.m; sourceTree = "<group>"; };
-		1FFED36A657123030ABB700256D73F15 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMasonry.a; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFED36A657123030ABB700256D73F15 /* libMasonry.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMasonry.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		203D119029F25FC56306A2AB627DD797 /* Pods-TuyaSmartHomeKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-TuyaSmartHomeKit_Example-dummy.m"; sourceTree = "<group>"; };
 		206DCB3F9C31F946106ECF57E471CDCF /* TYDemoAPAddDeviceViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoAPAddDeviceViewController.h; sourceTree = "<group>"; };
 		21201EB76D86A8041CC69CC65F24B2FD /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/Core/SDWebImageManager.h; sourceTree = "<group>"; };
@@ -1153,10 +1168,10 @@
 		3E8426569EDFF634CC5EE05AA5C29B34 /* TuyaSmartFeedbackKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartFeedbackKit.xcconfig; sourceTree = "<group>"; };
 		3EB2D4DA956D5897FB0B9DC1637E4FA4 /* SDImageGIFCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageGIFCoder.m; path = SDWebImage/Core/SDImageGIFCoder.m; sourceTree = "<group>"; };
 		3F74FD8E516446EF9091CFEF619251E7 /* pem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pem.h; path = "include-ios/openssl/pem.h"; sourceTree = "<group>"; };
-		400FF55D0451E7A8F33A3D0D3E11C1B9 /* libReachability.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libReachability.a; path = libReachability.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		400FF55D0451E7A8F33A3D0D3E11C1B9 /* libReachability.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libReachability.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4017A21E1B541744EF0F753DAB23D7DF /* cast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cast.h; path = "include-ios/openssl/cast.h"; sourceTree = "<group>"; };
 		4019FCFDD882E75989A17BC37F08FE36 /* TYDemoPanelStringViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoPanelStringViewCell.h; sourceTree = "<group>"; };
-		4043E1FD35DD50B67C791E3B13F15FE5 /* libPods-TuyaSmartHomeKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-TuyaSmartHomeKit_Example.a"; path = "libPods-TuyaSmartHomeKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4043E1FD35DD50B67C791E3B13F15FE5 /* libPods-TuyaSmartHomeKit_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TuyaSmartHomeKit_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42221D40DA31000D77495C00F5F4C1DD /* NSObject+YYModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+YYModel.h"; path = "YYModel/NSObject+YYModel.h"; sourceTree = "<group>"; };
 		4277B622AE036EC159AE13E57738DBFF /* TPDemoViewUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TPDemoViewUtil.h; sourceTree = "<group>"; };
 		43ABE002885BCB97CAA0F10FA9A71C0A /* MASCompositeConstraint.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MASCompositeConstraint.h; path = Masonry/MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -1265,7 +1280,7 @@
 		6BDB7BB17057ED23AC4B3A27C56C2F2C /* TYDemoRegisterViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoRegisterViewController.h; sourceTree = "<group>"; };
 		6C025D871D58B29204F1471F29CBBA74 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6C8E5CFD4FD8D95C18812AA1DAF0A64C /* TYDemoPanelBoolViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoPanelBoolViewCell.h; sourceTree = "<group>"; };
-		6CBEFE4F9E22AFDC6347A739BB35FF8C /* libCocoaAsyncSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libCocoaAsyncSocket.a; path = libCocoaAsyncSocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6CBEFE4F9E22AFDC6347A739BB35FF8C /* libCocoaAsyncSocket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaAsyncSocket.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DBC288DEDD9A3F1C5F50FB44E43E34A /* SDDiskCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDDiskCache.h; path = SDWebImage/Core/SDDiskCache.h; sourceTree = "<group>"; };
 		6DDA753AE91D48C13EF9B5225CE46C70 /* SDAnimatedImagePlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImagePlayer.h; path = SDWebImage/Core/SDAnimatedImagePlayer.h; sourceTree = "<group>"; };
 		6E4849BDE36D212666189FABAE8D3A35 /* TYDemoEditActionNoDataTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoEditActionNoDataTableViewCell.m; sourceTree = "<group>"; };
@@ -1336,7 +1351,7 @@
 		8ABF229C3CE4995B9F57A8F0F86CAEBD /* SDImageCacheDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCacheDefine.h; path = SDWebImage/Core/SDImageCacheDefine.h; sourceTree = "<group>"; };
 		8ADD358714E4BC812F135CAFE32EA7BC /* ty_panel_minus@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_panel_minus@2x.png"; path = "TuyaSmartDemo/Classes/DeviceList/Assets/ty_panel_minus@2x.png"; sourceTree = "<group>"; };
 		8B3A97447D0DFA41053EF3B843167E04 /* SDAnimatedImage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAnimatedImage.m; path = SDWebImage/Core/SDAnimatedImage.m; sourceTree = "<group>"; };
-		8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMBProgressHUD.a; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B8FAB0D627B17EDE1366984278705D9 /* libMBProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBProgressHUD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BC27219AEF34182B27E715B56B1E231 /* TYDemoDeviceListViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoDeviceListViewCell.m; sourceTree = "<group>"; };
 		8CD56FD63EF2863E5ABB2DC2E94A37C4 /* SDInternalMacros.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDInternalMacros.m; path = SDWebImage/Private/SDInternalMacros.m; sourceTree = "<group>"; };
 		8D604A207B2037F3A90994CB9EB70DD7 /* rsa.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = rsa.h; path = "include-ios/openssl/rsa.h"; sourceTree = "<group>"; };
@@ -1375,7 +1390,7 @@
 		9BB3413A7CE2A67F96D5CC48BFFA4870 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/Core/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		9CA165E845893C52625AB9425EE223D4 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/Core/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		9D66EC6DDD40CB96CCC8206D1C120927 /* TPDemoUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TPDemoUtils.m; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DD69811A37A5D4B9ACED7EB2D9B0080 /* SDImageIOAnimatedCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageIOAnimatedCoder.m; path = SDWebImage/Core/SDImageIOAnimatedCoder.m; sourceTree = "<group>"; };
 		9DEE8FB994738894162CDCDC62AAE8D4 /* MQTTLog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTLog.h; path = MQTTClient/MQTTClient/MQTTLog.h; sourceTree = "<group>"; };
 		9E8BE0F9916FC0A448F4F08D562275F8 /* ty_devicelist_dot_gray@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_devicelist_dot_gray@2x.png"; path = "TuyaSmartDemo/Classes/DeviceList/Assets/ty_devicelist_dot_gray@2x.png"; sourceTree = "<group>"; };
@@ -1416,7 +1431,7 @@
 		AED6DD59676FB8A02A19D57CF64C4B6E /* YYModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.xcconfig; sourceTree = "<group>"; };
 		AFEEB89F26AEC6F63EB7D669FD559C87 /* cmac.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cmac.h; path = "include-ios/openssl/cmac.h"; sourceTree = "<group>"; };
 		B0A62953AAF47C7CA1F9E24363B0074B /* ty_devicelist_share_green@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_devicelist_share_green@3x.png"; path = "TuyaSmartDemo/Classes/DeviceList/Assets/ty_devicelist_share_green@3x.png"; sourceTree = "<group>"; };
-		B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSDWebImage.a; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B214D775196BA7CA8E17E53048A493 /* libSDWebImage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSDWebImage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B6EE4AF63D7DD351CD9CC866711EBF /* ty_mainbt_add@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_mainbt_add@3x.png"; path = "TuyaSmartDemo/Classes/Base/Assets/ty_mainbt_add@3x.png"; sourceTree = "<group>"; };
 		B12C01E75BBC73870AB72B7ADB0F344B /* TuyaSmartDemo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartDemo.xcconfig; sourceTree = "<group>"; };
 		B19FA3E5FFEE22E4F500370D35194595 /* TYBluetooth.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TYBluetooth.xcconfig; sourceTree = "<group>"; };
@@ -1442,7 +1457,7 @@
 		BF6A4F83C30C27736D184410159EC5DA /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/Core/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		C0421FE3BC4E6112E0142EF951D46EC3 /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/Core/UIImage+GIF.m"; sourceTree = "<group>"; };
 		C099A306E0DA6B373AB04828D3EACC07 /* MQTTCFSocketEncoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTCFSocketEncoder.m; path = MQTTClient/MQTTClient/MQTTCFSocketEncoder.m; sourceTree = "<group>"; };
-		C0E79AD53820186F5DE86726D150F447 /* libMQTTClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libMQTTClient.a; path = libMQTTClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E79AD53820186F5DE86726D150F447 /* libMQTTClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMQTTClient.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1AEB441F5B6EB3C196CBB5273707E79 /* cms.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = cms.h; path = "include-ios/openssl/cms.h"; sourceTree = "<group>"; };
 		C23636FC552A0C842254F089537D283D /* tp_top_bar_back@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "tp_top_bar_back@3x.png"; path = "TuyaSmartDemo/Classes/Base/Assets/tp_top_bar_back@3x.png"; sourceTree = "<group>"; };
 		C23971349020F4AC3C0946008C895F27 /* ty_mainbt_about_active@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_mainbt_about_active@3x.png"; path = "TuyaSmartDemo/Classes/Base/Assets/ty_mainbt_about_active@3x.png"; sourceTree = "<group>"; };
@@ -1533,7 +1548,7 @@
 		E2D4A41D83057948397890EBAE7F7A8D /* NSBezierPath+SDRoundedCorners.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSBezierPath+SDRoundedCorners.h"; path = "SDWebImage/Private/NSBezierPath+SDRoundedCorners.h"; sourceTree = "<group>"; };
 		E39C4324E9D240AE5E9EEE385B1DDCD2 /* TYDemoLoginViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoLoginViewController.h; sourceTree = "<group>"; };
 		E4263CA30F021FEC62C84E64F2639AF6 /* ty_panel_minus@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_panel_minus@3x.png"; path = "TuyaSmartDemo/Classes/DeviceList/Assets/ty_panel_minus@3x.png"; sourceTree = "<group>"; };
-		E460D5B0416D36F66EE8EC89E5D2FA0A /* libYYModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYYModel.a; path = libYYModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E460D5B0416D36F66EE8EC89E5D2FA0A /* libYYModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYYModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E46C067F6C4FAB9F62B14A1BDB4E6679 /* SDImageCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoder.h; path = SDWebImage/Core/SDImageCoder.h; sourceTree = "<group>"; };
 		E4A556BD4F94751B1FFD9E7963C53C52 /* TuyaSmartSocketChannelKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuyaSmartSocketChannelKit.framework; path = ios/TuyaSmartSocketChannelKit.framework; sourceTree = "<group>"; };
 		E4B292D8E6C669CEDCB635A23217C110 /* TYDemoLoginViewController+Route.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TYDemoLoginViewController+Route.m"; sourceTree = "<group>"; };
@@ -1557,7 +1572,7 @@
 		EDE6D31C59330A688C4E030240862861 /* TuyaSmartSceneKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuyaSmartSceneKit.framework; path = ios/TuyaSmartSceneKit.framework; sourceTree = "<group>"; };
 		EDFA7BD6C2E56E924CEF86369679CE24 /* bio.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = bio.h; path = "include-ios/openssl/bio.h"; sourceTree = "<group>"; };
 		EE45E675B1EA94F89C4E8898DA0F1213 /* Pods-TuyaSmartHomeKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-TuyaSmartHomeKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EE628B70A2119C3F1942023B419BFCC6 /* libTuyaSmartDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libTuyaSmartDemo.a; path = libTuyaSmartDemo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE628B70A2119C3F1942023B419BFCC6 /* libTuyaSmartDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTuyaSmartDemo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE8BFE35C4D7C370983D7593F604F368 /* SDAnimatedImageView+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "SDAnimatedImageView+WebCache.h"; path = "SDWebImage/Core/SDAnimatedImageView+WebCache.h"; sourceTree = "<group>"; };
 		EF25D464245794D091710D28F8D8BE65 /* ty_scene_add_action@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_scene_add_action@3x.png"; path = "TuyaSmartDemo/Classes/SmartScene/Assets/ty_scene_add_action@3x.png"; sourceTree = "<group>"; };
 		EF821D2B93DDE0344C7B75691C4F5FDB /* SDImageGIFCoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageGIFCoder.h; path = SDWebImage/Core/SDImageGIFCoder.h; sourceTree = "<group>"; };
@@ -1700,7 +1715,6 @@
 				07CC672C43610682BAD9EE922A7BFAD1 /* UIView+TPDemoAdditions.h */,
 				1071F4F6358E046BC13B4DCB0F367C13 /* UIView+TPDemoAdditions.m */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -1891,7 +1905,6 @@
 				E83E22A70DB2FF34B528ADE79BE87078 /* Frameworks */,
 				160AEC410B339DFE7BC522CA2DAE2783 /* Support Files */,
 			);
-			name = "OpenSSL-Universal";
 			path = "OpenSSL-Universal";
 			sourceTree = "<group>";
 		};
@@ -1911,7 +1924,6 @@
 				24E6FED76EB2A21177D5D2374456B6F5 /* Min */,
 				188D5C56E84DF52A10493F1495B3B9BC /* Support Files */,
 			);
-			name = MQTTClient;
 			path = MQTTClient;
 			sourceTree = "<group>";
 		};
@@ -1921,7 +1933,6 @@
 				6F919F6107B6A74D9220C9CB2B470DDC /* Frameworks */,
 				678AE81EF257C4A79E1769162D24897E /* Support Files */,
 			);
-			name = TuyaSmartTimerKit;
 			path = TuyaSmartTimerKit;
 			sourceTree = "<group>";
 		};
@@ -2044,7 +2055,6 @@
 				A5092B2F81155C6B23A3B41526EA8E10 /* Frameworks */,
 				81279AF2B4DD9AE48E504D8C1BE8514E /* Support Files */,
 			);
-			name = TuyaSmartBaseKit;
 			path = TuyaSmartBaseKit;
 			sourceTree = "<group>";
 		};
@@ -2054,7 +2064,6 @@
 				974A82A8DDA046221A1AF958429BBA4F /* Frameworks */,
 				50B4FEDC3F7A08CA3D51CFFC15E87E4F /* Support Files */,
 			);
-			name = TuyaSmartFeedbackKit;
 			path = TuyaSmartFeedbackKit;
 			sourceTree = "<group>";
 		};
@@ -2132,7 +2141,6 @@
 				E6D53929702F99F0AE30EB306D20E8D4 /* Frameworks */,
 				9FB76C27ECCC27CA0CCA9D2E082B5E1B /* Support Files */,
 			);
-			name = TYBluetooth;
 			path = TYBluetooth;
 			sourceTree = "<group>";
 		};
@@ -2175,7 +2183,6 @@
 				247620F730F8F27E28F4CC32CAF4D582 /* ViewController+MASAdditions.m */,
 				8E862CF25C698F7B35B69D5405512A03 /* Support Files */,
 			);
-			name = Masonry;
 			path = Masonry;
 			sourceTree = "<group>";
 		};
@@ -2277,7 +2284,6 @@
 				5ADF2D686F1D4AE7B824B42D7A068D76 /* UIViewController+TPDemoCategory.h */,
 				6AB9999A4816BD87040A3153ED1AF732 /* UIViewController+TPDemoCategory.m */,
 			);
-			name = Utils;
 			path = Utils;
 			sourceTree = "<group>";
 		};
@@ -2287,7 +2293,6 @@
 				5BC2340B90CF43FE013F8B127AE8A077 /* Frameworks */,
 				4791387450530CF54DC37863F288429D /* Support Files */,
 			);
-			name = TuyaSmartMessageKit;
 			path = TuyaSmartMessageKit;
 			sourceTree = "<group>";
 		};
@@ -2298,7 +2303,6 @@
 				0C4C0566ABDF0350B2F7CF51E477066D /* Reachability.m */,
 				E4D36B2C59EACC68B95B1713B1997ED4 /* Support Files */,
 			);
-			name = Reachability;
 			path = Reachability;
 			sourceTree = "<group>";
 		};
@@ -2347,7 +2351,6 @@
 				AD6A649F8D314E832951116C8D67DFB4 /* Frameworks */,
 				3C29ECDB078353B01B953AE9C5135981 /* Support Files */,
 			);
-			name = TuyaSmartDeviceKit;
 			path = TuyaSmartDeviceKit;
 			sourceTree = "<group>";
 		};
@@ -2361,7 +2364,6 @@
 				AB9763A5551956D0C18118FC387BA4DF /* YYModel.h */,
 				761E3FF7724D6855C6D8B895E678C84C /* Support Files */,
 			);
-			name = YYModel;
 			path = YYModel;
 			sourceTree = "<group>";
 		};
@@ -2382,7 +2384,6 @@
 				40E2E8825CA73AC03376CAF84AF557D3 /* Frameworks */,
 				13463F6AC551C433C83844A749D5AE08 /* Support Files */,
 			);
-			name = TuyaSmartBLEMeshKit;
 			path = TuyaSmartBLEMeshKit;
 			sourceTree = "<group>";
 		};
@@ -2404,7 +2405,6 @@
 				34C3FAB460E23CA3A6A7E9F3985B5403 /* GCDAsyncUdpSocket.m */,
 				9C638912D14E84585D55C023066493E3 /* Support Files */,
 			);
-			name = CocoaAsyncSocket;
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
@@ -2484,7 +2484,6 @@
 				84ACFF32B38F490F2100FDC3CD1B97FB /* Core */,
 				5DD86F4E797CF121F89F05B684DEEB19 /* Support Files */,
 			);
-			name = SDWebImage;
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
@@ -2652,7 +2651,6 @@
 				6C025D871D58B29204F1471F29CBBA74 /* MBProgressHUD.m */,
 				25AB9F8F581E49AC54B92E7B29D85877 /* Support Files */,
 			);
-			name = MBProgressHUD;
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
@@ -2729,7 +2727,6 @@
 				487CAB0D42C6B890C8D99908E63002C5 /* Frameworks */,
 				FF8C82539746F90CA9538941DA715178 /* Support Files */,
 			);
-			name = TuyaSmartActivatorKit;
 			path = TuyaSmartActivatorKit;
 			sourceTree = "<group>";
 		};
@@ -2748,7 +2745,6 @@
 				0F4E73FD8838F7D9491851F431E0F369 /* Frameworks */,
 				4C8FD67343A82C5FC73B796CCF78F64E /* Support Files */,
 			);
-			name = TuyaSmartMQTTChannelKit;
 			path = TuyaSmartMQTTChannelKit;
 			sourceTree = "<group>";
 		};
@@ -2772,7 +2768,6 @@
 				1CC0FF6BD9DAA29F6F266AD1244C45C0 /* TYDemoTabBarViewController.h */,
 				4D93D0B5967EBC24EB1CE9D0E4BF9F93 /* TYDemoTabBarViewController.m */,
 			);
-			name = Controller;
 			path = Controller;
 			sourceTree = "<group>";
 		};
@@ -2783,7 +2778,6 @@
 				9836DB49F8C4BEF742D06BD79D32D21E /* Resources */,
 				15C79DAD5F18A73856D9AD6111A17CFB /* Support Files */,
 			);
-			name = TuyaSmartUtil;
 			path = TuyaSmartUtil;
 			sourceTree = "<group>";
 		};
@@ -2809,7 +2803,6 @@
 				AC41BFED8906A797C7B2CD884391DD17 /* Frameworks */,
 				C5099F6615E12DE30D0C1387333B18F4 /* Support Files */,
 			);
-			name = TuyaSmartBLEKit;
 			path = TuyaSmartBLEKit;
 			sourceTree = "<group>";
 		};
@@ -2923,7 +2916,6 @@
 				595A4DEC49F1330DDADA65D65E156D84 /* Frameworks */,
 				1DD63B2CB535DA0F309DCE119D5AD1D3 /* Support Files */,
 			);
-			name = TuyaSmartSocketChannelKit;
 			path = TuyaSmartSocketChannelKit;
 			sourceTree = "<group>";
 		};
@@ -2933,7 +2925,6 @@
 				12615D09C57235EC70D8E909AA8B93E9 /* TuyaSmartKit.h */,
 				07DC3EFA29FADA4546D0F246681FF2B7 /* Support Files */,
 			);
-			name = TuyaSmartHomeKit;
 			path = TuyaSmartHomeKit;
 			sourceTree = "<group>";
 		};
@@ -2970,7 +2961,6 @@
 				C272A80AA744B224E2B3CF8C35B19BB6 /* Frameworks */,
 				EA7F17E76558F368A63DD046E59758A4 /* Support Files */,
 			);
-			name = TuyaSmartSceneKit;
 			path = TuyaSmartSceneKit;
 			sourceTree = "<group>";
 		};
@@ -3581,7 +3571,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				"zh-Hans",
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			productRefGroup = 4B1944ECD644B581644A08B196088F7B /* Products */;
@@ -4852,8 +4842,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
 			};
