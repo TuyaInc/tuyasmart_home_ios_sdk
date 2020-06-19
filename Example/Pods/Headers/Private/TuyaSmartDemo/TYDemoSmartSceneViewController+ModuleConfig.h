@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/SmartScene/ModuleConfig/TYDemoSmartSceneViewController+ModuleConfig.h

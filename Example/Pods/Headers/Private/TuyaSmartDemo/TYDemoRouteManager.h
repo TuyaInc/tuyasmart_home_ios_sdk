@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/Manager/TYDemoRouteManager.h
