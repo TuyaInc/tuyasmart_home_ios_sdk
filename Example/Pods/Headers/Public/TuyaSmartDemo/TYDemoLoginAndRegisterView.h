@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/Login/Views/TYDemoLoginAndRegisterView.h

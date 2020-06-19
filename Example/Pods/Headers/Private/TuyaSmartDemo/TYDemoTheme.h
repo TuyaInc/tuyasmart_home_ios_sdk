@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/Base/Utils/TYDemoTheme.h
