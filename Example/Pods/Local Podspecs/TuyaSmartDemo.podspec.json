@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
-    "tag": "0.8.1"
+    "branch": "master"
   },
   "platforms": {
     "ios": "8.0"

@@ -1,1 +1,0 @@
-../../../../../TuyaSmartDemo/Classes/AddDevice/TYAddZigBeeViewController.h

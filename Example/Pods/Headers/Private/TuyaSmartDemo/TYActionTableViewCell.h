@@ -1,1 +1,0 @@
-../../../../../TuyaSmartDemo/Classes/SmartScene/View/TYActionTableViewCell.h

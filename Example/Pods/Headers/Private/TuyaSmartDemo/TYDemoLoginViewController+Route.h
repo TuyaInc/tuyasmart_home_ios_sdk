@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/Login/ModuleConfig/TYDemoLoginViewController+Route.h

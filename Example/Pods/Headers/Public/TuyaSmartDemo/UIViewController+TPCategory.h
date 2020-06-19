@@ -1,1 +1,0 @@
-../../../../../TuyaSmartDemo/Classes/Base/Utils/UIViewController+TPCategory.h
