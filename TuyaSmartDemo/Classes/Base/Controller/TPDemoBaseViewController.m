@@ -8,7 +8,7 @@
 
 #import "TPDemoBaseViewController.h"
 #import "TPDemoProgressUtils.h"
-#import "UIViewController+TPCategory.h"
+#import "UIViewController+TPDemoCategory.h"
 
 @interface TPDemoBaseViewController()
 
@@ -164,9 +164,9 @@
     [TPDemoProgressUtils hideHUDForView:nil animated:NO];
 }
 
-- (TPTopBarView *)topBarView {
+- (TPDemoTopBarView *)topBarView {
     if (!_topBarView) {
-        _topBarView = [TPTopBarView new];
+        _topBarView = [TPDemoTopBarView new];
         //        _topBarView.bottomLineHidden = YES;
         
         //        _topBarView.layer.shadowColor = HEXCOLORA(0x000000, 0.1).CGColor;
@@ -245,7 +245,7 @@
     }
 }
 
-- (TPEmptyView *)emptyView {
+- (TPDemoEmptyView *)emptyView {
     if (!_emptyView) {
         NSString *title = [self titleForEmptyView];
         NSString *subTitle = [self subTitleForEmptyView];
@@ -254,9 +254,9 @@
         CGRect emptyViewFrame = CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_SCREEN_WIDTH, APP_VISIBLE_HEIGHT);
         if (title.length > 0 && subTitle.length > 0) {
             
-            _emptyView = [[TPEmptyView alloc] initWithFrame:emptyViewFrame title:title subTitle:subTitle];
+            _emptyView = [[TPDemoEmptyView alloc] initWithFrame:emptyViewFrame title:title subTitle:subTitle];
         } else {
-            _emptyView = [[TPEmptyView alloc] initWithFrame:emptyViewFrame title:title imageName:imageName];
+            _emptyView = [[TPDemoEmptyView alloc] initWithFrame:emptyViewFrame title:title imageName:imageName];
         }
         
         _emptyView.hidden = YES;

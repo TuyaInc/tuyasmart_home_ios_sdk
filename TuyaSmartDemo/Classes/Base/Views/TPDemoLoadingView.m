@@ -7,8 +7,8 @@
 //
 
 #import "TPDemoLoadingView.h"
-#import "TPViewConstants.h"
-#import "UIView+TPAdditions.h"
+#import "TPDemoViewConstants.h"
+#import "UIView+TPDemoAdditions.h"
 
 
 @implementation TPDemoLoadingView

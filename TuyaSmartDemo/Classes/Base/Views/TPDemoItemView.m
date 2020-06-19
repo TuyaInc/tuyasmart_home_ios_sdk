@@ -8,7 +8,7 @@
 
 #import "TPDemoItemView.h"
 #import "TPDemoViewUtil.h"
-#import "TPViews.h"
+#import "TPDemoViews.h"
 
 typedef enum {
     TPItemViewImagePositionLeft = 1,

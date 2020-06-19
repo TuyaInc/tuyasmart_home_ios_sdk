@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIView+TPAdditions.h"
+#import "UIView+TPDemoAdditions.h"
 
 #import "TPDemoViewUtil.h"
-#import "TPViewConstants.h"
+#import "TPDemoViewConstants.h"
 
 @interface TPDemoBaseView : UIView
 

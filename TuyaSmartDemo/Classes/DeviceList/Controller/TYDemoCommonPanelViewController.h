@@ -6,9 +6,9 @@
 //  Copyright © 2016年 Tuya. All rights reserved.
 //
 
-#import "TYPanelBaseViewController.h"
+#import "TYDemoPanelBaseViewController.h"
 
 
-@interface TYDemoCommonPanelViewController : TYPanelBaseViewController
+@interface TYDemoCommonPanelViewController : TYDemoPanelBaseViewController
 
 @end

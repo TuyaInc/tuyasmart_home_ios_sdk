@@ -7,8 +7,8 @@
 //
 
 #import "TPDemoProgressUtils.h"
-#import "TPTopBarView.h"
-#import "TPViewConstants.h"
+#import "TPDemoTopBarView.h"
+#import "TPDemoViewConstants.h"
 #import "TPDemoUtils.h"
 
 

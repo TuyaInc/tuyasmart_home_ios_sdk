@@ -7,7 +7,7 @@
 //
 
 #import "TYDemoTheme.h"
-#import "TPTopBarView.h"
+#import "TPDemoTopBarView.h"
 #import <WebKit/WebKit.h>
 #import <YYModel/YYModel.h>
 
@@ -73,7 +73,7 @@ static TYDemoTheme *_theme = nil;
 }
 
 + (void)initTPTopBarView {
-    TPTopBarView *topBarView = [TPTopBarView appearance];
+    TPDemoTopBarView *topBarView = [TPDemoTopBarView appearance];
     topBarView.textColor = [TYDemoTheme theme].status_font_color;
     topBarView.lineColor = [TYDemoTheme theme].list_line_color;
     topBarView.backgroundColor = [TYDemoTheme theme].status_bg_color;

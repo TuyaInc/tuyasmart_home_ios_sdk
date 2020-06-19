@@ -44,6 +44,9 @@
     // 开启日志打印
     [[TuyaSmartSDK sharedInstance] setDebugMode:YES];
 #endif
+    if (config.bundleId.length > 0) {
+        [[TuyaSmartSDK sharedInstance] setValue:config.bundleId forKey:@"bundleId"];
+    }
     
     [config.extendDatas enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
          [[TuyaSmartSDK sharedInstance] setValue:obj forKey:key];

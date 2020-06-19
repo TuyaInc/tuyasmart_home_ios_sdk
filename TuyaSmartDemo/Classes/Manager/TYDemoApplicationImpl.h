@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *appKey;
 @property (nonatomic, strong) NSString *secretKey;
 
+@property (nonatomic, strong) NSString *bundleId;
+
 // {"key": vlaue}, will call sdk. setValue:(nullable id)value forKey:(NSString *)key
 @property (nonatomic, strong) NSDictionary *extendDatas;
 

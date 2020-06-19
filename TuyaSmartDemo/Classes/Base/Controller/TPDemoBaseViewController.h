@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TPDemoLoadingView.h"
-#import "TPTopBarView.h"
-#import "TPEmptyView.h"
+#import "TPDemoTopBarView.h"
+#import "TPDemoEmptyView.h"
 
 @interface TPDemoBaseViewController : UIViewController
 
-@property (nonatomic, strong) TPTopBarView    *topBarView;
+@property (nonatomic, strong) TPDemoTopBarView    *topBarView;
 
 @property (nonatomic, strong) TPDemoBarButtonItem *rightTitleItem;
 
@@ -30,7 +30,7 @@
 @property (nonatomic, strong) TPDemoLoadingView   *loadingView;
 
 @property (nonatomic, assign) BOOL             statusBarHidden;
-@property (nonatomic, strong) TPEmptyView    *emptyView;
+@property (nonatomic, strong) TPDemoEmptyView    *emptyView;
 
 
 
