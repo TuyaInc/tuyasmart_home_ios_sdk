@@ -119,7 +119,12 @@
 
 * [Extension SDK](./resource/ExtensionAbout.md)
   * [IPC SDK](./resource/Extension.md#ipc-sdk)
-  * [Sweeper SDK](./resource/Extension.md#Sweeper-sdk)
+  * [Sweeper SDK](./resource/Sweeper.md#Sweeper-sdk)
+    - [Gyroscope and Visual Sweeper](./resource/SweeperInterface.md)
+    - [Laser Sweeper](./resource/SweeperLaser.md)
+    - [Voice Package Download](./resource/SweeperVoiceDownload.md)
+    - [Glossary](./resource/SweeperWordIntroduction.md)
+    - [Change Log](./resource/SweeperChangeLog.md)
   * [Smart Lock SDK](./resource/Lock.md)
     - [Wi-Fi Lock](./resource/WiFiLock.md)
     - [BLE Lock](./resource/BLELock.md)

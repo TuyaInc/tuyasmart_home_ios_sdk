@@ -17,23 +17,3 @@
 [iOS IPC SDK 链接](https://github.com/TuyaInc/tuyasmart_camera_ios_sdk)
 
 [iOS IPC SDK 文档链接](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/zh-hans/)
-
-
-
-## 扫地机 SDK
-
-###  功能概述
-
-涂鸦智能扫地机 iOS SDK 是在 Home SDK 的基础上扩展了接入扫地机设备相关功能的接口封装，加速开发过程。主要包括了以下功能：
-
-- 流媒体（用于陀螺仪型或视觉型扫地机）通用数据通道
-- 激光型扫地机数据传输通道
-- 激光型扫地机实时/历史清扫记录
-- 扫地机通用语音下载服务
-
-
-
-[iOS Sweeper SDK 链接](https://github.com/TuyaInc/tuyasmart_sweeper_ios_sdk)
-
-[iOS Sweeper SDK 文档链接](https://github.com/TuyaInc/tuyasmart_sweeper_ios_sdk)
-

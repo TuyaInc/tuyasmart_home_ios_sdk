@@ -138,7 +138,12 @@
 
 * [垂直品类 SDK](./resource/ExtensionAbout.md)
   * [IPC SDK](./resource/Extension.md#ipc-sdk)
-  * [扫地机 SDK](./resource/Extension.md#扫地机-sdk)
+  * [扫地机 SDK](./resource/Sweeper.md#扫地机-sdk)
+    - [陀螺仪和视觉扫地机](./resource/SweeperInterface.md)
+    - [激光扫地机](./resource/SweeperLaser.md)
+    - [语音包下载](./resource/SweeperVoiceDownload.md)
+    - [名词解释](./resource/SweeperWordIntroduction.md)
+    - [更新日志](./resource/SweeperChangeLog.md)
   * [智能门锁 SDK](./resource/Lock.md)
     - [Wi-Fi 门锁](./resource/WiFiLock.md)
     - [蓝牙门锁](./resource/BLELock.md)
