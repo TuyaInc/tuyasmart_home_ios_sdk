@@ -97,8 +97,6 @@ static TYDemoTheme *_theme = nil;
 }
 
 + (void)initWebView {
-    UIWebView *webView = [UIWebView appearance];
-    webView.backgroundColor = [TYDemoTheme theme].app_bg_color;
     
     WKWebView *wkWebView = [WKWebView appearance];
     wkWebView.backgroundColor = [TYDemoTheme theme].app_bg_color;
