@@ -1,6 +1,6 @@
 ## 音视频功能
 
-除了实时视频直播，存储卡录像播放以外，Camera SDK 还提供了一些额外的音视频能力。
+除了实时视频直播，存储卡录像播放以外，IPC SDK 还提供了一些额外的音视频能力。
 
 ### 本地录制
 
@@ -137,7 +137,7 @@ func camera(_ camera: TuyaSmartCameraType!, didOccurredErrorAtStep errStepCode: 
 
 ### 视频截图
 
-同样的，当视频成功开始播放以后（可以是视频直播，也可以是录像回放），可以对当前显示的视频图像截图，Camera SDK 提供三种截图的方式。下面两种方式是`TuyaSmartCameraType` 对象提供的方法：
+同样的，当视频成功开始播放以后（可以是视频直播，也可以是录像回放），可以对当前显示的视频图像截图，IPC SDK 提供三种截图的方式。下面两种方式是`TuyaSmartCameraType` 对象提供的方法：
 
 **接口说明**
 
@@ -257,7 +257,7 @@ func snapShoot() {
 
 
 
-> 播放模式切换后（视频直播和录像回放之间切换）， Camera SDK 内部不会保留前一个播放模式的静音状态。即如果视频直播打开声音后，切换到了录像回放的模式，声音还是打开的，这时关闭声音，再次切换到视频直播模式，声音还是关闭的。所以切换模式后，需要同步一下期望的声音开关状态。
+> 播放模式切换后（视频直播和录像回放之间切换）， IPC SDK 内部不会保留前一个播放模式的静音状态。即如果视频直播打开声音后，切换到了录像回放的模式，声音还是打开的，这时关闭声音，再次切换到视频直播模式，声音还是关闭的。所以切换模式后，需要同步一下期望的声音开关状态。
 
 ### 实时对讲
 
@@ -495,7 +495,7 @@ func camera(_ camera: TuyaSmartCameraType!, didOccurredErrorAtStep errStepCode: 
 
 ### 裸流数据
 
-Camera SDK 提供访问视频裸流数据的代理回调方法，此方法返回视频帧的 YUV 数据，颜色编码格式为 YUV 420sp，iOS 中，对应于 `kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange` 格式。
+IPC SDK 提供访问视频裸流数据的代理回调方法，此方法返回视频帧的 YUV 数据，颜色编码格式为 YUV 420sp，iOS 中，对应于 `kCVPixelFormatType_420YpCbCr8BiPlanarVideoRange` 格式。
 
 **接口说明**
 
@@ -528,7 +528,7 @@ Camera SDK 提供访问视频裸流数据的代理回调方法，此方法返回
 
 
 
-如果你想要自己渲染视频图像，或者需要对视频图像做特殊处理，可以将`TuyaSmartCameraType`对象的`autoRender`属性设置为 `NO`，然后实现此代理方法，此时 Camera SDK 将不会自动渲染视频图像。
+如果你想要自己渲染视频图像，或者需要对视频图像做特殊处理，可以将`TuyaSmartCameraType`对象的`autoRender`属性设置为 `NO`，然后实现此代理方法，此时 IPC SDK 将不会自动渲染视频图像。
 
 可以将`sampleBuffer`直接强转为`CVPixelBufferRef`，如果你想要异步处理视频帧数据，请记得先 retain，否则此代理方法执行完成后，视频帧数据将会被释放，异步处理时会发生野指针异常。
 

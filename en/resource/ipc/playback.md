@@ -2,7 +2,7 @@
 
 Tuya smart camera support memory card recording. After the smart camera is inserted into the memory card, you can view the information and status of the memory card, and set the recording switch and mode. For details, please refer to [Memory card management](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/en/resource/sd_card.html).
 
-After the device saves the video recording in the memory card, it can play the video recording on the App side through the Camera SDK. Like the live video, it needs to connect to the p2p channel before starting playback. After the p2p channel is successfully connected, you can obtain the time information of the video clip recorded in the memory card on the device, and then play the video clip.
+After the device saves the video recording in the memory card, it can play the video recording on the App side through the IPC SDK. Like the live video, it needs to connect to the p2p channel before starting playback. After the p2p channel is successfully connected, you can obtain the time information of the video clip recorded in the memory card on the device, and then play the video clip.
 
 ### Video clip
 

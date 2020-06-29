@@ -139,7 +139,7 @@ Create a camera instance object.
 
 ### P2p type
 
-The Tuya smart camera SDK supports three p2p channel implementation. The SDK initializes different camera specific implementation objects according to the p2p type.
+The IPC SDK supports three p2p channel implementation. The SDK initializes different camera specific implementation objects according to the p2p type.
 
 ObjC
 
