@@ -1,6 +1,6 @@
 # Extension Features
 
-Camera SDK provide some extension functions base on data point (DP). If you do not know about data point, please refer to [Custom Device Control](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Device.html#custom-device-control).
+IPC SDK provide some extension functions base on data point (DP). If you do not know about data point, please refer to [Custom Device Control](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Device.html#custom-device-control).
 
 **Class and Protocol**
 

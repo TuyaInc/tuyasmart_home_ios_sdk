@@ -4,7 +4,7 @@
 
 ### Introduction
 
-Camera SDK encapsulated the camera features base on Home SDK. The SDK is divided into four parts: Utils, Communication Layer，Core layer, Business Layer.
+IPC SDK encapsulated the camera features base on Home SDK. The SDK is divided into four parts: Utils, Communication Layer，Core layer, Business Layer.
 
 * Utils provides some common tools method，ex: JSON serialization, string codec.
 * Communication Layer encapsulated  HTTP，MQTT，Socket，p2p network channels.
@@ -17,7 +17,7 @@ Camera SDK encapsulated the camera features base on Home SDK. The SDK is divided
 
 ### Component module
 
-The Camera SDK relies on some components in the Home SDK, including account management, home device management, device configuration, and basic communication module. When using Cocoapods to introduce Camera SDK, the dependent components will be automatically introduced.
+The IPC SDK relies on some components in the Home SDK, including account management, home device management, device configuration, and basic communication module. When using Cocoapods to introduce IPC SDK, the dependent components will be automatically introduced.
 
 **Modules**
 

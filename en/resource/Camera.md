@@ -1,8 +1,8 @@
-## Camera SDK
+## IPC SDK
 
 ### Features Overview
 
-Tuya Smart Camera SDK provides the interface package for the communication with camera hardware and Tuya Cloud to accelerate the application development process. The later chapters are collectively called Camera SDK, ncluding the following features:
+Tuya Smart Camera SDK provides the interface package for the communication with camera hardware and Tuya Cloud to accelerate the application development process. The later chapters are collectively called IPC SDK, ncluding the following features:
 
 - Preview the images captured by the camera in real time.
 - Play the video recorded in the camera's memory card.

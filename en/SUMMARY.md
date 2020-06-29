@@ -118,7 +118,7 @@
 
 
 * [Extension SDK](./resource/ExtensionAbout.md)
-  * [Camera SDK](./resource/Camera.md)
+  * [IPC SDK](./resource/Camera.md)
     * [Integrate SDK](./resource/ipc/rapid_integration.md)
     * [SDK Architecture](./resource/ipc/architecture.md)
     * [Camera Device](./resource/ipc/camera_device.md)

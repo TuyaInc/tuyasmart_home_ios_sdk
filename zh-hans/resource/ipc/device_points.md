@@ -1,6 +1,6 @@
 # 摄像设备功能点
 
-涂鸦智能设备通过设备功能点来控制设备，并且通过标准化的功能点实现设备与 App 之间的交互。Camera SDK 基于 [自定义设备控制](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AE%BE%E5%A4%87%E6%8E%A7%E5%88%B6) 封装了一套智能摄像机的扩展功能。
+涂鸦智能设备通过设备功能点来控制设备，并且通过标准化的功能点实现设备与 App 之间的交互。IPC SDK 基于 [自定义设备控制](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AE%BE%E5%A4%87%E6%8E%A7%E5%88%B6) 封装了一套智能摄像机的扩展功能。
 
 **类和协议**
 
@@ -122,7 +122,7 @@
 | success | 成功回调，并返回指定功能点当前的值                      |
 | failure | 失败回调，error 标示错误信息                            |
 
-> 除了部分存储卡状态的功能点，摄像机在功能点状态变化时，会主动上报到云端，Camera SDK 会实时更新设备功能点状态缓存，所以大部分情况下，直接获取缓存中功能点的值就可以了。
+> 除了部分存储卡状态的功能点，摄像机在功能点状态变化时，会主动上报到云端，IPC SDK 会实时更新设备功能点状态缓存，所以大部分情况下，直接获取缓存中功能点的值就可以了。
 
 > 异步查询功能点的值，是下发`NULL`到设备端，正常情况下，设备端收到`NULL`的功能点数据后，会主动上报一次对应功能点的值。但是这个行为是由摄像机厂商实现的，有些厂商没有处理这个逻辑，所以下发`NULL`后，会导致摄像机固件程序崩溃。所以在使用此接口时，请向厂商确定他们有对这些功能点正确处理`NULL`的逻辑。
 
@@ -211,7 +211,7 @@ func cameraDPDidUpdate(_ manager: TuyaSmartCameraDPManager!, dps dpsData: [AnyHa
 
 ## 功能点常量
 
-目前已开放的摄像机标准功能点，都以字符串常量的形式定义在 `TuyaSmartCameraDPManager.h`中，类型重定义为`TuyaSmartCameraDPKey`。常量名以 "TuyaSmartCamera"+"功能"+"DPName" 的形式组成。下面介绍 Camera SDK 中定义的所有功能点。
+目前已开放的摄像机标准功能点，都以字符串常量的形式定义在 `TuyaSmartCameraDPManager.h`中，类型重定义为`TuyaSmartCameraDPKey`。常量名以 "TuyaSmartCamera"+"功能"+"DPName" 的形式组成。下面介绍 IPC SDK 中定义的所有功能点。
 
 ### 基础功能
 
@@ -270,7 +270,7 @@ func cameraDPDidUpdate(_ manager: TuyaSmartCameraDPManager!, dps dpsData: [AnyHa
 
 ### 枚举型功能点
 
-字符串枚举类型功能点的取值范围，在 Camera SDK 中有定义相应的字符串枚举常量，存储卡状态是整型枚举，可在`TuyaSmartCameraDPManager.h`中查看具体的定义。
+字符串枚举类型功能点的取值范围，在 IPC SDK 中有定义相应的字符串枚举常量，存储卡状态是整型枚举，可在`TuyaSmartCameraDPManager.h`中查看具体的定义。
 
 | 功能点             | 值常量类型                  |
 | ------------------ | --------------------------- |

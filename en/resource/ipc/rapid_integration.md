@@ -2,9 +2,9 @@
 
 ## Solutions introduction
 
-Before integrate Tuya smart camera SDK, please learn about [Home SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/).
+Before integrate IPC SDK, please learn about [Home SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/).
 
-The Camera SDK depends on the user management, device configuration, home management, device management parts of the Home SDK, and on this basis, the functions of the smart camera device are realized.
+The IPC SDK depends on the user management, device configuration, home management, device management parts of the Home SDK, and on this basis, the functions of the smart camera device are realized.
 
 The Tuya Open Platform provides various integrate modes based on Tuya's mature IoT services, refer to [Solutions Introduction](https://docs.tuya.com/en/iot/open-api/quick-start/solution-overview).
 
@@ -12,9 +12,9 @@ The Tuya Open Platform provides various integrate modes based on Tuya's mature I
 
 Based on the partner own App, embed in Tuya's mini sdk (only includes the distribution network package: ssid, password and user token obtained from the cloud). Device status changes can't be pushed to the App directly, the pushing ability to rely on the partner's own cloud.
 
-However, since the camera cannot be controlled using open api, the Mini SDK solution still needs to integrate the Camera SDK.
+However, since the camera cannot be controlled using open api, the Mini SDK solution still needs to integrate the IPC SDK.
 
-You can use the open api provided by Tuya Cloud to develop user management, cloud storage, alarm detection, and functions based on data points. Use Tuya smart Camera SDK to develop the basic functions of camera like live video.
+You can use the open api provided by Tuya Cloud to develop user management, cloud storage, alarm detection, and functions based on data points. Use Tuya smart IPC SDK to develop the basic functions of camera like live video.
 
 **Modules**
 

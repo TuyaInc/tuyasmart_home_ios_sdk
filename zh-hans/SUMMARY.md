@@ -137,7 +137,7 @@
 
 
 * [垂直品类 SDK](./resource/ExtensionAbout.md)
-  * [Camera SDK](./resource/Camera.md)
+  * [IPC SDK](./resource/Camera.md)
     * [集成 SDK](./resource/ipc/rapid_integration.md)
     * [架构说明](./resource/ipc/architecture.md)
     * [摄像机](./resource/ipc/camera_device.md)
