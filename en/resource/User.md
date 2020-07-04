@@ -232,7 +232,11 @@ func resetPasswordByPhone() {
 }
 ```
 
-
+>[!TIP]
+>
+>After the password is reset, if multiple devices log in to the same account at the same time, other devices will trigger a callback for session failure. Please implement the actions after the callback, such as jumping to the login page.
+>
+>For more information, please refer to the chapter "Handling of Expired Session"
 
 ### Use Mobile Phone Verification Code for Login
 
