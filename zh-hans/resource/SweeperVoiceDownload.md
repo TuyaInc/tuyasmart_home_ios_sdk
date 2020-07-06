@@ -31,16 +31,16 @@
 | -------------------------- | -------------- |
 | TuyaSmartFileDownloadModel | 语音文件数据类 |
 
-| 属性        | 类型                | 说明                 |
-| ----------- | ------------------- | -------------------- |
-| fileId      | NSString            | 语音文件 Id          |
-| productId   | NSString            | 产品 Id              |
-| name        | NSString            | 语音文件名称         |
-| desc        | NSString            | 语音文件描述         |
-| auditionUrl | NSString            | 语音试听文件下载链接 |
-| officialUrl | NSString            | 语音正式文件下载链接 |
-| imgUrl      | NSString            | 语音文件图标下载链接 |
-| region      | NSArray<NSString *> | 区域码               |
+| 属性        | 类型               | 说明                 |
+| ----------- | ------------------ | -------------------- |
+| fileId      | NSString           | 语音文件 Id          |
+| productId   | NSString           | 产品 Id              |
+| name        | NSString           | 语音文件名称         |
+| desc        | NSString           | 语音文件描述         |
+| auditionUrl | NSString           | 语音试听文件下载链接 |
+| officialUrl | NSString           | 语音正式文件下载链接 |
+| imgUrl      | NSString           | 语音文件图标下载链接 |
+| region      | NSArray<NSString > | 区域码               |
 
 | 参数    | 说明                                          |
 | ------- | --------------------------------------------- |
@@ -63,6 +63,65 @@ Swift:
 
 ```swift
 sweeperDevice?.getFileDownloadInfo(success: { (upgradeFileList) in
+            
+        }, failure: { (error) in
+            
+        })
+```
+
+
+
+### 分页获取语音文件列表
+
+**接口说明**
+
+分页拉取当前扫地机设备可用的语音文件列表
+
+```objective-c
+- (void)getFileDownloadInfoWithLimit:(NSUInteger)limit offset:(NSUInteger)offset success:(void (^)(NSArray<TuyaSmartFileDownloadModel *> *upgradeFileList, NSUInteger totalCount))success failure:(void (^)(NSError * _Nullable error))failure
+```
+
+**参数说明**
+
+| 类名 | 说明 |
+| --- | --- |
+| TuyaSmartFileDownloadModel | 语音文件数据类 |
+
+| 属性 | 类型 | 说明 |
+| --- | --- | --- |
+| fileId      | NSString | 语音文件 Id |
+| productId   | NSString | 产品 Id |
+| name        | NSString | 语音文件名称 |
+| desc        | NSString | 语音文件描述 |
+| auditionUrl | NSString | 语音试听文件下载链接 |
+| officialUrl | NSString | 语音正式文件下载链接 |
+| imgUrl      | NSString | 语音文件图标下载链接 |
+| region      | NSArray<NSString > | 区域码 |
+| extendField | NSDictionary | 透传字段 |
+
+| 参数 | 说明 |
+| --- | --- |
+| limit | 一次获取数据的数量 |
+| offset | 获取数据的偏移量 |
+| success | 成功回调（upgradeFileList：可用语音文件列表） |
+| failure | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objective-c
+[self.sweeper getFileDownloadInfoWithLimit:50 offset:0 success:^(NSArray<TuyaSmartFileDownloadModel *> * _Nonnull upgradeFileList, NSUInteger totalCount) {
+        
+    } failure:^(NSError * _Nullable error) {
+        
+    }];
+```
+
+Swift:
+
+```swift
+sweeperDevice?.getFileDownloadInfo(withLimit: 50, offset: 0, success: { (list, count) in
             
         }, failure: { (error) in
             
