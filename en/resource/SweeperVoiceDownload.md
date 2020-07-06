@@ -39,7 +39,7 @@ Request the list of voice files available for the current sweeper device
 | auditionUrl | NSString            | Download link for audio audition file  |
 | officialUrl | NSString            | Download link for official voice files |
 | imgUrl      | NSString            | Voice file icon download link          |
-| region      | NSArray<NSString *> | Area code                              |
+| region      | NSArray<NSString > | Area code                              |
 
 | Parameter | Description                                                  |
 | --------- | ------------------------------------------------------------ |
@@ -62,6 +62,65 @@ Swift:
 
 ```swift
 sweeperDevice?.getFileDownloadInfo(success: { (upgradeFileList) in
+            
+        }, failure: { (error) in
+            
+        })
+```
+
+
+
+### Get Voice Package List by Page
+
+**Declaration**
+
+Request the list of voice files available for the current sweeper device by page.
+
+```objective-c
+- (void)getFileDownloadInfoWithLimit:(NSUInteger)limit offset:(NSUInteger)offset success:(void (^)(NSArray<TuyaSmartFileDownloadModel *> *upgradeFileList, NSUInteger totalCount))success failure:(void (^)(NSError * _Nullable error))failure
+```
+
+**Parameters**
+
+| Class                      | Description                  |
+| -------------------------- | ---------------------------- |
+| TuyaSmartFileDownloadModel | The class of voice file data |
+
+| Property    | Type                | Description                            |
+| ----------- | ------------------- | -------------------------------------- |
+| fileId      | NSString            | Voice file Id                          |
+| productId   | NSString            | Product Id                             |
+| name        | NSString            | Voice file name                        |
+| desc        | NSString            | Voice file description                 |
+| auditionUrl | NSString            | Download link for audio audition file  |
+| officialUrl | NSString            | Download link for official voice files |
+| imgUrl      | NSString            | Voice file icon download link          |
+| region      | NSArray<NSString > | Area code                              |
+| extendField | NSDictionary | Extend field |
+
+| Parameter | Description                                                  |
+| --------- | ------------------------------------------------------------ |
+| limit | The number of data obtained at a time |
+| offset | Get data offset (for paging) |
+| success   | success callback（upgradeFileList：List of available voice files） |
+| failure   | failure callback                                             |
+
+**Example**
+
+Objc:
+
+```objective-c
+[self.sweeper getFileDownloadInfoWithLimit:50 offset:0 success:^(NSArray<TuyaSmartFileDownloadModel *> * _Nonnull upgradeFileList, NSUInteger totalCount) {
+        
+    } failure:^(NSError * _Nullable error) {
+        
+    }];
+```
+
+Swift:
+
+```swift
+sweeperDevice?.getFileDownloadInfo(withLimit: 50, offset: 0, success: { (list, count) in
             
         }, failure: { (error) in
             
