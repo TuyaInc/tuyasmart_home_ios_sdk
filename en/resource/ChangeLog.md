@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.17.6(2020-07-09)
+
+- New Feature
+  - Smart scene of timing conditions related to sunrise and sunset
+  - Bug fixed
+
 ## 3.17.0(2020-04-27)
 
 - New Feature
