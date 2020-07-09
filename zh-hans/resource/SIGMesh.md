@@ -1,15 +1,16 @@
-# 标准蓝牙(SIG) Mesh SDK 使用说明
+# 蓝牙 Mesh (SIG)
 
 > 下文将标准蓝牙 Mesh 称作 SIG Mesh
 
 
-## 标准蓝牙(SIG) Mesh 介绍
+## 部分基础概念
 
 蓝牙技术联盟（Bluetooth Special Interest Group, 简称 SIG）蓝牙技术开始全面支持 Mesh 网状网络。蓝牙Mesh，也就是将蓝牙设备组成网络，每个蓝牙设备可以通过网络内的蓝牙设备进行通讯，将一端的蓝牙信息通过mesh 网络传到较远的另一端。
 
 标准蓝牙 Mesh 也叫做 SIG Mesh，是蓝牙技术联盟提出的 Mesh 网络的通讯标准。使用蓝牙 Mesh 进行组网及功能点的更新，均需要满足标准蓝牙 Mesh 的标准
 
-### 标准蓝牙(SIG) Mesh 的基本概念
+####  标准蓝牙(SIG) Mesh 的基本概念
+
 |  专有名词           | 说明            |
 | --------------- | ----------------|
 | 大小类         | 每个 mesh 设备都对应一款产品，每个产品都有自己的大小类标示，sdk 中以 `pcc`、`type` 作为大小类标示    |
@@ -42,11 +43,11 @@ SIG Mesh 产品规则
 
 
 
-## 标准蓝牙(SIG) Mesh 管理
+## 管理
 
 > `SIG Mesh` 的主要操作类都在 `TuyaSmartBleMesh+SIGMesh.h` 文件中
 
-### 创建 mesh
+### 创建 SIG Mesh
 
 一个家庭里可以拥有多个 `sig mesh`（建议一个家庭只创建一个），`sig mesh` 中所有操作都建立在家庭数据已经初始化的基础上
 
@@ -86,7 +87,7 @@ long long homeId = home.homeModel.homeId;
 
 
 
-###  删除 mesh
+###  删除 SIG Mesh
 
 **接口说明**
 
@@ -145,7 +146,7 @@ TuyaSmartHome *home = #<home 实例>
 }];
 ```
 
-### 获取 Mesh 实例
+### 获取 SIG Mesh 实例
 
 **接口说明**
 
@@ -167,9 +168,21 @@ TuyaSmartHome *home = #<home 实例>
 TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
 ```
 
-## 配网与入网
+### SIG Mesh 子设备的连接
 
-> sig mesh 的操作类集中在 `TuyaSmartSIGMeshManager` 中，且此类为单例
+**接口说明**
+
+```objective-c
+- (void)startScanWithScanType:(TuyaSmartSIGScanType)scanType 
+          meshModel:(TuyaSmartBleMeshModel *)meshModel;
+```
+需要连接 SIG Mesh 设备时，只需要 传入`ScanForProxyed`即可。
+该接口具体用户请详见 "配网" 步骤。
+
+
+## 配网
+
+> SIG Mesh 的操作类集中在 `TuyaSmartSIGMeshManager` 中，且此类为单例
 
 配网指的是将处于重置状态、未入网的设备，添加到 sig mesh 网中
 
@@ -180,7 +193,7 @@ TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
 | 灯       | 连续开关三次 | 灯快闪         |
 | 插座     | 长按开关 3s  | 插座指示灯快闪 |
 
-### 蓝牙扫描
+### 扫描待配网子设备
 
 **接口说明**
 
@@ -214,8 +227,6 @@ TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
                             meshModel:home.sigMeshModel];
 ```
 
-
-
 **接口说明**
 
 扫描到设备后，可在 `TuyaSmartSIGMeshManagerDelegate` 回调中实现以下方法，获取扫描到的设备。
@@ -233,13 +244,13 @@ TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
 | manager         | mesh manager        |
 | device         | 待配网设备信息       |
 
-### 子设备蓝牙配网
+### SIG Mesh 子设备蓝牙配网
 
 当扫描到周围有符合协议规范的待配网设备后，可以对这(些)进行配网
 
 配网，就是把未加入到 mesh 网络的蓝牙设备通过一定的通讯过程将其加入到 mesh 网络中
 
-####激活设备
+#### 激活设备
 
 **接口说明**
 
@@ -310,9 +321,6 @@ TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
 - (void)stopActiveDevice;
 ```
 
-### 子设备入网连接
-
-入网还是先经过扫描，只不过把扫描的类型换成 `ScanForProxyed`，后续即可自动入网连接
 
 #### mesh 连接标识
 
@@ -322,14 +330,34 @@ TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
 // mesh 本地连接标识，有设备通过蓝牙连接，此属性为 yes
 BOOL isLogin = [TuyaSmartSIGMeshManager sharedInstance].isLogin;
 ```
-
 ### SIG Mesh 网关配网
 
 SIG Mesh 网关配网为 EZ 配网，具体请参考 [ 快连模式（EZ配网）](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#快连模式（ez配网）)
+也可以使用单点蓝牙 Wi-Fi 双模配网 [蓝牙 Wi-Fi 双模配网](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#蓝牙-wi-fi-双模配网)
+
+### SIG Mesh 子设备网关配网
 
 SIG Mesh 网关激活子设备具体参考 [激活子设备](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#zigbee-子设备激活)
 
-## Mesh 设备
+
+### 配网错误码
+
+|  错误码           | 说明            |
+| --------------- | ----------------|
+| 701         | 连接错误        |
+| 702         | Composition 回复错误       |
+| 703         |   Composition 超时   |
+| 704         |   add appkey 失败   |
+| 705         |   add appkey 超时   |
+| 706         |   network transmit 回复错误   |
+| 707         |   network transmit 超时   |
+| 708         |   publication model 回复错误   |
+| 709         |   publication model 超时   |
+| 710         |   App bind 回复错误   |
+| 711         |   App bind 超时   |
+| 712         |   IdentifySet 超时   |
+
+## 设备
 
 > 和全屋 sdk 一样，设备类都是 `TuyaSmartDevice`，里面的 `TuyaSmartDeviceModel` 中的 `deviceType` 信息可以区分设备类型
 >
@@ -349,9 +377,9 @@ SIG Mesh 网关激活子设备具体参考 [激活子设备](https://tuyainc.git
 | --------------- | ----------------|
 | devId         | 设备Id        |
 
-### 本地连接和网关连接
+### SIG Mesh 本地连接和网关连接
 
-sig mesh 设备的在线情况分为两种
+SIG Mesh 设备的在线情况分为两种
 
 **本地连接**
 
@@ -367,7 +395,7 @@ sig mesh 设备的在线情况分为两种
 
 判断条件为: `deviceModel.isOnline && !deviceModel.isMeshBleOnline`
 
-### 获取设备状态
+### SIG Mesh 子设备状态查询
 
 **接口说明**
 
@@ -381,13 +409,11 @@ sig mesh 设备的在线情况分为两种
 | --------------- | ----------------|
 | deviceModel         | 设备 model       |
 
-
-
-## 移除设备
+### SIG Mesh 子设备移除
 
 移除设备简化了，所有的设备移除都保持一致，详细参考 [移除设备](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#修改设备名称)
 
-## Mesh 群组
+## 群组
 
 在蓝牙Mesh网中，可以将一些设备组成群组，使用群组命令控制群组中的设备，例如，将所有灯组添加到某个群组中，通过控制群组的开关、颜色等，直接控制群组中所有的灯具有相同的属性
 
@@ -654,23 +680,21 @@ didHandleGroupWithGroupAddress:(nonnull NSString *)groupAddress
 | --------------- | ----------------|
 | groupAddress         | 群组地址 |
 
-##  Mesh 控制
+## 控制
 
 > mesh 指令下发是根据设备的 dp 信息来进行操作
 
-### 指令发送格式
+#### 指令下发格式
 
 发送控制指令按照以下格式：`{"(dpId)" : "(dpValue)"}`， 如 `@{@"101" : @"44"}`
 
 > Dp  指令可以参考 [设备管理DP点](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#更新设备信息)
 
-### 指令下发控制
-
 > 指令下发我们已作简化，不需要关注是网关连接、还是本地连接，只要在线就可以通过以下方法选择下发
 
 
 
-#### 设备控制
+### 指令下发-设备控制
 
 由于 tuya 中使用 DP 点管理设备的控制点，因此可以使用向设备发送 DP 点的方式对设备的功能进行控制。
 
@@ -693,7 +717,7 @@ dp 命令下发
 | success         | Success block |
 | failure         | Failure block |
 
-#### 群组控制
+### 指令下发-群组控制
 
 **接口说明**
 
@@ -714,7 +738,7 @@ dp 命令下发
 
 ## 固件升级
 
-### 设备升级固件信息查询
+### 设备固件升级信息查询
 
 **接口说明**
 
@@ -789,6 +813,6 @@ BOOL isBLEOnline = device.deviceModel.isMeshBleOnline;
 }
 ```
 
-### mesh 网关升级
+### 网关设备升级
 
-mesh 网关升级和普通的设备升级一样，参考 [固件升级](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#固件升级)
+SIG Mesh 网关升级和普通的设备升级一样，参考 [固件升级](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#固件升级)

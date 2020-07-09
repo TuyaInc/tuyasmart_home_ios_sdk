@@ -1,6 +1,9 @@
-## Group Management
+# Group Management
+
+## Functional Overview
 
 The Tuya Cloud supports the group management system. User can create group, change group name, manage devices of group, manage multiple devices via the group and dismiss group.
+Tuya Smart provides some interfaces for device group control.
 
 All functions of group are realized by using the `TuyaSmartGroup` class, and all functions need to be initiated by using the group Id. Wrong group Id may cause initiation failure, and the `nil` will be returned.
 
@@ -38,13 +41,105 @@ All functions of group are realized by using the `TuyaSmartGroup` class, and all
 | schemaArray      | NSArray            | data point detail                   |
 | standard         | BOOL               | is a standardized device            |
 
-## Wi-Fi Group
+## Create Group
 
-### Create Group
+### Create Wi-Fi Group
 
-**Declaration**
+#### Group List Acquisition
 
-Create group with some device.
+Obtain the device list of product when the group is not created.
+
+```objective-c
++ (void)getDevList:(NSString *)productId
+            homeId:(long long)homeId
+           success:(nullable void(^)(NSArray <TuyaSmartGroupDevListModel *> *list))success
+           failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description               |
+| --------- | ------------------------- |
+| productId | 创建群组入口设备的产品 id |
+| homeId    | home id                   |
+| success   | success call back         |
+| failure   | failure call back         |
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)getGroupDevList {
+    
+    [TuyaSmartGroup getDevList:@"your_group_product_id" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getGroupDevList() {
+    TuyaSmartGroup.getDevList("your_group_product_id", homeId: 1, success: { (list) in
+        print("get group dev list success \(list)")
+    }) { (error) in
+        print("get group dev list failure")
+    }
+}
+```
+
+#### Obtain the Device List of a Group
+
+Obtain the device list of a group when the group is created.
+
+```objective-c
+- (void)getDevList:(NSString *)productId
+            homeId:(long long)homeId
+           success:(nullable void(^)(NSArray <TuyaSmartGroupDevListModel *> *list))success
+           failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description      |
+| --------- | ---------------- |
+| productId | product id       |
+| homeId    | home id          |
+| success   | success callback |
+| failure   | 失败回调         |
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)getGroupDevList {
+//    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
+    [self.smartGroup getDevList:@"your_group_product_id" success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getGroupDevList() {
+    smartGroup?.getDevList("your_group_product_id", success: { (list) in
+        print("get group dev list success \(list)")
+    }, failure: { (error) in
+        print("get group dev list failure")
+    })
+}
+```
+
+#### Creating a Group
 
 ```objective-c
 + (void)createGroupWithName:(NSString *)name
@@ -97,107 +192,7 @@ func createNewGroup() {
 
 
 
-### Obtain Device List of Product Id
-
-**Declaration**
-
-Obtain the device list of product when the group is not created.
-
-```objective-c
-+ (void)getDevList:(NSString *)productId
-            homeId:(long long)homeId
-           success:(nullable void(^)(NSArray <TuyaSmartGroupDevListModel *> *list))success
-           failure:(nullable TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description               |
-| --------- | ------------------------- |
-| productId | 创建群组入口设备的产品 id |
-| homeId    | home id                   |
-| success   | success call back         |
-| failure   | failure call back         |
-
-**Example**
-
-Objc:
-
-```objective-c
-- (void)getGroupDevList {
-    
-    [TuyaSmartGroup getDevList:@"your_group_product_id" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
-        NSLog(@"get group dev list success %@:", list); 
-    } failure:^(NSError *error) {
-        NSLog(@"get group dev list failure");
-    }];
-}
-```
-
-Swift:
-
-```swift
-func getGroupDevList() {
-    TuyaSmartGroup.getDevList("your_group_product_id", homeId: 1, success: { (list) in
-        print("get group dev list success \(list)")
-    }) { (error) in
-        print("get group dev list failure")
-    }
-}
-```
-
-### Obtain the Device List of a Group
-
-**Declaration**
-
-Obtain the device list of a group when the group is created.
-
-```objective-c
-- (void)getDevList:(NSString *)productId
-            homeId:(long long)homeId
-           success:(nullable void(^)(NSArray <TuyaSmartGroupDevListModel *> *list))success
-           failure:(nullable TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description      |
-| --------- | ---------------- |
-| productId | product id       |
-| homeId    | home id          |
-| success   | success callback |
-| failure   | 失败回调         |
-
-**Example**
-
-Objc:
-
-```objective-c
-- (void)getGroupDevList {
-//    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
-    [self.smartGroup getDevList:@"your_group_product_id" success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
-        NSLog(@"get group dev list success %@:", list); 
-    } failure:^(NSError *error) {
-        NSLog(@"get group dev list failure");
-    }];
-}
-```
-
-Swift:
-
-```swift
-func getGroupDevList() {
-    smartGroup?.getDevList("your_group_product_id", success: { (list) in
-        print("get group dev list success \(list)")
-    }, failure: { (error) in
-        print("get group dev list failure")
-    })
-}
-```
-
-### Modify Group Device List
-
-**Declaration**
+#### Update and Save Group
 
 ```objective-c
 - (void)updateGroupRelations:(NSArray <NSString *>*)devList
@@ -270,13 +265,56 @@ func group(_ group: TuyaSmartGroup!, dpsUpdate dps: [AnyHashable : Any]!) {
 
 
 
-## Zigbee Group
+### Create ZigBee Group
 
-#### Create Zigbee Group
+#### Group List Acquisition
 
-**Declaration**
+```objective-c
++ (void)getDevListWithProductId:(NSString *)productId
+                           gwId:(NSString *)gwId
+                         homeId:(long long)homeId
+                        success:(nullable void (^)(NSArray<TuyaSmartGroupDevListModel *> *))success
+                        failure:(nullable TYFailureError)failure;
+```
 
-create group with some zigbee devices
+**Parameters**
+
+| Parameter | Description      |
+| --------- | ---------------- |
+| productId | group product id |
+| gwId      | gateway id       |
+| homeId    | home id          |
+| success   | success callback |
+| failure   | failure callback |
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)getGroupDevList {
+    
+    [TuyaSmartGroup getDevListWithProductId:@"your_group_product_id" gwId:@"gwId" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
+        NSLog(@"get group dev list success %@:", list); 
+    } failure:^(NSError *error) {
+        NSLog(@"get group dev list failure");
+    }];
+}
+```
+
+Swift:
+
+```swift
+func getGroupDevList() {
+    TuyaSmartGroup.getDevList(withProductId: "your_group_product_id", gwId: "gwId", homeId: hoemId, success: { (list) in
+        print("get group dev list success \(list)")
+    }) { (error) in
+        print("get group dev list failure")
+    }
+}
+```
+
+#### Creating a Group
 
 ```objective-c
 + (void)createGroupWithName:(NSString *)name
@@ -329,58 +367,7 @@ func createNewGroup() {
 
 
 
-#### Get a List of Devices Supported by the ZigBee Group
-
-**Declaration**
-
-```objective-c
-+ (void)getDevListWithProductId:(NSString *)productId
-                           gwId:(NSString *)gwId
-                         homeId:(long long)homeId
-                        success:(nullable void (^)(NSArray<TuyaSmartGroupDevListModel *> *))success
-                        failure:(nullable TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description      |
-| --------- | ---------------- |
-| productId | group product id |
-| gwId      | gateway id       |
-| homeId    | home id          |
-| success   | success callback |
-| failure   | failure callback |
-
-**Example**
-
-Objc:
-
-```objective-c
-- (void)getGroupDevList {
-    
-    [TuyaSmartGroup getDevListWithProductId:@"your_group_product_id" gwId:@"gwId" homeId:homeId success:^(NSArray<TuyaSmartGroupDevListModel *> *list) {
-        NSLog(@"get group dev list success %@:", list); 
-    } failure:^(NSError *error) {
-        NSLog(@"get group dev list failure");
-    }];
-}
-```
-
-Swift:
-
-```swift
-func getGroupDevList() {
-    TuyaSmartGroup.getDevList(withProductId: "your_group_product_id", gwId: "gwId", homeId: hoemId, success: { (list) in
-        print("get group dev list success \(list)")
-    }) { (error) in
-        print("get group dev list failure")
-    }
-}
-```
-
 #### Add Devices to the ZigBee Group
-
-**Declaration**
 
 ```objective-c
 - (void)addZigbeeDeviceWithNodeList:(NSArray <NSString *>*)nodeList
@@ -426,8 +413,6 @@ func addDevice() {
 
 
 #### Remove Devices from ZigBee Groups
-
-**Declaration**
 
 ```objective-c
 - (void)removeZigbeeDeviceWithNodeList:(NSArray <NSString *>*)nodeList
@@ -512,58 +497,29 @@ func group(_ group: TuyaSmartGroup?, removeResponseCode responseCode: [NSNumber]
 ```
 
 
-## Send Dp Command of a Group
+## Group Operation
 
-**Declaration**
-
-```objective-c
-- (void)publishDps:(NSDictionary *)dps 
-           success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description      |
-| --------- | ---------------- |
-| dps       | dp command       |
-| success   | success callbck  |
-| failure   | failure callback |
-
-**Example**
+### Instantiation
 
 Objc:
 
 ```objective-c
-- (void)publishDps {
-//    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
-	
-	NSDictionary *dps = @{@"1": @(YES)};
-	[self.smartGroup publishDps:dps success:^{
-		NSLog(@"publishDps success");
-	} failure:^(NSError *error) {
-		NSLog(@"publishDps failure: %@", error);
-	}];
-}
+TuyaSmartGroup *smartGroup = [TuyaSmartGroup groupWithGroupId:groupId];
 ```
 
 Swift:
 
 ```swift
-func publishDps() {
-    let dps = ["1" : true]
-    smartGroup?.publishDps(dps, success: {
-        print("publishDps success")
-    }, failure: { (error) in
-        print("publishDps failure")
-    })
-}
+let smartGroup = TuyaSmartGroup(groupId: groupId);
 ```
 
+**Parameters**
 
+| Parameters | Description |
+| ---------- | ----------- |
+| groupId    | group id    |
 
-## Modify the Group Name
-
-**Declaration**
+### Modifying group name
 
 ```objective-c
 - (void)updateGroupName:(NSString *)name 
@@ -609,7 +565,22 @@ func updateGroupName() {
 }
 ```
 
-## Dismiss Group
+
+
+### Dismiss Group
+
+```objc
+- (void)dismissGroup:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| success    | success callbck  |
+| failure    | failure callback |
+
+
 
 **Example**
 
@@ -639,5 +610,103 @@ func dismissGroup() {
         }
     })
 }
+```
+
+### Sending group control command
+
+```objective-c
+- (void)publishDps:(NSDictionary *)dps 
+           success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameter | Description      |
+| --------- | ---------------- |
+| dps       | dp command       |
+| success   | success callbck  |
+| failure   | failure callback |
+
+**Example**
+
+Objc:
+
+```objective-c
+- (void)publishDps {
+//    self.smartGroup = [TuyaSmartGroup groupWithGroupId:@"your_group_id"];
+	
+	NSDictionary *dps = @{@"1": @(YES)};
+	[self.smartGroup publishDps:dps success:^{
+		NSLog(@"publishDps success");
+	} failure:^(NSError *error) {
+		NSLog(@"publishDps failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func publishDps() {
+    let dps = ["1" : true]
+    smartGroup?.publishDps(dps, success: {
+        print("publishDps success")
+    }, failure: { (error) in
+        print("publishDps failure")
+    })
+}
+```
+
+### Group callback event
+
+Control callback is triggered by TuyaSmartHomeDelegate
+
+```objective-c
+- (void)home:(TuyaSmartHome *)home group:(TuyaSmartGroupModel *)group dpsUpdate:(NSDictionary *)dps;
+```
+
+**Example**
+
+Objc:
+
+```objective-c
+#pragma mark - TuyaSmartHomeDelegate
+- (void)home:(TuyaSmartHome *)home group:(TuyaSmartGroupModel *)group dpsUpdate:(NSDictionary *)dps {
+    
+}
+```
+
+Swift:
+
+```swift
+extension YourViewController: TuyaSmartHomeDelegate {
+    func home(_ home: TuyaSmartHome!, group: TuyaSmartGroupModel!, dpsUpdate dps: [AnyHashable : Any]!) {
+        
+    }
+}
+```
+
+
+
+### Group data acquisition
+
+Objc:
+
+```java
+//Get customized group data
+TuyaSmartGroupModel *smartGroupModel = [TuyaSmartGroup groupWithGroupId:groupId].groupModel;
+
+//Get device list under group
+NSArray<TuyaSmartDeviceModel *> *deviceList = [TuyaSmartGroup groupWithGroupId:groupId].groupModel.deviceList;
+```
+
+Swift:
+
+```swift
+//Get customized group data
+let smartGroupModel = TuyaSmartGroup(groupId: "groupId")?.groupModel
+
+//Get device list under group
+let deviceList = TuyaSmartGroup(groupId: "groupId")?.groupModel.deviceList
 ```
 

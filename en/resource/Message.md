@@ -285,9 +285,7 @@ Swift:
 
 ## Push Notification
 
-### Get the switch status of the message according to the message type
-
-#### Get Push Notification Status
+### Get Push Notification Status
 
 The message push switch is the master switch. In the off state, no messages such as device alarms, home messages, and notification messages can be received.
 
@@ -316,7 +314,7 @@ The message push switch is the master switch. In the off state, no messages such
 
 
 
-#### Set Push Notification Status
+### Set Push Notification Status
 
 The message push switch is the master switch. In the off state, no messages such as device alarms, home messages, and notification messages can be received.
 
@@ -347,6 +345,8 @@ BOOL enable = YES;
  ````
 
 
+
+### Get Or Set The Switch Status Of The Message According To The Message Type
 
 #### Get Device Alarm Push Status
 

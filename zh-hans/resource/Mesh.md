@@ -1,4 +1,4 @@
-# BLE Mesh SDK 使用说明
+# 蓝牙 Mesh (涂鸦)
 
 > 下文将 `BLE Mesh` 称作 `mesh` 或 `蓝牙 mesh`
 
@@ -8,14 +8,7 @@
 | -------------- | ---------------- |
 | TYBLEMeshManager | 蓝牙 Mesh 封装 |
 
-## 准备工作
-
-导入头文件
-
-```objective-c
-使用
-#import <TuyaSmartBLEMeshKit/TuyaSmartBLEMeshKit.h>
-```
+## 准备
 
 开启 mesh
 
@@ -25,7 +18,7 @@
 ```
 
 
-## Mesh 专有名词解释
+## 部分基础概念
 
 | 专有名词                                  | 说明                                   |
 | -------------- | ---------------- |
@@ -71,7 +64,7 @@ Mesh 产品目前分为五大类
 向本地 mesh 网同步操作信息的同时也需要向云端同步操作信息
 
 
-## Mesh 管理类
+## 管理
 
 > `mesh` 的主要操作类都在 `TuyaSmartBleMesh.h` 文件中
 
@@ -224,7 +217,55 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 ```
 
-## 配网与入网
+### Mesh 设备的连接
+
+入网是对通过已配网设备连入 mesh 网的操作，该过程需要开启蓝牙
+
+**接口说明**
+
+若操作为配网，填入默认 mesh name 和 password，此时只会通过 `TYBLEMeshManagerDelegate` 中的
+ `- (void)bleMeshManager:(TYBLEMeshManager *)manager didScanedDevice:(TYBleMeshDeviceModel *)device;` 返回扫描结果
+
+ 若操作为入网，填入已创建的 mesh name 和 password，此信息来自云端接口返回，可以自动进行连接、入网，并自动获取一次 mesh 网中的各个设备在线情况
+
+```objective-c
+- (void)startScanWithName:(NSString *)name
+                      pwd:(NSString *)pwd
+                   active:(BOOL)active
+              wifiAddress:(uint32_t)wifiAddress
+               otaAddress:(uint32_t)otaAddress;
+```
+
+**参数说明**
+
+|  参数           | 说明                                      |
+| --------------- | ------------------------------------------|
+| name            | mesh 名称                                 |
+| pwd             | mesh 密码                                 |
+| active          | 是否为配网激活                            |
+| wifiAddress     | Wi-Fi 地址，网关配网需要，其余情况传 0    |
+| otaAddress      | ota 设备地址，ota 升级时需要，其余情况传 0|
+
+入网成功会自动获取 mesh 网中设备的在线状态，并触发 `TuyaSmartHomeDelegate` 代理方法进行回调信息
+
+```
+// 设备信息更新，例如name
+- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device;
+```
+
+**示例代码**
+
+```objective-c
+// 注意，此时的 active、wifiAddress、otaAddress 参数赋值情况
+[[TYBLEMeshManager sharedInstance] startScanWithName:[TuyaSmartUser sharedInstance].meshModel.code pwd:[TuyaSmartUser sharedInstance].meshModel.password active:NO wifiAddress:0 otaAddress:0];
+
+// 设备信息更新，例如name
+- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device {
+    // 收到回调操作
+}
+```
+
+## 配网
 
 > mesh 的操作类集中在 `TYBLEMeshManager` 中，且此类为单例
 
@@ -244,7 +285,7 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 处于重置状态的设备，默认名字为 `out_of_mesh`，默认密码为 `123456`
 
-### 设备扫描
+### 扫描待配网子设备
 
 > 为了简化扫描以及后续的配网操作，将所有的操作统一一个接口进行操作
 
@@ -320,9 +361,9 @@ if ([TuyaSmartUser sharedInstance].meshModel == nil) {
 
 ```
 
-入网调用比较简单，见「入网」
+入网调用比较简单，见「mesh 的连接与断开」
 
-### 配网
+### Mesh子设备配网
 
 mesh 配网主要分为两种，一种是针对普通蓝牙 mesh 设备（又称 mesh 子设备），例如灯、插座、低功耗等，可以理解为只要不带网关，就是普通蓝牙设备，一种是对 mesh 网关配网
 
@@ -388,6 +429,8 @@ mesh 配网主要分为两种，一种是针对普通蓝牙 mesh 设备（又称
 | mac             | 网关 mac    |
 | error           | 激活中的错误|
 
+### Mesh 网关配网
+
 若激活的为网关设备，需要在收到回调`activeWifiDeviceWithName ` 方法过后，需要再进行与 Wi-Fi 模块进行配网，这时候需要调用 `TuyaSmartActivator` 中方法执行操作
 
 #### 获取 Token
@@ -420,7 +463,9 @@ Wi-Fi 连接器加入 mesh
 | success         | 操作成功回调，返回配网Token|
 | failure         | 操作失败回调              |
 
-#### Mesh 网关入网
+
+
+#### Mesh 网关配网
 
 将 token、路由器账号、密码进行网关入网
 
@@ -505,55 +550,6 @@ Wi-Fi 连接器加入 mesh
   }  
 ```
 
-#### 入网
-
-入网是对通过已配网设备连入 mesh 网的操作，该过程需要开启蓝牙
-
-**接口说明**
-
-若操作为配网，填入默认 mesh name 和 password，此时只会通过 `TYBLEMeshManagerDelegate` 中的
- `- (void)bleMeshManager:(TYBLEMeshManager *)manager didScanedDevice:(TYBleMeshDeviceModel *)device;` 返回扫描结果
-
- 若操作为入网，填入已创建的 mesh name 和 password，此信息来自云端接口返回，可以自动进行连接、入网，并自动获取一次 mesh 网中的各个设备在线情况
-
-```objective-c
-- (void)startScanWithName:(NSString *)name
-                      pwd:(NSString *)pwd
-                   active:(BOOL)active
-              wifiAddress:(uint32_t)wifiAddress
-               otaAddress:(uint32_t)otaAddress;
-```
-
-**参数说明**
-
-|  参数           | 说明                                      |
-| --------------- | ------------------------------------------|
-| name            | mesh 名称                                 |
-| pwd             | mesh 密码                                 |
-| active          | 是否为配网激活                            |
-| wifiAddress     | Wi-Fi 地址，网关配网需要，其余情况传 0    |
-| otaAddress      | ota 设备地址，ota 升级时需要，其余情况传 0|
-
-入网成功会自动获取 mesh 网中设备的在线状态，并触发 `TuyaSmartHomeDelegate` 代理方法进行回调信息
-
-```
-// 设备信息更新，例如name
-- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device;
-```
-
-**示例代码**
-
-```objective-c
-// 注意，此时的 active、wifiAddress、otaAddress 参数赋值情况
-[[TYBLEMeshManager sharedInstance] startScanWithName:[TuyaSmartUser sharedInstance].meshModel.code pwd:[TuyaSmartUser sharedInstance].meshModel.password active:NO wifiAddress:0 otaAddress:0];
-
-// 设备信息更新，例如name
-- (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device {
-    // 收到回调操作
-}
-```
-
-
 #### Mesh 连接标识
 
 在操作的过程中，会经常判断是否是 mesh 已有设备通过蓝牙入网，来决定使用何种方式下发控制命令和操作命令
@@ -563,22 +559,37 @@ Wi-Fi 连接器加入 mesh
 BOOL isLogin = [TYBLEMeshManager sharedInstance].isLogin;
 ```
 
-## Mesh 设备
+### 配网错误码
+
+|  错误码           | 说明                      |
+| --------------- | --------------------------|
+| 3088            | 激活设备失败            |
+| 3090        | mesh name 和 password 错误            |
+| 3091           | 登录失败                 |
+| 3092         | 登录解密失败     |
+| 3093         | 获取 auth key 失败     |
+| 3094         | 地址超出限制     |
+| 3095         | 修改地址失败     |
+| 3096         | 写入 mesh 信息失败     |
+| 3097         | mesh 信息为空    |
+| 3098         | mesh 未入网     |
+| 3099         | 写入失败     |
+| 4000         | Wi-Fi 信息有误     |
+| 4001         | Wi-Fi 配网 token 错误    |
+| 4010         | 登录超时     |
+| 4011         | 获取 auth key 超时     |
+| 4012         | 修改地址超时     |
+| 4013         | 写入 mesh 信息超时     |
+| 4014         | 设置 Wi-Fi 信息超时     |
+
+
+## 设备
 
 > 和全屋 sdk 一样，设备类都是 `TuyaSmartDevice`，里面的 `TuyaSmartDeviceModel` 中的 `deviceType` 信息可以区分设备类型
 >
 > 这里 mesh 设备对应 `deviceType` 类型为 `TuyaSmartDeviceModelTypeMeshBleSubDev`
 
-### 获取设备实例
-
-```objective-c
-/** 获取设备对象
- @param devId 设备Id
- */
-+ (instancetype)deviceWithDeviceId:(NSString *)devId;
-```
-
-###设备重命名
+### 子设备重命名
 
 **接口说明**
 
@@ -662,7 +673,7 @@ mesh 设备的在线情况分为两种
 
 判断条件为: `deviceModel.isOnline && !deviceModel.isMeshBleOnline`
 
-### 移除设备
+### 子设备移除
 
 移除设备需要云端删除、本地删除
 
@@ -693,7 +704,7 @@ mesh 设备的在线情况分为两种
 
 
 
-### 云端删除
+ **云端删除**
 
 移除mesh子设备
 
@@ -738,8 +749,25 @@ mesh 设备的在线情况分为两种
                }];
            }
    ```
+   
+   
+### 子设备状态查询
 
-## Mesh 群组
+```objective-c
+- (void)getDeviceStatusAllWithAddress:(uint32_t)address
+                                 type:(NSString *)type;
+```
+
+**Parameters**
+
+|  参数           | 说明              |
+| -------------- | ----------------     |
+| address        | 设备地址 |
+| type        | 设备大小类 |
+
+
+
+## 群组
 
 群组作为 mesh 的特色之一，可以将设备添加到群组后，通过一个命令控制群组所有的设备
 
@@ -795,120 +823,7 @@ NSInteger localId = 0x8001;
     }];
 ```
 
-
-
-### 获取群组实例
-
-**接口说明**
-
-获取mesh群组对象
-
-```objective-c
-+ (instancetype)meshGroupWithGroupId:(NSInteger)groupId;
-```
-
-**参数说明**
-
-|  参数           | 说明              |
-| --------------- | ------------------|
-| groupId         | 群组Id            |
-
-> 注： 此处的 `groupId` 并非上面所述 `localId`，此是由添加群组成功之后，服务端给的字段
->
-> 所有的群组操作下发的地址都只是和 `localId` 有关
-
-
-
-### 修改群组名称
-
-|  参数           | 说明              |
-| --------------- | ------------------|
-| meshGroupName   | meshGroup名称     |
-| success         | 操作成功回调      |
-| failure         | 操作失败回调      |
-
-```objective-c
-- (void)updateMeshGroupName:(NSString *)meshGroupName success:(TYSuccessHandler)success failure:(TYFailureError)failure;
-```
-
-
-
-### 删除群组
-
-> 删除群组和设备一样，都需要经过本地删除和云端删除
-
-**接口说明**
-
-```objective-c
-// 本地删除
-- (void)deleteGroupAddress:(uint32_t)groupAddress type:(NSString *)type;
-
-// 网关连接
-- (NSString *)rawDataDeleteGroupAddress:(uint32_t)groupAddress type:(NSString *)type
-```
-
-
-
-**接口说明**
-
-给设备发送透传指令
-
-```objective-c
-- (void)publishRawDataWithRaw:(NSString *)raw
-                          pcc:(NSString *)pcc
-                      success:(TYSuccessHandler)success
-                      failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-|  参数           | 说明              |
-| --------------- | ------------------|
-| raw             | 透传值            |
-| success         | 操作成功回调      |
-| failure         | 操作失败回调      |
-
-
-
-**接口说明**
-
-云端删除
-
-```objective-c
-- (void)removeMeshGroupWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-|  参数           | 说明              |
-| --------------- | ------------------|
-| success         | 操作成功回调      |
-| failure         | 操作失败回调      |
-**示例代码**
-
-```objective-c
-
-    [self.meshGroup removeMeshGroupWithSuccess:^{
-           // 云端删除成功
-    } failure:^(NSError *error) {
-        // 云端删除失败
-    }];
-    
-    // 如果是本地连接
-    if ([TYBLEMeshManager sharedInstance].isLogin) {
-        
-        // 通过蓝牙命令删除群组
-        [[TYBLEMeshManager sharedInstance] deleteGroupAddress:[self.meshGroup.meshGroupModel.localId intValue] type:self.meshGroup.meshGroupModel.pcc];
-    } else {
-        // wifi
-        // 通过网关删除群组
-        [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:[[TYBLEMeshManager sharedInstance] rawDataDeleteGroupAddress:[self.meshGroup.meshGroupModel.localId intValue] type:self.meshGroup.meshGroupModel.pcc] pcc:self.meshGroup.meshGroupModel.pcc success:^{
-        } failure:^(NSError *error) {
-        }];
-    }
-```
-
-### 群组内添加设备
+### 添加子设备到群组
 
 > 向群组内加设备，需要经过本地、云端双重验证，才能算作一个设备成功加入到群组，结果
 >
@@ -1051,7 +966,7 @@ NSInteger localId = 0x8001;
 }
 ```
 
-### 群组内删除设备
+### 从群组中移除子设备
 
 > 和向群组内添加设备操作流程类似
 >
@@ -1200,6 +1115,119 @@ NSInteger localId = 0x8001;
 }
 ```
 
+
+### 获取群组实例
+
+**接口说明**
+
+获取mesh群组对象
+
+```objective-c
++ (instancetype)meshGroupWithGroupId:(NSInteger)groupId;
+```
+
+**参数说明**
+
+|  参数           | 说明              |
+| --------------- | ------------------|
+| groupId         | 群组Id            |
+
+> 注： 此处的 `groupId` 并非上面所述 `localId`，此是由添加群组成功之后，服务端给的字段
+>
+> 所有的群组操作下发的地址都只是和 `localId` 有关
+
+
+
+### 重命名群组
+
+|  参数           | 说明              |
+| --------------- | ------------------|
+| meshGroupName   | meshGroup名称     |
+| success         | 操作成功回调      |
+| failure         | 操作失败回调      |
+
+```objective-c
+- (void)updateMeshGroupName:(NSString *)meshGroupName success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+
+
+### 删除群组
+
+> 删除群组和设备一样，都需要经过本地删除和云端删除
+
+**接口说明**
+
+```objective-c
+// 本地删除
+- (void)deleteGroupAddress:(uint32_t)groupAddress type:(NSString *)type;
+
+// 网关连接
+- (NSString *)rawDataDeleteGroupAddress:(uint32_t)groupAddress type:(NSString *)type
+```
+
+
+
+**接口说明**
+
+给设备发送透传指令
+
+```objective-c
+- (void)publishRawDataWithRaw:(NSString *)raw
+                          pcc:(NSString *)pcc
+                      success:(TYSuccessHandler)success
+                      failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+|  参数           | 说明              |
+| --------------- | ------------------|
+| raw             | 透传值            |
+| success         | 操作成功回调      |
+| failure         | 操作失败回调      |
+
+
+
+**接口说明**
+
+云端删除
+
+```objective-c
+- (void)removeMeshGroupWithSuccess:(TYSuccessHandler)success failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+|  参数           | 说明              |
+| --------------- | ------------------|
+| success         | 操作成功回调      |
+| failure         | 操作失败回调      |
+**示例代码**
+
+```objective-c
+
+    [self.meshGroup removeMeshGroupWithSuccess:^{
+           // 云端删除成功
+    } failure:^(NSError *error) {
+        // 云端删除失败
+    }];
+    
+    // 如果是本地连接
+    if ([TYBLEMeshManager sharedInstance].isLogin) {
+        
+        // 通过蓝牙命令删除群组
+        [[TYBLEMeshManager sharedInstance] deleteGroupAddress:[self.meshGroup.meshGroupModel.localId intValue] type:self.meshGroup.meshGroupModel.pcc];
+    } else {
+        // wifi
+        // 通过网关删除群组
+        [[TuyaSmartUser sharedInstance].mesh publishRawDataWithRaw:[[TYBLEMeshManager sharedInstance] rawDataDeleteGroupAddress:[self.meshGroup.meshGroupModel.localId intValue] type:self.meshGroup.meshGroupModel.pcc] pcc:self.meshGroup.meshGroupModel.pcc success:^{
+        } failure:^(NSError *error) {
+        }];
+    }
+```
+
+
 ### 获取群组内设备
 
 **接口说明**
@@ -1220,15 +1248,15 @@ NSInteger localId = 0x8001;
 
 
 
-## Mesh 控制
+## 控制
 
 > mesh 指令下发是根据设备的 dp 信息来进行操作
 
-### 指令发送格式
+#### 指令发送格式
 
 发送控制指令按照以下格式：`{"(dpId)" : "(dpValue)"} `， 如 `@{@"101" : @"44"}`
 
-### 设备控制
+### 指令下发-控制设备
 
 单个子设备 dps 命令下发
 
@@ -1264,7 +1292,7 @@ int address = [[self.smartDevice deviceModel].nodeId intValue] << 8;
 }];
 ```
 
-## 群组控制
+### 指令下发-控制群组
 
 **接口说明**
 

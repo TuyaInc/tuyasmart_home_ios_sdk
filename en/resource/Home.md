@@ -1,4 +1,4 @@
-## Home Relationship Management
+# Home Relationship Management
 
 After login, user shall use the `TuyaSmartHomeManager` to obtain information of home list and initiate one home `TuyaSmartHome` and attain details of a home and manage and control devices in the home.
 
@@ -9,7 +9,7 @@ After login, user shall use the `TuyaSmartHomeManager` to obtain information of 
 
 
 
-### Obtain the Home List
+## Obtain the Home List
 
 Fetch home list, return data is just simple information of home. If you want to get the details of a specific home, you need to go to `TuyaSmartHome` to initialize a home and call the interface getHomeDetailWithSuccess: failure:
 
@@ -123,13 +123,13 @@ Swift:
 
 
 
-### Callback of Information in the Home List
+## Callback of Information in the Home List
 
 After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can proceed operations in the home list change.
 
 
 
-#### Callback of Add a Home
+### Callback of Add a Home
 
 **Declaration**
 
@@ -146,7 +146,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 
 
 
-#### Callback of Remove a Home 
+### Callback of Remove a Home 
 
 **Declaration**
 
@@ -163,7 +163,7 @@ After the `TuyaSmartHomeManagerDelegate` delegate protocol is realized, user can
 
 
 
-#### Callback of MQTT Service Connection Success
+### Callback of MQTT Service Connection Success
 
 **Declaration**
 
@@ -529,7 +529,7 @@ func sortHomeRoom() {
 
 
 
-### Member Management
+## Member Management
 
 All functions related to home member management correspond to`TuyaSmartHome` and `TuyaSmartHomeMember` classes, member role type is `TYHomeRoleType`
 
@@ -539,7 +539,7 @@ All functions related to home member management correspond to`TuyaSmartHome` and
 
 
 
-#### Add Home Member
+### Add Home Member
 
 > ```
 > The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
@@ -602,7 +602,7 @@ func addShare() {
 
 
 
-#### Delete Home Member
+### Delete Home Member
 
 > ```
 > The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
@@ -657,7 +657,7 @@ func removeMember(_ memberModel: TuyaSmartHomeMemberModel) {
 
 
 
-#### Get a List of Home Members
+### Get a List of Home Members
 
 **Declaration**
 
@@ -703,7 +703,7 @@ func initMemberList() {
 
 
 
-#### Update the Home Member's Information
+### Update the Home Member's Information
 
 > ```
 > The owner (TYHomeRoleType_Owner) can add the administrator and the following roles, and the administrator (TYHomeRoleType_Admin) can add only the ordinary members and the following roles
@@ -755,7 +755,7 @@ func modifyMember(_ memberModel: TuyaSmartHomeMemberModel, name: String) {
 
 
 
-####  Accept or Reject Home Invitations
+###  Accept or Reject Home Invitations
 
 **Declaration**
 
@@ -806,7 +806,7 @@ func initMemberList(_ memberModel: TuyaSmartHomeMemberModel) {
 
 
 
-###Sort Devices and Groups 
+### Sort Devices and Groups 
 
 **Declaration**
 
@@ -1048,7 +1048,7 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 
 
-### Room Information Management
+## Room Information Management
 
 The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to all functions for room information management. Wrong roomId may cause initiation failure, and the `nil` will be returned.
 
@@ -1058,7 +1058,7 @@ The roomId needs to be used to initiate all `TuyaSmartRoom` classes related to a
 
 
 
-#### Update Room Name
+### Update Room Name
 
 **Declaration**
 
@@ -1104,7 +1104,7 @@ func updateRoomName() {
 
 
 
-#### Add Device to a Room
+### Add Device to a Room
 
 **Declaration**
 
@@ -1150,7 +1150,7 @@ func addDevice() {
 
 
 
-#### Remove Device from a Room
+### Remove Device from a Room
 
 **Declaration**
 
@@ -1196,7 +1196,7 @@ func removeDevice() {
 
 
 
-#### Add Group in a Room
+### Add Group in a Room
 
 **Declaration**
 
@@ -1242,7 +1242,7 @@ func addGroup() {
 
 
 
-#### Remove Group in a Room
+### Remove Group in a Room
 
 **Declaration**
 
@@ -1288,7 +1288,7 @@ func removeGroup() {
 
 
 
-#### Change Relation Between Room and Groups and Devices in Batches
+### Change Relation Between Room and Groups and Devices in Batches
 
 **Declaration**
 
@@ -1334,9 +1334,11 @@ func saveBatchRoomRelation() {
 }
 ```
 
-### Home Weather
 
-#### Get Home's Weather Simple Summary Parameters.
+
+## Home Weather
+
+### Get Home's Weather Simple Summary Parameters.
 
 Sush as city name, state of weather(clear, cloudy, rainy, and so on),weather icon.
 
@@ -1392,7 +1394,9 @@ func getHomeWeatherSketch() {
 }
 ```
 
-#### Get Home's Weather Summary Parameters with More Detail.
+
+
+### Get Home's Weather Summary Parameters with More Detail.
 
 Such as tempature, humidity, ultraviolet index, air quality.
 

@@ -1,12 +1,14 @@
-# Bluetooth Mesh SDK Guide
+# Bluetooth Mesh(SIG)
 
-## Introduction
+
+## Basic Notion
+
+
 
 Bluetooth Special Interest Group use bluetooth technology began to fully support Mesh networks. Bluetooth Mesh, that is, a Bluetooth device is formed into a network. Each Bluetooth device can communicate through Bluetooth devices in the network, and transmit Bluetooth information at one end to the other end through the mesh network.
 
 The standard Bluetooth Mesh, also called SIG Mesh, is a communication standard for the Mesh network proposed by the Bluetooth Technology Alliance. The use of Bluetooth Mesh for networking and function point updates must meet the standards of standard Bluetooth Mesh
 
-## Basic Notion
 
 | Basic Notion           | Description                 |
 | -------------- | ----------------     |
@@ -39,7 +41,7 @@ Because device operations, such as adding and deleting operations, and group ope
 
 >  `TuyaSmartBleMesh+SIGMesh.h` 
 
-### Create Mesh
+### Create SIG Mesh
 
 A family can have multiple sig meshes (it is recommended to create only one family). All operations in the sig mesh are based on the family data being initialized.
 
@@ -76,7 +78,7 @@ long long homeId = home.homeModel.homeId;
 }];
 ```
 
-###  Delete Mesh
+###  Delete SIG Mesh
 
 **Declaration**
 
@@ -104,7 +106,7 @@ self.mesh = #<TuyaSmartBleMesh instance>;
 }];
 ```
 
-#### Get the List of SIG Mesh in the Family
+### Get the List of SIG Mesh in the Family
 
 **Declaration**
 
@@ -133,7 +135,7 @@ TuyaSmartHome *home = #<home instance>
 }];
 ```
 
-### Get Mesh Instance
+### Get SIG Mesh Instance
 
 **Declaration**
 
@@ -155,7 +157,20 @@ TuyaSmartHome *home = #<home instance>
 TuyaSmartBleMeshModel *sigMeshModel = [self getCurrentHome].sigMeshModel;
 ```
 
-## Configuration
+### Connect SIG Mesh Device
+
+
+**Declaration**
+
+```objective-c
+- (void)startScanWithScanType:(TuyaSmartSIGScanType)scanType 
+          meshModel:(TuyaSmartBleMeshModel *)meshModel;
+```
+
+When need connect SIG Mesh device(s), only input  `ScanForProxyed` . More Infomation See Activation.
+
+
+## Activation
 
 >  `TuyaSmartSIGMeshManager` 
 
@@ -168,7 +183,7 @@ The following is a list of common device reset methods
 | Light   | Three consecutive switches | flashes quickly |
 | Switch  | Long press 3s              | flashes quickly |
 
-####Bluetooth Scan
+### Scaning SIG Mesh Devices
 
 **Declaration**
 
@@ -224,7 +239,7 @@ After scanning the surrounding network devices that meet the protocol specificat
 
 Networking is to add Bluetooth devices that have not joined the mesh network to the mesh network through a certain communication process.
 
-#### Active
+### Active SIG Mesh Device by Bluetooth 
 
 **Declaration**
 
@@ -292,10 +307,6 @@ At any stage in the scanning device and network configuration, calling the follo
 - (void)stopActiveDevice;
 ```
 
-### Sub-Device Network Connection
-
-After entering the network, it is scanned first, but the scan type is changed to ScanForProxyed, and then the network can be automatically connected
-
 #### Mesh Connection Flag
 
 In the process of operation, it is often judged whether the existing equipment of the mesh is connected to the network through Bluetooth to determine the method of issuing control commands and operation commands.
@@ -306,19 +317,41 @@ BOOL isLogin = [TuyaSmartSIGMeshManager sharedInstance].isLogin;
 ```
 
 
-### SIG Mesh Gateway Active
+### Active SIG Mesh Gateway Device
 
 SIG Mesh gateway active EZ , see [ EZ mode](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Activator.html#activate-the-zigbee-sub-device)
 
+### Active SIG Mesh Device by Gateway
+
 SIG Mesh gateway atcive sub device, see [sub-device](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Activator.html#activate-the-zigbee-sub-device)
 
-## Mesh Device
+
+
+### Error code
+
+|  Error Code           | Description            |
+| --------------- | ----------------|
+| 701         | Connect Error        |
+| 702         | Composition response error       |
+| 703         |   Composition timeout   |
+| 704         |   add appkey Response Error   |
+| 705         |   add appkey timeout  |
+| 706         |   network transmit response error   |
+| 707         |   network transmit timeout   |
+| 708         |   publication model response error   |
+| 709         |   publication model timeout   |
+| 710         |   App bind response error  |
+| 711         |   App bind timeout   |
+| 712         |   IdentifySet timeout   |
+
+
+## Device
 
 > Like the Home SDK, the device class is TuyaSmartDevice. The deviceType information in TuyaSmartDeviceModel inside can distinguish the device type.
 >
 > Here the mesh device corresponds to the deviceType type TuyaSmartDeviceModelTypeSIGMeshSubDev
 
-#### Get Device Instance
+### Get Device Instance
 
 ```objective-c
 + (instancetype)deviceWithDeviceId:(NSString *)devId;
@@ -356,7 +389,7 @@ The mobile phone's Bluetooth is not turned on or is far away from the device. Th
 
 [See](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Device.html#remove-device)
 
-## Mesh Group
+## Group
 
 In the Bluetooth Mesh network, you can group some devices into groups and use group commands to control the devices in the group. For example, you can add all light groups to a group, and control the group's switches, colors, etc. directly. All lights in the control group have the same properties
 
@@ -522,7 +555,7 @@ If you need to remove a device from the group, you can use the following methods
 | nodeId       | device mesh address |
 | error       | error |
 
-####Gateway
+#### Gateway
 
 Deleting devices into the mesh group through the gateway can be operated through `TuyaSmartBleMeshGroup`
 
@@ -624,13 +657,13 @@ Query devices in a group by group address
           groupAddress:(uint32_t)groupAddress;
 ```
 
-##  Mesh Control
+## Control
 
-### DP Publish
+#### DP Publish
 
 `{"(dpId)" : "(dpValue)"}`,  `@{@"101" : @"44"}`
 
-#### Device Control
+### Control Command - Control Devices
 
 **Declaration**
 
@@ -649,7 +682,7 @@ Query devices in a group by group address
 | success       | success block |
 | failure       | failure block |
 
-#### Group Control
+### Control Command - Control Group
 
 **Declaration**
 
