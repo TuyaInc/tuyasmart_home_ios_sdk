@@ -8,11 +8,7 @@
 
 > 二维码模式较为简单，建议使用二维码配网，如果设备扫描不了二维码，再尝试快连模式。
 
-由于云云对接和 SDK 对接，集成的配网 SDK 不一样，设备激活的流程和代码会有少许不同。
-
-**快连模式**和**热点模式**这两种配网方式和涂鸦其他设备的配网方式一样，云云对接方案接入的是裁剪版的配网 SDK，可以参考[云云对接配网文档](https://github.com/TuyaInc/tuyasmart_ios_activator_sdk/blob/master/README-zh.md)。
-
-涂鸦智能 SDK 对接方案，可以参考文档[设备配网](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%91)。
+**快连模式**和**热点模式**这两种配网方式和涂鸦其他设备的配网方式一样，可以参考文档[设备配网](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Activator.html#%E8%AE%BE%E5%A4%87%E9%85%8D%E7%BD%91)。
 
 下面着重介绍一下智能摄像机特有的二维码配网模式。
 
@@ -228,10 +224,6 @@ Swift
 ```swift
 func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: TuyaSmartDeviceModel!, error: Error!)
 ```
-
-### 云云对接方案 Token
-
-云云对接方案集成裁剪版的配网 SDK，没有直接获取配网 Token 的接口，需要接入方从自己的云端获取配网 Token。接入方的云端会从涂鸦云端获取配网 Token，具体可以参考[云云对接文档-配网管理](https://docs.tuya.com/zh/iot/open-api/api-list/api/paring-management)。
 
 
 ## 绑定模式

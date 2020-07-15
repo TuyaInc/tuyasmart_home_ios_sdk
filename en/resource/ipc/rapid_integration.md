@@ -1,55 +1,16 @@
 # Integrated SDK
 
-## Solutions introduction
-
-Before integrate IPC SDK, please learn about [Home SDK](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/).
+## Integrated SDK
 
 The IPC SDK depends on the user management, device configuration, home management, device management parts of the Home SDK, and on this basis, the functions of the smart camera device are realized.
 
-The Tuya Open Platform provides various integrate modes based on Tuya's mature IoT services, refer to [Solutions Introduction](https://docs.tuya.com/en/iot/open-api/quick-start/solution-overview).
-
-### Mini SDK
-
-Based on the partner own App, embed in Tuya's mini sdk (only includes the distribution network package: ssid, password and user token obtained from the cloud). Device status changes can't be pushed to the App directly, the pushing ability to rely on the partner's own cloud.
-
-However, since the camera cannot be controlled using open api, the Mini SDK solution still needs to integrate the IPC SDK.
-
-You can use the open api provided by Tuya Cloud to develop user management, cloud storage, alarm detection, and functions based on data points. Use Tuya smart IPC SDK to develop the basic functions of camera like live video.
-
 **Modules**
 
-| Module             | Description                                        |
-| ------------------ | -------------------------------------------------- |
-| TuyaSmartActivator | Device network configuration for Mini SDK solution |
-| TuyaSmartCameraKit | Tuya smart camera business core kit                |
+| Module                | Description                         |
+| --------------------- | ----------------------------------- |
+| TuyaSmartActivatorKit | Device network configuration        |
+| TuyaSmartCameraKit    | Tuya smart camera business core kit |
 
-Add the following content in the `Podfile` file.
-
-```ruby
-platform :ios, '9.0'
-
-target 'your_target_name' do
-
-  pod "TuyaSmartActivator"
-	pod "TuyaSmartCameraKit"
-	# pod "TuyaSmartCameraT"
-
-end
-```
-
-### Full SDK
-
-The App is based entirely on the full version of the Home SDK, which can take full advantage of the various capabilities provided by the Home SDK, such as: distribution network, device control, home management, scene management, upgrade management, etc. and reduce the difficulty of App development.
-
-**Modules**
-
-| Module                | Description                                        |
-| --------------------- | -------------------------------------------------- |
-| TuyaSmartActivatorKit | Device network configuration for Full SDK solution |
-| TuyaSmartCameraKit    | Tuya smart camera business core kit                |
-
-> Mini SDK is use `TuyaSmartActivator` to configure network for device, but Full SDK is `TuyaSmartActivatorKit`. These two modules cannot be dependent at the same time, which will cause compilation conflicts.
->
 > `TuyaSmartCameraKit `is not a separate library, refer to [SDK Architecture](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/en/resource/architecture.html).
 
 Add the following content in the `Podfile` file.
@@ -69,14 +30,6 @@ end
 If your App need to support p2p 1.0, need to add  `pod "TuyaSmartCameraT"`.
 
 Then run the `pod update` command in the root directory of project. For use of CocoaPods, please refer to the [CocoaPods Guides](https://guides.cocoapods.org/). It is recommended to update the CocoaPods to the latest version.
-
-## Preparation work
-
-Before starting to develop with the SDK, you need to register a developer account, create a product, etc. on the Tuya Smart Development Platform, and obtain a key to activate the SDK. Refer to [Preparation work](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Preparation.html).
-
-Please select IP Camera device solution when obtain SDK.
-
-<img src="./images/options.jpg" alt="选择方案" style="zoom:50%;" />
 
 ## Initialize SDK
 

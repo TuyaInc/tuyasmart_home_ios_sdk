@@ -8,9 +8,7 @@ The network configuration modes supported by Tuya smart camera hardware module i
 
 > Qr code mode is relatively simple, it is recommended to use the qr code mode, if the device can not scan the qr code, then try quick connection mode.
 
-Due to Mini SDK and Full SDK, the device activation process and code will be slightly different.
-
-**EZ mode** and **AP mode** is same as other Tuya device，Mini SDK solution refer to [TuyaSmartActivator iOS SDK](https://github.com/TuyaInc/tuyasmart_ios_activator_sdk/blob/master/README.md), Full SDK solution refer to [ Network Configuration](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Activator.html#network-configuration).
+**EZ mode** and **AP mode** is same as other Tuya device,  refer to [ Network Configuration](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Activator.html#network-configuration).
 
 The following focuses on the smart camera's unique Qr code mode.
 
@@ -247,10 +245,6 @@ func activator(_ activator: TuyaSmartActivator!, didReceiveDevice deviceModel: T
     }
 }
 ```
-
-### Mini SDK  solution
-
-If you use Mini SDK solution，can not get token with `TuyaSmartActivator`, your service could get token by Tuya open api，refer to [Open API-Pair Device Management](https://docs.tuya.com/en/iot/open-api/api-list/api/paring-management).
 
 ### Binding mode
 
