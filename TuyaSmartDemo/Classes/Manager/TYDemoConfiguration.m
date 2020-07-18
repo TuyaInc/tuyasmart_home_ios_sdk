@@ -7,6 +7,7 @@
 
 #import "TYDemoConfiguration.h"
 #import "TPDemoNavigationController.h"
+#import <TuyaSmartUtil/TuyaSmartUtil.h>
 
 static NSMutableArray<Class> *TYTabBarClasses;
 NSArray<Class> *TYGetTabBarClasses(void)
@@ -29,7 +30,7 @@ void TYRegisterTabBar(Class vcClass)
 
 @property (nonatomic, strong) NSArray<UIViewController<TYTabBarVCProtocol> *> *tabBars;
 
-@property (nonatomic, strong) NSMapTable<NSString *, id> *moduleMapping;
+@property (nonatomic, strong) TYSDKSafeMutableDictionary *moduleMapping;
 @end
 
 @implementation TYDemoConfiguration
@@ -60,9 +61,18 @@ void TYRegisterTabBar(Class vcClass)
                 
                 if (vc.needNavigation) {
                     TPDemoNavigationController *nav = [[TPDemoNavigationController alloc] initWithRootViewController:vc];
-                    [vcs addObject:nav];
+                    if (vc.isMain) {
+                        [vcs insertObject:nav atIndex:0];
+                    } else {
+                        [vcs addObject:nav];
+                    }
+                    
                 } else {
-                    [vcs addObject:vc];
+                    if (vc.isMain) {
+                        [vcs insertObject:vc atIndex:0];
+                    } else {
+                        [vcs addObject:vc];
+                    }
                 }
             }
             
@@ -75,9 +85,9 @@ void TYRegisterTabBar(Class vcClass)
     return _tabBars;
 }
 
-- (NSMapTable<NSString *,id> *)moduleMapping {
+- (TYSDKSafeMutableDictionary *)moduleMapping {
     if (!_moduleMapping) {
-        _moduleMapping = [NSMapTable strongToWeakObjectsMapTable];
+        _moduleMapping = [TYSDKSafeMutableDictionary dictionary];
     }
     return _moduleMapping;
 }

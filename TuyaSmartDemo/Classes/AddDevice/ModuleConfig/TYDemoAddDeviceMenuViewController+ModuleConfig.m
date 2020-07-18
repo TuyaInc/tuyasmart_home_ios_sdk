@@ -12,6 +12,7 @@
 @dynamic barImage;
 @dynamic barSelectedImage;
 @dynamic needNavigation;
+@dynamic isMain;
 
 TY_EXPORT_TABBAR(self)
 
@@ -29,6 +30,10 @@ TY_EXPORT_TABBAR(self)
 
 - (BOOL)needNavigation {
     return YES;
+}
+
+- (BOOL)isMain {
+    return NO;
 }
 
 @end

@@ -38,6 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 // 是否需要包一个 nav，yes 的话，会包一个 base 中的 TPNav
 @property (nonatomic, assign) BOOL needNavigation;
 
+// 是否是排在首页，默认是设备列表为首页
+// 如果有多个 tab，会根据 load 的方法来决定顺序
+@property (nonatomic, assign) BOOL isMain;
+
 @end
 
 #define TY_EXTERN extern __attribute__((visibility("default")))
