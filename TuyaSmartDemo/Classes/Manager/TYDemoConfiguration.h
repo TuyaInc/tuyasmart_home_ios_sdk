@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@protocol TYDemoMessageCenterProtocol <NSObject>
+
+- (void)gotoMessageCenter;
+
+@end
 
 @protocol TYTabBarVCProtocol <NSObject>
 

@@ -9,6 +9,7 @@
 #import "TYDemoUserInfoViewController.h"
 #import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>
 #import "TYDemoRouteManager.h"
+#import "TYDemoConfiguration.h"
 
 @interface TYDemoUserInfoViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -33,7 +34,7 @@
     self.tableView.tableFooterView = [UIView new];
     [self.view addSubview:self.tableView];
     
-    _userInfo = @[@"userName", @"phoneNumber", @"email", @"regionCode", @"timezoneId", @"countryCode"];
+    _userInfo = @[@"userName", @"phoneNumber", @"email", @"regionCode", @"timezoneId", @"countryCode", @"message center"];
 }
 
 - (void)rightBtnAction {
@@ -86,6 +87,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    if (indexPath.row == 6) {
+        id<TYDemoMessageCenterProtocol> impl = [[TYDemoConfiguration sharedInstance] serviceOfProtocol:@protocol(TYDemoMessageCenterProtocol)];
+        if ([impl respondsToSelector:@selector(gotoMessageCenter)]) {
+            [impl gotoMessageCenter];
+        }
+    }
+
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
