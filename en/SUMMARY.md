@@ -139,6 +139,7 @@
     * [Detection Alarm](./resource/ipc/detect.md)
       * [Message List](./resource/ipc/detect.md#message-list)
       * [Video Message](./resource/ipc/detect.md#video-message)
+    * [Encrypted Image](./resource/ipc/encryptImage.md)
     * [Error Codes](./resource/ipc/errors.md)
     * [Permissions](./resource/ipc/required_permission.md)
     * [Debug logs](./resource/ipc/log_file.md)

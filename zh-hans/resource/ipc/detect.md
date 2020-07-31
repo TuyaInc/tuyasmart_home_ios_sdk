@@ -187,9 +187,9 @@
 | msgCode        | NSString  | 消息类型                       |
 | time           | NSInteger | 报警消息上报时间的 Unix 时间戳 |
 
-
-
 根据消息类型不同，可能会有不同的附件。通过 `attachPic` 属性获取图片附件的地址，`attachVideos` 属性获取视频附件的地址，通常情况下，这个属性只有一个元素。
+
+> 报警消息中的图片附件，数据是加密过的，需要使用加密图片组件`TYEncryptImage`展示，详情参考[加密图片](./encryptImage.md)章节。
 
 ## 视频消息
 

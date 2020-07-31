@@ -317,6 +317,8 @@ TYCameraCloudServicePanelSDK.cloudServicePanel(withDevice: deviceModel, success:
 | endTime     | NSInteger | 事件结束时间 Unix 时间戳       |
 | snapshotUrl | NSString  | 事件发生时，设备抓拍的实时图片 |
 
+> 云存储事件中携带的实时截图是经过加密的，需要通过加密图片组件`TYEncryptImage`展示，详情参考[加密图片](./encryptImage.md)章节。
+
 ### 云视频播放
 
 播放云存储视频时，需要指定开始播放的时间，结束时间，和是否是播放事件。

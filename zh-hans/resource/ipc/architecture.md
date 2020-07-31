@@ -34,6 +34,7 @@ IPC SDK 依赖一部分 Home SDK 中的组件，包括账户管理，家庭设�
 | TuyaSmartSocketChannelKit    | 涂鸦 Socket 网络通道实现                         |
 | TuyaSmartMQTTChannelKit      | 涂鸦 MQTT 网络通道实现                           |
 | TuyaSmartUtil                | 基础工具方法实现                                 |
+| TYEncryptImage               | 加密图片展示组件                                 |
 
 
 

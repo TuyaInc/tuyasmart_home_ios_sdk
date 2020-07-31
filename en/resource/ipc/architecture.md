@@ -34,6 +34,7 @@ The IPC SDK relies on some components in the Home SDK, including account managem
 | TuyaSmartSocketChannelKit    | Tuya socket network channel implementation                   |
 | TuyaSmartMQTTChannelKit      | Tuya MQTT network channel implementation                     |
 | TuyaSmartUtil                | Common tools method                                          |
+| TYEncryptImage               | UI kit for display encrypted image                           |
 
 
 
