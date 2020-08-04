@@ -48,8 +48,6 @@
     // 初始化 SDK
     [[TuyaSmartSDK sharedInstance] startWithAppKey:config.appKey secretKey:config.secretKey];
     
-    //        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
     // 已经登录过了就不需要再次登录
     if ([TuyaSmartUser sharedInstance].isLogin) {
         [self resetRootViewController:[TYDemoTabBarViewController class]];

@@ -54,7 +54,7 @@ void TYRegisterTabBar(Class vcClass)
             if ([instance conformsToProtocol:@protocol(TYTabBarVCProtocol)] && [instance isKindOfClass:UIViewController.class]) {
                 UIViewController<TYTabBarVCProtocol> *vc = (UIViewController<TYTabBarVCProtocol> *)instance;
                 
-                [vc setTitle:NSLocalizedString(@"Device", @"")];
+                [vc setTitle:vc.barTitle];
                 vc.tabBarItem = [[UITabBarItem alloc] initWithTitle:vc.barTitle
                                                               image:vc.barImage
                                                       selectedImage:vc.barSelectedImage];

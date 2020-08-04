@@ -83,15 +83,22 @@
     _homeManager = [[TuyaSmartHomeManager alloc] init];
     _homeManager.delegate = self;
     
+    // 获取本地的当前家庭
     NSString *homeId = [[NSUserDefaults standardUserDefaults] objectForKey:kDefaultCurrentHomeId];
     if ([homeId longLongValue] > 0) {
         self.home = [TuyaSmartHome homeWithHomeId:[homeId longLongValue]];
-        self.home.delegate = self;
-        self.topBarView.leftItem.title = [NSString stringWithFormat:@"%@ ∨", self.home.homeModel.name];
-        [TYDemoSmartHomeManager sharedInstance].currentHomeModel = self.home.homeModel;
-        
-        [self reloadDataFromCloud];
+        if (self.home) {
+            self.home.delegate = self;
+            self.topBarView.leftItem.title = [NSString stringWithFormat:@"%@ ∨", self.home.homeModel.name];
+            [TYDemoSmartHomeManager sharedInstance].currentHomeModel = self.home.homeModel;
+            
+            [self reloadDataFromCloud];
+        } else {
+            // 如果没有，获取第一个家庭
+            [self loadFirstHomeData];
+        }
     } else {
+        // 如果没有，获取第一个家庭
         [self loadFirstHomeData];
     }
 }
@@ -147,12 +154,8 @@
     
     UIAlertController *homeListAC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"All Homes", @"") message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     for (TuyaSmartHomeModel *homeModel in homes) {
-        NSString *homeName = homeModel.name;
-        if (homeModel.homeId == [TYDemoSmartHomeManager sharedInstance].currentHomeModel.homeId) {
-            homeName = [NSString stringWithFormat:@"%@", homeModel.name];
-        }
-        
-        UIAlertAction *action = [UIAlertAction actionWithTitle:homeName style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+        UIAlertAction *action = [UIAlertAction actionWithTitle:homeModel.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [self swithCurrentHomeIdWithHomeModel:homeModel];
             [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationSwitchHome object:nil];
         }];
@@ -166,10 +169,10 @@
 }
 
 - (void)reloadDataFromCloud {
-    // sigmesh
-//    [[TuyaSmartSIGMeshManager sharedInstance] startScanWithScanType:ScanForProxyed meshModel:self.home.sigMeshModel];
+
     WEAKSELF_AT
     [self.refreshControl beginRefreshing];
+    // 获取当前家庭的详情，并刷新列表
     [self.home getHomeDetailWithSuccess:^(TuyaSmartHomeModel *homeModel) {
         
         [weakSelf_AT reloadData];
@@ -206,6 +209,7 @@
     
 #warning 绑定演示设备到账号下面，生产环境勿使用
     
+#if DEBUG
     [self showProgressView:NSLocalizedString(@"loading", @"")];
     WEAKSELF_AT
     long long gid = self.home.homeModel.homeId;
@@ -217,6 +221,7 @@
         [weakSelf_AT hideProgressView];
         [TPDemoProgressUtils showError:error.localizedDescription];
     }];
+#endif
 }
 
 // add home
@@ -233,7 +238,6 @@
     }];
 }
 
-
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -246,11 +250,12 @@
     if (!cell) {
         cell = [[TYDemoDeviceListViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NSStringFromClass([TYDemoDeviceListViewCell class])];
     }
-    
+    // 群组列表
     if (indexPath.row < self.home.groupList.count) {
         TuyaSmartGroupModel *groupModel = [self.home.groupList objectAtIndex:indexPath.row];
         [cell setItem:groupModel];
     } else if (indexPath.row < self.home.deviceList.count + self.home.groupList.count) {
+        // 设备列表
         TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:(indexPath.row - self.home.groupList.count)];
         [cell setItem:deviceModel];
     }
@@ -266,10 +271,12 @@
     if (indexPath.row < self.home.groupList.count) {
         TuyaSmartGroupModel *groupModel = [self.home.groupList objectAtIndex:indexPath.row];
         
+        // 设备控制业务包
         id<TYDemoPanelControlProtocol> impl = [[TYDemoConfiguration sharedInstance] serviceOfProtocol:@protocol(TYDemoPanelControlProtocol)];
         if ([impl respondsToSelector:@selector(gotoPanelControlDevice:group:)]) {
             [impl gotoPanelControlDevice:nil group:groupModel];
         } else {
+            // 万能面板
             TYDemoCommonPanelViewController *vc = [[TYDemoCommonPanelViewController alloc] init];
             vc.groupId = groupModel.groupId;
             [self.navigationController pushViewController:vc animated:YES];
@@ -278,6 +285,7 @@
     } else if (indexPath.row < self.home.deviceList.count + self.home.groupList.count) {
         TuyaSmartDeviceModel *deviceModel = [self.home.deviceList objectAtIndex:(indexPath.row - self.home.groupList.count)];
         
+        // 设备控制业务包
         id<TYDemoPanelControlProtocol> impl = [[TYDemoConfiguration sharedInstance] serviceOfProtocol:@protocol(TYDemoPanelControlProtocol)];
         if ([impl respondsToSelector:@selector(gotoPanelControlDevice:group:)]) {
             [impl gotoPanelControlDevice:deviceModel group:nil];
@@ -289,7 +297,7 @@
                 vc.devId = deviceModel.devId;
                 [self.navigationController pushViewController:vc animated:YES];
             } else {
-                
+                // 万能面板
                 TYDemoCommonPanelViewController *vc = [[TYDemoCommonPanelViewController alloc] init];
                 vc.devId = deviceModel.devId;
                 [self.navigationController pushViewController:vc animated:YES];
@@ -309,8 +317,13 @@
     [self.tableView reloadData];
 }
 
-// 家庭和房间关系变化
-- (void)homeDidUpdateRoomInfo:(TuyaSmartHome *)home {
+// 添加一个房间
+- (void)home:(TuyaSmartHome *)home didAddRoom:(TuyaSmartRoomModel *)room {
+    [self.tableView reloadData];
+}
+
+// 删除一个房间
+- (void)home:(TuyaSmartHome *)home didRemoveRoom:(long long)roomId {
     [self.tableView reloadData];
 }
 

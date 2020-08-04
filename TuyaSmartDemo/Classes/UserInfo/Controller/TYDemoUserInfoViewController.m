@@ -38,13 +38,15 @@
 }
 
 - (void)rightBtnAction {
-    [[TuyaSmartUser sharedInstance] loginOut:nil failure:nil];
-    [[TYDemoRouteManager sharedInstance] openRoute:kTYDemoPopLoginVC withParams:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                    name:TuyaSmartUserNotificationUserSessionInvalid
-                                                  object:nil];
-    
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kDefaultCurrentHomeId];
+
+    [[TuyaSmartUser sharedInstance] loginOut:^{
+        
+        [[TYDemoRouteManager sharedInstance] openRoute:kTYDemoPopLoginVC withParams:nil];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kDefaultCurrentHomeId];
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 #pragma mark - UITableViewDataSource
