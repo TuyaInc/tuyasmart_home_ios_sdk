@@ -284,7 +284,7 @@ func publishDps() {
 - 透传类型传输的 byte 数组是字符串格式（16 进制字符串）、字母需小写并且必须是**偶数位**<br />
   比如正确的格式是: `@{@"1": @"011f"}` 而不是 `@{@"1": @"11f"}`
 
-功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/product/function.html)
+功能点更多概念参见[快速入门-功能点相关概念](https://docs.tuya.com/zh/iot/configure-in-platform/function-definition/custom-functions?id=K937y38137c64)
 
 ##  设备信息查询
 

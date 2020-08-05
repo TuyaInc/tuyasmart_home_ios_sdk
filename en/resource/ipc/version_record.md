@@ -6,10 +6,17 @@
 | ------- | ----------- | ------ | ---------- |
 | v1.0.0  | Create      | FuLang | 2020-03-01 |
 | v1.1.0  | Update      | FuLang | 2020-06-05 |
+| v1.1.1  | Update      | FuLang | 2020-07-31 |
 
 
 
 ## SDK change log
+
+### TYEncryptImage-3.19.0
+
+**New Features**
+
+* After importing the TYEncryptImage component, the data obtained from the image url path carried in the alarm message and cloud storage event will become an encrypted image and cannot be viewed directly. You need to use the interface provided by the TYEncryptImage component to load the image.
 
 ### 3.17.0 (2020-06-05)
 

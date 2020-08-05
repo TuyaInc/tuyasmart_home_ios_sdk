@@ -320,7 +320,7 @@ Get cloud alarm events of some day.
 | endTime     | NSInteger | End time of event, Unix timestamp                      |
 | snapshotUrl | NSString  | Camera captures a picture of the event when it happens |
 
-
+> The real-time screenshots carried in the cloud storage event are encrypted and need to be displayed through the encrypted image component `TYEncryptImage`. For details, refer to the [Encrypted Image](./encryptImage.md) chapter.
 
 ### Cloud video playback
 

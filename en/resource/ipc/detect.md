@@ -185,9 +185,9 @@ Batch delete alarm message.
 | msgCode        | NSString  | Message type                           |
 | time           | NSInteger | Unix timestamp of message report time  |
 
-
-
 Depending on the message type, there may be different attachments. The `attachPic` property gets the url of the image attachment, and the `attachVideos` property gets the urls of the video attachments. Normally, this property has only one element.
+
+> The image attachment in the alarm message is encrypted and needs to be displayed using the encrypted image component `TYEncryptImage`. For details, refer to the [Encrypted Image](./encryptImage.md) chapter.
 
 ## Video message
 

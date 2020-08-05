@@ -4,7 +4,7 @@
 
 ### 简介
 
-Camera SDK 基于 Home SDK 封装了智能摄像机的相关功能。整个 SDK 分为四个部分，基础工具库，网络通信层，核心功能层，摄像机垂直业务层。
+IPC SDK 基于 Home SDK 封装了智能摄像机的相关功能。整个 SDK 分为四个部分，基础工具库，网络通信层，核心功能层，摄像机垂直业务层。
 
 * 基础工具库提供一些常用的工具方法，如 JSON 序列化，字符串编解码等。
 * 网络通信层封装了 Https，MQTT，Socket，p2p 等网络通道实现。
@@ -17,7 +17,7 @@ Camera SDK 基于 Home SDK 封装了智能摄像机的相关功能。整个 SDK 
 
 ### 组件模块
 
-Camera SDK 依赖一部分 Home SDK 中的组件，包括账户管理，家庭设备管理，设备配网，基础通信模块等。在使用 Cocoapods 导入 Camera SDK 时，会自动导入依赖的组件。
+IPC SDK 依赖一部分 Home SDK 中的组件，包括账户管理，家庭设备管理，设备配网，基础通信模块等。在使用 Cocoapods 导入 IPC SDK 时，会自动导入依赖的组件。
 
 **模块说明**
 
@@ -34,6 +34,7 @@ Camera SDK 依赖一部分 Home SDK 中的组件，包括账户管理，家庭�
 | TuyaSmartSocketChannelKit    | 涂鸦 Socket 网络通道实现                         |
 | TuyaSmartMQTTChannelKit      | 涂鸦 MQTT 网络通道实现                           |
 | TuyaSmartUtil                | 基础工具方法实现                                 |
+| TYEncryptImage               | 加密图片展示组件                                 |
 
 
 

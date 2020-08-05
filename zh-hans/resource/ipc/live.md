@@ -1,6 +1,6 @@
 # 摄像机功能
 
-Camera SDK 提供智能摄像机的实时视频播放，设备存储卡录像播放，对当前正在播放的视频截图、录制视频， 与摄像机实时通话等基础能力，并提供视频帧解码后的 YUV 数据，开发者可以对视频数据进行二次处理。
+IPC SDK 提供智能摄像机的实时视频播放，设备存储卡录像播放，对当前正在播放的视频截图、录制视频， 与摄像机实时通话等基础能力，并提供视频帧解码后的 YUV 数据，开发者可以对视频数据进行二次处理。
 
 ## 视频直播
 
@@ -8,7 +8,7 @@ Camera SDK 提供智能摄像机的实时视频播放，设备存储卡录像播
 
 ### P2P 连接
 
-在开始播放视频之前，需要先连接 p2p 通道。p2p 的连接状态需要开发者自己维护，Camera SDK 只负责下发命令和接收摄像机响应结果。
+在开始播放视频之前，需要先连接 p2p 通道。p2p 的连接状态需要开发者自己维护，IPC SDK 只负责下发命令和接收摄像机响应结果。
 
 **接口说明**
 
@@ -86,7 +86,7 @@ p2p 通道连接成功以后，就可以开始播放实时视频了。
 
 ### 视频渲染
 
-视频成功播放后，Camera SDK 收到视频流将会自动渲染，开发者可以通过 camera 对象的 `- (UIView<TuyaSmartVideoViewType> *)videoView` 方法来获取渲染视图，将其添加到屏幕上，并设置布局属性。
+视频成功播放后，IPC SDK 收到视频流将会自动渲染，开发者可以通过 camera 对象的 `- (UIView<TuyaSmartVideoViewType> *)videoView` 方法来获取渲染视图，将其添加到屏幕上，并设置布局属性。
 
 **协议说明**
 
@@ -128,11 +128,11 @@ p2p 通道连接成功以后，就可以开始播放实时视频了。
 - (UIImage *)screenshot;
 ```
 
-> `TuyaSmartCameraType` 对象还提供了一个 `autoRender` 属性，默认是 `YES`，Camera SDK 会自动渲染视频图像。如果开发者不希望 SDK 自动渲染视频，可将此属性设置为 `NO`，然后可以从代理方法中获取到每一帧视频的 YUV 数据，并自主开发视频渲染，详细的接口在[裸流数据](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/zh-hans/resource/av_function.html#%E8%A3%B8%E6%B5%81%E6%95%B0%E6%8D%AE)章节中介绍。
+> `TuyaSmartCameraType` 对象还提供了一个 `autoRender` 属性，默认是 `YES`，IPC SDK 会自动渲染视频图像。如果开发者不希望 SDK 自动渲染视频，可将此属性设置为 `NO`，然后可以从代理方法中获取到每一帧视频的 YUV 数据，并自主开发视频渲染，详细的接口在[裸流数据](https://tuyainc.github.io/tuyasmart_camera_ios_sdk_doc/zh-hans/resource/av_function.html#%E8%A3%B8%E6%B5%81%E6%95%B0%E6%8D%AE)章节中介绍。
 
 #### 全屏播放
 
-Camera SDK 并不提供全屏播放的能力，全屏播放只需要修改视频渲染视图的布局即可，若需要视频图像铺满视图，可以将`scaleToFill`属性设置为 `YES`，但是此时图像可能会被拉伸变形。全屏模式时，横竖屏的旋转，布局的变化都需要开发者自行维护。
+IPC SDK 并不提供全屏播放的能力，全屏播放只需要修改视频渲染视图的布局即可，若需要视频图像铺满视图，可以将`scaleToFill`属性设置为 `YES`，但是此时图像可能会被拉伸变形。全屏模式时，横竖屏的旋转，布局的变化都需要开发者自行维护。
 
 ### 流程图
 

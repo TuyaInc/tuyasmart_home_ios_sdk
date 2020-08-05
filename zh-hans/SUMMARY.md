@@ -137,7 +137,7 @@
 
 
 * [垂直品类 SDK](./resource/ExtensionAbout.md)
-  * [Camera SDK](./resource/Camera.md)
+  * [IPC SDK](./resource/Camera.md)
     * [集成 SDK](./resource/ipc/rapid_integration.md)
     * [架构说明](./resource/ipc/architecture.md)
     * [摄像机](./resource/ipc/camera_device.md)
@@ -158,6 +158,7 @@
     * [侦测报警](./resource/ipc/detect.md)
       * [消息列表](./resource/ipc/detect.md#消息列表)
       * [视频消息](./resource/ipc/detect.md#视频消息)
+    * [加密图片](./resource/ipc/encryptImage.md)
     * [错误码](./resource/ipc/errors.md)
     * [需要的权限](./resource/ipc/required_permission.md)
     * [调试日志文件](./resource/ipc/log_file.md)

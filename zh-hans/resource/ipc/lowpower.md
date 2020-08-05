@@ -111,7 +111,7 @@ func cameraDPDidUpdate(_ manager: TuyaSmartCameraDPManager!, dps dpsData: [AnyHa
 
 ### 门铃呼叫
 
-设备成功绑定到家庭并且在线状态下，有人按门铃，Camera SDK 将收到门铃呼叫的事件。事件以通知的形式广播。
+设备成功绑定到家庭并且在线状态下，有人按门铃，IPC SDK 将收到门铃呼叫的事件。事件以通知的形式广播。
 
 * 通知名：**kNotificationMQTTMessageNotification**
 * 参数：
@@ -160,7 +160,7 @@ func obserDoorbellCall(_ callBack: @escaping (String, String) -> Void) {
 
 ### 电池管理
 
-低功耗门铃有两种供电方式，插电和电池供电。通过 Camera SDK 可以查询到设备当前的供电模式以及当前的电量。还可以设置一个低电量报警阈值，当电量过低时，会触发一个报警通知。
+低功耗门铃有两种供电方式，插电和电池供电。通过 IPC SDK 可以查询到设备当前的供电模式以及当前的电量。还可以设置一个低电量报警阈值，当电量过低时，会触发一个报警通知。
 
 **示例代码**
 
