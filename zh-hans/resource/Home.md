@@ -1,6 +1,6 @@
 # 家庭关系管理
 
-用户登录成功后需要通过`TuyaSmartHomeManager`去获取整个家庭列表的信息,然后初始化其中的一个家庭`TuyaSmartHome`，获取家庭详情信息，对家庭中的设备进行管理，控制。
+用户登录成功后需要通过 `TuyaSmartHomeManager` 去获取整个家庭列表的信息，然后初始化其中的一个家庭`TuyaSmartHome`，获取家庭详情信息，就可以对家庭中的设备进行操作控制。
 
 |         类名(协议名)         |                 说明                 |
 | :--------------------------: | :----------------------------------: |
@@ -11,11 +11,12 @@
 
 ## 获取家庭列表
 
-获取家庭列表，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去`TuyaSmartHome`初始化一个 home，调用接口 `getHomeDetailWithSuccess:failure:`
+获取家庭列表的接口，返回数据只是家庭的简单信息。如果要获取具体家庭的详情，需要去`TuyaSmartHome`初始化一个 home，调用接口 `getHomeDetailWithSuccess:failure:` 。
 
 **接口说明**
 
 ```objective-c
+// 获取家庭的列表
 - (void)getHomeListWithSuccess:(void(^)(NSArray <TuyaSmartHomeModel *> *homes))success
                        failure:(TYFailureError)failure;
 ```
@@ -62,6 +63,8 @@ func getHomeList() {
 
 ## 添加家庭
 
+添加一个家庭
+
 **接口说明**
 
 ```objective-c
@@ -76,15 +79,15 @@ func getHomeList() {
 
 **参数说明**
 
-| 参数      | 说明         |
-| --------- | ------------ |
-| homeName  | 家庭名称     |
-| geoName   | 地址名称     |
-| rooms     | 房间名称列表 |
-| latitude  | 地址纬度     |
-| longitude | 地址经度     |
-| success   | 成功回调     |
-| failure   | 失败回调     |
+| 参数      | 说明                 |
+| --------- | -------------------- |
+| homeName  | 家庭的名称           |
+| geoName   | 家庭的地址           |
+| rooms     | 家庭下房间的名称列表 |
+| latitude  | 家庭地址纬度         |
+| longitude | 家庭地址经度         |
+| success   | 成功回调             |
+| failure   | 失败回调             |
 
 **示例代码**
 
@@ -172,6 +175,8 @@ Swift:
 
 ### MQTT 服务连接成功回调
 
+程序进入后台，MQTT 长连接会断开连接，进入前台后会进行重连，所以需要在此代理这里重新获取当前家庭的详情，保证当前家庭下的数据是最新数据。
+
 **接口说明**
 
 ```objective-c
@@ -198,7 +203,7 @@ Objc:
 
 // MQTT连接成功
 - (void)serviceConnectedSuccess {
-    // 刷新当前家庭UI
+    // 去云端获取当前家庭的详情，然后去刷新 UI
 }
 ```
 
@@ -219,9 +224,8 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
     
     // MQTT连接成功
     func serviceConnectedSuccess() {
-        // 刷新当前家庭UI
+        // 去云端获取当前家庭的详情，然后去刷新 UI
     }
-    
 }
 ```
 
@@ -230,20 +234,22 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 ## 家庭信息管理
 
-主要功能：用来获取和修改，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序。
+主要功能：用来获取和修改家庭信息，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序等。
 
-单个家庭信息管理相关的所有功能对应 `TuyaSmartHome` 类，需要使用正确的家庭 ID 进行初始化。错误的家庭 ID 可能会导致初始化失败，返回 `nil`。
+单个家庭信息管理相关的所有功能对应 `TuyaSmartHome` 类，需要使用正确的家庭 ID 进行初始化。错误的家庭 ID 会导致初始化失败，返回 `nil`。
 
-初始化 home 对象之后需要获取家庭的详情接口 `getHomeDetailWithSuccess:failure:`，home 实例对象中的属性 homeModel、roomList、deviceList、groupList 才有数据。
+初始化 home 对象之后需要去获取家庭的详情 `getHomeDetailWithSuccess:failure:`，home 实例对象中的属性 homeModel、roomList、deviceList、groupList、sharedDeviceList、sharedGroupList 才有数据。
 
-|     类名(协议名)      |                  说明                  |
-| :-------------------: | :------------------------------------: |
-|     TuyaSmartHome     | 获取和修改家庭信息，管理房间和家庭成员 |
-| TuyaSmartHomeDelegate |           家庭下信息变更回调           |
+|     类名(协议名)      |        说明        |
+| :-------------------: | :----------------: |
+|     TuyaSmartHome     |     家庭管理类     |
+| TuyaSmartHomeDelegate | 家庭下信息变更回调 |
 
 
 
 ### 获取家庭的详细信息
+
+只有调用了此接口，home 实例对象中的属性 homeModel、roomList、deviceList、groupList、sharedDeviceList、sharedGroupList 才有数据。
 
 **接口说明**
 
@@ -306,14 +312,14 @@ func getHomeDetailInfo() {
 
 **参数说明**
 
-| 参数      | 说明     |
-| --------- | -------- |
-| homeName  | 家庭名称 |
-| geoName   | 地址名称 |
-| latitude  | 地址纬度 |
-| longitude | 地址经度 |
-| success   | 成功回调 |
-| failure   | 失败回调 |
+| 参数      | 说明         |
+| --------- | ------------ |
+| homeName  | 家庭名称     |
+| geoName   | 家庭地址名称 |
+| latitude  | 家庭地址纬度 |
+| longitude | 家庭地址经度 |
+| success   | 成功回调     |
+| failure   | 失败回调     |
 
 **示例代码**
 
@@ -873,7 +879,7 @@ Objc:
 
 #pragma mark - TuyaSmartHomeDelegate
 
-// 家庭的信息更新，例如name
+// 家庭的信息更新，例如家庭 name 变化
 - (void)homeDidUpdateInfo:(TuyaSmartHome *)home {
     [self reload];
 }
@@ -893,7 +899,7 @@ Objc:
   	[self reload];
 }
 
-// 房间信息变更，例如name
+// 房间信息变更，例如房间 name 变化
 - (void)home:(TuyaSmartHome *)home roomInfoUpdate:(TuyaSmartRoomModel *)room {
     [self reload];
 }
@@ -913,7 +919,7 @@ Objc:
     [self reload];
 }
 
-// 设备信息更新，例如name
+// 设备信息更新，例如设备 name 变化，在线状态变化
 - (void)home:(TuyaSmartHome *)home deviceInfoUpdate:(TuyaSmartDeviceModel *)device {
     [self reload];
 }
@@ -933,7 +939,7 @@ Objc:
     [self reload];
 }
 
-// 群组信息更新，例如name
+// 群组信息更新，例如群组 name 变化
 - (void)home:(TuyaSmartHome *)home groupInfoUpdate:(TuyaSmartGroupModel *)group {
     [self reload];
 }
@@ -1055,7 +1061,7 @@ extension ViewController: TuyaSmartHomeDelegate {
 
 ## 房间信息管理
 
-单个房间信息管理相关的所有功能对应 `TuyaSmartRoom` 类，需要使用正确的 roomId 进行初始化。错误的 roomId 可能会导致初始化失败，返回 `nil`。
+单个房间信息管理相关的所有功能对应 `TuyaSmartRoom` 类，需要使用正确的 roomId 进行初始化。错误的 roomId 会导致初始化失败，返回 `nil`。
 
 | 类名(协议名)  |           说明           |
 | :-----------: | :----------------------: |
@@ -1368,7 +1374,6 @@ func saveBatchRoomRelation() {
 | condition         | 天气情况，比如晴，阴，雨等               |
 | iconUrl         | 天气图标 ，高亮              |
 | inIconUrl         | 天气图标               |
-| city         | 城市               |
 | temp         | 温度               |
 
 **示例代码**
