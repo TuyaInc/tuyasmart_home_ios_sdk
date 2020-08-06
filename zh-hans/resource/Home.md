@@ -234,9 +234,9 @@ extension ViewController: TuyaSmartHomeManagerDelegate {
 
 ## 家庭信息管理
 
-主要功能：用来获取和修改家庭信息，解散家庭。获取，添加和删除家庭的成员。新增，解散房间，房间进行排序等。
+主要功能：单个家庭信息管理，家庭下的家庭成员管理，房间管理等。
 
-单个家庭信息管理相关的所有功能对应 `TuyaSmartHome` 类，需要使用正确的家庭 ID 进行初始化。错误的家庭 ID 会导致初始化失败，返回 `nil`。
+单个家庭信息管理相关的所有功能对应 `TuyaSmartHome` 类，需要使用正确的 homeId 进行初始化。错误的 homeId 会导致初始化失败，返回 `nil`。
 
 初始化 home 对象之后需要去获取家庭的详情 `getHomeDetailWithSuccess:failure:`，home 实例对象中的属性 homeModel、roomList、deviceList、groupList、sharedDeviceList、sharedGroupList 才有数据。
 
