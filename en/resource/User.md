@@ -1235,7 +1235,7 @@ Swift:
 
 ```swift
 func updateLocation() {
-  TuyaSmartSDK.sharedInstance()?.updataLatitude(latitude, longitude: longitude);
+  TuyaSmartSDK.sharedInstance()?.updateLatitude(latitude, longitude: longitude);
 }
 ```
 
