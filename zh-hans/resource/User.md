@@ -1064,6 +1064,76 @@ TuyaSmartUser.sharedInstance().deleteAnonymousAccount(withSuccess: {
 
 ```
 
+### 匿名登录绑定账号
+
+**接口说明**
+
+匿名登录的用户可以进一步完善手机或者邮箱信息，转化成正常用户。   
+完善信息通常有两步：
+* 验证邮箱或者手机
+* 设置账号密码
+
+```Objc
+- (void)usernameBindingWithCountryCode:(NSString *)countryCode
+                              userName:(NSString *)userName
+                                  code:(NSString *)code
+                              password:(NSString *)password
+                               success:(nullable TYSuccessHandler)success
+                               failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 类型 |说明                                 |
+| :---------- | :-------- |:----------------------------------- |
+| countryCode  |NSString* | 国家码（例如：1，美国；86，中国）                 |
+| userName  |NSString* | 用户绑定的手机号码或者邮箱                |
+| code  |NSString* | 验证码                 |
+| password  |NSString* | 设置密码                 |
+| success     |TYSuccessHandler| 接口发送成功回调                  |
+| failure     |TYFailureError| 接口发送失败回调，error 表示失败原因 |
+
+
+**实例代码**
+
+Objc:
+
+```objc
+NSString *countryCode = @"1"; // 美国
+NSString *username = @"example@test.com";   // 绑定的邮箱（或手机）
+NSString *code = @"verify code numbers";    // 邮箱（或手机）验证码
+NSString *password = @"account password";   // 设置账号密码
+[[TuyaSmartUser sharedInstance] usernameBindingWithCountryCode:countryCode
+                                                          userName:username
+                                                              code:code
+                                                          password:password
+                                                           success:^{
+    NSLog(@"username bind success");
+} failure:^(NSError *error) {
+    NSLog(@"username bind failure:%@", error);
+}];
+
+```
+
+Swift:
+
+```swift
+
+let countryCode = "1" // 美国
+let username = "example@test.com" // 绑定的邮箱（或手机）
+let code = "verify code numbers" // 邮箱（或手机）验证码
+let password = "account password" // 设置账号密码
+TuyaSmartUser.sharedInstance().usernameBinding(withCountryCode: countryCode, userName: username, code: code, password: password, success: {
+    print("username bind success")
+}, failure: { error in
+    if let error = error {
+        print("username bind failure:\(error)")
+    }
+})
+
+
+```
+
 ## 修改用户信息
 
 ### 修改用户头像
