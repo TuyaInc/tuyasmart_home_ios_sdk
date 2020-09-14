@@ -956,6 +956,68 @@ func loginWithApple() {
 ```
 
 
+## 匿名注册
+
+### 匿名注册登录
+
+**接口说明**
+
+SDK提供匿名注册的方式登录，传参：usename，匿名登录昵称；countryCode，国家码。
+
+```objc
+- (void)registerAnonymousWithCountryCode:(NSString *)countryCode
+                                userName:(NSString *)userName
+                                 success:(TYSuccessHandler)success
+                                 failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 类型 |说明                                 |
+| :---------- | :-------- |:----------------------------------- |
+| countryCode | NSString | 国家码，86：中国，1：美      |
+| userName    | NSString  | 匿名登录昵称（例如：设备名称）      |
+| success     |TYSuccessHandler| 接口发送成功回调                     |
+| failure     |TYFailureError| 接口发送失败回调，error 表示失败原因 |
+
+
+**实例代码**
+
+Objc:
+
+```objc
+
+NSString *countryCode = @"1"; // 美国
+NSString *usename = [UIDevice currentDevice].name;  // 设备名称
+[[TuyaSmartUser sharedInstance] registerAnonymousWithCountryCode:countryCode 
+                                                        userName:usename
+                                                         success:^{
+	NSLog(@"anonymouse success");
+} failure:^(NSError *error) {
+	NSLog(@"anonymouse failure: %@", error);
+}];
+
+```
+
+swift:
+
+```swift
+let countryCode = "1" // 美国
+let usename = UIDevice.current.name // 设备名称
+TuyaSmartUser.sharedInstance().registerAnonymous(withCountryCode: countryCode, 
+                                                        userName: usename, 
+                                                        success: {
+    print("anonymouse success")
+}, failure: { error in
+    if let error = error {
+        print("anonymouse failure: \(error)")
+    }
+})
+
+
+```
+
+
 
 ## 修改用户信息
 
