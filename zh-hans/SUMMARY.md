@@ -17,6 +17,7 @@
   - [用户 UID 登录体系](./resource/User.md#用户-uid-登录体系)
   - [第三方登录](./resource/User.md#第三方登录)
   - [Auth2 登录(苹果登录)](./resource/User.md#苹果登录)
+  - [匿名注册](./resource/User.md#匿名注册)
   - [修改用户信息](./resource/User.md#修改用户信息)
   - [退出登录，注销账号](./resource/User.md#退出登录，注销账号)
   - [用户数据模型](./resource/User.md#用户数据模型)

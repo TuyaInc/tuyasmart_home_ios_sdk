@@ -975,8 +975,8 @@ SDK提供匿名注册的方式登录，传参：usename，匿名登录昵称；c
 
 | 参数        | 类型 |说明                                 |
 | :---------- | :-------- |:----------------------------------- |
-| countryCode | NSString | 国家码，86：中国，1：美      |
-| userName    | NSString  | 匿名登录昵称（例如：设备名称）      |
+| countryCode | NSString* | 国家码，86：中国，1：美      |
+| userName    | NSString*  | 匿名登录昵称（例如：设备名称）      |
 | success     |TYSuccessHandler| 接口发送成功回调                     |
 | failure     |TYFailureError| 接口发送失败回调，error 表示失败原因 |
 
