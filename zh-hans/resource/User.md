@@ -999,7 +999,7 @@ NSString *usename = [UIDevice currentDevice].name;  // 设备名称
 
 ```
 
-swift:
+Swift:
 
 ```swift
 let countryCode = "1" // 美国
@@ -1017,7 +1017,52 @@ TuyaSmartUser.sharedInstance().registerAnonymous(withCountryCode: countryCode,
 
 ```
 
+### 匿名注册退出登录
 
+**接口说明**
+
+匿名登录的用户可以通过这个接口退出登录，匿名账号会立即注销，其他账号有7天的窗口期
+
+```Objc
+- (void)deleteAnonymousAccountWithSuccess:(TYSuccessHandler)success
+                                  failure:(TYFailureError)failure
+```
+
+**参数说明**
+
+| 参数        | 类型 |说明                                 |
+| :---------- | :-------- |:----------------------------------- |
+| success     |TYSuccessHandler| 接口发送成功回调                     |
+| failure     |TYFailureError| 接口发送失败回调，error 表示失败原因 |
+
+
+**实例代码**
+
+Objc:
+
+```objc
+
+[[TuyaSmartUser sharedInstance] deleteAnonymousAccountWithSuccess:^{
+    NSLog(@"anonymous logout success");
+} failure:^(NSError *error) {
+    NSLog(@"anonymous logout failure: %@", error);
+}];
+
+```
+
+Swift:
+
+```swift
+
+TuyaSmartUser.sharedInstance().deleteAnonymousAccount(withSuccess: {
+    print("anonymous logout success")
+}, failure: { error in
+    if let error = error {
+        print("anonymous logout failure: \(error)")
+    }
+})
+
+```
 
 ## 修改用户信息
 
