@@ -870,7 +870,7 @@ auth2 的接口是一个通用的登录接口，可以根据传参来确认正�
 
 | 参数        | 说明                                     |
 | :---------- | :--------------------------------------- |
-| type        | Auth2 接口调用的类型，例如：苹果登录用 "ap" |
+| type        | Auth2 接口调用的类型，例如：苹果登录用 "ap"，google登录用 "gg" |
 | countryCode | 国家码,例如：86                         |
 | accessToken | 授权登录的 token                      |
 | extraInfo   | 额外的参数                         |
@@ -952,6 +952,75 @@ func loginWithApple() {
 				print("login failure: \(e)")
 		}
 	})
+}
+```
+
+### google登录
+
+**接口说明**
+
+SDK 从 3.14.0 开始支持苹果登录了，授权成功后通过 Auth2 的接口传入 token(这里是google idToken) 和 extraInfo 等信息，可以实现google登录。（建议国外用户使用）
+
+**参数说明**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| type        | @"gg"                                                        |
+| countryCode | 国家码,例如：86                                              |
+| accessToken | google authentication idToken ,google 授权的id token         |
+| extraInfo   | @{@"pubVersion": @1}             |
+| success     | 接口发送成功回调                                             |
+| failure     | 接口发送失败回调，error 表示失败原因                         |
+
+**示例代码**
+
+Objc:
+
+```objc
+
+- (void)loginWithGoogle {
+  
+    NSString *loginType = @"gg";    //google 登录
+    NSString *countryCode = @"1";   //美国
+    NSString *accessToken = @"id token from google";  // google 授权的id token
+
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"gg" 
+                                             countryCode:countryCode 
+                                             accessToken:accessToken 
+                                                extraInfo:@{@"pubVersion": @1}    
+    success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
+}
+
+```
+
+Swift:
+
+```swift
+func loginWithGoogle() {
+
+    let loginType = "gg" //google 登录
+    let countryCode = "1" //美国
+    let accessToken = "id token from google" // google 授权的id token
+
+    TuyaSmartUser.sharedInstance().loginByAuth2(
+        withType: "gg",
+        countryCode: countryCode,
+        accessToken: accessToken,
+        extraInfo: [
+            "pubVersion": NSNumber(value: 1)
+        ],
+        success: {
+            print("login success")
+        },
+        failure: { error in
+            if let error = error {
+                print("login failure: \(error)")
+            }
+        })
 }
 ```
 
