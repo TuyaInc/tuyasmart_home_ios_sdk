@@ -1005,6 +1005,255 @@ func loginWithApple() {
 ```
 
 
+### Login with Google
+
+**Declaration**
+
+The SDK supports Apple login from 3.14.0. After authorization is successful, pass in token (here is google idToken) and extraInfo information through the Auth2 interface to achieve Google login.
+
+**Parameters**
+
+| Param        | Description                                                         |
+| :---------- | :----------------------------------------------------------- |
+| type        | @"gg"                                                        |
+| countryCode | Country code, for example: 86                                            |
+| accessToken | google authentication idToken ,google authorized id token         |
+| extraInfo   | @{@"pubVersion": @1}             |
+| success     | Success Callback                                                     |
+| failure     | Failure Callback                         |
+
+**Example**
+
+Objc:
+
+```objc
+
+- (void)loginWithGoogle {
+  
+    NSString *loginType = @"gg";    //google login
+    NSString *countryCode = @"1";   //USA
+    NSString *accessToken = @"id token from google";  // google authorized id token
+
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"gg" 
+                                             countryCode:countryCode 
+                                             accessToken:accessToken 
+                                                extraInfo:@{@"pubVersion": @1}    
+    success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
+}
+
+```
+
+Swift:
+
+```swift
+func loginWithGoogle() {
+
+    let loginType = "gg" //google login
+    let countryCode = "1" //USA
+    let accessToken = "id token from google" // google authorized id token
+
+    TuyaSmartUser.sharedInstance().loginByAuth2(
+        withType: "gg",
+        countryCode: countryCode,
+        accessToken: accessToken,
+        extraInfo: [
+            "pubVersion": NSNumber(value: 1)
+        ],
+        success: {
+            print("login success")
+        },
+        failure: { error in
+            if let error = error {
+                print("login failure: \(error)")
+            }
+        })
+}
+```
+
+
+## Anonymous registration
+
+### Anonymous registration
+
+**Declaration**
+
+SDK provides anonymous registration to log in, passing parameters: usename, anonymous login nickname; countryCode, country code.
+
+```objc
+- (void)registerAnonymousWithCountryCode:(NSString *)countryCode
+                                userName:(NSString *)userName
+                                 success:(TYSuccessHandler)success
+                                 failure:(TYFailureError)failure;
+```
+
+**Parameters**
+
+| Params        | Type |Description                                 |
+| :---------- | :-------- |:----------------------------------- |
+| countryCode | NSString* | Country code, 86: China, 1: USA      |
+| userName    | NSString*  | Nickname of anonymous login  (for example: device name)      |
+| success     |TYSuccessHandler| Success Callback                       |
+| failure     |TYFailureError| Failure Callback    |
+
+
+**Example**
+
+Objc:
+
+```objc
+
+NSString *countryCode = @"1"; // USA
+NSString *usename = [UIDevice currentDevice].name;  // Device name
+[[TuyaSmartUser sharedInstance] registerAnonymousWithCountryCode:countryCode 
+                                                        userName:usename
+                                                         success:^{
+	NSLog(@"anonymouse success");
+} failure:^(NSError *error) {
+	NSLog(@"anonymouse failure: %@", error);
+}];
+
+```
+
+Swift:
+
+```swift
+let countryCode = "1" // USA
+let usename = UIDevice.current.name // Device name
+TuyaSmartUser.sharedInstance().registerAnonymous(withCountryCode: countryCode, 
+                                                        userName: usename, 
+                                                        success: {
+    print("anonymouse success")
+}, failure: { error in
+    if let error = error {
+        print("anonymouse failure: \(error)")
+    }
+})
+
+
+```
+
+### Anonymous user logout
+
+**Declaration**
+
+Users who log in anonymously can log out through this interface. Anonymous accounts will be logged out immediately.
+
+```Objc
+- (void)deleteAnonymousAccountWithSuccess:(TYSuccessHandler)success
+                                  failure:(TYFailureError)failure
+```
+
+**Parameters**
+
+| Params        | Tpye |Description                                 |
+| :---------- | :-------- |:----------------------------------- |
+| success     |TYSuccessHandler| Success Callback                      |
+| failure     |TYFailureError| Failure Callback |
+
+
+**Example**
+
+Objc:
+
+```objc
+
+[[TuyaSmartUser sharedInstance] deleteAnonymousAccountWithSuccess:^{
+    NSLog(@"anonymous logout success");
+} failure:^(NSError *error) {
+    NSLog(@"anonymous logout failure: %@", error);
+}];
+
+```
+
+Swift:
+
+```swift
+
+TuyaSmartUser.sharedInstance().deleteAnonymousAccount(withSuccess: {
+    print("anonymous logout success")
+}, failure: { error in
+    if let error = error {
+        print("anonymous logout failure: \(error)")
+    }
+})
+
+```
+
+### Anonymous user bind account
+
+**Declaration**
+
+Users who log in anonymously can further improve their mobile phone or email information and transform them into normal users.
+There are usually two steps to perfecting information:
+* Verify email or mobile phone
+* Set account password
+
+```Objc
+- (void)usernameBindingWithCountryCode:(NSString *)countryCode
+                              userName:(NSString *)userName
+                                  code:(NSString *)code
+                              password:(NSString *)password
+                               success:(nullable TYSuccessHandler)success
+                               failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Params        | Type |Description                                 |
+| :---------- | :-------- |:----------------------------------- |
+| countryCode  |NSString* | Country code（For example: 1, USA; 86, China）                 |
+| userName  |NSString* | User's phone number or email              |
+| code  |NSString* | Verification code                |
+| password  |NSString* | Password                |
+| success     |TYSuccessHandler| Success Callback                 |
+| failure     |TYFailureError| Failure Callback |
+
+
+**Example**
+
+Objc:
+
+```objc
+NSString *countryCode = @"1"; // USA
+NSString *username = @"example@test.com";   // User's phone number or email
+NSString *code = @"verify code numbers";    // Verification code
+NSString *password = @"account password";   // Password
+[[TuyaSmartUser sharedInstance] usernameBindingWithCountryCode:countryCode
+                                                          userName:username
+                                                              code:code
+                                                          password:password
+                                                           success:^{
+    NSLog(@"username bind success");
+} failure:^(NSError *error) {
+    NSLog(@"username bind failure:%@", error);
+}];
+
+```
+
+Swift:
+
+```swift
+
+let countryCode = "1" // USA
+let username = "example@test.com" // User's phone number or email
+let code = "verify code numbers" // Verification code
+let password = "account password" // Password
+TuyaSmartUser.sharedInstance().usernameBinding(withCountryCode: countryCode, userName: username, code: code, password: password, success: {
+    print("username bind success")
+}, failure: { error in
+    if let error = error {
+        print("username bind failure:\(error)")
+    }
+})
+
+
+```
+
+
 
 ## Modify User Info
 

@@ -11,6 +11,8 @@
   - [Use UID for Login](./resource/User.md#use-uid-for-login)
   - [Third Party Login](./resource/User.md#third-party-login)
   - [Login by Auth2(Login with Apple)](./resource/User.md#login-by-auth2)
+  - [Login by Google](./resource/User.md#login-with-google)
+  - [Anonymous registration](./resource/User.md#anonymous-registration)
   - [Modify User Info](./resource/User.md#modify-user-info)
   - [Logout, Disable Account](./resource/User.md#logout-disable-account)
   - [User Data Model](./resource/User.md#user-data-model)
