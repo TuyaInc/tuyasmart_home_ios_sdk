@@ -1149,7 +1149,7 @@ Users who log in anonymously can log out through this interface. Anonymous accou
 
 **Parameters**
 
-| Params        | Tpye |Description                                 |
+| Params        | Type |Description                                 |
 | :---------- | :-------- |:----------------------------------- |
 | success     |TYSuccessHandler| Success Callback                      |
 | failure     |TYFailureError| Failure Callback |
