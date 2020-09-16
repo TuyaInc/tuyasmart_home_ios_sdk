@@ -959,7 +959,7 @@ func loginWithApple() {
 
 **接口说明**
 
-SDK 从 3.14.0 开始支持苹果登录了，授权成功后通过 Auth2 的接口传入 token(这里是google idToken) 和 extraInfo 等信息，可以实现google登录。（建议国外用户使用）
+SDK 从 3.19.0 开始支持Google登录了，授权成功后通过 Auth2 的接口传入 token(这里是google idToken) 和 extraInfo 等信息，可以实现google登录。（建议国外用户使用）
 
 **参数说明**
 

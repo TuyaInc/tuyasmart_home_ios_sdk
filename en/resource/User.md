@@ -1009,7 +1009,7 @@ func loginWithApple() {
 
 **Declaration**
 
-The SDK supports Apple login from 3.14.0. After authorization is successful, pass in token (here is google idToken) and extraInfo information through the Auth2 interface to achieve Google login.
+The SDK supports Google login from 3.19.0. After authorization is successful, pass in token (here is google idToken) and extraInfo information through the Auth2 interface to achieve Google login.
 
 **Parameters**
 
