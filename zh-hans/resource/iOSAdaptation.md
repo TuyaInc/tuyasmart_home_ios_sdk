@@ -1,5 +1,9 @@
 # iOS 版本适配
 
+## iOS 14 适配
+
+从 iOS 14 开始，在设备配网、局域网本地控制时会触发「本地网络」权限弹窗，在用户点击允许后，app才能够向本地局域网发送数据。如果用户点击了拒绝，将无法使用相关功能。目前苹果没有提供任何 API 对此权限进行判断，建议开发者在相关功能无法正常使用时提示、引导用户检查「系统设置 - app设置」，确认是否开启了「本地网络」权限。
+
 ## iOS 13 适配
 
 ### Wi-Fi 权限变化
@@ -7,7 +11,7 @@
 从 iOS 13 开始，如果没有开启地理位置权限，`[[TuyaSmartActivator sharedInstance] currentWifiSSID]` 将获取不到正确的 SSID （在已开启 Wi-Fi 权限的前提下）,  在此情况下，系统会默认返回 WLAN or Wi-Fi，以下是 Apple 的官方邮件说明
 
 ```
-As we announced at WWDC19, we're making changes to further protect user privacy and prevent unauthorized location tracking. Starting with iOS 13, the CNCopyCurrentNetworkInfo API will no longer return valid Wi-Fi SSID and BSSID information. Instead, the information returned by default will be: 
+As we announced at WWDC19, we're making changes to further protect user privacy and prevent unauthorized location tracking. Starting with iOS 13, the CNCopyCurrentNetworkInfo API will no longer return valid Wi-Fi SSID and BSSID information. Instead, the information returned by default will be:
 
 SSID: “Wi-Fi” or “WLAN” (“WLAN" will be returned for the China SKU)
 BSSID: "00:00:00:00:00:00"
