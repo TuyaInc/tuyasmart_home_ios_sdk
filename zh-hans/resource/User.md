@@ -870,7 +870,7 @@ auth2 的接口是一个通用的登录接口，可以根据传参来确认正�
 
 | 参数        | 说明                                     |
 | :---------- | :--------------------------------------- |
-| type        | Auth2 接口调用的类型，例如：苹果登录用 "ap" |
+| type        | Auth2 接口调用的类型，例如：苹果登录用 "ap"，google登录用 "gg" |
 | countryCode | 国家码,例如：86                         |
 | accessToken | 授权登录的 token                      |
 | extraInfo   | 额外的参数                         |
@@ -955,7 +955,253 @@ func loginWithApple() {
 }
 ```
 
+### google登录
 
+**接口说明**
+
+SDK 从 3.14.0 开始支持苹果登录了，授权成功后通过 Auth2 的接口传入 token(这里是google idToken) 和 extraInfo 等信息，可以实现google登录。（建议国外用户使用）
+
+**参数说明**
+
+| 参数        | 说明                                                         |
+| :---------- | :----------------------------------------------------------- |
+| type        | @"gg"                                                        |
+| countryCode | 国家码,例如：86                                              |
+| accessToken | google authentication idToken ,google 授权的id token         |
+| extraInfo   | @{@"pubVersion": @1}             |
+| success     | 接口发送成功回调                                             |
+| failure     | 接口发送失败回调，error 表示失败原因                         |
+
+**示例代码**
+
+Objc:
+
+```objc
+
+- (void)loginWithGoogle {
+  
+    NSString *loginType = @"gg";    //google 登录
+    NSString *countryCode = @"1";   //美国
+    NSString *accessToken = @"id token from google";  // google 授权的id token
+
+	[[TuyaSmartUser sharedInstance] loginByAuth2WithType:@"gg" 
+                                             countryCode:countryCode 
+                                             accessToken:accessToken 
+                                                extraInfo:@{@"pubVersion": @1}    
+    success:^{
+		NSLog(@"login success");
+	} failure:^(NSError *error) {
+		NSLog(@"login failure: %@", error);
+	}];
+}
+
+```
+
+Swift:
+
+```swift
+func loginWithGoogle() {
+
+    let loginType = "gg" //google 登录
+    let countryCode = "1" //美国
+    let accessToken = "id token from google" // google 授权的id token
+
+    TuyaSmartUser.sharedInstance().loginByAuth2(
+        withType: "gg",
+        countryCode: countryCode,
+        accessToken: accessToken,
+        extraInfo: [
+            "pubVersion": NSNumber(value: 1)
+        ],
+        success: {
+            print("login success")
+        },
+        failure: { error in
+            if let error = error {
+                print("login failure: \(error)")
+            }
+        })
+}
+```
+
+
+## 匿名注册
+
+### 匿名注册登录
+
+**接口说明**
+
+SDK提供匿名注册的方式登录，传参：usename，匿名登录昵称；countryCode，国家码。
+
+```objc
+- (void)registerAnonymousWithCountryCode:(NSString *)countryCode
+                                userName:(NSString *)userName
+                                 success:(TYSuccessHandler)success
+                                 failure:(TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 类型 |说明                                 |
+| :---------- | :-------- |:----------------------------------- |
+| countryCode | NSString* | 国家码，86：中国，1：美      |
+| userName    | NSString*  | 匿名登录昵称（例如：设备名称）      |
+| success     |TYSuccessHandler| 接口发送成功回调                     |
+| failure     |TYFailureError| 接口发送失败回调，error 表示失败原因 |
+
+
+**实例代码**
+
+Objc:
+
+```objc
+
+NSString *countryCode = @"1"; // 美国
+NSString *usename = [UIDevice currentDevice].name;  // 设备名称
+[[TuyaSmartUser sharedInstance] registerAnonymousWithCountryCode:countryCode 
+                                                        userName:usename
+                                                         success:^{
+	NSLog(@"anonymouse success");
+} failure:^(NSError *error) {
+	NSLog(@"anonymouse failure: %@", error);
+}];
+
+```
+
+Swift:
+
+```swift
+let countryCode = "1" // 美国
+let usename = UIDevice.current.name // 设备名称
+TuyaSmartUser.sharedInstance().registerAnonymous(withCountryCode: countryCode, 
+                                                        userName: usename, 
+                                                        success: {
+    print("anonymouse success")
+}, failure: { error in
+    if let error = error {
+        print("anonymouse failure: \(error)")
+    }
+})
+
+
+```
+
+### 匿名注册退出登录
+
+**接口说明**
+
+匿名登录的用户可以通过这个接口退出登录，匿名账号会立即注销，其他账号有7天的窗口期
+
+```Objc
+- (void)deleteAnonymousAccountWithSuccess:(TYSuccessHandler)success
+                                  failure:(TYFailureError)failure
+```
+
+**参数说明**
+
+| 参数        | 类型 |说明                                 |
+| :---------- | :-------- |:----------------------------------- |
+| success     |TYSuccessHandler| 接口发送成功回调                     |
+| failure     |TYFailureError| 接口发送失败回调，error 表示失败原因 |
+
+
+**实例代码**
+
+Objc:
+
+```objc
+
+[[TuyaSmartUser sharedInstance] deleteAnonymousAccountWithSuccess:^{
+    NSLog(@"anonymous logout success");
+} failure:^(NSError *error) {
+    NSLog(@"anonymous logout failure: %@", error);
+}];
+
+```
+
+Swift:
+
+```swift
+
+TuyaSmartUser.sharedInstance().deleteAnonymousAccount(withSuccess: {
+    print("anonymous logout success")
+}, failure: { error in
+    if let error = error {
+        print("anonymous logout failure: \(error)")
+    }
+})
+
+```
+
+### 匿名登录绑定账号
+
+**接口说明**
+
+匿名登录的用户可以进一步完善手机或者邮箱信息，转化成正常用户。   
+完善信息通常有两步：
+* 验证邮箱或者手机
+* 设置账号密码
+
+```Objc
+- (void)usernameBindingWithCountryCode:(NSString *)countryCode
+                              userName:(NSString *)userName
+                                  code:(NSString *)code
+                              password:(NSString *)password
+                               success:(nullable TYSuccessHandler)success
+                               failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数        | 类型 |说明                                 |
+| :---------- | :-------- |:----------------------------------- |
+| countryCode  |NSString* | 国家码（例如：1，美国；86，中国）                 |
+| userName  |NSString* | 用户绑定的手机号码或者邮箱                |
+| code  |NSString* | 验证码                 |
+| password  |NSString* | 设置密码                 |
+| success     |TYSuccessHandler| 接口发送成功回调                  |
+| failure     |TYFailureError| 接口发送失败回调，error 表示失败原因 |
+
+
+**实例代码**
+
+Objc:
+
+```objc
+NSString *countryCode = @"1"; // 美国
+NSString *username = @"example@test.com";   // 绑定的邮箱（或手机）
+NSString *code = @"verify code numbers";    // 邮箱（或手机）验证码
+NSString *password = @"account password";   // 设置账号密码
+[[TuyaSmartUser sharedInstance] usernameBindingWithCountryCode:countryCode
+                                                          userName:username
+                                                              code:code
+                                                          password:password
+                                                           success:^{
+    NSLog(@"username bind success");
+} failure:^(NSError *error) {
+    NSLog(@"username bind failure:%@", error);
+}];
+
+```
+
+Swift:
+
+```swift
+
+let countryCode = "1" // 美国
+let username = "example@test.com" // 绑定的邮箱（或手机）
+let code = "verify code numbers" // 邮箱（或手机）验证码
+let password = "account password" // 设置账号密码
+TuyaSmartUser.sharedInstance().usernameBinding(withCountryCode: countryCode, userName: username, code: code, password: password, success: {
+    print("username bind success")
+}, failure: { error in
+    if let error = error {
+        print("username bind failure:\(error)")
+    }
+})
+
+
+```
 
 ## 修改用户信息
 
