@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartSceneKit"
-  s.version = "3.17.10"
+  s.version = "3.19.1"
   s.summary = "A short description of #{s.name}."
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
@@ -17,10 +17,9 @@ Pod::Spec.new do |s|
   s.watchos.vendored_frameworks = 'watchos/*.framework'
   # s.watchos.vendored_libraries = 'watchos/*.a'
 
-   
   s.frameworks = 'CoreLocation'
 
-  s.dependency 'TuyaSmartBaseKit'
-  s.dependency 'TuyaSmartDeviceKit'
+  s.dependency 'TuyaSmartBaseKit', '>= 3.19.0'
+  s.dependency 'TuyaSmartDeviceKit', '>= 3.19.0'
 
 end
