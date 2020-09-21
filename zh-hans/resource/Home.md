@@ -1111,7 +1111,52 @@ func updateRoomName() {
 }
 ```
 
+### 自定义房间图片
 
+房间可支持自定义 image，成功后可通过 `TuyaSmartRoomModel.iconUrl` 进行获取房间图片地址
+
+**接口说明**
+
+```objective-c
+- (void)updateIcon:(UIImage *)icon success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**参数说明**
+
+| 参数    | 说明     |
+| ------- | -------- |
+| icon    | 房间图片 |
+| success | 成功回调 |
+| failure | 失败回调 |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)updateIcon {
+	[self.room updateIcon:[UIImage imageNamed:@"xxx.JPG"] success:^{
+      NSLog(@"room image update success %@", room.roomModel.iconUrl);
+	} failure:^(NSError *error) {
+      NSLog(@"room image update failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func updateIcon() {
+
+    room?.updateIcon(UIImage(named: "xxx.jpg") success: {
+        print("room image update success")
+    }, failure: { (error) in
+        if let e = error {
+            print("room image update failure: \(e)")
+        }
+    })
+}
+```
 
 ### 添加设备到房间
 

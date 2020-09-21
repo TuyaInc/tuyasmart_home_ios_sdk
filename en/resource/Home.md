@@ -1102,7 +1102,52 @@ func updateRoomName() {
 }
 ```
 
+### Update Room Icon
 
+The room can support upload custom image, after success, you can get the room icon URL through `TuyaSmartRoomModel.iconUrl`
+
+**Declaration**
+
+```objective-c
+- (void)updateIcon:(UIImage *)icon success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
+```
+
+**Parameters**
+
+| Parameters | Description      |
+| ---------- | ---------------- |
+| icon       | Room image       |
+| success    | Success callback |
+| failure    | Failure callback |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)updateIcon {
+	[self.room updateIcon:[UIImage imageNamed:@"xxx.JPG"] success:^{
+      NSLog(@"room image update success %@", room.roomModel.iconUrl);
+	} failure:^(NSError *error) {
+      NSLog(@"room image update failure: %@", error);
+	}];
+}
+```
+
+Swift:
+
+```swift
+func updateIcon() {
+
+    room?.updateIcon(UIImage(named: "xxx.jpg") success: {
+        print("room image update success")
+    }, failure: { (error) in
+        if let e = error {
+            print("room image update failure: \(e)")
+        }
+    })
+}
+```
 
 ### Add Device to a Room
 
