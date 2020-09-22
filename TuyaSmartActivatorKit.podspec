@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartActivatorKit"
-  s.version = "3.19.0"
+  s.version = "3.19.1"
   s.summary = "A short description of #{s.name}."
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
