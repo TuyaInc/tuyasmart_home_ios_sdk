@@ -32,11 +32,11 @@ The old interface is no longer maintained, and it is recommended to upgrade to t
 
 ## Add Timer Task
 
-> Up to 30 timers per device or group
+**Declaration**
+
+Up to 30 timers per device or group
 
 Add a timer to the required task specified by a device or group.
-
-**Declaration**
 
 ```objective-c
 - (void)addTimerWithTask:(NSString *)task
@@ -99,7 +99,7 @@ func addTimer() {
 }
 ```
 
-## Batch Modify Common Timers Status or Delete Dimer
+## Batch Modify Common Timers Status or Delete Timer
 
 **Declaration**
 
@@ -148,125 +148,11 @@ Swift:
     }
 ```
 
-
-
-**Update the Status of Timer**
-
-Update the status of a designated timer specified by a device. 0 denotes off, and 1 denotes on.
-
-**Declaration**
-
-```objective-c
-- (void)updateTimerStatusWithTimerId:(NSString *)timerId
-                               bizId:(NSString *)bizId
-                             bizType:(NSUInteger)bizType
-                              status:(BOOL)status
-                             success:(TYSuccessHandler)success
-                             failure:(TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description                       |
-| --------- | --------------------------------- |
-| timerId   | Timer id                          |
-| bizId     | Device id，if group, set group id                            |
-| bizType | 0:device;  1:group |
-| status    | Task status，0:close, 1:open      |
-| success   | Success block                     |
-| failure   | Failure block                     |
-
-**Example**
-
-Objc:
-
-```objc
-- (void)updateTimer {
-	// self.timer = [[TuyaSmartTimer alloc] init];
-
-    [self.timer updateTimerStatusWithTimerId:@"timer_id" bizId:@"device_id" bizType:0 status:NO success:^{
-        NSLog(@"updateTimer success");
-    } failure:^(NSError *error) {
-        NSLog(@"updateTimer failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func updateTimer() {
-
-    self.timer.updateTimerStatus(withTimerId: "timer_id", bizId: "device_id", bizType: 0, status: false) {
-        print("updateTimer success")
-    } failure: { (error) in
-        if let e = error {
-            print("updateTimer failure: \(e)")
-        }
-    }
-}
-```
-
-**Remove Timer**
-
-Remove the timer of a task specified by a device. 
-
-**Declaration**
-
-```objective-c
-- (void)removeTimerWithTimerId:(NSString *)timerId
-                         bizId:(NSString *)bizId
-                       bizType:(NSUInteger)bizType
-                       success:(TYSuccessHandler)success
-                       failure:(TYFailureError)failure;
-```
-
-**Parameters**
-
-| Parameter | Description                       |
-| --------- | --------------------------------- |
-| timerId   | Timer id                          |
-| bizId     | Device id，if group, set group id                            |
-| bizType | 0:device;  1:group |
-| success   | Success block                     |
-| failure   | Failure block                     |
-
-**Example**
-
-Objc:
-
-```objc
-- (void)removeTimer {
-	// self.timer = [[TuyaSmartTimer alloc] init];
-	
-    [self.timer removeTimerWithTimerId:@"timer_id" bizId:@"device_id" bizType:0 success:^{
-        NSLog(@"removeTimer success");
-    } failure:^(NSError *error) {
-        NSLog(@"removeTimer failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func removeTimer() {
-
-    self.timer.removeTimer(withTimerId: "timer_id", bizId: "device_id", bizType: 0) {
-        print("removeTimer success")
-    } failure: { (error) in
-        if let e = error {
-            print("removeTimer failure: \(e)")
-        }
-    }
-}
-```
-
 ## Update Timer
 
-Update the timer of a task specified by a device.
-
 **Declaration**
+
+Update the timer of a task specified by a device.
 
 ```objective-c
 - (void)updateTimerWithTimerId:(NSString *)timerId
@@ -332,9 +218,9 @@ func updateTimer() {
 
 ## Obtain All Timers of Timer Task
 
-Obtain all timer modules of task required by a device.
-
 **Declaration**
+
+Obtain all timer modules of task required by a device.
 
 ```objective-c
 - (void)getTimerListWithTask:(NSString *)task

@@ -37,11 +37,11 @@
 
 ## 增加定时任务
 
-> 每个设备或群组定时的上限为 30 个
+**接口说明**
+
+每个设备或群组定时的上限为 30 个
 
 为 device 或 group 新增一个定时 timer 到指定的 task 下
-
-**接口说明**
 
 ```objective-c
 - (void)addTimerWithTask:(NSString *)task
@@ -155,129 +155,11 @@ Swift:
     }
 ```
 
-
-
-**更新定时的开关状态**
-
-更新 device 或群组下指定 timer 的状态
-
-**接口说明**
-
-```objective-c
-- (void)updateTimerStatusWithTimerId:(NSString *)timerId
-                               bizId:(NSString *)bizId
-                             bizType:(NSUInteger)bizType
-                              status:(BOOL)status
-                             success:(TYSuccessHandler)success
-                             failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明                         |
-| ------- | ---------------------------- |
-| timerId | 更新的 timer id              |
-| bizId   | 设备 id，如果是群组传群组 id |
-| bizType    | 0 设备;  1:设备群组                 |
-| status  | 定时状态     |
-| success | 成功回调                     |
-| failure | 失败回调                     |
-
-**示例代码**
-
-Objc:
-
-```objc
-- (void)updateTimer {
-	// self.timer = [[TuyaSmartTimer alloc] init];
-
-    [self.timer updateTimerStatusWithTimerId:@"timer_id" bizId:@"device_id" bizType:0 status:NO success:^{
-        NSLog(@"updateTimer success");
-    } failure:^(NSError *error) {
-        NSLog(@"updateTimer failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func updateTimer() {
-
-    self.timer.updateTimerStatus(withTimerId: "timer_id", bizId: "device_id", bizType: 0, status: false) {
-        print("updateTimer success")
-    } failure: { (error) in
-        if let e = error {
-            print("updateTimer failure: \(e)")
-        }
-    }
-}
-```
-
-
-
-**删除定时**
-
-删除 device 或群组下指定 task 下的指定 timer
-
-**接口说明**
-
-```objective-c
-- (void)removeTimerWithTimerId:(NSString *)timerId
-                         bizId:(NSString *)bizId
-                       bizType:(NSUInteger)bizType
-                       success:(TYSuccessHandler)success
-                       failure:(TYFailureError)failure;
-```
-
-**参数说明**
-
-| 参数    | 说明                         |
-| ------- | ---------------------------- |
-| timerId | 删除的 timer id              |
-| bizId   | 设备 id，如果是群组传群组 id |
-| bizType    | 0:设备;  1:设备群组                 |
-| success | 成功回调                     |
-| failure | 失败回调                     |
-
-**示例代码**
-
-Objc:
-
-```objc
-- (void)removeTimer {
-	// self.timer = [[TuyaSmartTimer alloc] init];
-	
-    [self.timer removeTimerWithTimerId:@"timer_id" bizId:@"device_id" bizType:0 success:^{
-        NSLog(@"removeTimer success");
-    } failure:^(NSError *error) {
-        NSLog(@"removeTimer failure: %@", error);
-    }];
-}
-```
-
-Swift:
-
-```swift
-func removeTimer() {
-
-    self.timer.removeTimer(withTimerId: "timer_id", bizId: "device_id", bizType: 0) {
-        print("removeTimer success")
-    } failure: { (error) in
-        if let e = error {
-            print("removeTimer failure: \(e)")
-        }
-    }
-}
-```
-
-
-
 ## 更新定时
 
-更新 device 或群组下指定 task 下的指定 timer 信息
-
 **接口说明**
+
+更新 device 或群组下指定 task 下的指定 timer 信息
 
 ```objective-c
 - (void)updateTimerWithTimerId:(NSString *)timerId
@@ -345,9 +227,9 @@ func updateTimer() {
 
 ## 获取定时任务下所有定时
 
-获取 device 或群组下指定的 task 下的定时 timer
-
 **接口说明**
+
+获取 device 或群组下指定的 task 下的定时 timer
 
 ```objective-c
 - (void)getTimerListWithTask:(NSString *)task
