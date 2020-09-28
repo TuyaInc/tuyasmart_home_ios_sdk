@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartActivatorKit"
-  s.version = "3.17.6"
+  s.version = "3.19.1"
   s.summary = "A short description of #{s.name}."
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.vendored_frameworks       = 'ios/*.framework'
   # s.vendored_libraries        = 'ios/*.a'
 
-  s.dependency 'TuyaSmartDeviceKit'
+  s.dependency 'TuyaSmartDeviceKit', '>= 3.19.0'
 
 end
