@@ -759,6 +759,8 @@ func deleteSmartScene() {
 
 执行指定场景。
 
+注：这个方法只管发送指令到云端执行场景，具体设备执行成功与否可以参考 [设备管理->设备代理监听](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/zh-hans/resource/Device.html#%E8%AE%BE%E5%A4%87%E4%BB%A3%E7%90%86%E7%9B%91%E5%90%AC) 来监听设备的 dp 点变化。
+
 ```objc
 - (void)executeSceneWithSuccess:(TYSuccessHandler)success
                         failure:(TYFailureError)failure;
@@ -896,7 +898,44 @@ func disableSmartScene() {
 }
 ```
 
+### 监听场景信息变更
 
+**接口说明**
+
+场景添加、编辑、删除、执行、开启和关闭操作的监听回调方法。
+
+```objc
+- (void)sceneManager:(TuyaSmartSceneManager *)manager state:(NSString *)state sceneId:(NSString *)sceneId;
+```
+
+**参数说明**
+
+|参数|说明|
+| ------ | ----- |
+| TuyaSmartSceneManager |场景数据管理类，可以使用该类获取场景列表数据 |
+| state | 状态变化字符串，例如：update（更新）、disable（关闭自动化) |
+| sceneId | 场景Id |
+
+**示例代码**
+
+Objc:
+
+```objc
+- (void)sceneManager:(TuyaSmartSceneManager *)manager state:(NSString *)state sceneId:(NSString *)sceneId {
+    if ([state isEqualToString:@"update"]) {
+        NSLog(@"update scene list");
+    }
+}
+```
+Swift:
+
+```swift
+func sceneManager(_ manager: TuyaSmartSceneManager!, state: String!, sceneId: String!) {
+    if state == "update" {
+        print("reload scene list")
+    }
+}
+```
 
 ## 场景条件和场景动作对象创建示例
 

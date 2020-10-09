@@ -717,6 +717,8 @@ func deleteSmartScene() {
 
 **Declaration**
 
+Note: This method only sends instructions to the cloud to execute the scene. If you want to monitor the dp point change of the device, you can see [Device Management -> Delegate of Device](https://tuyainc.github.io/tuyasmart_home_ios_sdk_doc/en/resource/Device.html#delegate-of-device).
+
 ```objective-c
 - (void)executeSceneWithSuccess:(TYSuccessHandler)success
                         failure:(TYFailureError)failure;
@@ -844,6 +846,46 @@ func disableSmartScene() {
             print("disable scene failure: \(e)")
         }
     })
+}
+```
+
+### Monitor scene information changes
+
+**Declaration**
+
+The delegate method for monitoring of scene addition, editing, deletion, execution, opening and closing operations.
+
+```objective-c
+- (void)sceneManager:(TuyaSmartSceneManager *)manager state:(NSString *)state sceneId:(NSString *)sceneId;
+```
+
+**Parameters**
+
+| Parameter |Description|
+| ------ | ----- |
+| TuyaSmartSceneManager | Scene data management class, you can use this class to get scene list data |
+| state | state string, for example: update、disable |
+| sceneId | scene id |
+
+**Example**
+
+Objc:
+
+```objc
+- (void)sceneManager:(TuyaSmartSceneManager *)manager state:(NSString *)state sceneId:(NSString *)sceneId {
+    if ([state isEqualToString:@"update"]) {
+        NSLog(@"update scene list");
+    }
+}
+```
+
+Swift:
+
+```swift
+func sceneManager(_ manager: TuyaSmartSceneManager!, state: String!, sceneId: String!) {
+    if state == "update" {
+        print("reload scene list")
+    }
 }
 ```
 
