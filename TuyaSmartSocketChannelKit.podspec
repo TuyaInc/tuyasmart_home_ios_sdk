@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartSocketChannelKit"
-  s.version = "3.17.6"
+  s.version = "3.19.0"
   s.summary = "A short description of #{s.name}."
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.vendored_frameworks       = 'ios/*.framework'
   # s.vendored_libraries        = 'ios/*.a'
 
-  s.dependency 'TuyaSmartBaseKit'
+  s.dependency 'TuyaSmartBaseKit', '>= 3.19.0'
   s.dependency 'CocoaAsyncSocket'
 end

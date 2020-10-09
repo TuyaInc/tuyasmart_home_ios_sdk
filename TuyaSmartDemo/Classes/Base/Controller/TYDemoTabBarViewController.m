@@ -8,7 +8,6 @@
 
 #import "TYDemoTabBarViewController.h"
 #import "TPDemoNavigationController.h"
-
 #import "TYDemoConfiguration.h"
 
 @interface TYDemoTabBarViewController()
@@ -48,32 +47,5 @@
     view.backgroundColor = TAB_BAR_BACKGROUND_COLOR;
     [[UITabBar appearance] insertSubview:view atIndex:0];
 }
-
-//- (TPNavigationController *)sceneNavigationController {
-//    if (!_sceneNavigationController) {
-//        _sceneNavigationController = [[TPNavigationController alloc] initWithRootViewController:self.sceneViewController];
-//    }
-//    return _sceneNavigationController;
-//}
-//
-//- (TPNavigationController *)userNavigationController {
-//    if (!_userNavigationController) {
-//        _userNavigationController = [[TPNavigationController alloc] initWithRootViewController:self.userViewController];
-//    }
-//    return _userNavigationController;
-//}
-//
-//
-
-//
-//- (TYUserInfoViewController *)userViewController {
-//    if (!_userViewController) {
-//        _userViewController = [[TYUserInfoViewController alloc] init];
-//        _userViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"personal_center", @"")
-//                                                                        image:[UIImage imageNamed:@"ty_mainbt_about"]
-//                                                                selectedImage:[UIImage imageNamed:@"ty_mainbt_about_active"]];
-//    }
-//    return _userViewController;
-//}
 
 @end

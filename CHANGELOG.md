@@ -1,5 +1,18 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 3.19.0(2020-09-21)
+
+- 新增功能
+  - 全新定时接口功能
+  - 房间支持更换自定义图片
+  - 设备属性新增设备 dps 时间，可记录对应 dp 就近变化的时间
+  - Bug fixed
+- New Feature
+  - New timing interface function
+  - The room supports changing custom pictures
+  - Added device dps time for device attributes, which can record the time corresponding to the nearest change of dp
+  - Bug fixed
+
 ## 3.17.6(2020-07-09)
 
 - 新增功能
