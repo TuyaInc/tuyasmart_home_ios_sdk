@@ -56,7 +56,7 @@ static NSInteger timeout0 = timeLeft0;
     [self.view endEditing:YES];
     
     if (self.ssidField.text.length == 0) {
-        [sharedAddDeviceUtils() alertMessage:NSLocalizedString(@"wifi_ssid_empty", @"")];
+        [sharedAddDeviceUtils() alertMessage:TYSDKDemoLocalizedString(@"wifi_ssid_empty", @"")];
         return;
     }
     
@@ -130,9 +130,9 @@ static NSInteger timeout0 = timeLeft0;
 
 - (void)checkLocationAndWifiStatus {
     if (![[TYDemoAddDeviceUtils sharedInstance] currentNetworkStatus]) {
-        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ty_ez_current_no_wifi", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"ty_ez_current_no_wifi", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[TYDemoAddDeviceUtils sharedInstance] gotoSettingWifi];
         }];
         [wifiAlert addAction:action];
@@ -151,9 +151,9 @@ static NSInteger timeout0 = timeLeft0;
             }
             
             if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusNotDetermined || status == kCLAuthorizationStatusRestricted) {
-                UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ty_activator_locationAlert_tips", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"ty_activator_locationAlert_tips", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
                 
-                UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_activator_locationAlert_settingNow", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *action = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"ty_activator_locationAlert_settingNow", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
                 }];
                 [wifiAlert addAction:action];
@@ -164,9 +164,9 @@ static NSInteger timeout0 = timeLeft0;
 }
 
 - (void)gotoConnectDeviceHotspot {
-    UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ty_wifi_remind_title", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"ty_wifi_remind_title", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *action = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [[TYDemoAddDeviceUtils sharedInstance] gotoSettingWifi];
     }];
     [wifiAlert addAction:action];
@@ -197,9 +197,9 @@ static NSInteger timeout0 = timeLeft0;
     [self appendConsoleLog:[NSString stringWithFormat:@"Config Wifi: %@ , WIFI changed: %@",self.configSSID,ssid]];
     
     if (self.configSSID == ssid) {
-        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"config_connect_fail_content", @"") message:[NSString stringWithFormat:@"WIFI: %@",ssid] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"config_connect_fail_content", @"") message:[NSString stringWithFormat:@"WIFI: %@",ssid] preferredStyle:UIAlertControllerStyleAlert];
                
-        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
            [[TYDemoAddDeviceUtils sharedInstance] gotoSettingWifi];
         }];
         [wifiAlert addAction:action];
@@ -222,7 +222,7 @@ static NSInteger timeout0 = timeLeft0;
         || [ssidLow rangeOfString:@"tlinkap" options:NSCaseInsensitiveSearch].length > 0) {
         [self commitAPModeActionWithToken:currentToken];
     } else {
-        [sharedAddDeviceUtils() alertMessage:NSLocalizedString(@"config_connect_fail_content", @"")];
+        [sharedAddDeviceUtils() alertMessage:TYSDKDemoLocalizedString(@"config_connect_fail_content", @"")];
     }
 }
 

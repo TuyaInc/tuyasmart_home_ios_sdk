@@ -26,7 +26,7 @@
  
     self.topBarView.centerItem = self.centerTitleItem;
     self.topBarView.leftItem = self.leftBackItem;
-    self.rightTitleItem.title = NSLocalizedString(@"action_more", @"");
+    self.rightTitleItem.title = TYSDKDemoLocalizedString(@"action_more", @"");
     self.topBarView.rightItem = self.rightTitleItem;
   
     [self.view addSubview:self.topBarView];
@@ -55,7 +55,7 @@
 
 - (UILabel *)offlineLabel {
     if (!_offlineLabel) {
-        _offlineLabel = [TPDemoViewUtil simpleLabel:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_CONTENT_WIDTH, APP_VISIBLE_HEIGHT) f:14 tc:HEXCOLOR(0xffffff) t:NSLocalizedString(@"title_device_offline", nil)];
+        _offlineLabel = [TPDemoViewUtil simpleLabel:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_CONTENT_WIDTH, APP_VISIBLE_HEIGHT) f:14 tc:HEXCOLOR(0xffffff) t:TYSDKDemoLocalizedString(@"title_device_offline", nil)];
         _offlineLabel.textAlignment = NSTextAlignmentCenter;
         _offlineLabel.backgroundColor = HEXCOLORA(0x000000, 0.6);
         [self.view addSubview:self.offlineLabel];
@@ -66,24 +66,24 @@
 #pragma mark - menu
 
 - (void)rightBtnAction {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"action_more", @"") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"action_more", @"") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     WEAKSELF_AT
     
     //修改设备名称
-    UIAlertAction *rename = [UIAlertAction actionWithTitle:NSLocalizedString(@"rename_device", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *rename = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"rename_device", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf_AT updateName];
     }];
     [alert addAction:rename];
     
     //移除设备
-    UIAlertAction *remove = [UIAlertAction actionWithTitle:NSLocalizedString(@"cancel_connect", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *remove = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"cancel_connect", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [weakSelf_AT removeDevice];
     }];
     
     [alert addAction:remove];
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"action_cancel", @"") style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"action_cancel", @"") style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:cancel];
     
     
@@ -98,7 +98,7 @@
 
 - (void)updateName {
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"rename_device", @"") message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"rename_device", @"") message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     NSString *text = @"";
     if (self.device) {
@@ -113,7 +113,7 @@
     }];
 
     WEAKSELF_AT
-    UIAlertAction *confirm = [UIAlertAction actionWithTitle:NSLocalizedString(@"confirm", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *confirm = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"confirm", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UITextField *textField = alert.textFields.firstObject;
         
         if (weakSelf_AT.device) {
@@ -143,7 +143,7 @@
     
     [alert addAction:confirm];
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"action_cancel", @"") style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"action_cancel", @"") style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:cancel];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -151,14 +151,14 @@
 
 - (void)removeDevice {
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"cancel_connect", @"") message:NSLocalizedString(@"device_confirm_remove", @"") preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"cancel_connect", @"") message:TYSDKDemoLocalizedString(@"device_confirm_remove", @"") preferredStyle:UIAlertControllerStyleAlert];
     
     WEAKSELF_AT
-    UIAlertAction *remove = [UIAlertAction actionWithTitle:NSLocalizedString(@"confirm", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *remove = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"confirm", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (weakSelf_AT.device) {
             [weakSelf_AT.device remove:^{
                 
-                [TPDemoProgressUtils showSuccess:NSLocalizedString(@"device_has_unbinded", @"") toView:nil block:^{
+                [TPDemoProgressUtils showSuccess:TYSDKDemoLocalizedString(@"device_has_unbinded", @"") toView:nil block:^{
                     [tp_topMostViewController().navigationController popViewControllerAnimated:YES];
                 }];
                 
@@ -167,7 +167,7 @@
             }];
         } else if (weakSelf_AT.group) {
             [weakSelf_AT.group dismissGroup:^{
-                [TPDemoProgressUtils showSuccess:NSLocalizedString(@"device_has_unbinded", @"") toView:nil block:^{
+                [TPDemoProgressUtils showSuccess:TYSDKDemoLocalizedString(@"device_has_unbinded", @"") toView:nil block:^{
                     [tp_topMostViewController().navigationController popViewControllerAnimated:YES];
                 }];
             } failure:^(NSError *error) {
@@ -178,7 +178,7 @@
     
     [alert addAction:remove];
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"action_cancel", @"") style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"action_cancel", @"") style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:cancel];
     
     [self presentViewController:alert animated:YES completion:nil];

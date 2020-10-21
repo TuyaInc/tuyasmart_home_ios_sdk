@@ -245,7 +245,7 @@
 #pragma mark - action
 
 - (void)messagePublishWithDps:(NSDictionary *)dps {
-    [TPDemoProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
+    [TPDemoProgressUtils showMessag:TYSDKDemoLocalizedString(@"loading", @"") toView:nil];
     
     if (self.device) {
         [self.device publishDps:dps success:^{
@@ -305,13 +305,13 @@
     TuyaSmartSchemaModel *schemaModel = [self getSchemaModelFromSubview:label];
     NSString *dpId = schemaModel.dpId;
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"action_more", @"") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"action_more", @"") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 
     WEAKSELF_AT
     
     for (NSString *range in schemaModel.property.range) {
         UIAlertAction *action = [UIAlertAction actionWithTitle:range style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [TPDemoProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:nil];
+            [TPDemoProgressUtils showMessag:TYSDKDemoLocalizedString(@"loading", @"") toView:nil];
             
             [weakSelf_AT.device publishDps:@{dpId:range} success:^{
                 
@@ -328,7 +328,7 @@
         [alert addAction:action];
     }
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"action_cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"action_cancel", nil) style:UIAlertActionStyleCancel handler:nil];
     [alert addAction:cancel];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -375,11 +375,11 @@
     
     
     if ([schemaModel.mode isEqualToString:@"rw"]) {
-        rwMode = NSLocalizedString(@"send_report", nil);
+        rwMode = TYSDKDemoLocalizedString(@"send_report", nil);
     } else if ([schemaModel.mode isEqualToString:@"ro"]) {
-        rwMode = NSLocalizedString(@"only_report", nil);
+        rwMode = TYSDKDemoLocalizedString(@"only_report", nil);
     } else {
-        rwMode = NSLocalizedString(@"only_send", nil);
+        rwMode = TYSDKDemoLocalizedString(@"only_send", nil);
     }
 
     
@@ -387,29 +387,29 @@
         
         if ([schemaModel.property.type isEqualToString:@"bool"]) {
             
-            string = [NSString stringWithFormat:@"%@ | %@",NSLocalizedString(@"dp_bool", nil),rwMode];
+            string = [NSString stringWithFormat:@"%@ | %@",TYSDKDemoLocalizedString(@"dp_bool", nil),rwMode];
             
         } else if ([schemaModel.property.type isEqualToString:@"enum"]) {
             
-            string = [NSString stringWithFormat:@"%@ | %@",NSLocalizedString(@"dp_enum", nil),rwMode];
+            string = [NSString stringWithFormat:@"%@ | %@",TYSDKDemoLocalizedString(@"dp_enum", nil),rwMode];
             
         } else if ([schemaModel.property.type isEqualToString:@"value"]) {
             
-            string = [NSString stringWithFormat:@"%@ | %@",NSLocalizedString(@"dp_value", nil),rwMode];
+            string = [NSString stringWithFormat:@"%@ | %@",TYSDKDemoLocalizedString(@"dp_value", nil),rwMode];
             
         } else if ([schemaModel.property.type isEqualToString:@"bitmap"]) {
             
-            string = [NSString stringWithFormat:@"%@ | %@",NSLocalizedString(@"dp_bitmap", nil),rwMode];
+            string = [NSString stringWithFormat:@"%@ | %@",TYSDKDemoLocalizedString(@"dp_bitmap", nil),rwMode];
             
         } else if ([schemaModel.property.type isEqualToString:@"string"]) {
             
-            string = [NSString stringWithFormat:@"%@ | %@",NSLocalizedString(@"dp_string", nil),rwMode];
+            string = [NSString stringWithFormat:@"%@ | %@",TYSDKDemoLocalizedString(@"dp_string", nil),rwMode];
             
         }
         
     } else if ([schemaModel.type isEqualToString:@"raw"]) {
         
-        string = [NSString stringWithFormat:@"%@ | %@",NSLocalizedString(@"dp_raw", nil),rwMode];
+        string = [NSString stringWithFormat:@"%@ | %@",TYSDKDemoLocalizedString(@"dp_raw", nil),rwMode];
         
     }
     

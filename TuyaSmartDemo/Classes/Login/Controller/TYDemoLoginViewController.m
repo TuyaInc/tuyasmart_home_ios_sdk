@@ -45,9 +45,9 @@
 
 - (void)initTopBarView {
     
-    self.centerTitleItem.title = NSLocalizedString(@"login", @"");
+    self.centerTitleItem.title = TYSDKDemoLocalizedString(@"login", @"");
     self.topBarView.centerItem = self.centerTitleItem;
-    self.rightTitleItem.title = NSLocalizedString(@"login_register", @"");
+    self.rightTitleItem.title = TYSDKDemoLocalizedString(@"login_register", @"");
     self.topBarView.rightItem = self.rightTitleItem;
     [self.view addSubview:self.topBarView];
 }

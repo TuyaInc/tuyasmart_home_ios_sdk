@@ -50,7 +50,7 @@ static NSInteger timeout = timeLeft;
     [self.view endEditing:YES];
   
     if (self.ssidField.text.length == 0) {
-        [sharedAddDeviceUtils() alertMessage:NSLocalizedString(@"wifi_ssid_empty", @"")];
+        [sharedAddDeviceUtils() alertMessage:TYSDKDemoLocalizedString(@"wifi_ssid_empty", @"")];
         return;
     }
     
@@ -118,9 +118,9 @@ static NSInteger timeout = timeLeft;
 
 - (void)checkLocationAndWifiStatus {
     if (![[TYDemoAddDeviceUtils sharedInstance] currentNetworkStatus]) {
-        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ty_ez_current_no_wifi", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"ty_ez_current_no_wifi", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"ty_ap_connect_go", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             [[TYDemoAddDeviceUtils sharedInstance] gotoSettingWifi];
         }];
         [wifiAlert addAction:action];
@@ -139,9 +139,9 @@ static NSInteger timeout = timeLeft;
             }
             
             if (status == kCLAuthorizationStatusDenied || status == kCLAuthorizationStatusNotDetermined || status == kCLAuthorizationStatusRestricted) {
-                UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ty_activator_locationAlert_tips", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *wifiAlert = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"ty_activator_locationAlert_tips", @"") message:@"" preferredStyle:UIAlertControllerStyleAlert];
                 
-                UIAlertAction *action = [UIAlertAction actionWithTitle:NSLocalizedString(@"ty_activator_locationAlert_settingNow", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIAlertAction *action = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"ty_activator_locationAlert_settingNow", @"") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     
                 }];
                 [wifiAlert addAction:action];

@@ -39,7 +39,7 @@
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, (borderView.height - 14)/2.f, 6, 14)];
         imageView.right = borderView.width - 10;
-        imageView.image = [UIImage imageNamed:@"ty_panel_select"];
+        imageView.image = [UIImage tysdkdemo_DeviceListImageNamed:@"ty_panel_select"];
         [borderView addSubview:imageView];
         
     }

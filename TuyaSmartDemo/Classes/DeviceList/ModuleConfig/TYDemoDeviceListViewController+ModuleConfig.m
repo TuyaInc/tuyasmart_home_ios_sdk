@@ -18,15 +18,15 @@
 TY_EXPORT_TABBAR(self)
 
 - (NSString *)barTitle {
-    return NSLocalizedString(@"Device", @"");
+    return TYSDKDemoLocalizedString(@"Device", @"");
 }
 
 - (UIImage *)barImage {
-    return [UIImage imageNamed:@"ty_mainbt_devicelist"];
+    return [UIImage tysdkdemo_imageNamed:@"ty_mainbt_devicelist"];
 }
 
 - (UIImage *)barSelectedImage {
-    return [UIImage imageNamed:@"ty_mainbt_devicelist_active"];
+    return [UIImage tysdkdemo_imageNamed:@"ty_mainbt_devicelist_active"];
 }
 
 - (BOOL)needNavigation {

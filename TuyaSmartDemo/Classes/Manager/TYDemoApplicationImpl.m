@@ -119,7 +119,7 @@
     if ([[TuyaSmartUser sharedInstance] isLogin]) {
         [self signOut];
         
-        [TPDemoProgressUtils showError:NSLocalizedString(@"login_session_expired", nil)];
+        [TPDemoProgressUtils showError:TYSDKDemoLocalizedString(@"login_session_expired", nil)];
     }
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:TuyaSmartUserNotificationUserSessionInvalid object:nil];

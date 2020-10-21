@@ -23,9 +23,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.centerTitleItem.title = NSLocalizedString(@"用户中心", @"");
+    self.centerTitleItem.title = TYSDKDemoLocalizedString(@"用户中心", @"");
     self.topBarView.centerItem = self.centerTitleItem;
-    self.rightTitleItem.title = NSLocalizedString(@"logout", @"");
+    self.rightTitleItem.title = TYSDKDemoLocalizedString(@"logout", @"");
     self.topBarView.rightItem = self.rightTitleItem;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_SCREEN_WIDTH, APP_CONTENT_HEIGHT) style:UITableViewStylePlain];
@@ -60,7 +60,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NSStringFromClass([UITableViewCell class])];
-        UIImageView *arrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_view_arrow@2x"]];
+        UIImageView *arrow = [[UIImageView alloc] initWithImage:[UIImage tysdkdemo_imageNamed:@"cell_view_arrow@2x"]];
         arrow.top = (66 - arrow.height)/2;
         arrow.right = APP_SCREEN_WIDTH - arrow.width - 15;
         [cell.contentView addSubview:arrow];
@@ -79,6 +79,7 @@
         text = [NSString stringWithFormat:@"%@ : %@", text, [TuyaSmartUser sharedInstance].timezoneId];
     } else if (indexPath.row == 5) {
         text = [NSString stringWithFormat:@"%@ : %@", text, [TuyaSmartUser sharedInstance].countryCode];
+    } else if (indexPath.row == 6) {
     }
     cell.textLabel.text = text;
 

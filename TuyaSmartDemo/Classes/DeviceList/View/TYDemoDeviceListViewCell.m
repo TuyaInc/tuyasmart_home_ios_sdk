@@ -42,7 +42,7 @@
 - (UILabel *)groupTipLabel {
     if (!_groupTipLabel) {
         _groupTipLabel = [TPDemoViewUtil labelWithFrame:CGRectMake(APP_CONTENT_WIDTH - 37 - 80, 0, 80, 80) fontSize:15 color:SUB_FONT_COLOR];
-        _groupTipLabel.text = NSLocalizedString(@"group_item_flag", nil);
+        _groupTipLabel.text = TYSDKDemoLocalizedString(@"group_item_flag", nil);
         _groupTipLabel.textAlignment = NSTextAlignmentRight;
     }
     return _groupTipLabel;
@@ -72,7 +72,7 @@
 
 - (UIImageView *)rightArrowImageView {
     if (!_rightArrowImageView) {
-        _rightArrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_view_arrow"]];
+        _rightArrowImageView = [[UIImageView alloc] initWithImage:[UIImage tysdkdemo_imageNamed:@"cell_view_arrow"]];
         _rightArrowImageView.frame = CGRectMake(APP_SCREEN_WIDTH-22, (80 - _rightArrowImageView.height)/2.f, _rightArrowImageView.width, _rightArrowImageView.height);
     }
     return _rightArrowImageView;
@@ -86,19 +86,19 @@
     if ([item isKindOfClass:[TuyaSmartDeviceModel class]]) {
         if ([item isOnline]) {
             if ([item isShare]) {
-                _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_share_green.png"];
+                _statusImageView.image = [UIImage tysdkdemo_DeviceListImageNamed:@"ty_devicelist_share_green.png"];
             } else {
-                _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_dot_green.png"];
+                _statusImageView.image = [UIImage tysdkdemo_DeviceListImageNamed:@"ty_devicelist_dot_green.png"];
             }
         } else {
             if ([item isShare]) {
-                _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_share_gray.png"];
+                _statusImageView.image = [UIImage tysdkdemo_DeviceListImageNamed:@"ty_devicelist_share_gray.png"];
             } else {
-                _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_dot_gray.png"];
+                _statusImageView.image = [UIImage tysdkdemo_DeviceListImageNamed:@"ty_devicelist_dot_gray.png"];
             }
         }
     } else {
-        _statusImageView.image = [UIImage imageNamed:@"ty_devicelist_dot_green.png"];
+        _statusImageView.image = [UIImage tysdkdemo_DeviceListImageNamed:@"ty_devicelist_dot_green.png"];
     }
     
     _groupTipLabel.hidden = ![item isKindOfClass:[TuyaSmartGroupModel class]];

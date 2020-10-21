@@ -28,7 +28,7 @@
         _subTitleLabel.frame = CGRectMake(APP_CONTENT_WIDTH - 37 - width - 34, 0, width, 48);
         [self.contentView addSubview:_subTitleLabel];
 
-        _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_view_arrow"]];
+        _arrowImageView = [[UIImageView alloc] initWithImage:[UIImage tysdkdemo_imageNamed:@"cell_view_arrow"]];
         _arrowImageView.right = APP_CONTENT_WIDTH - 15;
         _arrowImageView.top = (48 - _arrowImageView.height) / 2.f;
         [self.contentView addSubview:_arrowImageView];

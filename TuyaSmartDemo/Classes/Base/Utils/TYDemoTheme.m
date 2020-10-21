@@ -16,7 +16,7 @@
 static TYDemoTheme *_theme = nil;
 + (TYDemoTheme *)theme {
     if (!_theme) {
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"customColor" ofType:@"plist"];
+        NSString *plistPath = [[NSBundle tysdkdemo_languageBundle] pathForResource:@"customColor" ofType:@"plist"];
         NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
         for (NSString *key in [dict.allKeys copy]) {
             NSString *value = [dict objectForKey:key];

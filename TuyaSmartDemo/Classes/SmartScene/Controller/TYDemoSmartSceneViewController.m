@@ -61,13 +61,13 @@
 }
 
 - (NSString *)titleForCenterItem {
-    return NSLocalizedString(@"ty_smart_scene", @"");
+    return TYSDKDemoLocalizedString(@"ty_smart_scene", @"");
 }
 
 - (UIView *)customViewForRightItem {
     
     UIView *rightCustomView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
-    UIImageView *settingImageView = [TPDemoViewUtil imageViewWithFrame:CGRectMake(100 - 36, 4, 36, 36) image:[UIImage imageNamed:@"ty_add"]];
+    UIImageView *settingImageView = [TPDemoViewUtil imageViewWithFrame:CGRectMake(100 - 36, 4, 36, 36) image:[UIImage tysdkdemo_SmartSceneImageNamed:@"ty_add"]];
     [rightCustomView addSubview:settingImageView];
     [rightCustomView addGestureRecognizer:[TPDemoViewUtil singleFingerClickRecognizer:self sel:@selector(addSceneViewController)]];
     settingImageView.image = [settingImageView.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];

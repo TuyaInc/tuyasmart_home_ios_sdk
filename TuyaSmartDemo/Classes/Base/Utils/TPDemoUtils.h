@@ -28,6 +28,9 @@ return __singleton__; \
 
 #define WEAKSELF_AT __weak __typeof(&*self)weakSelf_AT = self;
 
+#define TYSDKDemoLocalizedString(key, comment) \
+    [NSBundle tysdkdemo_localizedStringForKey:(key) value:@"" table:nil]
+
 CGFloat TYSDK_ScreenWidth(void);
 
 UIViewController *tp_topMostViewController();
@@ -59,3 +62,18 @@ UIViewController *tp_topMostViewController();
 - (id)tp_objectFromJSONString:(NSJSONReadingOptions)serializeOptions error:(NSError **)error;
 @end
 
+@interface NSBundle (TYSDKDemoLanguage)
+
++ (NSBundle *)tysdkdemo_languageBundle;
+
++ (NSString *)tysdkdemo_localizedStringForKey:(NSString *)key value:(NSString *)value table:(NSString *)tableName;
+
+@end
+
+@interface UIImage (TYSDKDemoImage)
+
++ (UIImage *)tysdkdemo_imageNamed:(NSString *)name;
+
++ (UIImage *)tysdkdemo_imageNamed:(NSString *)name inBundle:(NSBundle *)bundle;
+
+@end

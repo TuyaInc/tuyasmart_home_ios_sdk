@@ -36,7 +36,7 @@
 - (void)initView {
     self.topBarView.centerItem = self.centerTitleItem;
     self.topBarView.leftItem = self.leftBackItem;
-    self.rightTitleItem.title = NSLocalizedString(@"action_more", @"");
+    self.rightTitleItem.title = TYSDKDemoLocalizedString(@"action_more", @"");
     self.topBarView.rightItem = self.rightTitleItem;
     self.topBarView.bottomLineHidden = YES;
     [self.view addSubview:self.topBarView];
@@ -56,17 +56,17 @@
     _isOn = [[dps objectForKey:@"1"] boolValue];
     if (_isOn) {
         self.view.backgroundColor = HEXCOLOR(0x0D5FBA);
-        [self.powerButton setImage:[UIImage imageNamed:@"power_on"] forState:UIControlStateNormal];
+        [self.powerButton setImage:[UIImage tysdkdemo_DeviceListImageNamed:@"power_on"] forState:UIControlStateNormal];
     } else {
         self.view.backgroundColor = HEXCOLOR(0x484848);
-        [self.powerButton setImage:[UIImage imageNamed:@"power_off"] forState:UIControlStateNormal];
+        [self.powerButton setImage:[UIImage tysdkdemo_DeviceListImageNamed:@"power_off"] forState:UIControlStateNormal];
     }
 }
 
 - (void)powerButtonClicked {
     
     WEAKSELF_AT
-    [TPDemoProgressUtils showMessag:NSLocalizedString(@"loading", @"") toView:self.view];
+    [TPDemoProgressUtils showMessag:TYSDKDemoLocalizedString(@"loading", @"") toView:self.view];
     
     NSDictionary *dps = @{@"1": _isOn ? @(NO): @(YES)};
     [self.device publishDps:dps success:^{

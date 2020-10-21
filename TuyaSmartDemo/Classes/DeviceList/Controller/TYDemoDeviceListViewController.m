@@ -48,11 +48,11 @@
 #pragma mark - Initializations.
 
 - (void)initView {
-    self.centerTitleItem.title = NSLocalizedString(@"my_smart_home", @"");
-    self.topBarView.leftItem = [TPDemoBarButtonItem titleItem:NSLocalizedString(@"ty_smart_switch_home", @"") target:self action:@selector(leftButtonTap)];
+    self.centerTitleItem.title = TYSDKDemoLocalizedString(@"my_smart_home", @"");
+    self.topBarView.leftItem = [TPDemoBarButtonItem titleItem:TYSDKDemoLocalizedString(@"ty_smart_switch_home", @"") target:self action:@selector(leftButtonTap)];
     self.topBarView.centerItem = self.centerTitleItem;
     [self.view addSubview:self.topBarView];
-    self.rightTitleItem.title = NSLocalizedString(@"Add home", @"");
+    self.rightTitleItem.title = TYSDKDemoLocalizedString(@"Add home", @"");
     self.topBarView.rightItem = self.rightTitleItem;
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_SCREEN_WIDTH, APP_CONTENT_HEIGHT) style:UITableViewStylePlain];
@@ -65,14 +65,14 @@
     [self.refreshControl addTarget:self action:@selector(reloadDataFromCloud) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
     
-    self.emptyView = [[TPDemoEmptyView alloc] initWithFrame:self.tableView.bounds title:NSLocalizedString(@"no_device", @"") imageName:@"ty_list_empty"];
+    self.emptyView = [[TPDemoEmptyView alloc] initWithFrame:self.tableView.bounds title:TYSDKDemoLocalizedString(@"no_device", @"") imageName:@"ty_list_empty"];
     
     _emptyButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _emptyButton.frame = CGRectMake(APP_SCREEN_WIDTH / 2 - 100, 250, 200, 44);
     _emptyButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
     _emptyButton.backgroundColor = [UIColor orangeColor];
     _emptyButton.layer.cornerRadius = 5;
-    [_emptyButton setTitle:NSLocalizedString(@"Add Test Device", @"") forState:UIControlStateNormal];
+    [_emptyButton setTitle:TYSDKDemoLocalizedString(@"Add Test Device", @"") forState:UIControlStateNormal];
     [_emptyButton addTarget:self action:@selector(getTestDevice) forControlEvents:UIControlEventTouchUpInside];
     _emptyButton.hidden = YES;
     [self.view addSubview:_emptyButton];
@@ -152,7 +152,7 @@
 
 - (void)showHomeList:(NSArray <TuyaSmartHomeModel *> *)homes {
     
-    UIAlertController *homeListAC = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"All Homes", @"") message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *homeListAC = [UIAlertController alertControllerWithTitle:TYSDKDemoLocalizedString(@"All Homes", @"") message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     for (TuyaSmartHomeModel *homeModel in homes) {
 
         UIAlertAction *action = [UIAlertAction actionWithTitle:homeModel.name style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -162,7 +162,7 @@
         [homeListAC addAction:action];
     }
     
-    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"cancel", @"") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
+    UIAlertAction *actionCancel = [UIAlertAction actionWithTitle:TYSDKDemoLocalizedString(@"cancel", @"") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {}];
     [homeListAC addAction:actionCancel];
     
     [self presentViewController:homeListAC animated:YES completion:nil];
@@ -210,7 +210,7 @@
 #warning 绑定演示设备到账号下面，生产环境勿使用
     
 #if DEBUG
-    [self showProgressView:NSLocalizedString(@"loading", @"")];
+    [self showProgressView:TYSDKDemoLocalizedString(@"loading", @"")];
     WEAKSELF_AT
     long long gid = self.home.homeModel.homeId;
     [self.request requestWithApiName:@"s.m.dev.sdk.demo.list" postData:nil getData:@{@"gid" : @(gid)} version:@"1.0" success:^(id result) {

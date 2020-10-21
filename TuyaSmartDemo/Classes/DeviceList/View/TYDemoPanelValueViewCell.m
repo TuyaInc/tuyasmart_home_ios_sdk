@@ -39,7 +39,7 @@
         _plusButton.backgroundColor = [UIColor clearColor];
         _plusButton.frame = CGRectMake(0, (self.bgView.height - 15)/2.f, 15, 15);
         _plusButton.right = APP_CONTENT_WIDTH - 25;
-        [_plusButton setImage:[UIImage imageNamed:@"ty_panel_plus"] forState:UIControlStateNormal];
+        [_plusButton setImage:[UIImage tysdkdemo_DeviceListImageNamed:@"ty_panel_plus"] forState:UIControlStateNormal];
     }
     return _plusButton;
     
@@ -82,7 +82,7 @@
         _minButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _minButton.backgroundColor = [UIColor clearColor];
         _minButton.frame = CGRectMake(0, (self.bgView.height - 15)/2.f, 15, 15);
-        [_minButton setImage:[UIImage imageNamed:@"ty_panel_minus"] forState:UIControlStateNormal];
+        [_minButton setImage:[UIImage tysdkdemo_DeviceListImageNamed:@"ty_panel_minus"] forState:UIControlStateNormal];
         _minButton.right = self.leftLine.left - 22;
     }
     return _minButton;

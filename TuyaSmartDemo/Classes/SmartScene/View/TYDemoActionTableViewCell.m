@@ -33,7 +33,7 @@
         [self.contentView addSubview:_titleLable];
         
         _errorLabel = [TPDemoViewUtil simpleLabel:CGRectMake(270 - 40 - 60, 0, 60, 56) f:11 tc:HEXCOLOR(0xff3b30) t:@""];
-        _errorLabel.text = NSLocalizedString(@"ty_smart_scene_device_offline", @"");
+        _errorLabel.text = TYSDKDemoLocalizedString(@"ty_smart_scene_device_offline", @"");
         _errorLabel.textAlignment = NSTextAlignmentRight;
         _errorLabel.hidden = YES;
         [self.contentView addSubview:_errorLabel];
@@ -43,7 +43,7 @@
 
         _infoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(238, 19, 18, 18)];
         _infoImageView.hidden = YES;
-        _infoImageView.image = [UIImage imageNamed:@"ty_scene_error"];
+        _infoImageView.image = [UIImage tysdkdemo_SmartSceneImageNamed:@"ty_scene_error"];
         [self.contentView addSubview:_infoImageView];
         
         _indicatorView = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(238, 19, 18, 18)];
@@ -62,19 +62,19 @@
     } else if (model.status == TYSceneActionStatusSuccess) {
         [_indicatorView stopAnimating];
         _infoImageView.hidden = NO;
-        _infoImageView.image = [UIImage imageNamed:@"ty_scene_switch"];
+        _infoImageView.image = [UIImage tysdkdemo_SmartSceneImageNamed:@"ty_scene_switch"];
     } else if (model.status == TYSceneActionStatusOffline) {
         [_indicatorView stopAnimating];
         _infoImageView.hidden = NO;
         _errorLabel.hidden = NO;
-        _errorLabel.text = NSLocalizedString(@"ty_smart_scene_device_offline", @"");
-        _infoImageView.image = [UIImage imageNamed:@"ty_scene_error"];
+        _errorLabel.text = TYSDKDemoLocalizedString(@"ty_smart_scene_device_offline", @"");
+        _infoImageView.image = [UIImage tysdkdemo_SmartSceneImageNamed:@"ty_scene_error"];
     } else if (model.status == TYSceneActionStatusTimeout) {
         [_indicatorView stopAnimating];
         _infoImageView.hidden = NO;
         _errorLabel.hidden = NO;
-        _errorLabel.text = NSLocalizedString(@"ty_smart_scene_feedback_no_respond", @"");
-        _infoImageView.image = [UIImage imageNamed:@"ty_scene_error"];
+        _errorLabel.text = TYSDKDemoLocalizedString(@"ty_smart_scene_feedback_no_respond", @"");
+        _infoImageView.image = [UIImage tysdkdemo_SmartSceneImageNamed:@"ty_scene_error"];
     }
 }
 
