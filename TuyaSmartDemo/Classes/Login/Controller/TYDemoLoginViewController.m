@@ -116,8 +116,8 @@
         [[TYDemoApplicationImpl sharedInstance] resetRootViewController:[TYDemoTabBarViewController class]];
         
     } failure:^(NSError *error) {
-        [TPDemoProgressUtils showError:error.localizedDescription];
         [weakSelf_TYSDK hideProgressView];
+        [TPDemoProgressUtils showError:error.localizedDescription];
     }];
 }
 

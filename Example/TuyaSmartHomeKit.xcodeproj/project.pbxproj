@@ -34,6 +34,7 @@
 		D5EFBF69250F69F3008C921E /* TuyaSmartSocketChannelKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D5EFBF5C250F69F3008C921E /* TuyaSmartSocketChannelKit.podspec */; };
 		D5EFBF6A250F69F3008C921E /* TuyaSmartFeedbackKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D5EFBF5D250F69F3008C921E /* TuyaSmartFeedbackKit.podspec */; };
 		D5EFBF6C250F6B76008C921E /* TuyaSmartDeviceCoreKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = D5EFBF6B250F6B76008C921E /* TuyaSmartDeviceCoreKit.podspec */; };
+		D5F25170254124DA0027B161 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D5F2516E254124DA0027B161 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		D5EFBF5C250F69F3008C921E /* TuyaSmartSocketChannelKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TuyaSmartSocketChannelKit.podspec; path = ../../TuyaSmartSocketChannelKit.podspec; sourceTree = "<group>"; };
 		D5EFBF5D250F69F3008C921E /* TuyaSmartFeedbackKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TuyaSmartFeedbackKit.podspec; path = ../../TuyaSmartFeedbackKit.podspec; sourceTree = "<group>"; };
 		D5EFBF6B250F6B76008C921E /* TuyaSmartDeviceCoreKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TuyaSmartDeviceCoreKit.podspec; path = ../../TuyaSmartDeviceCoreKit.podspec; sourceTree = "<group>"; };
+		D5F2516F254124DA0027B161 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D5F25172254124F60027B161 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DBEEEE4C4AA2F67DCA271369 /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E245176B7D72A06DD107AFF3 /* Pods-TuyaSmartHomeKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Tests/Pods-TuyaSmartHomeKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E2758476270FB654A33AE481 /* Pods-TuyaSmartHomeKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuyaSmartHomeKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -182,13 +185,13 @@
 		6003F593195388D20070C39A /* Example for TuyaSmartHomeKit */ = {
 			isa = PBXGroup;
 			children = (
-				D5EFBF50250F69C9008C921E /* Specs */,
 				6539381E223A364C00704EF3 /* CHANGELOG.md */,
+				6003F5A8195388D20070C39A /* Images.xcassets */,
+				D5EFBF50250F69C9008C921E /* Specs */,
+				6003F594195388D20070C39A /* Supporting Files */,
+				3F416F6E22B0FE070086F3E2 /* t_s.bmp */,
 				6003F59C195388D20070C39A /* TYAppDelegate.h */,
 				6003F59D195388D20070C39A /* TYAppDelegate.m */,
-				3F416F6E22B0FE070086F3E2 /* t_s.bmp */,
-				6003F5A8195388D20070C39A /* Images.xcassets */,
-				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for TuyaSmartHomeKit";
 			path = TuyaSmartHomeKit;
@@ -197,6 +200,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D5F2516E254124DA0027B161 /* InfoPlist.strings */,
 				6003F595195388D20070C39A /* TuyaSmartHomeKit-Info.plist */,
 				6003F599195388D20070C39A /* main.m */,
 				6003F59B195388D20070C39A /* TuyaSmartHomeKit-Prefix.pch */,
@@ -332,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5EFBF62250F69F3008C921E /* TuyaSmartMessageKit.podspec in Resources */,
+				D5F25170254124DA0027B161 /* InfoPlist.strings in Resources */,
 				D5EFBF67250F69F3008C921E /* TuyaSmartBLEMeshKit.podspec in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				D5EFBF6C250F6B76008C921E /* TuyaSmartDeviceCoreKit.podspec in Resources */,
@@ -454,6 +459,18 @@
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D5F2516E254124DA0027B161 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D5F2516F254124DA0027B161 /* zh-Hans */,
+				D5F25172254124F60027B161 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		6003F5BD195388D20070C39A /* Debug */ = {
