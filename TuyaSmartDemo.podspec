@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TuyaSmartDemo'
-  s.version          = '0.8.2'
+  s.version          = '0.8.3'
   s.summary          = 'Tuya common base demo.'
 
   s.description      = 'Tuya common base demo support quick to test some feature.'
