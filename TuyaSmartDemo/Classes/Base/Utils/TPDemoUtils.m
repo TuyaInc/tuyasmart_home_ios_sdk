@@ -388,3 +388,48 @@ UINavigationController *tp_mainNavigationController() {
 
 @end
 
+@implementation NSBundle (TYSDKDemoLanguage)
+
++ (NSBundle *)tysdkdemo_languageBundle {
+    static dispatch_once_t onceToken;
+    static NSBundle *bundle;
+    dispatch_once(&onceToken, ^{
+        NSString *path = [[NSBundle bundleForClass:TPDemoUtils.class] pathForResource:@"TuyaSmartDemoBaseBundle" ofType:@"bundle"];
+        bundle = [NSBundle bundleWithPath:path];
+    });
+    return bundle;
+}
+
++ (NSString *)tysdkdemo_localizedStringForKey:(NSString *)key value:(NSString *)value table:(NSString *)tableName {
+    
+    // 应用内多语言切换
+    NSBundle *langBundle;
+    
+    NSBundle *appBundle = langBundle ?: NSBundle.mainBundle;
+    
+    NSString *appBundleValue = [appBundle localizedStringForKey:key value:value table:tableName];
+    if ([appBundleValue isEqualToString:key]) { // 如果value与key相等，说明取不到
+        appBundleValue = nil;
+    }
+    
+    // 默认先从app bundle里取多语言（兼容以前的用法），取不到再从sdk bundle里取多语言。
+    if (appBundleValue != nil) {
+        return appBundleValue;
+    } else {
+        return [self.tysdkdemo_languageBundle localizedStringForKey:key value:value table:tableName] ?: key;
+    }
+}
+
+@end
+
+@implementation UIImage (TYSDKDemoImage)
+
++ (UIImage *)tysdkdemo_imageNamed:(NSString *)name {
+    return [UIImage imageNamed:name inBundle:[NSBundle tysdkdemo_languageBundle] compatibleWithTraitCollection:nil];
+}
+
++ (UIImage *)tysdkdemo_imageNamed:(NSString *)name inBundle:(NSBundle *)bundle {
+    return [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:nil];
+}
+
+@end

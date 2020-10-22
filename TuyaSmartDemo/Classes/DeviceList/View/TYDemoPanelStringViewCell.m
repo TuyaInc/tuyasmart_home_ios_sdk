@@ -55,7 +55,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 34, 34)];
     view.backgroundColor = HEXCOLOR(0xFF5800);
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"ty_panel_arrows"]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage tysdkdemo_DeviceListImageNamed:@"ty_panel_arrows"]];
     imageView.left = (view.width - imageView.width)/2.f;
     imageView.top = (view.height - imageView.height)/2.f;
     [view addSubview:imageView];

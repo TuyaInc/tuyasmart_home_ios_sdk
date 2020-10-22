@@ -38,7 +38,7 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.centerTitleItem.title = NSLocalizedString(@"Add Device", @"");
+    self.centerTitleItem.title = TYSDKDemoLocalizedString(@"Add Device", @"");
     self.topBarView.centerItem = self.centerTitleItem;
     [self.view addSubview:self.topBarView];
     
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NSStringFromClass([UITableViewCell class])];
-        UIImageView *arrow = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"cell_view_arrow@2x"]];
+        UIImageView *arrow = [[UIImageView alloc] initWithImage:[UIImage tysdkdemo_imageNamed:@"cell_view_arrow@2x"]];
         arrow.top = (66 - arrow.height)/2;
         arrow.right = APP_SCREEN_WIDTH - arrow.width - 15;
         [cell.contentView addSubview:arrow];
@@ -69,19 +69,19 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
     NSString *title = @"placeholder";
     switch (indexPath.row) {
         case AddDeviceModeEZ:
-            title = NSLocalizedString(@"Add device in EZ mode", @"");
+            title = TYSDKDemoLocalizedString(@"Add device in EZ mode", @"");
             break;
         case AddDeviceModeAP:
-            title = NSLocalizedString(@"Add device in AP mode", @"");
+            title = TYSDKDemoLocalizedString(@"Add device in AP mode", @"");
             break;
         case AddZigBeeGateway:
-            title = NSLocalizedString(@"Add ZigBee gateway", @"");
+            title = TYSDKDemoLocalizedString(@"Add ZigBee gateway", @"");
             break;
         case AddZigBeeSubdevice:
-            title = NSLocalizedString(@"Add ZigBee subdevice", @"");
+            title = TYSDKDemoLocalizedString(@"Add ZigBee subdevice", @"");
             break;
         case AddDeviceSIGMesh: {
-            title = NSLocalizedString(@"Add SIG Mesh device", @"");
+            title = TYSDKDemoLocalizedString(@"Add SIG Mesh device", @"");
         }
             break;
         default:

@@ -45,9 +45,9 @@
 
 - (void)initTopBarView {
     
-    self.centerTitleItem.title = NSLocalizedString(@"login", @"");
+    self.centerTitleItem.title = TYSDKDemoLocalizedString(@"login", @"");
     self.topBarView.centerItem = self.centerTitleItem;
-    self.rightTitleItem.title = NSLocalizedString(@"login_register", @"");
+    self.rightTitleItem.title = TYSDKDemoLocalizedString(@"login_register", @"");
     self.topBarView.rightItem = self.rightTitleItem;
     [self.view addSubview:self.topBarView];
 }
@@ -116,8 +116,8 @@
         [[TYDemoApplicationImpl sharedInstance] resetRootViewController:[TYDemoTabBarViewController class]];
         
     } failure:^(NSError *error) {
-        [TPDemoProgressUtils showError:error.localizedDescription];
         [weakSelf_TYSDK hideProgressView];
+        [TPDemoProgressUtils showError:error.localizedDescription];
     }];
 }
 

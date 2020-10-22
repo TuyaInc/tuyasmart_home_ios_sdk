@@ -17,15 +17,15 @@
 TY_EXPORT_TABBAR(self)
 
 - (NSString *)barTitle {
-    return NSLocalizedString(@"Activate", @"");
+    return TYSDKDemoLocalizedString(@"Activate", @"");
 }
 
 - (UIImage *)barImage {
-    return [UIImage imageNamed:@"ty_mainbt_add"];
+    return [UIImage tysdkdemo_imageNamed:@"ty_mainbt_add"];
 }
 
 - (UIImage *)barSelectedImage {
-    return [UIImage imageNamed:@"ty_mainbt_add_active"];
+    return [UIImage tysdkdemo_imageNamed:@"ty_mainbt_add_active"];
 }
 
 - (BOOL)needNavigation {

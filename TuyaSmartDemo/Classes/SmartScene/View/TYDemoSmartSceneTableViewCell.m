@@ -35,7 +35,7 @@
         
         _executeButton = [[UIButton alloc] initWithFrame:CGRectMake(APP_SCREEN_WIDTH - 15 - 60 - 15, ((APP_SCREEN_WIDTH - 30) * 140 / 343 - 30) / 2.0, 60, 30)];
         [_executeButton setBackgroundColor:HEXCOLOR(0x44db5e)];
-        [_executeButton setTitle:NSLocalizedString(@"ty_smart_scene_start", @"") forState:UIControlStateNormal];
+        [_executeButton setTitle:TYSDKDemoLocalizedString(@"ty_smart_scene_start", @"") forState:UIControlStateNormal];
         [_executeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _executeButton.layer.cornerRadius = 8.0;
         _executeButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];

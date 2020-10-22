@@ -58,7 +58,7 @@
 - (void)initView
 {
     [self.view addSubview:self.tableView];
-    self.topBarView.leftItem = [[TPDemoBarButtonItem alloc] initWithTitle:NSLocalizedString(@"cancel", @"") style:UIBarButtonItemStylePlain target:self action:@selector(CancelButtonTap)];
+    self.topBarView.leftItem = [[TPDemoBarButtonItem alloc] initWithTitle:TYSDKDemoLocalizedString(@"cancel", @"") style:UIBarButtonItemStylePlain target:self action:@selector(CancelButtonTap)];
     WEAKSELF_AT
     [self.tableView tysdkDemo_whenTapped:^{
         if ([weakSelf_AT.activeTextField isFirstResponder]) {
@@ -211,12 +211,12 @@
 
 - (NSString *)titleForCenterItem
 {
-    return NSLocalizedString(@"ty_smart_scene_add_new_scene", @"");
+    return TYSDKDemoLocalizedString(@"ty_smart_scene_add_new_scene", @"");
 }
 
 - (NSString *)titleForRightItem
 {
-    return NSLocalizedString(@"ty_smart_scene_save", @"");
+    return TYSDKDemoLocalizedString(@"ty_smart_scene_save", @"");
 }
 
 - (TuyaSmartScene *)smartScene
@@ -279,7 +279,7 @@
     NSString *title = [_activeTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (title.length == 0 && _model.code.length == 0)
     {
-        [TPDemoProgressUtils showError:NSLocalizedString(@"ty_smart_scene_name_enter", @"")];
+        [TPDemoProgressUtils showError:TYSDKDemoLocalizedString(@"ty_smart_scene_name_enter", @"")];
         return;
     }
     
@@ -287,7 +287,7 @@
     
     if (self.dataSource.count == 0)
     {
-        [TPDemoProgressUtils showError:NSLocalizedString(@"ty_smart_scene_error_add_work", @"")];
+        [TPDemoProgressUtils showError:TYSDKDemoLocalizedString(@"ty_smart_scene_error_add_work", @"")];
         return;
     }
     NSString *sceneName = @"";
@@ -306,7 +306,7 @@
 // Create scene
 - (void)addSmartSceneWithName:(NSString *)name
 {
-    [TPDemoProgressUtils showMessag:NSLocalizedString(@"loading", nil) toView:self.view];
+    [TPDemoProgressUtils showMessag:TYSDKDemoLocalizedString(@"loading", nil) toView:self.view];
     id<TYDemoDeviceListModuleProtocol> impl = [[TYDemoConfiguration sharedInstance] serviceOfProtocol:@protocol(TYDemoDeviceListModuleProtocol)];
     long long homeId = [impl currentHomeId];
     WEAKSELF_AT
@@ -325,7 +325,7 @@
 // Edit scene, similar to create scene.
 - (void)editSmartSceneWithName:(NSString *)name
 {
-    [TPDemoProgressUtils showMessag:NSLocalizedString(@"loading", nil) toView:self.view];
+    [TPDemoProgressUtils showMessag:TYSDKDemoLocalizedString(@"loading", nil) toView:self.view];
     WEAKSELF_AT
     [self.smartScene modifySceneWithName:name background:_backImageUrl showFirstPage:YES preConditionList:nil conditionList:self.conditionArray actionList:self.dataSource matchType:_matchType success:^{
         [TPDemoProgressUtils hideHUDForView:weakSelf_AT.view animated:NO];
@@ -394,7 +394,7 @@
             cell = [[TYDemoTextFieldTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         cell.textField.attributedText = [[NSAttributedString alloc] initWithString:@"" attributes:@{NSForegroundColorAttributeName : HEXCOLOR(0x303030)}];
-        cell.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:NSLocalizedString(@"ty_smart_scene_name_enter", @"") attributes:@{NSForegroundColorAttributeName : HEXCOLOR(0x9b9b9b)}];
+        cell.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:TYSDKDemoLocalizedString(@"ty_smart_scene_name_enter", @"") attributes:@{NSForegroundColorAttributeName : HEXCOLOR(0x9b9b9b)}];
         cell.textField.delegate = self;
         if (self.activeTextField == nil) {
             self.activeTextField = cell.textField;
@@ -419,13 +419,13 @@
             if (indexPath.section == 1) {
                 
                 if (_matchType == TuyaSmartConditionMatchAll) {
-                    cell.titleLabel.text = NSLocalizedString(@"scene_condition_type_and", @"");
+                    cell.titleLabel.text = TYSDKDemoLocalizedString(@"scene_condition_type_and", @"");
                 } else {
-                    cell.titleLabel.text = NSLocalizedString(@"scene_condition_type_or", @"");
+                    cell.titleLabel.text = TYSDKDemoLocalizedString(@"scene_condition_type_or", @"");
                 }
                 
             } else {
-                cell.titleLabel.text = NSLocalizedString(@"ty_smart_scene_start", @"");
+                cell.titleLabel.text = TYSDKDemoLocalizedString(@"ty_smart_scene_start", @"");
             }
             
             return cell;
@@ -438,9 +438,9 @@
                     cell = [[TYDemoEditActionNoDataTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
                 }
                 if (indexPath.section == 1) {
-                    cell.titleLabel.text = NSLocalizedString(@"ty_smart_scene_add_notadded", @"");
+                    cell.titleLabel.text = TYSDKDemoLocalizedString(@"ty_smart_scene_add_notadded", @"");
                 } else {
-                    cell.titleLabel.text = NSLocalizedString(@"ty_smart_scene_add_notaddedwork", @"");
+                    cell.titleLabel.text = TYSDKDemoLocalizedString(@"ty_smart_scene_add_notaddedwork", @"");
                 }
                 return cell;
             } else {

@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/SmartScene/Utils/TYDemoSmartSceneUtil.h

@@ -14,4 +14,11 @@
 #import "TYDemoTheme.h"
 #import "TPDemoViewConstants.h"
 #import "UIView+TPDemoAdditions.h"
+#import "TPDemoUtils.h"
+#endif
+#ifdef __OBJC__
+#import "TYDemoDeviceListUtil.h"
+#endif
+#ifdef __OBJC__
+#import "TYDemoSmartSceneUtil.h"
 #endif

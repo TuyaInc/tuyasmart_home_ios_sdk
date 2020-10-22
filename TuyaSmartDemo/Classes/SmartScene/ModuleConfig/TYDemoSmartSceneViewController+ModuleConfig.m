@@ -17,15 +17,15 @@
 TY_EXPORT_TABBAR(self)
 
 - (NSString *)barTitle {
-    return NSLocalizedString(@"ty_smart_scene", @"");
+    return TYSDKDemoLocalizedString(@"ty_smart_scene", @"");
 }
 
 - (UIImage *)barImage {
-    return [UIImage imageNamed:@"ty_scene_gray"];
+    return [UIImage tysdkdemo_SmartSceneImageNamed:@"ty_scene_gray"];
 }
 
 - (UIImage *)barSelectedImage {
-    return [UIImage imageNamed:@"ty_scene_active"];
+    return [UIImage tysdkdemo_SmartSceneImageNamed:@"ty_scene_active"];
 }
 
 - (BOOL)needNavigation {

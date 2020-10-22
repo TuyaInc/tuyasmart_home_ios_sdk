@@ -22,7 +22,7 @@
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:error
                                                          message:nil
                                                         delegate:nil
-                                               cancelButtonTitle:NSLocalizedString(@"ty_alert_confirm", nil)
+                                               cancelButtonTitle:TYSDKDemoLocalizedString(@"ty_alert_confirm", nil)
                                                otherButtonTitles:nil];
         [alert show];
         

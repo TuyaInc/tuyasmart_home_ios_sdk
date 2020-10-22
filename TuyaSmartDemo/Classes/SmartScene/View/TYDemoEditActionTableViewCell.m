@@ -31,7 +31,7 @@
         _offlineLabel.textAlignment = NSTextAlignmentRight;
         [self.contentView addSubview:_offlineLabel];
         
-        self.rightArrowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"smartScene.bundle/cell_view_arrow"]];
+        self.rightArrowImageView = [[UIImageView alloc] initWithImage:[UIImage tysdkdemo_imageNamed:@"cell_view_arrow"]];
         self.rightArrowImageView.frame = CGRectMake(APP_SCREEN_WIDTH - 22, (64 - self.rightArrowImageView.height) / 2.f, self.rightArrowImageView.width, self.rightArrowImageView.height);
         [self.contentView addSubview:self.rightArrowImageView];
         

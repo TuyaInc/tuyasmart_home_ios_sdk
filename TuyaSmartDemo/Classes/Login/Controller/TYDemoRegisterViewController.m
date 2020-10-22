@@ -131,7 +131,7 @@
 }
 
 - (NSString *)titleForCenterItem {
-    return NSLocalizedString(@"login_register", @"");
+    return TYSDKDemoLocalizedString(@"login_register", @"");
 }
 
 @end
