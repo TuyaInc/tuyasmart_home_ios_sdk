@@ -4,10 +4,12 @@
 
 - 新增功能
   - 新增游客登录模式
-  2. 新增闪电配网功能
+  - 新增闪电配网功能
+
   - Bug fixed
 - New Feature
-  - 
+  - New guest user login mode
+  - Support new lightning active device
   - Bug fixed
 
 
