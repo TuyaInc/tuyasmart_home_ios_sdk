@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartMQTTChannelKit"
-  s.version = "3.19.1"
+  s.version = "3.20.0"
   s.summary = "A short description of #{s.name}."
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.vendored_frameworks       = 'ios/*.framework'
   # s.vendored_libraries        = 'ios/*.a'
 
-  s.dependency 'TuyaSmartBaseKit', '>= 3.19.0'
+  s.dependency 'TuyaSmartBaseKit', '>= 3.20.0'
   s.dependency 'TuyaSmartQUIC'
   s.dependency 'MQTTClient', '0.15.2'
 

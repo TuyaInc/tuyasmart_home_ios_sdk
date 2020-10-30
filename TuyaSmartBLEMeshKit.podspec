@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartBLEMeshKit"
-  s.version = "3.19.2"
+  s.version = "3.20.3"
   s.summary = "A short description of #{s.name}."
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
@@ -15,11 +15,11 @@ Pod::Spec.new do |s|
 
   s.frameworks = 'Foundation', 'CoreBluetooth'
 
-  s.dependency 'TuyaSmartBaseKit', '>= 3.19.0'
-  s.dependency 'TuyaSmartDeviceKit', '>= 3.19.0'
+  s.dependency 'TuyaSmartBaseKit', '>= 3.20.0'
+  s.dependency 'TuyaSmartDeviceKit', '>= 3.20.0'
   s.dependency 'TYBluetooth'
-  s.dependency 'TuyaSmartActivatorKit', '>= 3.19.0'
+  s.dependency 'TuyaSmartActivatorKit', '>= 3.20.0'
   s.dependency 'OpenSSL-Universal', '1.0.2.17'
-  s.dependency 'TuyaSmartBLEKit', '>= 3.19.0'
+  s.dependency 'TuyaSmartBLEKit', '>= 3.20.0'
 
 end
