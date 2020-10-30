@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name = "TuyaSmartBaseKit"
-  s.version = "3.19.2"
+  s.version = "3.20.1"
   s.summary = "A short description of #{s.name}."
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
   s.homepage = "https://tuya.com"
-  s.source = { :http => "https://airtake-public-data-1254153901.cos.ap-shanghai.myqcloud.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
+  s.source = { :http => "https://images.tuyacn.com/smart/app/package/sdk/ios/#{s.name}-#{s.version}.zip", :type => "zip" }
 
   s.static_framework = true
 
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
   s.libraries = 'c++', 'z'
 
-  s.dependency 'TuyaSmartUtil', '>= 3.19.0'
+  s.dependency 'TuyaSmartUtil', '>= 3.20.0'
   s.dependency 'YYModel'
 
 end

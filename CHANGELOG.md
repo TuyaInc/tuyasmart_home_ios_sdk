@@ -1,5 +1,19 @@
 # TuyaSmartHomeKit iOS SDK Change Log
 
+## 3.20.0(2020-10-30)
+
+- 新增功能
+  - 新增游客登录模式
+  - 新增闪电配网功能
+
+  - Bug fixed
+- New Feature
+  - New guest user login mode
+  - Support new lightning active device
+  - Bug fixed
+
+
+
 ## 3.19.0(2020-09-21)
 
 - 新增功能
