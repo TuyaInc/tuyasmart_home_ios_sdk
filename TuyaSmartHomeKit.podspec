@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.license = "none"
   s.authors = {"0x5e"=>"gaosen@tuya.com"}
   s.homepage = "https://tuya.com"
-  s.source = { :http => "https://airtake-public-data.oss-cn-hangzhou.aliyuncs.com/smart/app/package/sdk/ios/TuyaSmartHomeKit-2.10.96.zip" }
+  s.source = { :http => "https://images.tuyacn.com/smart/app/package/sdk/ios/TuyaSmartHomeKit-2.10.96.zip" }
 
   s.static_framework = true
   s.ios.deployment_target = '8.0'
