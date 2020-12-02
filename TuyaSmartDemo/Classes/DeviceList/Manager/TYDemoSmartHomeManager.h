@@ -1,5 +1,5 @@
 //
-//  TYSmartHomeManager.h
+//  TYDemoSmartHomeManager.h
 //  TuyaSmartHomeKit_Example
 //
 //  Created by 盖剑秋 on 2018/11/8.

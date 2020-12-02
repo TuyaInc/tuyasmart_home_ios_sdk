@@ -1,5 +1,5 @@
 //
-//  TYAPAddDeviceViewController.m
+//  TYDemoAPAddDeviceViewController.m
 //  TuyaSmartHomeKit_Example
 //
 //  Created by 盖剑秋 on 2018/11/12.

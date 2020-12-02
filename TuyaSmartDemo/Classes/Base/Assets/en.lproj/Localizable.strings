@@ -725,4 +725,6 @@
 "Add ZigBee gateway" = "Add ZigBee gateway";
 "Add ZigBee subdevice" = "Add ZigBee subdevice";
 "Add SIG Mesh device" = "Add SIG Mesh device";
+"Add Ble single" = "Add Ble single";
+"Add Ble wifi" = "ble + Wi-Fi device";
 

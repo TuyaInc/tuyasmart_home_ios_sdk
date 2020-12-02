@@ -10,13 +10,18 @@
 #import "TYDemoAPAddDeviceViewController.h"
 #import "TYDemoEZAddDeviceViewController.h"
 #import "TYDemoAddZigBeeViewController.h"
+#import "TYDemoAddBLEMeshViewController.h"
+#import "TYDemoAddBLESingleViewController.h"
+#import "TYDemoAddBLEWIFIViewController.h"
 
 typedef NS_ENUM(NSInteger, AddDeviceMode) {
     AddDeviceModeEZ,
     AddDeviceModeAP,
     AddZigBeeGateway,
     AddZigBeeSubdevice,
+    AddDeviceBleSingle,
     AddDeviceSIGMesh,
+    AddDeviceBLEWIFI,
     AddDeviceModeCount,
 };
 
@@ -82,6 +87,13 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
             break;
         case AddDeviceSIGMesh: {
             title = TYSDKDemoLocalizedString(@"Add SIG Mesh device", @"");
+            break;
+        case AddDeviceBleSingle:
+            title = TYSDKDemoLocalizedString(@"Add Ble single", @"");
+            break;
+        case AddDeviceBLEWIFI:
+            title = TYSDKDemoLocalizedString(@"Add Ble wifi", @"");
+            break;
         }
             break;
         default:
@@ -110,9 +122,14 @@ typedef NS_ENUM(NSInteger, AddDeviceMode) {
             controller = [TYDemoAddZigBeeViewController new];
             ((TYDemoAddZigBeeViewController *)controller).forZigBeeSubdevice = YES;
             break;
-//        case AddDeviceSIGMesh: { //todo hk
-//            controller = [TYAddSIGMeshDeviceViewController new];
-//        }
+        case AddDeviceBleSingle:
+            controller = [TYDemoAddBLESingleViewController new];
+            break;
+        case AddDeviceSIGMesh:
+            controller = [TYDemoAddBLEMeshViewController new];
+            break;
+        case AddDeviceBLEWIFI:
+            controller = [TYDemoAddBLEWIFIViewController new];
             break;
         default:
             break;

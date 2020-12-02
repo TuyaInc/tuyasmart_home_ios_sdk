@@ -1,5 +1,5 @@
 //
-//  TYAddDeviceUtils.h
+//  TYDemoAddDeviceUtils.h
 //  TuyaSmartHomeKit_Example
 //
 //  Created by Kennaki Kai on 2018/12/3.

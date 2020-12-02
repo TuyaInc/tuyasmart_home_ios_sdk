@@ -726,3 +726,5 @@
 "Add ZigBee gateway" = "有线网关激活";
 "Add ZigBee subdevice" = "子设备激活";
 "Add SIG Mesh device" = "SIG Mesh 设备激活";
+"Add Ble single" = "单点蓝牙设备激活";
+"Add Ble wifi" = "蓝牙 + Wi-Fi 双模设备激活";
