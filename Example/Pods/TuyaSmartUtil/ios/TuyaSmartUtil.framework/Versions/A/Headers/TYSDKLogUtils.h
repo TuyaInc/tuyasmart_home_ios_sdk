@@ -32,4 +32,13 @@
 + (NSString *)tysdk_eventIdentifiter;
 
 
+/// 压缩点
+///
+/// @param type 事件名称，对应平台上的唯一标示
+/// @param attribute 事件参数
+/// @param identify 事件标示，用于区分开与其他埋点数据
+/// @param maxCount 最大压缩收集数，当收集到 x 条数时，会执行 handler
+/// @param handler 当收集到 x 条数时，会执行 handler，返回值为上报的格式数据
++ (void)tysdk_eventWithType:(NSString *)type attribute:(NSDictionary *)attribute identify:(NSString *)identify maxCount:(int)maxCount handler:(NSDictionary *(^)(NSInteger index, NSArray * datas))handler;
+
 @end

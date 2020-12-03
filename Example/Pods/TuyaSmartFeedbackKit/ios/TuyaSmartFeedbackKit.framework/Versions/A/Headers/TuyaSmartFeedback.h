@@ -71,6 +71,29 @@
 
 
 /**
+ *  Submit feedback.
+ *  添加设备反馈
+ *
+ *  @param content      Feedback content
+ *  @param hdId         Feedback Id
+ *  @param hdType       Feedback type
+ *  @param contact      Contact
+ *  @param uuid         Uuid
+ *  @param region       Region
+ *  @param success      Success block
+ *  @param failure      Failure block
+ */
+- (void)addFeedback:(NSString *)content
+               hdId:(NSString *)hdId
+             hdType:(NSUInteger)hdType
+            contact:(NSString *)contact
+               uuid:(NSString *)uuid
+             region:(NSString *)region
+            success:(TYSuccessHandler)success
+            failure:(TYFailureError)failure;
+
+
+/**
  *  Cancel the request being executed.
  *  取消正在进行的操作
  */

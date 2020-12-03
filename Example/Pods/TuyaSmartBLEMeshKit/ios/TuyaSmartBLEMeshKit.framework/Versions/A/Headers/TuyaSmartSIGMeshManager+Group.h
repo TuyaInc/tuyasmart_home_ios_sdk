@@ -38,4 +38,6 @@
 - (void)queryGroupMemberWithGroupAddress:(uint32_t)groupAddress;
 
 
+- (void)queryGroupListWithDevid:(NSString *)devId;
+
 @end

@@ -20,6 +20,10 @@
 
 - (double)tysdk_toDouble;
 
+- (NSArray *)tysdk_toArray;
+
+- (NSDictionary *)tysdk_toDictionary;
+
 - (BOOL)tysdk_toBool;
 
 + (BOOL)tysdk_swizzleInstanceMethod:(SEL)originalSel with:(SEL)newSel;

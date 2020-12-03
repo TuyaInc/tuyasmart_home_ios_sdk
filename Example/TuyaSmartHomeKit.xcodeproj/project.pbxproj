@@ -253,6 +253,7 @@
 				6003F588195388D20070C39A /* Resources */,
 				3FDE1FC222A8C09E0085086B /* Embed App Extensions */,
 				E032644C38594CBA563178B0 /* [CP] Copy Pods Resources */,
+				2B3BF41C971EE43F3A9F115B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -367,6 +368,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2B3BF41C971EE43F3A9F115B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example-frameworks.sh",
+				"${PODS_ROOT}/TuyaSmartQUIC/Carthage/Build/iOS/TuyaSmartQUIC.framework",
+				"${PODS_ROOT}/TuyaSmartQUIC/Carthage/Build/iOS/TuyaSmartQUIC.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TuyaSmartQUIC.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/TuyaSmartQUIC.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CF8B0613686D1141CC8496A7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 12;
@@ -392,6 +413,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TuyaSmartHomeKit_Example/Pods-TuyaSmartHomeKit_Example-resources.sh",
+				"${PODS_ROOT}/TuyaSmartBaseKit/ios/TuyaSmartBaseKit.framework/Versions/A/Resources/cerficate_v1",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoBaseBundle.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoDeviceListBundle.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoSceneBundle.bundle",
@@ -399,6 +421,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/cerficate_v1",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TuyaSmartDemoBaseBundle.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TuyaSmartDemoDeviceListBundle.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TuyaSmartDemoSceneBundle.bundle",

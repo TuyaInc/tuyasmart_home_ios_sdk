@@ -12,30 +12,20 @@
 #import "TuyaSmartReceiveMemberDetailModel.h"
 #import "TuyaSmartReceivedShareUserModel.h"
 #import "TuyaSmartShareDeviceModel.h"
+#import "TuyaSmartDeviceShareModel.h"
 
 
 ///  Sharing device related functions (based on device dimension sharing)
 ///  共享设备相关功能 （基于家庭的设备维度的共享）
 @interface TuyaSmartHomeDeviceShare : NSObject
 
-/**
- Add Shares
- 添加共享
- 
- @param homeId      homeId
- @param countryCode countryCode
- @param userAccount userAccount
- @param devIds      devId list
- @param success     Success block
- @param failure     Failure block
- */
-- (void)addShareWithHomeId:(long long)homeId
-               countryCode:(NSString *)countryCode
-               userAccount:(NSString *)userAccount
-                    devIds:(NSArray <NSString *> *)devIds
-                   success:(void(^)(TuyaSmartShareMemberModel *model))success
-                   failure:(TYFailureError)failure;
-
+/// 设备添加共享 Device Add Sharing
+/// @param requestModel 添加共享设备模型 request model
+/// @param success 成功回调 success
+/// @param failure 失败回调 failure
+- (void)addDeviceShareWithRequestModel:(TuyaSmartDeviceShareRequestModel *)requestModel
+                               success:(void(^)(TuyaSmartShareMemberModel *model))success
+                               failure:(TYFailureError)failure;
 
 /**
  Add Shares (new, not overwriting old Shares)
@@ -158,25 +148,7 @@
                                          failure:(TYFailureError)failure;
 
 
-#pragma mark - 单设备共享操作
-
-/**
- Device Add Sharing
- 单设备添加共享
- 
- @param homeId      homeId
- @param countryCode countryCode
- @param userAccount userAccount
- @param devId       devId
- @param success     Success block
- @param failure     Failure block
- */
-- (void)addDeviceShareWithHomeId:(long long)homeId
-                     countryCode:(NSString *)countryCode
-                     userAccount:(NSString *)userAccount
-                           devId:(NSString *)devId
-                         success:(void(^)(TuyaSmartShareMemberModel *model))success
-                         failure:(TYFailureError)failure;
+#pragma mark - 
 
 
 /**

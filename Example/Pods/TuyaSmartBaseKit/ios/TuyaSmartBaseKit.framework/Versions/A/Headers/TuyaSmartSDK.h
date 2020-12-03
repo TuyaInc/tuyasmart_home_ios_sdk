@@ -45,6 +45,8 @@ typedef NS_ENUM(NSInteger, TYEnv) {
 /// 测试环境，不建议切换
 @property (nonatomic, assign) TYEnv env;
 
+/// Request need SSL Pinning, default is `YES`
+/// 请求都进行 SSL Pining 校验，默认为 `YES`
 @property (nonatomic, assign) BOOL useSSLPinning;
 
 @property (nonatomic, strong, readonly) NSString *appKey;
@@ -56,6 +58,24 @@ typedef NS_ENUM(NSInteger, TYEnv) {
 
 /// uuid of the iOS/watchOS device. Will be created at app first launch.
 @property (nonatomic, strong, readonly) NSString *uuid;
+
+/**
+ *  App version, default value is from Info.plist -> CFBundleShortVersionString
+ *  App 版本号，默认为 Info.plist -> CFBundleShortVersionString 中的值
+ */
+@property (nonatomic, strong) NSString *appVersion;
+
+/**
+ * Device product name. For example: iPhone XS Max.
+ * 设备产品名称，例如：iPhone XS Max.
+ */
+@property (nonatomic, strong) NSString *deviceProductName;
+
+/**
+ *  App sdk lang, default value is from mainBundle -> preferredLocalizations -> [0]
+ *  App sdk 语言，默认为mainBundle -> preferredLocalizations -> [0] 中的值
+ */
+@property (nonatomic, strong) NSString *lang;
 
 /**
  *  Initialize TuyaSmart SDK

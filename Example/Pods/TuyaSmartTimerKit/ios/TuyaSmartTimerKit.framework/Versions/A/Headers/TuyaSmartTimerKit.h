@@ -9,5 +9,6 @@
 #define TuyaSmartTimerKit_h
 
 #import "TuyaSmartTimer.h"
+#import "TuyaSmartTimer+TYDeprecatedApi.h"
 
 #endif /* TuyaSmartTimerKit_h */

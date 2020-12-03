@@ -97,12 +97,14 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/TuyaSmartBaseKit/ios/TuyaSmartBaseKit.framework/Versions/A/Resources/cerficate_v1"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoBaseBundle.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoDeviceListBundle.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoSceneBundle.bundle"
   install_resource "${PODS_ROOT}/TuyaSmartUtil/ios/TuyaSmartUtil.framework/Versions/A/Resources/TuyaSmartUtil.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/TuyaSmartBaseKit/ios/TuyaSmartBaseKit.framework/Versions/A/Resources/cerficate_v1"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoBaseBundle.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoDeviceListBundle.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/TuyaSmartDemo/TuyaSmartDemoSceneBundle.bundle"

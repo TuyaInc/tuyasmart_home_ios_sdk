@@ -20,13 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
  Create a allday valid precondition.
  en$
 
- @param sceneId zh^ 所属的场景Id zh$ en^ scene Id en$
+ @param sceneId zh^ 所属的场景Id，新建时可以传空 zh$ en^ scene Id, can be nil when create a automation. en$
  @param conditionId zh^ 如果是编辑生效时间段，需要传递原有的preConditionModel的id zh$ en^ If you created a preconditon and saved the automation,there will be a precondition Id. en$
  @param loops zh^ 格式为"1111111",每一位分别代表周日到周一 zh$ en^ @"1111111" each present from sunday to saturday. en$
  @param timeZoneId zh^ 时区名 如 "Asia/Shanghai" zh$ en^ timeZoneId eg:"Asia/Shanghai" en$
  @return preCondition
  */
-+ (TuyaSmartScenePreConditionModel *)creatAllDayPreConditionWithSceneId:(NSString *)sceneId existConditionId:(NSString * __nullable)conditionId loops:(NSString *)loops timeZoneId:(NSString *)timeZoneId;
++ (TuyaSmartScenePreConditionModel *)creatAllDayPreConditionWithSceneId:(NSString *__nullable)sceneId existConditionId:(NSString * __nullable)conditionId loops:(NSString *)loops timeZoneId:(NSString *)timeZoneId;
 
 /**
  zh^
@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
  Create a daytime valid precondition.
  en$
 
- @param sceneId zh^ 所属的场景Id zh$ en^ scene Id en$
+ @param sceneId zh^ 所属的场景Id，新建时可以传空 zh$ en^ scene Id, can be nil when create a automation. en$
  @param conditionId zh^ 如果是编辑生效时间段，需要传递原有的preConditionModel的id zh$ en^ If you created a preconditon and saved the automation,there will be a precondition Id. en$
  @param loops zh^ 格式为"1111111",每一位分别代表周日到周一 zh$ en^ @"1111111" each present from sunday to saturday. en$
  @param cityId zh^ 所在城市的城市Id zh$ en^ The cityId of current city. en$
@@ -44,7 +44,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param timeZoneId zh^ 时区名 如 "Asia/Shanghai" zh$ en^ timeZoneId eg:"Asia/Shanghai" en$
  @return preCondition
  */
-+ (TuyaSmartScenePreConditionModel *)createDayTimePreConditionWithSceneId:(NSString *)sceneId existConditionId:(NSString * __nullable)conditionId loops:(NSString *)loops cityId:(NSString *)cityId cityName:(NSString *)cityName timeZoneId:(NSString *)timeZoneId;
++ (TuyaSmartScenePreConditionModel *)createDayTimePreConditionWithSceneId:(NSString *__nullable)sceneId existConditionId:(NSString * __nullable)conditionId loops:(NSString *)loops cityId:(NSString *)cityId cityName:(NSString *)cityName timeZoneId:(NSString *)timeZoneId;
 
 /**
  zh^
@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
  Create a night valid precondition.
  en$
 
- @param sceneId zh^ 所属的场景Id zh$ en^ scene Id en$
+  @param sceneId zh^ 所属的场景Id，新建时可以传空 zh$ en^ scene Id, can be nil when create a automation. en$
  @param conditionId zh^ 如果是编辑生效时间段，需要传递原有的preConditionModel的id zh$ en^ If you created a preconditon and saved the automation,there will be a precondition Id. en$
  @param loops zh^ 格式为"1111111",每一位分别代表周日到周一 zh$ en^ @"1111111" each present from sunday to saturday. en$
  @param cityId zh^ 所在城市的城市Id zh$ en^ The cityId of current city. en$
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param timeZoneId zh^ 时区名 如 "Asia/Shanghai" zh$ en^ timeZoneId eg:"Asia/Shanghai" en$
  @return preCondition
  */
-+ (TuyaSmartScenePreConditionModel *)createNightTimePreConditionWithSceneId:(NSString *)sceneId existConditionId:(NSString * __nullable)conditionId loops:(NSString *)loops cityId:(NSString *)cityId cityName:(NSString *)cityName timeZoneId:(NSString *)timeZoneId;
++ (TuyaSmartScenePreConditionModel *)createNightTimePreConditionWithSceneId:(NSString *__nullable)sceneId existConditionId:(NSString * __nullable)conditionId loops:(NSString *)loops cityId:(NSString *)cityId cityName:(NSString *)cityName timeZoneId:(NSString *)timeZoneId;
 
 /**
  zh^
@@ -72,7 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  Create a valid preconditon of custom time period.
  en$
 
- @param sceneId zh^ 所属的场景Id zh$ en^ scene Id en$
+ @param sceneId zh^ 所属的场景Id，新建时可以传空 zh$ en^ scene Id, can be nil when create a automation. en$
  @param conditionId zh^ 如果是编辑生效时间段，需要传递原有的preConditionModel的id zh$ en^ If you created a preconditon and saved the automation,there will be a precondition Id. en$
  @param loops zh^ 格式为"1111111",每一位分别代表周日到周一 zh$ en^ @"1111111" each present from sunday to saturday. en$
  @param cityId zh^ 所在城市的城市Id zh$ en^ The cityId of current city. en$
@@ -82,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param end zh^ 自定义结束时间 eg:"18:30" zh$ en^ custom end time, eg:"18:30" en$
  @return preCondition
  */
-+ (TuyaSmartScenePreConditionModel *)createCustomTimePreConditionWithSceneId:(NSString *)sceneId existConditionId:(NSString * __nullable)conditionId loops:(NSString *)loops cityId:(NSString *)cityId cityName:(NSString *)cityName timeZoneId:(NSString *)timeZoneId beginTime:(NSString *)begin endTime:(NSString *)end;
++ (TuyaSmartScenePreConditionModel *)createCustomTimePreConditionWithSceneId:(NSString *__nullable)sceneId existConditionId:(NSString * __nullable)conditionId loops:(NSString *)loops cityId:(NSString *)cityId cityName:(NSString *)cityName timeZoneId:(NSString *)timeZoneId beginTime:(NSString *)begin endTime:(NSString *)end;
 
 @end
 

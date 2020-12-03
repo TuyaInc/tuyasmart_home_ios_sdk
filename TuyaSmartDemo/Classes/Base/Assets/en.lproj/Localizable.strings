@@ -725,4 +725,7 @@
 "Add ZigBee gateway" = "Add ZigBee gateway";
 "Add ZigBee subdevice" = "Add ZigBee subdevice";
 "Add SIG Mesh device" = "Add SIG Mesh device";
+"saturation" = "Saturation";
+"Bright" = "Bright";
+"Temperature" = "Temperature";
 

@@ -71,6 +71,17 @@ typedef NS_ENUM(NSUInteger, TuyaSmartSIGScanType) {
 - (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager didHandleGroupWithGroupAddress:(NSString *)groupAddress deviceNodeId:(NSString *)nodeId error:(NSError *)error;
 
 /**
+ 查找设备群组list
+ 
+ @param manager manager
+ @param groupList 群组地址list
+ @param deviceModel 设备
+ */
+- (void)sigMeshManager:(TuyaSmartSIGMeshManager *)manager
+        queryGroupList:(NSArray<NSString *> *)groupList
+           deviceModel:(TuyaSmartDeviceModel *)deviceModel
+                 error:(NSString * _Nullable)error;
+/**
  登录成功通知，升级所需
  */
 - (void)notifySIGLoginSuccess;

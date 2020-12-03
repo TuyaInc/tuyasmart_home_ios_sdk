@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TuyaSmartSocketReadModel.h"
 #import "TuyaSmartSocketWriteModel.h"
+#import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>
 
 // 协议
 #define SOCKET_TYPE_BROADCAST             0x00
@@ -35,6 +36,8 @@
 #define SOCKET_TYPE_HANDSHAKE_RAND_A      0x03
 #define SOCKET_TYPE_HANDSHAKE_RAND_B      0x04
 #define SOCKET_TYPE_HANDSHAKE_RAND_ACK_B  0x05
+
+#define SOCKET_TYPE_IPC_AP_SET_PWD        0x21
 
 
 @class TuyaSmartSocketChannel;
@@ -80,7 +83,14 @@
 - (void)initTcpClientWithHost:(NSString *)host devInfo:(NSDictionary *)devInfo;
 
 // send TCP message
-- (void)sendTcpRequest:(TuyaSmartSocketWriteModel *)request success:(TYSuccessDict)success failure:(TYFailureHandler)failure;
+- (void)sendTcpRequest:(TuyaSmartSocketWriteModel *)request
+               success:(TYSuccessDict)success
+               failure:(TYFailureHandler)failure __deprecated_msg("This method is deprecated, Use sendTcpWithRequest:success:failure: instead");
+
+// send TCP message
+- (void)sendTcpWithRequest:(TuyaSmartSocketWriteModel *)request
+                   success:(TYSuccessDict)success
+                   failure:(TYFailureError)failure;
 
 - (void)removeInactiveDevice:(NSString *)gwId;
 

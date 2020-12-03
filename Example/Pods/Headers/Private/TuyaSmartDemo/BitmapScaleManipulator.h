@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/DeviceList/RSColorPicker/ColorPickerClasses/ANImageBitmapRep/Manipulators/BitmapScaleManipulator.h

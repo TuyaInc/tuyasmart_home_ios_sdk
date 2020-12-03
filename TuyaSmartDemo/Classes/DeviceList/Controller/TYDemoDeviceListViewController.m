@@ -9,6 +9,7 @@
 #import "TYDemoDeviceListViewController.h"
 #import "TYDemoSwitchPanelViewController.h"
 #import "TYDemoCommonPanelViewController.h"
+#import "TYDemoLightPanelViewController.h"
 #import "TYDemoDeviceListViewCell.h"
 #import "TYDemoSmartHomeManager.h"
 
@@ -294,6 +295,10 @@
             if ([deviceModel.productId isEqualToString:@"4eAeY1i5sUPJ8m8d"]) {
                 
                 TYDemoSwitchPanelViewController *vc = [[TYDemoSwitchPanelViewController alloc] init];
+                vc.devId = deviceModel.devId;
+                [self.navigationController pushViewController:vc animated:YES];
+            } else if ([deviceModel.productId isEqualToString:@"dd48S6FTjVCOL0GH"]) {
+                TYDemoLightPanelViewController *vc = [[TYDemoLightPanelViewController alloc] init];
                 vc.devId = deviceModel.devId;
                 [self.navigationController pushViewController:vc animated:YES];
             } else {

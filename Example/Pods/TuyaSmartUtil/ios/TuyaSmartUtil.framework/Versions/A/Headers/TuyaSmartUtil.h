@@ -29,6 +29,7 @@
 #import "TYSDKNotification.h"
 #import "TYSDKLogUtils.h"
 #import "TYSDKFile.h"
+#import "TYSDKLocalNetworkManager.h"
 #if TARGET_OS_IOS
 #import "TuyaSmartReachability.h"
 #endif

@@ -31,6 +31,13 @@
  */
 - (void)stopActiveDevice;
 
+/**
+ 停止扫描设备
+ */
+- (void)stopSerachDevice;
+
+- (NSString *)currentConnectNodeId;
+
 
 @end
 

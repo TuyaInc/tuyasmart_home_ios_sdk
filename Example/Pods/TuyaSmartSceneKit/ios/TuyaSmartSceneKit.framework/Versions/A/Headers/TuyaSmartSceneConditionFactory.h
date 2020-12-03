@@ -79,6 +79,20 @@ en$
 + (TuyaSmartSceneConditionModel *)createTimerConditionWithExprModel:(TuyaSmartSceneExprModel *)exprModel;
 
 /**
+zh^
+创建一个和日出日落时间相关的定时条件。
+zh$
+en^
+Create a timer condition related to sunrise and sunset times
+en$
+
+@param city City to be operated.
+@param exprModel Create with TYSmartSceneConditionExprBuilder.
+@return TuyaSmartSceneConditionModel object.
+*/
++ (TuyaSmartSceneConditionModel *)createSunsetriseTimerConditionWithCity:(TuyaSmartCityModel *)city ExprModel:(TuyaSmartSceneExprModel *)exprModel;
+
+/**
  zh^
  创建地理围栏条件，保存之后返回的conditionModel会生成entityId，上报这个entityId代表触发了地理围栏。
  zh$

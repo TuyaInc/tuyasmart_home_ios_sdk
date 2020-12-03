@@ -17,6 +17,8 @@ static NSString * const ACTION_EXECUTOR_RULE_ENABLE = @"ruleEnable";        //�
 static NSString * const ACTION_EXECUTOR_RULE_DISABLE = @"ruleDisable";      //自动化场景关闭动作;  diable a automation;
 static NSString * const ACTION_EXECUTOR_RULE_TRIGGER = @"ruleTrigger";      //执行一个场景;   execute a scene;
 static NSString * const ACTION_EXECUTOR_DELAY = @"delay";                   //延时动作; delay action;
+static NSString * const ACTION_EXECUTOR_TOGGLE = @"toggle";                 //反转动作，bool动作支持；    toggle action。
+extern NSString * const ACTION_EXECUTOR_STEP;
 
 typedef NS_ENUM(NSInteger, TYSceneActionStatus)
 {
@@ -97,7 +99,7 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  * "ruleDisable": Disable an antomation.
  * "dealy": Delay for a while.
  */
-@property (nonatomic, strong) NSString *actionExecutor;
+@property (nonatomic, copy) NSString *actionExecutor;
 
 /**
  * 执行属性value 如："{"1":true, ...}","1"是dpId，也就是数据点Id,后面跟的值是这个dp点要设置的值。延时动作格式"executorProperty":{"seconds":"5","minutes":"0"}
@@ -110,6 +112,18 @@ typedef NS_ENUM(NSInteger, TYSceneActionStatus)
  * Local scene's property, save gId and gwId.
  */
 @property (nonatomic, strong) NSDictionary *extraProperty;
+
+/**
+* 如果这个动作是设备类型动作，且此设备已从当前账号移除，此标记为YES。
+* If this action is a device type action and this device has been removed from the current account, this flag is YES.
+*/
+@property (nonatomic, assign) BOOL devDelMark;
+
+/**
+* 如果这个动作是设备类型动作，且此设备已从当前账号移除，则提供此图标url用于展示设备图标。
+* If this action is a device type action, and this device has been removed from the current account, then provide this icon url to display the device icon.
+*/
+@property (nonatomic, copy) NSString *deleteDevIcon;
 
 /**
  * 执行状态

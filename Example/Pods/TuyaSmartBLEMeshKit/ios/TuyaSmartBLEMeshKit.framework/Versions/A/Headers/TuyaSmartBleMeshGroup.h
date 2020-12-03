@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -131,8 +130,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param success 操作成功回调
  @param failure 操作失败回调
  */
-- (void)getDeviveListInfoWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *deviceList))success failure:(TYFailureError)failure;
+- (void)getDeviceListInfoWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *deviceList))success failure:(TYFailureError)failure;
 
+/**
+获取群组中设备list信息
+
+@param success 操作成功回调
+@param failure 操作失败回调
+*/
+- (void)getDeviveListInfoWithSuccess:(void (^)(NSArray <TuyaSmartDeviceModel *> *deviceList))success failure:(TYFailureError)failure __deprecated_msg("This method is deprecated, Use [TuyaSmartBleMeshGroup getDeviceListInfoWithSuccess:failure:] instead");
 
 @end
 

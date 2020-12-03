@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TuyaSmartRoomModel.h"
-#import "TuyaSmartDeviceModel.h"
-#import "TuyaSmartGroupModel.h"
+#import <TuyaSmartDeviceCoreKit/TuyaSmartDeviceCoreKit.h>
 
 @interface TuyaSmartRoom : NSObject
 
@@ -54,6 +53,16 @@
  *  @param failure     Failure block
  */
 - (void)updateRoomName:(NSString *)roomName success:(TYSuccessHandler)success failure:(TYFailureError)failure;
+
+/**
+ *  Edit room icon.
+ *  修改房间图片
+ *
+ *  @param icon     icon
+ *  @param success  Success block
+ *  @param failure  Failure block
+ */
+- (void)updateIcon:(UIImage *)icon success:(nullable TYSuccessHandler)success failure:(nullable TYFailureError)failure;
 
 /**
  *  Add device to the room

@@ -726,3 +726,6 @@
 "Add ZigBee gateway" = "有线网关激活";
 "Add ZigBee subdevice" = "子设备激活";
 "Add SIG Mesh device" = "SIG Mesh 设备激活";
+"saturation" = "饱和度";
+"Bright" = "亮度";
+"Temperature" = "冷暖";

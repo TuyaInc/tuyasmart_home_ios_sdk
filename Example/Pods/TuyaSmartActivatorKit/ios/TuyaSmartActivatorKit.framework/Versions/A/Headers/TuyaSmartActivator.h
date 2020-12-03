@@ -215,8 +215,8 @@ typedef enum : NSUInteger {
  *  start config with productId (Wired config)
  *  开始配网（有线配网）只去激活一个品类的设备
  *
- *  @param token        配网Token
- *  @param productId    productId 设备的产品Id
+ *  @param token        Config Token
+ *  @param productId    ProductId of device
  *  @param timeout      Timeout, default 100 seconds
  */
 - (void)startConfigWiFiWithToken:(NSString *)token
@@ -229,7 +229,7 @@ typedef enum : NSUInteger {
  *
  *  @param ssid     Name of route 路由器热点名称
  *  @param password Password of route 路由器热点密码
- *  @param token    配网 Token
+ *  @param token    Config Token 配网 token
  *  @param timeout  Timeout, default 100 seconds
  */
 - (void)startEZMultiConfigWiFiWithSsid:(NSString *)ssid
@@ -250,7 +250,7 @@ typedef enum : NSUInteger {
  *  激活子设备 如 zigbee、Wi-Fi 子设备 ...
  *  active sub device
  *
- *  @param gwId     gateway Id
+ *  @param gwId     Gateway Id
  *  @param timeout  Timeout, default 100 seconds
  */
 - (void)activeSubDeviceWithGwId:(NSString *)gwId timeout:(NSTimeInterval)timeout;
@@ -260,7 +260,7 @@ typedef enum : NSUInteger {
  *  stop active sub device
  *  停止激活子设备
  *
- *  @param gwId     gateway Id
+ *  @param gwId     Gateway Id
  */
 - (void)stopActiveSubDeviceWithGwId:(NSString *)gwId;
 

@@ -8,7 +8,7 @@
 #ifndef TuyaSmartBLEKit_h
 #define TuyaSmartBLEKit_h
 
-#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
+#import <TuyaSmartDeviceCoreKit/TuyaSmartDeviceCoreKit.h>
 
 #import "TuyaSmartBLEManager.h"
 #import "TuyaSmartBLEWifiActivator.h"

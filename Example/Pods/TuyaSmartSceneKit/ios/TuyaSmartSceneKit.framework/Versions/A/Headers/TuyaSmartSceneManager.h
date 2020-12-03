@@ -46,11 +46,11 @@
 
 
 /**
- * 获取家庭的场景列表,场景和自动化可以通过conditons数组是否为空来区分，conditions大于0说明是一个自动化，否则是普通场景。
- * Get scene and auto list, scene and automation can be differentiated with property conditons.count, conditons over 0 will be automation.
+ * (全量列表接口)获取家庭的场景列表,场景和自动化可以通过conditons数组是否为空来区分，conditions大于0说明是一个自动化，否则是普通场景。获取到的TuyaSmartSceneModel含有所有存在数据。
+ * (Detail list interface)Get scene and auto list, scene and automation can be differentiated with property conditons.count, conditons over 0 will be automation. TuyaSmartSceneModel in list has all detail.
  *
  * @param homeId      homeId
- * @param success  操作成功回调, 返回场景列表  success callback
+ * @param success     操作成功回调, 返回详细场景列表  success callback
  * @param failure     failure callback
  */
 - (void)getSceneListWithHomeId:(long long)homeId
@@ -58,11 +58,37 @@
                        failure:(TYFailureError)failure;
 
 /**
+ * (精简列表接口)获取家庭的场景列表,场景和自动化可以通过conditons数组是否为空来区分，conditions大于0说明是一个自动化，否则是普通场景。获取到的TuyaSmartSceneModel只含有用于列表显示的数据。
+ * (Simple list interface)Get scene and auto list, scene and automation can be differentiated with property conditons.count, conditons over 0 will be automation.TuyaSmartSceneModel in list contains only the fields used for list display.
+ *
+ * @param homeId      homeId
+ * @param success     操作成功回调, 返回简单场景列表  success callback
+ * @param failure     failure callback
+ */
+- (void)getSimpleSceneListWithHomeId:(long long)homeId
+                       success:(void(^)(NSArray<TuyaSmartSceneModel *> *list))success
+                       failure:(TYFailureError)failure;
+
+/**
+* (场景详情接口)获取某个场景的全量数据。
+* (Scene detail interface)Get full information of a scene.
+*
+* @param homeId      homeId
+* @param sceneId     场景id  Scene model's Id
+* @param success     操作成功回调, 返回单个场景详情  success callback
+* @param failure     failure callback
+*/
+- (void)getSceneDetailWithHomeId:(long long)homeId
+                         sceneId:(NSString *)sceneId
+                         success:(void(^)(TuyaSmartSceneModel *scene))success
+                         failure:(TYFailureError)failure;
+
+/**
  * 获取家庭的推荐场景列表
  * Get recommended scene list.
  *
  * @param homeId      homeId
- * @param success  操作成功回调, 返回场景列表  success callback
+ * @param success     操作成功回调, 返回场景列表  success callback
  * @param failure     failure callback
  */
 - (void)getRecommendedSceneListWithHomeId:(long long)homeId
@@ -74,7 +100,7 @@
 * Get a list of favorite scenes under the family.
 *
 * @param homeId      homeId
-* @param success  操作成功回调, 返回场景列表  success callback
+* @param success     操作成功回调, 返回场景列表  success callback
 * @param failure     failure callback
 */
 - (void)getCollectionSceneListWithHomeId:(long long)homeId
@@ -317,7 +343,7 @@
 - (void)getSmartSceneCustomStyleListWithSuccess:(TYSuccessDict)success failure:(TYFailureError)failure;
 
 /**
-* 获取场景联动日志列表。
+* 获取所有场景联动日志列表。
 * Get scene linkage log list.
 *
 * 字段                描述                是否可选(optional)        类型
@@ -337,6 +363,30 @@
 * @param failure failure callback
 */
 - (void)getSmartSceneLogWithHomeId:(long long)homeId startTime:(long long)startTime endTime:(long long)endTime size:(NSInteger)size lastId:(NSString *)lastId lastRecordTime:(long long)lastRecordTime success:(void(^)(TuyaSmartSceneLogModel *logModel))success failure:(TYFailureError)failure;
+
+/**
+* 获取设备相关的场景联动日志列表。
+* Get scene linkage log list of specified device.
+*
+* 字段                描述                是否可选(optional)        类型
+* devId               设备ID                  N           String
+* startTime           开始时间                N                    Long
+* endTime             结束时间                N                    Long
+* size                查询条数                N                    Integer
+* lastId              偏移量(eventId)         Y                    String
+* lastRecordTime      偏移量(execTime)        Y  0 for not set     Long
+*
+* @param devId device Id
+* @param homeId homeId
+* @param startTime startTime
+* @param endTime endTime
+* @param size Number of queries
+* @param lastId last one's Id
+* @param lastRecordTime lastRecordTime, 0 for Not set
+* @param success success callback
+* @param failure failure callback
+*/
+- (void)getSmartSceneLogOfDeviceWithDevId:devId homeId:(long long)homeId startTime:(long long)startTime endTime:(long long)endTime size:(NSInteger)size lastId:(NSString *)lastId lastRecordTime:(long long)lastRecordTime success:(void(^)(TuyaSmartSceneLogModel *logModel))success failure:(TYFailureError)failure;
 
 /**
 * 查询联动日志详情。

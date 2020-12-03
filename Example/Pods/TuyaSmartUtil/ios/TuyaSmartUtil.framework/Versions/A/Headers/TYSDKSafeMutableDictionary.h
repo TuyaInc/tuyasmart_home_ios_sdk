@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 //线程安全的类
-@interface TYSDKSafeMutableDictionary : NSMutableDictionary
+@interface TYSDKSafeMutableDictionary<KeyType, ObjectType> : NSMutableDictionary
 
 @end
 

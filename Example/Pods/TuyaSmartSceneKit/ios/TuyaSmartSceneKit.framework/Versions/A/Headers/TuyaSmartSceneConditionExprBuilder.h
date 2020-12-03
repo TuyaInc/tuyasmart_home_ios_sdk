@@ -8,10 +8,16 @@
 #import <Foundation/Foundation.h>
 #import "TuyaSmartSceneExprModel.h"
 
-typedef enum {
-    kExprTypeWhether,
-    kExprTypeDevice
+typedef enum : NSInteger {
+    kExprTypeWhether,   //「whether」should be 「weather」 天气类型
+    kExprTypeDevice     // 设备类型
 }ExprType;
+
+typedef enum : NSInteger {
+    kSunTypeNotDetermin,
+    kSunTypeRise,
+    kSunTypeSet
+}SunType;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -56,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  en$
 
  @param type Whether type or device's dpId.
- @param operateString @"==",@"<=",@"=="
+ @param operateString @">=",@"<=",@"=="
  @param value selected value
  @param exprType To distinguish the entity type.
  @return An ExprModel object.
@@ -92,6 +98,21 @@ en$
  @return An ExprModel object.
  */
 + (TuyaSmartSceneExprModel *)createTimerExprWithTimeZoneId:(NSString *)timeZoneId loops:(NSString *)loops date:(NSString *)date time:(NSString *)time;
+
+/**
+zh^
+创建一个和日出日落时间相关的定时条件表达式，如「日出前x分钟」。「日出时」依然作为一个普通天气条件来处理。
+zh$
+en^
+Create a timer condition's expression related to sunrise or sunset times, For example, "x minutes before sunrise". "at sunrise" is still handled as a normal weather condition.
+en$
+
+@param city City that needs to be set
+@param type Identify sunrise or sunset
+@param minutes From -300 minutes to 300 minutes
+@return An ExprModel object.
+*/
++ (TuyaSmartSceneExprModel *)createSunsetriseTimerExprWithCity:(TuyaSmartCityModel *)city type:(SunType)type deltaMinutes:(NSInteger)minutes;
 
 @end
 

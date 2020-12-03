@@ -10,15 +10,16 @@
 
 /**
  *  当前客户端支持的最高的外网通信协议
- */
-#define TUYA_CURRENT_GW_PROTOCOL_VERSION 2.2
-
-/**
- *  当前客户端支持的最高的局域网通信协议
- */
-#define TUYA_CURRENT_LAN_PROTOCOL_VERSION 3.4
+// */
+//#define TUYA_CURRENT_GW_PROTOCOL_VERSION 2.2
+//
+///**
+// *  当前客户端支持的最高的局域网通信协议
+// */
+//#define TUYA_CURRENT_LAN_PROTOCOL_VERSION 3.4
 
 #import <TuyaSmartBaseKit/TuyaSmartBaseKit.h>
+#import <TuyaSmartDeviceCoreKit/TuyaSmartDeviceCoreKit.h>
 
 #if TARGET_OS_IOS
     #import <TuyaSmartMQTTChannelKit/TuyaSmartMQTTChannelKit.h>
@@ -28,18 +29,28 @@
     #define TuyaSmartSocketChannelDelegate NSObject
 #endif
 
-#import "TuyaSmartDevice.h"
-#import "TuyaSmartGroup.h"
-#import "TuyaSmartGroup+DpCode.h"
 #import "TuyaSmartHome.h"
+#import "TuyaSmartHome+Weather.h"
+#import "TuyaSmartHome+TYDeprecatedApi.h"
+#import "TuyaSmartWeatherModel.h"
+#import "TuyaSmartWeatherOptionModel.h"
+#import "TuyaSmartWeatherSketchModel.h"
+
 #import "TuyaSmartHomeManager.h"
 #import "TuyaSmartHomeMember.h"
+#import "TuyaSmartHomeInvitation.h"
 #import "TuyaSmartRoom.h"
 #import "TuyaSmartHomeDeviceShare.h"
 
 #import "TuyaSmartHomeMemberModel.h"
 #import "TuyaSmartHomeMemberRequestModel.h"
-#import "TuyaSmartBleMeshModel.h"
-#import "TuyaSmartSingleTransfer.h"
+#import "TuyaSmartHomeMember+TYDeprecatedApi.h"
+
+#import "TuyaSmartGroup+DpCode.h"
+
+#import "TuyaSmartMultiControl.h"
+
+#import "TuyaSmartDeviceShareModel.h"
+#import "TuyaSmartHomeDeviceShare+TYDeprecatedApi.h"
 
 #endif /* TuyaSmartDeviceKit_h */

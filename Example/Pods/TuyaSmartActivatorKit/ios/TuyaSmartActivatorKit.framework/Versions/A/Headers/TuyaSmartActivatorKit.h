@@ -16,5 +16,6 @@
 #import "TuyaSmartAutoActivator.h"
 #import "TuyaSmartHomeKitActivator.h"
 #import "TuyaSmartRouterActivator.h"
+#import "TuyaSmartPegasusActivator.h"
 
 #endif /* TuyaSmartActivatorKit_h */

@@ -29,7 +29,8 @@ typedef NS_ENUM(NSInteger, TYRegType) {
     TYRegFacebookType,      // Register from Facebook
     TYRegTwitterType,       // Register from Twitter
     TYRegWechatType,        // Register from Wechat
-    TYRegAppleIdType        // Register from Apple
+    TYRegAppleIdType,        // Register from Apple
+    TYRegGoogleType,        //Register from google
 };
 
 /// User-related functions.
@@ -96,6 +97,18 @@ typedef NS_ENUM(NSInteger, TYRegType) {
 /// 是否开启SSL
 @property (nonatomic, assign, readonly) BOOL useSSL;
 
+/// quic host
+/// quic 域名
+@property (nonatomic, strong, readonly) NSString *quicHost;
+
+/// quic port
+/// quic 端口号
+@property (nonatomic, assign, readonly) NSInteger quicPort;
+
+/// QUIC
+/// 是否开启QUIC
+@property (nonatomic, assign, readonly) BOOL useQUIC;
+
 /// Temperature unit. 1 for `°C`, 2 for `°F`.
 /// 温度单位。1：`°C`， 2：`°F`。
 @property (nonatomic, assign) NSInteger tempUnit;
@@ -109,6 +122,14 @@ typedef NS_ENUM(NSInteger, TYRegType) {
 @property (nonatomic, strong, readonly) NSString *snsNickname;
 
 @property (nonatomic, strong, readonly) NSString *ecode;
+
+/// User type
+/// 用户类型
+@property (nonatomic, assign, readonly) NSInteger userType;
+
+/// Extra parameters
+/// 额外参数
+@property (nonatomic, strong, readonly) NSDictionary *extras;
 
 
 #pragma mark - Mobile phone verification code login

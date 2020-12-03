@@ -81,6 +81,12 @@ typedef enum {
     //zigbee 群组子设备不能为空
     TUYA_GROUP_DEVICE_LIST_NOT_EMPTY,
     
+    //局域网离线
+    TUYA_SOCKET_TCP_DISCONNECT,
+    
+    //局域网解析错误
+    TUYA_SOCKET_TCP_RESPONSE_ERROR,
+    
 } TYSDKErrorCode;
 
 @interface NSError (TYSDKDomain)

@@ -13,6 +13,9 @@
 // room Id
 @property (nonatomic, assign) long long roomId;
 
+// room icon
+@property (nonatomic, strong) NSString *iconUrl;
+
 // room name
 @property (nonatomic, strong) NSString *name;
 

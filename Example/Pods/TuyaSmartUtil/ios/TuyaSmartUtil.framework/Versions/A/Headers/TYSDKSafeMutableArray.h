@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 //线程安全的类
-@interface TYSDKSafeMutableArray : NSMutableArray
+@interface TYSDKSafeMutableArray<ObjectType> : NSMutableArray
 
 @end

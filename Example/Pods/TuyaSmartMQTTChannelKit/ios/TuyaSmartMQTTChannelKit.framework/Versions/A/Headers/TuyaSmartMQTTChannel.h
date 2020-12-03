@@ -31,6 +31,7 @@
 @property (nonatomic, strong) NSString          *type;
 @property (nonatomic, assign) NSInteger         responseS;// sequence
 @property (nonatomic, assign) NSInteger         responseR;// response Id
+@property (nonatomic, assign) NSTimeInterval    time;
 
 @end
 

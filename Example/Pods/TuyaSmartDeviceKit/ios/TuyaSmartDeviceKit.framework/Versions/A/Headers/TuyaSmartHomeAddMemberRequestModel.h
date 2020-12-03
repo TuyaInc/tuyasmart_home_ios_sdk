@@ -37,4 +37,61 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface TuyaSmartHomeInvitationCreateRequestModel : NSObject
+
+/// 家庭 ID home ID
+@property (nonatomic, assign) long long homeID;
+
+/// 是否需要邀请文案信息 whether need invitation message
+@property (nonatomic, assign) BOOL needMsgContent;
+
+@end
+
+@interface TuyaSmartHomeInvitationReinviteRequestModel : NSObject
+
+/// 邀请 ID invitation ID
+@property (nonatomic, strong) NSNumber *invitationID;
+
+/// 是否需要邀请文案信息 whether need invitation message
+@property (nonatomic, assign) BOOL needMsgContent;
+
+@end
+
+@interface TuyaSmartHomeInvitationInfoRequestModel : NSObject
+
+/// 邀请 ID invitation ID
+@property (nonatomic, strong) NSNumber *invitationID;
+
+/// 邀请备注名 invitation name
+@property (nonatomic, copy) NSString *name;
+
+@end
+
+@interface TuyaSmartHomeInvitationResultModel : NSObject
+
+/// 邀请文案信息 invitation message
+@property (nonatomic, copy) NSString *invitationMsgContent;
+
+/// 邀请码 invitation code
+@property (nonatomic, copy) NSString *invitationCode;
+
+@end
+
+
+@interface TuyaSmartHomeInvitationRecordModel : NSObject;
+
+/// 邀请码有效时间 单位:小时 invitation code valid time. unit:hour
+@property (nonatomic, assign) NSInteger validTime;
+
+/// 邀请 ID invitation ID
+@property (nonatomic, strong) NSNumber *invitationID;
+
+/// 邀请码 invitation code
+@property (nonatomic, copy) NSString *invitationCode;
+
+/// 邀请备注名 invitation name
+@property (nonatomic, copy) NSString *name;
+
+@end
 NS_ASSUME_NONNULL_END
+

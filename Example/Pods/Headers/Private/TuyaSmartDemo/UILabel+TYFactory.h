@@ -1,0 +1,1 @@
+../../../../../TuyaSmartDemo/Classes/Base/Views/UILabel+TYFactory.h

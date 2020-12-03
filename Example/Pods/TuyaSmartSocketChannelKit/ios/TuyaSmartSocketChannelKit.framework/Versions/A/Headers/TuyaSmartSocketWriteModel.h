@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic, copy) TYSuccessDict       successBlock;
+@property (nonatomic, copy) TYFailureError      failureErrorBlock;
 @property (nonatomic, copy) TYFailureHandler    failureBlock;
 
 // data encryption

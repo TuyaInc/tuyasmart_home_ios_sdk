@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TuyaSmartDeviceKit/TuyaSmartDeviceKit.h>
+#import <TuyaSmartDeviceCoreKit/TuyaSmartDeviceCoreKit.h>
 #import "TYBLEAdvModel.h"
 
 typedef enum : NSUInteger {
@@ -42,6 +42,14 @@ NS_ASSUME_NONNULL_BEGIN
  @param deviceInfo 未激活设备信息 Model
  */
 - (void)didDiscoveryDeviceWithDeviceInfo:(TYBLEAdvModel *)deviceInfo;
+
+/**
+ 收到设备上报的透传数据
+ 
+ @param data 透传数据
+ @param devId 设备Id
+ */
+- (void)bleReceiveTransparentData:(NSData *)data devId:(NSString *)devId;
 
 @end
 
@@ -105,7 +113,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)queryNameWithUUID:(NSString *)uuid
                productKey:(NSString *)productKey
                   success:(void(^)(NSString *name))success
-                  failure:(TYFailureError)failure;
+                  failure:(TYFailureError)failure;__deprecated_msg("This method is deprecated, Use -[TuyaSmartBLEManager -  queryDeviceInfoWithUUID:productKey:success:failure] instead");
+
+/**
+ 蓝牙设备未配网前查询设备信息（包括设备名称和图片）
+ 
+ @param uuid 设备 uuid
+ @param productId 产品 oid
+ @param success 成功回调
+ @param failure 失败回调
+ */
+- (void)queryDeviceInfoWithUUID:(NSString *)uuid
+                      productId:(NSString *)productId
+                        success:(TYSuccessDict)success
+                        failure:(TYFailureError)failure;
 
 
 /**
@@ -139,6 +160,18 @@ NS_ASSUME_NONNULL_BEGIN
           success:(void(^)(TuyaSmartDeviceModel *deviceModel))success
           failure:(TYFailureHandler)failure;
 
+/**
+ 下发透传数据
+
+ @param devId   设备Id
+ @param data    透传数据
+ @param success 成功回调
+ @param failure 失败回调
+*/
+- (void)publishBleTransparentData:(NSString *)devId
+                             data:(NSData *)data
+                          success:(TYSuccessData)success
+                          failure:(TYFailureError)failure;
 
 /**
  发送OTA包，升级固件。升级前请务必保证设备已通过蓝牙连接

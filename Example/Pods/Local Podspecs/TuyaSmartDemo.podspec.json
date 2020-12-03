@@ -1,6 +1,6 @@
 {
   "name": "TuyaSmartDemo",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "summary": "Tuya common base demo.",
   "description": "Tuya common base demo support quick to test some feature.",
   "homepage": "https://github.com/TuyaInc/tuyasmart_home_ios_sdk.git",
@@ -90,7 +90,7 @@
     },
     {
       "name": "DeviceList",
-      "source_files": "TuyaSmartDemo/Classes/DeviceList/**/*.{h,m}",
+      "source_files": "TuyaSmartDemo/Classes/DeviceList/**/*.{h,m,mm}",
       "resource_bundles": {
         "TuyaSmartDemoDeviceListBundle": "TuyaSmartDemo/Classes/DeviceList/Assets/**/*"
       },

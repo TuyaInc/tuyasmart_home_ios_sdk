@@ -60,7 +60,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'DeviceList' do |ss|
-    ss.source_files = 'TuyaSmartDemo/Classes/DeviceList/**/*.{h,m}'
+    ss.source_files = 'TuyaSmartDemo/Classes/DeviceList/**/*.{h,m,mm}'
     
     ss.resource_bundles = {
       'TuyaSmartDemoDeviceListBundle' => 'TuyaSmartDemo/Classes/DeviceList/Assets/**/*'

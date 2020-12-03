@@ -9,5 +9,6 @@
 #define TuyaSmartMessageKit_h
 
 #import "TuyaSmartMessage.h"
+#import "TuyaSmartMessage+TYDeprecatedApi.h"
 
 #endif /* TuyaSmartMessageKit_h */
