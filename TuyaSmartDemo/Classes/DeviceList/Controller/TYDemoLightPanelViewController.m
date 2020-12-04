@@ -245,8 +245,38 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
 
 #pragma mark - TYSliderViewDelegate
 - (void)didChangeSliderValue:(TYSliderView *)slider value:(double)value {
+    NSDictionary *publishDps;
+    NSString *dpId;
+    NSInteger valueNumber;
     
+    switch (slider.tag) {
+        case 1:
+            // Bright
+            dpId = kLightColorBrightDpId;
+            valueNumber = ((value * 100) * (_maxValue - _minValue) / 100) + _minValue;
+            break;
+        case 2:
+            // Temperature
+            dpId = kLightColorTempDpId;
+            valueNumber = value * 255;
+            break;
+        case 3:
+            // Saturation
+            
+        default:
+            return;
+            break;
+    }
     
+    publishDps = @{
+        dpId : @(valueNumber)
+    };
+    [self.device publishDps:publishDps success:^{
+        
+    } failure:^(NSError *error) {
+        
+        [TPDemoProgressUtils showError:error.localizedDescription];
+    }];
 }
 
 #pragma mark - TuyaSmartDeviceDelegate
