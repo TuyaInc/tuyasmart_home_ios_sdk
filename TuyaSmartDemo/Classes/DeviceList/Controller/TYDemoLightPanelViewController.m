@@ -96,6 +96,7 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     HSVType hsv = [self getHSVFromDpId:kLightColorDpId];
     UIColor *color = [self getColorFromDpId:kLightColorDpId];
     
+    NSLog(@" h : %f, s : %f, v : %f, color : %@", hsv.h, hsv.s, hsv.v, color);
     if (fabs(roundf(hsv.h) - roundf(_currentH)) > 1) {
 
         _currentH = hsv.h;
@@ -245,32 +246,80 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
 
 #pragma mark - TYSliderViewDelegate
 - (void)didChangeSliderValue:(TYSliderView *)slider value:(double)value {
-    NSDictionary *publishDps;
-    NSString *dpId;
-    NSInteger valueNumber;
+    NSDictionary *publishDps = [NSDictionary dictionary];
     
     switch (slider.tag) {
         case 1:
+        {
             // Bright
-            dpId = kLightColorBrightDpId;
-            valueNumber = ((value * 100) * (_maxValue - _minValue) / 100) + _minValue;
+            NSDictionary *dps = self.device.deviceModel.dps;
+            if ([[dps objectForKey:kLightColorTypeDpId] isEqualToString:@"colour"]) {
+                int ir,ig,ib;
+                
+                _hsvValue.v = value;
+                
+                HSVToRGB(_hsvValue.h, _hsvValue.s, _hsvValue.v, &ir, &ig, &ib);
+                
+                UIColor *resColor = RGBCOLOR(ir, ig, ib);
+                
+                NSString *dpsString = [NSString stringWithFormat:@"%@%@",
+                                       [[[resColor hexStringFromColor] lowercaseString] substringFromIndex:1],
+                                       [self getHexStringFromHSV:_hsvValue]];
+
+                publishDps = @{
+                                 kLightSwtichDpId:@(YES),
+                                 kLightColorDpId:dpsString,
+                                 kLightColorTypeDpId:@"colour"
+                                 };
+                
+            } else {
+                CGFloat tempV = (value * 100 - 1)/(100.0-1.0) * (self.maxValue - self.minValue) + self.minValue;
+                int val = [self round:tempV];
+                publishDps = @{
+                              kLightSwtichDpId:@(YES),
+                              kLightColorBrightDpId:@(val),
+                              kLightColorTypeDpId:@"white",
+                              };
+            }
+        }
+            
             break;
         case 2:
             // Temperature
-            dpId = kLightColorTempDpId;
-            valueNumber = value * 255;
+        {
+            int dpsInt = (int)(value * (self.tempMaxValue - self.tempMinValue) + self.tempMinValue);
+            publishDps = @{
+                kLightColorTypeDpId:@"white",
+                kLightColorTempDpId:@(dpsInt)
+            };
+        }
             break;
-        case 3:
+        case 3:{
             // Saturation
+            _hsvValue.s = value;
             
+            if (_hsvValue.v == 0) {
+                _hsvValue.v = 1;
+            }
+            int r, g, b;
+            HSVToRGB(_hsvValue.h, _hsvValue.s, _hsvValue.v, &r, &g, &b);
+            
+            NSString *dpsString = [NSString stringWithFormat:@"%02x%02x%02x%@",
+                                   (unsigned int)r,
+                                   (unsigned int)g,
+                                   (unsigned int)b,
+                                   [self getHexStringFromHSV:_hsvValue]];
+            
+            publishDps = @{
+                             kLightColorDpId:dpsString,
+                             kLightColorTypeDpId:@"colour",
+                         };
+        }
+            break;
         default:
-            return;
             break;
     }
-    
-    publishDps = @{
-        dpId : @(valueNumber)
-    };
+
     [self.device publishDps:publishDps success:^{
         
     } failure:^(NSError *error) {
