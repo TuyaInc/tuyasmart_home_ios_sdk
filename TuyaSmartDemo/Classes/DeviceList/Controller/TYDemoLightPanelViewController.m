@@ -214,7 +214,7 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     HSVType hsv = [self.class getHSVFromUIColor:colorPicker.selectionColor];
     
     _hsvValue.h = hsv.h;
-    
+    _hsvValue.s = hsv.s;
     _currentH = hsv.h;
     
     if (_hsvValue.v == 0) {
