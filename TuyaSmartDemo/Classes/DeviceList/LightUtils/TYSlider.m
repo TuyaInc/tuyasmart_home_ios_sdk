@@ -1,14 +1,14 @@
 //
-//  TYFeitSlider.m
+//  TYSlider.m
 //  TuyaSmartPublic
 //
 //  Created by 冯晓 on 2018/2/3.
 //  Copyright © 2018年 Tuya. All rights reserved.
 //
 
-#import "TYFeitSlider.h"
+#import "TYSlider.h"
 
-@implementation TYFeitSlider
+@implementation TYSlider
 
 /*
 // Only override drawRect: if you perform custom drawing.

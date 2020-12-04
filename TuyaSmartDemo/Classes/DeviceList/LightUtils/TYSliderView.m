@@ -1,25 +1,25 @@
 //
-//  TYFeitSliderView.m
+//  TYSliderView.m
 //  TuyaSmartPublic
 //
 //  Created by 冯晓 on 2018/2/2.
 //  Copyright © 2018年 Tuya. All rights reserved.
 //
 
-#import "TYFeitSliderView.h"
-#import "TYFeitSlider.h"
+#import "TYSliderView.h"
+#import "TYSlider.h"
 #import "UIColor+TYHex.h"
 #import "TPDemoViewConstants.h"
 #import "UILabel+TYFactory.h"
 
 
-@interface TYFeitSliderView()
+@interface TYSliderView()
 
-@property (nonatomic, strong) TYFeitSlider *slider;
+@property (nonatomic, strong) TYSlider *slider;
 
 @end
 
-@implementation TYFeitSliderView
+@implementation TYSliderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     
@@ -63,9 +63,9 @@
     return _percentLabel;
 }
 
-- (TYFeitSlider *)slider {
+- (TYSlider *)slider {
     if (!_slider) {
-        _slider = [[TYFeitSlider alloc] initWithFrame:CGRectMake(0, self.height - 24, self.width - 55, 24)];
+        _slider = [[TYSlider alloc] initWithFrame:CGRectMake(0, self.height - 24, self.width - 55, 24)];
         _slider.minimumValue = 0.f;
         _slider.maximumValue = 1.f;
         _slider.minimumTrackTintColor = TY_HexColor(0x6480B3);

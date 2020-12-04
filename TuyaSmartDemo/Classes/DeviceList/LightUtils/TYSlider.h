@@ -1,5 +1,5 @@
 //
-//  TYFeitSlider.h
+//  TYSlider.h
 //  TuyaSmartPublic
 //
 //  Created by 冯晓 on 2018/2/3.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TYFeitSlider : UISlider
+@interface TYSlider : UISlider
 
 @end

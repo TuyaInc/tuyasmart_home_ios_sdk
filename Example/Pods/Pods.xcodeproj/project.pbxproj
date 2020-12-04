@@ -224,123 +224,126 @@
 		00019CCAA3EBAB3F8539E6183612530B /* SDDeviceHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AB06C563C064AAB7F2A86EFEEE47593 /* SDDeviceHelper.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		003511E3CB843AB30C6C5B7C18418F8E /* MQTTSessionSynchron.m in Sources */ = {isa = PBXBuildFile; fileRef = D726D92205D7FB140C6CFE8A1FE3F6C4 /* MQTTSessionSynchron.m */; };
 		0096B5A8BA8E4F2BFD8839D0FE7CD696 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = DE1FF5462E84BCC1EB4917F38C1D8460 /* MASLayoutConstraint.m */; };
-		00F23EDA81F986BF73DA93FBFF2CDEC8 /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDC5A5D462921958ED531AA4A974595 /* CGImageContainer.m */; };
+		0162DE34CEA767CB57FBA32CC8CBE07C /* TYDemoActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA421360BC79775CC956CA9D0747632 /* TYDemoActionTableViewCell.m */; };
 		01EEAAAE410356BC64AF4CED471DA9D6 /* UIImage+ExtendedCacheData.h in Headers */ = {isa = PBXBuildFile; fileRef = 35886CF52B1E8528C092082BD1BD90A3 /* UIImage+ExtendedCacheData.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		027604577B329F11FB5B34227153795F /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = F319FEA96D1469237803782B50887EC6 /* ANImageBitmapRep.m */; };
 		031FE032FED8D283E4A2905ACEFF887C /* tp_top_bar_back@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29053DC157E2F6B5B1EC095C79C58F4E /* tp_top_bar_back@3x.png */; };
 		03A3C427BCEAEB0168C5B1DA5B9A0B86 /* SDAnimatedImagePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EE3277F3D2EEF7C63B4FA51AAF710E /* SDAnimatedImagePlayer.m */; };
 		03ECE44E890B0E77E66141A886FF7384 /* SDWebImageDownloaderConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD0EE0240D98AA5965D7479EEDCB670 /* SDWebImageDownloaderConfig.m */; };
-		040E0164D57FCB88331677DF444CB1D0 /* BitmapDrawManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = B94894722B07D3D72C55EBF3F76E2DCF /* BitmapDrawManipulator.m */; };
-		0487E088BD820561A060647FBFC96176 /* TYDemoSwitchPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC8C2B7F4551B881D1CEB2B4015DC59 /* TYDemoSwitchPanelViewController.m */; };
 		04F2B647313E6D67E61162936361C056 /* ty_list_empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 620AD7BA2705B84EE77175CD968341F3 /* ty_list_empty@2x.png */; };
-		0623B3E7D8E6EFF071EF138BC7CEFF6F /* BitmapScaleManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D70948EEC2EFA59CBCFC69BDE010F /* BitmapScaleManipulator.m */; };
+		051C22DB066AF8780B67EC55D87FCC73 /* BitmapRotationManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = D6019624C9A86C154168C509FFF1E48A /* BitmapRotationManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		052A8603132595C31327949FE0C6C786 /* TYDemoRegisterViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E8C90ED983065D5167C07490FBEB26 /* TYDemoRegisterViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0650AA299D9E18C22F3D7978B8D13F0E /* UIImage+Transform.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A131E300C38BF9DDB865529A00CF6FD /* UIImage+Transform.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		06514FD84CC576BCCE44F89EE61A7F68 /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = FBEF184DE3EF5A96A3400B68282F98BF /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		06943F195425D70618781500ECA5D13A /* UIImageView+HighlightedWebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 7449AC704FCBFADFE275D364BE45E2DB /* UIImageView+HighlightedWebCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0750588ABDDBEE58F776B6660DB4B85F /* OSCommonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FF9F8DF68EAEABF6980DAD52569594 /* OSCommonImage.m */; };
-		07DF5741AD14A10BE4A88EEDB387F85A /* TPDemoBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = A515911D4F7E66E2276166D9A30043EA /* TPDemoBaseView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0813D5AFA890778D3761B1B73A468198 /* TYDemoPanelBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDF35B18C58CB40EB15903122358C83 /* TYDemoPanelBaseViewController.m */; };
+		069AA1124E58E3DCBB92311048FE16D1 /* TPDemoViewConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 2322CA0AF1CAD0F67F4461FA1B75F524 /* TPDemoViewConstants.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		079CDE9490574E2107A9D0FBB3582689 /* TYDemoSmartSceneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7ECD4B7783B1C5FE0BF685FA4E4922 /* TYDemoSmartSceneUtil.m */; };
+		083551D19CCCB82561754279406279F2 /* TPDemoViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A5908321220DB2D741D36BC4CD9984 /* TPDemoViewUtil.m */; };
 		084F36480B7CF5E32993077A0B5A31F4 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1934CAADE087085308EB4A319C6CA78E /* NSData+ImageContentType.m */; };
 		08A8A10AED06E697FEA65CE45AEFBF53 /* customColor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4C82D36F9080D9EE07ED2BB2ECF9C063 /* customColor.plist */; };
 		098E8CC8DF32416A428381F52273D2A6 /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B7FCBBE7281F9E87BC3EBF0B5A4685B /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		09BB6FF47D5A11F537E308ED12029DF8 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A27F3103E85E36E291D53C35E0A4206 /* SDImageCache.m */; };
 		0A0967D02CC0986FF5B71918A8361AE3 /* MQTTProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = C1703F7B489F30227D4C7B83905924BE /* MQTTProperties.m */; };
 		0ADFB8408D908E0C8F0A263AF44E663B /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D6E706E1C4CCF2780720BCAB406B642 /* SDWebImageDownloader.m */; };
-		0BB9410425882D3CD6EDA664A3EFE5CB /* TYDemoConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C2B88B65C2719D685773A0EA382909 /* TYDemoConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0D7DDE0E80360C6F3057F610721CEBF4 /* TYDemoSmartHomeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36002B325414C96BE6FAA7D262E79D2B /* TYDemoSmartHomeManager.m */; };
-		0F5ECBF502D20C3B5D13D4C3CC183903 /* TPDemoBaseTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 35DC312BF96051F5DD3501E51CAB4A74 /* TPDemoBaseTableViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0FE76B1486AB00EC284288972A3FAEE5 /* TYDemoPanelStringViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA784FFDE163E1A94D259206439A52B /* TYDemoPanelStringViewCell.m */; };
+		0D18F7233161D7AD7BA9B9BB37227465 /* TYDemoPanelEnumViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B16935D1504593EF9BDC265805FA1F9 /* TYDemoPanelEnumViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		102BE82F68927EEFE4C5CE5D356E9070 /* MQTTSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D077BCDB044A1B11BAF4ED4CA2E80C34 /* MQTTSessionManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1044BB459455D94D8773D5ACC6166F47 /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = A081BD601AF7B8D973871CAA7F124607 /* CGContextCreator.m */; };
+		10F337732D8047504566571263CF79BE /* TPDemoNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCD9BF34486A5CE66AD847C928F8427 /* TPDemoNavigationController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		115ACCE253A886181B55773DDC70D6ED /* MASViewConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = B6D8F7949A2C20600D7FBAE708254EF4 /* MASViewConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1203A12C8408E64F7C4D675AB7F062D8 /* BitmapContextRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 62881D17A5E7D3514650A9E6E8DD649A /* BitmapContextRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		128CB82581C01598C1E2F282C3EF6E6E /* SDAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 81525A1CB76A65D5C0571F268E2770F6 /* SDAnimatedImage.m */; };
 		12910E4046BEA6B66BDC96C495061D42 /* ty_list_empty@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 735E014E7FA647B59719FE0CACD26CCD /* ty_list_empty@3x.png */; };
-		140818D5EAAE9BE54F64AA9AD9D5E059 /* TYDemoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A27251C4FE55A84B01E1194094AA42 /* TYDemoConfiguration.m */; };
+		12D516C1A059DDEE48733113BB514BA4 /* TYDemoLoginAndRegisterUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D1F5082174D73F2DBA2165F70856D80 /* TYDemoLoginAndRegisterUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		135DEB9E2614327CD5DDA1FB28FA2EDE /* RSColorPickerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7744DDDDFA4DDB6B8EF6901F9A0DCA /* RSColorPickerState.m */; };
 		14C549A762DA24F3F10E5722D8D40FFD /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 959466BCCB689A38881F1142FE7F5843 /* UIView+WebCache.m */; };
 		14E576329E0DD1AA7F16E7E5C629C447 /* SDImageCoderHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = A00E88CC706613E4B56A7C07404FA477 /* SDImageCoderHelper.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		170F97CD69BD6031D937C92D34FD4706 /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = D2D20B01F3BB443F4062280EDB8D1530 /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		17E196375169CC05D1AFAC1B7341A54B /* MQTTSession.h in Headers */ = {isa = PBXBuildFile; fileRef = 40DC98AC7A09A0829B3A08904B1ACF01 /* MQTTSession.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		17FF4380A127BD138B4131AFFC443A78 /* TYDemoDeviceListViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9008449F09985BD173EA1FBE297DB995 /* TYDemoDeviceListViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		18754097BC2C008F5611D01159CD1DDF /* TPDemoCellViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EBE76111183B060196340A36122BDD /* TPDemoCellViewItem.m */; };
-		18EB35693907A3EDB2F70C330E3025BB /* TYDemoRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED817E3D534A030BD72AC41DBF53D0 /* TYDemoRegisterViewController.m */; };
+		1958234F610E9242BC6689A0C05760A3 /* BitmapScaleManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D8D70948EEC2EFA59CBCFC69BDE010F /* BitmapScaleManipulator.m */; };
 		1A296D9023756DF9DF7E2977BE422FB2 /* SDImageCoderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EDAC8E3F2658ADEFFEE38A209D730655 /* SDImageCoderHelper.m */; };
+		1A864406A0A0E5B73216436C1522C093 /* TYDemoDeviceListViewController+ModuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01743718705A0F356FA319BB7A7A2A /* TYDemoDeviceListViewController+ModuleConfig.m */; };
+		1B733F71ED20A0044E023905E2F89689 /* TYDemoLoginAndRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9832F37013637859C1DFBC4FB3BF6FFE /* TYDemoLoginAndRegisterView.m */; };
 		1B7FDF02A13B654CBEDB846B2D82B85B /* SDWebImageDownloaderRequestModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A1340BE30C51CD841E8B98B8AB90DA /* SDWebImageDownloaderRequestModifier.m */; };
-		1BF89200BE5AD0C3BADAD9ED56AA27D4 /* TYFeitSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = D39904D94257C81849E77032F32FB19F /* TYFeitSlider.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1C492DD17AE0B343F869E7947AB90AC2 /* SDImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = A657CBED526D833C91F794ED27159D1A /* SDImageLoader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1CF8AFA8F726CBC41E8642B814B85A76 /* TYDemoSmartSceneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196236826F7CBE8C2576B0C38ED7B2FF /* TYDemoSmartSceneTableViewCell.m */; };
 		1E06190F195923FEB645A405D6DC1BCF /* SDImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BCF28490346899267C1F9BE005C83DF /* SDImageCoder.m */; };
 		1E5D56FF58658F9F45723CA2940489EE /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1DE121A0CD4512E13979230B4FED70 /* MASConstraintMaker.m */; };
 		1E7B6D5AE6A32992C974558156E2963F /* MQTTSessionSynchron.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FA87280648394ACBDEAF7FC634BBEDF /* MQTTSessionSynchron.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1E8E09F193DE4750A5D0C0B7123303A4 /* power_off@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47E3D922B3F613264398F9E60DADAB95 /* power_off@2x.png */; };
 		1F69AA1260AA64681CDFA2E6C0120ABC /* MQTTSSLSecurityPolicyEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D152C41F312CB9439E23C407113D497 /* MQTTSSLSecurityPolicyEncoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		214B020F50BA836BE1D30EE86C063C67 /* TYDemoAddSceneViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 724111D3060141A5ADADF6349CEABE44 /* TYDemoAddSceneViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		20AFBDCF78E112634666DE8A9CB93043 /* TPDemoBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAF42566FDE698514F9AB2CE3CC9544 /* TPDemoBaseView.m */; };
+		211AD97D43B567FAC028BC7D508BA5EA /* TYDemoRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 06ED817E3D534A030BD72AC41DBF53D0 /* TYDemoRegisterViewController.m */; };
 		2184532A10E7502EA915D91369DFAC3C /* SDAsyncBlockOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 24076B6482BF3A3FE3C213B7E34C1460 /* SDAsyncBlockOperation.m */; };
 		21ABE6533ECA163EC1043AAE7E49ED8E /* TPViewsLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8366ED6E68AEA435FD6BB7D647B98F32 /* TPViewsLocalizable.strings */; };
-		23393B4D1A1594BC8D388524ED7E5ACC /* TYDemoPanelBoolViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB02E55F986422C44EB0BDD2E296AD8 /* TYDemoPanelBoolViewCell.m */; };
-		2376F3C89C0ED7620D29C230F619D26D /* TPDemoBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AEA3DDBA80669B9A42BBBBF44F2143 /* TPDemoBarButtonItem.m */; };
+		21FCB09790D083B2593E75386B412ABF /* UIView+TPDemoAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C8FBA10151EDE19427EF61C65B31EAAC /* UIView+TPDemoAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		22E9780D4086277B5BDB7B9A8E792794 /* BitmapRotationManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD52DD0E1A6DE9C72D2A744B7306773E /* BitmapRotationManipulator.m */; };
+		235308611C216102B9B14A3F8CEB88C9 /* TYDemoPanelBitmapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3756E5035A4EE1F89E930A935949F3E /* TYDemoPanelBitmapViewCell.m */; };
+		239781A2076CD95F67F407F6A9438732 /* BitmapDrawManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 452A436A1A44078003B35F5F41357611 /* BitmapDrawManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		23BF4ADBACF5D8E745AA731917BF3497 /* tysmart_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD53A0EEF43E01C176958EF36A72AF1B /* tysmart_selected@2x.png */; };
 		24AE9383C40A45A1EC77BE76E2A2DDD9 /* ty_scene_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F2D0B70DBD45072B11DE6B63048CEB82 /* ty_scene_selected@3x.png */; };
-		24C807D1D875CAB24E6817BBA5AB542B /* TYDemoUserInfoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9601B23D0A6CCAF3A671DDECD82CBA36 /* TYDemoUserInfoViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		24D5A665091087501AA9B1F6AD200331 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2230CC8BCD622FD6BB2405A4A5674BFF /* UIView+WebCacheOperation.m */; };
 		259DE6598AAF419AE0ADDDB0F0E27DFC /* cell_view_arrow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5026865E9FB4DE90CAECFEA1B56673DD /* cell_view_arrow@3x.png */; };
+		25CB2D4D16BABEFA2FCFE9028C2430A7 /* TYDemoCommonPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD11E1654022E624CC4E0195B3562230 /* TYDemoCommonPanelViewController.m */; };
 		265D49A837950E796D67DF1A7BA105FE /* SDWebImageCacheKeyFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 59413FD455239E981D8A38FDC867255A /* SDWebImageCacheKeyFilter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2700A36B8534C45316DAB554E8498A28 /* SDDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 119E289DA04ADDD1D7834A5E9E57DEA7 /* SDDiskCache.m */; };
 		2719ABC273E8701C3A0756AD6210FB20 /* ty_devicelist_dot_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7EA18C3F87B862ED539AD85C9126465E /* ty_devicelist_dot_gray@2x.png */; };
-		27D4766F7D6106D26ADF2A5713344307 /* TYDemoSmartHomeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D21568EF5DA4668A1E5DBCEB20DDA9A /* TYDemoSmartHomeManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		27D7556E33D94B6FB8A94DDFB60706BE /* MQTTSSLSecurityPolicyTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = D56BE3E469D85888DC7EE8EE8AE3B181 /* MQTTSSLSecurityPolicyTransport.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		28738396A98A115FC7A77C2FCE1B066D /* UIColor+TYRGBA.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AAE7646A0D9EF7AAEF59EB399756345 /* UIColor+TYRGBA.m */; };
+		28F1304A4D54F5734D747914EAA74005 /* TYDemoTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DCFA02630C1F502AA8DA4AA83AEF74E /* TYDemoTheme.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		293B9392E2E0687D5CD3A77E69A5095A /* NSButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 48CCB17E206F041E668CB8DDB1AAD71E /* NSButton+WebCache.m */; };
 		29C5E1AF8AE16F1F32B96B212AC91C37 /* UIColor+SDHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2DBBDFE631409F252D67A94A116E59 /* UIColor+SDHexString.m */; };
-		2AA886DE7480F5A88D3A438ED63E90BD /* TYDemoUserInfoViewController+ModuleConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 34AFB5CF26D46D840F23F2C20CF53E59 /* TYDemoUserInfoViewController+ModuleConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2B6E2A40443036ACF9D44C55B5B97A23 /* TYDemoSmartSceneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 196236826F7CBE8C2576B0C38ED7B2FF /* TYDemoSmartSceneTableViewCell.m */; };
+		2A2D98050916DD7B100BBBD4DE13B5CE /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = A081BD601AF7B8D973871CAA7F124607 /* CGContextCreator.m */; };
+		2B4298EFA2511D1397458347469F0815 /* TPDemoCellViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80EBE76111183B060196340A36122BDD /* TPDemoCellViewItem.m */; };
+		2B453045147E1C074E6F7CAC1B942D36 /* TYDemoTextFieldTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 071EDCADB05489896EFE2937DFEB753D /* TYDemoTextFieldTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2B6E9907F4F81CF7508BB18D5C5DB1F4 /* TYDemoDeviceListUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = A50498EDAFBFAAAD4198AF9FD731EF06 /* TYDemoDeviceListUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2C94BBF9C8D57E8B296CA360E6F87551 /* ty_devicelist_share_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AC19838CE900C46C7A21A52A52E63C1 /* ty_devicelist_share_green@2x.png */; };
-		2CEF8620D7D7938F5C93F47D32440A25 /* TPDemoBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDAF42566FDE698514F9AB2CE3CC9544 /* TPDemoBaseView.m */; };
+		2D43C131F5D628FB44B1A7DD0B81DA1D /* TPDemoEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 579529BCE8AF025DFC3E618BB22B3993 /* TPDemoEmptyView.m */; };
 		2DB99E87328AB7C1FD3162AA94B0D3E7 /* NSButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = D4B765C80A8526B7EAAF9E453CE95565 /* NSButton+WebCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2DDB526094A1F5AF4D93CDFCD1651C2B /* UIImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = B7DAEFC58CFE7F6CA735E89082FDEB01 /* UIImage+ANImageBitmapRep.m */; };
+		2E81C43FB6C036B6BD61C9EF88327529 /* TYDemoApplicationImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F86899C052B60557183EB673CE9C13 /* TYDemoApplicationImpl.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2E9EE6F6A846683A71FDD4499DF8E612 /* ty_mainbt_devicelist_active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4697EF0510C42ED5256C5582106F7B35 /* ty_mainbt_devicelist_active@3x.png */; };
 		2EA07E538B5277A3CFFAEDE911A50B3B /* ty_scene_custom2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DF09517901E906FA48DE6955C3353B0E /* ty_scene_custom2@3x.png */; };
 		2ECB81FC72C7BB5040F10C021225ADED /* SDInternalMacros.m in Sources */ = {isa = PBXBuildFile; fileRef = 608A2B0C90DB515E82B06607B1CAFD1F /* SDInternalMacros.m */; };
 		2ED1EDB1752822852CD42DA3D87CD694 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F818F11EF7DE5CFDA3B69EDEB6E19C1 /* Reachability.m */; };
-		2F0153A57FD099C3BEC6D51A611623F9 /* TYDemoPanelDpTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BE5AA8D0D88F43039B9F18CC2E5C81 /* TYDemoPanelDpTitleView.m */; };
 		2F4B3AA57D216B0C1661F9FA0EAA1BA1 /* ty_mainbt_devicelist_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D5E418307F027C01383C68997C48BEBF /* ty_mainbt_devicelist_active@2x.png */; };
 		2FEBC0F3A58CD98F759E592B3916FEF0 /* UIImage+ForceDecode.m in Sources */ = {isa = PBXBuildFile; fileRef = AE3620713B6A7101B3C5217AC535A0A1 /* UIImage+ForceDecode.m */; };
 		3063231F3293E15061B3225DDE746FE6 /* SDWebImageCacheKeyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5185A078E0949AD3845FB74BFE00FA12 /* SDWebImageCacheKeyFilter.m */; };
 		30C9CC9FCF7DD4C61ACE55533A2894FD /* MQTTCFSocketDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D16742A4F2EE1063D2DB06375CD5E09 /* MQTTCFSocketDecoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3145733A54DB3517F5BBC516FC97D9BE /* image_processing.h in Headers */ = {isa = PBXBuildFile; fileRef = 6403ACCEA72E419C6A150273B178A177 /* image_processing.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3176A2CC0E158599DC3EF05D0B32588E /* ReconnectTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 074008F93E6D45F6AD5825C96054C772 /* ReconnectTimer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		327DF3A45AD02490D6D3DFCC3A3A676C /* SDImageCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 104E2352D4651AFC230128E2049C0B36 /* SDImageCoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		32D47CF336DD110D74EC581528D79DBC /* TYFeitSliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DC06D5C68AA3C0F701FB76DAC22D3D4 /* TYFeitSliderView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		32C2C04EBADA61F15B9BB18158A6B510 /* TPDemoItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C0C62613FBAEC3003BD3721211BC74A /* TPDemoItemView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		335B7A12B7EC0BD569580A3DE383D24D /* SDImageCodersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5595EBEF515C32A133ABB23A043579 /* SDImageCodersManager.m */; };
-		33E5AB7E36D599699AAA624AA1219BB7 /* TYDemoRegisterViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E8C90ED983065D5167C07490FBEB26 /* TYDemoRegisterViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		33FB3FCB28DF82B9766B05680D14F94C /* ty_scene_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = BEBA605A987C0A5DB84142B4A98CAE50 /* ty_scene_gray@3x.png */; };
+		3428E59BA9013DD6A1E7F7283E52A6B3 /* RSGenerateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39666091330731A35AD4A54B5003CB20 /* RSGenerateOperation.m */; };
 		3442001FD27295DBBEE41EE12E4E83D1 /* ty_panel_plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F6217EC068C740EA596671B3DFFFBED /* ty_panel_plus@2x.png */; };
 		345E2C203E2D12E7E3546F2E8344A79B /* SDImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AEAE1D5EAB4FEBD7FD8A2A0AA4FAB2 /* SDImageLoader.m */; };
-		35812EE8C5B036459F9B30E4B27D282B /* CGContextCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = B4B89386EAB902D1802C422C40AAC116 /* CGContextCreator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3510344619A321352000CCCD94F091B4 /* BitmapContextManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 637F7406D60D7B6E07AF3F7D0DE24374 /* BitmapContextManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		359369B59605E3D0E1E6B7F932253945 /* TYDemoLoginAndRegisterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 250320B7C5D360D4DBE1A15AEACB0BBA /* TYDemoLoginAndRegisterUtils.m */; };
 		377FDD3FE3BCF6F033DCA278D73C9BCC /* MQTTCFSocketTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = AB78471594D43D5D0C240F5FF923C831 /* MQTTCFSocketTransport.m */; };
-		37E4B21D4F569CE6118EF74FD8E4A578 /* TPDemoProgressUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB172AF3589EE6657FFEB63C0B6FC9B1 /* TPDemoProgressUtils.m */; };
+		3824A1B22EE90383DF2B6A3DAECAE6D3 /* CGContextCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = B4B89386EAB902D1802C422C40AAC116 /* CGContextCreator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		38596E0145C9733BCD766361845D9149 /* ty_slider_thumb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 756BE2C4DE45F509E637AF7C338F5747 /* ty_slider_thumb@2x.png */; };
-		38B75556D94294184C83E04C7D7185BC /* TYDemoEZAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BD58227CD25328C411FF366D2B5F80 /* TYDemoEZAddDeviceViewController.m */; };
-		38B783F4D3572825490E1BDF115794C1 /* TYDemoAPAddDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA17685CA92C97321334AEE142D1DC2 /* TYDemoAPAddDeviceViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		38D5AAD4CDFAEAF6DF271473433FB50F /* TPDemoEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 579529BCE8AF025DFC3E618BB22B3993 /* TPDemoEmptyView.m */; };
 		38E225F83FB50A828F51F93E59069CF9 /* SDImageIOAnimatedCoderInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 09F0D3952EBDED083A15602BF6CEFDAD /* SDImageIOAnimatedCoderInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3935A6A93E13808A63BEA0ED6162BC6A /* TYDemoActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6CA421360BC79775CC956CA9D0747632 /* TYDemoActionTableViewCell.m */; };
-		39547FEE91BC6B5FDF432156E29FC267 /* TYDemoDeviceListUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A808C5AD58728F467534E8135D7FF /* TYDemoDeviceListUtil.m */; };
-		39EB3944227E9528E9B26DD103269E6D /* BitmapContextManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 637F7406D60D7B6E07AF3F7D0DE24374 /* BitmapContextManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		398CFDC86E3BA5EB5EA9861E73E6B1A4 /* TYDemoUserInfoViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9601B23D0A6CCAF3A671DDECD82CBA36 /* TYDemoUserInfoViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3A25A0B031EDD3B74BB39D3AD8967E3D /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0112DBD3147A3131BDFC502BE8F99D31 /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3A6E4A8C1EAA199C77A3FAD04B188445 /* TYDemoAddDeviceMenuViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E8CFC6500F7EF554B45C16C588194DD4 /* TYDemoAddDeviceMenuViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3A47DF77CCEE021EE29A046B5F3AD034 /* RSColorPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = B716ECFA77778A9A4D836FE4149950FD /* RSColorPickerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3A74F2078BC7B401F6B35871BC7995C1 /* TYDemoPanelDpTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9C042AC61D3307DDC934DE3066C546 /* TYDemoPanelDpTitleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3A9FAA5BD20B70FCB5966FD24C6152F4 /* SDImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 983AE8247AAFE9A72362F78B3ED4C4A5 /* SDImageFrame.m */; };
 		3AC50B3A0CB2457789A31DA40700CE85 /* YYClassInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B8486B9C4252C3404CA64E5E13494E /* YYClassInfo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3AF849929CA390B702144C30097A631F /* TYDemoSmartSceneViewController+ModuleConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = C6A0D6AD8C11C1F3CD95CC48BBF20D3F /* TYDemoSmartSceneViewController+ModuleConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3B202DB775F482F8C829FEBD7B83C154 /* SDWebImageDownloaderDecryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = E902BC04FB51A5FB9C263A31853E17E3 /* SDWebImageDownloaderDecryptor.m */; };
+		3B6563B699563883D1224C9EF66A1FC4 /* TYDemoLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F0BF1EF50AD699ADCF6FEADB1B4080 /* TYDemoLoginViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3B717939B102F3AF3EB49240E48E0B88 /* MQTTSessionLegacy.m in Sources */ = {isa = PBXBuildFile; fileRef = 07960628FDA62E62BFE1056EBAEDEC3A /* MQTTSessionLegacy.m */; };
-		3BBD948A0A573E5DB98F71543D0DBAD2 /* TYDemoCommonPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD11E1654022E624CC4E0195B3562230 /* TYDemoCommonPanelViewController.m */; };
 		3BE7F5F70C91B106634A4617F250D605 /* ty_mainbt_about@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2C5B13A31E303F1727E7A158AA9AE353 /* ty_mainbt_about@3x.png */; };
+		3C461A96D7E06A5373F67D866F055333 /* TYDemoPanelDpTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BE5AA8D0D88F43039B9F18CC2E5C81 /* TYDemoPanelDpTitleView.m */; };
 		3C5E76A165F44F325C3C00E881E39661 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = D070D723C23308897896CB956A0E3141 /* Reachability.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3C6867A278AB6E99E7C8183E355C6C56 /* TYDemoLoginAndRegisterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 250320B7C5D360D4DBE1A15AEACB0BBA /* TYDemoLoginAndRegisterUtils.m */; };
+		3D244E60000A16DD9FE3641171FC8E16 /* image_processing.mm in Sources */ = {isa = PBXBuildFile; fileRef = 60EA8DC93FED034035339EAB02FC161C /* image_processing.mm */; };
 		3D2FEFBFF5B0E97FB3648C24FB791766 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B00B0B7510195A0E40E0B0647C0CF5FE /* UIButton+WebCache.m */; };
 		3DA9427AF38AE205761D1D5222EB91C0 /* SDGraphicsImageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E1C25EA60FCA9A71E6930B528E19F5B8 /* SDGraphicsImageRenderer.m */; };
 		3E421628029F27E498231AE6891E7CA4 /* ty_mainbt_add_active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA7CE689A18DA41DEC4F52AAAE04904 /* ty_mainbt_add_active@3x.png */; };
 		3EC641650BD55C57D57A3A4905DA5C76 /* Pods-TuyaSmartHomeKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EF36814ED0196F602D687572D59B26 /* Pods-TuyaSmartHomeKit_Tests-dummy.m */; };
-		40F8B46F7A5E9CE857BD1F1F45839BBD /* TPDemoItemView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C0C62613FBAEC3003BD3721211BC74A /* TPDemoItemView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3FB8F6A6C1E1449451C0ED4FF44B46D2 /* TYDemoPanelBaseViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A9297EC2F115546329513EADA67154CC /* TYDemoPanelBaseViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		401E7EB5071D86249D74F26F40BBD2EE /* OSCommonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FF9F8DF68EAEABF6980DAD52569594 /* OSCommonImage.m */; };
 		412624ADB79062E3DE55A6978112115E /* ty_scene_add_action@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A64A82934EEC8F2377F20D1BDA9329A7 /* ty_scene_add_action@2x.png */; };
 		412C9E6B90A445276D0557B9099189CB /* ty_scene_add_action@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9562C481C58CD0E8CC8858E7925149D6 /* ty_scene_add_action@3x.png */; };
-		423492798963CCFC1EEBCC3AAAB2EA5C /* TYDemoPanelValueViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4837DB70DCA03A4B9B1AA942D0EA0A79 /* TYDemoPanelValueViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		423DE9E104493E0BEA46FA6F0609056A /* TYDemoAddDeviceMenuViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E8CFC6500F7EF554B45C16C588194DD4 /* TYDemoAddDeviceMenuViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		428323F5F727A7745DB9A0B99AF770B9 /* SDImageCachesManagerOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6CF57C2CAD8BCD19353E62E029F2FD /* SDImageCachesManagerOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		42947699890A199B08A896144A878D80 /* MASViewAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 230703712902DEB0A5154E5F9A83DA9A /* MASViewAttribute.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		42EA5915D246D24F7B444385ACB208FD /* MQTTSSLSecurityPolicyTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = FD62C8BD7CFBAD48FE79BCBC06E72DDA /* MQTTSSLSecurityPolicyTransport.m */; };
@@ -349,7 +352,7 @@
 		446F9E8C1FF9D0E5B5679FF2CA418898 /* SDImageCodersManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AE3A887AB5E5630241198764614372E /* SDImageCodersManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		44722922D78AD8F2FE5B162CBCBF0B43 /* ty_index_scene_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 260EFB789D9C713A95088DE017E8A678 /* ty_index_scene_close@3x.png */; };
 		44C8DEEE4C2383275CB675F29D45C761 /* SDGraphicsImageRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = B28A21742F7A8FB9BF831F2D32C21BDB /* SDGraphicsImageRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		453771631E4F90F126658E623428B4A6 /* TYFeitSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5971524C5313E0ACB30E10B599277CC7 /* TYFeitSlider.m */; };
+		44D4098B434D06FD13D30DC2F4EC6C54 /* RSColorFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46009593BF734D90DDAFC05B3117A556 /* RSColorFunctions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		454308F281F806DEB35D19FAD2B02B9E /* SDWebImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9153AAE98871932B3536A62241156BBB /* SDWebImageOperation.m */; };
 		45B725D59EEA0992270B943C42E3FA17 /* UIImage+MemoryCacheCost.h in Headers */ = {isa = PBXBuildFile; fileRef = A44C5D4CFBD5A06F73DA88A8DFD91858 /* UIImage+MemoryCacheCost.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		46692A2E77157B00827182C8DC686F72 /* View+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 394EE4AE4B564546B86CCB2CAE1E802B /* View+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -357,344 +360,341 @@
 		46DB033835AAB954F99978C912DE3DFB /* ty_mainbt_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3647A8F2E394722F77E65A25FFA3894 /* ty_mainbt_add@2x.png */; };
 		472BDF20693240A7BBC7279CA137A73E /* SDAnimatedImageRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D4838E0A936EAE8000D9CA56E7523B4 /* SDAnimatedImageRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		47948B0FA1D66D170049BDFF4F42F543 /* SDWebImageDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 60E835B472BA31C1A32E245BB1C7ACE6 /* SDWebImageDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		47B9DC8A508AF90B7227B3E932E12797 /* UIView+TPDemoAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = C8FBA10151EDE19427EF61C65B31EAAC /* UIView+TPDemoAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		479D982D1EF4727DBD086D8DC35EE32B /* TYSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 850BCBE618ADEF271E7305CA02C3ED20 /* TYSlider.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4810AEBF932187A3F1A94DFB6E028CB9 /* SDAnimatedImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E8A6397AFC07AFC7AAFC5CD1B8BA408 /* SDAnimatedImageView+WebCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		482EC30888D91184599F6E538615EE4A /* TYDemoEZAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BD58227CD25328C411FF366D2B5F80 /* TYDemoEZAddDeviceViewController.m */; };
+		48703AE15D232B5BF21D19AD5FEF7C0D /* TYDemoTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EAA59AAB8957C2FCE32DE969DD1445 /* TYDemoTextFieldTableViewCell.m */; };
 		49205DC4DD69BC8D5490A5BE5ED823AB /* ty_scene_active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0CA4CDE031B945B3DBF376A42C17EAC /* ty_scene_active@3x.png */; };
-		4A500A6E89A3C537DE92163D607A8736 /* TPDemoTopBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = F903F6877B1B9E08A5530AB003497F37 /* TPDemoTopBarView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		497BB329DD85A987A0A540CF51554A8D /* TYDemoPanelBoolViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB02E55F986422C44EB0BDD2E296AD8 /* TYDemoPanelBoolViewCell.m */; };
 		4A902A0B2167B7EFF593834F41B2EC0C /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A42F0F35FCE82EC20B61A2778E52850F /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		4B1AB2B30D740AE4606C5F06D6C7C159 /* TYDemoTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FA1EDF2A27ED4AC6F0F5E05B41BFEA /* TYDemoTabBarViewController.m */; };
 		4B3964B71F74D3D48482B3D853DA94E5 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = EED1311C6A4BDEB21C4C68094E814D79 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		4C38743740FD55CA3EB5FD2E3E959722 /* UILabel+TYFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D138DA2F7C21E6FCA76F80BC8020A59 /* UILabel+TYFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4C3912D9D711FFA2E8310EC6AD47EE62 /* NSImage+Compatibility.h in Headers */ = {isa = PBXBuildFile; fileRef = F99A4A17FCF413F60B2576A535E34976 /* NSImage+Compatibility.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4CE091F886EC6324673EFE0AEBBEA0FE /* MASConstraint+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 24568922175BDF70C1F6ED7208432400 /* MASConstraint+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4CEBED54C6D1DEA4CB179DC27BFC018B /* TYDemoPanelBitmapViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FA38A08493737DA428B537405B8DB4AC /* TYDemoPanelBitmapViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4D0AE5B77D2166567F477AF24CEC693D /* ty_mainbt_add_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 432F24EA2A7261AA00D2E6E17F3D5CC5 /* ty_mainbt_add_active@2x.png */; };
-		4D29E1F6683DC57165DFB1DAC077A885 /* TuyaSmartDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FCE52F117DA2D9AF9E2D913EB49D67 /* TuyaSmartDemo-dummy.m */; };
-		4DD1FAF08CB33454317C11EAFE52CC10 /* UIColor+TYHex.m in Sources */ = {isa = PBXBuildFile; fileRef = F0BDA8B6F303F7C325D40C7EBF8E2C94 /* UIColor+TYHex.m */; };
-		4E0CA8F3E6CDA1B9B616E0255685B6CE /* UIView+TPDemoAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FA11A4C380360A22F73559A434A1A /* UIView+TPDemoAdditions.m */; };
+		4E00159E7D2281F50A7FB7D478ADC81A /* UIColor+TYHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 8717A059F7E683567F328834004C7E5E /* UIColor+TYHex.m */; };
 		4E2E631DAE70D9ADC5E05F1747055785 /* SDDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 384AC07B284354AA40B237D897C94D3F /* SDDisplayLink.m */; };
 		4EDBB4AAEEF26534BCF67340B60B9DC8 /* SDDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2471438019A4264D31ED61F905255299 /* SDDeviceHelper.m */; };
-		4EE2E0FEBF6EF8F4FD6C7F911D92DD02 /* TPDemoViewUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FACBE2AF8CA0229A4E241E5362E85A7 /* TPDemoViewUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		4EF0B60A1754CE58B53C8B66E925FB77 /* TPDemoBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9247BE6B55A33D0114150D0A96949E5D /* TPDemoBarButtonItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4F54B3DAF7284091BA2D967D07ED349F /* TYDemoAddZigBeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F238C746678E2BBA904DAD7891A2E06 /* TYDemoAddZigBeeViewController.m */; };
 		4FEE3519AC491145FF0FF257E1DEC320 /* GCDTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 244D894BAD51C8BE579DAE2725E25262 /* GCDTimer.m */; };
+		50933B23FE4E9BECE0C80A2A9873E0D0 /* BitmapCropManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7608528C985BD87978E8A008284A9062 /* BitmapCropManipulator.m */; };
 		50BA43C8B4C7278FA449490F5ACEA40C /* SDmetamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = F8AA36B0B784C0937C5BF19C0E32B00A /* SDmetamacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		50ED8E9DDC5D1EABB3C60311F18F343F /* UIColor+TYHex.h in Headers */ = {isa = PBXBuildFile; fileRef = EB4B74C0CAA992F260500F8430909C20 /* UIColor+TYHex.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		50F23B92A03430CD1ED737D2D312FC6B /* RSSelectionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD2F7924A1BD9C61C40B176D2B144F4 /* RSSelectionLayer.m */; };
 		511B2B2E911994B978C25D5FA3CD524B /* SDWebImageDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA274F72E49081C20E27597B4C806F8 /* SDWebImageDefine.m */; };
-		513A4149EF75328CCD541C60E7448905 /* RSSelectionLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = EDB2E045788677F5941E56782C3FA620 /* RSSelectionLayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		51D28E32696A86D41F476B6614694AEA /* RSColorPickerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7744DDDDFA4DDB6B8EF6901F9A0DCA /* RSColorPickerState.m */; };
+		519A37C5ED24E7E6C86C13B73AC139A8 /* TYDemoDeviceListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A90FE125C4294485D8BE2576FDB638 /* TYDemoDeviceListViewCell.m */; };
 		52628676DAF3184F9B2D8972B8DA9F9B /* MQTTStrict.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBFFE5B2C21989CF7BC3E46F9162D72 /* MQTTStrict.m */; };
 		52648A9E966BACEB2F6C2F037C030198 /* MQTTLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA44D0575624F02E47A4469498FC8C6 /* MQTTLog.m */; };
 		52760EEF7BF013377B7209E0A1CE6C5F /* ty_scene_error@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD2EE65B1592A8F6CF647F63F2946185 /* ty_scene_error@3x.png */; };
+		52AA3B9CA190620FF1119F1F3393A468 /* NSImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE04EBF638A8F86F4B52F1B5A6473 /* NSImage+ANImageBitmapRep.m */; };
 		52D218B0C29C405682388E39B17840A1 /* MQTTCFSocketTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = AFB3CF5869533E4D37553CD729137696 /* MQTTCFSocketTransport.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5376CD57545524F6266E36C055A7C0BD /* SDWeakProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = B949024B73326B35B8CA35A28A170B28 /* SDWeakProxy.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5388DDE3FBC719E7243DE7F1C819F28C /* TPDemoLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D52E0BD8FF22AED0FA1A2D6E6A3E174 /* TPDemoLoadingView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		53D5A906B201B5F4A53C894D88FF09FC /* SDWebImage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB915034F516FD078C4F1D04E102402 /* SDWebImage-dummy.m */; };
 		53F80EABDB1A385F25DFA6710C51B600 /* UIImage+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = DBD223DE7F830C0C310C1C95BDC22F8B /* UIImage+Transform.m */; };
-		5403AC0F0B0FDEF55519B0F7157AA9E1 /* UILabel+TYFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D138DA2F7C21E6FCA76F80BC8020A59 /* UILabel+TYFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		545C34BA7D9C5394ED7512998D3B097C /* TPDemoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4082FFFE0470561A550A295EFABFFA /* TPDemoNavigationController.m */; };
+		53FBF3041633BCE110A100BDECAA0E2E /* TYDemoEditActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AD4641DE04F2E6EDAE49B2D3256786 /* TYDemoEditActionTableViewCell.m */; };
+		53FE1978CDC97F22035206C7EEFDED89 /* TYDemoSmartHomeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 36002B325414C96BE6FAA7D262E79D2B /* TYDemoSmartHomeManager.m */; };
+		544786C6A3C0D7383247B0A92C82CD32 /* TYDemoEditActionNoDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B811B6E78EB323E7AC595EF5E1CD8A1E /* TYDemoEditActionNoDataTableViewCell.m */; };
 		55371E0911F21A2F708C6A746DE8C708 /* SDImageAWebPCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF0931ECB974F73188CE68559DAB00A /* SDImageAWebPCoder.m */; };
+		55BDBB6C89BDE906AEAD5CE38A503E47 /* TYDemoAddSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC224FB2BD989ED8345DCC6B345CEEF /* TYDemoAddSceneViewController.m */; };
 		55D35A47C8626706DAEF4048017F7CAE /* ty_add@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C0C043EAA0D3023122658F422765FCB3 /* ty_add@2x.png */; };
-		566B362D35F54D84845A499B34980079 /* TYDemoDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29B7409AB387A5BB3A4EF986D04236 /* TYDemoDeviceListViewController.m */; };
-		56CF2F2BB50C8DD74D8597EAA931782F /* TYDemoAddZigBeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F238C746678E2BBA904DAD7891A2E06 /* TYDemoAddZigBeeViewController.m */; };
+		56E9634B8F45233EEDEA3B5DDFB83DE4 /* TYDemoEditActionTitleTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E7FC9E7127321215C27D3B5BE489DED1 /* TYDemoEditActionTitleTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		572D05B146EAA3EF5530A0D0E34904A0 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EF36797709936BAC401F30D8116DE2 /* MASViewConstraint.m */; };
-		5785D1828C4F492CAFC61F3E8A1CFACC /* UIViewController+TPDemoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01732AB5A0AA8A4C6601184A1FF6AF4B /* UIViewController+TPDemoCategory.m */; };
+		57935E8D579CACA0E8601EF698FC920C /* RSSelectionLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = EDB2E045788677F5941E56782C3FA620 /* RSSelectionLayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		57A0EF141DE170FEBD795E74D6709463 /* TYDemoAddZigBeeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A05EA05BCC4C20F35C1C8BFBAEFB8B8F /* TYDemoAddZigBeeViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		58A8084F0B525B5F00655FCD63877483 /* UIImage+Metadata.h in Headers */ = {isa = PBXBuildFile; fileRef = 886D186076CC03EEB221B9920BD7A96E /* UIImage+Metadata.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		58B335B0D5B384A010415153CCF5A31C /* TYDemoTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DCFA02630C1F502AA8DA4AA83AEF74E /* TYDemoTheme.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		58CB0B81A0F07799F138CB9CA8830C4B /* TPDemoTopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE0173EDF2EECFA55E6628B258169E /* TPDemoTopBarView.m */; };
 		58F4C5FFF7F1ADBD86EF4D72D10060F9 /* SDImageCacheConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC27B75173E840D20EB7BD796BCCE46 /* SDImageCacheConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5938E9D9A7E09FC96186D2651278B68C /* UIImage+GIF.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B26478A29A7E5446084B09707278457 /* UIImage+GIF.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		593E1B7E85DD416F6391D9EE884CA016 /* NSImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5DE04EBF638A8F86F4B52F1B5A6473 /* NSImage+ANImageBitmapRep.m */; };
 		599AEB5E944F8E4CD7AD7766DBC5B9AD /* SDAnimatedImagePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F869C2B0BE5FF9DA1F921C901022097 /* SDAnimatedImagePlayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		59C7E2140D9F69255B5E564C64056B22 /* TYDemoEditActionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C817255C3C1328CF2972A4EE6FCDAF1 /* TYDemoEditActionTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		59D54C45A33A4F01EA4DF4E76153F1CC /* YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B57AD673F57AF13D4F2CC80CF3ACAD1 /* YYModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		59EA578EED8BAC126FDC60C32AE11521 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 10DE4DC73415C3D8B34FF03B932309BB /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		5A3E297705F3A4547756B09B4044B940 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AFB7D436BDF188EA5374FFD308FEF499 /* MBProgressHUD-dummy.m */; };
+		5A6A4F88F2A252AB57C50167F1752511 /* TYDemoLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0749C4A7E1F919641FE2BC0743300553 /* TYDemoLoginViewController.m */; };
 		5A719E5591A06418955E7133EF76890D /* MQTTMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1BE11FC75342324D6CFDDCEA0665DB /* MQTTMessage.m */; };
-		5A7384938B4963B574D1E2744847C2EF /* RSColorFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEB6D87F8C466FC27250A7F955C49AF /* RSColorFunctions.m */; };
+		5A8DDC4FCCC5A545E8FD8F2E60F59102 /* UIViewController+TPDemoCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = EE1029590EF37D048442B19056DDCE1D /* UIViewController+TPDemoCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5AC5B35F7A1F8D81E38D71BA2C5BFBC4 /* SDAssociatedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 76FE45810142B3D20C242273B0F4FDDB /* SDAssociatedObject.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5B1E8B4D5E7E2B746A61BC01E23135B6 /* TPDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C069975AF310D4C06955CCA86BC962C /* TPDemoBaseViewController.m */; };
 		5B21F419E3D39A4CE06FC1E1AC6CFF4B /* MQTTSession.m in Sources */ = {isa = PBXBuildFile; fileRef = D04FC463384326DE303D576FC3E8CD99 /* MQTTSession.m */; };
 		5CB41A59A4D3FA5BC111747983E0AE46 /* SDImageGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = 5386D31F98A6D6697D97CEC8BC667132 /* SDImageGraphics.m */; };
 		5D19F118950915F3960398A9FE16B17E /* power_off@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DE0245933CE164A78131727359E1E7C /* power_off@3x.png */; };
-		5D8864FF71AB95C5FA084AADCC791C23 /* UILabel+TYFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8F5617623C229FDADB68B6AD281AF8 /* UILabel+TYFactory.m */; };
+		5DD62175A7B0C3A6A466AF5D5193FB15 /* TYDemoPanelValueViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4E5E42C415B8D56190D71C15FF1537 /* TYDemoPanelValueViewCell.m */; };
 		5DE39147EDEE67CCD419E5BDEEC244B4 /* MQTTSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1167FC0F0DCEE5C4DE5562D39B6BFE59 /* MQTTSessionManager.m */; };
 		5DF3FFF58B54D4756359F64AEA9F0E32 /* MQTTTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = 378AD5F15043152B6A8D7BAC3B5FBEBD /* MQTTTransport.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5E027C7E9BA7550839250945351D24CF /* TYDemoEditActionNoDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B811B6E78EB323E7AC595EF5E1CD8A1E /* TYDemoEditActionNoDataTableViewCell.m */; };
+		5EE3A2C883978F245DB56139667D3176 /* BGRSLoupeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC43A2F71164D322A0AD7721F7B3D6D /* BGRSLoupeLayer.m */; };
 		608320766ED3066F8080E29D8BE0E1C6 /* SDFileAttributeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = DA5A65BCA62A13F2350E61F5C1CECFE5 /* SDFileAttributeHelper.m */; };
+		61E416BCA02DA0CD9B6DC23B2ECB68F0 /* NSImage+ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = C529F596426F888648D87CD2FA5BF13C /* NSImage+ANImageBitmapRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6250654F3B8F6A55446DE6AF0893D9FA /* ty_devicelist_dot_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 53D189C69B2293EAC493A6AABF085840 /* ty_devicelist_dot_green@2x.png */; };
+		6260B58AF0FE851603847C4E3A52CD35 /* TYDemoAddSceneViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 724111D3060141A5ADADF6349CEABE44 /* TYDemoAddSceneViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		63F87C318437740E8202E4D3DD0826FA /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B79A8821B2D8AB61FABEA212E72EE94 /* MASCompositeConstraint.m */; };
+		646776E33F86303F3C23402705DC8198 /* TYDemoPanelEnumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F67FFD2831DF62E1B248D84742563 /* TYDemoPanelEnumViewCell.m */; };
+		64D12975EA089197DBF9237C76D382E7 /* BitmapDrawManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = B94894722B07D3D72C55EBF3F76E2DCF /* BitmapDrawManipulator.m */; };
+		64E2881DF10D373C25EF1221F956C41C /* TYSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91B6D499E86E58DC8DFE39D859E1750C /* TYSliderView.m */; };
 		64F9012CD7ADEF5D4D6B381FB705F061 /* tysmart_selected@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 179760A3F4B14B728C9481E8C9F325D8 /* tysmart_selected@3x.png */; };
-		659508A0FDCB20A8A2A7BBDD13DB2E80 /* TYDemoCommonPanelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 53B975C3501E2E6A3F14BC5E96C6FE0D /* TYDemoCommonPanelViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		656B36FC165D88D04EA076B41B58C7D3 /* TYDemoSmartSceneUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 803196D14B48BD89A151E29E43556AEE /* TYDemoSmartSceneUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		65E88072A2BDC576BFC85E67EF9FBBC6 /* MASUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = E3CFC2C1EFB38AED51FC20FFC62ADDB6 /* MASUtilities.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		66715A5BCFAFF67EC931B686943E05B5 /* TYDemoTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D26668CC99417A7A2B06AB1D8F785B19 /* TYDemoTheme.m */; };
-		676D03159EA94B0C384626E70A2CD9BF /* BGRSLoupeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AC43A2F71164D322A0AD7721F7B3D6D /* BGRSLoupeLayer.m */; };
-		67F3C78E906E5C0440B08309F0C35A3E /* TPDemoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335B9BC13539857DE87A370BD63D3A5 /* TPDemoCellView.m */; };
+		66E2AC0BBE16B9A27A9954A439AE705D /* TYSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E96BAA0E8256A9E5493DA7511DDDCF /* TYSlider.m */; };
+		68DA1C4D821620541E128A5E1250CBF0 /* UIView+TPDemoAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4FA11A4C380360A22F73559A434A1A /* UIView+TPDemoAdditions.m */; };
 		68F51B1C47032D4C1E214D42B31D4336 /* SDWebImageDownloaderConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B166AB39C922A4C30CD53DCA1103A4D /* SDWebImageDownloaderConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		69B7E5C74830532B8C61892618984952 /* MQTTSSLSecurityPolicyDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 61988EE2B182A744C17BCD946F4F3BFB /* MQTTSSLSecurityPolicyDecoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		69C754CBBC23A9D99FF051A2C963CD59 /* UIImage+Metadata.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3A59F91A4DF043299E2826418B6E69 /* UIImage+Metadata.m */; };
-		69F5D82E6F17534A82BA1338F10FAD9D /* TYDemoLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0749C4A7E1F919641FE2BC0743300553 /* TYDemoLoginViewController.m */; };
 		6A22FA3944743E3967A46D599F7ACBA7 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 76959DF578958D2A031E0E4BF730FB44 /* SDWebImagePrefetcher.m */; };
-		6A47780F3F9612586D543F9669413394 /* TYDemoAddDeviceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AA704D0B75A62AAE2D1CF7147D9119 /* TYDemoAddDeviceUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		6A8B85F663820A31F0D4B7BA413E1CF8 /* TYDemoApplicationImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = 34F86899C052B60557183EB673CE9C13 /* TYDemoApplicationImpl.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6B27BE8C3E5E28F3B309307E87B99329 /* SDAssociatedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 42215F0B5C78F03E24C588A29FC5F999 /* SDAssociatedObject.m */; };
 		6B990DFF59699A54E9F4ADACB4DF432D /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 0045C71148F231BF7CAB08136A42425D /* SDWebImageCompat.m */; };
+		6BC463D3F3BE3A684E6C00ECCA33CDD6 /* TuyaSmartDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FCE52F117DA2D9AF9E2D913EB49D67 /* TuyaSmartDemo-dummy.m */; };
+		6C75EB60BD4272D6EED25E8D35B25CA6 /* TYDemoAddDeviceMenuViewController+ModuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B558AE45D8EA2AC44E3CFDAE2AD960C /* TYDemoAddDeviceMenuViewController+ModuleConfig.m */; };
 		6CE76998CEEA48B3E80C942B77423836 /* MQTTSSLSecurityPolicyDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = C99D70D79D0B86C19A433FE4FDA97258 /* MQTTSSLSecurityPolicyDecoder.m */; };
-		6CFAE0A5B2B8A145EE272635A9E23AA0 /* BitmapDrawManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 452A436A1A44078003B35F5F41357611 /* BitmapDrawManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6D1FA7D8D628A650FACE807A93C221A8 /* TYDemoSmartSceneTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E6E89C4AB9C4DD6C42FDCEEE9D76409C /* TYDemoSmartSceneTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6DA0E729D7807BFA9857E2958A743BD8 /* TYDemoDeviceListUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = FA9A808C5AD58728F467534E8135D7FF /* TYDemoDeviceListUtil.m */; };
 		6E88A0A229CB48A48549234AB5BFA1D1 /* ty_panel_plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5A699EA95677DBFA1A7662153F58A949 /* ty_panel_plus@3x.png */; };
 		6EB7CFFD7955E6F8A5996886A8F9C619 /* ty_panel_minus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 24DEF69363949F3B191AA44820F01811 /* ty_panel_minus@3x.png */; };
 		6EC86A31DE9C7210CD8965CCE49A6342 /* SDWebImageError.m in Sources */ = {isa = PBXBuildFile; fileRef = B6905FB82C4460E9B61018190038F20E /* SDWebImageError.m */; };
+		6F10D0CB318E71DA0ACE8F6629FEEA06 /* TPDemoBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 9247BE6B55A33D0114150D0A96949E5D /* TPDemoBarButtonItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6FDCA23EC498E8ECA6F4E48738CF610E /* power_on@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 239DA0EE81782F0147669F7DFF6C6F0A /* power_on@3x.png */; };
 		7031CFA5FD7EC7C8E5EFAF8325D2C8ED /* SDWebImageDownloaderRequestModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 5BE777A3D56BA1BFA3104B64C80E9EC3 /* SDWebImageDownloaderRequestModifier.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7101409ED6A836F1300389AA9CA6640E /* TYDemoLoginAndRegisterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F6115BF73CC2B74669DF3F2EB17A433 /* TYDemoLoginAndRegisterView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		71C358B8D3F4D4F988E9FCB1D302893C /* TPDemoProgressUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FBF681D14E645E6504BB7134EDEC403A /* TPDemoProgressUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7267B98206B4DB23B9FBE4B65A9DF6FC /* BitmapScaleManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EBCCA7FFC8ED3C9E543FB120C157196 /* BitmapScaleManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		72C9BDFF10792B0E37AAF8FDE06915D5 /* UIImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = B7DAEFC58CFE7F6CA735E89082FDEB01 /* UIImage+ANImageBitmapRep.m */; };
+		70C8EEE4E2C0A91E12C4C509A520067A /* TYDemoAddDeviceMenuViewController+ModuleConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 264262B8CFFA4D5F3068D3B515B79EC4 /* TYDemoAddDeviceMenuViewController+ModuleConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		71BDF3FF50C55E76BD4A197BBC9A522F /* TYDemoSmartSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D76985E139A899ABAFF09110A75B7A /* TYDemoSmartSceneViewController.m */; };
+		721C1EEA717430F52C9BD2E6CC5FA985 /* TYDemoConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 40C2B88B65C2719D685773A0EA382909 /* TYDemoConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7437F5624147DCDF74F3343BBB08B7EC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 87750F8DAA95F5CEF9CA0DA273D3AF83 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		74EAE5276D0EF19E1CF97B70E9965FB4 /* SDWebImageDownloaderDecryptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6E704F771AF4F5D776E37C652BD1C8 /* SDWebImageDownloaderDecryptor.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		754F344BB2E8AE5FDBB1B0BBF5A6AE6B /* TPDemoTopBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = F903F6877B1B9E08A5530AB003497F37 /* TPDemoTopBarView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		757EBD77D300E8FAF251BF89058A0063 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = E22F768F5FD8B3183E7331CC157DD82B /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		759335CEF832A5F72222213C7AC7FFEA /* SDAsyncBlockOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 804A8E76EC632661864B1A38F124D3C3 /* SDAsyncBlockOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		76DB1FF6FB54BFE7541AD7145EE86807 /* TYDemoPanelBaseViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = A9297EC2F115546329513EADA67154CC /* TYDemoPanelBaseViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		777E7C49B48C618D4D99669DBC1E4C98 /* TPDemoUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FB473929EB511ABAFA7A00166A275D /* TPDemoUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		76169980151793E70B0CDC6B660F8268 /* TYDemoLightPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F091C9C9A9A2953B2B58D13908B5EC3F /* TYDemoLightPanelViewController.m */; };
+		76886979A4322F482091611F664648EA /* TYDemoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A27251C4FE55A84B01E1194094AA42 /* TYDemoConfiguration.m */; };
+		7817EA284C6ABDD38D973AA7F95C0ACD /* RSColorPickerState.h in Headers */ = {isa = PBXBuildFile; fileRef = AAEC6CE29D7534AA8F041648FE53D40B /* RSColorPickerState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		787AE202E71EF711783ABDEAA6D52204 /* SDImageAPNGCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B68BEF2E8E0698426659331CA4F46C /* SDImageAPNGCoder.m */; };
 		788EA550A6FF56587D9E284E0E348327 /* ty_scene_switch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34E8D1B5CEFDC3EC81C13766F500CBFF /* ty_scene_switch@2x.png */; };
-		78951A7DD1CB548F557C8251ECC2100D /* TYDemoLightPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F091C9C9A9A2953B2B58D13908B5EC3F /* TYDemoLightPanelViewController.m */; };
-		7953E04C6EB5C597E0AD4E7E063BB6E7 /* TYDemoEZAddDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A46541394D7CF6BE5CC6674FF91EE52F /* TYDemoEZAddDeviceViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7913FA9E20A4CB67EFF5A3B829527343 /* TYDemoApplicationImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F6A0B5F10B9FC6C82427992CAAAB9B /* TYDemoApplicationImpl.m */; };
+		7ADB8C05631DE685AD55E914893C35CB /* TPDemoUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 23FB473929EB511ABAFA7A00166A275D /* TPDemoUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7CF2AC7A3B3ED03B30C1E4ED662B0551 /* MASLayoutConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 381D46145D7C0C4CA2BA23F9CF58C58B /* MASLayoutConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7EFD971D55B4B52F89BC499CBE8DF563 /* YYModel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4276425B430F75795962CE7B98804398 /* YYModel-dummy.m */; };
-		7F374BDCB4866DF4859F92E4E9DB4C75 /* ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 599431F0DD07A2AB3E048F98D9BB2701 /* ANImageBitmapRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7F82C714E2D3DC4C22894A8963CB7A10 /* TYDemoApplicationImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = F1F6A0B5F10B9FC6C82427992CAAAB9B /* TYDemoApplicationImpl.m */; };
+		7F78A816B5F36722C97FA4BB90B74868 /* UIViewController+TPDemoCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 01732AB5A0AA8A4C6601184A1FF6AF4B /* UIViewController+TPDemoCategory.m */; };
 		7FC1BD07996186526B4A1B07E87DF9E6 /* MQTTProperties.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B75D215929AB43B82AD70AEE9497C7B /* MQTTProperties.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		801E27C9B7AAD924E7F1980626F6CBF9 /* RSGenerateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39666091330731A35AD4A54B5003CB20 /* RSGenerateOperation.m */; };
 		80B7FBA8291E76D74A651249A0E211FC /* SDMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = FBB1F5B86D6B382528EBA02BF13EF6C5 /* SDMemoryCache.m */; };
-		812A61AFD4319327280843199BCE884C /* TPDemoLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D52E0BD8FF22AED0FA1A2D6E6A3E174 /* TPDemoLoadingView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8145AB352B47E0EA78FB91C06E4BE81C /* BitmapCropManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FE9E6C4F4FD2619C43423CE738CAE96 /* BitmapCropManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		814A4AD0E24402BE3C3D1C6BC5AC3E45 /* MQTTInMemoryPersistence.h in Headers */ = {isa = PBXBuildFile; fileRef = C3AB09DDEB41941B048696A83936A91F /* MQTTInMemoryPersistence.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		81DEA137E2A3A641FAA512C9072D9A29 /* TYDemoSmartSceneViewController+ModuleConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = C6A0D6AD8C11C1F3CD95CC48BBF20D3F /* TYDemoSmartSceneViewController+ModuleConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		81F811A56B6724F7E8E2D25364E595E3 /* NSArray+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B5277FB094A5FFADB86F94875C748C /* NSArray+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		82E4DE4F775997EF1EBFE35F2D2EA65F /* CGImageContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA06B04ACC9A4426B993ED61740E909 /* CGImageContainer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		82EF3ECCE97BC7E8982870DBE72D77BB /* TYDemoEZAddDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A46541394D7CF6BE5CC6674FF91EE52F /* TYDemoEZAddDeviceViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		836809986CEF9C356A105A9FAD2A07AB /* OSCommonImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6ADA0A0F3C180C17224B6EF0FE6CA5 /* OSCommonImage.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8385EA1E9A6EBC7120147A8E8128264B /* SDImageHEICCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B332F7B07B0E94ACA664A11E787F08A /* SDImageHEICCoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8487E616E339280CA226EFA20E1095A4 /* UIButton+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 53A1AD634E2F9483988789D48F9389F0 /* UIButton+WebCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		864D0B858BE4B060DD565957F3944B78 /* ty_scene_custom2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDC5D472C820ADA943AED2541557C25B /* ty_scene_custom2@2x.png */; };
-		87B4917604CBED1785698DF3786705A4 /* TYDemoEditActionTitleTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E7FC9E7127321215C27D3B5BE489DED1 /* TYDemoEditActionTitleTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		880B1A11BEDEBA4610DDAF638C2BCC03 /* TYDemoAddDeviceMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D72B334AAA67C98195CEA54E074DD /* TYDemoAddDeviceMenuViewController.m */; };
-		88BD81C1B7EC0437D08498CCE2DC3B59 /* TYDemoEditSceneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2B25BA5035F913892660167D9C2CDD /* TYDemoEditSceneTableViewCell.m */; };
-		88CA3E50C2D0D25B7B42213A352D6599 /* TYDemoLoginViewController+Route.h in Headers */ = {isa = PBXBuildFile; fileRef = E7F10B7F35BB31F533EBDECDAFB772A5 /* TYDemoLoginViewController+Route.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		879C7284CB8EF75644092B984A33560A /* UIImage+ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = E427D63197283DD75CCEDDC1DA070C7A /* UIImage+ANImageBitmapRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		88EC2492778A65D49A56165E5DE416FF /* SDImageIOCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EB2448A54F0CB8F8505ED17CEE46561 /* SDImageIOCoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		89352829C596677C8D7AE90DF3AD781C /* TYDemoSmartSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D76985E139A899ABAFF09110A75B7A /* TYDemoSmartSceneViewController.m */; };
-		89AF9908EE0C58A34B920BAD1686B9E8 /* TPDemoBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA82C810489C87B023EFE1DA728A9433 /* TPDemoBaseViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8A161654004CC7377A659A804761A93A /* Pods-TuyaSmartHomeKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BE63DC304951F588F89557F3FC02CF7A /* Pods-TuyaSmartHomeKit_Example-dummy.m */; };
 		8AE193AD518D868F8A380BFBA29EE940 /* SDImageIOCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = A116F02366E564DC971EBA1A63506A84 /* SDImageIOCoder.m */; };
+		8B4699C692AECB81FABC2B0DFFEE2BF0 /* TPDemoTopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AE0173EDF2EECFA55E6628B258169E /* TPDemoTopBarView.m */; };
+		8B88829544F891A910E58B4B53F2DD51 /* TYDemoDeviceListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC29B7409AB387A5BB3A4EF986D04236 /* TYDemoDeviceListViewController.m */; };
+		8CA3F3648546813BAEF06C1C3216734C /* TYDemoActionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FEB97F593C8773B598CB1F09D96CC0B5 /* TYDemoActionTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8CB39B392ABF658314F209F7EC25352E /* SDImageLoadersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD71C87E9DF04E689B3857919CBDCB /* SDImageLoadersManager.m */; };
-		8D4FB2FF387C12BC6487D4F48A75C733 /* TYDemoPanelValueViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4E5E42C415B8D56190D71C15FF1537 /* TYDemoPanelValueViewCell.m */; };
-		8D86F170CD1123DCF0FC341D6FC15FB0 /* RSColorPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = B716ECFA77778A9A4D836FE4149950FD /* RSColorPickerView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8DA1874D52AF795BAEB355476AD07A47 /* TYDemoUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2462925DEF149C478F6C4E98E6465C /* TYDemoUserInfoViewController.m */; };
 		8E27EC136C6FBA3867CE73898926070E /* SDImageAWebPCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = DED10A2AD98DA883785542BE96B01361 /* SDImageAWebPCoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8E647828E4C169D55AAC86DB40DFF31C /* SDAnimatedImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E153656EDC5B9822807FF028C986F5 /* SDAnimatedImageView+WebCache.m */; };
-		8ED72E64485084FBBD30C37954FC413D /* TYDemoDeviceListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A90FE125C4294485D8BE2576FDB638 /* TYDemoDeviceListViewCell.m */; };
-		8FB5B585CA3DBFBCC9391AA2A6D9DF8E /* BitmapRotationManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD52DD0E1A6DE9C72D2A744B7306773E /* BitmapRotationManipulator.m */; };
-		8FBAC8E3C9C3A98A94AAE1B31FC62A73 /* CGImageContainer.h in Headers */ = {isa = PBXBuildFile; fileRef = EEA06B04ACC9A4426B993ED61740E909 /* CGImageContainer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8F7CB4D27832720C61B74FAC8FE47AF5 /* TYDemoTabBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4949AD9CFF4A76369EA07A7B88CCB33F /* TYDemoTabBarViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8FFF8F3935BC715645F1D53B79EA86A2 /* TPDemoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4082FFFE0470561A550A295EFABFFA /* TPDemoNavigationController.m */; };
+		90C04882564E8C27D15E4F77549B89F1 /* BitmapScaleManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EBCCA7FFC8ED3C9E543FB120C157196 /* BitmapScaleManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		90D3F51EA41B4DC95D32993FED807534 /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BD9AF7BC9631DB803984EB0D1894B1D /* NSObject+YYModel.m */; };
-		91363E31841B8CF5A4C1CCFF539E5F64 /* TYDemoEditSceneTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DB2B82E7D5A4367DF3690D93CDEF7EA /* TYDemoEditSceneTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9190EFE6D38E12D26CB9BC5C3A7AE8EA /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = B1A44FE57C7679574F97CD8CBE05E83F /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9194B58ACE900ED6BAE6AD92E24A2CFF /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = B75125C68537F37C1707AD7747FDC6A0 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9233B9669FD61BE345E22CDFB141095E /* TYDemoPanelStringViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA784FFDE163E1A94D259206439A52B /* TYDemoPanelStringViewCell.m */; };
 		92BF70E9D3285561EB404A7C4A4A6DEE /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CA2EE18BD808FC5198AEAFDCCF151F7 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		92E4B15C6FF94A4FAA4A17621199703B /* SDImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A960D3973E31090482E7DCDF3ED11F /* SDImageTransformer.m */; };
 		93147163DFC9AD7D994B83BB638828B9 /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A111B111E8B2C602965D7FBEF10CE928 /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		938146EB7988CDD7E4D992064EC9054B /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D56A063C4C92449CD112A570C4FEF6 /* BitmapContextRep.m */; };
 		93875964F581B9647A9746719546AE29 /* ForegroundReconnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DFAD6873833A17E40CF070DA27BD903 /* ForegroundReconnection.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		947083FFF7C21312650AD8B813EE0301 /* TYDemoLightPanelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D357E45071AD3710D0B3CB681B0CF2 /* TYDemoLightPanelViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9568D2EF537F53B294B0ECCCCE03663D /* TPDemoEmptyView.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E3F75845D7204BB2627A1F9B7980B9 /* TPDemoEmptyView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		976371C69F28B00C229A92D57C821773 /* TPDemoViewUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FACBE2AF8CA0229A4E241E5362E85A7 /* TPDemoViewUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		984D6455DD417DC449583EE2CEC8E471 /* MQTTPersistence.h in Headers */ = {isa = PBXBuildFile; fileRef = 943B502514D7334BF3A40480E9D038DF /* MQTTPersistence.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9856B6183EA0DFF6C009CCD13BD09FC6 /* TPDemoCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E56A7369032106D6F1DF3DFE56AF788 /* TPDemoCellView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9881C8FF40D8F62F2B371FB262AA00FD /* SDWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12445A70A8823CA93CBB12756DD64F /* SDWeakProxy.m */; };
-		98DC6804CB8395B162B77B179E0FFEF1 /* BitmapCropManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 7FE9E6C4F4FD2619C43423CE738CAE96 /* BitmapCropManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		998389497E9FD2964EB1277B4831AFF8 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A44BA749141CC5108B028BC5BA963B /* UIImageView+WebCache.m */; };
 		99F79B399ACD24394046321FEF043D5C /* GCDTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 27F8CCAB6DCE6830DD13F63C86E0C2A6 /* GCDTimer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9A0513357D84C55B9C94CF975725C6AC /* TYDemoActionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FEB97F593C8773B598CB1F09D96CC0B5 /* TYDemoActionTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9A284C830C09323C18AC193FDC3E4CEF /* TYDemoRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1E8E1F75BE999C95F71CE43023AFF2 /* TYDemoRouteManager.m */; };
+		9AA9AE279C75AE15E481DD8178C5E510 /* TYDemoPanelBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFDF35B18C58CB40EB15903122358C83 /* TYDemoPanelBaseViewController.m */; };
 		9B12F156E1BEB77000D4E23081EC1F29 /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 72304280BDDFE47E995F54D9ECABA312 /* SDImageCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9B36EF7583EDEEFC684944DC2A86EE9D /* SDAnimatedImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = B3793DC913D5EA4EDC583D7705E668AD /* SDAnimatedImageView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9B7D709373C24CD4CEFCF46B78612566 /* ty_panel_select@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B3AACD5E02D2F5B39CBCA17BA6F7043 /* ty_panel_select@2x.png */; };
 		9B8365733D88EDAC8AAB34412130B375 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 378BFBB23E96FAEE37B5FACF3C254A56 /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9C3E4F1A4619FF9677759E2D15314554 /* TYDemoPanelEnumViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3F67FFD2831DF62E1B248D84742563 /* TYDemoPanelEnumViewCell.m */; };
+		9C0A7B666E8BF0B47C4D20DBDF3E4DBA /* TPDemoCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7335B9BC13539857DE87A370BD63D3A5 /* TPDemoCellView.m */; };
 		9C6AE39C0BA0098C737E20B287FA34AC /* ty_devicelist_dot_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0A8EA2B59E1D9879F2257DD4293C29A /* ty_devicelist_dot_green@3x.png */; };
 		9D5B7A2D161D6078DA4EB07849DDD72E /* SDImageGIFCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 96B3CD3D82CBD890FAACFADA5C52AC89 /* SDImageGIFCoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9D814AE75E4EA413EDBFE697955A4CC4 /* MQTTLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 378CE96EFF41B3D28BFE8EB6DECD432D /* MQTTLog.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9E349B4CE6A6EB6335A2239DF7A65346 /* TPDemoCellViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E7C421C753998E229FAB7652D8B9FA /* TPDemoCellViewItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9E62F69837A010B09A829082CE25562D /* TYDemoAPAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B18C3D297E8948E3106DA8D83FC011 /* TYDemoAPAddDeviceViewController.m */; };
-		9E80D4D62F2F0D75B88DBC1C95656DAA /* TPDemoBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BB6BA1D7F0B46C2E02CA6AC7483C38 /* TPDemoBaseTableViewController.m */; };
-		9F19ACA8A37E2C7DC6A25EBB5515BA4F /* TYDemoPanelStringViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BB0C3273B7A1EE6264C6EF29A25A338F /* TYDemoPanelStringViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9F48A3CFC3BE8F4D3EA6505C97AE9049 /* RSColorFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = 46009593BF734D90DDAFC05B3117A556 /* RSColorFunctions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9E0E124635AFF27727949EF183AC6904 /* TPDemoCellViewItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 17E7C421C753998E229FAB7652D8B9FA /* TPDemoCellViewItem.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9E1C08C645020D6FED1E16EFEDEC6A68 /* TYDemoSmartSceneViewController+ModuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B035F720A13ABF7426A8F0A6C7CD2E28 /* TYDemoSmartSceneViewController+ModuleConfig.m */; };
+		9E8265CF95C3512CF1908446B8038C4B /* TYDemoEditSceneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AA2B25BA5035F913892660167D9C2CDD /* TYDemoEditSceneTableViewCell.m */; };
 		9F517EF334E49A9C29254BDB13F00FB2 /* SDImageFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = 0905A1A1ECBC5E5AC736125DA26A8600 /* SDImageFrame.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A00B584A73A9FF6D08B9CC8E6FD90AFB /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = E88DCDB94190BFDC3A2CA870F8388997 /* UIImage+GIF.m */; };
 		A0AD793C12475943525A67CA0F5C7377 /* MQTTInMemoryPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C8470912BEEAD65EF8A97B2E08C2404 /* MQTTInMemoryPersistence.m */; };
+		A0E255B6E7E1FC7008CF9B04BEB250A9 /* TPDemoBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BB6BA1D7F0B46C2E02CA6AC7483C38 /* TPDemoBaseTableViewController.m */; };
 		A19AA07C7DB4989CB3E0A6423F39F82B /* SDWebImageCompat.h in Headers */ = {isa = PBXBuildFile; fileRef = FC3B9FEDED5805AE44156BEDB75960F7 /* SDWebImageCompat.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A1A9203077531920A307B0B9B324CDA8 /* TYDemoDeviceListViewController+ModuleConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 89CA0C1C82816AA845DC7D76F224DEEA /* TYDemoDeviceListViewController+ModuleConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A325FBEA3F2A5B60D83157E997E14E22 /* TYLightColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B90689004613C6EA5FD62368BC86888F /* TYLightColorUtils.m */; };
+		A2A9D1556EB8B7D925740763834C2FAE /* TYDemoLoginAndRegisterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F6115BF73CC2B74669DF3F2EB17A433 /* TYDemoLoginAndRegisterView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A3307B8FB6EE0A049DBAE3AA4D2C6DA0 /* View+MASShorthandAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 11F0CECE9368704A7A0739243D861E90 /* View+MASShorthandAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A33FCB63681D310613016C7AF68F3BA0 /* TPDemoEmptyView.h in Headers */ = {isa = PBXBuildFile; fileRef = F4E3F75845D7204BB2627A1F9B7980B9 /* TPDemoEmptyView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A3870DC76AEAEE48542F2190B638D372 /* ty_mainbt_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C1037E194D1E23A4BF31561F0A56B0E /* ty_mainbt_add@3x.png */; };
+		A3AD4A1B69888E5E02B81F7BFE47001B /* TPDemoViews.h in Headers */ = {isa = PBXBuildFile; fileRef = 28EF67C84D5500A8B9C6C4076DAD8D20 /* TPDemoViews.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A3C94056341DFA2A8A77147BF8CCD625 /* NSBezierPath+SDRoundedCorners.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DC8B99FF3E131B50754D15C49C37F4E /* NSBezierPath+SDRoundedCorners.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A4A45F05613701880B3A56C67DB689F0 /* TYDemoRouteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1E8E1F75BE999C95F71CE43023AFF2 /* TYDemoRouteManager.m */; };
-		A4CB7FED497136125B41FFC16A36A092 /* TYDemoDeviceListUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = A50498EDAFBFAAAD4198AF9FD731EF06 /* TYDemoDeviceListUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A52591B16C72612A835B79FD273337C7 /* BitmapCropManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7608528C985BD87978E8A008284A9062 /* BitmapCropManipulator.m */; };
-		A5754389914E61082531129829432569 /* TYDemoEditActionTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D25CE1943C8CA96B5A91773E6EE52 /* TYDemoEditActionTitleTableViewCell.m */; };
-		A5BDF55EE01A60FEA6D43AAA42833326 /* TYDemoTextFieldTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 071EDCADB05489896EFE2937DFEB753D /* TYDemoTextFieldTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A4692EB7412BAEEA756E551FE7804912 /* TYDemoSwitchPanelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F4CC32984942E1C8BB3BEDD0F2816923 /* TYDemoSwitchPanelViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A5C2E63BDEE0B253240BD476588A7841 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E58EE8B05056935ECC82B4649C0EC /* UIImageView+HighlightedWebCache.m */; };
 		A5F63B17585C0908EEF2BC4B64A17650 /* MQTTClient-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E35577F8A675A578A3AE04FF75C687A /* MQTTClient-dummy.m */; };
 		A606FA8FCC1DA036EC6CDA20059FF7CE /* cell_view_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BAC4BBEB0CF5A3BE584E8DA824134E4 /* cell_view_arrow@2x.png */; };
 		A6418EAF76DD9649EB3A7521A137662B /* MQTTCFSocketEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF6FF6E11EE7C776B44FF52F7F92E20 /* MQTTCFSocketEncoder.m */; };
 		A6747B6E6D35FB0709A0E58F686A88A5 /* SDWebImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 55209F060F4AE77CE62988B18138A624 /* SDWebImage.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		A6843DC929C489704BE69A5FF94CE3C9 /* TYLightColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = D0413DDECAF75E5DB9E6E2C35325D86B /* TYLightColorUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A817ED348761ECAA91E6B309AA6EB87B /* ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 599431F0DD07A2AB3E048F98D9BB2701 /* ANImageBitmapRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A82C9233FEF39ED27E22F7C0FCB4519C /* UIColor+TYHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E9F1081953CD1272A15D782B88073E5 /* UIColor+TYHex.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A8435251B012DFF3F7729F608E973C44 /* power_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D48FD7FAB2B7A7E27AD5264A225E23C5 /* power_on@2x.png */; };
+		A87ED843C2672B6C1D7EA1CDD19CABA7 /* TPDemoBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BA82C810489C87B023EFE1DA728A9433 /* TPDemoBaseViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A893FFB0F9137E298D6752729850D1D6 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F644F734EFB3AB58AA6EB5078689959 /* MASViewAttribute.m */; };
-		A95CAFDC6B52A834561AA2BCBD330DAC /* TYDemoLoginAndRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9832F37013637859C1DFBC4FB3BF6FFE /* TYDemoLoginAndRegisterView.m */; };
-		AAAA5FA4C279085C4B034994D006A6C9 /* TYDemoEditActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22AD4641DE04F2E6EDAE49B2D3256786 /* TYDemoEditActionTableViewCell.m */; };
-		AB9B34A7AAED6BB4307DB6D0774C24F4 /* TYDemoPanelEnumViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B16935D1504593EF9BDC265805FA1F9 /* TYDemoPanelEnumViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		ABE77BE39A1917A299078C230CE21A5F /* TPDemoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D69B9BE19737805B24ACD3FE5C0B62 /* TPDemoLoadingView.m */; };
-		ADA8F6D586A782818A37D7490B536BA9 /* UIImage+ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = E427D63197283DD75CCEDDC1DA070C7A /* UIImage+ANImageBitmapRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A8E395D088C5726EC384B442A67FBE75 /* TPDemoProgressUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BB172AF3589EE6657FFEB63C0B6FC9B1 /* TPDemoProgressUtils.m */; };
 		ADD40507CC260D77E0AD6A2E3A575382 /* MQTTSSLSecurityPolicyEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2039BBCF5440E041CB97D32517C1508A /* MQTTSSLSecurityPolicyEncoder.m */; };
-		AF65AD530C48BDF0135B5945209CCBD3 /* TYDemoAddDeviceMenuViewController+ModuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B558AE45D8EA2AC44E3CFDAE2AD960C /* TYDemoAddDeviceMenuViewController+ModuleConfig.m */; };
-		B05292651FC3E6EDDF4F797A889F067C /* RSColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB0F16A50CE586458677EACF06BAB0 /* RSColorPickerView.m */; };
+		ADF60FFCFD34646C677119719E16B930 /* TYDemoDeviceListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F1AE4F5F7845AD81FC0EF9E13C5D00 /* TYDemoDeviceListViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AF91D323066A8B7A1B6EF371DA342280 /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D56A063C4C92449CD112A570C4FEF6 /* BitmapContextRep.m */; };
 		B07B0193B545AD11E0A9971DCDB97EDB /* UIImage+MemoryCacheCost.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CAE2CD51FAB40A5F96F09C6163B426F /* UIImage+MemoryCacheCost.m */; };
 		B0ED107F3AAF83FDD3035D0B3D864953 /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = D7BF852BC607113261409A131BE5BEC1 /* GCDAsyncUdpSocket.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B17D4D0F2EDCE1D5FB74901B173DCA28 /* TYDemoPanelBoolViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E46F77464E189BEDF5E2CE686F13A0D2 /* TYDemoPanelBoolViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B20A0E5D8F9BCED1A82793C4BE9E7258 /* Masonry.h in Headers */ = {isa = PBXBuildFile; fileRef = 62AEE9A36A6AE84DC561114488B4275A /* Masonry.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B284E952224927D138B8A67AABA0A312 /* NSBezierPath+SDRoundedCorners.m in Sources */ = {isa = PBXBuildFile; fileRef = DF2839A795AB8AD0D5AA51CEE59262EF /* NSBezierPath+SDRoundedCorners.m */; };
-		B568C3E91A00AF7B12480ED0D183522C /* UIColor+TYRGBA.h in Headers */ = {isa = PBXBuildFile; fileRef = 90B35463CA725F1F0296893C44ED62CB /* UIColor+TYRGBA.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B2F4D5B385E4BAE360FFF4CCD2D04701 /* TYSliderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 85B0DC1F2CCB831D46C4FE85D9CC9842 /* TYSliderView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B57742214BEE9AEBEBAD8AEA7EFCDB0D /* NSImage+Compatibility.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B449340921DABB39AF063A8672FBA3 /* NSImage+Compatibility.m */; };
-		B59DCC2FBF69D138B318FC81F5D2B5F3 /* BitmapRotationManipulator.h in Headers */ = {isa = PBXBuildFile; fileRef = D6019624C9A86C154168C509FFF1E48A /* BitmapRotationManipulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B612C0983319CCF994B7EED4C4010563 /* MQTTCoreDataPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = C34D111BD65DDFCBF6E32FFEECECBB12 /* MQTTCoreDataPersistence.m */; };
 		B7E64B03B6D3BA241445049536C258B4 /* ty_devicelist_share_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 932E4F22ADD9F3C3EB887332FFD46561 /* ty_devicelist_share_gray@2x.png */; };
+		B82E5280277836FC5AD22F95516B24CA /* TYDemoRouteManager.h in Headers */ = {isa = PBXBuildFile; fileRef = ED66BE9459584911FF96B6E2E23401E4 /* TYDemoRouteManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B83B6A071701DB7EF8D4D65EFB9EEC1B /* UIImage+ExtendedCacheData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6970DAC608FD4BDAB7B925CEDD714CCB /* UIImage+ExtendedCacheData.m */; };
 		B92DB014092D3F8C4C168D2408447080 /* SDImageCachesManagerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 193D5CDD7753B7FA5DA9337995DAD261 /* SDImageCachesManagerOperation.m */; };
 		B946AFB1A725D85E07F645A7EF086383 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E436F8D17B4A2E58807B270C37B0866 /* NSArray+MASAdditions.m */; };
+		B947F8024D7595723BA61DCB23271B82 /* TPDemoBaseTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 35DC312BF96051F5DD3501E51CAB4A74 /* TPDemoBaseTableViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BA81BF1B5820B76F92FD09D5D14DD62D /* ty_mainbt_about_active@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 87180ECB6A9E483C63D4D4AEBC4CDD4D /* ty_mainbt_about_active@3x.png */; };
+		BAEBD409DD27B65F6B9CF3113232C091 /* TYDemoEditActionNoDataTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 38922089969915E04920CAC77B8F723F /* TYDemoEditActionNoDataTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BB1CD9804D4612BF6694BA8FC1AA3FE5 /* TYDemoAddDeviceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AA704D0B75A62AAE2D1CF7147D9119 /* TYDemoAddDeviceUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BC5B1B81BA18A881E0F4A0FBEB63CCF6 /* ty_panel_arrows@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BFD83F90875E5D5090178EB7B4C9B229 /* ty_panel_arrows@2x.png */; };
-		BC7B3C4641275396BBA254EE95581B6D /* BitmapContextManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1EF27856835EE635FD476596554E37 /* BitmapContextManipulator.m */; };
 		BD581F43E1B1B9B45DD3DC6C4B709539 /* UIView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 773081D5CE1F8A6E0EA3F8D2FF91E5C6 /* UIView+WebCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BD83DCDB2BACC262DC641340F62DBA95 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8747CD85B36F19266C2C5603BC5D64D /* SDWebImageDownloaderOperation.m */; };
-		BDC387C9CBBBBD6F38BC39894593B9C2 /* TYDemoAddDeviceMenuViewController+ModuleConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 264262B8CFFA4D5F3068D3B515B79EC4 /* TYDemoAddDeviceMenuViewController+ModuleConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BDCEC74D09CA629346B8CDB4180B1BCF /* SDInternalMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 34D9A04D36B0D836F60C2E5C47217371 /* SDInternalMacros.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BDF44A31EBC6CF636F6EB679265245DE /* TYDemoPanelBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B9B84DC77404A43E7D68E37C6D0C587C /* TYDemoPanelBaseViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BDFC6900D7B2751F924DC99F79DBF8ED /* Reachability-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8532FC58982EB08305F05E23A3D218F6 /* Reachability-dummy.m */; };
-		BF28302E2C76EF39651AD53C7950C3FE /* TYDemoPanelBitmapViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3756E5035A4EE1F89E930A935949F3E /* TYDemoPanelBitmapViewCell.m */; };
+		BF78BB38F7C2C17C0FB2AF2C3F54DC64 /* TYDemoPanelValueViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4837DB70DCA03A4B9B1AA942D0EA0A79 /* TYDemoPanelValueViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C05FC6699632FE712174ED875A605410 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B958E9AA2303A433DA724D956E9551 /* ViewController+MASAdditions.m */; };
+		C0992FC3EA1BAD481B99EC87C1A6484A /* TPDemoProgressUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FBF681D14E645E6504BB7134EDEC403A /* TPDemoProgressUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C0A958A4B24F00CC347770BC9547B307 /* ty_mainbt_about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ED6CD8783434803E15FE6FB78B55AD68 /* ty_mainbt_about@2x.png */; };
-		C106B1E96AAA188CF4F61E217BD64901 /* UIColor+TYRGBA.m in Sources */ = {isa = PBXBuildFile; fileRef = 12C1AFB54481089D76EB7D96FDD47014 /* UIColor+TYRGBA.m */; };
-		C15790D48744F5D1BA56ACF81097C9B3 /* TYDemoLoginViewController+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D0307C9EF1C607F92DE736968B793 /* TYDemoLoginViewController+Route.m */; };
 		C2987D24FCC399816718779BF0E8D10A /* ty_scene_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 556E71DBC974C42F5FF2DB19C6EB61CE /* ty_scene_selected@2x.png */; };
-		C2A0336ECE3AD408F0F5F160D92C5BB0 /* TYDemoPanelBitmapViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FA38A08493737DA428B537405B8DB4AC /* TYDemoPanelBitmapViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C30CC261B75B92063A8E43BF9F019C47 /* SDImageCachesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5828CAD1BED57E10C06749C3CFFF02D0 /* SDImageCachesManager.m */; };
+		C3411C0E22273108BBE243FCD3CFCD16 /* TYDemoLoginViewController+Route.h in Headers */ = {isa = PBXBuildFile; fileRef = E7F10B7F35BB31F533EBDECDAFB772A5 /* TYDemoLoginViewController+Route.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C348965AA274C2074CD0CE0D41405C68 /* TYDemoPanelBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 025CE7A0BF085D58DB3F23B4F405484D /* TYDemoPanelBaseViewCell.m */; };
+		C384BD8BBC26E63F30E1419AF244A5DD /* TPDemoBaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = A515911D4F7E66E2276166D9A30043EA /* TPDemoBaseView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C4A781EEFE89058B7265C6F721CA91AB /* SDWebImageOptionsProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = D672B39063D8F3797483C93564009A00 /* SDWebImageOptionsProcessor.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C4D6408BC7CB7CF75B8CAC0B16569658 /* TYDemoLoginViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30F0BF1EF50AD699ADCF6FEADB1B4080 /* TYDemoLoginViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C510184106E9B6560A74A2DCF0C37A70 /* ty_panel_minus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90482F8A42B2DB6A8BF5A789C1E75D6C /* ty_panel_minus@2x.png */; };
 		C564C8D042998164475E13AD54B0A294 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 9C33627C4713910D4B9DA3CF8277230A /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C6112E812FBB594FC9C08AF61830C082 /* MQTTTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = 10328558D5914AF3CB3E8993F4F16EEB /* MQTTTransport.m */; };
 		C65E86E52A058A4BC204511ACB6090DB /* MQTTSessionLegacy.h in Headers */ = {isa = PBXBuildFile; fileRef = 26B23B438D187A72FC864C9F3D962674 /* MQTTSessionLegacy.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C670F8F6FED1CB607E5F6E7032633461 /* TYDemoDeviceListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 19F1AE4F5F7845AD81FC0EF9E13C5D00 /* TYDemoDeviceListViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C6D5D33D1AACB697CA8B1CB6DBE957EE /* TYDemoTabBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4949AD9CFF4A76369EA07A7B88CCB33F /* TYDemoTabBarViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C73A65C50A02557A237690690E8DE2CA /* MQTTStrict.h in Headers */ = {isa = PBXBuildFile; fileRef = E06C2EF1F399BB3834CE3BA4974944CB /* MQTTStrict.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C74D2E856ADC8139CD00DBD184061B23 /* NSLayoutConstraint+MASDebugAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AC6C1A38105CDA6374C82DF4ED44144F /* NSLayoutConstraint+MASDebugAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C7920681F0164686C56327ED3C6AAC58 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 38CE7CD35DB6A69AC43B02F92DDEC230 /* View+MASAdditions.m */; };
-		C87A8AF6A2E964057C8B8FFDFD884700 /* image_processing.mm in Sources */ = {isa = PBXBuildFile; fileRef = DE05261643200D7A5FC0FBC15C49C31B /* image_processing.mm */; };
-		C8F033C013CC34C5487345B8F98B534D /* TYDemoAddSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BC224FB2BD989ED8345DCC6B345CEEF /* TYDemoAddSceneViewController.m */; };
-		CBE851BB3167D7D38FC049502F85EE18 /* TYDemoLightPanelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A1D357E45071AD3710D0B3CB681B0CF2 /* TYDemoLightPanelViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C8A3D02302601AED958FABAB055F7A04 /* BitmapContextManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1EF27856835EE635FD476596554E37 /* BitmapContextManipulator.m */; };
+		C909DAD272A9B41F7CE88249F617AADD /* TPDemoBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C069975AF310D4C06955CCA86BC962C /* TPDemoBaseViewController.m */; };
+		CB3FF350921DADE6C103F0FAC92E2ECE /* RSColorFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEB6D87F8C466FC27250A7F955C49AF /* RSColorFunctions.m */; };
 		CBFBE21B2B3333742C3DE4D42C07109B /* ty_scene_error@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BE78A35DD07DE970F972944F5C61C02 /* ty_scene_error@2x.png */; };
-		CC03AB2F2F67CF36392411910ABD5301 /* TYDemoPanelDpTitleView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A9C042AC61D3307DDC934DE3066C546 /* TYDemoPanelDpTitleView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		CC6172F2669ACA10E7327484838D8113 /* RSSelectionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = BAD2F7924A1BD9C61C40B176D2B144F4 /* RSSelectionLayer.m */; };
-		CCEAB2D12A4B440EAAD3A908113A3C8A /* TYDemoSmartSceneUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 803196D14B48BD89A151E29E43556AEE /* TYDemoSmartSceneUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CD20A39D348437FBBDED7D0E4264CFE1 /* ty_index_scene_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F27A0DB817FD59A5382BC945B1B35814 /* ty_index_scene_close@2x.png */; };
 		CD2245532B231B39146928B82B664800 /* SDWebImageIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = C8BE28351E3E7D523597301BDFAAE8AC /* SDWebImageIndicator.m */; };
 		CD40EC89E9242EF2196E318E81133DCA /* SDWebImageTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 12372AD2CA902EAB9E67393173E1E740 /* SDWebImageTransition.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		CE35E0E27F2FF992413E877CEA7C0434 /* TYDemoSmartSceneTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E6E89C4AB9C4DD6C42FDCEEE9D76409C /* TYDemoSmartSceneTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CE40C2646E18B9138EA40560B099279B /* tp_top_bar_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9CB2541722B4ABD1D8C43BAC961E78A0 /* tp_top_bar_back@2x.png */; };
-		CEA92723002E5D4E9F2D027F1920032B /* NSImage+ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = C529F596426F888648D87CD2FA5BF13C /* NSImage+ANImageBitmapRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		CEFB8B991388FFB4442BC936277AE707 /* TYFeitSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 353C584ADAD8CC76F8E8A1DC0EE77AEC /* TYFeitSliderView.m */; };
+		CE6D6DBD69C75F8C22DAE70E320A7439 /* UIColor+TYRGBA.h in Headers */ = {isa = PBXBuildFile; fileRef = 2854B41FFA0293C81F142C0AD8D18A50 /* UIColor+TYRGBA.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CF015D6109D2B386D6A1F1F18CB0C9C3 /* SDImageTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 14D38E209E8F7E8CAC47E7FF8F5E284F /* SDImageTransformer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		CF6064568329265FB03CA4BD03269954 /* TYDemoTextFieldTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EAA59AAB8957C2FCE32DE969DD1445 /* TYDemoTextFieldTableViewCell.m */; };
 		CFB4EFA7B2ADC28AD13CFFCA011596D7 /* SDImageAPNGCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ACA6F047BDD0C3C3663269AECB5675E /* SDImageAPNGCoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D02B3573B6CBAF66983E646C77664CBE /* BGRSLoupeLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CF72CA8C2DBDD3E297D255FAE827279 /* BGRSLoupeLayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D087D677B06FB318EB5D32F3CC406D9D /* ty_mainbt_devicelist@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CE3A64D7A0AF3B38D0B6119926E3FB /* ty_mainbt_devicelist@3x.png */; };
-		D119C3A8AD84ECD57F66974EC93E001D /* TYDemoLoginAndRegisterUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D1F5082174D73F2DBA2165F70856D80 /* TYDemoLoginAndRegisterUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D09889DC75C1052A4531A425507F7E8A /* TYDemoEditActionTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA3D25CE1943C8CA96B5A91773E6EE52 /* TYDemoEditActionTitleTableViewCell.m */; };
+		D0E5039E0886035FDCA7E1E18874D284 /* RSGenerateOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1492EF8BF015E40E51948499A7B4CA22 /* RSGenerateOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D1C2B054C7B9676964D8618A2B1F87B5 /* TYDemoEditSceneTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DB2B82E7D5A4367DF3690D93CDEF7EA /* TYDemoEditSceneTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D1F0D8908B97C143A1FA8C0BDF18189B /* TPDemoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FC4562F10280032B235DF85DC33DF /* TPDemoItemView.m */; };
 		D29A03BBC9B95E677C2F51345F344088 /* SDMemoryCache.h in Headers */ = {isa = PBXBuildFile; fileRef = FC718AECD8D243032DE8879331B01706 /* SDMemoryCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D2C0E6530E3AFBD6C079E42472F33800 /* SDDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ECA973B67945CBE6A1128EEFE75C559 /* SDDisplayLink.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D34D43A641B990B2CBE0BFF3234463FD /* ty_panel_select@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F933FA9A5B8F16B201B6270380CF286 /* ty_panel_select@3x.png */; };
 		D45D3AEB9410A3EFF7DC52DDE5435CA8 /* SDWebImageCacheSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA15147B8C5ED1DED3E903BBE67714D /* SDWebImageCacheSerializer.m */; };
+		D47B08BCC67DDCE94FAB41363628B92C /* TYLightColorUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = CC69A1BC6F93B6EC8B5E7EE39250197B /* TYLightColorUtils.m */; };
+		D499EE196558EA25475EA05EE57FC0D2 /* TYDemoLoginViewController+Route.m in Sources */ = {isa = PBXBuildFile; fileRef = D07D0307C9EF1C607F92DE736968B793 /* TYDemoLoginViewController+Route.m */; };
 		D522C8B6C7C223E80D6BAB4BDDB5F69A /* SDFileAttributeHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C49413ED3D577269C054E5E399CDA7C /* SDFileAttributeHelper.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D52C10EA35EC590DD674961CF5A385BC /* TYDemoEditActionNoDataTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 38922089969915E04920CAC77B8F723F /* TYDemoEditActionNoDataTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D52DA477BFA423EFF062FBC41C42572F /* MQTTSSLSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D43BF682BD1D15EAF7CA5E03906144 /* MQTTSSLSecurityPolicy.m */; };
+		D5ABA7438AF6BB69F4D8BA88E5B5B7E8 /* TYDemoEditActionTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C817255C3C1328CF2972A4EE6FCDAF1 /* TYDemoEditActionTableViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D6306A7425F5E867E5F390124E31CF40 /* ty_scene_switch@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FE8F03FAEFABBF1823A37DC69118DE10 /* ty_scene_switch@3x.png */; };
 		D72EE0E749232B2C899702FC1C9402BB /* Masonry-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DE45648218712076EA745E3CD85B3825 /* Masonry-dummy.m */; };
 		D7E39007ADC52A887967F78C6E5C61D9 /* SDDiskCache.h in Headers */ = {isa = PBXBuildFile; fileRef = BC6A10865D73124A127FF6E63B4A730E /* SDDiskCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D81877A733779D577FF1839EB4095E72 /* TYDemoSwitchPanelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = F4CC32984942E1C8BB3BEDD0F2816923 /* TYDemoSwitchPanelViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D8D6C03DF1C7EA8CFBB14FBB4F81153F /* TYDemoSmartSceneViewController+ModuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B035F720A13ABF7426A8F0A6C7CD2E28 /* TYDemoSmartSceneViewController+ModuleConfig.m */; };
-		D97B082FA938AD1F764B51B672438CD6 /* TYDemoUserInfoViewController+ModuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D370525EBD403C06E3F1B56A74922BA4 /* TYDemoUserInfoViewController+ModuleConfig.m */; };
+		DA025733CCD7160AC76737AF2311F30F /* TYDemoUserInfoViewController+ModuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D370525EBD403C06E3F1B56A74922BA4 /* TYDemoUserInfoViewController+ModuleConfig.m */; };
 		DA1748D1A95CFB09630C1B1318088350 /* SDAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 740BEC0CD4302260E1EBE1FE87BBCD6F /* SDAnimatedImageView.m */; };
 		DA765D01151CB2601493C20FAB272A99 /* SDImageGraphics.h in Headers */ = {isa = PBXBuildFile; fileRef = DD35D5C619E5F84DE30E840A5689825D /* SDImageGraphics.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DAB56CA3BF77D40CED6C19224D5E1794 /* SDImageCacheConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 3563973E45D80F870E1A047EA9A9CCC8 /* SDImageCacheConfig.m */; };
 		DB1E8575E4C0D64F80C3ACC4E400047F /* ty_panel_arrows@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AD9811625F099DA09F9B94F39FB57196 /* ty_panel_arrows@3x.png */; };
 		DBB7C38541245840971728B2671146FF /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A85D1DFDC426DCE2BF67F8A0A248C /* SDWebImageManager.m */; };
-		DBC5188D51065A5997A02F53E06A2AB0 /* RSGenerateOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 1492EF8BF015E40E51948499A7B4CA22 /* RSGenerateOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		DC53099EAF19686F5836CA81F0C9F3EF /* BitmapContextRep.h in Headers */ = {isa = PBXBuildFile; fileRef = 62881D17A5E7D3514650A9E6E8DD649A /* BitmapContextRep.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		DE0F5BBF002A0E35A13FE9F3FB321EB1 /* TPDemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 754837F74E1551ED8B847FC0A09FBA48 /* TPDemoUtils.m */; };
+		DE75FE51D2B19E737AB1E0D29E607FB5 /* TYDemoAPAddDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B18C3D297E8948E3106DA8D83FC011 /* TYDemoAPAddDeviceViewController.m */; };
+		DE7AAE153C89898F925A1DCE5893486F /* TYDemoUserInfoViewController+ModuleConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 34AFB5CF26D46D840F23F2C20CF53E59 /* TYDemoUserInfoViewController+ModuleConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DE9F2D2CCDC8C61E3FE6975F5FF3CBFC /* TPDemoLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D69B9BE19737805B24ACD3FE5C0B62 /* TPDemoLoadingView.m */; };
 		DEB710DA79FFEE7C7A43F80DFE6D4FB2 /* MQTTCoreDataPersistence.h in Headers */ = {isa = PBXBuildFile; fileRef = B9AECBAED09203A8670E4551084B2CAF /* MQTTCoreDataPersistence.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DF091238315C2F3AE424E99745B03CB2 /* SDWebImageDownloaderResponseModifier.m in Sources */ = {isa = PBXBuildFile; fileRef = B79B63DFEC84310E13A3817B7083CFBE /* SDWebImageDownloaderResponseModifier.m */; };
 		DFEE952045A2A44A226F45010B286D60 /* NSObject+YYModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8FC74C33EB70FA981822D03131A0284E /* NSObject+YYModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E078F2E8DCA4B08E92AC3BADC756C249 /* TYDemoAddDeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F02A148E46AA60AAA585A1A860B556 /* TYDemoAddDeviceUtils.m */; };
-		E0A04C50B52E916048ABF372FAAC7D47 /* BGRSLoupeLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CF72CA8C2DBDD3E297D255FAE827279 /* BGRSLoupeLayer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DFF0639A8267CCC1D07A16820DC89C00 /* TYDemoTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = D26668CC99417A7A2B06AB1D8F785B19 /* TYDemoTheme.m */; };
 		E0C5B992773857B7992E9BFE6CB322CE /* ty_index_custom@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DBCE656F7B43FF9870437A6D63CCE821 /* ty_index_custom@3x.png */; };
+		E0ECA0B8E8C04A98EE2DFC53B8C3C2E5 /* TYDemoAddDeviceMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9D72B334AAA67C98195CEA54E074DD /* TYDemoAddDeviceMenuViewController.m */; };
+		E1D6DDB35710A634AD4AD0777C351104 /* TYDemoAPAddDeviceViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DCA17685CA92C97321334AEE142D1DC2 /* TYDemoAPAddDeviceViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E1DE0C8CC1566F20109C1A83F73C77BA /* UILabel+TYFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8F5617623C229FDADB68B6AD281AF8 /* UILabel+TYFactory.m */; };
 		E23346ECAF355CD3657CCE1EE5EC763E /* ty_devicelist_share_green@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31956FB6A116993A228C685A006698E6 /* ty_devicelist_share_green@3x.png */; };
 		E2390F8287F684D2B01245599B932C9A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7D8E5AB9BAC8D01EFDE65522DDF4237C /* Localizable.strings */; };
-		E274BCC943051A04BA12666317797923 /* TYDemoSmartSceneViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EC8DFB63221272C5B218A8451D9F21A /* TYDemoSmartSceneViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E2EA9FE43D5ACF8C6EF4CCB407A52AEA /* TYDemoDeviceListViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 9008449F09985BD173EA1FBE297DB995 /* TYDemoDeviceListViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E34D536EB38161183AC71F5403278288 /* SDWebImageDownloaderResponseModifier.h in Headers */ = {isa = PBXBuildFile; fileRef = CBEC79C68E1612035B07A73E9DE8D00E /* SDWebImageDownloaderResponseModifier.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E3E2BD738E7E9A105525F691CE53FDBF /* UIColor+SDHexString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A54D870E1C2C6A02AA3FCC3AB2D173A /* UIColor+SDHexString.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E42A7D1C9E99A24203A295E85B978938 /* SDAnimatedImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9EE8DE90C142B1E19553C0239EFB45DE /* SDAnimatedImage.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E487DD5D6EE5F87DED6A3CFAC2929812 /* TYDemoPanelBaseViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 025CE7A0BF085D58DB3F23B4F405484D /* TYDemoPanelBaseViewCell.m */; };
+		E42B6E0551623EC1E521A41D2890B6CF /* TYDemoPanelBaseViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B9B84DC77404A43E7D68E37C6D0C587C /* TYDemoPanelBaseViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E4C9F6B6CAA3CA9D6E08686FFA707AD7 /* MQTTCFSocketEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = F0835FA751EDB854014252F4FF16401D /* MQTTCFSocketEncoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E51D30B8AB319E61C437334D13FC859F /* SDWebImageOptionsProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D430CC0F233ACED1DE34E74679D10C8 /* SDWebImageOptionsProcessor.m */; };
+		E53DEFF159253A72148A2C1CE86F7371 /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDC5A5D462921958ED531AA4A974595 /* CGImageContainer.m */; };
 		E55DD07EA9F2170DE0A0F19E425A6EF0 /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CE63B731AE460D64A788B7F74D76BAC /* YYClassInfo.m */; };
-		E5F724C58CB915C8A910BB8769AF45A5 /* TYDemoDeviceListViewController+ModuleConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = FB01743718705A0F356FA319BB7A7A2A /* TYDemoDeviceListViewController+ModuleConfig.m */; };
-		E6A66E5498857D6414301CAC1C3BB2F5 /* OSCommonImage.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6ADA0A0F3C180C17224B6EF0FE6CA5 /* OSCommonImage.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E6AD01F3482B5DC39109FDDC4FA258F5 /* SDWebImageTransitionInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B36B86640E5342D159BC95C7918222C /* SDWebImageTransitionInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E7165ACE4E69370B6C21B814BE564B38 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8767B0078663834DB0006F028ED84A47 /* UIImage+MultiFormat.m */; };
-		E73E88A8483D147A4AB0899448EF40CF /* RSColorPickerState.h in Headers */ = {isa = PBXBuildFile; fileRef = AAEC6CE29D7534AA8F041648FE53D40B /* RSColorPickerState.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E73F8F043836118436DC68EA4A9BD46B /* MQTTCFSocketDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = F24E1004FF2975407A5060E70AF2BB7B /* MQTTCFSocketDecoder.m */; };
 		E76935CFF4AF327F8D9A7C1935F7D900 /* ViewController+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 599CDA293D871DFF4F31D441393EED09 /* ViewController+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E89678023EB928D8162BFC0B1DCF31D3 /* SDWebImageCacheSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = 86824AE66BDA40290C4ECA1D96AD8726 /* SDWebImageCacheSerializer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E8BC0E3B26159ED4D6462E921A5A69D9 /* SDWebImageDownloaderOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EA5796A43B8F78013070F05CAB120E /* SDWebImageDownloaderOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E8C96FF99FC6A03A737CD3202588C7D5 /* SDImageCachesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 62906EF2478B0BDF00F9B05376468E7C /* SDImageCachesManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E908BD40E3A430B3A7FC30B6B695DA0B /* TYDemoRouteManager.h in Headers */ = {isa = PBXBuildFile; fileRef = ED66BE9459584911FF96B6E2E23401E4 /* TYDemoRouteManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E8D7B80DBE2B12100D503CE3190B4025 /* TYDemoAddDeviceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F02A148E46AA60AAA585A1A860B556 /* TYDemoAddDeviceUtils.m */; };
+		E9B0ED962A140F43A020F9F5DBF38C5E /* TYDemoPanelStringViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = BB0C3273B7A1EE6264C6EF29A25A338F /* TYDemoPanelStringViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EA53B89AAC16CE584E6F5DD11D500FC8 /* SDImageCacheDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E051E1294ADDEB9188B026B9F9B2582 /* SDImageCacheDefine.m */; };
 		EA6C7552BEBF63375E496D7EDE43DB6D /* MQTTSSLSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BD414C20C28A8B5E1CBA52F122E4118 /* MQTTSSLSecurityPolicy.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EB05BA1756841D7C3338BA30F157E591 /* TPDemoViews.h in Headers */ = {isa = PBXBuildFile; fileRef = 28EF67C84D5500A8B9C6C4076DAD8D20 /* TPDemoViews.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EABC95C9ADAAA7B1CE9C5A01B083B147 /* TYDemoSmartHomeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D21568EF5DA4668A1E5DBCEB20DDA9A /* TYDemoSmartHomeManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EB5387B1565F0C1857E20B1E6598E272 /* TYDemoTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FA1EDF2A27ED4AC6F0F5E05B41BFEA /* TYDemoTabBarViewController.m */; };
 		EB663E3E1EB4BB670DC29B77DB330135 /* MASConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = EDC77ABF1C442C361B91E5164BCB868E /* MASConstraint.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EC339A09140F23EB572F2FB270618F50 /* TYDemoUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F2462925DEF149C478F6C4E98E6465C /* TYDemoUserInfoViewController.m */; };
 		EC357E611B3D5756D5863C4408BE6CE2 /* SDWebImageError.h in Headers */ = {isa = PBXBuildFile; fileRef = 93C0E0BCA464C9CF45AEA56879924572 /* SDWebImageError.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		ED6DD3046F9503E10E96D7998BE50237 /* TYDemoAddZigBeeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = A05EA05BCC4C20F35C1C8BFBAEFB8B8F /* TYDemoAddZigBeeViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EC95CC0A114676BC8E09E95155FAABF7 /* TYDemoSmartSceneViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 7EC8DFB63221272C5B218A8451D9F21A /* TYDemoSmartSceneViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ECF2A34DB320C64A1240F13D230EDFC8 /* image_processing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9AB7CBBB9978C6D3BC9229DA0197509A /* image_processing.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ED7598F9C81A150699D33D2BE7D0EC54 /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = F319FEA96D1469237803782B50887EC6 /* ANImageBitmapRep.m */; };
 		ED762391A2F91F42B018DF5134509E41 /* ty_mainbt_about_active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 606D214EE7256C4DC3F8EA030446A647 /* ty_mainbt_about_active@2x.png */; };
 		ED96435EFFC4D04B0C21C6A84E84C43A /* ForegroundReconnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BB06FA35B1430BDC840649E378E3585 /* ForegroundReconnection.m */; };
 		EDCD926B479A4DD0BCFFFA5B36BE2460 /* SDImageIOAnimatedCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 399A8C7161541561620C3F4A0297CB83 /* SDImageIOAnimatedCoder.m */; };
+		EDE29C7C5EE2721DECC80B9FE05E9F4E /* TYLightColorUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F49498DE27727FB7E06D6EAA7987BC3 /* TYLightColorUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EE936A6838005A5ED1BC5F74BE37B7BD /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = F2319C7EB36680206CB8AF7B4A912CEB /* MASConstraint.m */; };
-		EEB23080652D7849419FE71D4F580AC1 /* TYDemoSmartSceneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = DF7ECD4B7783B1C5FE0BF685FA4E4922 /* TYDemoSmartSceneUtil.m */; };
-		EEE687A6B3AA25535B91B9B0B17B5BF4 /* TPDemoNavigationController.h in Headers */ = {isa = PBXBuildFile; fileRef = BBCD9BF34486A5CE66AD847C928F8427 /* TPDemoNavigationController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EF5491A4CB593F4B14C3A4CD72649405 /* SDWebImageIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D94C58B04511228058FFF8CB9747B71 /* SDWebImageIndicator.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		EF5B8D4C998F903F81C9FDD1A6220551 /* TPDemoViewUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D7A5908321220DB2D741D36BC4CD9984 /* TPDemoViewUtil.m */; };
 		EFB7635597A4F6FC8ECEB5A5BCBFD316 /* ty_devicelist_dot_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D2BE7AB2FB5BA97ADFBD07994D36ADC /* ty_devicelist_dot_gray@3x.png */; };
 		F026D9C39DB59AD0F3F7F6F6371A22B7 /* SDImageAssetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB274446D1A9B49023AA5EE878FBDE8 /* SDImageAssetManager.m */; };
+		F1073969D62217C2CFE254D1F2F7C1D3 /* RSColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FB0F16A50CE586458677EACF06BAB0 /* RSColorPickerView.m */; };
 		F1452646310B7DF8D987010249536E76 /* SDImageAssetManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DE64227F9CFE7F66F6104738D0B3F561 /* SDImageAssetManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F1AD535E49AC4E77FEA30208554EDB69 /* SDWebImageTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D524ADC1112AA0B4B0018138081F70 /* SDWebImageTransition.m */; };
 		F1B75048874B8773E5568E6D3ACA12E4 /* NSArray+MASAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A47EE57741DFAD047C3374A01C538DD /* NSArray+MASAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F1DD207E3FDE8FD41F4E8FAD4A840C13 /* SDImageIOAnimatedCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D76F012CD6709BF3DC8D34A342E1DDC /* SDImageIOAnimatedCoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F33A778AC5A715C610A6098B82365CB1 /* TYDemoSwitchPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BDC8C2B7F4551B881D1CEB2B4015DC59 /* TYDemoSwitchPanelViewController.m */; };
 		F3815E2CA3F9FC9643C5044EBECB75F5 /* MQTTMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = EEE25E3A507BE95E290134AFE497366D /* MQTTMessage.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F3C1F7F0CB3B466A65876F39EBDBFC65 /* SDImageGIFCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C2C17B3CC90789FBE08DFD909CD9E11 /* SDImageGIFCoder.m */; };
 		F6541A2BAA913272621A7CB6C823B035 /* SDImageHEICCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2B8377FFA08B981C8F1B4C6DB29B80 /* SDImageHEICCoder.m */; };
 		F66A8C3F3DAE79E819C2DE17A79F79CD /* ty_mainbt_devicelist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 551D969BE23CBD2B426B8650095F8581 /* ty_mainbt_devicelist@2x.png */; };
+		F69EF84886E80EE759F0BC19410E1D5F /* TYDemoDeviceListViewController+ModuleConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 89CA0C1C82816AA845DC7D76F224DEEA /* TYDemoDeviceListViewController+ModuleConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F6FA6E18F6EBABAB696EA0BC2EF5F303 /* phoneCodeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = F042B30D975FF6A7E9C2CA3A0887004A /* phoneCodeList.plist */; };
+		F779F26909D4C39DCB2F27FF763528F4 /* TYDemoCommonPanelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 53B975C3501E2E6A3F14BC5E96C6FE0D /* TYDemoCommonPanelViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F82CF4572FCCA28ECEE676EABA1BAAF3 /* UIImage+ForceDecode.h in Headers */ = {isa = PBXBuildFile; fileRef = D8B7A2BB32D449001B1BB25FD410E58D /* UIImage+ForceDecode.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F84AE4FE013E685F3B6CD2736E05D02A /* MQTTDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A72F0B7E1D0F633EDF47C130711EC59 /* MQTTDecoder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F9D7D0D4D33E903ACBF20258C6F5C203 /* UIViewController+TPDemoCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = EE1029590EF37D048442B19056DDCE1D /* UIViewController+TPDemoCategory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FA14E2DE13D3716FA94E23D6A96560DB /* MQTTClient.h in Headers */ = {isa = PBXBuildFile; fileRef = A051A1D20AC66B6D163BD19A5E966412 /* MQTTClient.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FA4347EF4A800F16CE57D834D4859D8D /* CocoaAsyncSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD675807CF440D724EE5BEC68A20088F /* CocoaAsyncSocket-dummy.m */; };
 		FA7DFB408F4A73B37749C8A3D730F903 /* SDImageLoadersManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 42761ECD7A3968896FF0E26FB5EDD5DE /* SDImageLoadersManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		FA8206B9036273A6F828033866EAD4EC /* TPDemoCellView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E56A7369032106D6F1DF3DFE56AF788 /* TPDemoCellView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FB45067506AB451B22CDADB5C17F2774 /* TPDemoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 754837F74E1551ED8B847FC0A09FBA48 /* TPDemoUtils.m */; };
 		FBCBC855C2BC31EE3B180627DF0E51E2 /* SDImageCacheDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 06004387C8E915F8C52B0DAC2D67E9DD /* SDImageCacheDefine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FBF9F672208326FE63936C1E905F0863 /* TYDemoPanelBoolViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E46F77464E189BEDF5E2CE686F13A0D2 /* TYDemoPanelBoolViewCell.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FCC25A540DF0CA820C1CCC7FFBE456FD /* SDAnimatedImageRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 2702D9A79794AA6954538A7BB8612C90 /* SDAnimatedImageRep.m */; };
 		FDC324D92BDEE6644AE9BC3BE637CE00 /* ty_add@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9239AF79BC1051C2DDC1B76286584A24 /* ty_add@3x.png */; };
 		FDDC2F608D7D21E14FE8260475A225BE /* MQTTDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDEC04E3385CBA262A4E4E281089CE8 /* MQTTDecoder.m */; };
 		FEF1142BFA2CAC180EEF3172D5E64259 /* ty_devicelist_share_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AFD94ECBA66213628AB9937B576232D /* ty_devicelist_share_gray@3x.png */; };
 		FF4290A4C2D27DF87C17E7690A957DD1 /* ReconnectTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A1CDF47F31B19F37B52EC9FCE8A667 /* ReconnectTimer.m */; };
-		FFABD94901E2FCBE7F826129298CC63C /* TPDemoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = B39FC4562F10280032B235DF85DC33DF /* TPDemoItemView.m */; };
-		FFACC50780CEAADD29E93AA8CAD6A5D9 /* TPDemoViewConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 2322CA0AF1CAD0F67F4461FA1B75F524 /* TPDemoViewConstants.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FF78DCE05E965D94BF4FE40DE25961CC /* TPDemoBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 50AEA3DDBA80669B9A42BBBBF44F2143 /* TPDemoBarButtonItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1303,7 +1303,6 @@
 		11F0CECE9368704A7A0739243D861E90 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "View+MASShorthandAdditions.h"; path = "Masonry/View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
 		12372AD2CA902EAB9E67393173E1E740 /* SDWebImageTransition.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageTransition.h; path = SDWebImage/Core/SDWebImageTransition.h; sourceTree = "<group>"; };
 		12AE0173EDF2EECFA55E6628B258169E /* TPDemoTopBarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TPDemoTopBarView.m; sourceTree = "<group>"; };
-		12C1AFB54481089D76EB7D96FDD47014 /* UIColor+TYRGBA.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TYRGBA.m"; sourceTree = "<group>"; };
 		12EDD44E8866D926061F0C804C545625 /* conf_api.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = conf_api.h; path = "include-ios/openssl/conf_api.h"; sourceTree = "<group>"; };
 		1492EF8BF015E40E51948499A7B4CA22 /* RSGenerateOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RSGenerateOperation.h; sourceTree = "<group>"; };
 		14D38E209E8F7E8CAC47E7FF8F5E284F /* SDImageTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageTransformer.h; path = SDWebImage/Core/SDImageTransformer.h; sourceTree = "<group>"; };
@@ -1358,6 +1357,7 @@
 		2702D9A79794AA6954538A7BB8612C90 /* SDAnimatedImageRep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDAnimatedImageRep.m; path = SDWebImage/Core/SDAnimatedImageRep.m; sourceTree = "<group>"; };
 		27B958E9AA2303A433DA724D956E9551 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "ViewController+MASAdditions.m"; path = "Masonry/ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		27F8CCAB6DCE6830DD13F63C86E0C2A6 /* GCDTimer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDTimer.h; path = MQTTClient/MQTTClient/GCDTimer.h; sourceTree = "<group>"; };
+		2854B41FFA0293C81F142C0AD8D18A50 /* UIColor+TYRGBA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+TYRGBA.h"; sourceTree = "<group>"; };
 		28BAB85DAEAC8020190D32F48C30CA63 /* ssl3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ssl3.h; path = "include-ios/openssl/ssl3.h"; sourceTree = "<group>"; };
 		28EF67C84D5500A8B9C6C4076DAD8D20 /* TPDemoViews.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TPDemoViews.h; sourceTree = "<group>"; };
 		29053DC157E2F6B5B1EC095C79C58F4E /* tp_top_bar_back@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "tp_top_bar_back@3x.png"; path = "TuyaSmartDemo/Classes/Base/Assets/tp_top_bar_back@3x.png"; sourceTree = "<group>"; };
@@ -1388,7 +1388,6 @@
 		34D9A04D36B0D836F60C2E5C47217371 /* SDInternalMacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDInternalMacros.h; path = SDWebImage/Private/SDInternalMacros.h; sourceTree = "<group>"; };
 		34E8D1B5CEFDC3EC81C13766F500CBFF /* ty_scene_switch@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_scene_switch@2x.png"; path = "TuyaSmartDemo/Classes/SmartScene/Assets/ty_scene_switch@2x.png"; sourceTree = "<group>"; };
 		34F86899C052B60557183EB673CE9C13 /* TYDemoApplicationImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoApplicationImpl.h; sourceTree = "<group>"; };
-		353C584ADAD8CC76F8E8A1DC0EE77AEC /* TYFeitSliderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYFeitSliderView.m; sourceTree = "<group>"; };
 		3563973E45D80F870E1A047EA9A9CCC8 /* SDImageCacheConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCacheConfig.m; path = SDWebImage/Core/SDImageCacheConfig.m; sourceTree = "<group>"; };
 		357BC917E76E945F577133D941F50BCF /* TuyaSmartSceneKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartSceneKit.debug.xcconfig; sourceTree = "<group>"; };
 		35886CF52B1E8528C092082BD1BD90A3 /* UIImage+ExtendedCacheData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ExtendedCacheData.h"; path = "SDWebImage/Core/UIImage+ExtendedCacheData.h"; sourceTree = "<group>"; };
@@ -1445,12 +1444,12 @@
 		483CDF46F52005EBA0604B4209D6041C /* MBProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MBProgressHUD.debug.xcconfig; sourceTree = "<group>"; };
 		48CCB17E206F041E668CB8DDB1AAD71E /* NSButton+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSButton+WebCache.m"; path = "SDWebImage/Core/NSButton+WebCache.m"; sourceTree = "<group>"; };
 		4949AD9CFF4A76369EA07A7B88CCB33F /* TYDemoTabBarViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoTabBarViewController.h; sourceTree = "<group>"; };
+		4AAE7646A0D9EF7AAEF59EB399756345 /* UIColor+TYRGBA.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TYRGBA.m"; sourceTree = "<group>"; };
 		4B5F1B5AFD9B030143313EFD7056751A /* SDWebImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SDWebImage.debug.xcconfig; sourceTree = "<group>"; };
 		4C0828C1D01E77B5123D33B551A96841 /* dso.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = dso.h; path = "include-ios/openssl/dso.h"; sourceTree = "<group>"; };
 		4C2C17B3CC90789FBE08DFD909CD9E11 /* SDImageGIFCoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageGIFCoder.m; path = SDWebImage/Core/SDImageGIFCoder.m; sourceTree = "<group>"; };
 		4C82D36F9080D9EE07ED2BB2ECF9C063 /* customColor.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = customColor.plist; path = TuyaSmartDemo/Classes/Base/Assets/customColor.plist; sourceTree = "<group>"; };
 		4D6E58EE8B05056935ECC82B4649C0EC /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/Core/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
-		4DC06D5C68AA3C0F701FB76DAC22D3D4 /* TYFeitSliderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYFeitSliderView.h; sourceTree = "<group>"; };
 		4DCFA02630C1F502AA8DA4AA83AEF74E /* TYDemoTheme.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoTheme.h; sourceTree = "<group>"; };
 		4DD7F518005452A3510A9796C897834D /* TuyaSmartMQTTChannelKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartMQTTChannelKit.release.xcconfig; sourceTree = "<group>"; };
 		4F644F734EFB3AB58AA6EB5078689959 /* MASViewAttribute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASViewAttribute.m; path = Masonry/MASViewAttribute.m; sourceTree = "<group>"; };
@@ -1477,7 +1476,6 @@
 		58E153656EDC5B9822807FF028C986F5 /* SDAnimatedImageView+WebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "SDAnimatedImageView+WebCache.m"; path = "SDWebImage/Core/SDAnimatedImageView+WebCache.m"; sourceTree = "<group>"; };
 		590B5CB4D0EE6E659F04CCE70F3BA9AF /* TuyaSmartActivatorKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuyaSmartActivatorKit.framework; path = ios/TuyaSmartActivatorKit.framework; sourceTree = "<group>"; };
 		59413FD455239E981D8A38FDC867255A /* SDWebImageCacheKeyFilter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheKeyFilter.h; path = SDWebImage/Core/SDWebImageCacheKeyFilter.h; sourceTree = "<group>"; };
-		5971524C5313E0ACB30E10B599277CC7 /* TYFeitSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYFeitSlider.m; sourceTree = "<group>"; };
 		599431F0DD07A2AB3E048F98D9BB2701 /* ANImageBitmapRep.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ANImageBitmapRep.h; sourceTree = "<group>"; };
 		599CDA293D871DFF4F31D441393EED09 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "ViewController+MASAdditions.h"; path = "Masonry/ViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		5A27F3103E85E36E291D53C35E0A4206 /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/Core/SDImageCache.m; sourceTree = "<group>"; };
@@ -1494,6 +1492,7 @@
 		5DEA2A321330FB3536C41134E0DFD6B3 /* TuyaSmartHomeKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartHomeKit.debug.xcconfig; sourceTree = "<group>"; };
 		5DF3F59B61F9F7FFB4A313119FF8DA11 /* dtls1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = dtls1.h; path = "include-ios/openssl/dtls1.h"; sourceTree = "<group>"; };
 		5E35577F8A675A578A3AE04FF75C687A /* MQTTClient-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MQTTClient-dummy.m"; sourceTree = "<group>"; };
+		5E9F1081953CD1272A15D782B88073E5 /* UIColor+TYHex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+TYHex.h"; sourceTree = "<group>"; };
 		5F69921EA4F7E91375FFD1BF17D3A3D5 /* ResourceBundle-TuyaSmartDemoSceneBundle-TuyaSmartDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-TuyaSmartDemoSceneBundle-TuyaSmartDemo-Info.plist"; sourceTree = "<group>"; };
 		5F6E704F771AF4F5D776E37C652BD1C8 /* SDWebImageDownloaderDecryptor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderDecryptor.h; path = SDWebImage/Core/SDWebImageDownloaderDecryptor.h; sourceTree = "<group>"; };
 		5F793D9C99B666FE9F1B43E35AE40BFE /* comp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = comp.h; path = "include-ios/openssl/comp.h"; sourceTree = "<group>"; };
@@ -1501,6 +1500,7 @@
 		606D214EE7256C4DC3F8EA030446A647 /* ty_mainbt_about_active@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_mainbt_about_active@2x.png"; path = "TuyaSmartDemo/Classes/Base/Assets/ty_mainbt_about_active@2x.png"; sourceTree = "<group>"; };
 		608A2B0C90DB515E82B06607B1CAFD1F /* SDInternalMacros.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDInternalMacros.m; path = SDWebImage/Private/SDInternalMacros.m; sourceTree = "<group>"; };
 		60E835B472BA31C1A32E245BB1C7ACE6 /* SDWebImageDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDefine.h; path = SDWebImage/Core/SDWebImageDefine.h; sourceTree = "<group>"; };
+		60EA8DC93FED034035339EAB02FC161C /* image_processing.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = image_processing.mm; sourceTree = "<group>"; };
 		6150D88C0C794346EE4B47DBA9DE485E /* aes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = aes.h; path = "include-ios/openssl/aes.h"; sourceTree = "<group>"; };
 		61988EE2B182A744C17BCD946F4F3BFB /* MQTTSSLSecurityPolicyDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSSLSecurityPolicyDecoder.h; path = MQTTClient/MQTTClient/MQTTSSLSecurityPolicyDecoder.h; sourceTree = "<group>"; };
 		61BC03D568E5906C2FC408A6A9C97C28 /* Pods-TuyaSmartHomeKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1513,7 +1513,6 @@
 		6332C3A02A46B46D6C1B0E5B2BB6DE96 /* TuyaSmartHomeKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartHomeKit.release.xcconfig; sourceTree = "<group>"; };
 		637F7406D60D7B6E07AF3F7D0DE24374 /* BitmapContextManipulator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BitmapContextManipulator.h; sourceTree = "<group>"; };
 		63FF8F4B5077C290FD4D5EB95FF8E016 /* asn1.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = asn1.h; path = "include-ios/openssl/asn1.h"; sourceTree = "<group>"; };
-		6403ACCEA72E419C6A150273B178A177 /* image_processing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = image_processing.h; sourceTree = "<group>"; };
 		640523F419AF4F420DBFD4A054A183B7 /* Pods-TuyaSmartHomeKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-TuyaSmartHomeKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		64D69B9BE19737805B24ACD3FE5C0B62 /* TPDemoLoadingView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TPDemoLoadingView.m; sourceTree = "<group>"; };
 		66AEA6D010C4C27D68AB1F7E1E7E17FC /* MQTTClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MQTTClient.release.xcconfig; sourceTree = "<group>"; };
@@ -1592,10 +1591,13 @@
 		8461D74512800543A832EC9802712DAE /* evp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = evp.h; path = "include-ios/openssl/evp.h"; sourceTree = "<group>"; };
 		84C49938AF00C85C2F3BF303104C2D38 /* srtp.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = srtp.h; path = "include-ios/openssl/srtp.h"; sourceTree = "<group>"; };
 		84EAA59AAB8957C2FCE32DE969DD1445 /* TYDemoTextFieldTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoTextFieldTableViewCell.m; sourceTree = "<group>"; };
+		850BCBE618ADEF271E7305CA02C3ED20 /* TYSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYSlider.h; sourceTree = "<group>"; };
 		8515FF7CDA169797F1A18AAAE3AAE2EC /* pqueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pqueue.h; path = "include-ios/openssl/pqueue.h"; sourceTree = "<group>"; };
 		8532FC58982EB08305F05E23A3D218F6 /* Reachability-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Reachability-dummy.m"; sourceTree = "<group>"; };
+		85B0DC1F2CCB831D46C4FE85D9CC9842 /* TYSliderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYSliderView.h; sourceTree = "<group>"; };
 		85B88756C07CB54B43F6DF7C29608F01 /* libssl.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libssl.a; path = "lib-ios/libssl.a"; sourceTree = "<group>"; };
 		86824AE66BDA40290C4ECA1D96AD8726 /* SDWebImageCacheSerializer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCacheSerializer.h; path = SDWebImage/Core/SDWebImageCacheSerializer.h; sourceTree = "<group>"; };
+		8717A059F7E683567F328834004C7E5E /* UIColor+TYHex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TYHex.m"; sourceTree = "<group>"; };
 		87180ECB6A9E483C63D4D4AEBC4CDD4D /* ty_mainbt_about_active@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_mainbt_about_active@3x.png"; path = "TuyaSmartDemo/Classes/Base/Assets/ty_mainbt_about_active@3x.png"; sourceTree = "<group>"; };
 		8767B0078663834DB0006F028ED84A47 /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/Core/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		87750F8DAA95F5CEF9CA0DA273D3AF83 /* MBProgressHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
@@ -1624,8 +1626,8 @@
 		9008449F09985BD173EA1FBE297DB995 /* TYDemoDeviceListViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoDeviceListViewCell.h; sourceTree = "<group>"; };
 		90482F8A42B2DB6A8BF5A789C1E75D6C /* ty_panel_minus@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_panel_minus@2x.png"; path = "TuyaSmartDemo/Classes/DeviceList/Assets/ty_panel_minus@2x.png"; sourceTree = "<group>"; };
 		908DD68B994A9034C24FA03BE0A85F98 /* TuyaSmartQUIC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartQUIC.release.xcconfig; sourceTree = "<group>"; };
-		90B35463CA725F1F0296893C44ED62CB /* UIColor+TYRGBA.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+TYRGBA.h"; sourceTree = "<group>"; };
 		9153AAE98871932B3536A62241156BBB /* SDWebImageOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageOperation.m; path = SDWebImage/Core/SDWebImageOperation.m; sourceTree = "<group>"; };
+		91B6D499E86E58DC8DFE39D859E1750C /* TYSliderView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYSliderView.m; sourceTree = "<group>"; };
 		9239AF79BC1051C2DDC1B76286584A24 /* ty_add@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_add@3x.png"; path = "TuyaSmartDemo/Classes/SmartScene/Assets/ty_add@3x.png"; sourceTree = "<group>"; };
 		9247BE6B55A33D0114150D0A96949E5D /* TPDemoBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TPDemoBarButtonItem.h; sourceTree = "<group>"; };
 		92A1340BE30C51CD841E8B98B8AB90DA /* SDWebImageDownloaderRequestModifier.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderRequestModifier.m; path = SDWebImage/Core/SDWebImageDownloaderRequestModifier.m; sourceTree = "<group>"; };
@@ -1645,6 +1647,7 @@
 		983AE8247AAFE9A72362F78B3ED4C4A5 /* SDImageFrame.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageFrame.m; path = SDWebImage/Core/SDImageFrame.m; sourceTree = "<group>"; };
 		9949D550397C645E505B3541DBFE87AD /* TuyaSmartDeviceCoreKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartDeviceCoreKit.release.xcconfig; sourceTree = "<group>"; };
 		99967C067C854EBFBA619408159A8214 /* CocoaAsyncSocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaAsyncSocket.release.xcconfig; sourceTree = "<group>"; };
+		9AB7CBBB9978C6D3BC9229DA0197509A /* image_processing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = image_processing.h; sourceTree = "<group>"; };
 		9AB915034F516FD078C4F1D04E102402 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		9B4082FFFE0470561A550A295EFABFFA /* TPDemoNavigationController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TPDemoNavigationController.m; sourceTree = "<group>"; };
 		9BC224FB2BD989ED8345DCC6B345CEEF /* TYDemoAddSceneViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoAddSceneViewController.m; sourceTree = "<group>"; };
@@ -1660,6 +1663,7 @@
 		9DB2B82E7D5A4367DF3690D93CDEF7EA /* TYDemoEditSceneTableViewCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoEditSceneTableViewCell.h; sourceTree = "<group>"; };
 		9E82694ED1DF6003AD762EA3783AD552 /* mdc2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mdc2.h; path = "include-ios/openssl/mdc2.h"; sourceTree = "<group>"; };
 		9EE8DE90C142B1E19553C0239EFB45DE /* SDAnimatedImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDAnimatedImage.h; path = SDWebImage/Core/SDAnimatedImage.h; sourceTree = "<group>"; };
+		9F49498DE27727FB7E06D6EAA7987BC3 /* TYLightColorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYLightColorUtils.h; sourceTree = "<group>"; };
 		9F818F11EF7DE5CFDA3B69EDEB6E19C1 /* Reachability.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A00E88CC706613E4B56A7C07404FA477 /* SDImageCoderHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCoderHelper.h; path = SDWebImage/Core/SDImageCoderHelper.h; sourceTree = "<group>"; };
 		A051A1D20AC66B6D163BD19A5E966412 /* MQTTClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTClient.h; path = MQTTClient/MQTTClient/MQTTClient.h; sourceTree = "<group>"; };
@@ -1720,7 +1724,6 @@
 		B7CF11423A8F06B6AF38F5C7DDC12503 /* TuyaSmartFeedbackKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartFeedbackKit.debug.xcconfig; sourceTree = "<group>"; };
 		B7DAEFC58CFE7F6CA735E89082FDEB01 /* UIImage+ANImageBitmapRep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ANImageBitmapRep.m"; sourceTree = "<group>"; };
 		B811B6E78EB323E7AC595EF5E1CD8A1E /* TYDemoEditActionNoDataTableViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoEditActionNoDataTableViewCell.m; sourceTree = "<group>"; };
-		B90689004613C6EA5FD62368BC86888F /* TYLightColorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYLightColorUtils.m; sourceTree = "<group>"; };
 		B94894722B07D3D72C55EBF3F76E2DCF /* BitmapDrawManipulator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BitmapDrawManipulator.m; sourceTree = "<group>"; };
 		B949024B73326B35B8CA35A28A170B28 /* SDWeakProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWeakProxy.h; path = SDWebImage/Private/SDWeakProxy.h; sourceTree = "<group>"; };
 		B96E00781C2A3BD999C57D2B5BABD9E4 /* YYModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.release.xcconfig; sourceTree = "<group>"; };
@@ -1765,6 +1768,7 @@
 		CB9D72B334AAA67C98195CEA54E074DD /* TYDemoAddDeviceMenuViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoAddDeviceMenuViewController.m; sourceTree = "<group>"; };
 		CBEC79C68E1612035B07A73E9DE8D00E /* SDWebImageDownloaderResponseModifier.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloaderResponseModifier.h; path = SDWebImage/Core/SDWebImageDownloaderResponseModifier.h; sourceTree = "<group>"; };
 		CC08A57D43578E6C679EA4611CE783C3 /* pem2.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = pem2.h; path = "include-ios/openssl/pem2.h"; sourceTree = "<group>"; };
+		CC69A1BC6F93B6EC8B5E7EE39250197B /* TYLightColorUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYLightColorUtils.m; sourceTree = "<group>"; };
 		CD11E1654022E624CC4E0195B3562230 /* TYDemoCommonPanelViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoCommonPanelViewController.m; sourceTree = "<group>"; };
 		CDA784FFDE163E1A94D259206439A52B /* TYDemoPanelStringViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoPanelStringViewCell.m; sourceTree = "<group>"; };
 		CDAF42566FDE698514F9AB2CE3CC9544 /* TPDemoBaseView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TPDemoBaseView.m; sourceTree = "<group>"; };
@@ -1773,7 +1777,6 @@
 		CF1E8E1F75BE999C95F71CE43023AFF2 /* TYDemoRouteManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoRouteManager.m; sourceTree = "<group>"; };
 		CFDF35B18C58CB40EB15903122358C83 /* TYDemoPanelBaseViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoPanelBaseViewController.m; sourceTree = "<group>"; };
 		CFEB6D87F8C466FC27250A7F955C49AF /* RSColorFunctions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = RSColorFunctions.m; sourceTree = "<group>"; };
-		D0413DDECAF75E5DB9E6E2C35325D86B /* TYLightColorUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYLightColorUtils.h; sourceTree = "<group>"; };
 		D04FC463384326DE303D576FC3E8CD99 /* MQTTSession.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTSession.m; path = MQTTClient/MQTTClient/MQTTSession.m; sourceTree = "<group>"; };
 		D070D723C23308897896CB956A0E3141 /* Reachability.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D077BCDB044A1B11BAF4ED4CA2E80C34 /* MQTTSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSessionManager.h; path = MQTTClient/MQTTClient/MQTTSessionManager.h; sourceTree = "<group>"; };
@@ -1784,13 +1787,13 @@
 		D2D20B01F3BB443F4062280EDB8D1530 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/Core/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		D370525EBD403C06E3F1B56A74922BA4 /* TYDemoUserInfoViewController+ModuleConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TYDemoUserInfoViewController+ModuleConfig.m"; sourceTree = "<group>"; };
 		D3756E5035A4EE1F89E930A935949F3E /* TYDemoPanelBitmapViewCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoPanelBitmapViewCell.m; sourceTree = "<group>"; };
-		D39904D94257C81849E77032F32FB19F /* TYFeitSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYFeitSlider.h; sourceTree = "<group>"; };
 		D3D56A063C4C92449CD112A570C4FEF6 /* BitmapContextRep.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BitmapContextRep.m; sourceTree = "<group>"; };
 		D48FD7FAB2B7A7E27AD5264A225E23C5 /* power_on@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "power_on@2x.png"; path = "TuyaSmartDemo/Classes/DeviceList/Assets/power_on@2x.png"; sourceTree = "<group>"; };
 		D4B765C80A8526B7EAAF9E453CE95565 /* NSButton+WebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSButton+WebCache.h"; path = "SDWebImage/Core/NSButton+WebCache.h"; sourceTree = "<group>"; };
 		D56BE3E469D85888DC7EE8EE8AE3B181 /* MQTTSSLSecurityPolicyTransport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSSLSecurityPolicyTransport.h; path = MQTTClient/MQTTClient/MQTTSSLSecurityPolicyTransport.h; sourceTree = "<group>"; };
 		D5B8486B9C4252C3404CA64E5E13494E /* YYClassInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YYClassInfo.h; path = YYModel/YYClassInfo.h; sourceTree = "<group>"; };
 		D5E418307F027C01383C68997C48BEBF /* ty_mainbt_devicelist_active@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_mainbt_devicelist_active@2x.png"; path = "TuyaSmartDemo/Classes/Base/Assets/ty_mainbt_devicelist_active@2x.png"; sourceTree = "<group>"; };
+		D5E96BAA0E8256A9E5493DA7511DDDCF /* TYSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYSlider.m; sourceTree = "<group>"; };
 		D6019624C9A86C154168C509FFF1E48A /* BitmapRotationManipulator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BitmapRotationManipulator.h; sourceTree = "<group>"; };
 		D609C92726D79841428CF5ACE7D86696 /* TuyaSmartBaseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TuyaSmartBaseKit.framework; path = ios/TuyaSmartBaseKit.framework; sourceTree = "<group>"; };
 		D672B39063D8F3797483C93564009A00 /* SDWebImageOptionsProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOptionsProcessor.h; path = SDWebImage/Core/SDWebImageOptionsProcessor.h; sourceTree = "<group>"; };
@@ -1812,7 +1815,6 @@
 		DD35D5C619E5F84DE30E840A5689825D /* SDImageGraphics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageGraphics.h; path = SDWebImage/Core/SDImageGraphics.h; sourceTree = "<group>"; };
 		DD53A0EEF43E01C176958EF36A72AF1B /* tysmart_selected@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "tysmart_selected@2x.png"; path = "TuyaSmartDemo/Classes/Base/Assets/tysmart_selected@2x.png"; sourceTree = "<group>"; };
 		DDC5D472C820ADA943AED2541557C25B /* ty_scene_custom2@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "ty_scene_custom2@2x.png"; path = "TuyaSmartDemo/Classes/SmartScene/Assets/ty_scene_custom2@2x.png"; sourceTree = "<group>"; };
-		DE05261643200D7A5FC0FBC15C49C31B /* image_processing.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = image_processing.mm; sourceTree = "<group>"; };
 		DE15C4A27E17C6F14A8E1287ECCA90AF /* TuyaSmartDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TuyaSmartDemo.debug.xcconfig; sourceTree = "<group>"; };
 		DE1FF5462E84BCC1EB4917F38C1D8460 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MASLayoutConstraint.m; path = Masonry/MASLayoutConstraint.m; sourceTree = "<group>"; };
 		DE316350635681CEB7BA9DC11836B5B0 /* YYModel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YYModel-prefix.pch"; sourceTree = "<group>"; };
@@ -1852,7 +1854,6 @@
 		E902BC04FB51A5FB9C263A31853E17E3 /* SDWebImageDownloaderDecryptor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderDecryptor.m; path = SDWebImage/Core/SDWebImageDownloaderDecryptor.m; sourceTree = "<group>"; };
 		E9A960D3973E31090482E7DCDF3ED11F /* SDImageTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageTransformer.m; path = SDWebImage/Core/SDImageTransformer.m; sourceTree = "<group>"; };
 		EB12445A70A8823CA93CBB12756DD64F /* SDWeakProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWeakProxy.m; path = SDWebImage/Private/SDWeakProxy.m; sourceTree = "<group>"; };
-		EB4B74C0CAA992F260500F8430909C20 /* UIColor+TYHex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIColor+TYHex.h"; sourceTree = "<group>"; };
 		ECC00160CC4A83FFAECA53FF14130BDE /* Masonry.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Masonry.release.xcconfig; sourceTree = "<group>"; };
 		ECC48CF374B733DCBA766B4F6B95E205 /* MQTTClient-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MQTTClient-prefix.pch"; sourceTree = "<group>"; };
 		ED66BE9459584911FF96B6E2E23401E4 /* TYDemoRouteManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = TYDemoRouteManager.h; sourceTree = "<group>"; };
@@ -1870,7 +1871,6 @@
 		F042B30D975FF6A7E9C2CA3A0887004A /* phoneCodeList.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; name = phoneCodeList.plist; path = TuyaSmartDemo/Classes/Base/Assets/phoneCodeList.plist; sourceTree = "<group>"; };
 		F0835FA751EDB854014252F4FF16401D /* MQTTCFSocketEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTCFSocketEncoder.h; path = MQTTClient/MQTTClient/MQTTCFSocketEncoder.h; sourceTree = "<group>"; };
 		F091C9C9A9A2953B2B58D13908B5EC3F /* TYDemoLightPanelViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = TYDemoLightPanelViewController.m; sourceTree = "<group>"; };
-		F0BDA8B6F303F7C325D40C7EBF8E2C94 /* UIColor+TYHex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TYHex.m"; sourceTree = "<group>"; };
 		F0C8F2104F54870DE1B00843CA04E3A0 /* YYModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YYModel.debug.xcconfig; sourceTree = "<group>"; };
 		F0E97E6EA391EB22287F39C1C31DBB4A /* Pods-TuyaSmartHomeKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-TuyaSmartHomeKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F1D524ADC1112AA0B4B0018138081F70 /* SDWebImageTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageTransition.m; path = SDWebImage/Core/SDWebImageTransition.m; sourceTree = "<group>"; };
@@ -2360,26 +2360,6 @@
 			);
 			name = ModuleConfig;
 			path = TuyaSmartDemo/Classes/Login/ModuleConfig;
-			sourceTree = "<group>";
-		};
-		3F6FF18B3F9DC2BBFBFEAEA869F48834 /* LightUtils */ = {
-			isa = PBXGroup;
-			children = (
-				6403ACCEA72E419C6A150273B178A177 /* image_processing.h */,
-				DE05261643200D7A5FC0FBC15C49C31B /* image_processing.mm */,
-				D39904D94257C81849E77032F32FB19F /* TYFeitSlider.h */,
-				5971524C5313E0ACB30E10B599277CC7 /* TYFeitSlider.m */,
-				4DC06D5C68AA3C0F701FB76DAC22D3D4 /* TYFeitSliderView.h */,
-				353C584ADAD8CC76F8E8A1DC0EE77AEC /* TYFeitSliderView.m */,
-				D0413DDECAF75E5DB9E6E2C35325D86B /* TYLightColorUtils.h */,
-				B90689004613C6EA5FD62368BC86888F /* TYLightColorUtils.m */,
-				EB4B74C0CAA992F260500F8430909C20 /* UIColor+TYHex.h */,
-				F0BDA8B6F303F7C325D40C7EBF8E2C94 /* UIColor+TYHex.m */,
-				90B35463CA725F1F0296893C44ED62CB /* UIColor+TYRGBA.h */,
-				12C1AFB54481089D76EB7D96FDD47014 /* UIColor+TYRGBA.m */,
-			);
-			name = LightUtils;
-			path = TuyaSmartDemo/Classes/DeviceList/LightUtils;
 			sourceTree = "<group>";
 		};
 		43334445CE4927834CC2344AB0C76129 /* Products */ = {
@@ -3225,6 +3205,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BCBABF02170E3D91FD60F373322B988B /* LightUtils */ = {
+			isa = PBXGroup;
+			children = (
+				9AB7CBBB9978C6D3BC9229DA0197509A /* image_processing.h */,
+				60EA8DC93FED034035339EAB02FC161C /* image_processing.mm */,
+				850BCBE618ADEF271E7305CA02C3ED20 /* TYSlider.h */,
+				D5E96BAA0E8256A9E5493DA7511DDDCF /* TYSlider.m */,
+				9F49498DE27727FB7E06D6EAA7987BC3 /* TYLightColorUtils.h */,
+				CC69A1BC6F93B6EC8B5E7EE39250197B /* TYLightColorUtils.m */,
+				85B0DC1F2CCB831D46C4FE85D9CC9842 /* TYSliderView.h */,
+				91B6D499E86E58DC8DFE39D859E1750C /* TYSliderView.m */,
+				5E9F1081953CD1272A15D782B88073E5 /* UIColor+TYHex.h */,
+				8717A059F7E683567F328834004C7E5E /* UIColor+TYHex.m */,
+				2854B41FFA0293C81F142C0AD8D18A50 /* UIColor+TYRGBA.h */,
+				4AAE7646A0D9EF7AAEF59EB399756345 /* UIColor+TYRGBA.m */,
+			);
+			name = LightUtils;
+			path = TuyaSmartDemo/Classes/DeviceList/LightUtils;
+			sourceTree = "<group>";
+		};
 		BD956DC410531437303524543A78B587 /* Reachability */ = {
 			isa = PBXGroup;
 			children = (
@@ -3440,7 +3440,7 @@
 			isa = PBXGroup;
 			children = (
 				63BC594EA7375352C2BDEC75AC41AF40 /* Controller */,
-				3F6FF18B3F9DC2BBFBFEAEA869F48834 /* LightUtils */,
+				BCBABF02170E3D91FD60F373322B988B /* LightUtils */,
 				CA7A0DA4A5F66A769D196A59171588D8 /* Manager */,
 				02529B5C4EF0BFD81645255A9401E55C /* ModuleConfig */,
 				135CA2D4F491CBAC0CCD62AA9A3CC720 /* Resources */,
@@ -3678,6 +3678,101 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3D6B4659C8BD6165104C68B01516B5C4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A817ED348761ECAA91E6B309AA6EB87B /* ANImageBitmapRep.h in Headers */,
+				D02B3573B6CBAF66983E646C77664CBE /* BGRSLoupeLayer.h in Headers */,
+				3510344619A321352000CCCD94F091B4 /* BitmapContextManipulator.h in Headers */,
+				1203A12C8408E64F7C4D675AB7F062D8 /* BitmapContextRep.h in Headers */,
+				8145AB352B47E0EA78FB91C06E4BE81C /* BitmapCropManipulator.h in Headers */,
+				239781A2076CD95F67F407F6A9438732 /* BitmapDrawManipulator.h in Headers */,
+				051C22DB066AF8780B67EC55D87FCC73 /* BitmapRotationManipulator.h in Headers */,
+				90C04882564E8C27D15E4F77549B89F1 /* BitmapScaleManipulator.h in Headers */,
+				3824A1B22EE90383DF2B6A3DAECAE6D3 /* CGContextCreator.h in Headers */,
+				82E4DE4F775997EF1EBFE35F2D2EA65F /* CGImageContainer.h in Headers */,
+				ECF2A34DB320C64A1240F13D230EDFC8 /* image_processing.h in Headers */,
+				61E416BCA02DA0CD9B6DC23B2ECB68F0 /* NSImage+ANImageBitmapRep.h in Headers */,
+				836809986CEF9C356A105A9FAD2A07AB /* OSCommonImage.h in Headers */,
+				44D4098B434D06FD13D30DC2F4EC6C54 /* RSColorFunctions.h in Headers */,
+				7817EA284C6ABDD38D973AA7F95C0ACD /* RSColorPickerState.h in Headers */,
+				3A47DF77CCEE021EE29A046B5F3AD034 /* RSColorPickerView.h in Headers */,
+				D0E5039E0886035FDCA7E1E18874D284 /* RSGenerateOperation.h in Headers */,
+				57935E8D579CACA0E8601EF698FC920C /* RSSelectionLayer.h in Headers */,
+				6F10D0CB318E71DA0ACE8F6629FEEA06 /* TPDemoBarButtonItem.h in Headers */,
+				B947F8024D7595723BA61DCB23271B82 /* TPDemoBaseTableViewController.h in Headers */,
+				C384BD8BBC26E63F30E1419AF244A5DD /* TPDemoBaseView.h in Headers */,
+				A87ED843C2672B6C1D7EA1CDD19CABA7 /* TPDemoBaseViewController.h in Headers */,
+				9856B6183EA0DFF6C009CCD13BD09FC6 /* TPDemoCellView.h in Headers */,
+				9E0E124635AFF27727949EF183AC6904 /* TPDemoCellViewItem.h in Headers */,
+				9568D2EF537F53B294B0ECCCCE03663D /* TPDemoEmptyView.h in Headers */,
+				32C2C04EBADA61F15B9BB18158A6B510 /* TPDemoItemView.h in Headers */,
+				5388DDE3FBC719E7243DE7F1C819F28C /* TPDemoLoadingView.h in Headers */,
+				10F337732D8047504566571263CF79BE /* TPDemoNavigationController.h in Headers */,
+				C0992FC3EA1BAD481B99EC87C1A6484A /* TPDemoProgressUtils.h in Headers */,
+				754F344BB2E8AE5FDBB1B0BBF5A6AE6B /* TPDemoTopBarView.h in Headers */,
+				7ADB8C05631DE685AD55E914893C35CB /* TPDemoUtils.h in Headers */,
+				069AA1124E58E3DCBB92311048FE16D1 /* TPDemoViewConstants.h in Headers */,
+				A3AD4A1B69888E5E02B81F7BFE47001B /* TPDemoViews.h in Headers */,
+				976371C69F28B00C229A92D57C821773 /* TPDemoViewUtil.h in Headers */,
+				8CA3F3648546813BAEF06C1C3216734C /* TYDemoActionTableViewCell.h in Headers */,
+				70C8EEE4E2C0A91E12C4C509A520067A /* TYDemoAddDeviceMenuViewController+ModuleConfig.h in Headers */,
+				423DE9E104493E0BEA46FA6F0609056A /* TYDemoAddDeviceMenuViewController.h in Headers */,
+				BB1CD9804D4612BF6694BA8FC1AA3FE5 /* TYDemoAddDeviceUtils.h in Headers */,
+				6260B58AF0FE851603847C4E3A52CD35 /* TYDemoAddSceneViewController.h in Headers */,
+				57A0EF141DE170FEBD795E74D6709463 /* TYDemoAddZigBeeViewController.h in Headers */,
+				E1D6DDB35710A634AD4AD0777C351104 /* TYDemoAPAddDeviceViewController.h in Headers */,
+				2E81C43FB6C036B6BD61C9EF88327529 /* TYDemoApplicationImpl.h in Headers */,
+				F779F26909D4C39DCB2F27FF763528F4 /* TYDemoCommonPanelViewController.h in Headers */,
+				721C1EEA717430F52C9BD2E6CC5FA985 /* TYDemoConfiguration.h in Headers */,
+				2B6E9907F4F81CF7508BB18D5C5DB1F4 /* TYDemoDeviceListUtil.h in Headers */,
+				E2EA9FE43D5ACF8C6EF4CCB407A52AEA /* TYDemoDeviceListViewCell.h in Headers */,
+				F69EF84886E80EE759F0BC19410E1D5F /* TYDemoDeviceListViewController+ModuleConfig.h in Headers */,
+				ADF60FFCFD34646C677119719E16B930 /* TYDemoDeviceListViewController.h in Headers */,
+				BAEBD409DD27B65F6B9CF3113232C091 /* TYDemoEditActionNoDataTableViewCell.h in Headers */,
+				D5ABA7438AF6BB69F4D8BA88E5B5B7E8 /* TYDemoEditActionTableViewCell.h in Headers */,
+				56E9634B8F45233EEDEA3B5DDFB83DE4 /* TYDemoEditActionTitleTableViewCell.h in Headers */,
+				D1C2B054C7B9676964D8618A2B1F87B5 /* TYDemoEditSceneTableViewCell.h in Headers */,
+				82EF3ECCE97BC7E8982870DBE72D77BB /* TYDemoEZAddDeviceViewController.h in Headers */,
+				947083FFF7C21312650AD8B813EE0301 /* TYDemoLightPanelViewController.h in Headers */,
+				12D516C1A059DDEE48733113BB514BA4 /* TYDemoLoginAndRegisterUtils.h in Headers */,
+				A2A9D1556EB8B7D925740763834C2FAE /* TYDemoLoginAndRegisterView.h in Headers */,
+				C3411C0E22273108BBE243FCD3CFCD16 /* TYDemoLoginViewController+Route.h in Headers */,
+				3B6563B699563883D1224C9EF66A1FC4 /* TYDemoLoginViewController.h in Headers */,
+				3FB8F6A6C1E1449451C0ED4FF44B46D2 /* TYDemoPanelBaseViewCell.h in Headers */,
+				E42B6E0551623EC1E521A41D2890B6CF /* TYDemoPanelBaseViewController.h in Headers */,
+				4CEBED54C6D1DEA4CB179DC27BFC018B /* TYDemoPanelBitmapViewCell.h in Headers */,
+				FBF9F672208326FE63936C1E905F0863 /* TYDemoPanelBoolViewCell.h in Headers */,
+				3A74F2078BC7B401F6B35871BC7995C1 /* TYDemoPanelDpTitleView.h in Headers */,
+				0D18F7233161D7AD7BA9B9BB37227465 /* TYDemoPanelEnumViewCell.h in Headers */,
+				E9B0ED962A140F43A020F9F5DBF38C5E /* TYDemoPanelStringViewCell.h in Headers */,
+				BF78BB38F7C2C17C0FB2AF2C3F54DC64 /* TYDemoPanelValueViewCell.h in Headers */,
+				052A8603132595C31327949FE0C6C786 /* TYDemoRegisterViewController.h in Headers */,
+				B82E5280277836FC5AD22F95516B24CA /* TYDemoRouteManager.h in Headers */,
+				EABC95C9ADAAA7B1CE9C5A01B083B147 /* TYDemoSmartHomeManager.h in Headers */,
+				6D1FA7D8D628A650FACE807A93C221A8 /* TYDemoSmartSceneTableViewCell.h in Headers */,
+				656B36FC165D88D04EA076B41B58C7D3 /* TYDemoSmartSceneUtil.h in Headers */,
+				3AF849929CA390B702144C30097A631F /* TYDemoSmartSceneViewController+ModuleConfig.h in Headers */,
+				EC95CC0A114676BC8E09E95155FAABF7 /* TYDemoSmartSceneViewController.h in Headers */,
+				A4692EB7412BAEEA756E551FE7804912 /* TYDemoSwitchPanelViewController.h in Headers */,
+				8F7CB4D27832720C61B74FAC8FE47AF5 /* TYDemoTabBarViewController.h in Headers */,
+				2B453045147E1C074E6F7CAC1B942D36 /* TYDemoTextFieldTableViewCell.h in Headers */,
+				28F1304A4D54F5734D747914EAA74005 /* TYDemoTheme.h in Headers */,
+				DE7AAE153C89898F925A1DCE5893486F /* TYDemoUserInfoViewController+ModuleConfig.h in Headers */,
+				398CFDC86E3BA5EB5EA9861E73E6B1A4 /* TYDemoUserInfoViewController.h in Headers */,
+				479D982D1EF4727DBD086D8DC35EE32B /* TYSlider.h in Headers */,
+				EDE29C7C5EE2721DECC80B9FE05E9F4E /* TYLightColorUtils.h in Headers */,
+				B2F4D5B385E4BAE360FFF4CCD2D04701 /* TYSliderView.h in Headers */,
+				A82C9233FEF39ED27E22F7C0FCB4519C /* UIColor+TYHex.h in Headers */,
+				CE6D6DBD69C75F8C22DAE70E320A7439 /* UIColor+TYRGBA.h in Headers */,
+				879C7284CB8EF75644092B984A33560A /* UIImage+ANImageBitmapRep.h in Headers */,
+				4C38743740FD55CA3EB5FD2E3E959722 /* UILabel+TYFactory.h in Headers */,
+				21FCB09790D083B2593E75386B412ABF /* UIView+TPDemoAdditions.h in Headers */,
+				5A8DDC4FCCC5A545E8FD8F2E60F59102 /* UIViewController+TPDemoCategory.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5775DB56295731795182E42924D33E51 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -3732,101 +3827,6 @@
 				C73A65C50A02557A237690690E8DE2CA /* MQTTStrict.h in Headers */,
 				5DF3FFF58B54D4756359F64AEA9F0E32 /* MQTTTransport.h in Headers */,
 				3176A2CC0E158599DC3EF05D0B32588E /* ReconnectTimer.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5D7A60C0E997E15491D147BFE5FC9CF /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7F374BDCB4866DF4859F92E4E9DB4C75 /* ANImageBitmapRep.h in Headers */,
-				E0A04C50B52E916048ABF372FAAC7D47 /* BGRSLoupeLayer.h in Headers */,
-				39EB3944227E9528E9B26DD103269E6D /* BitmapContextManipulator.h in Headers */,
-				DC53099EAF19686F5836CA81F0C9F3EF /* BitmapContextRep.h in Headers */,
-				98DC6804CB8395B162B77B179E0FFEF1 /* BitmapCropManipulator.h in Headers */,
-				6CFAE0A5B2B8A145EE272635A9E23AA0 /* BitmapDrawManipulator.h in Headers */,
-				B59DCC2FBF69D138B318FC81F5D2B5F3 /* BitmapRotationManipulator.h in Headers */,
-				7267B98206B4DB23B9FBE4B65A9DF6FC /* BitmapScaleManipulator.h in Headers */,
-				35812EE8C5B036459F9B30E4B27D282B /* CGContextCreator.h in Headers */,
-				8FBAC8E3C9C3A98A94AAE1B31FC62A73 /* CGImageContainer.h in Headers */,
-				3145733A54DB3517F5BBC516FC97D9BE /* image_processing.h in Headers */,
-				CEA92723002E5D4E9F2D027F1920032B /* NSImage+ANImageBitmapRep.h in Headers */,
-				E6A66E5498857D6414301CAC1C3BB2F5 /* OSCommonImage.h in Headers */,
-				9F48A3CFC3BE8F4D3EA6505C97AE9049 /* RSColorFunctions.h in Headers */,
-				E73E88A8483D147A4AB0899448EF40CF /* RSColorPickerState.h in Headers */,
-				8D86F170CD1123DCF0FC341D6FC15FB0 /* RSColorPickerView.h in Headers */,
-				DBC5188D51065A5997A02F53E06A2AB0 /* RSGenerateOperation.h in Headers */,
-				513A4149EF75328CCD541C60E7448905 /* RSSelectionLayer.h in Headers */,
-				4EF0B60A1754CE58B53C8B66E925FB77 /* TPDemoBarButtonItem.h in Headers */,
-				0F5ECBF502D20C3B5D13D4C3CC183903 /* TPDemoBaseTableViewController.h in Headers */,
-				07DF5741AD14A10BE4A88EEDB387F85A /* TPDemoBaseView.h in Headers */,
-				89AF9908EE0C58A34B920BAD1686B9E8 /* TPDemoBaseViewController.h in Headers */,
-				FA8206B9036273A6F828033866EAD4EC /* TPDemoCellView.h in Headers */,
-				9E349B4CE6A6EB6335A2239DF7A65346 /* TPDemoCellViewItem.h in Headers */,
-				A33FCB63681D310613016C7AF68F3BA0 /* TPDemoEmptyView.h in Headers */,
-				40F8B46F7A5E9CE857BD1F1F45839BBD /* TPDemoItemView.h in Headers */,
-				812A61AFD4319327280843199BCE884C /* TPDemoLoadingView.h in Headers */,
-				EEE687A6B3AA25535B91B9B0B17B5BF4 /* TPDemoNavigationController.h in Headers */,
-				71C358B8D3F4D4F988E9FCB1D302893C /* TPDemoProgressUtils.h in Headers */,
-				4A500A6E89A3C537DE92163D607A8736 /* TPDemoTopBarView.h in Headers */,
-				777E7C49B48C618D4D99669DBC1E4C98 /* TPDemoUtils.h in Headers */,
-				FFACC50780CEAADD29E93AA8CAD6A5D9 /* TPDemoViewConstants.h in Headers */,
-				EB05BA1756841D7C3338BA30F157E591 /* TPDemoViews.h in Headers */,
-				4EE2E0FEBF6EF8F4FD6C7F911D92DD02 /* TPDemoViewUtil.h in Headers */,
-				9A0513357D84C55B9C94CF975725C6AC /* TYDemoActionTableViewCell.h in Headers */,
-				BDC387C9CBBBBD6F38BC39894593B9C2 /* TYDemoAddDeviceMenuViewController+ModuleConfig.h in Headers */,
-				3A6E4A8C1EAA199C77A3FAD04B188445 /* TYDemoAddDeviceMenuViewController.h in Headers */,
-				6A47780F3F9612586D543F9669413394 /* TYDemoAddDeviceUtils.h in Headers */,
-				214B020F50BA836BE1D30EE86C063C67 /* TYDemoAddSceneViewController.h in Headers */,
-				ED6DD3046F9503E10E96D7998BE50237 /* TYDemoAddZigBeeViewController.h in Headers */,
-				38B783F4D3572825490E1BDF115794C1 /* TYDemoAPAddDeviceViewController.h in Headers */,
-				6A8B85F663820A31F0D4B7BA413E1CF8 /* TYDemoApplicationImpl.h in Headers */,
-				659508A0FDCB20A8A2A7BBDD13DB2E80 /* TYDemoCommonPanelViewController.h in Headers */,
-				0BB9410425882D3CD6EDA664A3EFE5CB /* TYDemoConfiguration.h in Headers */,
-				A4CB7FED497136125B41FFC16A36A092 /* TYDemoDeviceListUtil.h in Headers */,
-				17FF4380A127BD138B4131AFFC443A78 /* TYDemoDeviceListViewCell.h in Headers */,
-				A1A9203077531920A307B0B9B324CDA8 /* TYDemoDeviceListViewController+ModuleConfig.h in Headers */,
-				C670F8F6FED1CB607E5F6E7032633461 /* TYDemoDeviceListViewController.h in Headers */,
-				D52C10EA35EC590DD674961CF5A385BC /* TYDemoEditActionNoDataTableViewCell.h in Headers */,
-				59C7E2140D9F69255B5E564C64056B22 /* TYDemoEditActionTableViewCell.h in Headers */,
-				87B4917604CBED1785698DF3786705A4 /* TYDemoEditActionTitleTableViewCell.h in Headers */,
-				91363E31841B8CF5A4C1CCFF539E5F64 /* TYDemoEditSceneTableViewCell.h in Headers */,
-				7953E04C6EB5C597E0AD4E7E063BB6E7 /* TYDemoEZAddDeviceViewController.h in Headers */,
-				CBE851BB3167D7D38FC049502F85EE18 /* TYDemoLightPanelViewController.h in Headers */,
-				D119C3A8AD84ECD57F66974EC93E001D /* TYDemoLoginAndRegisterUtils.h in Headers */,
-				7101409ED6A836F1300389AA9CA6640E /* TYDemoLoginAndRegisterView.h in Headers */,
-				88CA3E50C2D0D25B7B42213A352D6599 /* TYDemoLoginViewController+Route.h in Headers */,
-				C4D6408BC7CB7CF75B8CAC0B16569658 /* TYDemoLoginViewController.h in Headers */,
-				76DB1FF6FB54BFE7541AD7145EE86807 /* TYDemoPanelBaseViewCell.h in Headers */,
-				BDF44A31EBC6CF636F6EB679265245DE /* TYDemoPanelBaseViewController.h in Headers */,
-				C2A0336ECE3AD408F0F5F160D92C5BB0 /* TYDemoPanelBitmapViewCell.h in Headers */,
-				B17D4D0F2EDCE1D5FB74901B173DCA28 /* TYDemoPanelBoolViewCell.h in Headers */,
-				CC03AB2F2F67CF36392411910ABD5301 /* TYDemoPanelDpTitleView.h in Headers */,
-				AB9B34A7AAED6BB4307DB6D0774C24F4 /* TYDemoPanelEnumViewCell.h in Headers */,
-				9F19ACA8A37E2C7DC6A25EBB5515BA4F /* TYDemoPanelStringViewCell.h in Headers */,
-				423492798963CCFC1EEBCC3AAAB2EA5C /* TYDemoPanelValueViewCell.h in Headers */,
-				33E5AB7E36D599699AAA624AA1219BB7 /* TYDemoRegisterViewController.h in Headers */,
-				E908BD40E3A430B3A7FC30B6B695DA0B /* TYDemoRouteManager.h in Headers */,
-				27D4766F7D6106D26ADF2A5713344307 /* TYDemoSmartHomeManager.h in Headers */,
-				CE35E0E27F2FF992413E877CEA7C0434 /* TYDemoSmartSceneTableViewCell.h in Headers */,
-				CCEAB2D12A4B440EAAD3A908113A3C8A /* TYDemoSmartSceneUtil.h in Headers */,
-				81DEA137E2A3A641FAA512C9072D9A29 /* TYDemoSmartSceneViewController+ModuleConfig.h in Headers */,
-				E274BCC943051A04BA12666317797923 /* TYDemoSmartSceneViewController.h in Headers */,
-				D81877A733779D577FF1839EB4095E72 /* TYDemoSwitchPanelViewController.h in Headers */,
-				C6D5D33D1AACB697CA8B1CB6DBE957EE /* TYDemoTabBarViewController.h in Headers */,
-				A5BDF55EE01A60FEA6D43AAA42833326 /* TYDemoTextFieldTableViewCell.h in Headers */,
-				58B335B0D5B384A010415153CCF5A31C /* TYDemoTheme.h in Headers */,
-				2AA886DE7480F5A88D3A438ED63E90BD /* TYDemoUserInfoViewController+ModuleConfig.h in Headers */,
-				24C807D1D875CAB24E6817BBA5AB542B /* TYDemoUserInfoViewController.h in Headers */,
-				1BF89200BE5AD0C3BADAD9ED56AA27D4 /* TYFeitSlider.h in Headers */,
-				32D47CF336DD110D74EC581528D79DBC /* TYFeitSliderView.h in Headers */,
-				A6843DC929C489704BE69A5FF94CE3C9 /* TYLightColorUtils.h in Headers */,
-				50ED8E9DDC5D1EABB3C60311F18F343F /* UIColor+TYHex.h in Headers */,
-				B568C3E91A00AF7B12480ED0D183522C /* UIColor+TYRGBA.h in Headers */,
-				ADA8F6D586A782818A37D7490B536BA9 /* UIImage+ANImageBitmapRep.h in Headers */,
-				5403AC0F0B0FDEF55519B0F7157AA9E1 /* UILabel+TYFactory.h in Headers */,
-				47B9DC8A508AF90B7227B3E932E12797 /* UIView+TPDemoAdditions.h in Headers */,
-				F9D7D0D4D33E903ACBF20258C6F5C203 /* UIViewController+TPDemoCategory.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3940,8 +3940,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04565256D67BFFBCCA751AA41F09E553 /* Build configuration list for PBXNativeTarget "TuyaSmartDemo" */;
 			buildPhases = (
-				B5D7A60C0E997E15491D147BFE5FC9CF /* Headers */,
-				5FB4D9D6E92BF040A640FE9FCAE678B3 /* Sources */,
+				3D6B4659C8BD6165104C68B01516B5C4 /* Headers */,
+				37789F042CA4783F9CBBC5E5F4420FBF /* Sources */,
 				761CC74D6726EB5C528ED48D504BCD64 /* Frameworks */,
 			);
 			buildRules = (
@@ -4341,6 +4341,100 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		37789F042CA4783F9CBBC5E5F4420FBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED7598F9C81A150699D33D2BE7D0EC54 /* ANImageBitmapRep.m in Sources */,
+				5EE3A2C883978F245DB56139667D3176 /* BGRSLoupeLayer.m in Sources */,
+				C8A3D02302601AED958FABAB055F7A04 /* BitmapContextManipulator.m in Sources */,
+				AF91D323066A8B7A1B6EF371DA342280 /* BitmapContextRep.m in Sources */,
+				50933B23FE4E9BECE0C80A2A9873E0D0 /* BitmapCropManipulator.m in Sources */,
+				64D12975EA089197DBF9237C76D382E7 /* BitmapDrawManipulator.m in Sources */,
+				22E9780D4086277B5BDB7B9A8E792794 /* BitmapRotationManipulator.m in Sources */,
+				1958234F610E9242BC6689A0C05760A3 /* BitmapScaleManipulator.m in Sources */,
+				2A2D98050916DD7B100BBBD4DE13B5CE /* CGContextCreator.m in Sources */,
+				E53DEFF159253A72148A2C1CE86F7371 /* CGImageContainer.m in Sources */,
+				3D244E60000A16DD9FE3641171FC8E16 /* image_processing.mm in Sources */,
+				52AA3B9CA190620FF1119F1F3393A468 /* NSImage+ANImageBitmapRep.m in Sources */,
+				401E7EB5071D86249D74F26F40BBD2EE /* OSCommonImage.m in Sources */,
+				CB3FF350921DADE6C103F0FAC92E2ECE /* RSColorFunctions.m in Sources */,
+				135DEB9E2614327CD5DDA1FB28FA2EDE /* RSColorPickerState.m in Sources */,
+				F1073969D62217C2CFE254D1F2F7C1D3 /* RSColorPickerView.m in Sources */,
+				3428E59BA9013DD6A1E7F7283E52A6B3 /* RSGenerateOperation.m in Sources */,
+				50F23B92A03430CD1ED737D2D312FC6B /* RSSelectionLayer.m in Sources */,
+				FF78DCE05E965D94BF4FE40DE25961CC /* TPDemoBarButtonItem.m in Sources */,
+				A0E255B6E7E1FC7008CF9B04BEB250A9 /* TPDemoBaseTableViewController.m in Sources */,
+				20AFBDCF78E112634666DE8A9CB93043 /* TPDemoBaseView.m in Sources */,
+				C909DAD272A9B41F7CE88249F617AADD /* TPDemoBaseViewController.m in Sources */,
+				9C0A7B666E8BF0B47C4D20DBDF3E4DBA /* TPDemoCellView.m in Sources */,
+				2B4298EFA2511D1397458347469F0815 /* TPDemoCellViewItem.m in Sources */,
+				2D43C131F5D628FB44B1A7DD0B81DA1D /* TPDemoEmptyView.m in Sources */,
+				D1F0D8908B97C143A1FA8C0BDF18189B /* TPDemoItemView.m in Sources */,
+				DE9F2D2CCDC8C61E3FE6975F5FF3CBFC /* TPDemoLoadingView.m in Sources */,
+				8FFF8F3935BC715645F1D53B79EA86A2 /* TPDemoNavigationController.m in Sources */,
+				A8E395D088C5726EC384B442A67FBE75 /* TPDemoProgressUtils.m in Sources */,
+				8B4699C692AECB81FABC2B0DFFEE2BF0 /* TPDemoTopBarView.m in Sources */,
+				FB45067506AB451B22CDADB5C17F2774 /* TPDemoUtils.m in Sources */,
+				083551D19CCCB82561754279406279F2 /* TPDemoViewUtil.m in Sources */,
+				6BC463D3F3BE3A684E6C00ECCA33CDD6 /* TuyaSmartDemo-dummy.m in Sources */,
+				0162DE34CEA767CB57FBA32CC8CBE07C /* TYDemoActionTableViewCell.m in Sources */,
+				6C75EB60BD4272D6EED25E8D35B25CA6 /* TYDemoAddDeviceMenuViewController+ModuleConfig.m in Sources */,
+				E0ECA0B8E8C04A98EE2DFC53B8C3C2E5 /* TYDemoAddDeviceMenuViewController.m in Sources */,
+				E8D7B80DBE2B12100D503CE3190B4025 /* TYDemoAddDeviceUtils.m in Sources */,
+				55BDBB6C89BDE906AEAD5CE38A503E47 /* TYDemoAddSceneViewController.m in Sources */,
+				4F54B3DAF7284091BA2D967D07ED349F /* TYDemoAddZigBeeViewController.m in Sources */,
+				DE75FE51D2B19E737AB1E0D29E607FB5 /* TYDemoAPAddDeviceViewController.m in Sources */,
+				7913FA9E20A4CB67EFF5A3B829527343 /* TYDemoApplicationImpl.m in Sources */,
+				25CB2D4D16BABEFA2FCFE9028C2430A7 /* TYDemoCommonPanelViewController.m in Sources */,
+				76886979A4322F482091611F664648EA /* TYDemoConfiguration.m in Sources */,
+				6DA0E729D7807BFA9857E2958A743BD8 /* TYDemoDeviceListUtil.m in Sources */,
+				519A37C5ED24E7E6C86C13B73AC139A8 /* TYDemoDeviceListViewCell.m in Sources */,
+				1A864406A0A0E5B73216436C1522C093 /* TYDemoDeviceListViewController+ModuleConfig.m in Sources */,
+				8B88829544F891A910E58B4B53F2DD51 /* TYDemoDeviceListViewController.m in Sources */,
+				544786C6A3C0D7383247B0A92C82CD32 /* TYDemoEditActionNoDataTableViewCell.m in Sources */,
+				53FBF3041633BCE110A100BDECAA0E2E /* TYDemoEditActionTableViewCell.m in Sources */,
+				D09889DC75C1052A4531A425507F7E8A /* TYDemoEditActionTitleTableViewCell.m in Sources */,
+				9E8265CF95C3512CF1908446B8038C4B /* TYDemoEditSceneTableViewCell.m in Sources */,
+				482EC30888D91184599F6E538615EE4A /* TYDemoEZAddDeviceViewController.m in Sources */,
+				76169980151793E70B0CDC6B660F8268 /* TYDemoLightPanelViewController.m in Sources */,
+				359369B59605E3D0E1E6B7F932253945 /* TYDemoLoginAndRegisterUtils.m in Sources */,
+				1B733F71ED20A0044E023905E2F89689 /* TYDemoLoginAndRegisterView.m in Sources */,
+				D499EE196558EA25475EA05EE57FC0D2 /* TYDemoLoginViewController+Route.m in Sources */,
+				5A6A4F88F2A252AB57C50167F1752511 /* TYDemoLoginViewController.m in Sources */,
+				C348965AA274C2074CD0CE0D41405C68 /* TYDemoPanelBaseViewCell.m in Sources */,
+				9AA9AE279C75AE15E481DD8178C5E510 /* TYDemoPanelBaseViewController.m in Sources */,
+				235308611C216102B9B14A3F8CEB88C9 /* TYDemoPanelBitmapViewCell.m in Sources */,
+				497BB329DD85A987A0A540CF51554A8D /* TYDemoPanelBoolViewCell.m in Sources */,
+				3C461A96D7E06A5373F67D866F055333 /* TYDemoPanelDpTitleView.m in Sources */,
+				646776E33F86303F3C23402705DC8198 /* TYDemoPanelEnumViewCell.m in Sources */,
+				9233B9669FD61BE345E22CDFB141095E /* TYDemoPanelStringViewCell.m in Sources */,
+				5DD62175A7B0C3A6A466AF5D5193FB15 /* TYDemoPanelValueViewCell.m in Sources */,
+				211AD97D43B567FAC028BC7D508BA5EA /* TYDemoRegisterViewController.m in Sources */,
+				9A284C830C09323C18AC193FDC3E4CEF /* TYDemoRouteManager.m in Sources */,
+				53FE1978CDC97F22035206C7EEFDED89 /* TYDemoSmartHomeManager.m in Sources */,
+				1CF8AFA8F726CBC41E8642B814B85A76 /* TYDemoSmartSceneTableViewCell.m in Sources */,
+				079CDE9490574E2107A9D0FBB3582689 /* TYDemoSmartSceneUtil.m in Sources */,
+				9E1C08C645020D6FED1E16EFEDEC6A68 /* TYDemoSmartSceneViewController+ModuleConfig.m in Sources */,
+				71BDF3FF50C55E76BD4A197BBC9A522F /* TYDemoSmartSceneViewController.m in Sources */,
+				F33A778AC5A715C610A6098B82365CB1 /* TYDemoSwitchPanelViewController.m in Sources */,
+				EB5387B1565F0C1857E20B1E6598E272 /* TYDemoTabBarViewController.m in Sources */,
+				48703AE15D232B5BF21D19AD5FEF7C0D /* TYDemoTextFieldTableViewCell.m in Sources */,
+				DFF0639A8267CCC1D07A16820DC89C00 /* TYDemoTheme.m in Sources */,
+				DA025733CCD7160AC76737AF2311F30F /* TYDemoUserInfoViewController+ModuleConfig.m in Sources */,
+				EC339A09140F23EB572F2FB270618F50 /* TYDemoUserInfoViewController.m in Sources */,
+				66E2AC0BBE16B9A27A9954A439AE705D /* TYSlider.m in Sources */,
+				D47B08BCC67DDCE94FAB41363628B92C /* TYLightColorUtils.m in Sources */,
+				64E2881DF10D373C25EF1221F956C41C /* TYSliderView.m in Sources */,
+				4E00159E7D2281F50A7FB7D478ADC81A /* UIColor+TYHex.m in Sources */,
+				28738396A98A115FC7A77C2FCE1B066D /* UIColor+TYRGBA.m in Sources */,
+				2DDB526094A1F5AF4D93CDFCD1651C2B /* UIImage+ANImageBitmapRep.m in Sources */,
+				E1DE0C8CC1566F20109C1A83F73C77BA /* UILabel+TYFactory.m in Sources */,
+				68DA1C4D821620541E128A5E1250CBF0 /* UIView+TPDemoAdditions.m in Sources */,
+				7F78A816B5F36722C97FA4BB90B74868 /* UIViewController+TPDemoCategory.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		39261A3821EA0B45F95301099852B974 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4355,100 +4449,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EC641650BD55C57D57A3A4905DA5C76 /* Pods-TuyaSmartHomeKit_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5FB4D9D6E92BF040A640FE9FCAE678B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				027604577B329F11FB5B34227153795F /* ANImageBitmapRep.m in Sources */,
-				676D03159EA94B0C384626E70A2CD9BF /* BGRSLoupeLayer.m in Sources */,
-				BC7B3C4641275396BBA254EE95581B6D /* BitmapContextManipulator.m in Sources */,
-				938146EB7988CDD7E4D992064EC9054B /* BitmapContextRep.m in Sources */,
-				A52591B16C72612A835B79FD273337C7 /* BitmapCropManipulator.m in Sources */,
-				040E0164D57FCB88331677DF444CB1D0 /* BitmapDrawManipulator.m in Sources */,
-				8FB5B585CA3DBFBCC9391AA2A6D9DF8E /* BitmapRotationManipulator.m in Sources */,
-				0623B3E7D8E6EFF071EF138BC7CEFF6F /* BitmapScaleManipulator.m in Sources */,
-				1044BB459455D94D8773D5ACC6166F47 /* CGContextCreator.m in Sources */,
-				00F23EDA81F986BF73DA93FBFF2CDEC8 /* CGImageContainer.m in Sources */,
-				C87A8AF6A2E964057C8B8FFDFD884700 /* image_processing.mm in Sources */,
-				593E1B7E85DD416F6391D9EE884CA016 /* NSImage+ANImageBitmapRep.m in Sources */,
-				0750588ABDDBEE58F776B6660DB4B85F /* OSCommonImage.m in Sources */,
-				5A7384938B4963B574D1E2744847C2EF /* RSColorFunctions.m in Sources */,
-				51D28E32696A86D41F476B6614694AEA /* RSColorPickerState.m in Sources */,
-				B05292651FC3E6EDDF4F797A889F067C /* RSColorPickerView.m in Sources */,
-				801E27C9B7AAD924E7F1980626F6CBF9 /* RSGenerateOperation.m in Sources */,
-				CC6172F2669ACA10E7327484838D8113 /* RSSelectionLayer.m in Sources */,
-				2376F3C89C0ED7620D29C230F619D26D /* TPDemoBarButtonItem.m in Sources */,
-				9E80D4D62F2F0D75B88DBC1C95656DAA /* TPDemoBaseTableViewController.m in Sources */,
-				2CEF8620D7D7938F5C93F47D32440A25 /* TPDemoBaseView.m in Sources */,
-				5B1E8B4D5E7E2B746A61BC01E23135B6 /* TPDemoBaseViewController.m in Sources */,
-				67F3C78E906E5C0440B08309F0C35A3E /* TPDemoCellView.m in Sources */,
-				18754097BC2C008F5611D01159CD1DDF /* TPDemoCellViewItem.m in Sources */,
-				38D5AAD4CDFAEAF6DF271473433FB50F /* TPDemoEmptyView.m in Sources */,
-				FFABD94901E2FCBE7F826129298CC63C /* TPDemoItemView.m in Sources */,
-				ABE77BE39A1917A299078C230CE21A5F /* TPDemoLoadingView.m in Sources */,
-				545C34BA7D9C5394ED7512998D3B097C /* TPDemoNavigationController.m in Sources */,
-				37E4B21D4F569CE6118EF74FD8E4A578 /* TPDemoProgressUtils.m in Sources */,
-				58CB0B81A0F07799F138CB9CA8830C4B /* TPDemoTopBarView.m in Sources */,
-				DE0F5BBF002A0E35A13FE9F3FB321EB1 /* TPDemoUtils.m in Sources */,
-				EF5B8D4C998F903F81C9FDD1A6220551 /* TPDemoViewUtil.m in Sources */,
-				4D29E1F6683DC57165DFB1DAC077A885 /* TuyaSmartDemo-dummy.m in Sources */,
-				3935A6A93E13808A63BEA0ED6162BC6A /* TYDemoActionTableViewCell.m in Sources */,
-				AF65AD530C48BDF0135B5945209CCBD3 /* TYDemoAddDeviceMenuViewController+ModuleConfig.m in Sources */,
-				880B1A11BEDEBA4610DDAF638C2BCC03 /* TYDemoAddDeviceMenuViewController.m in Sources */,
-				E078F2E8DCA4B08E92AC3BADC756C249 /* TYDemoAddDeviceUtils.m in Sources */,
-				C8F033C013CC34C5487345B8F98B534D /* TYDemoAddSceneViewController.m in Sources */,
-				56CF2F2BB50C8DD74D8597EAA931782F /* TYDemoAddZigBeeViewController.m in Sources */,
-				9E62F69837A010B09A829082CE25562D /* TYDemoAPAddDeviceViewController.m in Sources */,
-				7F82C714E2D3DC4C22894A8963CB7A10 /* TYDemoApplicationImpl.m in Sources */,
-				3BBD948A0A573E5DB98F71543D0DBAD2 /* TYDemoCommonPanelViewController.m in Sources */,
-				140818D5EAAE9BE54F64AA9AD9D5E059 /* TYDemoConfiguration.m in Sources */,
-				39547FEE91BC6B5FDF432156E29FC267 /* TYDemoDeviceListUtil.m in Sources */,
-				8ED72E64485084FBBD30C37954FC413D /* TYDemoDeviceListViewCell.m in Sources */,
-				E5F724C58CB915C8A910BB8769AF45A5 /* TYDemoDeviceListViewController+ModuleConfig.m in Sources */,
-				566B362D35F54D84845A499B34980079 /* TYDemoDeviceListViewController.m in Sources */,
-				5E027C7E9BA7550839250945351D24CF /* TYDemoEditActionNoDataTableViewCell.m in Sources */,
-				AAAA5FA4C279085C4B034994D006A6C9 /* TYDemoEditActionTableViewCell.m in Sources */,
-				A5754389914E61082531129829432569 /* TYDemoEditActionTitleTableViewCell.m in Sources */,
-				88BD81C1B7EC0437D08498CCE2DC3B59 /* TYDemoEditSceneTableViewCell.m in Sources */,
-				38B75556D94294184C83E04C7D7185BC /* TYDemoEZAddDeviceViewController.m in Sources */,
-				78951A7DD1CB548F557C8251ECC2100D /* TYDemoLightPanelViewController.m in Sources */,
-				3C6867A278AB6E99E7C8183E355C6C56 /* TYDemoLoginAndRegisterUtils.m in Sources */,
-				A95CAFDC6B52A834561AA2BCBD330DAC /* TYDemoLoginAndRegisterView.m in Sources */,
-				C15790D48744F5D1BA56ACF81097C9B3 /* TYDemoLoginViewController+Route.m in Sources */,
-				69F5D82E6F17534A82BA1338F10FAD9D /* TYDemoLoginViewController.m in Sources */,
-				E487DD5D6EE5F87DED6A3CFAC2929812 /* TYDemoPanelBaseViewCell.m in Sources */,
-				0813D5AFA890778D3761B1B73A468198 /* TYDemoPanelBaseViewController.m in Sources */,
-				BF28302E2C76EF39651AD53C7950C3FE /* TYDemoPanelBitmapViewCell.m in Sources */,
-				23393B4D1A1594BC8D388524ED7E5ACC /* TYDemoPanelBoolViewCell.m in Sources */,
-				2F0153A57FD099C3BEC6D51A611623F9 /* TYDemoPanelDpTitleView.m in Sources */,
-				9C3E4F1A4619FF9677759E2D15314554 /* TYDemoPanelEnumViewCell.m in Sources */,
-				0FE76B1486AB00EC284288972A3FAEE5 /* TYDemoPanelStringViewCell.m in Sources */,
-				8D4FB2FF387C12BC6487D4F48A75C733 /* TYDemoPanelValueViewCell.m in Sources */,
-				18EB35693907A3EDB2F70C330E3025BB /* TYDemoRegisterViewController.m in Sources */,
-				A4A45F05613701880B3A56C67DB689F0 /* TYDemoRouteManager.m in Sources */,
-				0D7DDE0E80360C6F3057F610721CEBF4 /* TYDemoSmartHomeManager.m in Sources */,
-				2B6E2A40443036ACF9D44C55B5B97A23 /* TYDemoSmartSceneTableViewCell.m in Sources */,
-				EEB23080652D7849419FE71D4F580AC1 /* TYDemoSmartSceneUtil.m in Sources */,
-				D8D6C03DF1C7EA8CFBB14FBB4F81153F /* TYDemoSmartSceneViewController+ModuleConfig.m in Sources */,
-				89352829C596677C8D7AE90DF3AD781C /* TYDemoSmartSceneViewController.m in Sources */,
-				0487E088BD820561A060647FBFC96176 /* TYDemoSwitchPanelViewController.m in Sources */,
-				4B1AB2B30D740AE4606C5F06D6C7C159 /* TYDemoTabBarViewController.m in Sources */,
-				CF6064568329265FB03CA4BD03269954 /* TYDemoTextFieldTableViewCell.m in Sources */,
-				66715A5BCFAFF67EC931B686943E05B5 /* TYDemoTheme.m in Sources */,
-				D97B082FA938AD1F764B51B672438CD6 /* TYDemoUserInfoViewController+ModuleConfig.m in Sources */,
-				8DA1874D52AF795BAEB355476AD07A47 /* TYDemoUserInfoViewController.m in Sources */,
-				453771631E4F90F126658E623428B4A6 /* TYFeitSlider.m in Sources */,
-				CEFB8B991388FFB4442BC936277AE707 /* TYFeitSliderView.m in Sources */,
-				A325FBEA3F2A5B60D83157E997E14E22 /* TYLightColorUtils.m in Sources */,
-				4DD1FAF08CB33454317C11EAFE52CC10 /* UIColor+TYHex.m in Sources */,
-				C106B1E96AAA188CF4F61E217BD64901 /* UIColor+TYRGBA.m in Sources */,
-				72C9BDFF10792B0E37AAF8FDE06915D5 /* UIImage+ANImageBitmapRep.m in Sources */,
-				5D8864FF71AB95C5FA084AADCC791C23 /* UILabel+TYFactory.m in Sources */,
-				4E0CA8F3E6CDA1B9B616E0255685B6CE /* UIView+TPDemoAdditions.m in Sources */,
-				5785D1828C4F492CAFC61F3E8A1CFACC /* UIViewController+TPDemoCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

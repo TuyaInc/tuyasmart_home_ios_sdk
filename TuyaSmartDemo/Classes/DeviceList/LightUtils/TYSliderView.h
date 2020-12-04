@@ -1,5 +1,5 @@
 //
-//  TYFeitSliderView.h
+//  TYSliderView.h
 //  TuyaSmartPublic
 //
 //  Created by 冯晓 on 2018/2/2.
@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@class TYFeitSliderView;
+@class TYSliderView;
 
-@protocol TYFeitSliderViewDelegate <NSObject>
+@protocol TYSliderViewDelegate <NSObject>
 
-- (void)didChangeSliderValue:(TYFeitSliderView *)slider value:(double)value;
+- (void)didChangeSliderValue:(TYSliderView *)slider value:(double)value;
 
 @end
 
-@interface TYFeitSliderView : UIView
+@interface TYSliderView : UIView
 
 @property (nonatomic, strong) UILabel *tipsLabel;
 @property (nonatomic, strong) UILabel *percentLabel;
@@ -24,7 +24,7 @@
 @property (nonatomic, assign) BOOL  isShowValue;
 @property (nonatomic, assign) CGFloat  minValue;
 @property (nonatomic, assign) CGFloat  maxValue;
-@property (nonatomic, weak) id <TYFeitSliderViewDelegate> delegate;
+@property (nonatomic, weak) id <TYSliderViewDelegate> delegate;
 
 - (void)setSliderValue:(double)value;
 

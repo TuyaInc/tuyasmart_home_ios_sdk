@@ -298,6 +298,7 @@
                 vc.devId = deviceModel.devId;
                 [self.navigationController pushViewController:vc animated:YES];
             } else if ([deviceModel.productId isEqualToString:@"dd48S6FTjVCOL0GH"]) {
+                // 5 路灯
                 TYDemoLightPanelViewController *vc = [[TYDemoLightPanelViewController alloc] init];
                 vc.devId = deviceModel.devId;
                 [self.navigationController pushViewController:vc animated:YES];

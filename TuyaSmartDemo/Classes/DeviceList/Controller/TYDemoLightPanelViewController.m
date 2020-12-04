@@ -11,27 +11,19 @@
 #import "RSColorPickerView.h"
 #import "TYLightColorUtils.h"
 #import "UIColor+TYHex.h"
-#import "TYFeitSliderView.h"
+#import "TYSliderView.h"
 #import "UILabel+TYFactory.h"
 
-NSString * const kFeitSwtichDpId = @"1";/* 控制 Feit 灯开关的 dp 点 */
+NSString * const kLightSwtichDpId = @"1";/* 控制灯开关的 dp 点 */
 
-NSString * const kFeitWhiteBrightDpId = @"2";/* 控制 Feit 单色灯亮度的 dp 点 */
-NSString * const kFeitWhiteTempDpId = @"3";/* 控制 Feit 单色灯 temp 的 dp 点 */
-
-NSString * const kFeitColorBrightDpId = @"3";/* 控制 Feit 彩灯亮度的 dp 点 */
-NSString * const kFeitColorTypeDpId = @"2";/* 控制 Feit 灯类型的 dp 点 */
-NSString * const kFeitColorTempDpId = @"4";/* 控制 Feit 彩灯 temp 的 dp 点 */
-NSString * const kFeitColorDpId = @"5";/* 控制 Feit 灯色彩的 dp 点 */
-
-NSString * const kFeitScene1DpId = @"7";/* scene_1 dp点 */
-NSString * const kFeitScene2DpId = @"8";/* scene_2 dp点 */
-NSString * const kFeitScene3DpId = @"9";/* scene_3 dp点 */
-NSString * const kFeitScene4DpId = @"10";/* scene_4 dp点 */
+NSString * const kLightColorBrightDpId = @"3";/* 控制彩灯亮度的 dp 点 */
+NSString * const kLightColorTypeDpId = @"2";/* 控制灯类型的 dp 点 */
+NSString * const kLightColorTempDpId = @"4";/* 控制彩灯 temp 的 dp 点 */
+NSString * const kLightColorDpId = @"5";/* 控制灯色彩的 dp 点 */
 
 typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
 
-@interface TYDemoLightPanelViewController () <RSColorPickerViewDelegate, TYFeitSliderViewDelegate>
+@interface TYDemoLightPanelViewController () <RSColorPickerViewDelegate, TYSliderViewDelegate>
 {
     HSVType _hsvValue;
     double _currentH;
@@ -44,10 +36,10 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
 @property (nonatomic, assign) NSInteger maxValue;
 @property (nonatomic, assign) NSInteger tempMinValue;
 @property (nonatomic, assign) NSInteger tempMaxValue;
-@property (nonatomic, strong) TYFeitSliderView *saturationSliderView;
-@property (nonatomic, strong) TYFeitSliderView *brightSliderView;
-@property (nonatomic, strong) TYFeitSliderView *tempSliderView;
-@property (nonatomic, strong) UISwitch         *switchButton;
+@property (nonatomic, strong) TYSliderView *saturationSliderView;
+@property (nonatomic, strong) TYSliderView *brightSliderView;
+@property (nonatomic, strong) TYSliderView *tempSliderView;
+@property (nonatomic, strong) UISwitch     *switchButton;
 
 @end
 
@@ -83,39 +75,43 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     [self.view addSubview:self.saturationSliderView];
     
     self.view.backgroundColor = MAIN_BACKGROUND_COLOR;
-    [self getMinAndMaxValue:kFeitColorBrightDpId];
-    [self getTempMinAndMaxValue:kFeitColorTempDpId];
+    [self getMinAndMaxValue:kLightColorBrightDpId];
+    [self getTempMinAndMaxValue:kLightColorTempDpId];
 }
 
 - (void)reloadData {
     
+    _hsvValue = [self getHSVFromDpId:kLightColorDpId];
+    
     NSDictionary *dps = self.device.deviceModel.dps;
-    BOOL isSwitch = [[dps objectForKey:kFeitSwtichDpId] boolValue];
+    BOOL isSwitch = [[dps objectForKey:kLightSwtichDpId] boolValue];
     [self.switchButton setOn:isSwitch];
     
     double brightnessValue = [self getBrightness:dps];
     [self.brightSliderView setSliderValue:brightnessValue];
     
-    double tempValue = [self getTempValue:[[dps objectForKey:kFeitColorTempDpId] doubleValue]];
+    double tempValue = [self getTempValue:[[dps objectForKey:kLightColorTempDpId] doubleValue]];
     [self.tempSliderView setSliderValue:tempValue];
     
-    HSVType hsv = [self getHSVFromDpId:kFeitColorDpId];
-    UIColor *color = [self getColorFromDpId:kFeitColorDpId];
+    HSVType hsv = [self getHSVFromDpId:kLightColorDpId];
+    UIColor *color = [self getColorFromDpId:kLightColorDpId];
     
-    self.colorPicker.selectionColor = color;
-    self.colorPicker.brightness = 1;
-    self.colorPicker.opaque = YES;
+    if (fabs(roundf(hsv.h) - roundf(_currentH)) > 1) {
+
+        _currentH = hsv.h;
+        
+        self.colorPicker.selectionColor = color;
+        self.colorPicker.brightness = 1;
+        self.colorPicker.opaque = YES;
+    }
+    
     [self.saturationSliderView setSliderValue:hsv.s];
-    
-    
 }
 
 - (double)getTempValue:(double)temp {
     
     double tempValue = (temp - self.tempMinValue) / (self.tempMaxValue - self.tempMinValue);
     tempValue = MIN(MAX(0, tempValue), 1);
-    
-//    tempValue = 1 - tempValue;
     
     return tempValue;
 }
@@ -124,14 +120,14 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     
     double value = 0;
     
-    if ([[dps objectForKey:kFeitColorTypeDpId] isEqualToString:@"colour"]) {
+    if ([[dps objectForKey:kLightColorTypeDpId] isEqualToString:@"colour"]) {
         
-        HSVType hsv = [self getHSVFromDpId:kFeitColorDpId];
+        HSVType hsv = [self getHSVFromDpId:kLightColorDpId];
         value = hsv.v;
         
     } else {
          //   1+(x-25)/230*(100-1) 同首页百分比
-        value = [[dps objectForKey:kFeitColorBrightDpId] tysdk_toDouble];
+        value = [[dps objectForKey:kLightColorBrightDpId] tysdk_toDouble];
         value = (1 + (value - self.minValue) / (self.maxValue - self.minValue) * (100-1)) / 100.0;
         value = MIN(MAX(0, value), 1);
     }
@@ -148,9 +144,9 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     return _switchButton;
 }
 
-- (TYFeitSliderView *)brightSliderView {
+- (TYSliderView *)brightSliderView {
     if (!_brightSliderView) {
-        _brightSliderView = [[TYFeitSliderView alloc] initWithFrame:CGRectMake(40, self.switchButton.bottom, APP_CONTENT_WIDTH - 80, 44)];
+        _brightSliderView = [[TYSliderView alloc] initWithFrame:CGRectMake(40, self.switchButton.bottom, APP_CONTENT_WIDTH - 80, 44)];
         _brightSliderView.tipsLabel.text = TYSDKDemoLocalizedString(@"Bright", nil);
         _brightSliderView.delegate = self;
         _brightSliderView.tag = 1;
@@ -159,9 +155,9 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     return _brightSliderView;
 }
 
-- (TYFeitSliderView *)tempSliderView {
+- (TYSliderView *)tempSliderView {
     if (!_tempSliderView) {
-        _tempSliderView = [[TYFeitSliderView alloc] initWithFrame:CGRectMake(40, self.brightSliderView.bottom + 16, APP_CONTENT_WIDTH - 80, 44)];
+        _tempSliderView = [[TYSliderView alloc] initWithFrame:CGRectMake(40, self.brightSliderView.bottom + 16, APP_CONTENT_WIDTH - 80, 44)];
         _tempSliderView.tipsLabel.text = TYSDKDemoLocalizedString(@"Temperature", nil);
         _tempSliderView.delegate = self;
         _tempSliderView.tag = 2;
@@ -172,7 +168,7 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
 
 - (RSColorPickerView *)colorPicker {
     if (!_colorPicker) {
-        _colorPicker = [[RSColorPickerView alloc] initWithFrame:CGRectMake((APP_SCREEN_WIDTH - 250)/2, self.tempSliderView.bottom + 16, 250, 250)];
+        _colorPicker = [[RSColorPickerView alloc] initWithFrame:CGRectMake((APP_SCREEN_WIDTH - 290)/2, self.tempSliderView.bottom + 16, 290, 290)];
         _colorPicker.delegate = self;
         _colorPicker.cropToCircle = YES;
         _colorPicker.showLoupe = NO;
@@ -180,9 +176,9 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     return _colorPicker;
 }
 
-- (TYFeitSliderView *)saturationSliderView {
+- (TYSliderView *)saturationSliderView {
     if (!_saturationSliderView) {
-        _saturationSliderView = [[TYFeitSliderView alloc] initWithFrame:CGRectMake(40, self.colorPicker.bottom + 16, APP_CONTENT_WIDTH - 80, 44)];
+        _saturationSliderView = [[TYSliderView alloc] initWithFrame:CGRectMake(40, self.colorPicker.bottom + 16, APP_CONTENT_WIDTH - 80, 44)];
         _saturationSliderView.tipsLabel.text = TYSDKDemoLocalizedString(@"saturation", nil);
         _saturationSliderView.delegate = self;
         _saturationSliderView.tag = 3;
@@ -195,7 +191,7 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     WEAKSELF_AT
     [TPDemoProgressUtils showMessag:TYSDKDemoLocalizedString(@"loading", @"") toView:self.view];
     
-    [self.device publishDps:@{kFeitSwtichDpId:@(sender.isOn)} success:^{
+    [self.device publishDps:@{kLightSwtichDpId:@(sender.isOn)} success:^{
         [TPDemoProgressUtils hideHUDForView:weakSelf_AT.view animated:NO];
     } failure:^(NSError *error) {
         [TPDemoProgressUtils hideHUDForView:weakSelf_AT.view animated:NO];
@@ -203,28 +199,13 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     }];
 }
 
-//
-//- (void)powerButtonClicked {
-//
-//    WEAKSELF_AT
-//    [TPDemoProgressUtils showMessag:TYSDKDemoLocalizedString(@"loading", @"") toView:self.view];
-//
-//    NSDictionary *dps = @{@"1": _isOn ? @(NO): @(YES)};
-//    [self.device publishDps:dps success:^{
-//        [TPDemoProgressUtils hideHUDForView:weakSelf_AT.view animated:NO];
-//        [weakSelf_AT reloadData];
-//    } failure:^(NSError *error) {
-//        [TPDemoProgressUtils hideHUDForView:weakSelf_AT.view animated:NO];
-//        [TPDemoProgressUtils showError:error.localizedDescription];
-//    }];
-//}
 
 #pragma mark - RSColorPickerViewDelegate
 - (void)colorPickerDidChangeSelection:(RSColorPickerView *)colorPicker {
 
     NSDictionary *dps = self.device.deviceModel.dps;
     
-    BOOL isSwitch = [[dps objectForKey:kFeitSwtichDpId] tysdk_toBool];
+    BOOL isSwitch = [[dps objectForKey:kLightSwtichDpId] tysdk_toBool];
     
     if (!isSwitch) {
         return;
@@ -240,10 +221,6 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
         _hsvValue.v = 1;
     }
 
-//    if (self.isFirstCreatGroupResult) {
-//        _hsvValue.s = 1;
-//    }
-
     int r, g, b;
     
     HSVToRGB(_hsvValue.h, _hsvValue.s, _hsvValue.v, &r, &g, &b);
@@ -254,17 +231,10 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
                            (unsigned int)b,
                            [self getHexStringFromHSV:_hsvValue]];
     NSDictionary *publishDps = @{
-                                 kFeitColorDpId:dpsString,
-                                 kFeitColorTypeDpId:@"colour",
+                                 kLightColorDpId:dpsString,
+                                 kLightColorTypeDpId:@"colour",
                                  };
-//    [self publishDps:publishDps success:^{
-//
-//        [TPNotification postNotificationName:kNotificationClearSelectType];
-//        [TPNotification postNotificationName:kSHLightNeedRefreshNotification];
-//
-//    } failure:^(NSError *error) {
-//
-//    }];
+
     [self.device publishDps:publishDps success:^{
             
     } failure:^(NSError *error) {
@@ -273,8 +243,8 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
 }
 
 
-#pragma mark - TYFeitSliderViewDelegate
-- (void)didChangeSliderValue:(TYFeitSliderView *)slider value:(double)value {
+#pragma mark - TYSliderViewDelegate
+- (void)didChangeSliderValue:(TYSliderView *)slider value:(double)value {
     
     
 }
