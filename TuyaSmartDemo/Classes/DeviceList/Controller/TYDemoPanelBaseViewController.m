@@ -58,6 +58,7 @@
         _offlineLabel = [TPDemoViewUtil simpleLabel:CGRectMake(0, APP_TOP_BAR_HEIGHT, APP_CONTENT_WIDTH, APP_VISIBLE_HEIGHT) f:14 tc:HEXCOLOR(0xffffff) t:TYSDKDemoLocalizedString(@"title_device_offline", nil)];
         _offlineLabel.textAlignment = NSTextAlignmentCenter;
         _offlineLabel.backgroundColor = HEXCOLORA(0x000000, 0.6);
+        _offlineLabel.userInteractionEnabled = YES;
         [self.view addSubview:self.offlineLabel];
     }
     return _offlineLabel;

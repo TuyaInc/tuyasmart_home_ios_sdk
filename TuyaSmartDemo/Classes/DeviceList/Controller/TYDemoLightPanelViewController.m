@@ -29,17 +29,22 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     double _currentH;
 }
 
-@property (nonatomic, strong) UIButton        *powerButton;
-@property (nonatomic, assign) BOOL            isOn;
+@property (nonatomic, strong) UIButton          *powerButton;
+@property (nonatomic, assign) BOOL              isOn;
+@property (nonatomic, assign) NSInteger         minValue;
+@property (nonatomic, assign) NSInteger         maxValue;
+@property (nonatomic, assign) NSInteger         tempMinValue;
+@property (nonatomic, assign) NSInteger         tempMaxValue;
+// 亮度（彩光模式和白光模式）
+@property (nonatomic, strong) TYSliderView      *brightSliderView;
+// 冷暖（仅白光模式）
+@property (nonatomic, strong) TYSliderView      *tempSliderView;
+// 色盘（仅彩光模式）
 @property (nonatomic, strong) RSColorPickerView *colorPicker;
-@property (nonatomic, assign) NSInteger minValue;
-@property (nonatomic, assign) NSInteger maxValue;
-@property (nonatomic, assign) NSInteger tempMinValue;
-@property (nonatomic, assign) NSInteger tempMaxValue;
-@property (nonatomic, strong) TYSliderView *saturationSliderView;
-@property (nonatomic, strong) TYSliderView *brightSliderView;
-@property (nonatomic, strong) TYSliderView *tempSliderView;
-@property (nonatomic, strong) UISwitch     *switchButton;
+// 饱和度（仅彩光模式）
+@property (nonatomic, strong) TYSliderView      *saturationSliderView;
+
+@property (nonatomic, strong) UISwitch          *switchButton;
 
 @end
 
@@ -50,6 +55,10 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     
     [self initView];
     [self reloadData];
+    
+    if (self.device) {
+        [self updateOfflineView];
+    }
 }
 
 - (void)initView {
@@ -65,13 +74,14 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
-    // 亮度
+    // 亮度（彩光模式和白光模式）
     [self.view addSubview:self.brightSliderView];
-    // 冷暖
+    // 冷暖（仅白光模式）
     [self.view addSubview:self.tempSliderView];
     
-    // 彩光和饱和度
+    // 色盘（仅彩光模式）
     [self.view addSubview:self.colorPicker];
+    // 饱和度（仅彩光模式）
     [self.view addSubview:self.saturationSliderView];
     
     self.view.backgroundColor = MAIN_BACKGROUND_COLOR;
@@ -127,7 +137,7 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
         value = hsv.v;
         
     } else {
-         //   1+(x-25)/230*(100-1) 同首页百分比
+         // 1+(x-25)/230*(100-1) 同首页百分比
         value = [[dps objectForKey:kLightColorBrightDpId] tysdk_toDouble];
         value = (1 + (value - self.minValue) / (self.maxValue - self.minValue) * (100-1)) / 100.0;
         value = MIN(MAX(0, value), 1);
@@ -231,6 +241,7 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
                            (unsigned int)g,
                            (unsigned int)b,
                            [self getHexStringFromHSV:_hsvValue]];
+    
     NSDictionary *publishDps = @{
                                  kLightColorDpId:dpsString,
                                  kLightColorTypeDpId:@"colour",
@@ -324,7 +335,6 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
         
     } failure:^(NSError *error) {
         
-        [TPDemoProgressUtils showError:error.localizedDescription];
     }];
 }
 
@@ -370,8 +380,6 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     if ([[dps objectForKey:dpId] tysdk_toString].length < 14) {
         dps = [self defaultData];
     }
-    
-    NSString *res = [[dps objectForKey:dpId] tysdk_toString];
     
     UIColor *color;
     
@@ -458,8 +466,6 @@ typedef struct {float b, s, f;} BSFType;  //brightness satutation frequency
     if ([[dps objectForKey:dpId] tysdk_toString].length < 14) {
         dps = [self defaultData];
     }
-    
-    NSString *res = [[dps objectForKey:dpId] tysdk_toString];
     
     NSString *stringToConvert = [[dps objectForKey:dpId] substringWithRange:NSMakeRange(0, 6)];
     
